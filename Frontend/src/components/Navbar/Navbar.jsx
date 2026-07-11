@@ -34,31 +34,20 @@ function Navbar() {
         <ul className="nav-links">
           <li><Link to="/">Home</Link></li>
           
-         <li className="dropdown">
-    <Link to="/about">About Us</Link>
-
-    <ul className="dropdown-menu">
-
-        <li><Link to="/overview">Overview</Link></li>
-
-        <li><Link to="/act-status">Act and Status</Link></li>
-
-        <li><Link to="/development-plan">Institutional Development Plan</Link></li>
-
-        <li><Link to="/affiliation">Affiliation & Accreditation</Link></li>
-
-        <li><Link to="/annual-reports">Annual Reports</Link></li>
-
-        <li><Link to="/annual-accounts">Annual Accounts</Link></li>
-
-    </ul>
-
-</li>   
-
+          <li><Link to="/about">About Us</Link></li>
           <li><Link to="/academics">Academics</Link></li>
           <li><Link to="/departments">Departments</Link></li>
           <li><Link to="/infrastructure">Infrastructure</Link></li>
-          <li><Link to="/research">Research</Link></li>
+          <li className="dropdown">
+            <Link to="/research">Research</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/research/rnd-cell">Research and Development Cell</Link></li>
+              <li><Link to="/research/statistics">Research Statistics</Link></li>
+              <li><Link to="/research/centre">Research Centre</Link></li>
+              <li><Link to="/research/entrepreneurship-cell">Entrepreneurship Development Cell</Link></li>
+              <li><Link to="/research/industry-collaboration">Industry Collaboration</Link></li>
+            </ul>
+          </li>
           <li><Link to="/events">Events</Link></li>
           <li><Link to="/alumni">Alumni</Link></li>
           <li><Link to="/contact">Contact</Link></li>
