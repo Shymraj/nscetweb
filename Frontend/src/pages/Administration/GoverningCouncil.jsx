@@ -1,0 +1,10 @@
+function GoverningCouncil() {
+  return (
+    <div style={{ padding: "120px 20px", fontFamily: "Arial, sans-serif" }}>
+      <h1>Governing Council</h1>
+      <p>Page open: Governing Council</p>
+    </div>
+  );
+}
+
+export default GoverningCouncil;

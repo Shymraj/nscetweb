@@ -35,9 +35,33 @@ function Navbar() {
           <li><Link to="/">Home</Link></li>
           
           <li><Link to="/about">About Us</Link></li>
-          <li><Link to="/academics">Academics</Link></li>
+          <li className="dropdown">
+            <Link to="/administration">Administration</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/administration/tmhnutrust">TMHNU Trust</Link></li>
+              <li><Link to="/administration/principal">Principal</Link></li>
+              <li><Link to="/administration/finance-officer">Finance Officer</Link></li>
+              <li><Link to="/administration/controller-examination">Controller of Examination</Link></li>
+              <li><Link to="/administration/ombudsperson">Ombudsperson</Link></li>
+              <li><Link to="/administration/governing-council">Governing Council</Link></li>
+              <li><Link to="/administration/internal-complaints-committee">Internal Complaints Committee</Link></li>
+              <li><Link to="/administration/academic-leadership">Academic Leadership</Link></li>
+            </ul>
+          </li>
+          <li className="dropdown">
+            <Link to="/academics">Academics</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/academics/details-of-academic-programs">Details of Academic Programs</Link></li>
+              <li><Link to="/academics/academic-calendar">Academic Calendar</Link></li>
+              <li><Link to="/academics/statutes-ordinances-pertaining">Statutes/Ordinances Pertaining</Link></li>
+              <li><Link to="/academics/teaching-faculty">Teaching Faculty</Link></li>
+              <li><Link to="/academics/non-teaching-faculty">Non-Teaching Faculty</Link></li>
+              <li><Link to="/academics/iqac">IQAC</Link></li>
+              <li><Link to="/academics/library">Library</Link></li>
+              <li><Link to="/academics/industry-collaboration">Industry Collaboration</Link></li>
+            </ul>
+          </li>
           <li><Link to="/departments">Departments</Link></li>
-          <li><Link to="/infrastructure">Infrastructure</Link></li>
           <li className="dropdown">
             <Link to="/research">Research</Link>
             <ul className="dropdown-menu">
