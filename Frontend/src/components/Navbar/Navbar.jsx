@@ -34,7 +34,20 @@ function Navbar() {
         <ul className="nav-links">
           <li><Link to="/">Home</Link></li>
           
-          <li><Link to="/about">About Us</Link></li>
+
+    <li className="dropdown">
+    <Link to="/about">About Us</Link>
+    <ul className="dropdown-menu">
+    <li><Link to="/about/overview">Overview</Link></li>
+    <li><Link to="/about/actstatutes">Act and Statutes</Link></li>
+    <li><Link to="/about/development-plan">Institutional Development Plan</Link></li>
+    <li><Link to="/about/affiliation">Affiliation & Accreditation</Link></li>
+    <li><Link to="/about/annual-reports">Annual Reports</Link></li>
+    <li><Link to="/about/annual-accounts">Annual Accounts</Link></li>
+   </ul>
+   </li>
+
+
           <li className="dropdown">
             <Link to="/administration">Administration</Link>
             <ul className="dropdown-menu">
