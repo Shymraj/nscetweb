@@ -1,9 +1,23 @@
+import { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.webp";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 function Navbar() {
+  
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [darkMode]);
   return (
+
+  
     <header>
       <nav className="navbar">
 
@@ -51,7 +65,12 @@ function Navbar() {
         </ul>
 
         <div className="nav-right">
-    <button className="theme-btn">🌙</button>
+    <button
+    className="theme-btn"
+    onClick={() => setDarkMode(!darkMode)}
+>
+  {darkMode ? <FaSun /> : <FaMoon />}
+</button>
     <button className="apply-btn">Apply Now →</button>
 </div>
 
