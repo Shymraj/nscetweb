@@ -19,7 +19,7 @@ body{
 
 body.dark-mode{
     background:#111827;
-    color:#ffffff;
+    color:#faf5f5;
 }
 
 .navbar{
@@ -42,17 +42,13 @@ body.dark-mode{
     align-items: center;
     gap: 10px;
     margin-right: 40px;
+    margin-left: 30px;
 
 }
 
 .logo{
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-
-    
-    width: 52px;
-    height: 52px;
+    width: 70px;
+    height: 70px;
     object-fit: cover;
     border: none;
     outline: none;
@@ -83,7 +79,7 @@ body.dark-mode{
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 22px;
+    gap: 16px;
     margin-right: auto;
     margin-right: 20px;
 }
@@ -296,9 +292,7 @@ body.dark-mode .nav-links a:hover{
     color:#ff7a00;
 }
 
-body.dark-mode .logo-box{
-    border:1px solid #4b5563;
-}
+
 
 body.dark-mode .theme-btn{
     background:#374151;

@@ -35,6 +35,7 @@ function Navbar() {
           <li><Link to="/">Home</Link></li>
           
           <li><Link to="/about">About Us</Link></li>
+          
           <li><Link to="/academics">Academics</Link></li>
           <li><Link to="/departments">Departments</Link></li>
           <li><Link to="/infrastructure">Infrastructure</Link></li>
