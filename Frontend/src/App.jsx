@@ -14,6 +14,12 @@ import AnnualAccounts from "./pages/Aboutus/AnnualAccounts";
 
 import Academics from "./pages/Academics";
 import Departments from "./pages/Departments";
+import CSE from "./pages/Departments/CSE";
+import Civil from "./pages/Departments/Civil";
+import Mechanical from "./pages/Departments/Mechanical";
+import Electrical from "./pages/Departments/Electrical";
+import Electronics from "./pages/Departments/Electronics";
+import ScienceHumanities from "./pages/Departments/ScienceHumanities";
 import Infrastructure from "./pages/Infrastructure";
 import Research from "./pages/Research";
 import ResearchDevelopmentCell from "./pages/Research/ResearchDevelopmentCell/ResearchDevelopmentCell";
@@ -60,6 +66,12 @@ function App() {
         <Route path="/academics/library" element={<Library />} />
         <Route path="/academics/industry-collaboration" element={<AcademicsIndustryCollaboration />} />
         <Route path="/departments" element={<Departments />} />
+        <Route path="/departments/cse" element={<CSE />} />
+        <Route path="/departments/civil" element={<Civil />} />
+        <Route path="/departments/mechanical" element={<Mechanical />} />
+        <Route path="/departments/electrical" element={<Electrical />} />
+        <Route path="/departments/electronics" element={<Electronics />} />
+        <Route path="/departments/science-humanities" element={<ScienceHumanities />} />
         <Route path="/infrastructure" element={<Infrastructure />} />
         <Route path="/research" element={<Research />} />
         <Route path="/research/rnd-cell" element={<ResearchDevelopmentCell />} />
@@ -81,34 +93,34 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
 
-       <Route path="/about/overview" element={<Overview />} />
+        <Route path="/about/overview" element={<Overview />} />
 
-<Route path="/about/actstatutes" element={<Actstatutes />} />
+        <Route path="/about/actstatutes" element={<Actstatutes />} />
 
-<Route
-  path="/about/development-plan"
-  element={<Developmentplan />}
-/>
+        <Route
+          path="/about/development-plan"
+          element={<Developmentplan />}
+        />
 
-<Route
-  path="/about/affiliation"
-  element={<Affiliation />}
-/>
+        <Route
+          path="/about/affiliation"
+          element={<Affiliation />}
+        />
 
-<Route
-  path="/about/annual-reports"
-  element={<AnnualReports />}
-/>
+        <Route
+          path="/about/annual-reports"
+          element={<AnnualReports />}
+        />
 
-<Route
-  path="/about/Annual-Accounts"
-  element={<AnnualAccounts />}
-/>
-
-
+        <Route
+          path="/about/Annual-Accounts"
+          element={<AnnualAccounts />}
+        />
 
 
-          </Routes>
+
+
+      </Routes>
     </BrowserRouter>
   );
 }
