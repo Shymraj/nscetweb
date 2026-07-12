@@ -1,0 +1,206 @@
+.library-container {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #f9fbfd;
+  padding-top: 100px;
+}
+
+/* Header Sections */
+.lib-header {
+  padding: 40px 10%;
+}
+
+.lib-header-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.lib-about-box {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.lib-about-box h2 {
+  color: #0b3b60;
+  border-bottom: 3px solid #0056b3;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.dark-box {
+  background: #0b3b60;
+  color: white;
+}
+
+.dark-box h2 {
+  color: white;
+  border-bottom: 3px solid #66a3ff;
+}
+
+/* Collections Stats */
+.lib-collections {
+  padding: 40px 10%;
+  text-align: center;
+}
+
+.section-title {
+  color: #0b3b60;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border-bottom: 4px solid #0056b3;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  color: #0056b3;
+  margin: 0;
+}
+
+.stat-card p {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Tabs Section */
+.lib-details-tabs {
+  padding: 40px 10%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.tab-buttons button {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  background: #e9ecef;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #555;
+  transition: all 0.3s;
+}
+
+.tab-buttons button.active {
+  background: #0056b3;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
+}
+
+.tab-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.custom-list {
+  list-style: none;
+  padding: 0;
+}
+
+.custom-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.custom-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.grid-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+/* Footer Info (Hours & Profile) */
+.lib-footer-info {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 10%;
+  gap: 40px;
+  background: white;
+}
+
+.working-hours, .librarian-profile {
+  flex: 1;
+  min-width: 300px;
+}
+
+.working-hours h2 {
+  color: #0b3b60;
+  margin-bottom: 20px;
+}
+
+.hours-box {
+  background: #f4f9ff;
+  border-left: 5px solid #0056b3;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #0056b3;
+}
+
+.lib-quote {
+  font-style: italic;
+  color: #555;
+  border-left: 4px solid #ccc;
+  padding-left: 15px;
+  margin: 0;
+  font-size: 1.1rem;
+}
