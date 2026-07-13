@@ -1,0 +1,44 @@
+From https://github.com/Shymraj/nscetweb
+ * branch            main       -> FETCH_HEAD
+Updating 9b49d21..a26534c
+Fast-forward
+ Frontend/package-lock.json                         | 37 ++++++----
+ Frontend/src/App.jsx                               | 61 ++++------------
+ .../src/pages/AboutUs/Actstatutes/Actstatutes.jsx  | 10 +++
+ .../src/pages/AboutUs/Affiliation/Affiliation.jsx  | 10 +++
+ .../AboutUs/AnnualAccounts/AnnualAccounts.jsx      | 10 +++
+ .../pages/AboutUs/AnnualReports/AnnualReports.jsx  | 10 +++
+ .../AboutUs/Developmentplan/Developmentplan.jsx    | 10 +++
+ Frontend/src/pages/AboutUs/Overview/Overview.jsx   | 10 +++
+ Frontend/src/pages/Aboutus/Actstatutes.jsx         | 10 ---
+ Frontend/src/pages/Aboutus/Affiliation.jsx         | 10 ---
+ Frontend/src/pages/Aboutus/AnnualAccounts.jsx      | 10 ---
+ Frontend/src/pages/Aboutus/AnnualReports.jsx       | 10 ---
+ Frontend/src/pages/Aboutus/Developmentplan.jsx     | 10 ---
+ Frontend/src/pages/Aboutus/Overview.jsx            | 10 ---
+ .../AcademicCalender/Acadamic calander.css         | 82 ++++++++++++++++++++++
+ .../AcademicCalender/AcademicCalender.jsx          | 64 +++++++++++++++--
+ Frontend/src/pages/ActStatus.jsx                   |  1 +
+ Frontend/src/pages/Affiliation.jsx                 |  1 +
+ Frontend/src/pages/AnnualAccounts.jsx              |  1 +
+ Frontend/src/pages/AnnualReports.jsx               |  1 +
+ Frontend/src/pages/Overview.jsx                    |  1 +
+ 21 files changed, 244 insertions(+), 125 deletions(-)
+ create mode 100644 Frontend/src/pages/AboutUs/Actstatutes/Actstatutes.jsx
+ create mode 100644 Frontend/src/pages/AboutUs/Affiliation/Affiliation.jsx
+ create mode 100644 Frontend/src/pages/AboutUs/AnnualAccounts/AnnualAccounts.jsx
+ create mode 100644 Frontend/src/pages/AboutUs/AnnualReports/AnnualReports.jsx
+ create mode 100644 Frontend/src/pages/AboutUs/Developmentplan/Developmentplan.jsx
+ create mode 100644 Frontend/src/pages/AboutUs/Overview/Overview.jsx
+ delete mode 100644 Frontend/src/pages/Aboutus/Actstatutes.jsx
+ delete mode 100644 Frontend/src/pages/Aboutus/Affiliation.jsx
+ delete mode 100644 Frontend/src/pages/Aboutus/AnnualAccounts.jsx
+ delete mode 100644 Frontend/src/pages/Aboutus/AnnualReports.jsx
+ delete mode 100644 Frontend/src/pages/Aboutus/Developmentplan.jsx
+ delete mode 100644 Frontend/src/pages/Aboutus/Overview.jsx
+ create mode 100644 Frontend/src/pages/Academics/AcademicCalender/Acadamic calander.css
+ create mode 100644 Frontend/src/pages/ActStatus.jsx
+ create mode 100644 Frontend/src/pages/Affiliation.jsx
+ create mode 100644 Frontend/src/pages/AnnualAccounts.jsx
+ create mode 100644 Frontend/src/pages/AnnualReports.jsx
+ create mode 100644 Frontend/src/pages/Overview.jsx

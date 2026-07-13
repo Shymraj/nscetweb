@@ -1,0 +1,27 @@
+Auto-merging Frontend/src/App.jsx
+CONFLICT (content): Merge conflict in Frontend/src/App.jsx
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   Frontend/src/components/Navbar/Navbar.jsx
+	deleted:    Frontend/src/pages/Departments/CSE.jsx
+	deleted:    Frontend/src/pages/Departments/Civil.jsx
+	deleted:    Frontend/src/pages/Departments/Electrical.jsx
+	deleted:    Frontend/src/pages/Departments/Electronics.jsx
+	deleted:    Frontend/src/pages/Departments/Mechanical.jsx
+	deleted:    Frontend/src/pages/Departments/ScienceHumanities.jsx
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+	both modified:   Frontend/src/App.jsx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	Frontend/src/pages/Departments/
+	out.txt
+	out_pop.txt
+
+The stash entry is kept in case you need it again.

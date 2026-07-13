@@ -6,6 +6,20 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Academics from "./pages/Academics";
 import Departments from "./pages/Departments";
+
+import CSE from "./pages/Departments/cse/CSE";
+import IT from "./pages/Departments/cse/IT";
+import AIDS from "./pages/Departments/cse/AIDS";
+import MECSE from "./pages/Departments/cse/MECSE";
+import Civil from "./pages/Departments/civil/Civil";
+import MEStructural from "./pages/Departments/civil/MEStructural";
+import Mechanical from "./pages/Departments/mechanical/Mechanical";
+import MEManufacturing from "./pages/Departments/mechanical/MEManufacturing";
+import Electrical from "./pages/Departments/electrical/Electrical";
+import MEEmbedded from "./pages/Departments/electrical/MEEmbedded";
+import Electronics from "./pages/Departments/electronics/Electronics";
+import ScienceHumanities from "./pages/Departments/s&h/ScienceHumanities";
+
 import Infrastructure from "./pages/Infrastructure";
 import Research from "./pages/Research";
 import ResearchDevelopmentCell from "./pages/Research/ResearchDevelopmentCell/ResearchDevelopmentCell";
@@ -58,6 +72,20 @@ function App() {
         <Route path="/academics/library" element={<Library />} />
         <Route path="/academics/industry-collaboration" element={<AcademicsIndustryCollaboration />} />
         <Route path="/departments" element={<Departments />} />
+
+        <Route path="/departments/cse" element={<CSE />} />
+        <Route path="/departments/it" element={<IT />} />
+        <Route path="/departments/aids" element={<AIDS />} />
+        <Route path="/departments/me-cse" element={<MECSE />} />
+        <Route path="/departments/civil" element={<Civil />} />
+        <Route path="/departments/me-structural" element={<MEStructural />} />
+        <Route path="/departments/mechanical" element={<Mechanical />} />
+        <Route path="/departments/me-manufacturing" element={<MEManufacturing />} />
+        <Route path="/departments/electrical" element={<Electrical />} />
+        <Route path="/departments/me-embedded" element={<MEEmbedded />} />
+        <Route path="/departments/electronics" element={<Electronics />} />
+        <Route path="/departments/science-humanities" element={<ScienceHumanities />} />
+
         <Route path="/infrastructure" element={<Infrastructure />} />
         <Route path="/research" element={<Research />} />
         <Route path="/research/rnd-cell" element={<ResearchDevelopmentCell />} />
