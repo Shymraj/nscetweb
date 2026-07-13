@@ -5,7 +5,7 @@ import logo from "../../assets/Img/nscet-logo.webp";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 function Navbar() {
-  
+
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -17,14 +17,14 @@ function Navbar() {
   }, [darkMode]);
   return (
 
-  
+
     <header>
       <nav className="navbar">
 
         <div className="logo-section">
-         <div className="logo-box">
-    <img src={logo} alt="NSCET Logo" className="logo" />
-</div>
+          <div className="logo-box">
+            <img src={logo} alt="NSCET Logo" className="logo" />
+          </div>
           <div className="college-name">
             <h2>NSCET</h2>
             <p>Theni, Tamil Nadu</p>
@@ -33,8 +33,21 @@ function Navbar() {
 
         <ul className="nav-links">
           <li><Link to="/">Home</Link></li>
-          
-          <li><Link to="/about">About Us</Link></li>
+
+
+          <li className="dropdown">
+            <Link to="/about">About Us</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/about/overview">Overview</Link></li>
+              <li><Link to="/about/actstatutes">Act and Statutes</Link></li>
+              <li><Link to="/about/development-plan">Institutional Development Plan</Link></li>
+              <li><Link to="/about/affiliation">Affiliation & Accreditation</Link></li>
+              <li><Link to="/about/annual-reports">Annual Reports</Link></li>
+              <li><Link to="/about/annual-accounts">Annual Accounts</Link></li>
+            </ul>
+          </li>
+
+
           <li className="dropdown">
             <Link to="/administration">Administration</Link>
             <ul className="dropdown-menu">
@@ -61,7 +74,50 @@ function Navbar() {
               <li><Link to="/academics/industry-collaboration">Industry Collaboration</Link></li>
             </ul>
           </li>
-          <li><Link to="/departments">Departments</Link></li>
+          <li className="dropdown">
+            <Link to="/departments">Departments</Link>
+            <ul className="dropdown-menu">
+              <li className="has-submenu">
+                <Link to="/departments/cse">Faculty of Computer Science & Engineering <span className="submenu-arrow">›</span></Link>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/departments/cse">B.E Computer Science & Engineering</Link></li>
+                  <li><Link to="/departments/cse">M.E Computer Science & Engineering</Link></li>
+                  <li><Link to="/departments/cse">B.TECH Information Technology</Link></li>
+                  <li><Link to="/departments/cse">B.TECH Artificial Intelligence & Data Science</Link></li>
+                </ul>
+              </li>
+              <li className="has-submenu">
+                <Link to="/departments/civil">Faculty of Civil Engineering <span className="submenu-arrow">›</span></Link>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/departments/civil">B.E Civil Engineering</Link></li>
+                  <li><Link to="/departments/civil">M.E Structural Engineering</Link></li>
+                </ul>
+              </li>
+              <li className="has-submenu">
+                <Link to="/departments/mechanical">Faculty of Mechanical Engineering <span className="submenu-arrow">›</span></Link>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/departments/mechanical">B.E Mechanical Engineering</Link></li>
+                  <li><Link to="/departments/mechanical">M.E Manufacturing Engineering</Link></li>
+                </ul>
+              </li>
+              <li className="has-submenu">
+                <Link to="/departments/electrical">Faculty of Electrical Engineering <span className="submenu-arrow">›</span></Link>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/departments/electrical">B.E Electrical & Electronics Engineering</Link></li>
+                  <li><Link to="/departments/electrical">M.E Embedded System & Technology</Link></li>
+                </ul>
+              </li>
+              <li className="has-submenu">
+                <Link to="/departments/electronics">Faculty of Electronics Engineering <span className="submenu-arrow">›</span></Link>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/departments/electronics">B.E Electronics & Communication Engineering</Link></li>
+                </ul>
+              </li>
+              <li>
+                <Link to="/departments/science-humanities">Department of Science & Humanities</Link>
+              </li>
+            </ul>
+          </li>
           <li className="dropdown">
             <Link to="/research">Research</Link>
             <ul className="dropdown-menu">
@@ -78,14 +134,14 @@ function Navbar() {
         </ul>
 
         <div className="nav-right">
-    <button
-    className="theme-btn"
-    onClick={() => setDarkMode(!darkMode)}
->
-  {darkMode ? <FaSun /> : <FaMoon />}
-</button>
-    <button className="apply-btn">Apply Now →</button>
-</div>
+          <button
+            className="theme-btn"
+            onClick={() => setDarkMode(!darkMode)}
+          >
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
+          <button className="apply-btn">Apply Now →</button>
+        </div>
 
       </nav>
     </header>

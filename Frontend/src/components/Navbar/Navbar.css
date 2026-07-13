@@ -1,28 +1,30 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-*{
-    transition: background-color .3s ease,
-                color .3s ease,
-                border-color .3s ease,
-                box-shadow .3s ease;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
+* {
+    transition: background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
 }
-body{
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-body.dark-mode{
-    background:#111827;
-    color:#faf5f5;
+body.dark-mode {
+    background: #111827;
+    color: #faf5f5;
 }
 
-.navbar{
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -33,20 +35,20 @@ body.dark-mode{
     justify-content: space-between;
     align-items: center;
     padding: 0 35px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
     z-index: 1000;
 }
-.logo-section{
-  
+
+.logo-section {
+
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 40px;
-    margin-left: 30px;
+    margin-left: 50px;
 
 }
 
-.logo{
+.logo {
     width: 70px;
     height: 70px;
     object-fit: cover;
@@ -55,19 +57,22 @@ body.dark-mode{
     background: transparent;
 
 }
-.college-name{
+
+.college-name {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-.college-name h2{
+
+.college-name h2 {
     margin: 0;
     font-size: 20px;
     font-weight: 700;
     color: #0d3b8e;
     line-height: 1.2;
 }
-.college-name p{
+
+.college-name p {
     margin: 0;
     padding: 0;
     font-size: 12px;
@@ -75,18 +80,18 @@ body.dark-mode{
     line-height: 1.2;
     text-align: left;
 }
-.nav-links{
+
+.nav-links {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 16px;
+    gap: 12px;
     margin-right: auto;
-    margin-right: 20px;
+    margin-right: 5px;
+    margin-left: 30px;
 }
-.logo-box{
 
-    
-
+.logo-box {
     width: auto;
     height: auto;
     border: none;
@@ -100,13 +105,13 @@ body.dark-mode{
 
 
 
-.nav-links li{
+.nav-links li {
     list-style: none;
 }
 
-.nav-links a{
-   
-    
+.nav-links a {
+
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -114,22 +119,50 @@ body.dark-mode{
     color: #1f2937;
     font-size: 15px;
     font-weight: 500;
-    padding: 8px 12px;      /* 10 16-ku badhila idhu */
+    padding: 8px 10px;
     border-radius: 6px;
     transition: all .3s ease;
-    white-space: nowrap;     /* About Us break aagathu */
+    white-space: nowrap;
+    position: relative;
 
 }
 
-.nav-links a:hover{
-  
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 0;
+    height: 3px;
+    background: #ff7a00;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    transition: 0.3s;
+}
+
+.nav-links li:hover>a::after {
+    width: 70%;
+}
+
+/* Remove underline from dropdown menu links */
+.dropdown-menu a::after,
+.sub-dropdown-menu a::after {
+    display: none !important;
+}
+
+body.dark-mode .nav-links a::after {
+    background: #ff7a00;
+}
+
+.nav-links a:hover {
+
     background: #fff3e8;
     color: #ff7a00;
-    box-shadow: 0 4px 12px rgba(255,122,0,0.15);
+    box-shadow: 0 4px 12px rgba(255, 122, 0, 0.15);
 
 }
 
-.apply-btn{
+.apply-btn {
     background: #ff7a00;
     color: white;
     border: none;
@@ -140,73 +173,65 @@ body.dark-mode{
     font-weight: 600;
 }
 
-.apply-btn:hover{
+.apply-btn:hover {
     background: #e56d00;
 }
-.theme-btn{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    border:1px solid #ddd;
-    background:#fff;
-    color:#1f2937;
-    cursor:pointer;
-    font-size:20px;
-    margin-right:15px;
-    transition:0.3s;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+
+.theme-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #1f2937;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 15px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.theme-btn:hover{
-    background:#f3f4f6;
-    border:1px solid #ff7a00;
-    color:#ff7a00;
-    box-shadow:0 0 12px rgba(255,122,0,0.25);
-    transform:scale(1.05);
+.theme-btn:hover {
+    background: #f3f4f6;
+    border: 1px solid #ff7a00;
+    color: #ff7a00;
+    box-shadow: 0 0 12px rgba(255, 122, 0, 0.25);
+    transform: scale(1.05);
 }
 
-.apply-btn{
-    border-radius:14px;
-    padding:14px 28px;
+.apply-btn {
+    border-radius: 14px;
+    padding: 14px 28px;
 }
-.nav-right{
+
+.nav-right {
 
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 4px;
+    margin-left: 30px;
+    margin-right: 60px;
 
 }
+
 /* Dropdown */
-.dropdown{
+.dropdown {
     position: relative;
 }
 
-.dropdown-menu{
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 260px;
-    background: #fff;
-    list-style: none;
-    padding: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 
-    display: none;      /* 👈 Important */
-    z-index: 1000;
-}
 
-.dropdown:hover .dropdown-menu{
+.dropdown:hover .dropdown-menu {
     display: block;
 }
 
-.dropdown-menu li{
+.dropdown-menu li {
     width: 100%;
 }
 
-.dropdown-menu li a{
+.dropdown-menu li a {
     display: block;
     padding: 12px 20px;
     color: #1f2937;
@@ -214,25 +239,39 @@ body.dark-mode{
     font-size: 14px;
 }
 
-.dropdown-menu li a:hover{
+.dropdown-menu li a:hover {
     background: #fff3e8;
     color: #ff7a00;
 }
+
 /* Dropdown Parent */
-.dropdown{
+.dropdown {
     position: relative;
 }
 
-/* Dropdown Box */
-.dropdown-menu{
+.dropdown::after {
+    content: "";
     position: absolute;
-    top: 100%;
     left: 0;
-    width: 280px;
+    top: 100%;
+    width: 100%;
+    height: 12px;
+}
+
+
+/* Dropdown Box */
+.dropdown-menu {
+    position: absolute;
+    top: 100px;
+    top: calc(100% + 12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .18);
+    left: 0;
+    min-width: 280px;
+    width: max-content;
     background: #ffffff;
     border-radius: 10px;
     border: 1px solid #e5e7eb;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
     padding: 8px 0;
     list-style: none;
 
@@ -241,18 +280,129 @@ body.dark-mode{
 }
 
 /* Hover panna open aagum */
-.dropdown:hover .dropdown-menu{
+.dropdown:hover .dropdown-menu {
     display: block;
 }
 
 /* Remove default list style */
-.dropdown-menu li{
+.dropdown-menu li {
     margin: 0;
     padding: 0;
 }
 
 /* Links */
-.dropdown-menu li a{
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 24px;
+    text-decoration: none;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.dropdown-menu li a:hover {
+    background: #fff4eb !important;
+    color: #ff7a00 !important;
+    box-shadow: none !important;
+    padding-left: 30px;
+}
+
+
+
+/* ================= DARK MODE ================= */
+
+body.dark-mode .navbar {
+    background: #1f2937;
+}
+
+body.dark-mode .college-name h2 {
+    color: white;
+}
+
+body.dark-mode .college-name p {
+    color: #d1d5db;
+}
+
+body.dark-mode .nav-links a {
+    color: white;
+}
+
+body.dark-mode .nav-links a:hover {
+    background: #374151;
+    color: #ff7a00;
+}
+
+
+
+body.dark-mode .theme-btn {
+    background: #374151;
+    color: white;
+    border: 1px solid #4b5563;
+}
+
+body.dark-mode .theme-btn:hover {
+    border: 1px solid #ff7a00;
+    color: #ff7a00;
+    box-shadow: 0 0 12px rgba(255, 122, 0, 0.35);
+    transform: scale(1.05);
+}
+
+body.dark-mode .dropdown-menu {
+    background: #1f2937;
+    border: 1px solid #374151;
+}
+
+body.dark-mode .dropdown-menu li a {
+    color: white;
+}
+
+body.dark-mode .dropdown-menu li a:hover {
+    background: #374151;
+    color: #ff7a00;
+}
+
+/* ================= NESTED SUB-DROPDOWN ================= */
+
+.has-submenu {
+    position: relative;
+}
+
+.has-submenu>a {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submenu-arrow {
+    font-size: 16px;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+
+.has-submenu:hover>.sub-dropdown-menu {
+    display: block;
+}
+
+.sub-dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 320px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    padding: 8px 0;
+    list-style: none;
+    display: none;
+    z-index: 1001;
+}
+
+.sub-dropdown-menu li a {
     display: block;
     padding: 12px 20px;
     text-decoration: none;
@@ -263,59 +413,23 @@ body.dark-mode{
     white-space: nowrap;
 }
 
-/* Hover */
-.dropdown-menu li a:hover{
+.sub-dropdown-menu li a:hover {
     background: #fff4eb;
     color: #ff7a00;
     padding-left: 28px;
 }
-/* ================= DARK MODE ================= */
 
-body.dark-mode .navbar{
-    background:#1f2937;
+/* Dark mode for sub-dropdown */
+body.dark-mode .sub-dropdown-menu {
+    background: #1f2937;
+    border: 1px solid #374151;
 }
 
-body.dark-mode .college-name h2{
-    color:white;
+body.dark-mode .sub-dropdown-menu li a {
+    color: white;
 }
 
-body.dark-mode .college-name p{
-    color:#d1d5db;
-}
-
-body.dark-mode .nav-links a{
-    color:white;
-}
-
-body.dark-mode .nav-links a:hover{
-    background:#374151;
-    color:#ff7a00;
-}
-
-
-
-body.dark-mode .theme-btn{
-    background:#374151;
-    color:white;
-    border:1px solid #4b5563;
-}
-body.dark-mode .theme-btn:hover{
-    border:1px solid #ff7a00;
-    color:#ff7a00;
-    box-shadow:0 0 12px rgba(255,122,0,0.35);
-    transform:scale(1.05);
-}
-
-body.dark-mode .dropdown-menu{
-    background:#1f2937;
-    border:1px solid #374151;
-}
-
-body.dark-mode .dropdown-menu li a{
-    color:white;
-}
-
-body.dark-mode .dropdown-menu li a:hover{
-    background:#374151;
-    color:#ff7a00;
+body.dark-mode .sub-dropdown-menu li a:hover {
+    background: #374151;
+    color: #ff7a00;
 }
