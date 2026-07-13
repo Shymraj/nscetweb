@@ -4,22 +4,8 @@ import Navbar from "./components/Navbar/Navbar";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Overview from "./pages/Aboutus/Overview";
-import Actstatutes from "./pages/Aboutus/Actstatutes";
-import Developmentplan from "./pages/Aboutus/Developmentplan";
-import Affiliation from "./pages/Aboutus/Affiliation";
-import AnnualReports from "./pages/Aboutus/AnnualReports";
-import AnnualAccounts from "./pages/Aboutus/AnnualAccounts";
-
-
 import Academics from "./pages/Academics";
 import Departments from "./pages/Departments";
-import CSE from "./pages/Departments/CSE";
-import Civil from "./pages/Departments/Civil";
-import Mechanical from "./pages/Departments/Mechanical";
-import Electrical from "./pages/Departments/Electrical";
-import Electronics from "./pages/Departments/Electronics";
-import ScienceHumanities from "./pages/Departments/ScienceHumanities";
 import Infrastructure from "./pages/Infrastructure";
 import Research from "./pages/Research";
 import ResearchDevelopmentCell from "./pages/Research/ResearchDevelopmentCell/ResearchDevelopmentCell";
@@ -47,6 +33,12 @@ import AcademicsIndustryCollaboration from "./pages/Academics/IndustryCollaborat
 import Events from "./pages/Events";
 import Alumni from "./pages/Alumni";
 import Contact from "./pages/Contact";
+import Overview from "./pages/Overview";
+import ActStatus from "./pages/ActStatus";
+import DevelopmentPlan from "./pages/DevelopmentPlan";
+import Affiliation from "./pages/Affiliation";
+import AnnualReports from "./pages/AnnualReports";
+import AnnualAccounts from "./pages/AnnualAccounts";
 
 function App() {
   return (
@@ -66,12 +58,6 @@ function App() {
         <Route path="/academics/library" element={<Library />} />
         <Route path="/academics/industry-collaboration" element={<AcademicsIndustryCollaboration />} />
         <Route path="/departments" element={<Departments />} />
-        <Route path="/departments/cse" element={<CSE />} />
-        <Route path="/departments/civil" element={<Civil />} />
-        <Route path="/departments/mechanical" element={<Mechanical />} />
-        <Route path="/departments/electrical" element={<Electrical />} />
-        <Route path="/departments/electronics" element={<Electronics />} />
-        <Route path="/departments/science-humanities" element={<ScienceHumanities />} />
         <Route path="/infrastructure" element={<Infrastructure />} />
         <Route path="/research" element={<Research />} />
         <Route path="/research/rnd-cell" element={<ResearchDevelopmentCell />} />
@@ -91,35 +77,12 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/contact" element={<Contact />} />
-
-
-        <Route path="/about/overview" element={<Overview />} />
-
-        <Route path="/about/actstatutes" element={<Actstatutes />} />
-
-        <Route
-          path="/about/development-plan"
-          element={<Developmentplan />}
-        />
-
-        <Route
-          path="/about/affiliation"
-          element={<Affiliation />}
-        />
-
-        <Route
-          path="/about/annual-reports"
-          element={<AnnualReports />}
-        />
-
-        <Route
-          path="/about/Annual-Accounts"
-          element={<AnnualAccounts />}
-        />
-
-
-
-
+        <Route path="/overview" element={<Overview />} />
+        <Route path="/act-status" element={<ActStatus />} />
+        <Route path="/development-plan" element={<DevelopmentPlan />} />
+        <Route path="/affiliation" element={<Affiliation />} />
+        <Route path="/annual-reports" element={<AnnualReports />} />
+        <Route path="/annual-accounts" element={<AnnualAccounts />} />
       </Routes>
     </BrowserRouter>
   );
