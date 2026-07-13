@@ -1,5 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Library.css'; 
+
+// Puthusa namma eluthuna Custom Counting Animation Component (No third-party library needed!)
+const AnimatedNumber = ({ end }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    let start = 0;
+    const duration = 2000; // 2 seconds animation
+    const increment = end / (duration / 16);
+    
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.ceil(start));
+      }
+    }, 16);
+    return () => clearInterval(timer);
+  }, [end, isVisible]);
+
+  return <span ref={ref}>{count}</span>;
+};
 
 const Library = () => {
   // Tab State Management
@@ -36,12 +78,16 @@ const Library = () => {
   ];
 
   const rulesList = [
-    "Every student must possess his/her Library Card while making use of the Library facility...",
+    "Every student must possess his/her Library Card while making use of the Library facility and produce the same to the Library Staff on entering the library.",
     "Reference material should not be taken outside the Library.",
     "Enter your name and Sign in the register kept at the entrance counter before entering library.",
-    "Strict discipline must be maintained in the Library.",
-    "Using Mobile phones and audio instruments with or without speaker or headphone is strictly prohibited."
-    // Add the rest of the rules here...
+    "The newspaper(s) should be folded properly after reading and kept back in the designated place.",
+    "The librarian may recall any book from any member at any time and the member shall return the same immediately.",
+    "Strict discipline must be maintained in the Library. Indiscipline may lead to disciplinary action and the withdrawal of library facility.",
+    "Using Mobile phones and audio instruments with or without speaker or headphone is strictly prohibited in the library premises.",
+    "Books removed from the shelves, if not required further, should be kept on the book trolley or on the table nearest to them. Please do not try to shelve them yourself. Please remember that a book misplaced is a book lost.",
+    "Refreshment of any kind shall not be taken anywhere in the library premises.",
+    "No Due Certificate will be issued only on the return of all the books and surrendering the borrower's cards."
   ];
 
   return (
@@ -67,7 +113,10 @@ const Library = () => {
         <div className="stats-grid">
           {collections.map((item, index) => (
             <div className="stat-card" key={index}>
-              <h3>{item.count}</h3>
+              <h3>
+                {/* Namma Custom Component Ithu */}
+                <AnimatedNumber end={Number(item.count)} />
+              </h3>
               <p>{item.name}</p>
             </div>
           ))}
@@ -112,8 +161,7 @@ const Library = () => {
         </div>
         <div className="librarian-profile">
           <div className="profile-card">
-            {/* Add Librarian photo in public folder */}
-            <img src="/librarian-photo.jpg" alt="Dr. S. Sinthan" />
+            <img src="/Sinthan.jpg" alt="Dr. S. Sinthan" />
             <div>
               <h3>Dr. S. Sinthan</h3>
               <p>Librarian</p>
@@ -122,6 +170,21 @@ const Library = () => {
           <blockquote className="lib-quote">
             "OUR LIBRARY VOWS TO SHAPE YOU FOR AN ENLIVENED PRESENT AND ENLIGHTENED FUTURE TOO"
           </blockquote>
+        </div>
+      </section>
+
+      {/* 5. Library Gallery Section */}
+      <section className="lib-gallery-section">
+        <h2 className="section-title">LIBRARY GALLERY</h2>
+        <div className="gallery-grid">
+         <img src="/1.jpeg" alt="img" />
+         <img src="/2.jpeg" alt="img" />
+         <img src="/3.jpeg" alt="img" />
+         <img src="/4.jpeg" alt="img" />
+         <img src="/5.jpeg" alt="img" />
+         <img src="/6.jpeg" alt="img" />
+         <img src="/7.jpeg" alt="img" />
+         <img src="/background.jpeg" alt="img" />
         </div>
       </section>
 

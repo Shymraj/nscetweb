@@ -56,18 +56,42 @@
 }
 
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Keela irukka 4 cards-a center pannum */
   gap: 20px;
+  max-width: 1100px; /* Exact-a 6 cards mattum mela nikka vaikkum */
+  margin: 0 auto;
 }
 
 .stat-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  border-bottom: 4px solid #0056b3;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
+  background-color: #ffffff;
+  width: 150px;
+  padding: 20px 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Box-ku pinnala oru chinna shadow */
+  text-align: center;
+  border-bottom: 4px solid #0056b3; /* Screenshot-la iruntha antha blue color bottom border */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-card h3 {
+  font-size: 28px;
+  color: #0056b3; /* Numbers blue color-la theriya */
+  margin: 0 0 5px 0;
+}
+
+.stat-card p {
+  font-size: 13px;
+  font-weight: bold;
+  color: #555555;
+  margin: 0;
+}
+.stat-card {
+  width: 160px; /* Unga screen-ku etha mathiri intha size-a chinmatha/perusa mathikonga */
+  /* Pazhaya card design codes (background, padding, box-shadow) apdiye irukattum, athai touch pannathinga */
 }
 
 .stat-card:hover {
@@ -203,4 +227,32 @@
   padding-left: 15px;
   margin: 0;
   font-size: 1.1rem;
+}
+/* Library Gallery Design */
+.lib-gallery-section {
+  padding: 50px 10%;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
