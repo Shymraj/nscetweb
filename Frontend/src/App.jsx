@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/layout/Footer";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -105,13 +106,14 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/overview" element={<Overview />} />
-        <Route path="/act-status" element={<ActStatus />} />
-        <Route path="/development-plan" element={<DevelopmentPlan />} />
-        <Route path="/affiliation" element={<Affiliation />} />
-        <Route path="/annual-reports" element={<AnnualReports />} />
-        <Route path="/annual-accounts" element={<AnnualAccounts />} />
+        <Route path="/about/overview" element={<Overview />} />
+        <Route path="/about/actstatutes" element={<ActStatus />} />
+        <Route path="/about/development-plan" element={<DevelopmentPlan />} />
+        <Route path="/about/affiliation" element={<Affiliation />} />
+        <Route path="/about/annual-reports" element={<AnnualReports />} />
+        <Route path="/about/annual-accounts" element={<AnnualAccounts />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -1,10 +1,20 @@
-function Overview() {
-    return (
-        <div style={{ padding: "120px 40px" }}>
-            <h1>Overview Page</h1>
-            <p>This is NSCET Overview Page.</p>
-        </div>
-    );
-}
+import React from "react";
+import { motion } from "framer-motion";
+import HeroSection from "./HeroSection";
+import StatsSection from "./StatsSection";
+import WhyChoose from "./WhyChoose";
+import JourneyTimeline from "./JourneyTimeline";
+import "./Overview.css";
+
+const Overview = () => {
+  return (
+    <div className="overview-page">
+      <HeroSection />
+      <StatsSection />
+      <WhyChoose />
+      <JourneyTimeline />
+    </div>
+  );
+};
 
 export default Overview;
