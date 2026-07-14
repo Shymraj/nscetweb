@@ -1,10 +1,11 @@
-function Actstatutes() {
-    return (
-        <div style={{ padding: "120px 40px" }}>
-            <h1>Act and Statutes Page</h1>
-            <p>This is NSCET Act and Statutes Page.</p>
-        </div>
-    );
-}
+import React from 'react';
+
+const Actstatutes = () => {
+  return (
+    <div>
+      <h1>Act and Statutes</h1>
+    </div>
+  );
+};
 
 export default Actstatutes;

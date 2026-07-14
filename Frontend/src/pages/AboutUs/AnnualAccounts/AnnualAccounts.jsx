@@ -1,10 +1,11 @@
-function AnnualAccounts() {
-    return (
-        <div style={{ padding: "120px 40px" }}>
-            <h1>Annual Page</h1>
-            <p>This is NSCET Annual Page.</p>
-        </div>
-    );
-}
+import React from 'react';
+
+const AnnualAccounts = () => {
+  return (
+    <div>
+      <h1>Annual Accounts</h1>
+    </div>
+  );
+};
 
 export default AnnualAccounts;

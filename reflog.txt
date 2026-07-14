@@ -1,0 +1,5 @@
+a26534c HEAD@{0}: pull origin main: Fast-forward
+9b49d21 HEAD@{1}: reset: moving to HEAD
+9b49d21 HEAD@{2}: commit: Departments dropdown completed
+acd3753 HEAD@{3}: pull origin main: Fast-forward
+3976f15 HEAD@{4}: reset: moving to HEAD
