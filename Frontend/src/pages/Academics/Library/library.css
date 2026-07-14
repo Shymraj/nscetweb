@@ -1,258 +1,435 @@
-.library-container {
-  font-family: 'Arial', sans-serif;
-  color: #333;
-  background-color: #f9fbfd;
-  padding-top: 100px;
+/* MODEL 1 - MODERN LANDING PAGE CSS (WITH ANIMATIONS) */
+
+:root {
+  --m1-bg-main: #f3f4f6; 
+  --m1-white: #ffffff;
+  --m1-text-dark: #111827;
+  --m1-text-muted: #6b7280;
+  --m1-accent: #4338ca; 
+  --m1-border: #e5e7eb;
 }
 
-/* Header Sections */
-.lib-header {
-  padding: 40px 10%;
-}
-
-.lib-header-content {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.lib-about-box {
-  flex: 1;
-  min-width: 300px;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.lib-about-box h2 {
-  color: #0b3b60;
-  border-bottom: 3px solid #0056b3;
-  display: inline-block;
-  padding-bottom: 5px;
-  margin-bottom: 20px;
-}
-
-.dark-box {
-  background: #0b3b60;
-  color: white;
-}
-
-.dark-box h2 {
-  color: white;
-  border-bottom: 3px solid #66a3ff;
-}
-
-/* Collections Stats */
-.lib-collections {
-  padding: 40px 10%;
-  text-align: center;
-}
-
-.section-title {
-  color: #0b3b60;
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.stats-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Keela irukka 4 cards-a center pannum */
-  gap: 20px;
-  max-width: 1100px; /* Exact-a 6 cards mattum mela nikka vaikkum */
-  margin: 0 auto;
-}
-
-.stat-card {
-  background-color: #ffffff;
-  width: 150px;
-  padding: 20px 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Box-ku pinnala oru chinna shadow */
-  text-align: center;
-  border-bottom: 4px solid #0056b3; /* Screenshot-la iruntha antha blue color bottom border */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.stat-card h3 {
-  font-size: 28px;
-  color: #0056b3; /* Numbers blue color-la theriya */
-  margin: 0 0 5px 0;
-}
-
-.stat-card p {
-  font-size: 13px;
-  font-weight: bold;
-  color: #555555;
+body {
   margin: 0;
-}
-.stat-card {
-  width: 160px; /* Unga screen-ku etha mathiri intha size-a chinmatha/perusa mathikonga */
-  /* Pazhaya card design codes (background, padding, box-shadow) apdiye irukattum, athai touch pannathinga */
-}
-
-.stat-card:hover {
-  transform: translateY(-5px);
-}
-
-.stat-card h3 {
-  font-size: 2rem;
-  color: #0056b3;
-  margin: 0;
-}
-
-.stat-card p {
-  font-size: 0.9rem;
-  color: #666;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* Tabs Section */
-.lib-details-tabs {
-  padding: 40px 10%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.tab-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-}
-
-.tab-buttons button {
-  padding: 12px 25px;
-  font-size: 1.1rem;
-  background: #e9ecef;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #555;
-  transition: all 0.3s;
-}
-
-.tab-buttons button.active {
-  background: #0056b3;
-  color: white;
-  box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
-}
-
-.tab-content {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-.custom-list {
-  list-style: none;
   padding: 0;
 }
 
-.custom-list li {
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 15px;
-  line-height: 1.6;
+.model1-landing-wrapper {
+  background-color: var(--m1-bg-main);
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--m1-text-dark);
+  padding-top: 100px; 
+  box-sizing: border-box;
 }
 
-.custom-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: #28a745;
-  font-weight: bold;
-  font-size: 1.2rem;
+.model1-landing-wrapper * {
+  box-sizing: border-box;
 }
 
-.grid-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 15px;
-}
+/* --- 1. Hero Section (Slider Smooth Transition Added) --- */
 
-/* Footer Info (Hours & Profile) */
-.lib-footer-info {
+.m1-hero-section {
+  color: white;
+  padding: 8rem 2rem; 
+  min-height: 60vh; 
   display: flex;
-  flex-wrap: wrap;
-  padding: 50px 10%;
-  gap: 40px;
-  background: white;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+  transition: background-image 1s ease-in-out; 
+}
+.m1-hero-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.working-hours, .librarian-profile {
-  flex: 1;
-  min-width: 300px;
+.m1-welcome-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
 }
 
-.working-hours h2 {
-  color: #0b3b60;
-  margin-bottom: 20px;
+.m1-hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0.5rem 0 1.5rem 0;
+  letter-spacing: -0.02em;
 }
 
-.hours-box {
-  background: #f4f9ff;
-  border-left: 5px solid #0056b3;
-  padding: 20px;
-  border-radius: 8px;
+.m1-hero-subtitle {
   font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 2.5rem;
 }
 
-.profile-card {
+.m1-hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.m1-btn-primary {
+  background: var(--m1-accent);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.m1-btn-primary:hover {
+  background: #3730a3;
+}
+
+.m1-btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.m1-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Main Container (Content Area) --- */
+.m1-main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.m1-section {
+  margin-bottom: 5rem;
+}
+
+.m1-section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--m1-text-dark);
+  margin-bottom: 2.5rem;
+}
+
+/* --- 2. Collections (Cards Grid with Spinning Border Draw Animation) --- */
+.m1-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+/* Outer wrapper for animation */
+.m1-stat-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 2px; /* Thickness of the animated border */
+  overflow: hidden;
+  background: var(--m1-border); /* Default border color */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+/* Spinning conic gradient for hover */
+.m1-stat-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: conic-gradient(transparent, transparent, transparent, var(--m1-accent));
+  animation: borderSpin 2s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.m1-stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.m1-stat-card:hover::before {
+  opacity: 1;
+}
+
+/* Inner white card */
+.m1-stat-card-inner {
+  background: var(--m1-white);
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  padding: 2rem 1rem;
+  text-align: center;
+  z-index: 2;
+}
+
+@keyframes borderSpin {
+  100% { transform: rotate(360deg); }
+}
+
+.m1-stat-num {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--m1-text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.m1-stat-label {
+  font-size: 0.85rem;
+  color: var(--m1-text-muted);
+  font-weight: 500;
+}
+
+/* --- 3. Explore Library (Tabs) --- */
+.m1-tabs-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.m1-tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.m1-tabs-nav button {
+  background: var(--m1-white);
+  border: 1px solid var(--m1-border);
+  padding: 0.75rem 2rem;
+  border-radius: 50px; 
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--m1-text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.m1-tabs-nav button.active {
+  background: var(--m1-accent);
+  color: white;
+  border-color: var(--m1-accent);
+}
+
+.m1-tab-content-card {
+  background: var(--m1-white);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--m1-border);
+}
+
+.m1-tab-text ul {
+  padding-left: 1.5rem;
+  color: var(--m1-text-muted);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.m1-tab-text li {
+  margin-bottom: 0.8rem;
+}
+
+/* --- 4. Gallery (Size Increased + Style A Zoom & Shine Animation) --- */
+.m1-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem; /* Increased gap slightly for larger images */
+}
+
+.m1-gallery-item-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  height: 320px; 
+  background-color: var(--m1-white);
+}
+
+.m1-gallery-img {
+  width: 100%;
+  height: 100%; /* Wrapper-oda full size-kku image set aaga */
+  object-fit: cover; 
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom effect */
+.m1-gallery-item-wrapper:hover .m1-gallery-img {
+  transform: scale(1.1);
+}
+
+/* Shine effect */
+/* Shine effect fix - marainju irukka opacity add panniruken */
+.m1-gallery-item-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%; 
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  z-index: 2;
+  transition: left 0.7s ease, opacity 0.3s ease;
+  opacity: 0; /* Normal time-la theliva maraiya */
+}
+
+.m1-gallery-item-wrapper:hover::before {
+  left: 150%;
+  opacity: 1; /* Hover pannum pothu mattum theriya */
+}
+
+/* --- 5. Bottom Info (Hours & Librarian) --- */
+.m1-bottom-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.m1-info-card {
+  background: var(--m1-white);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--m1-border);
+}
+
+.m1-info-title {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 0.5rem;
 }
 
-.profile-card img {
-  width: 100px;
-  height: 100px;
+/* Working Hours */
+.m1-time-row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--m1-border);
+  font-size: 1rem;
+}
+.m1-time-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.m1-time-day {
+  color: var(--m1-text-muted);
+}
+.m1-time-hours {
+  font-weight: 600;
+}
+.m1-closed {
+  color: #ef4444;
+}
+
+/* Librarian */
+.m1-lib-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.m1-lib-img {
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #0056b3;
 }
 
-.lib-quote {
-  font-style: italic;
-  color: #555;
-  border-left: 4px solid #ccc;
-  padding-left: 15px;
-  margin: 0;
+.m1-lib-details h4 {
+  margin: 0 0 0.2rem 0;
   font-size: 1.1rem;
 }
-/* Library Gallery Design */
-.lib-gallery-section {
-  padding: 50px 10%;
-  text-align: center;
-  background-color: #ffffff;
+
+.m1-lib-details span {
+  font-size: 0.9rem;
+  color: var(--m1-text-muted);
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.gallery-grid img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.m1-lib-quote {
+  font-style: italic;
+  color: var(--m1-text-muted);
+  line-height: 1.6;
+  margin: 0;
+  background: #f9fafb;
+  padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  border-left: 4px solid var(--m1-accent);
 }
 
-.gallery-grid img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .m1-stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .m1-gallery-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .m1-hero-title { font-size: 2.5rem; }
+  .m1-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .m1-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .m1-bottom-info { grid-template-columns: 1fr; }
+  .m1-tabs-nav { flex-direction: column; }
+  .m1-tabs-nav button { width: 100%; }
+}
+/* --- About Section (New Design) --- */
+.m1-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Rendu box-um side-by-side varathukku */
+  gap: 2rem;
+}
+
+.m1-about-card {
+  background: var(--m1-white);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--m1-border);
+  transition: transform 0.3s ease;
+}
+
+.m1-about-card:hover {
+  transform: translateY(-5px); /* Light-a mela thookunapla vara */
+}
+
+.m1-about-title {
+  color: var(--m1-accent);
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.m1-about-text {
+  color: var(--m1-text-muted);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  text-align: justify; /* Text azhaga line up aaga */
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .m1-about-grid {
+    grid-template-columns: 1fr; /* Phone-la onnukku keela onna vara */
+  }
 }
