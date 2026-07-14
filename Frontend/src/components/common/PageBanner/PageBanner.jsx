@@ -8,6 +8,7 @@ const PageBanner = ({
   title, 
   subtitle, 
   breadcrumb = [], 
+  hideBreadcrumb = false,
   backgroundImage = "https://placehold.co/1920x600/1e40af/FFFFFF/png?text=NSCET+Banner" 
 }) => {
   return (
@@ -38,29 +39,31 @@ const PageBanner = ({
           </motion.p>
         )}
 
-        <motion.div 
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="banner-breadcrumb"
-        >
-          <Link to="/" className="breadcrumb-link">
-            <FaHome className="breadcrumb-icon" /> Home
-          </Link>
-          
-          {breadcrumb.map((item, index) => (
-            <React.Fragment key={index}>
-              <FaChevronRight className="breadcrumb-separator" />
-              {item.link ? (
-                <Link to={item.link} className="breadcrumb-link">
-                  {item.label}
-                </Link>
-              ) : (
-                <span className="breadcrumb-current">{item.label}</span>
-              )}
-            </React.Fragment>
-          ))}
-        </motion.div>
+        {!hideBreadcrumb && (
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="banner-breadcrumb"
+          >
+            <Link to="/" className="breadcrumb-link">
+              <FaHome className="breadcrumb-icon" /> Home
+            </Link>
+            
+            {breadcrumb.map((item, index) => (
+              <React.Fragment key={index}>
+                <FaChevronRight className="breadcrumb-separator" />
+                {item.link ? (
+                  <Link to={item.link} className="breadcrumb-link">
+                    {item.label}
+                  </Link>
+                ) : (
+                  <span className="breadcrumb-current">{item.label}</span>
+                )}
+              </React.Fragment>
+            ))}
+          </motion.div>
+        )}
       </div>
     </section>
   );

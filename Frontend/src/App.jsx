@@ -50,7 +50,7 @@ import Alumni from "./pages/Alumni";
 import Contact from "./pages/Contact";
 import Overview from "./pages/Overview";
 import ActStatus from "./pages/ActStatus";
-import DevelopmentPlan from "./pages/DevelopmentPlan";
+import DevelopmentPlan from "./pages/AboutUs/Developmentplan/Developmentplan";
 import Affiliation from "./pages/Affiliation";
 import AnnualReports from "./pages/AnnualReports";
 import AnnualAccounts from "./pages/AnnualAccounts";
