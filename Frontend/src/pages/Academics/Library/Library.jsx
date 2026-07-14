@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Library.css'; 
 
-// --- AnimatedNumber Component (+ Symbol Added) ---
-// --- AnimatedNumber Component (+ Symbol & Slow Speed Added) ---
 const AnimatedNumber = ({ value }) => {
   const [count, setCount] = useState(0);
 
@@ -11,9 +9,8 @@ const AnimatedNumber = ({ value }) => {
     const end = parseInt(value, 10);
     if (start === end) return;
 
-    // Time-a 4000ms (4 seconds) kku increase panniyachu to make it slow
     let totalMilSecDur = 4000; 
-    let steps = 150; // Smooth-a varathukkaga steps-a 150 aakiyachu
+    let steps = 150; 
     let incrementTime = totalMilSecDur / steps; 
 
     const timer = setInterval(() => {
@@ -32,22 +29,19 @@ const AnimatedNumber = ({ value }) => {
   return <span>{count}+</span>;
 };
 
-// --- Main Component ---
 const Library = () => {
   const [activeTab, setActiveTab] = useState('objectives');
 
-  // --- Hero Background Slider Logic ---
   const heroImages = ["/1.jpeg", "/2.jpeg", "/3.jpeg", "/4.jpeg"];
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
   useEffect(() => {
     const bgInterval = setInterval(() => {
       setCurrentBgIndex((prev) => (prev + 1) % heroImages.length);
-    }, 4000); // Change image every 4 seconds
+    }, 4000); 
     return () => clearInterval(bgInterval);
   }, []);
 
-  // Stats Data
   const collections = [
     { label: "VOLUMES", count: 21810 },
     { label: "TITLES", count: 5016 },
@@ -61,7 +55,6 @@ const Library = () => {
     { label: "AI&DS", count: 250 }
   ];
 
-  // Tab Details Data
   const objectivesList = [
     "To acquire, organize, and preserve academic resources effectively.",
     "To support the college curriculum and research needs of faculty and students.",
@@ -84,23 +77,29 @@ const Library = () => {
     "Books must be returned on or before the due date.",
     "Using mobile phones inside the library is strictly prohibited."
   ];
-
-  // Gallery Data
   
   const galleryImages = [
     "/1.jpeg", "/2.jpeg", "/3.jpeg", "/4.jpeg",
     "/5.jpeg", "/6.jpeg", "/7.jpeg", "/background.jpeg"
   ];
 
+  // --- NEW MAGIC: Mouse track pannum function ---
+  const handleMouseMove = (e) => {
+    for(const card of document.getElementsByClassName("m1-stat-card")) {
+      const rect = card.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    };
+  }
+
   return (
     <div className="model1-landing-wrapper">
-      
-      {/* 1. Hero Section (Dynamic Background Slider added via inline style) */}
       
       <section 
         className="m1-hero-section"
         style={{
-          // 0.95 -> 0.6 and 0.8 -> 0.3 nu maathiruken, so image innum nalla theriyum
           backgroundImage: `linear-gradient(to right, rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.3)), url('${heroImages[currentBgIndex]}')`
         }}
       >
@@ -120,7 +119,6 @@ const Library = () => {
 
       <main className="m1-main-container">
         
-        {/* --- Puthusa Add Panna About Section --- */}
         <section className="m1-section m1-about-section">
           <div className="m1-about-grid">
             <div className="m1-about-card">
@@ -138,10 +136,10 @@ const Library = () => {
           </div>
         </section>
 
-        {/* 2. Collections Section (Wrapped for border animation) */}
+        {/* --- Collections Section (Mouse event inga attach aagirukku) --- */}
         <section className="m1-section m1-collections">
           <h2 className="m1-section-title">Our Collections</h2>
-          <div className="m1-stats-grid">
+          <div className="m1-stats-grid" onMouseMove={handleMouseMove}>
             {collections.map((item, index) => (
               <div key={index} className="m1-stat-card">
                 <div className="m1-stat-card-inner">
@@ -155,7 +153,6 @@ const Library = () => {
           </div>
         </section>
 
-        {/* 3. Explore Library (Tabs) */}
         <section className="m1-section m1-explore">
           <h2 className="m1-section-title">Explore Library</h2>
           
@@ -182,7 +179,6 @@ const Library = () => {
           </div>
         </section>
 
-        {/* 4. Gallery (Wrapped for Zoom & Shine effect) */}
         <section className="m1-section m1-gallery">
           <h2 className="m1-section-title">Gallery</h2>
           <div className="m1-gallery-grid">
@@ -194,7 +190,6 @@ const Library = () => {
           </div>
         </section>
 
-        {/* 5. Bottom Info (Hours & Librarian Side-by-Side) */}
         <section className="m1-section m1-bottom-info">
           
           <div className="m1-info-card">
