@@ -1,0 +1,12 @@
+import React from 'react';
+
+function Affiliation() {
+    return (
+        <div style={{ padding: "120px 40px" }}>
+            <h1>Affiliation & Accreditation</h1>
+            <p>Details about the college's affiliation and accreditation will be updated here.</p>
+        </div>
+    );
+}
+
+export default Affiliation;
