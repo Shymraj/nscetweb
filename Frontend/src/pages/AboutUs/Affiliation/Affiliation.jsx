@@ -1,7 +1,9 @@
-import React from "react";
-
-function Affiliation() {
-  return <h1>Affiliation</h1>;
-}
+const Affiliation = () => {
+  return (
+    <div>
+      <h1>Affiliation</h1>
+    </div>
+  );
+};
 
 export default Affiliation;

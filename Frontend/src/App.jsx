@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/layout/Footer";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -49,7 +50,7 @@ import Alumni from "./pages/Alumni";
 import Contact from "./pages/Contact";
 import Overview from "./pages/Overview";
 import ActStatus from "./pages/ActStatus";
-import DevelopmentPlan from "./pages/DevelopmentPlan";
+import DevelopmentPlan from "./pages/AboutUs/Developmentplan/Developmentplan";
 import Affiliation from "./pages/Affiliation";
 import AnnualReports from "./pages/AnnualReports";
 import AnnualAccounts from "./pages/AnnualAccounts";
@@ -105,13 +106,14 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/overview" element={<Overview />} />
-        <Route path="/act-status" element={<ActStatus />} />
-        <Route path="/development-plan" element={<DevelopmentPlan />} />
-        <Route path="/affiliation" element={<Affiliation />} />
-        <Route path="/annual-reports" element={<AnnualReports />} />
-        <Route path="/annual-accounts" element={<AnnualAccounts />} />
+        <Route path="/about/overview" element={<Overview />} />
+        <Route path="/about/actstatutes" element={<ActStatus />} />
+        <Route path="/about/development-plan" element={<DevelopmentPlan />} />
+        <Route path="/about/affiliation" element={<Affiliation />} />
+        <Route path="/about/annual-reports" element={<AnnualReports />} />
+        <Route path="/about/annual-accounts" element={<AnnualAccounts />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
