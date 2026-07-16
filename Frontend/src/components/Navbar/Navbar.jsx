@@ -46,7 +46,7 @@ function Navbar() {
 
 
           <li className="dropdown">
-            <Link to="/about">About Us</Link>
+            <Link to="#" onClick={(e) => e.preventDefault()}>About Us</Link>
             <ul className="dropdown-menu">
               <li><Link to="/about/overview">Overview</Link></li>
               <li><Link to="/about/actstatutes">Act and Statutes</Link></li>
@@ -69,7 +69,7 @@ function Navbar() {
 
 
           <li className="dropdown">
-            <Link to="/administration">Administration</Link>
+            <Link to="#" onClick={(e) => e.preventDefault()}>Administration</Link>
             <ul className="dropdown-menu">
               <li><Link to="/administration/tmhnutrust">TMHNU Trust</Link></li>
               <li><Link to="/administration/principal">Principal</Link></li>
@@ -82,7 +82,7 @@ function Navbar() {
             </ul>
           </li>
           <li className="dropdown">
-            <Link to="/academics">Academics</Link>
+            <Link to="#" onClick={(e) => e.preventDefault()}>Academics</Link>
             <ul className="dropdown-menu">
               <li><Link to="/academics/details-of-academic-programs">Details of Academic Programs</Link></li>
               <li><Link to="/academics/academic-calendar">Academic Calendar</Link></li>
@@ -139,7 +139,7 @@ function Navbar() {
             </ul>
           </li>
           <li className="dropdown">
-            <Link to="/research">Research</Link>
+            <Link to="#" onClick={(e) => e.preventDefault()}>Research</Link>
             <ul className="dropdown-menu">
               <li><Link to="/research/rnd-cell">Research and Development Cell</Link></li>
               <li><Link to="/research/statistics">Research Statistics</Link></li>
