@@ -270,3 +270,41 @@ transform:translateX(8px);
 background:#f8fbff;
 
 }
+
+body.dark-mode .about {
+  background: linear-gradient(180deg, #111827 0%, #111827 100%);
+}
+
+body.dark-mode .about-badge {
+  background: rgba(15,23,42,0.92);
+  box-shadow: 0 12px 30px rgba(255,255,255,.05);
+}
+
+body.dark-mode .about-badge h3,
+body.dark-mode .about-content h2 {
+  color: #f8fafc;
+}
+
+body.dark-mode .about-badge span,
+body.dark-mode .about-text,
+body.dark-mode .about-features p {
+  color: #cbd5e1;
+  background: rgba(255,255,255,.04);
+}
+
+body.dark-mode .about-features p {
+  box-shadow: 0 8px 20px rgba(0,0,0,.2);
+}
+
+body.dark-mode .about-content h2::after,
+body.dark-mode .about .about-badge {
+  background: transparent;
+}
+
+body.dark-mode .about-btn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+body.dark-mode .about-btn:hover {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+}
