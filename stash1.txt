@@ -1,0 +1,8 @@
+Frontend/src/App.jsx
+Frontend/src/components/Navbar/Navbar.jsx
+Frontend/src/pages/Departments/CSE.jsx
+Frontend/src/pages/Departments/Civil.jsx
+Frontend/src/pages/Departments/Electrical.jsx
+Frontend/src/pages/Departments/Electronics.jsx
+Frontend/src/pages/Departments/Mechanical.jsx
+Frontend/src/pages/Departments/ScienceHumanities.jsx

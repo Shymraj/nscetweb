@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.webp";
-import { FaMoon, FaSun, FaSearch, FaTimes } from "react-icons/fa";
+import { FaMoon, FaSun, FaSearch, FaTimes, FaBars } from "react-icons/fa";
 import annualAccountsPdf from "../../pages/AboutUs/AnnualAccounts/assets/documents/annual-accounts.pdf";
 
 function Navbar() {
@@ -10,6 +10,13 @@ function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (darkMode) {
@@ -28,13 +35,13 @@ function Navbar() {
           <div className="logo-box">
             <img src={logo} alt="NSCET Logo" className="logo" />
           </div>
-          
+
           <div className="college-name">
             <h2>NSCET</h2>
           </div>
         </div>
 
-        <ul className="nav-links">
+        <ul key={location.pathname} className={isMobileMenuOpen ? "nav-links active" : "nav-links"}>
           <li><Link to="/">Home</Link></li>
 
 
@@ -47,7 +54,7 @@ function Navbar() {
               <li><Link to="/about/affiliation">Affiliation & Accreditation</Link></li>
               <li><Link to="/about/annual-reports">Annual Reports</Link></li>
               <li>
-                <a 
+                <a
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
@@ -88,7 +95,7 @@ function Navbar() {
             </ul>
           </li>
           <li className="dropdown">
-            <Link to="/departments">Departments</Link>
+            <Link to="#" onClick={(e) => e.preventDefault()}>Departments</Link>
             <ul className="dropdown-menu">
               <li className="has-submenu">
                 <Link to="/departments/cse">Faculty of Computer Science & Engineering <span className="submenu-arrow">›</span></Link>
@@ -147,51 +154,54 @@ function Navbar() {
         </ul>
 
         <div className="nav-right">
-         {!showSearch && (
-<button
-className="search-btn"
-onClick={()=>setShowSearch(true)}
->
-<FaSearch/>
-</button>
-)}
-  
+          {!showSearch && (
+            <button
+              className="search-btn"
+              onClick={() => setShowSearch(true)}
+            >
+              <FaSearch />
+            </button>
+          )}
 
-{showSearch ? (
 
-<div className="search-box">
+          {showSearch ? (
 
-  <FaSearch className="search-icon" />
+            <div className="search-box">
 
-  <input
-    type="text"
-    placeholder="Search..."
-    autoFocus
-  />
-  <button
-  className="close-search"
-  onClick={() => setShowSearch(false)}
->
-  <FaTimes />
-</button>
+              <FaSearch className="search-icon" />
 
-</div>
-) : (
+              <input
+                type="text"
+                placeholder="Search..."
+                autoFocus
+              />
+              <button
+                className="close-search"
+                onClick={() => setShowSearch(false)}
+              >
+                <FaTimes />
+              </button>
 
-  <>
-    <button
-      className="theme-btn"
-      onClick={() => setDarkMode(!darkMode)}
-    >
-      {darkMode ? <FaSun /> : <FaMoon />}
-    </button>
+            </div>
+          ) : (
 
-    <button className="apply-btn">
-      Apply Now →
-    </button>
-  </>
+            <>
+              <button
+                className="theme-btn"
+                onClick={() => setDarkMode(!darkMode)}
+              >
+                {darkMode ? <FaSun /> : <FaMoon />}
+              </button>
 
-)}
+              <button className="apply-btn">
+                Apply Now →
+              </button>
+            </>
+
+          )}
+          <button className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
 
       </nav>

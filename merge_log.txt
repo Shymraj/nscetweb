@@ -1,8 +1,113 @@
-error: Unable to create 'C:/Users/pooba/OneDrive/Desktop/nscetweb-main/.git/index.lock': File exists.
-
-Another git process seems to be running in this repository, e.g.
-an editor opened by 'git commit'. Please make sure all processes
-are terminated then try again. If it still fails, a git process
-may have crashed in this repository earlier:
-remove the file manually to continue.
-Updating d5259bd..1126072
+From https://github.com/Shymraj/nscetweb
+ * branch            main       -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ .../ChatGPT Image Jul 16, 2026, 02_36_36 PM.png    | Bin 0 -> 1684796 bytes
+ Frontend/public/College photos 2.jpg               | Bin 0 -> 1151529 bytes
+ Frontend/public/ps1.jpg                            | Bin 0 -> 1598452 bytes
+ .../public/siva pradeep 1/College photos 2.jpg     | Bin 0 -> 1151529 bytes
+ Frontend/src/App.jsx                               |   2 -
+ Frontend/src/assets/Img/hero.jpeg                  | Bin 0 -> 51509 bytes
+ Frontend/src/assets/about.jpeg                     | Bin 0 -> 221280 bytes
+ Frontend/src/assets/ps1.jpg                        | Bin 0 -> 1598452 bytes
+ Frontend/src/components/About/About.css            | 310 +++++++++++++++
+ Frontend/src/components/About/About.jsx            |  64 +++
+ .../src/components/Departments/Departments.css     | 398 +++++++++++++++++++
+ .../src/components/Departments/Departments.jsx     |  83 ++++
+ Frontend/src/components/Hero/Hero.css              | 358 +++++++++++++++++
+ Frontend/src/components/Hero/Hero.jsx              |  75 ++++
+ Frontend/src/components/Navbar/Navbar.css          | 250 ++++++++++--
+ Frontend/src/components/Navbar/Navbar.jsx          |  71 +++-
+ Frontend/src/components/Stats/Counter.jsx          |  34 ++
+ Frontend/src/components/Stats/Stats.css            | 419 ++++++++++++++++++++
+ Frontend/src/components/Stats/Stats.jsx            |  72 ++++
+ Frontend/src/components/WhyChoose/WhyChoose.css    | 259 ++++++++++++
+ Frontend/src/components/WhyChoose/WhyChoose.jsx    |  73 ++++
+ Frontend/src/components/layout/Footer.jsx          |   1 -
+ Frontend/src/main.jsx                              |   1 -
+ .../src/pages/AboutUs/Actstatutes/Actstatutes.css  |  35 +-
+ .../src/pages/AboutUs/Actstatutes/Actstatutes.jsx  |   2 +-
+ .../Actstatutes/components/OrganizationalChart.jsx |  69 ++--
+ .../Actstatutes/components/PolicyDocument.jsx      |   1 -
+ .../Actstatutes/components/QualityPolicy.jsx       |   1 -
+ .../AboutUs/Actstatutes/components/Sidebar.jsx     |   1 -
+ .../Actstatutes/components/VisionMission.jsx       |   1 -
+ .../src/pages/AboutUs/Affiliation/Affiliation.css  | 347 +++++++++++++++++
+ .../src/pages/AboutUs/Affiliation/Affiliation.jsx  | 170 +++++++-
+ .../pages/AboutUs/Affiliation/assets/banner.jpg    | Bin 0 -> 1012734 bytes
+ .../AboutUs/Affiliation/assets/logos/naac-logo.png | Bin 0 -> 44034 bytes
+ .../Affiliation/assets/logos/nscet-logo.png        | Bin 0 -> 990899 bytes
+ .../assets/documents/annual-accounts.pdf           | Bin 0 -> 510804 bytes
+ .../pages/AboutUs/AnnualReports/AnnualReports.css  | 433 +++++++++++++++++++++
+ .../pages/AboutUs/AnnualReports/AnnualReports.jsx  |  41 +-
+ .../assets/documents/annual-report.pdf             | Bin 0 -> 510804 bytes
+ .../AnnualReports/components/AboutReport.jsx       |  24 ++
+ .../AnnualReports/components/Highlights.jsx        |  59 +++
+ .../components/InstitutionalValues.jsx             |  53 +++
+ .../AnnualReports/components/ReportDocument.jsx    |  56 +++
+ .../AnnualReports/components/Statistics.jsx        |  88 +++++
+ Frontend/src/pages/AboutUs/AnnualReports/data.js   |  89 +++++
+ .../AboutUs/Developmentplan/Developmentplan.css    |  33 +-
+ .../AboutUs/Developmentplan/Developmentplan.jsx    |   1 -
+ .../components/DepartmentAccordion.jsx             |   2 +-
+ .../components/DevelopmentImage.jsx                |  50 +--
+ .../components/ExecutiveSummary.jsx                |   1 -
+ .../components/InstitutionalProfile.jsx            |   1 -
+ .../AboutUs/Developmentplan/components/SWOT.jsx    |   1 -
+ .../Developmentplan/components/SummaryTable.jsx    |   1 -
+ .../Developmentplan/components/VisionMission.jsx   |   1 -
+ Frontend/src/pages/AboutUs/Overview/CTASection.jsx |   1 -
+ .../src/pages/AboutUs/Overview/CampusSlider.jsx    |   2 +-
+ .../src/pages/AboutUs/Overview/HeroSection.jsx     |   1 -
+ Frontend/src/pages/AboutUs/Overview/Overview.css   |  43 +-
+ Frontend/src/pages/AboutUs/Overview/Overview.jsx   |   3 +-
+ .../src/pages/AboutUs/Overview/StatsSection.jsx    |   1 -
+ Frontend/src/pages/AboutUs/Overview/WhyChoose.jsx  |   1 -
+ .../AcademicCalender/AcademicCalendar.css          | 241 ++++++++++++
+ .../AcademicCalender/AcademicCalender.jsx          | 138 ++++---
+ .../AcademicCalender/banner/calendar-icon.svg      |   8 +
+ .../banner/calendar-placeholder.svg                |   9 +
+ Frontend/src/pages/Academics/Library/Library.jsx   |   4 +-
+ Frontend/src/pages/Academics/iqac/iqac.css         | 215 ++++++++++
+ Frontend/src/pages/Academics/iqac/iqac.jsx         | 142 ++++++-
+ Frontend/src/pages/AnnualAccounts.jsx              |   1 -
+ Frontend/src/pages/Departments/civil/Civil.jsx     |   3 +-
+ Frontend/src/pages/Home.jsx                        |  16 +-
+ update_css.py                                      |  80 ++++
+ 72 files changed, 4714 insertions(+), 226 deletions(-)
+ create mode 100644 Frontend/public/ChatGPT Image Jul 16, 2026, 02_36_36 PM.png
+ create mode 100644 Frontend/public/College photos 2.jpg
+ create mode 100644 Frontend/public/ps1.jpg
+ create mode 100644 Frontend/public/siva pradeep 1/College photos 2.jpg
+ create mode 100644 Frontend/src/assets/Img/hero.jpeg
+ create mode 100644 Frontend/src/assets/about.jpeg
+ create mode 100644 Frontend/src/assets/ps1.jpg
+ create mode 100644 Frontend/src/components/About/About.css
+ create mode 100644 Frontend/src/components/About/About.jsx
+ create mode 100644 Frontend/src/components/Departments/Departments.css
+ create mode 100644 Frontend/src/components/Departments/Departments.jsx
+ create mode 100644 Frontend/src/components/Hero/Hero.css
+ create mode 100644 Frontend/src/components/Hero/Hero.jsx
+ create mode 100644 Frontend/src/components/Stats/Counter.jsx
+ create mode 100644 Frontend/src/components/Stats/Stats.css
+ create mode 100644 Frontend/src/components/Stats/Stats.jsx
+ create mode 100644 Frontend/src/components/WhyChoose/WhyChoose.css
+ create mode 100644 Frontend/src/components/WhyChoose/WhyChoose.jsx
+ create mode 100644 Frontend/src/pages/AboutUs/Affiliation/Affiliation.css
+ create mode 100644 Frontend/src/pages/AboutUs/Affiliation/assets/banner.jpg
+ create mode 100644 Frontend/src/pages/AboutUs/Affiliation/assets/logos/naac-logo.png
+ create mode 100644 Frontend/src/pages/AboutUs/Affiliation/assets/logos/nscet-logo.png
+ create mode 100644 Frontend/src/pages/AboutUs/AnnualAccounts/assets/documents/annual-accounts.pdf
+ create mode 100644 Frontend/src/pages/AboutUs/AnnualReports/AnnualReports.css
+ create mode 100644 Frontend/src/pages/AboutUs/AnnualReports/assets/documents/annual-report.pdf
+ create mode 100644 Frontend/src/pages/AboutUs/AnnualReports/components/AboutReport.jsx
+ create mode 100644 Frontend/src/pages/AboutUs/AnnualReports/components/Highlights.jsx
+ create mode 100644 Frontend/src/pages/AboutUs/AnnualReports/components/InstitutionalValues.jsx
+ create mode 100644 Frontend/src/pages/AboutUs/AnnualReports/components/ReportDocument.jsx
+ create mode 100644 Frontend/src/pages/AboutUs/AnnualReports/components/Statistics.jsx
+ create mode 100644 Frontend/src/pages/AboutUs/AnnualReports/data.js
+ create mode 100644 Frontend/src/pages/Academics/AcademicCalender/AcademicCalendar.css
+ create mode 100644 Frontend/src/pages/Academics/AcademicCalender/banner/calendar-icon.svg
+ create mode 100644 Frontend/src/pages/Academics/AcademicCalender/banner/calendar-placeholder.svg
+ create mode 100644 Frontend/src/pages/Academics/iqac/iqac.css
+ delete mode 100644 Frontend/src/pages/AnnualAccounts.jsx
+ create mode 100644 update_css.py

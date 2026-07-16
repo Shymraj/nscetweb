@@ -1,0 +1,20 @@
+df9b440 Merge branch 'main' of https://github.com/Shymraj/nscetweb
+4e6e687 Auto backup
+0944ed9 WIP on main: d5259bd library
+e6067fa index on main: d5259bd library
+1126072 Merge branch 'main' of https://github.com/Shymraj/nscetweb
+0973087 Updated About Us cards with premium blue background
+a1d7a5f hi
+016f625 Merge branch 'main' of https://github.com/Shymraj/nscetweb
+fb8292a search
+c245291 Finalize IQAC and AcademicCalender updates
+5455e12 navchange
+ce8f85b nav
+47a006e Merge remote-tracking branch 'origin/main' and keep local premium changes
+fe3dc15 Agent updates to AboutUs sections and newly added Annual Reports
+a344b1d Update IQAC page content and structure
+0bc73d9 Fix IQAC component import and update styles
+e435a80 Merge branch 'main' of https://github.com/Shymraj/nscetweb
+589d281 Add Hero, Stats, About, Departments and WhyChoose sections
+75da902 Remove backup .bak files
+efc7ff4 Add remaining changes and cleanup
