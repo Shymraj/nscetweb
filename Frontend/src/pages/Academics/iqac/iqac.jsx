@@ -85,7 +85,7 @@ const IQAC = () => {
       <section className="iqac-hero" style={{ backgroundImage: `linear-gradient(135deg, rgba(13, 58, 116, 0.72), rgba(31, 111, 191, 0.72)), url(${heroImage})` }}>
         <div className="iqac-hero-content">
           <div className="iqac-hero-badge">IQAC</div>
-          <h1>Internal Quality Assurance Cell</h1>
+          <h1>Internal Quality Assurance Cell</h1>                                                                            
           <span>(IQAC)</span>
           <p>Striving for Excellence in Quality Education</p>
         </div>
