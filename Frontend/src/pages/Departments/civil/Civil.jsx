@@ -1,7 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
 import {
-    FaBuilding, FaHardHat, FaDraftingCompass, FaUserTie,
+    FaHardHat, FaDraftingCompass, FaUserTie,
     FaEnvelope, FaAward, FaFlask, FaMapMarkedAlt, FaCalendarTimes
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";

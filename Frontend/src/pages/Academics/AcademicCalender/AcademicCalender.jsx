@@ -1,5 +1,5 @@
-import React from 'react';
-import './Acadamic calander.css';
+ 
+import './AcademicCalendar.css';
 import calendarIcon from './banner/calendar-icon.svg';
 import heroImage from '../../../assets/ps1.jpg';
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Library.css'; 
 
 const AnimatedNumber = ({ value }) => {
@@ -40,7 +40,7 @@ const Library = () => {
       setCurrentBgIndex((prev) => (prev + 1) % heroImages.length);
     }, 4000); 
     return () => clearInterval(bgInterval);
-  }, []);
+  }, [heroImages.length]);
 
   const collections = [
     { label: "VOLUMES", count: 21810 },

@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaLightbulb, FaBuilding, FaHandshake, FaUsers, FaUniversity, FaCheckCircle } from "react-icons/fa";
 import { executiveSummary } from "../data";

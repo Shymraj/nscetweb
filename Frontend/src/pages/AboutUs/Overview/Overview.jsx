@@ -1,5 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
+
 import HeroSection from "./HeroSection";
 import StatsSection from "./StatsSection";
 import WhyChoose from "./WhyChoose";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaSearchPlus, FaTimes } from "react-icons/fa";
 import chartImg from "../assets/images/organizational-chart.png";

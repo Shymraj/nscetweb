@@ -44,6 +44,15 @@
   letter-spacing: -0.04em;
 }
 
+/* Ensure header-title used in JSX matches styling */
+.header-title {
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  color: #ffffff;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
 .header-decor {
   display: inline-flex;
   align-items: center;

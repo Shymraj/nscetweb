@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaEye, FaBullseye, FaCertificate } from "react-icons/fa";
 import { vision, mission, qualityPolicy } from "../data";

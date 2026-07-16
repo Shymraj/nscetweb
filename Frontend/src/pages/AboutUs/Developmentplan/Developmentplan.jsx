@@ -1,4 +1,3 @@
-import React from "react";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import ExecutiveSummary from "./components/ExecutiveSummary";
 import InstitutionalProfile from "./components/InstitutionalProfile";

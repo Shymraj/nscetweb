@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes, FaSearchPlus } from "react-icons/fa";
 import devPlanImg from "../assets/images/developmentplan.jpg";
