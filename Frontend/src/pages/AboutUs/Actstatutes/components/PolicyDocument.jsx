@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaFilePdf, FaExternalLinkAlt } from "react-icons/fa";
 import pdfFile from "../assets/documents/policies.pdf";

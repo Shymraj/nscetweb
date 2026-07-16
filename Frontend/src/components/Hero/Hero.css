@@ -1,0 +1,325 @@
+.hero{
+    width:100%;
+    height:88vh;
+
+    position:relative;
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    overflow:hidden;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+
+    background:rgba(10,20,35,.60);
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    height:100%;
+
+    max-width:1350px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 70px;
+
+}
+
+/* LEFT */
+
+.hero-left{
+
+max-width:760px;
+
+}
+
+.hero-subtitle{
+
+display:inline-block;
+
+padding:10px 25px;
+
+border-radius:40px;
+
+background:rgba(255,255,255,.12);
+
+border:1px solid rgba(255,255,255,.25);
+
+backdrop-filter:blur(20px);
+
+color:white;
+
+font-size:15px;
+
+font-weight:600;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+margin-bottom:25px;
+
+}
+
+.hero-title{
+
+font-family:"Poppins",sans-serif;
+
+font-size:64px;
+
+font-weight:800;
+
+line-height:1.1;
+
+letter-spacing:-1px;
+
+color:#fbbf24;
+
+text-shadow:0 5px 15px rgba(0,0,0,.30);
+
+margin-bottom:40px;
+
+}
+
+/* RIGHT */
+
+.hero-right{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.hero-card{
+
+min-width:300px;
+
+padding:18px 24px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.12);
+
+border:1px solid rgba(255,255,255,.25);
+
+backdrop-filter:blur(20px);
+
+color:white;
+
+font-size:18px;
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+.hero-card:hover{
+
+transform:translateX(-10px);
+
+background:rgba(255,255,255,.18);
+
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+
+display:flex;
+
+gap:20px;
+
+}
+
+.hero-buttons button{
+
+padding:15px 34px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+.apply-btn{
+
+background:linear-gradient(135deg,#f97316,#ea580c);
+
+color:white;
+
+box-shadow:0 12px 30px rgba(249,115,22,.35);
+
+}
+
+.apply-btn:hover{
+
+transform:translateY(-5px);
+
+}
+
+.explore-btn{
+
+background:rgba(255,255,255,.12);
+
+border:1px solid rgba(255,255,255,.30);
+
+color:white;
+
+backdrop-filter:blur(15px);
+
+}
+
+.explore-btn:hover{
+
+background:white;
+
+color:#111827;
+
+}
+
+/* SCROLL */
+
+.scroll-down{
+
+position:absolute;
+
+left:50%;
+
+bottom:25px;
+
+transform:translateX(-50%);
+
+font-size:34px;
+
+color:white;
+
+cursor:pointer;
+
+animation:bounce 1.8s infinite;
+
+}
+
+@keyframes bounce{
+
+0%{transform:translateX(-50%) translateY(0);}
+
+50%{transform:translateX(-50%) translateY(10px);}
+
+100%{transform:translateX(-50%) translateY(0);}
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+.hero-content{
+
+flex-direction:column;
+
+justify-content:center;
+
+text-align:center;
+
+gap:35px;
+
+}
+
+.hero-title{
+
+font-size:48px;
+
+}
+
+.hero-right{
+
+width:100%;
+
+align-items:center;
+
+}
+
+.hero-card{
+
+width:320px;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+height:90vh;
+
+}
+
+.hero-content{
+
+padding:30px;
+
+}
+
+.hero-title{
+
+font-size:36px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.hero-buttons button{
+
+width:260px;
+
+}
+
+.hero-card{
+
+width:100%;
+
+max-width:300px;
+
+}
+
+}

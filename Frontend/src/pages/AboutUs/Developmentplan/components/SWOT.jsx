@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaTrophy, FaExclamationTriangle, FaLightbulb, FaShieldAlt } from "react-icons/fa";
 import { swotData } from "../data";

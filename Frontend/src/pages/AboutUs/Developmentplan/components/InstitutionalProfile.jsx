@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaCheckCircle, FaAward } from "react-icons/fa";
 import { institutionalProfile } from "../data";

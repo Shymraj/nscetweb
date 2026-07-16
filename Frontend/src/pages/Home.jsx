@@ -1,8 +1,18 @@
+import Hero from "../components/Hero/Hero";
+import Stats from "../components/Stats/Stats";
+import About from "../components/About/About";
+import WhyChoose from "../components/WhyChoose/WhyChoose";
+import Departments from "../components/Departments/Departments";
+
 function Home() {
   return (
-    <div style={{ marginTop: "100px", padding: "20px" }}>
-      <h1>Home Page</h1>
-    </div>
+    <>
+      <Hero />
+      <Stats />
+      <About />
+<WhyChoose />
+<Departments />
+    </>
   );
 }
 
