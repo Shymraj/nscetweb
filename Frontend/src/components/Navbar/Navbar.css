@@ -315,11 +315,20 @@ body.dark-mode .nav-links a::after {
     outline:none;
 
     background:transparent;
-    
+    color:#111827;
     font-size:16px;
     animation: textSlide .35s ease;
-    padding:0;
+    padding:0 6px 0 0;
 }
+
+.search-box input::placeholder {
+    color:#9ca3af;
+}
+
+body.dark-mode .search-box input {
+    color:#f8fafc;
+}
+
 @keyframes textSlide{
 
     from{
@@ -522,10 +531,19 @@ body.dark-mode .search-btn {
     border: 1px solid #4b5563;
 }
 
-body.dark-mode .search-box input {
+body.dark-mode .search-box {
     background: #374151;
-    color: white;
     border: 1px solid #4b5563;
+}
+
+body.dark-mode .search-box input {
+    background: transparent;
+    color: #f8fafc;
+    border: none;
+}
+
+body.dark-mode .search-box input::placeholder {
+    color: #cbd5e1;
 }
 
 body.dark-mode .theme-btn:hover {
