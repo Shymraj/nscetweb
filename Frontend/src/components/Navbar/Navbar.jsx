@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.webp";
 import { FaMoon, FaSun, FaSearch, FaTimes } from "react-icons/fa";
+import annualAccountsPdf from "../../pages/AboutUs/AnnualAccounts/assets/documents/annual-accounts.pdf";
 
 function Navbar() {
 
@@ -45,7 +46,17 @@ function Navbar() {
               <li><Link to="/about/development-plan">Institutional Development Plan</Link></li>
               <li><Link to="/about/affiliation">Affiliation & Accreditation</Link></li>
               <li><Link to="/about/annual-reports">Annual Reports</Link></li>
-              <li><Link to="/about/annual-accounts">Annual Accounts</Link></li>
+              <li>
+                <a 
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open(annualAccountsPdf, "_blank");
+                  }}
+                >
+                  Annual Accounts
+                </a>
+              </li>
             </ul>
           </li>
 

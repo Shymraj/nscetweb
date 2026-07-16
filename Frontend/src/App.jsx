@@ -53,7 +53,6 @@ import ActStatus from "./pages/ActStatus";
 import DevelopmentPlan from "./pages/AboutUs/Developmentplan/Developmentplan";
 import Affiliation from "./pages/Affiliation";
 import AnnualReports from "./pages/AnnualReports";
-import AnnualAccounts from "./pages/AnnualAccounts";
 
 function App() {
   return (
@@ -111,7 +110,6 @@ function App() {
         <Route path="/about/development-plan" element={<DevelopmentPlan />} />
         <Route path="/about/affiliation" element={<Affiliation />} />
         <Route path="/about/annual-reports" element={<AnnualReports />} />
-        <Route path="/about/annual-accounts" element={<AnnualAccounts />} />
       </Routes>
       <Footer />
     </BrowserRouter>
