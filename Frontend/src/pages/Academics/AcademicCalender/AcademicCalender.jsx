@@ -40,7 +40,7 @@ const AcademicCalendar = () => {
         style={{
           '--header-width': '1200px',
           '--title-width': '640px',
-          backgroundImage: `linear-gradient(rgba(168, 175, 183, 0.78), rgba(169, 173, 181, 0.78)), url(${heroImage})`,
+          backgroundImage: `linear-gradient(rgba(6, 32, 61, 0.78), rgba(15, 33, 68, 0.78)), url(${heroImage})`,
         }}
       >
         <div className="header-content">

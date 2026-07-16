@@ -94,7 +94,7 @@
   gap: 18px;
   padding: 28px;
   border-radius: 28px;
-  background: #ffffff;
+  background: #a19aae;
   box-shadow: 0 20px 60px rgba(15, 34, 86, 0.09);
   border: 1px solid rgba(15, 34, 86, 0.08);
 }
@@ -171,7 +171,7 @@
   gap: 14px;
   padding: 22px 20px;
   border-radius: 22px;
-  background: #ffffff;
+  background: #dad8e8;
   border: 1px solid rgba(6, 52, 137, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
