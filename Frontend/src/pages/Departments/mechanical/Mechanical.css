@@ -1,0 +1,862 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* ================= VARIABLES ================= */
+:root {
+    --mech-primary: #1e3a5f;
+    --mech-primary-light: #2b5a8c;
+    --mech-accent: #c9a84c;
+    --mech-accent-light: #e8d48b;
+    --mech-bg: #f7f8fa;
+    --mech-card: #ffffff;
+    --mech-text: #1e293b;
+    --mech-text-light: #64748b;
+    --mech-border: #e2e8f0;
+    --mech-radius: 16px;
+}
+
+.mech-container {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 100px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--mech-text);
+    background-color: var(--mech-bg);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ================= HERO SECTION ================= */
+.mech-hero-section {
+    padding: 1.5rem 2.5rem 0;
+    margin-bottom: 3rem;
+}
+
+.mech-hero-box {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.mech-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.55) 100%);
+    border-radius: 30px;
+    z-index: 1;
+}
+
+.mech-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 3rem 2rem;
+    max-width: 900px;
+}
+
+.mech-hero-title {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    line-height: 1.2;
+}
+
+.mech-hero-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+    font-weight: 400;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .mech-hero-section {
+        padding: 1rem 1rem 0;
+    }
+
+    .mech-hero-box {
+        min-height: 280px;
+        border-radius: 20px;
+    }
+
+    .mech-hero-overlay {
+        border-radius: 20px;
+    }
+
+    .mech-hero-title {
+        letter-spacing: 1px;
+    }
+
+    .mech-hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+.mech-content-wrapper {
+    position: relative;
+    z-index: 10;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 2.5rem 3rem;
+}
+
+/* ================= SECTION HEADERS ================= */
+.mech-glam-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--mech-primary);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mech-glam-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--mech-accent);
+    border-radius: 50px;
+}
+
+.mech-glam-title span {
+    color: var(--mech-accent);
+}
+
+/* ================= ABOUT BENTO GRID ================= */
+.mech-about-bento {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+@media (max-width: 900px) {
+    .mech-about-bento {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mech-bento-card {
+    background: linear-gradient(145deg, #1e3a5f 0%, #2b4a7a 100%);
+    background-size: 200% 200%;
+    animation: mechGradientShift 6s ease infinite;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    border-radius: var(--mech-radius);
+    padding: 3.5rem;
+    box-shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    color: white;
+}
+
+.mech-bento-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.15) 50%, transparent 60%);
+    transition: all 0.6s ease;
+    transform: translateX(-100%);
+    z-index: 0;
+}
+
+.mech-bento-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(30, 58, 95, 0.35);
+}
+
+.mech-bento-card:hover::before {
+    transform: translateX(100%);
+}
+
+.mech-bento-card.primary {
+    background: linear-gradient(135deg, #0f2744 0%, #1e3a5f 50%, #2b5a8c 100%);
+    background-size: 200% 200%;
+    animation: mechGradientShift 6s ease infinite;
+    color: white;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    box-shadow: 0 8px 30px rgba(15, 39, 68, 0.3);
+}
+
+@keyframes mechGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.mech-bento-card.primary:hover {
+    box-shadow: 0 20px 45px rgba(15, 39, 68, 0.45);
+    transform: translateY(-8px);
+}
+
+.mech-bento-card p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.mech-bento-card.primary p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.mech-bento-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--mech-accent-light);
+}
+
+.mech-bento-card.primary h3 {
+    color: white;
+}
+
+/* ================= VISION MISSION ================= */
+.mech-vm-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+@media (max-width: 800px) {
+    .mech-vm-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mech-glass-card {
+    background: var(--mech-card);
+    border: 1px solid var(--mech-border);
+    border-radius: var(--mech-radius);
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.mech-glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--mech-primary), var(--mech-accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.mech-glass-card:hover {
+    box-shadow: 0 12px 35px rgba(30, 58, 95, 0.1);
+    transform: translateY(-4px);
+}
+
+.mech-glass-card:hover::before {
+    transform: scaleX(1);
+}
+
+.mech-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.mech-glass-card:hover .mech-icon-wrapper {
+    transform: scale(1.1);
+}
+
+.mech-vision-icon {
+    background: var(--mech-primary);
+}
+
+.mech-mission-icon {
+    background: var(--mech-accent);
+    color: var(--mech-primary);
+}
+
+.mech-glass-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--mech-primary);
+}
+
+.mech-glass-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mech-glass-card li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--mech-text-light);
+}
+
+.mech-glass-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 20px;
+    height: 20px;
+    background: rgba(30, 58, 95, 0.08);
+    color: var(--mech-primary);
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+}
+
+/* ================= FACILITIES CARDS ================= */
+.mech-capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.mech-cap-card {
+    background: var(--mech-card);
+    border-radius: var(--mech-radius);
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--mech-border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.mech-cap-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--mech-accent);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.mech-cap-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(30, 58, 95, 0.1);
+}
+
+.mech-cap-card:hover::after {
+    transform: scaleX(1);
+}
+
+.mech-cap-icon {
+    font-size: 2rem;
+    color: var(--mech-primary);
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.mech-cap-card:hover .mech-cap-icon {
+    color: var(--mech-accent);
+}
+
+.mech-cap-card:hover h4,
+.mech-cap-card:hover p {
+    color: var(--mech-text);
+}
+
+.mech-cap-card h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+    color: var(--mech-primary);
+}
+
+.mech-cap-card p {
+    color: var(--mech-text-light);
+    line-height: 1.6;
+    font-size: 0.92rem;
+}
+
+/* ================= FACULTY ================= */
+.mech-hod-banner {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 100%;
+    margin: 0 auto 4rem;
+    background: linear-gradient(135deg, #0f2744 0%, var(--mech-primary) 50%, #2b5a8c 100%);
+    background-size: 200% 200%;
+    animation: mechGradientShift 6s ease infinite;
+    border-radius: 20px;
+    padding: 3.5rem 4rem;
+    color: white;
+    box-shadow: 0 12px 40px rgba(15, 39, 68, 0.3);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+.mech-hod-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(201, 168, 76, 0.12) 50%, transparent 60%);
+    transition: all 0.8s ease;
+    transform: translateX(-100%);
+    z-index: 0;
+}
+
+.mech-hod-banner:hover::before {
+    transform: translateX(100%);
+}
+
+.mech-hod-banner::after {
+    content: '';
+    position: absolute;
+    right: -5%;
+    top: -30%;
+    width: 300px;
+    height: 300px;
+    background: rgba(201, 168, 76, 0.12);
+    filter: blur(80px);
+    border-radius: 50%;
+    animation: mechGlowFloat 4s ease-in-out infinite;
+}
+
+@keyframes mechGlowFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translate(-20px, 20px);
+        opacity: 1;
+    }
+}
+
+.mech-hod-banner:hover {
+    box-shadow: 0 20px 50px rgba(15, 39, 68, 0.4);
+    transform: translateY(-5px);
+}
+
+@media (max-width: 800px) {
+    .mech-hod-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem;
+        gap: 2rem;
+    }
+}
+
+.mech-hod-avatar {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, var(--mech-accent), #b8943f);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
+    border: 5px solid rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.mech-hod-avatar-ring {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 50%;
+    border: 3px solid var(--mech-accent);
+    animation: mechRingPulse 2.5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 3;
+}
+
+@keyframes mechRingPulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+    }
+}
+
+.mech-hod-avatar img,
+.mech-member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.mech-hod-details {
+    z-index: 2;
+}
+
+.mech-hod-details h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+    font-weight: 800;
+}
+
+.mech-hod-details .designation {
+    font-size: 0.9rem;
+    color: var(--mech-accent-light);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.mech-hod-details p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (max-width: 800px) {
+    .mech-hod-details p {
+        justify-content: center;
+    }
+}
+
+.mech-faculty-team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 100%;
+    margin: 0 auto 3rem;
+}
+
+@media (max-width: 950px) {
+    .mech-faculty-team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mech-member-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    background: var(--mech-card);
+    border-radius: var(--mech-radius);
+    padding: 2rem 2.5rem;
+    text-align: left;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--mech-border);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.mech-member-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--mech-accent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mech-member-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(30, 58, 95, 0.08);
+    border-color: var(--mech-primary);
+}
+
+.mech-member-card:hover::before {
+    opacity: 1;
+}
+
+@media (max-width: 800px) {
+    .mech-member-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+}
+
+.mech-member-avatar {
+    width: 150px;
+    height: 150px;
+    background: var(--mech-bg);
+    color: var(--mech-text-light);
+    border-radius: 50%;
+    margin: 0;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    overflow: hidden;
+    border: 3px solid var(--mech-border);
+    transition: border-color 0.3s ease;
+}
+
+.mech-member-card:hover .mech-member-avatar {
+    border-color: var(--mech-accent);
+}
+
+.mech-member-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.mech-member-card h4 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--mech-primary);
+    margin-bottom: 0.3rem;
+}
+
+.mech-member-card .desig {
+    font-size: 0.9rem;
+    color: var(--mech-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.mech-member-card .qual {
+    font-size: 0.95rem;
+    color: var(--mech-text-light);
+    display: block;
+}
+
+/* ================= EVENTS & ASSOCIATION ================= */
+.mech-glam-banner {
+    background: linear-gradient(135deg, #0f2744 0%, #1e3a5f 40%, #2b5a8c 100%);
+    background-size: 200% 200%;
+    animation: mechGradientShift 6s ease infinite;
+    padding: 3.5rem 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 40px rgba(15, 39, 68, 0.3);
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.mech-glam-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(201, 168, 76, 0.1) 50%, transparent 60%);
+    transition: all 0.8s ease;
+    transform: translateX(-100%);
+    z-index: 0;
+}
+
+.mech-glam-banner:hover::before {
+    transform: translateX(100%);
+}
+
+.mech-glam-banner:hover {
+    box-shadow: 0 16px 50px rgba(15, 39, 68, 0.4);
+    transform: translateY(-4px);
+    transition: all 0.4s ease;
+}
+
+.mech-glam-banner-icon {
+    position: relative;
+    z-index: 1;
+}
+
+.mech-glam-banner-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px;
+    border: 3px solid var(--mech-accent);
+    box-shadow: 0 6px 25px rgba(201, 168, 76, 0.4);
+    animation: mechLogoPulse 3s ease-in-out infinite;
+}
+
+@keyframes mechLogoPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 6px 25px rgba(201, 168, 76, 0.4);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 10px 35px rgba(201, 168, 76, 0.65);
+        transform: scale(1.06);
+    }
+}
+
+.mech-glam-banner h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+.mech-glam-banner p {
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+}
+
+/* ================= EMPTY STATE ================= */
+.mech-empty-events-state {
+    text-align: center;
+    padding: 3rem;
+    background: var(--mech-card);
+    border-radius: var(--mech-radius);
+    border: 2px dashed var(--mech-border);
+    color: var(--mech-text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.mech-empty-events-state .empty-icon {
+    font-size: 2.5rem;
+    opacity: 0.25;
+    color: var(--mech-text-light);
+}
+
+/* ================= DARK MODE ================= */
+body.dark-mode .mech-container {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+body.dark-mode .mech-bento-card,
+body.dark-mode .mech-glass-card,
+body.dark-mode .mech-cap-card,
+body.dark-mode .mech-member-card {
+    background: #1e293b;
+    border-color: #334155;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .mech-glam-title {
+    color: #f8fafc;
+}
+
+body.dark-mode .mech-bento-card p,
+body.dark-mode .mech-glass-card li,
+body.dark-mode .mech-cap-card p,
+body.dark-mode .mech-member-card .qual {
+    color: #94a3b8;
+}
+
+body.dark-mode .mech-glass-card h3,
+body.dark-mode .mech-member-card h4,
+body.dark-mode .mech-cap-card h4,
+body.dark-mode .mech-bento-card h3 {
+    color: #f8fafc;
+}
+
+body.dark-mode .mech-member-avatar {
+    background: #334155;
+    border-color: #475569;
+}
+
+body.dark-mode .mech-glass-card li::before {
+    background: #334155;
+    color: #60a5fa;
+}
+
+body.dark-mode .mech-empty-events-state {
+    background: #1e293b;
+    border-color: #334155;
+    color: #94a3b8;
+}
