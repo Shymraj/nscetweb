@@ -1,25 +1,26 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/layout/Footer";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Overview from "./pages/Aboutus/Overview";
-import Actstatutes from "./pages/Aboutus/Actstatutes";
-import Developmentplan from "./pages/Aboutus/Developmentplan";
-import Affiliation from "./pages/Aboutus/Affiliation";
-import AnnualReports from "./pages/Aboutus/AnnualReports";
-import AnnualAccounts from "./pages/Aboutus/AnnualAccounts";
-
-
 import Academics from "./pages/Academics";
 import Departments from "./pages/Departments";
-import CSE from "./pages/Departments/CSE";
-import Civil from "./pages/Departments/Civil";
-import Mechanical from "./pages/Departments/Mechanical";
-import Electrical from "./pages/Departments/Electrical";
-import Electronics from "./pages/Departments/Electronics";
-import ScienceHumanities from "./pages/Departments/ScienceHumanities";
+
+import CSE from "./pages/Departments/cse/CSE";
+import IT from "./pages/Departments/cse/IT";
+import AIDS from "./pages/Departments/cse/AIDS";
+import MECSE from "./pages/Departments/cse/MECSE";
+import Civil from "./pages/Departments/civil/Civil";
+import MEStructural from "./pages/Departments/civil/MEStructural";
+import Mechanical from "./pages/Departments/mechanical/Mechanical";
+import MEManufacturing from "./pages/Departments/mechanical/MEManufacturing";
+import Electrical from "./pages/Departments/electrical/Electrical";
+import MEEmbedded from "./pages/Departments/electrical/MEEmbedded";
+import Electronics from "./pages/Departments/electronics/Electronics";
+import ScienceHumanities from "./pages/Departments/s&h/ScienceHumanities";
+
 import Infrastructure from "./pages/Infrastructure";
 import Research from "./pages/Research";
 import ResearchDevelopmentCell from "./pages/Research/ResearchDevelopmentCell/ResearchDevelopmentCell";
@@ -47,6 +48,12 @@ import AcademicsIndustryCollaboration from "./pages/Academics/IndustryCollaborat
 import Events from "./pages/Events";
 import Alumni from "./pages/Alumni";
 import Contact from "./pages/Contact";
+import Overview from "./pages/Overview";
+import ActStatus from "./pages/ActStatus";
+import DevelopmentPlan from "./pages/AboutUs/Developmentplan/Developmentplan";
+import Affiliation from "./pages/Affiliation";
+import AnnualReports from "./pages/AnnualReports";
+import AnnualAccounts from "./pages/AnnualAccounts";
 
 function App() {
   return (
@@ -66,12 +73,20 @@ function App() {
         <Route path="/academics/library" element={<Library />} />
         <Route path="/academics/industry-collaboration" element={<AcademicsIndustryCollaboration />} />
         <Route path="/departments" element={<Departments />} />
+
         <Route path="/departments/cse" element={<CSE />} />
+        <Route path="/departments/it" element={<IT />} />
+        <Route path="/departments/aids" element={<AIDS />} />
+        <Route path="/departments/me-cse" element={<MECSE />} />
         <Route path="/departments/civil" element={<Civil />} />
+        <Route path="/departments/me-structural" element={<MEStructural />} />
         <Route path="/departments/mechanical" element={<Mechanical />} />
+        <Route path="/departments/me-manufacturing" element={<MEManufacturing />} />
         <Route path="/departments/electrical" element={<Electrical />} />
+        <Route path="/departments/me-embedded" element={<MEEmbedded />} />
         <Route path="/departments/electronics" element={<Electronics />} />
         <Route path="/departments/science-humanities" element={<ScienceHumanities />} />
+
         <Route path="/infrastructure" element={<Infrastructure />} />
         <Route path="/research" element={<Research />} />
         <Route path="/research/rnd-cell" element={<ResearchDevelopmentCell />} />
@@ -91,36 +106,14 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/contact" element={<Contact />} />
-
-
         <Route path="/about/overview" element={<Overview />} />
-
-        <Route path="/about/actstatutes" element={<Actstatutes />} />
-
-        <Route
-          path="/about/development-plan"
-          element={<Developmentplan />}
-        />
-
-        <Route
-          path="/about/affiliation"
-          element={<Affiliation />}
-        />
-
-        <Route
-          path="/about/annual-reports"
-          element={<AnnualReports />}
-        />
-
-        <Route
-          path="/about/Annual-Accounts"
-          element={<AnnualAccounts />}
-        />
-
-
-
-
+        <Route path="/about/actstatutes" element={<ActStatus />} />
+        <Route path="/about/development-plan" element={<DevelopmentPlan />} />
+        <Route path="/about/affiliation" element={<Affiliation />} />
+        <Route path="/about/annual-reports" element={<AnnualReports />} />
+        <Route path="/about/annual-accounts" element={<AnnualAccounts />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

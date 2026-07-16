@@ -81,30 +81,30 @@ function Navbar() {
                 <Link to="/departments/cse">Faculty of Computer Science & Engineering <span className="submenu-arrow">›</span></Link>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/cse">B.E Computer Science & Engineering</Link></li>
-                  <li><Link to="/departments/cse">M.E Computer Science & Engineering</Link></li>
-                  <li><Link to="/departments/cse">B.TECH Information Technology</Link></li>
-                  <li><Link to="/departments/cse">B.TECH Artificial Intelligence & Data Science</Link></li>
+                  <li><Link to="/departments/me-cse">M.E Computer Science & Engineering</Link></li>
+                  <li><Link to="/departments/it">B.TECH Information Technology</Link></li>
+                  <li><Link to="/departments/aids">B.TECH Artificial Intelligence & Data Science</Link></li>
                 </ul>
               </li>
               <li className="has-submenu">
                 <Link to="/departments/civil">Faculty of Civil Engineering <span className="submenu-arrow">›</span></Link>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/civil">B.E Civil Engineering</Link></li>
-                  <li><Link to="/departments/civil">M.E Structural Engineering</Link></li>
+                  <li><Link to="/departments/me-structural">M.E Structural Engineering</Link></li>
                 </ul>
               </li>
               <li className="has-submenu">
                 <Link to="/departments/mechanical">Faculty of Mechanical Engineering <span className="submenu-arrow">›</span></Link>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/mechanical">B.E Mechanical Engineering</Link></li>
-                  <li><Link to="/departments/mechanical">M.E Manufacturing Engineering</Link></li>
+                  <li><Link to="/departments/me-manufacturing">M.E Manufacturing Engineering</Link></li>
                 </ul>
               </li>
               <li className="has-submenu">
                 <Link to="/departments/electrical">Faculty of Electrical Engineering <span className="submenu-arrow">›</span></Link>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/electrical">B.E Electrical & Electronics Engineering</Link></li>
-                  <li><Link to="/departments/electrical">M.E Embedded System & Technology</Link></li>
+                  <li><Link to="/departments/me-embedded">M.E Embedded System & Technology</Link></li>
                 </ul>
               </li>
               <li className="has-submenu">
