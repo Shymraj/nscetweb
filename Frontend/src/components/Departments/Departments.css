@@ -361,3 +361,38 @@ font-size:16px;
 }
 
 }
+
+body.dark-mode .departments {
+  background: linear-gradient(180deg, #111827, #0f172a);
+}
+
+body.dark-mode .department-subtitle,
+body.dark-mode .department-description {
+  color: #cbd5e1;
+}
+
+body.dark-mode .department-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .department-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+
+body.dark-mode .department-image {
+  background: linear-gradient(135deg, #1e40af, #1e3a8a, #2563eb);
+}
+
+body.dark-mode .department-content h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .department-content p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .department-content button {
+  box-shadow: 0 10px 25px rgba(37,99,235,.2);
+}
