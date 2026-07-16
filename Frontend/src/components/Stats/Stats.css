@@ -264,6 +264,36 @@ padding: 80px 8% 40px;
   bottom: -120px;
   right: -120px;
 }
+
+body.dark-mode .stats {
+  background: linear-gradient(135deg, #111827 0%, #111827 55%, #0f172a 100%);
+}
+
+body.dark-mode .stats-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+
+body.dark-mode .stats-card h2 {
+  color: #93c5fd;
+}
+
+body.dark-mode .stats-card p,
+body.dark-mode .stats-description,
+body.dark-mode .stats-title,
+body.dark-mode .stats-subtitle {
+  color: #cbd5e1;
+}
+
+body.dark-mode .icon-box {
+  box-shadow: 0 0 25px rgba(37,99,235,.25);
+}
+
+body.dark-mode .stats-card:hover {
+  background: rgba(255,255,255,.08);
+}
+
 .stats-card::before {
 
   content: "";

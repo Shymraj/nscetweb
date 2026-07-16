@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.webp";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaMoon, FaSun, FaSearch, FaTimes } from "react-icons/fa";
 import annualAccountsPdf from "../../pages/AboutUs/AnnualAccounts/assets/documents/annual-accounts.pdf";
 
 function Navbar() {
 
   const [darkMode, setDarkMode] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
@@ -26,9 +28,9 @@ function Navbar() {
           <div className="logo-box">
             <img src={logo} alt="NSCET Logo" className="logo" />
           </div>
+          
           <div className="college-name">
             <h2>NSCET</h2>
-            <p>Theni, Tamil Nadu</p>
           </div>
         </div>
 
@@ -145,13 +147,51 @@ function Navbar() {
         </ul>
 
         <div className="nav-right">
-          <button
-            className="theme-btn"
-            onClick={() => setDarkMode(!darkMode)}
-          >
-            {darkMode ? <FaSun /> : <FaMoon />}
-          </button>
-          <button className="apply-btn">Apply Now →</button>
+         {!showSearch && (
+<button
+className="search-btn"
+onClick={()=>setShowSearch(true)}
+>
+<FaSearch/>
+</button>
+)}
+  
+
+{showSearch ? (
+
+<div className="search-box">
+
+  <FaSearch className="search-icon" />
+
+  <input
+    type="text"
+    placeholder="Search..."
+    autoFocus
+  />
+  <button
+  className="close-search"
+  onClick={() => setShowSearch(false)}
+>
+  <FaTimes />
+</button>
+
+</div>
+) : (
+
+  <>
+    <button
+      className="theme-btn"
+      onClick={() => setDarkMode(!darkMode)}
+    >
+      {darkMode ? <FaSun /> : <FaMoon />}
+    </button>
+
+    <button className="apply-btn">
+      Apply Now →
+    </button>
+  </>
+
+)}
         </div>
 
       </nav>
