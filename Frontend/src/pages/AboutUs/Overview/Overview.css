@@ -1,6 +1,11 @@
 /* Overview.css */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,600;1,600&display=swap');
 
+:root {
+  --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
+  --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
+}
+
 /* Custom Variables specifically for this page */
 :root {
   --nscet-blue: #0b2559;
@@ -118,9 +123,9 @@
 }
 
 .info-card {
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--premium-card-bg);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: var(--premium-card-border);
   padding: 0.75rem 1.25rem;
   border-radius: 12px;
   display: flex;
@@ -169,7 +174,7 @@
 
 /* Premium Quote Card */
 .hero-quote-card {
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--premium-card-bg);
   backdrop-filter: blur(10px);
   border-left: 4px solid var(--nscet-accent);
   padding: 1.5rem;
@@ -258,9 +263,9 @@
   position: absolute;
   bottom: -20px;
   left: -30px;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--premium-card-bg);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: var(--premium-card-border);
   padding: 1.5rem;
   border-radius: 16px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -308,9 +313,10 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--premium-card-bg);
   cursor: pointer;
   transition: all 0.3s ease;
+  border: var(--premium-card-border);
 }
 
 .slider-dot.active {
@@ -320,10 +326,10 @@
 }
 
 .slider-arrow {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--premium-card-bg);
   backdrop-filter: blur(4px);
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: var(--premium-card-border);
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -354,9 +360,9 @@
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--premium-card-bg);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: var(--premium-card-border);
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
@@ -423,8 +429,9 @@
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  background: white; /* fallback */
+  background: var(--premium-card-bg); /* fallback */
   height: 350px;
+  border: var(--premium-card-border);
 }
 
 .achievement-image-wrapper {
@@ -553,11 +560,11 @@
 
 .timeline-content {
   width: 45%;
-  background: white;
+  background: var(--premium-card-bg);
   padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: var(--premium-card-border);
   transition: all 0.3s ease;
   position: relative;
 }
@@ -568,9 +575,9 @@
   top: 24px;
   width: 20px;
   height: 20px;
-  background: white;
+  background: var(--premium-card-bg);
   transform: rotate(45deg);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: var(--premium-card-border);
 }
 
 .timeline-item:nth-child(odd) .timeline-content::before {
@@ -698,17 +705,19 @@
 }
 
 .btn-secondary:hover {
-  background: white;
+  background: var(--premium-card-bg);
   color: var(--nscet-blue);
   transform: translateY(-3px);
+  border: var(--premium-card-border);
 }
 
 /* Floating particles for CTA */
 .particle {
   position: absolute;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--premium-card-bg);
   border-radius: 50%;
   pointer-events: none;
+  border: var(--premium-card-border);
 }
 
 /* ==================================================

@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { qualityPolicyIntro, qualityPolicyCards, qualityPolicyCommitment } from "../data";
 

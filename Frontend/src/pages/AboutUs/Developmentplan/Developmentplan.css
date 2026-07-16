@@ -1,3 +1,8 @@
+
+:root {
+  --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
+  --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
+}
 /* Developmentplan.css */
 
 /* Global and Container */
@@ -69,10 +74,10 @@
 }
 
 .premium-glass-card {
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--premium-card-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: var(--premium-card-border);
   border-radius: 24px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -321,8 +326,8 @@
 }
 
 .mission-check-card {
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: var(--premium-card-bg);
+  border: var(--premium-card-border);
   border-radius: 16px;
   padding: 1.25rem;
   display: flex;
@@ -332,9 +337,10 @@
 }
 
 .mission-check-card:hover {
-  background: white;
+  background: var(--premium-card-bg);
   transform: translateX(8px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  border: var(--premium-card-border);
 }
 
 .check-number {
@@ -622,7 +628,7 @@
 }
 
 .accordion-content-wrapper {
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--premium-card-bg);
   border-top: 1px solid rgba(226, 232, 240, 0.8);
 }
 
@@ -753,9 +759,9 @@
   }
   .dev-summary-table tr {
     margin-bottom: 1.5rem;
-    border: 1px solid #e2e8f0;
+    border: var(--premium-card-border);
     border-radius: 12px;
-    background: white;
+    background: var(--premium-card-bg);
     padding: 1rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
   }
@@ -823,10 +829,10 @@
   max-width: 1100px;
   position: relative;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--premium-card-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: var(--premium-card-border);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -949,8 +955,8 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--premium-card-bg);
+  border: var(--premium-card-border);
   color: white;
   display: flex;
   align-items: center;
@@ -962,9 +968,10 @@
 }
 
 .dev-modal-close:hover {
-  background: white;
+  background: var(--premium-card-bg);
   color: #0f172a;
   transform: rotate(90deg);
+  border: var(--premium-card-border);
 }
 
 .dev-modal-content {

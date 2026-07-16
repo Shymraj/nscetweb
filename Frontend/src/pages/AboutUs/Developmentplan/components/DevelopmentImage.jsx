@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes, FaSearchPlus } from "react-icons/fa";
 import devPlanImg from "../assets/images/developmentplan.jpg";
@@ -69,32 +70,35 @@ const DevelopmentImage = () => {
       </motion.div>
 
       {/* Fullscreen Modal */}
-      <AnimatePresence>
-        {isOpen && !imageError && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="dev-modal-backdrop"
-            onClick={closeModal}
-          >
-            <button className="dev-modal-close" onClick={closeModal} aria-label="Close modal">
-              <FaTimes />
-            </button>
+      {createPortal(
+        <AnimatePresence>
+          {isOpen && !imageError && (
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="dev-modal-content"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="dev-modal-backdrop"
+              onClick={closeModal}
             >
-              <img src={devPlanImg} alt="Development Plan Roadmap Fullscreen" className="dev-modal-img" />
+              <button className="dev-modal-close" onClick={closeModal} aria-label="Close modal">
+                <FaTimes />
+              </button>
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                className="dev-modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img src={devPlanImg} alt="Development Plan Roadmap Fullscreen" className="dev-modal-img" />
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 };

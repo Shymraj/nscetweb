@@ -1,0 +1,215 @@
+.iqac-page {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #102a43;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.iqac-hero {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 24px;
+  color: #ffffff;
+  padding: 100px 50px;
+  margin-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.iqac-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(165, 134, 134, 0.18), transparent 40%);
+  pointer-events: none;
+}
+
+.iqac-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  width: min(820px, 100%);
+  margin: 0 auto;
+}
+
+.iqac-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.14);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+
+.iqac-hero h1 {
+  font-size: clamp(2rem, 3vw, 3.4rem);
+  margin: 0 0 12px;
+  line-height: 1.05;
+}
+
+.iqac-hero span,
+.iqac-hero p {
+  display: block;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.92);
+}
+
+.iqac-about-card {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 22px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 24px 48px rgba(37, 78, 131, 0.12);
+  margin-bottom: 32px;
+  align-items: center;
+}
+
+.iqac-about-icon {
+  width: 80px;
+  height: 80px;
+  background: #0d3a74;
+  color: #ffffff;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+
+.iqac-about-card h2 {
+  margin: 0 0 12px;
+  font-size: 1.6rem;
+}
+
+.iqac-about-card p {
+  margin: 0;
+  line-height: 1.75;
+  color: #475569;
+}
+
+.iqac-section {
+  margin-bottom: 32px;
+}
+
+.iqac-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #102a43;
+  text-align: center;
+}
+
+.iqac-member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.iqac-member-card {
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 16px 32px rgba(15, 46, 81, 0.08);
+  padding: 24px;
+  min-height: 220px;
+}
+
+.iqac-member-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+  color: #0d3a74;
+  letter-spacing: 0.02em;
+}
+
+.iqac-member-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.iqac-member-card li {
+  margin-bottom: 14px;
+}
+
+.iqac-member-card strong {
+  display: block;
+  color: #102a43;
+  font-weight: 700;
+}
+
+.iqac-member-card span {
+  display: block;
+  color: #475569;
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+.iqac-records-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.iqac-record-card {
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #f8fafc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #102a43;
+  text-align: left;
+}
+
+.iqac-record-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 32px rgba(15, 46, 81, 0.14);
+}
+
+.iqac-record-year {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.iqac-record-card span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  width: fit-content;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(16, 42, 67, 0.06);
+  font-weight: 600;
+}
+
+.iqac-record-blue { background: linear-gradient(135deg, #eaf4ff, #dceeff); }
+.iqac-record-green { background: linear-gradient(135deg, #e9f9f1, #d8f0e0); }
+.iqac-record-orange { background: linear-gradient(135deg, #fff4e7, #ffe6c2); }
+.iqac-record-purple { background: linear-gradient(135deg, #f3edff, #e7dcff); }
+.iqac-record-teal { background: linear-gradient(135deg, #ecfeff, #d7f8fb); }
+
+@media (max-width: 768px) {
+  .iqac-hero {
+    padding: 36px 22px;
+  }
+
+  .iqac-about-card {
+    grid-template-columns: 1fr;
+  }
+
+  .iqac-record-card {
+    padding: 20px;
+  }
+}
