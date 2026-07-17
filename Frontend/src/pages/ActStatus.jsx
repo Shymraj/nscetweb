@@ -1,1 +1,1 @@
-export { default } from "./AboutUs/Actstatutes/Actstatutes";
+export { default } from "./Aboutus/Actstatutes/Actstatutes";

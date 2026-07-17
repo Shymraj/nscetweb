@@ -1,1 +1,1 @@
-export { default } from "./AboutUs/Developmentplan/Developmentplan.jsx";
+export { default } from "./Aboutus/Developmentplan/Developmentplan.jsx";

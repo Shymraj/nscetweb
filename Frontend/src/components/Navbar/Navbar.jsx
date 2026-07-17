@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.webp";
 import { FaMoon, FaSun, FaSearch, FaTimes, FaBars } from "react-icons/fa";
-import annualAccountsPdf from "../../pages/AboutUs/AnnualAccounts/assets/documents/annual-accounts.pdf";
+import annualAccountsPdf from "../../pages/Aboutus/AnnualAccounts/assets/documents/annual-accounts.pdf";
 
 function Navbar() {
 

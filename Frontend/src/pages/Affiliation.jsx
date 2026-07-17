@@ -1,1 +1,1 @@
-export { default } from "./AboutUs/Affiliation/Affiliation";
+export { default } from "./Aboutus/Affiliation/Affiliation";

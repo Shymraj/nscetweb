@@ -5,7 +5,6 @@
 }
 
 html{
-  scroll-behavior:smooth;
 }
 
 body{
@@ -25,4 +24,262 @@ body.dark-mode{
 #root{
   width:100%;
   min-height:100vh;
+}
+/* =========================================
+   DARK MODE OVERRIDES for About Us & Academics
+   ========================================= */
+body.dark-mode .overview-page,
+body.dark-mode .dev-plan-page,
+body.dark-mode .act-statutes-page,
+body.dark-mode .affiliation-page,
+body.dark-mode .annual-reports-page,
+body.dark-mode .academic-calendar-wrapper,
+body.dark-mode .library-wrapper,
+body.dark-mode .iqac-wrapper,
+body.dark-mode .achievements-section,
+body.dark-mode .journey-section,
+body.dark-mode .hero-section,
+body.dark-mode .stats-section,
+body.dark-mode .cta-section {
+  background-color: #111827 !important;
+  background: #111827 !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .premium-glass-card,
+body.dark-mode .info-card,
+body.dark-mode .hero-quote-card,
+body.dark-mode .floating-caption,
+body.dark-mode .stat-card,
+body.dark-mode .achievement-card,
+body.dark-mode .timeline-content,
+body.dark-mode .feature-card,
+body.dark-mode .mission-check-card,
+body.dark-mode .swot-card,
+body.dark-mode .accordion-content-wrapper,
+body.dark-mode .dev-summary-table tr,
+body.dark-mode .sidebar-glass-card,
+body.dark-mode .premium-card,
+body.dark-mode .elegant-card,
+body.dark-mode .card-glass,
+body.dark-mode .document-showcase-card,
+body.dark-mode .chart-preview-card,
+body.dark-mode .calendar-card,
+body.dark-mode .library-card,
+body.dark-mode .iqac-card,
+body.dark-mode .report-card {
+  background: #1f2937 !important;
+  color: #f3f4f6 !important;
+  border-color: #374151 !important;
+}
+
+body.dark-mode p,
+body.dark-mode .exec-text,
+body.dark-mode .profile-text,
+body.dark-mode .vision-text,
+body.dark-mode .check-text,
+body.dark-mode .swot-list-item,
+body.dark-mode .accordion-section p,
+body.dark-mode .accordion-section ul,
+body.dark-mode .dev-summary-table td,
+body.dark-mode .document-description,
+body.dark-mode .meta-item,
+body.dark-mode .hero-description,
+body.dark-mode .info-label,
+body.dark-mode .caption-content p,
+body.dark-mode .timeline-description,
+body.dark-mode .achievement-description,
+body.dark-mode .sidebar-link,
+body.dark-mode .section-intro,
+body.dark-mode .elegant-mission-text,
+body.dark-mode .elegant-vision-text {
+  color: #d1d5db !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .dev-section-title,
+body.dark-mode .section-title,
+body.dark-mode .hero-title,
+body.dark-mode .caption-content h4,
+body.dark-mode .timeline-title,
+body.dark-mode .academic-title,
+body.dark-mode .quality-card-title,
+body.dark-mode .document-title,
+body.dark-mode .feature-title,
+body.dark-mode .elegant-card-title,
+body.dark-mode .commitment-quote {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+body.dark-mode .sidebar-link.active,
+body.dark-mode .sidebar-link:hover {
+  background: rgba(59, 130, 246, 0.15) !important;
+  color: #60a5fa !important;
+}
+
+body.dark-mode .premium-btn,
+body.dark-mode .btn-primary {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+body.dark-mode .info-card-blue,
+body.dark-mode .info-card-green,
+body.dark-mode .calendar-card {
+  background: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+body.dark-mode .calendar-card-text,
+body.dark-mode .info-content h2,
+body.dark-mode .info-content p {
+  color: #f3f4f6 !important;
+}
+
+body.dark-mode .calendar-card-icon img,
+body.dark-mode .info-icon img {
+  filter: brightness(0) invert(1);
+}
+
+body.dark-mode .calendar-card-icon,
+body.dark-mode .info-icon {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* =========================================
+   DARK MODE OVERRIDES for Library Page
+   ========================================= */
+body.dark-mode .model1-landing-wrapper {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .m1-about-card,
+body.dark-mode .m1-tab-content-card,
+body.dark-mode .m1-gallery-item-wrapper,
+body.dark-mode .m1-info-card,
+body.dark-mode .m1-tabs-nav button {
+  background: #1f2937 !important;
+  color: #ffffff !important;
+  border-color: #374151 !important;
+}
+
+body.dark-mode .m1-tabs-nav button.active {
+  background: #4338ca !important;
+  border-color: #4338ca !important;
+}
+
+body.dark-mode .m1-section-title,
+body.dark-mode .m1-about-title,
+body.dark-mode .m1-info-title,
+body.dark-mode .m1-hero-title,
+body.dark-mode .m1-time-hours {
+  color: #ffffff !important;
+}
+
+body.dark-mode .m1-about-text,
+body.dark-mode .m1-tab-text ul,
+body.dark-mode .m1-tab-text li,
+body.dark-mode .m1-time-row,
+body.dark-mode .m1-time-day,
+body.dark-mode .m1-lib-details span,
+body.dark-mode .m1-lib-quote {
+  color: #d1d5db !important;
+}
+
+body.dark-mode .m1-stat-num {
+  color: #ffffff !important;
+}
+
+body.dark-mode .m1-stat-label {
+  color: #9ca3af !important;
+}
+
+body.dark-mode .m1-lib-quote {
+  background: #111827 !important;
+  border-left-color: #4338ca !important;
+}
+
+/* Additional Dark Mode Overrides for About Us */
+body.dark-mode .affiliation-premium-card,
+body.dark-mode .glass-logo-card,
+body.dark-mode .cert-chip,
+body.dark-mode .ar-card,
+body.dark-mode .highlight-card,
+body.dark-mode .value-card,
+body.dark-mode .stats-card,
+body.dark-mode .report-doc-card,
+body.dark-mode .pdf-thumbnail,
+body.dark-mode .nscet-card,
+body.dark-mode .naac-card {
+  background: #1f2937 !important;
+  color: #f3f4f6 !important;
+  border-color: #374151 !important;
+}
+
+body.dark-mode .affiliation-heading,
+body.dark-mode .affiliation-description p {
+  color: #e5e7eb !important;
+}
+
+body.dark-mode .cert-chip:hover {
+  background: #374151 !important;
+  color: #3b82f6 !important;
+}
+
+body.dark-mode .ar-card-title,
+body.dark-mode .highlight-title,
+body.dark-mode .value-title {
+  color: #ffffff !important;
+}
+
+body.dark-mode .ar-card-text,
+body.dark-mode .highlight-text,
+body.dark-mode .value-text {
+  color: #d1d5db !important;
+}
+
+/* =========================================
+   FINAL DARK MODE OVERRIDES for Nested About Us Elements
+   ========================================= */
+body.dark-mode .vision-card,
+body.dark-mode .mission-card,
+body.dark-mode .quality-card,
+body.dark-mode .premium-quote-panel,
+body.dark-mode .org-chart-box,
+body.dark-mode .year-badge,
+body.dark-mode .image-placeholder,
+body.dark-mode .stat-label,
+body.dark-mode .achievement-card,
+body.dark-mode .timeline-item {
+  background: #1f2937 !important;
+  color: #f3f4f6 !important;
+  border-color: #374151 !important;
+}
+
+body.dark-mode .elegant-vision-text,
+body.dark-mode .elegant-mission-text,
+body.dark-mode .quality-card-content,
+body.dark-mode .commitment-quote,
+body.dark-mode .document-description,
+body.dark-mode .meta-item,
+body.dark-mode .official-badge {
+  color: #d1d5db !important;
+}
+
+/* Fix any remaining light backgrounds forcing overlay */
+body.dark-mode .overview-page,
+body.dark-mode .dev-plan-page,
+body.dark-mode .act-statutes-page,
+body.dark-mode .affiliation-page,
+body.dark-mode .annual-reports-page,
+body.dark-mode .achievements-section,
+body.dark-mode .journey-section {
+  background-color: #111827 !important;
 }
