@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.webp";
-import { FaMoon, FaSun, FaSearch, FaTimes, FaBars } from "react-icons/fa";
+import { FaMoon, FaSun, FaSearch, FaTimes, FaBars, FaLinkedin, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import annualAccountsPdf from "../../pages/Aboutus/AnnualAccounts/assets/documents/annual-accounts.pdf";
 
 function Navbar() {
@@ -26,9 +26,21 @@ function Navbar() {
     }
   }, [darkMode]);
   return (
-
-
     <header>
+      <div className="topbar">
+        <div className="topbar-left">
+          <a href="tel:+914567890123" className="topbar-contact phone-contact" aria-label="Phone"><FaPhoneAlt className="contact-icon" /> +91 4567 890 123</a>
+          <a href="mailto:info@nscet.org" className="topbar-contact" aria-label="Email"><FaEnvelope className="contact-icon" /> info@nscet.org</a>
+          <span className="topbar-contact topbar-address" aria-label="Address"><FaMapMarkerAlt className="contact-icon" /> Theni Road, Vadapudupatti, Theni - 625531</span>
+        </div>
+        <div className="topbar-right">
+          <span className="follow-text">Follow Us:</span>
+          <a className="social-btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+          <a className="social-btn" href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
+          <a className="social-btn" href="https://www.youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube /></a>
+        </div>
+      </div>
+
       <nav className="navbar">
 
         <div className="logo-section">
