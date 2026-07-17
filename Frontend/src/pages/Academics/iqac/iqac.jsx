@@ -82,7 +82,7 @@ const meetingRecords = [
 const IQAC = () => {
   return (
     <div className="iqac-page">
-      <section className="iqac-hero" style={{ backgroundImage: `linear-gradient(135deg, rgba(13, 58, 116, 0.72), rgba(31, 111, 191, 0.72)), url(${heroImage})` }}>
+      <section className="iqac-hero" style={{ backgroundImage: `linear-gradient(135deg, rgba(12, 34, 63, 0.72), rgba(13, 39, 66, 0.72)), url(${heroImage})` }}>
         <div className="iqac-hero-content">
           <div className="iqac-hero-badge">IQAC</div>
           <h1>Internal Quality Assurance Cell</h1>                                                                            
