@@ -45,7 +45,9 @@ import NonTeachingFaculty from "./pages/Academics/NonTeachingFaculty/NonTeaching
 import IQAC from "./pages/Academics/iqac/iqac";
 import Library from "./pages/Academics/Library/Library";
 import AcademicsIndustryCollaboration from "./pages/Academics/IndustryCollaboration/IndustryCollaboration";
-import Events from "./pages/Events";
+import Gallery from "./pages/Gallery";
+import Events from "./pages/Gallery/Events/Events";
+import EventGallery from "./pages/Gallery/Events/EventGallery";
 import Alumni from "./pages/Alumni";
 import Contact from "./pages/Contact";
 import Overview from "./pages/Overview";
@@ -102,7 +104,9 @@ function App() {
         <Route path="/administration/governing-council" element={<GoverningCouncil />} />
         <Route path="/administration/internal-complaints-committee" element={<InternalComplaintsCommittee />} />
         <Route path="/administration/academic-leadership" element={<AcademicLeadership />} />
-        <Route path="/events" element={<Events />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/gallery/events" element={<Events />} />
+        <Route path="/gallery/events/:eventSlug" element={<EventGallery />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about/overview" element={<Overview />} />

@@ -148,7 +148,22 @@ function Navbar() {
               <li><Link to="/research/industry-collaboration">Industry Collaboration</Link></li>
             </ul>
           </li>
-          <li><Link to="/events">Events</Link></li>
+          <li className="dropdown">
+            <Link to="#" onClick={(e) => e.preventDefault()}>Gallery</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/gallery/waves25">WAVES'25</Link></li>
+              <li><Link to="/gallery/clubs-chapters">CLUBS & CHAPTERS</Link></li>
+              <li><Link to="/gallery/nirf">NIRF</Link></li>
+              <li><Link to="/gallery/rti">RTI</Link></li>
+              <li><Link to="/gallery/ssr">SSR</Link></li>
+              <li><Link to="/gallery/icrtt26">ICRTT 26</Link></li>
+              <li><Link to="/gallery/iceece26">ICEECE26</Link></li>
+              <li><Link to="/gallery/ampse25">AMPSE25</Link></li>
+              <li><Link to="/gallery/icams2k25">ICAMS 2K25</Link></li>
+              <li><Link to="/gallery/iqarena">IQARENA</Link></li>
+              <li><Link to="/gallery/events">Events</Link></li>
+            </ul>
+          </li>
           <li><Link to="/alumni">Alumni</Link></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>
