@@ -46,6 +46,7 @@ import IQAC from "./pages/Academics/iqac/iqac";
 import Library from "./pages/Academics/Library/Library";
 import AcademicsIndustryCollaboration from "./pages/Academics/IndustryCollaboration/IndustryCollaboration";
 import Gallery from "./pages/Gallery";
+import ClubsAndChapters from "./pages/Gallery/ClubsAndChapters/ClubsAndChapters";
 import Events from "./pages/Gallery/Events/Events";
 import EventGallery from "./pages/Gallery/Events/EventGallery";
 import Alumni from "./pages/Alumni";
@@ -105,6 +106,7 @@ function App() {
         <Route path="/administration/internal-complaints-committee" element={<InternalComplaintsCommittee />} />
         <Route path="/administration/academic-leadership" element={<AcademicLeadership />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/gallery/clubs-chapters" element={<ClubsAndChapters />} />
         <Route path="/gallery/events" element={<Events />} />
         <Route path="/gallery/events/:eventSlug" element={<EventGallery />} />
         <Route path="/alumni" element={<Alumni />} />
