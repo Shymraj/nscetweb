@@ -1,5 +1,14 @@
-a26534c HEAD@{0}: pull origin main: Fast-forward
-9b49d21 HEAD@{1}: reset: moving to HEAD
-9b49d21 HEAD@{2}: commit: Departments dropdown completed
-acd3753 HEAD@{3}: pull origin main: Fast-forward
-3976f15 HEAD@{4}: reset: moving to HEAD
+df9b440 HEAD@{0}: pull origin main: Merge made by the 'ort' strategy.
+4e6e687 HEAD@{1}: commit: Auto backup
+d5259bd HEAD@{2}: reset: moving to HEAD
+d5259bd HEAD@{3}: pull origin main: Fast-forward
+22138a6 HEAD@{4}: commit: civil dept updated
+4b22317 HEAD@{5}: pull origin main: Fast-forward
+d0209c9 HEAD@{6}: pull origin main: Fast-forward
+8d36195 HEAD@{7}: commit: Seperate pages created
+a26534c HEAD@{8}: pull origin main: Fast-forward
+9b49d21 HEAD@{9}: reset: moving to HEAD
+9b49d21 HEAD@{10}: commit: Departments dropdown completed
+acd3753 HEAD@{11}: pull origin main: Fast-forward
+3976f15 HEAD@{12}: reset: moving to HEAD
+3976f15 HEAD@{13}: reset: moving to origin/main

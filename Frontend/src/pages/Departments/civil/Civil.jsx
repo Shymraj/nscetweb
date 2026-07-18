@@ -15,6 +15,8 @@ import imgAruljebaraj from "./images/aruljebaraj.jpg";
 import imgNathirunSabinash from "./images/nathirunsabinash.jpg";
 import imgHariprasath from "./images/hariprasath.jpg";
 import imgManojPrabakar from "./images/Manoj_prabakar.jpg";
+import civilBannerImg from "./images/civil-banner.png";
+import eycaLogo from "./images/eyca-logo.png";
 
 const Civil = () => {
     // Scroll Entrance Animations
@@ -56,41 +58,33 @@ const Civil = () => {
     return (
         <div className="civil-container">
 
-            {/* HERO PARALLAX HEADER */}
-            <header className="hero-wrapper">
-                <div className="hero-background">
-                    <div className="hero-overlay"></div>
+            {/* HERO BANNER — Curved box, no blue overlay */}
+            <section className="civil-hero-section">
+                <div
+                    className="civil-hero-box"
+                    style={{ backgroundImage: `url(${civilBannerImg})` }}
+                >
+                    <div className="civil-hero-overlay"></div>
+                    <div className="civil-hero-content">
+                        <motion.h1
+                            className="civil-hero-title"
+                            initial={{ y: 30, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            DEPARTMENT OF CIVIL ENGINEERING
+                        </motion.h1>
+                        <motion.p
+                            className="civil-hero-subtitle"
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                        >
+                            Building the foundations of tomorrow — structural stability, sustainability, and aesthetic construction.
+                        </motion.p>
+                    </div>
                 </div>
-                <div className="hero-content">
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.2 }}
-                        className="dept-badge"
-                    >
-                        Department of Excellence
-                    </motion.div>
-
-                    <motion.h1
-                        className="hero-title"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, type: "spring", bounce: 0.4 }}
-                    >
-                        Civil Engineering
-                    </motion.h1>
-
-                    <motion.p
-                        className="hero-subtitle"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1.5, delay: 0.5 }}
-                    >
-                        Building the foundations of tomorrow. We forge professionals capable of
-                        tackling challenges in structural stability, sustainability, and aesthetic construction.
-                    </motion.p>
-                </div>
-            </header>
+            </section>
 
             <main className="content-wrapper">
 
@@ -189,31 +183,87 @@ const Civil = () => {
                 {/* ASSOCIATION HIGHLIGHT */}
                 <motion.div
                     className="glam-banner"
-                    initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }} transition={{ duration: 0.7 }}
+                    initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }} transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
                 >
-                    <FaAward />
-                    <div>
-                        <h3>Energy Young Civil Association</h3>
-                        <p>The official departmental association driving student innovation, symposia, and technical enrichment.</p>
-                    </div>
+                    <motion.div
+                        className="glam-banner-icon"
+                        initial={{ scale: 0, rotate: -180 }}
+                        whileInView={{ scale: 1, rotate: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3, type: "spring", bounce: 0.5 }}
+                    >
+                        <img src={eycaLogo} alt="EYCA Logo" className="glam-banner-logo" />
+                    </motion.div>
+                    <motion.h3
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                    >
+                        Energy Young Civil Association
+                    </motion.h3>
+                    <motion.p
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.7 }}
+                    >
+                        The official departmental association driving student innovation, symposia, and technical enrichment.
+                    </motion.p>
                 </motion.div>
 
                 {/* LEADERSHIP */}
                 <h2 className="glam-title">Department <span>Leadership</span></h2>
                 <motion.div
                     className="hod-banner"
-                    initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, x: -80 }} whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }} transition={{ duration: 0.8, type: "spring", bounce: 0.25 }}
                 >
-                    <div className="hod-avatar">
+                    <motion.div
+                        className="hod-avatar"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3, type: "spring", bounce: 0.4 }}
+                    >
+                        <div className="hod-avatar-ring"></div>
                         {hod.image ? <img src={hod.image} alt={hod.name} /> : <FaUserTie />}
-                    </div>
+                    </motion.div>
                     <div className="hod-details">
-                        <h3>{hod.name}</h3>
-                        <span className="designation">{hod.desig}</span>
-                        <p><strong>Qualifications:</strong> {hod.qual}</p>
-                        <p><FaEnvelope style={{ color: '#60a5fa' }} /> {hod.email}</p>
+                        <motion.h3
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                        >
+                            {hod.name}
+                        </motion.h3>
+                        <motion.span
+                            className="designation"
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.5 }}
+                        >
+                            {hod.desig}
+                        </motion.span>
+                        <motion.p
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                        >
+                            <strong>Qualifications:</strong> {hod.qual}
+                        </motion.p>
+                        <motion.p
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.7 }}
+                        >
+                            <FaEnvelope style={{ color: '#c9a84c' }} /> {hod.email}
+                        </motion.p>
                     </div>
                 </motion.div>
 

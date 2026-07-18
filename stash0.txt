@@ -1,0 +1,12 @@
+Frontend/src/App.jsx
+Frontend/src/components/Navbar/Navbar.css
+Frontend/src/components/Navbar/Navbar.jsx
+Frontend/src/pages/Departments/civil/Civil.css
+Frontend/src/pages/Departments/civil/Civil.jsx
+Frontend/src/pages/Departments/cse/AIDS.jsx
+Frontend/src/pages/Departments/cse/CSE.jsx
+Frontend/src/pages/Departments/cse/IT.jsx
+Frontend/src/pages/Departments/electrical/Electrical.jsx
+Frontend/src/pages/Departments/electronics/Electronics.jsx
+Frontend/src/pages/Departments/mechanical/Mechanical.jsx
+Frontend/src/pages/Departments/s&h/ScienceHumanities.jsx

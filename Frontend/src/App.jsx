@@ -9,8 +9,8 @@ import Academics from "./pages/Academics";
 import Departments from "./pages/Departments";
 
 import CSE from "./pages/Departments/cse/CSE";
-import IT from "./pages/Departments/cse/IT";
-import AIDS from "./pages/Departments/cse/AIDS";
+import IT from "./pages/Departments/cse/it/IT";
+import AIDS from "./pages/Departments/cse/aids/AIDS";
 import MECSE from "./pages/Departments/cse/MECSE";
 import Civil from "./pages/Departments/civil/Civil";
 import MEStructural from "./pages/Departments/civil/MEStructural";
