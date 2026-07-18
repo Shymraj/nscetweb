@@ -49,6 +49,7 @@ import Gallery from "./pages/Gallery";
 import ClubsAndChapters from "./pages/Gallery/ClubsAndChapters/ClubsAndChapters";
 import Events from "./pages/Gallery/Events/Events";
 import EventGallery from "./pages/Gallery/Events/EventGallery";
+import NIRF from "./pages/Gallery/NIRF/NIRF";
 import Alumni from "./pages/Alumni";
 import Contact from "./pages/Contact";
 import Overview from "./pages/Overview";
@@ -112,6 +113,7 @@ function App() {
         <Route path="/gallery/clubs-chapters" element={<ClubsAndChapters />} />
         <Route path="/gallery/events" element={<Events />} />
         <Route path="/gallery/events/:eventSlug" element={<EventGallery />} />
+        <Route path="/gallery/nirf" element={<NIRF />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about/overview" element={<Overview />} />
