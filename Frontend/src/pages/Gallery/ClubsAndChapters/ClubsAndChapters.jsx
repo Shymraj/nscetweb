@@ -100,21 +100,23 @@ const ClubsAndChapters = () => {
               </div>
               
               <div className="modal-body">
-                <div className="modal-info-grid">
-                  <motion.div 
-                    className="info-highlight-card coordinator-card"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                  >
-                    <div className="info-icon-wrapper">
-                      <FaUserTie />
-                    </div>
-                    <div className="info-content">
-                      <span className="info-label">Coordinator</span>
-                      <span className="info-value">{selectedClub.details?.coordinator || 'To be updated'}</span>
-                    </div>
-                  </motion.div>
+                <div className={`modal-info-grid ${selectedClub.details?.coordinator === '-' ? 'single-column' : ''}`}>
+                  {selectedClub.details?.coordinator !== '-' && (
+                    <motion.div 
+                      className="info-highlight-card coordinator-card"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <div className="info-icon-wrapper">
+                        <FaUserTie />
+                      </div>
+                      <div className="info-content">
+                        <span className="info-label">Coordinator</span>
+                        <span className="info-value">{selectedClub.details?.coordinator || 'To be updated'}</span>
+                      </div>
+                    </motion.div>
+                  )}
                   
                   <motion.div 
                     className="info-highlight-card members-card"
