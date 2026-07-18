@@ -28,7 +28,7 @@ const committeeSections = [
       { label: 'Mr. L.S. Vignesh', detail: 'HOD / AD' },
       { label: 'Dr. M. Sathya', detail: 'VP / HOD / IT' },
       { label: 'Mr. C. Prathap', detail: 'HOD / S&H' },
-      { label: 'Dr. C. Chithra', detail: 'Prof � Coordinator / S&H' },
+      { label: 'Dr. C. Chithra', detail: 'Prof. Coordinator / S&H' },
     ],
   },
   {
@@ -89,8 +89,7 @@ const IQAC = () => {
           <span>(IQAC)</span>
           <p>Striving for Excellence in Quality Education</p>
         </div>
-      </section>
-
+      </section>    
       <section className="iqac-about-card">
         <div className="iqac-about-icon">📋</div>
         <div>

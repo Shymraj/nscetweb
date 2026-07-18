@@ -1,0 +1,73 @@
+
+/* Local-only styles for this page */
+.directory-container {
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  padding: 150px 32px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.directory-container .directory-title {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.directory-container .accordion-item {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.directory-container .accordion-header {
+  background: linear-gradient(90deg, #0056b3, #007bff);
+  color: #000000;
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.directory-container .accordion-header.active {
+  background: #004494;
+}
+
+.directory-container .accordion-content {
+  background: white;
+  padding: 14px;
+}
+
+.directory-container .staff-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.directory-container .staff-name {
+  font-weight: bold;
+  margin: 0;
+  color: #222;
+}
+
+.directory-container .staff-pos {
+  margin: 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.directory-container .icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-left: 10px;
+  color: #007bff;
+}

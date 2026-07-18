@@ -79,6 +79,28 @@
   align-items: center;
 }
 
+.iqac-glare-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.iqac-glare-hover {
+  width: 100%;
+  max-width: 100%;
+}
+
+.iqac-glare-content {
+  text-align: center;
+}
+
+.iqac-glare-content h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  color: #ffffff;
+  margin: 0;
+  padding: 0 16px;
+}
+
 .iqac-about-icon {
   width: 80px;
   height: 80px;
