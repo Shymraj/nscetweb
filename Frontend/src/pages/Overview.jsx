@@ -1,1 +1,1 @@
-export { default } from "./AboutUs/Overview/Overview";
+export { default } from "./Aboutus/Overview/Overview.jsx";

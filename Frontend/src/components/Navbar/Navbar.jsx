@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.webp";
-import { FaMoon, FaSun, FaSearch, FaTimes, FaBars } from "react-icons/fa";
-import annualAccountsPdf from "../../pages/AboutUs/AnnualAccounts/assets/documents/annual-accounts.pdf";
+import { FaMoon, FaSun, FaSearch, FaTimes, FaBars, FaLinkedin, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import annualAccountsPdf from "../../pages/Aboutus/AnnualAccounts/assets/documents/annual-accounts.pdf";
 
 function Navbar() {
 
@@ -26,9 +26,21 @@ function Navbar() {
     }
   }, [darkMode]);
   return (
-
-
     <header>
+      <div className="topbar">
+        <div className="topbar-left">
+          <a href="tel:+914567890123" className="topbar-contact phone-contact" aria-label="Phone"><FaPhoneAlt className="contact-icon" /> +91 4567 890 123</a>
+          <a href="mailto:info@nscet.org" className="topbar-contact" aria-label="Email"><FaEnvelope className="contact-icon" /> info@nscet.org</a>
+          <span className="topbar-contact topbar-address" aria-label="Address"><FaMapMarkerAlt className="contact-icon" /> Theni Road, Vadapudupatti, Theni - 625531</span>
+        </div>
+        <div className="topbar-right">
+          <span className="follow-text">Follow Us:</span>
+          <a className="social-btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+          <a className="social-btn" href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
+          <a className="social-btn" href="https://www.youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube /></a>
+        </div>
+      </div>
+
       <nav className="navbar">
 
         <div className="logo-section">
@@ -148,7 +160,22 @@ function Navbar() {
               <li><Link to="/research/industry-collaboration">Industry Collaboration</Link></li>
             </ul>
           </li>
-          <li><Link to="/events">Events</Link></li>
+          <li className="dropdown">
+            <Link to="#" onClick={(e) => e.preventDefault()}>Gallery</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/gallery/waves25">WAVES'25</Link></li>
+              <li><Link to="/gallery/clubs-chapters">CLUBS & CHAPTERS</Link></li>
+              <li><Link to="/gallery/nirf">NIRF</Link></li>
+              <li><Link to="/gallery/rti">RTI</Link></li>
+              <li><Link to="/gallery/ssr">SSR</Link></li>
+              <li><Link to="/gallery/icrtt26">ICRTT 26</Link></li>
+              <li><Link to="/gallery/iceece26">ICEECE26</Link></li>
+              <li><Link to="/gallery/ampse25">AMPSE25</Link></li>
+              <li><Link to="/gallery/icams2k25">ICAMS 2K25</Link></li>
+              <li><Link to="/gallery/iqarena">IQARENA</Link></li>
+              <li><Link to="/gallery/events">Events</Link></li>
+            </ul>
+          </li>
           <li><Link to="/alumni">Alumni</Link></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>

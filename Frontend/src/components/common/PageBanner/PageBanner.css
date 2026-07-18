@@ -5,7 +5,7 @@
   height: 400px; /* Adjust height as needed */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Parallax effect */
+  /* background-attachment: scroll; removed fixed for lag */ /* Parallax effect */
   display: flex;
   align-items: center;
   justify-content: center;

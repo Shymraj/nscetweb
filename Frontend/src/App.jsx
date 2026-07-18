@@ -45,18 +45,24 @@ import NonTeachingFaculty from "./pages/Academics/NonTeachingFaculty/NonTeaching
 import IQAC from "./pages/Academics/iqac/iqac";
 import Library from "./pages/Academics/Library/Library";
 import AcademicsIndustryCollaboration from "./pages/Academics/IndustryCollaboration/IndustryCollaboration";
-import Events from "./pages/Events";
+import Gallery from "./pages/Gallery";
+import ClubsAndChapters from "./pages/Gallery/ClubsAndChapters/ClubsAndChapters";
+import Events from "./pages/Gallery/Events/Events";
+import EventGallery from "./pages/Gallery/Events/EventGallery";
 import Alumni from "./pages/Alumni";
 import Contact from "./pages/Contact";
 import Overview from "./pages/Overview";
 import ActStatus from "./pages/ActStatus";
-import DevelopmentPlan from "./pages/AboutUs/Developmentplan/Developmentplan";
+import DevelopmentPlan from "./pages/Developmentplan";
 import Affiliation from "./pages/Affiliation";
 import AnnualReports from "./pages/AnnualReports";
+
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
 
       <Routes>
@@ -102,7 +108,10 @@ function App() {
         <Route path="/administration/governing-council" element={<GoverningCouncil />} />
         <Route path="/administration/internal-complaints-committee" element={<InternalComplaintsCommittee />} />
         <Route path="/administration/academic-leadership" element={<AcademicLeadership />} />
-        <Route path="/events" element={<Events />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/gallery/clubs-chapters" element={<ClubsAndChapters />} />
+        <Route path="/gallery/events" element={<Events />} />
+        <Route path="/gallery/events/:eventSlug" element={<EventGallery />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about/overview" element={<Overview />} />
