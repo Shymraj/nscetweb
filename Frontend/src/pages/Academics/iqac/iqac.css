@@ -1,3 +1,4 @@
+
 .iqac-page {
   font-family: 'Inter', system-ui, sans-serif;
   color: #102a43;
@@ -7,14 +8,17 @@
 }
 
 .iqac-hero {
-  width: 100%;
+  /* make hero full-bleed to remove left/right white gaps */
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
-  border-radius: 24px;
+  border-radius: 0; /* set to 24px if you want rounded corners while filling */
   color: #ffffff;
-  padding: 100px 50px;
-  margin-bottom: 50px;
+  padding: 180px 150px;
   position: relative;
   overflow: hidden;
 }
@@ -69,10 +73,32 @@
   gap: 22px;
   background: #ffffff;
   border-radius: 24px;
-  padding: 32px;
+  padding: 100px;
   box-shadow: 0 24px 48px rgba(37, 78, 131, 0.12);
   margin-bottom: 32px;
   align-items: center;
+}
+
+.iqac-glare-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.iqac-glare-hover {
+  width: 100%;
+  max-width: 100%;
+}
+
+.iqac-glare-content {
+  text-align: center;
+}
+
+.iqac-glare-content h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  color: #ffffff;
+  margin: 0;
+  padding: 0 16px;
 }
 
 .iqac-about-icon {

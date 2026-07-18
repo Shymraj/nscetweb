@@ -28,7 +28,7 @@ const committeeSections = [
       { label: 'Mr. L.S. Vignesh', detail: 'HOD / AD' },
       { label: 'Dr. M. Sathya', detail: 'VP / HOD / IT' },
       { label: 'Mr. C. Prathap', detail: 'HOD / S&H' },
-      { label: 'Dr. C. Chithra', detail: 'Prof � Coordinator / S&H' },
+      { label: 'Dr. C. Chithra', detail: 'Prof. Coordinator / S&H' },
     ],
   },
   {
@@ -82,15 +82,14 @@ const meetingRecords = [
 const IQAC = () => {
   return (
     <div className="iqac-page">
-      <section className="iqac-hero" style={{ backgroundImage: `linear-gradient(135deg, rgba(13, 58, 116, 0.72), rgba(31, 111, 191, 0.72)), url(${heroImage})` }}>
+      <section className="iqac-hero" style={{ backgroundImage: `linear-gradient(135deg, rgba(12, 34, 63, 0.72), rgba(13, 39, 66, 0.72)), url(${heroImage})` }}>
         <div className="iqac-hero-content">
           <div className="iqac-hero-badge">IQAC</div>
           <h1>Internal Quality Assurance Cell</h1>                                                                            
           <span>(IQAC)</span>
           <p>Striving for Excellence in Quality Education</p>
         </div>
-      </section>
-
+      </section>    
       <section className="iqac-about-card">
         <div className="iqac-about-icon">📋</div>
         <div>

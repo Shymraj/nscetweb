@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SpecularButton from "../../../components/SpecularButton/SpecularButton";
 
 const CTASection = () => {
   return (
@@ -19,8 +20,48 @@ const CTASection = () => {
           Join thousands of successful engineers who started their careers at Nadar Saraswathi College of Engineering and Technology. Explore opportunities, innovation, research, and excellence with us.
         </p>
         <div className="cta-buttons">
-          <button className="btn-primary">Explore Departments</button>
-          <button className="btn-secondary">Apply Now</button>
+          <SpecularButton
+            size="lg"
+            radius={28}
+            tint="#ffffff"
+            tintOpacity={0.08}
+            blur={16}
+            textColor="#ffffff"
+            lineColor="#ffffff"
+            baseColor="#ffffff"
+            intensity={1}
+            shineSize={10}
+            shineFade={40}
+            thickness={1}
+            speed={0.35}
+            followMouse
+            proximity={250}
+            autoAnimate={false}
+            onClick={() => console.log('Explore Departments clicked')}
+          >
+            Explore Departments
+          </SpecularButton>
+          <SpecularButton
+            size="lg"
+            radius={28}
+            tint="#ffffff"
+            tintOpacity={0.04}
+            blur={12}
+            textColor="#0b2559"
+            lineColor="#0b2559"
+            baseColor="#ffffff"
+            intensity={0.75}
+            shineSize={18}
+            shineFade={50}
+            thickness={1}
+            speed={0.35}
+            followMouse
+            proximity={250}
+            autoAnimate={false}
+            onClick={() => console.log('Apply Now clicked')}
+          >
+            Apply Now
+          </SpecularButton>
         </div>
       </motion.div>
     </section>
