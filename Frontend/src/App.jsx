@@ -4,9 +4,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/layout/Footer";
 
 import Home from "./pages/Home";
-import About from "./pages/About";
+import About from "./components/About/About";
 import Academics from "./pages/Academics";
-import Departments from "./pages/Departments";
+import Departments from "./components/Departments/Departments";
 
 import CSE from "./pages/Departments/cse/CSE";
 import IT from "./pages/Departments/cse/it/IT";
@@ -49,13 +49,14 @@ import Gallery from "./pages/Gallery";
 import ClubsAndChapters from "./pages/Gallery/ClubsAndChapters/ClubsAndChapters";
 import Events from "./pages/Gallery/Events/Events";
 import EventGallery from "./pages/Gallery/Events/EventGallery";
-import Alumni from "./pages/Alumni";
-import Contact from "./pages/Contact";
-import Overview from "./pages/Overview";
-import ActStatus from "./pages/ActStatus";
-import DevelopmentPlan from "./pages/Developmentplan";
-import Affiliation from "./pages/Affiliation";
-import AnnualReports from "./pages/AnnualReports";
+import NIRF from "./pages/Gallery/NIRF/NIRF";
+import Alumni from "./pages/Alumini/Alumni";
+import Contact from "./pages/Contacts/Contact";
+import Overview from "./pages/Aboutus/Overview/Overview";
+import ActStatus from "./pages/Aboutus/Actstatutes/Actstatutes";
+import DevelopmentPlan from "./pages/Aboutus/Developmentplan/Developmentplan";
+import Affiliation from "./pages/Aboutus/Affiliation/Affiliation";
+import AnnualReports from "./pages/Aboutus/AnnualReports/AnnualReports";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -112,6 +113,7 @@ function App() {
         <Route path="/gallery/clubs-chapters" element={<ClubsAndChapters />} />
         <Route path="/gallery/events" element={<Events />} />
         <Route path="/gallery/events/:eventSlug" element={<EventGallery />} />
+        <Route path="/gallery/nirf" element={<NIRF />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about/overview" element={<Overview />} />

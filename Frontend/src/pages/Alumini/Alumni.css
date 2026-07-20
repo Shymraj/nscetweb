@@ -1,0 +1,1644 @@
+:root {
+    --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
+    --premium-card-border: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+/* Global and Container */
+.alumni-page {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background-color: var(--bg-color, #f8fafc);
+    color: var(--text-color, #1e293b);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    padding-top: 110px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .alumni-page {
+    --premium-card-bg: rgba(30, 41, 59, 0.7);
+    --premium-card-border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
+
+/* Floating background shapes */
+.alumni-page::before,
+.alumni-page::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.alumni-page::before {
+    top: 100px;
+    left: -200px;
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.alumni-page::after {
+    bottom: 20%;
+    right: -200px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.alumni-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.alumni-layout {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+/* Sidebar Wrapper (Left 25%) */
+.alumni-sidebar-wrapper {
+    flex: 0 0 25%;
+    position: sticky;
+    top: 100px;
+}
+
+.sidebar-glass-card {
+    background: var(--premium-card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: var(--premium-card-border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .sidebar-glass-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar-glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary-accent);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+body.dark-mode .sidebar-title {
+    color: var(--primary-accent);
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar-link {
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+body.dark-mode .sidebar-link {
+    color: #94a3b8;
+}
+
+.sidebar-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+    border-radius: 4px 0 0 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-link:hover {
+    background: rgba(201, 168, 76, 0.05);
+    color: var(--secondary-accent);
+    transform: translateX(5px);
+}
+
+body.dark-mode .sidebar-link:hover {
+    color: var(--primary-accent);
+    background: rgba(201, 168, 76, 0.15);
+}
+
+.sidebar-link.active {
+    background: linear-gradient(135deg, rgba(201, 168, 76, 0.1) 0%, rgba(30, 58, 138, 0.05) 100%);
+    color: var(--secondary-accent);
+    font-weight: 600;
+}
+
+body.dark-mode .sidebar-link.active {
+    background: linear-gradient(135deg, rgba(201, 168, 76, 0.2) 0%, rgba(30, 58, 138, 0.1) 100%);
+    color: #bfdbfe;
+}
+
+.sidebar-link.active::before {
+    opacity: 1;
+}
+
+/* Content Wrapper (Right 75%) */
+.alumni-content-wrapper {
+    flex: 0 0 calc(75% - 3rem);
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.alumni-section {
+    scroll-margin-top: 120px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--secondary-accent) 0%, var(--primary-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+body.dark-mode .section-title {
+    background: linear-gradient(135deg, #bfdbfe 0%, var(--primary-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-accent), var(--primary-accent));
+    border-radius: 2px;
+}
+
+.section-intro {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #475569;
+    max-width: 900px;
+}
+
+body.dark-mode .section-intro {
+    color: #94a3b8;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .alumni-layout {
+        gap: 2rem;
+    }
+
+    .alumni-sidebar-wrapper {
+        flex: 0 0 30%;
+    }
+
+    .alumni-content-wrapper {
+        flex: 0 0 calc(70% - 2rem);
+    }
+}
+
+@media (max-width: 992px) {
+    .alumni-layout {
+        flex-direction: column;
+    }
+
+    .alumni-sidebar-wrapper {
+        flex: 1 1 100%;
+        width: 100%;
+        position: static;
+        margin-bottom: 2rem;
+    }
+
+    .alumni-content-wrapper {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .sidebar-glass-card {
+        padding: 1.5rem;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-link {
+        width: auto;
+    }
+}
+
+/* Supplemental CSS for Overview inside Alumni.css */
+
+.overview-intro-card {
+    background: var(--premium-card-bg);
+    border: var(--premium-card-border);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 16px;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-color, #334155);
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+body.dark-mode .overview-intro-card {
+    color: #cbd5e1;
+}
+
+.vision-mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.vm-card {
+    background: var(--premium-card-bg);
+    border: var(--premium-card-border);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease;
+}
+
+.vm-card:hover {
+    transform: translateY(-5px);
+}
+
+.vm-icon {
+    font-size: 2.5rem;
+    color: var(--primary-accent);
+    margin-bottom: 1.5rem;
+}
+
+.vm-card h3 {
+    font-size: 1.6rem;
+    color: var(--secondary-accent);
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .vm-card h3 {
+    color: var(--primary-accent);
+}
+
+.vm-card p,
+.vm-card ul {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-color, #475569);
+}
+
+body.dark-mode .vm-card p,
+body.dark-mode .vm-card ul {
+    color: #cbd5e1;
+}
+
+.vm-card ul {
+    padding-left: 1.5rem;
+}
+
+.vm-card ul li {
+    margin-bottom: 0.75rem;
+}
+
+.sub-section-title {
+    font-size: 2rem;
+    color: var(--secondary-accent);
+    margin-bottom: 2rem;
+    font-weight: 700;
+    border-bottom: 3px solid var(--primary-accent);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+body.dark-mode .sub-section-title {
+    color: var(--primary-accent);
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.activity-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Perfect flex alignment for contents */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+body.dark-mode .activity-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Glassmorphism glass sweeping effect mapped dynamically to the card boundaries */
+.activity-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    /* Frosted glass glow */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15);
+}
+
+body.dark-mode .activity-card:hover {
+    background: rgba(15, 23, 42, 0.25);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+}
+
+.activity-icon-wrapper {
+    background: rgba(201, 168, 76, 0.1);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: var(--primary-accent);
+    flex-shrink: 0;
+}
+
+.activity-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+body.dark-mode .activity-card h4 {
+    color: #f1f5f9;
+}
+
+.activity-card p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin: 0;
+    width: 100%;
+}
+
+body.dark-mode .activity-card p {
+    color: #94a3b8;
+}
+
+.incharge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.incharge-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--premium-card-bg);
+    border: var(--premium-card-border);
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+}
+
+.incharge-avatar {
+    font-size: 3rem;
+    color: var(--primary-accent);
+    background: white;
+    border-radius: 50%;
+    padding: 0.5rem;
+    box-shadow: 0 5px 15px rgba(201, 168, 76, 0.2);
+}
+
+body.dark-mode .incharge-avatar {
+    background: #1e293b;
+}
+
+.incharge-details h4 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+body.dark-mode .incharge-details h4 {
+    color: #f1f5f9;
+}
+
+.incharge-details p {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin: 0;
+}
+
+body.dark-mode .incharge-details p {
+    color: #94a3b8;
+}
+
+
+/* Alumni Table Styles (Office Bearers, etc.) */
+.alumni-table-container {
+    margin-top: 2rem;
+    background: var(--premium-card-bg);
+    border: var(--premium-card-border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.alumni-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.alumni-table th {
+    background: linear-gradient(135deg, var(--secondary-accent), var(--primary-accent));
+    color: white;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.alumni-table td {
+    padding: 1.5rem;
+    border-bottom: 2px solid rgba(201, 168, 76, 0.05);
+    vertical-align: top;
+    color: var(--text-color, #475569);
+    line-height: 1.7;
+}
+
+body.dark-mode .alumni-table td {
+    color: #cbd5e1;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+.alumni-table tr:last-child td {
+    border-bottom: none;
+}
+
+.alumni-table tr:hover td {
+    background: rgba(201, 168, 76, 0.02);
+}
+
+body.dark-mode .alumni-table tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-primary {
+    color: var(--secondary-accent);
+}
+
+body.dark-mode .text-primary {
+    color: var(--primary-accent);
+}
+
+.alumni-bullets {
+    padding-left: 1.25rem;
+    margin: 0;
+}
+
+.alumni-bullets li {
+    margin-bottom: 0.5rem;
+}
+
+.alumni-sublist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alumni-sublist li {
+    margin-bottom: 0.5rem;
+    border-left: 3px solid var(--primary-accent);
+    padding-left: 0.75rem;
+}
+
+
+/* Alumni Timeline (Meets History) */
+.alumni-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 3rem 0;
+    padding-left: 2rem;
+}
+
+.alumni-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 22px;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(180deg, var(--primary-accent) 0%, rgba(201, 168, 76, 0.2) 100%);
+    border-radius: 4px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3.5rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 15px;
+    left: -29px;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 4px solid var(--primary-accent);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(201, 168, 76, 0.4);
+}
+
+body.dark-mode .timeline-dot {
+    background: #0f172a;
+}
+
+.timeline-content {
+    background: var(--premium-card-bg);
+    border: var(--premium-card-border);
+    padding: 2.5rem;
+    border-radius: 20px;
+    margin-left: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(201, 168, 76, 0.08);
+}
+
+.timeline-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-year {
+    background: linear-gradient(135deg, var(--secondary-accent), var(--primary-accent));
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(201, 168, 76, 0.3);
+}
+
+.timeline-header h3 {
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin: 0;
+}
+
+body.dark-mode .timeline-header h3 {
+    color: #f1f5f9;
+}
+
+.timeline-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.meta-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-accent);
+    background: rgba(201, 168, 76, 0.1);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+}
+
+.timeline-desc {
+    font-size: 1.1rem;
+    color: var(--text-color, #475569);
+    line-height: 1.7;
+}
+
+body.dark-mode .timeline-desc {
+    color: #cbd5e1;
+}
+
+.timeline-guests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px dashed rgba(201, 168, 76, 0.2);
+}
+
+.guest-box h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--secondary-accent);
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .guest-box h4 {
+    color: var(--primary-accent);
+}
+
+.guest-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.guest-box ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+body.dark-mode .guest-box ul li {
+    color: #94a3b8;
+}
+
+.guest-box ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--primary-accent);
+}
+
+@media (max-width: 768px) {
+    .alumni-timeline {
+        padding-left: 1rem;
+    }
+
+    .alumni-timeline::before {
+        left: 14px;
+    }
+
+    .timeline-dot {
+        left: -21px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .timeline-content {
+        margin-left: 1rem;
+        padding: 1.5rem;
+    }
+
+    .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+
+/* Distinguished Alumni Styling */
+.poster-showcase-container {
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.poster-glass-wrapper {
+    position: relative;
+    border-radius: 20px;
+    padding: 1rem;
+    background: var(--premium-card-bg);
+    border: var(--premium-card-border);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.distinguished-poster-img {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 12px;
+    display: block;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.poster-glow-backdrop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(40px);
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.alumni-impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.impact-card {
+    text-align: center;
+    background: var(--premium-card-bg);
+    border: var(--premium-card-border);
+    padding: 2.5rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.impact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(201, 168, 76, 0.1);
+}
+
+.impact-icon {
+    font-size: 3rem;
+    color: var(--primary-accent);
+    margin-bottom: 1.5rem;
+    background: rgba(201, 168, 76, 0.1);
+    width: 80px;
+    height: 80px;
+    margin-inline: auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.impact-card:hover .impact-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.impact-card h4 {
+    font-size: 1.3rem;
+    color: var(--secondary-accent);
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .impact-card h4 {
+    color: var(--primary-accent);
+}
+
+.impact-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-color, #475569);
+}
+
+body.dark-mode .impact-card p {
+    color: #cbd5e1;
+}
+
+/* Hero Section identical to Department Standard */
+.alumni-hero-section {
+    padding: 1.5rem 2.5rem 0;
+    margin-bottom: 3rem;
+}
+
+.alumni-hero-box {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.alumni-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.55) 100%);
+    border-radius: 30px;
+    z-index: 1;
+}
+
+.alumni-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 3rem 2rem;
+    max-width: 900px;
+}
+
+.alumni-hero-title {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    line-height: 1.2;
+}
+
+.alumni-hero-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+    font-weight: 400;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .alumni-hero-section {
+        padding: 1rem 1rem 0;
+    }
+
+    .alumni-hero-box {
+        min-height: 280px;
+        border-radius: 20px;
+    }
+
+    .alumni-hero-overlay {
+        border-radius: 20px;
+    }
+
+    .alumni-hero-title {
+        letter-spacing: 1px;
+    }
+
+    .alumni-hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+.glam-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--secondary-accent, #1e3a8a);
+    position: relative;
+    display: inline-block;
+}
+
+body.dark-mode .glam-title {
+    color: #f1f5f9;
+}
+
+.glam-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 10%;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-accent, #c9a84c);
+    border-radius: 50px;
+}
+
+.glam-title span {
+    color: var(--primary-accent, #c9a84c);
+}
+
+/* Modern Alumni Meets UI (Bento Layout) */
+.meets-bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+}
+
+@media (max-width: 900px) {
+    .meets-bento-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.meet-card {
+    background: var(--premium-card-bg);
+    border: var(--premium-card-border);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s ease;
+}
+
+.meet-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--secondary-accent, #1e3a8a), var(--primary-accent, #c9a84c));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.meet-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(30, 58, 138, 0.1);
+}
+
+.meet-card:hover::before {
+    transform: scaleX(1);
+}
+
+.featured-meet {
+    grid-column: 1 / -1;
+    background: linear-gradient(145deg, var(--secondary-accent, #1e3a8a) 0%, #2b5a8c 100%);
+    color: white;
+    border-color: rgba(201, 168, 76, 0.3);
+}
+
+.featured-meet p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.featured-meet .meet-meta-item {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+}
+
+.featured-meet .meet-event-title,
+.featured-meet .meet-year-badge {
+    color: var(--primary-accent, #c9a84c);
+}
+
+.expanded-meet {
+    grid-column: 1 / -1;
+}
+
+.meet-year-badge {
+    display: inline-block;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--secondary-accent, #1e3a8a);
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .meet-year-badge {
+    color: var(--primary-accent, #c9a84c);
+}
+
+.meet-event-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-accent, #1e3a8a);
+}
+
+body.dark-mode .meet-event-title {
+    color: #f1f5f9;
+}
+
+.meet-meta-ribbon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.meet-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(30, 58, 138, 0.08);
+    padding: 0.4rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--secondary-accent, #1e3a8a);
+}
+
+body.dark-mode .meet-meta-item {
+    background: rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+}
+
+.highlight-meta {
+    background: rgba(201, 168, 76, 0.15) !important;
+    color: var(--primary-accent, #b8943f) !important;
+}
+
+.meet-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color, #475569);
+}
+
+body.dark-mode .meet-description {
+    color: #cbd5e1;
+}
+
+.meet-guests-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 650px) {
+    .meet-guests-split {
+        grid-template-columns: 1fr;
+    }
+}
+
+.guest-list-panel {
+    background: rgba(30, 58, 138, 0.03);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .guest-list-panel {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.guest-list-panel h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--secondary-accent, #1e3a8a);
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .guest-list-panel h4 {
+    color: #93c5fd;
+}
+
+.guest-list-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.guest-list-panel ul li {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--text-color, #475569);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+body.dark-mode .guest-list-panel ul li {
+    color: #94a3b8;
+}
+
+.guest-list-panel ul li::before {
+    content: '✦';
+    color: var(--primary-accent, #c9a84c);
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
+
+/* VIBRANT & ATTRACTIVE OVERHAUL FOR ALUMNI COMPONENTS */
+
+/* Colorful floating orbs behind the layout */
+.alumni-container {
+    position: relative;
+    z-index: 1;
+}
+
+.alumni-container::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(50px);
+}
+
+.alumni-container::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(50px);
+}
+
+/* Sidebar Vibrant Links */
+.sidebar-link {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.sidebar-link:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.05));
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    color: #4f46e5;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.05);
+}
+
+.sidebar-link.active {
+    background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%) !important;
+    color: white !important;
+    box-shadow: 0 10px 20px rgba(236, 72, 153, 0.25) !important;
+    border-radius: 12px;
+    border: none;
+}
+
+.sidebar-link.active::before {
+    display: none;
+    /* Hide the old vertical bar */
+}
+
+/* Glass & Colorful Cards for Overview & Activities */
+.vm-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .vm-card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vm-card:nth-child(1) {
+    border-top: 4px solid #f59e0b;
+}
+
+.vm-card:nth-child(2) {
+    border-top: 4px solid #10b981;
+}
+
+/* Colorful Icon Wrappers */
+.icon-gradient-1 {
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    color: white !important;
+    -webkit-background-clip: unset !important;
+}
+
+.icon-gradient-2 {
+    background: linear-gradient(135deg, #10b981, #3b82f6);
+    color: white !important;
+}
+
+.icon-gradient-3 {
+    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+    color: white !important;
+}
+
+.icon-gradient-4 {
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    color: white !important;
+}
+
+.icon-gradient-5 {
+    background: linear-gradient(135deg, #f43f5e, #f97316);
+    color: white !important;
+}
+
+/* Enhanced Activity Cards */
+.activity-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .activity-card {
+    background: rgba(15, 23, 42, 0.6) !important;
+}
+
+.activity-card:hover {
+    background: white !important;
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15) !important;
+    border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+body.dark-mode .activity-card:hover {
+    background: rgba(30, 41, 59, 1) !important;
+}
+
+/* Impact Cards - Distinguished Alumni */
+.impact-card:nth-child(1):hover {
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.2);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.impact-card:nth-child(2):hover {
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.2);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.impact-card:nth-child(3):hover {
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Incharge Avatar Gradients */
+.incharge-avatar:nth-child(1) {
+    background: linear-gradient(135deg, #3b82f6, #06b6d4) !important;
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2) !important;
+}
+
+.incharge-card:nth-child(2) .incharge-avatar {
+    background: linear-gradient(135deg, #ec4899, #8b5cf6) !important;
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.2) !important;
+}
+
+/* Fancy table headers in Office Bearers */
+.alumni-table th {
+    background: linear-gradient(90deg, #1e1b4b, #4338ca, #312e81) !important;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    border-bottom: 3px solid #f59e0b;
+}
+
+/* Meet Bento Card Enhancements */
+.meet-card.standard-meet {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.9));
+}
+
+body.dark-mode .meet-card.standard-meet {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+}
+
+.meet-card.featured-meet {
+    background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%) !important;
+    box-shadow: 0 15px 35px rgba(67, 56, 202, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.featured-meet .meet-year-badge {
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    color: white !important;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+}
+
+.archive {
+    background: rgba(99, 102, 241, 0.1);
+    color: #4f46e5 !important;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+}
+
+body.dark-mode .archive {
+    background: rgba(99, 102, 241, 0.2);
+    color: #818cf8 !important;
+}
+
+/* Beautiful Glowing Title Upgrade */
+.glam-title::after {
+    background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6) !important;
+    width: 80px !important;
+    height: 5px !important;
+}
+
+.glam-title span {
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ADVANCED ANIMATIONS FOR OVERVIEW CARDS */
+
+.vm-card,
+.activity-card {
+    background-size: 200% 200% !important;
+    animation: alumniGradientShift 6s ease infinite !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes alumniGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.vm-card::before,
+.activity-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.2) 50%, transparent 60%);
+    transition: transform 0.6s ease;
+    transform: translateX(-100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+body.dark-mode .vm-card::before,
+body.dark-mode .activity-card::before {
+    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+}
+
+.vm-card:hover::before,
+.activity-card:hover::before {
+    transform: translateX(100%);
+}
+
+.vm-card h3,
+.vm-card p,
+.vm-card ul,
+.vm-icon,
+.activity-card h4,
+.activity-card p,
+.activity-icon-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+/* Floating animation for overview icons */
+.vm-icon,
+.activity-icon-wrapper {
+    animation: floatOverviewIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatOverviewIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Base vibrant gradients for the overview cards so they actually shift */
+.vm-card:nth-child(1) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(254, 243, 199, 0.9)) !important;
+}
+
+.vm-card:nth-child(2) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(209, 250, 229, 0.9)) !important;
+}
+
+.activity-card:nth-child(1) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(254, 226, 226, 0.8)) !important;
+}
+
+.activity-card:nth-child(2) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(219, 234, 254, 0.8)) !important;
+}
+
+.activity-card:nth-child(3) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(243, 232, 255, 0.8)) !important;
+}
+
+.activity-card:nth-child(4) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(207, 250, 254, 0.8)) !important;
+}
+
+/* Dark mode specific subtle shifts */
+body.dark-mode .vm-card:nth-child(1) {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(69, 26, 3, 0.6)) !important;
+}
+
+body.dark-mode .vm-card:nth-child(2) {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(2, 44, 34, 0.6)) !important;
+}
+
+body.dark-mode .activity-card:nth-child(1) {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(69, 10, 10, 0.5)) !important;
+}
+
+body.dark-mode .activity-card:nth-child(2) {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 58, 138, 0.5)) !important;
+}
+
+body.dark-mode .activity-card:nth-child(3) {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(76, 29, 149, 0.5)) !important;
+}
+
+body.dark-mode .activity-card:nth-child(4) {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(8, 145, 178, 0.5)) !important;
+}/* EXPLICIT HOVER OVERRIDES FOR ACTIVITY & VM CARDS TO ENSURE EFFECTS WORK */
+
+.activities-grid .activity-card:hover,
+.vision-mission-grid .vm-card:hover {
+    transform: translateY(-10px) scale(1.03) !important;
+    box-shadow: 0 25px 50px rgba(31, 38, 135, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 1) !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    z-index: 10;
+}
+
+body.dark-mode .activities-grid .activity-card:hover,
+body.dark-mode .vision-mission-grid .vm-card:hover {
+    background: rgba(15, 23, 42, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Glass Sweeping Glare Effect */
+.activity-card::after, .vm-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%; /* Start off-screen */
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: rotate(30deg);
+    transition: all 0.6s ease-in-out;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.activity-card:hover::after, .vm-card:hover::after {
+    left: 200%; /* Sweep completely across */
+    transition: all 0.8s ease-in-out;
+}
+
+body.dark-mode .activity-card::after, body.dark-mode .vm-card::after {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+}
+/* ADVANCED ANIMATIONS FOR CELL INCHARGE CARDS */
+
+.incharge-card {
+    background-size: 200% 200% !important;
+    animation: alumniGradientShift 6s ease infinite !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.incharge-list .incharge-card:hover {
+    transform: translateY(-10px) scale(1.03) !important;
+    box-shadow: 0 25px 50px rgba(31, 38, 135, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 1) !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    z-index: 10;
+}
+
+body.dark-mode .incharge-list .incharge-card:hover {
+    background: rgba(15, 23, 42, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Glass Sweeping Glare Effect */
+.incharge-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%; 
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: rotate(30deg);
+    transition: all 0.6s ease-in-out;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.incharge-card:hover::after {
+    left: 200%;
+    transition: all 0.8s ease-in-out;
+}
+
+body.dark-mode .incharge-card::after {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+.incharge-card h4, .incharge-card p, .incharge-avatar, .incharge-details {
+    position: relative;
+    z-index: 2;
+}
+
+/* Floating animation for incharge avatars */
+.incharge-avatar {
+    animation: floatOverviewIcon 3s ease-in-out infinite;
+}
+
+/* Base vibrant gradients for the incharge cards */
+.incharge-card:nth-child(1) {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(219,234,254,0.8)) !important;
+}
+.incharge-card:nth-child(2) {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(253,230,138,0.8)) !important; 
+}
+
+/* Dark mode specific subtle shifts */
+body.dark-mode .incharge-card:nth-child(1) { background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(30,58,138,0.5)) !important; }
+body.dark-mode .incharge-card:nth-child(2) { background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(133,77,14,0.5)) !important; }
+
