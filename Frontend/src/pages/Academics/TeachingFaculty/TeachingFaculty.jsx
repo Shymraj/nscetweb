@@ -2,18 +2,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import './TeachingFaculty.css';
 
 const TeachingFaculty = () => {
-  const programs = ['B.Tech Programs', 'B.E. Programs', 'M.E. Programs', 'Ph.D Programs', 'Science & Humanities'];
+  const programs = ['B.E. Programs','B.Tech Programs', 'M.E. Programs', 'Ph.D Programs', 'Science & Humanities'];
   
   const programDepartments = {
-    'B.Tech Programs': ['B.Tech - Information Technology', 'B.Tech - Artificial Intelligence & Data Science'],
     'B.E. Programs': ['B.E. - Computer Science Engineering', 'B.E. - Civil Engineering', 'B.E. - Mechanical Engineering', 'B.E. - Electronics and Communication Engineering', 'B.E. - Electrical and Electronics Engineering'],
+    'B.Tech Programs': ['B.Tech - Information Technology', 'B.Tech - Artificial Intelligence & Data Science'],
     'M.E. Programs': ['M.E. - Computer Science Engineering', 'M.E. - Structural Engineering', 'M.E. - Manufacturing Engineering', 'M.E. - Embedded Systems and Technology'],
     'Ph.D Programs': ['Ph.D Mechanical Engineering'],
     'Science & Humanities': ['Science & Humanities']
   };
 
-  const [activeProgram, setActiveProgram] = useState('B.Tech Programs');
-  const [activeDept, setActiveDept] = useState('B.Tech - Information Technology');
+  const [activeProgram, setActiveProgram] = useState('B.E. Programs');
+  const [activeDept, setActiveDept] = useState('B.E. - Computer Science Engineering');
   const [clickedCardId, setClickedCardId] = useState(null);
   const scrollRef = useRef(null);
 
@@ -203,10 +203,11 @@ const TeachingFaculty = () => {
         </div>
 
         <div className="tf-staff-contact">
-          <div className="tf-contact-item-small"><span className="tf-icon">✉️</span> {staff.email}</div>
+          <div className="tf-contact-item-small"><span className="tf-icon">✉️</span> 
+          <a href={`mailto:${staff.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}></a>{staff.email}</div>
         </div>
       </div>
-    ));
+    )); 
   };
 
   return (
@@ -267,9 +268,12 @@ const TeachingFaculty = () => {
             </div>
 
             <div className="tf-hod-contact-col">
-              <div className="tf-contact-item">
-                <span className="tf-icon">✉️</span> {hod.email}
-              </div>
+             <div className="tf-contact-item">
+  <span className="tf-icon">✉️</span> 
+  <a href={`mailto:${hod.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+    {hod.email}
+  </a>
+</div>
             </div>
           </div>
         )}
