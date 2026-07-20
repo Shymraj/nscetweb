@@ -202,10 +202,12 @@ const TeachingFaculty = () => {
           ))}
         </div>
 
-        <div className="tf-staff-contact">
-          <div className="tf-contact-item-small"><span className="tf-icon">✉️</span> 
-          <a href={`mailto:${staff.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}></a>{staff.email}</div>
-        </div>
+        <div className="tf-contact-item-small">
+  <span className="tf-icon">✉️</span> 
+  <a href={`mailto:${staff.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+    {staff.email}
+  </a>
+</div>
       </div>
     )); 
   };
@@ -269,8 +271,8 @@ const TeachingFaculty = () => {
 
             <div className="tf-hod-contact-col">
              <div className="tf-contact-item">
-  <span className="tf-icon">✉️</span> 
-  <a href={`mailto:${hod.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+             <span className="tf-icon">✉️</span> 
+             <a href={`mailto:${hod.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
     {hod.email}
   </a>
 </div>
