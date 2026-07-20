@@ -1,358 +1,530 @@
-.hero{
-    width:100%;
-    height:88vh;
+/* ==========================================================================
+   GOOGLE FONTS IMPORT
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap");
 
-    position:relative;
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-    overflow:hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.overlay{
-    position:absolute;
-    inset:0;
-
-    background:rgba(10,20,35,.60);
+/* ==========================================================================
+   HERO CONTAINER & BACKGROUND
+   ========================================================================== */
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
-.hero-content{
-
-    position:relative;
-
-    z-index:2;
-
-    height:100%;
-
-    max-width:1350px;
-
-    margin:auto;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 70px;
-
+/* Completely transparent overlay to showcase the bright, highlighted image */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* LEFT */
-
-.hero-left{
-
-max-width:760px;
-
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  align-items: center;
+  padding: 60px 80px 20px; /* Reduced vertical padding for tighter fit */
+  gap: 35px; /* Reduced gap between text and cards */
 }
 
-.hero-subtitle{
-
-display:inline-block;
-
-padding:10px 25px;
-
-border-radius:40px;
-
-background:rgba(255,255,255,.12);
-
-border:1px solid rgba(255,255,255,.25);
-
-backdrop-filter:blur(20px);
-
-color:white;
-
-font-size:15px;
-
-font-weight:600;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-margin-bottom:25px;
-
+/* ==========================================================================
+   LEFT SIDE - BRAND & TEXT CONTENTS
+   ========================================================================== */
+.hero-left-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 1s ease-out forwards;
 }
 
-.hero-title{
-
-font-family:"Poppins",sans-serif;
-
-font-size:64px;
-
-font-weight:800;
-
-line-height:1.1;
-
-letter-spacing:-1px;
-
-color:#fbbf24;
-
-text-shadow:0 5px 15px rgba(0,0,0,.30);
-
-margin-bottom:40px;
-
+/* Logo and Badge Row */
+.hero-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Reduced gap */
+  margin-bottom: 15px; /* Reduced margin */
 }
 
-/* RIGHT */
-
-.hero-right{
-
-display:flex;
-
-flex-direction:column;
-
-gap:20px;
-
+.hero-logo {
+  width: 70px; /* Slightly smaller logo */
+  height: auto;
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.4));
 }
 
-.hero-card{
-
-min-width:300px;
-
-padding:18px 24px;
-
-border-radius:18px;
-
-background:rgba(255,255,255,.12);
-
-border:1px solid rgba(255,255,255,.25);
-
-backdrop-filter:blur(20px);
-
-color:white;
-
-font-size:18px;
-
-font-weight:600;
-
-transition:.35s;
-
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px; /* Tighter padding */
+  background: rgba(0, 15, 30, 0.7); /* Darker glass backdrop for high legibility */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 40px;
+  color: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-.hero-card:hover{
-
-transform:translateX(-10px);
-
-background:rgba(255,255,255,.18);
-
+.badge svg {
+  color: #ff9c00;
+  font-size: 13px;
 }
 
-/* BUTTONS */
-
-.hero-buttons{
-
-display:flex;
-
-gap:20px;
-
+/* College Name Styling with strong text shadow for bright background */
+.college-name {
+  font-family: "Cinzel", "Playfair Display", serif;
+  font-size: 48px; /* Slightly smaller to prevent excessive wrapping */
+  line-height: 1.1; /* Tighter line height to remove vertical gap */
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.9), 
+    0 4px 15px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(0, 0, 0, 0.4);
 }
 
-.hero-buttons button{
-
-padding:15px 34px;
-
-border:none;
-
-border-radius:50px;
-
-font-size:16px;
-
-font-weight:600;
-
-cursor:pointer;
-
-transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
-
+.college-name .accent-text {
+  color: #f7a521;
 }
 
-.apply-btn{
-
-background:linear-gradient(135deg,#f97316,#ea580c);
-
-color:white;
-
-box-shadow:0 12px 30px rgba(249,115,22,.25);
-
+/* Premium separator line */
+.premium-line {
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff7a00, #f6b332);
+  margin: 15px 0; /* Reduced vertical spacing */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-.apply-btn:hover{
-
-transform:translateY(-2px);
-
-box-shadow:0 14px 32px rgba(249,115,22,.18);
-
-background:linear-gradient(135deg,#fb923c,#f97316);
-
+/* Tagline & Descriptions */
+.college-tagline {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #f7a521;
+  margin-bottom: 8px; /* Reduced vertical spacing */
+  letter-spacing: 0.5px;
+  text-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.9),
+    0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-.explore-btn{
-
-background:rgba(255,255,255,.12);
-
-border:1px solid rgba(255,255,255,.30);
-
-color:white;
-
-backdrop-filter:blur(15px);
-
+.left-description {
+  color: #ffffff; /* Fully white for maximum contrast */
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 25px; /* Reduced vertical spacing */
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 500;
+  max-width: 620px;
+  text-shadow: 
+    0 1px 4px rgba(0, 0, 0, 0.95),
+    0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-.explore-btn:hover{
-
-background:white;
-
-color:#111827;
-
+/* Action Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 15px; /* Reduced gap */
+  align-items: center;
 }
 
-/* SCROLL */
-
-.scroll-down{
-
-position:absolute;
-
-left:50%;
-
-bottom:25px;
-
-transform:translateX(-50%);
-
-font-size:34px;
-
-color:white;
-
-cursor:pointer;
-
-animation:bounce 1.8s infinite;
-
+.btn-primary,
+.btn-secondary {
+  padding: 14px 30px; /* Slightly tighter padding */
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px; /* Slightly smaller text for cleaner UI */
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
 }
 
-@keyframes bounce{
-
-0%{transform:translateX(-50%) translateY(0);}
-
-50%{transform:translateX(-50%) translateY(10px);}
-
-100%{transform:translateX(-50%) translateY(0);}
-
+.btn-primary {
+  border: none;
+  background: linear-gradient(90deg, #ff7b00, #ff9c00);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(255, 120, 0, 0.4), 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* RESPONSIVE */
-
-@media(max-width:992px){
-
-.hero-content{
-
-flex-direction:column;
-
-justify-content:center;
-
-text-align:center;
-
-gap:35px;
-
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(255, 120, 0, 0.55), 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-.hero-title{
-
-font-size:48px;
-
+.btn-secondary {
+  background: rgba(0, 15, 30, 0.55); /* Translucent glass button to contrast with bright image */
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.hero-right{
-
-width:100%;
-
-align-items:center;
-
+.btn-secondary:hover {
+  background: rgba(0, 15, 30, 0.75);
+  transform: translateY(-4px);
+  border-color: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-.hero-card{
-
-width:320px;
-
+/* ==========================================================================
+   RIGHT SIDE - FLOATING ACCREDITATION CARDS
+   ========================================================================== */
+.hero-right-cards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Reduced vertical card spacing */
+  align-items: flex-end;
+  animation: fadeInRight 1.2s ease-out forwards;
 }
 
-.hero-buttons{
-
-justify-content:center;
-
+.floating-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(0, 15, 30, 0.65); /* Rich dark-glass styling to stand out against bright background */
+  backdrop-filter: blur(25px) saturate(140%);
+  -webkit-backdrop-filter: blur(25px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  padding: 16px 22px; /* Reduced padding for cleaner look */
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+/* 3D Premium floating layout with active continuous CSS bobbing */
+.card-1 {
+  animation: bobCard1 6s ease-in-out infinite;
+}
+.card-2 {
+  animation: bobCard2 6s ease-in-out infinite 2s;
+}
+.card-3 {
+  animation: bobCard3 6s ease-in-out infinite 4s;
 }
 
-@media(max-width:768px){
-
-.hero{
-
-height:90vh;
-
+.floating-card:hover {
+  transform: translateY(-12px) scale(1.03) !important;
+  background: rgba(247, 165, 33, 0.15); /* Gold glass tint on hover */
+  border-color: rgba(247, 165, 33, 0.6);
+  box-shadow: 0 30px 60px rgba(247, 165, 33, 0.25),
+              0 0 30px rgba(247, 165, 33, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  animation-play-state: paused; /* Pause bobbing animation on hover */
 }
 
-.hero-content{
-
-padding:30px;
-
+/* Feature Icon inside cards */
+.feature-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 122, 0, 0.2), rgba(246, 179, 50, 0.2));
+  border: 1.5px solid rgba(246, 179, 50, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f6b332;
+  font-size: 22px;
+  flex-shrink: 0;
+  transition: all 0.35s ease;
 }
 
-.hero-title{
-
-font-size:36px;
-
+.floating-card:hover .feature-icon {
+  background: linear-gradient(135deg, #ff7a00, #f6b332);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 0 15px rgba(246, 179, 50, 0.6);
+  transform: scale(1.05);
 }
 
-.hero-buttons{
-
-flex-direction:column;
-
-align-items:center;
-
+/* Card Info text */
+.card-info {
+  display: flex;
+  flex-direction: column;
 }
 
-.hero-buttons button{
-
-width:260px;
-
+.card-info h3 {
+  color: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.hero-card{
-
-width:100%;
-
-max-width:300px;
-
+.card-info p {
+  color: #cbd5e1;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
 }
 
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-body.dark-mode .hero .overlay {
-  background: rgba(0, 0, 0, 0.8);
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-body.dark-mode .hero-card {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
+/* Staggered Continuous Bobbing Animations */
+@keyframes bobCard1 {
+  0%, 100% {
+    transform: translateY(0) translateX(-30px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(-30px);
+  }
 }
 
-body.dark-mode .hero-title {
-  color: #facc15;
+@keyframes bobCard2 {
+  0%, 100% {
+    transform: translateY(0) translateX(0px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(0px);
+  }
 }
 
-body.dark-mode .hero-subtitle {
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.18);
+@keyframes bobCard3 {
+  0%, 100% {
+    transform: translateY(0) translateX(-30px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(-30px);
+  }
 }
 
-body.dark-mode .explore-btn {
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.2);
-  color: #f8fafc;
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+/* Large Laptops */
+@media (max-width: 1400px) {
+  .hero-container {
+    padding: 60px 50px 20px;
+    gap: 30px;
+  }
+
+  .college-name {
+    font-size: 42px;
+  }
+
+  .left-description {
+    font-size: 15px;
+  }
+
+  @keyframes bobCard1 {
+    0%, 100% { transform: translateY(0) translateX(-15px); }
+    50% { transform: translateY(-8px) translateX(-15px); }
+  }
+  @keyframes bobCard3 {
+    0%, 100% { transform: translateY(0) translateX(-15px); }
+    50% { transform: translateY(-8px) translateX(-15px); }
+  }
 }
 
-body.dark-mode .explore-btn:hover {
-  background: rgba(255,255,255,.2);
-  color: #111827;
+/* Tablets / Small Laptops (Convert layout to vertical flow) */
+@media (max-width: 1100px) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 0 60px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding: 0 40px;
+  }
+
+  .hero-left-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-brand {
+    justify-content: center;
+  }
+
+  .left-description {
+    max-width: 100%;
+  }
+
+  .premium-line {
+    margin: 15px auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-right-cards {
+    align-items: center;
+  }
+
+  /* Remove translation offset on tablets */
+  @keyframes bobCard1 {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-8px) translateX(0); }
+  }
+  @keyframes bobCard3 {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-8px) translateX(0); }
+  }
+
+  .card-1, .card-2, .card-3 {
+    transform: translateX(0);
+    max-width: 500px;
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+  .hero {
+    padding: 90px 20px 50px;
+  }
+
+  .hero-container {
+    padding: 0;
+    gap: 35px;
+  }
+
+  .hero-logo {
+    width: 60px;
+  }
+
+  .badge {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+
+  .college-name {
+    font-size: 30px;
+  }
+
+  .college-tagline {
+    font-size: 18px;
+  }
+
+  .left-description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  .floating-card {
+    padding: 14px 18px;
+    gap: 12px;
+  }
+
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    border-radius: 8px;
+  }
+
+  .card-info h3 {
+    font-size: 15px;
+  }
+
+  .card-info p {
+    font-size: 12px;
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .college-name {
+    font-size: 26px;
+  }
+
+  .college-tagline {
+    font-size: 16px;
+  }
+
+  .floating-card {
+    padding: 12px 14px;
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .card-info h3 {
+    font-size: 14px;
+  }
+
+  .card-info p {
+    font-size: 11px;
+  }
 }
