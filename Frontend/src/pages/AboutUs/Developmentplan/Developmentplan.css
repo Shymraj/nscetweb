@@ -39,15 +39,35 @@
   background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
 }
 
-.dev-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 5rem 2rem;
+/* Full-Width Section Architecture */
+.dev-section-wrapper {
+  width: 100%;
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 6rem;
+}
+
+.dev-inner-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+/* Alternate Backgrounds */
+.bg-white {
+  background-color: #FFFFFF;
+}
+
+/* Prevent double padding when overlapping the PageBanner */
+.page-banner + .dev-section-wrapper {
+  padding: 0 !important;
+}
+
+.bg-light-1 {
+  background-color: #F8FBFF;
+}
+
+.bg-light-2 {
+  background-color: #F5F9FF;
 }
 
 /* General Section Utilities */
@@ -100,13 +120,14 @@
    SECTION 1: Executive Summary
 ------------------------------------- */
 .exec-summary-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
 }
 
 .exec-left {
-  flex: 1;
+  /* flex properties removed as we are using grid now */
 }
 
 .exec-text {
@@ -155,7 +176,6 @@
 }
 
 .exec-right {
-  flex: 1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
@@ -429,8 +449,11 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .dev-inner-container {
+    padding: 60px 48px;
+  }
   .exec-summary-wrapper {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
   .vmq-top-row {
     grid-template-columns: 1fr;
@@ -441,9 +464,8 @@
 }
 
 @media (max-width: 768px) {
-  .dev-container {
-    padding: 3rem 1.5rem;
-    gap: 4rem;
+  .dev-inner-container {
+    padding: 60px 24px;
   }
   .dev-section-title {
     font-size: 2rem;

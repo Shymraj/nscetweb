@@ -4,7 +4,8 @@ import { vision, mission, qualityPolicy } from "../data";
 
 const VisionMission = () => {
   return (
-    <section className="dev-section">
+    <section className="dev-section-wrapper bg-white">
+      <div className="dev-inner-container">
       <div className="vmq-wrapper">
         <div className="vmq-top-row">
           
@@ -69,6 +70,7 @@ const VisionMission = () => {
           <p className="quality-framework">{qualityPolicy.framework}</p>
         </motion.div>
 
+      </div>
       </div>
     </section>
   );

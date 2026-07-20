@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaChevronRight, FaHome } from "react-icons/fa";
 import "./PageBanner.css";
@@ -9,41 +9,46 @@ const PageBanner = ({
   subtitle, 
   breadcrumb = [], 
   hideBreadcrumb = false,
-  backgroundImage = "https://placehold.co/1920x600/1e40af/FFFFFF/png?text=NSCET+Banner" 
+  backgroundImage = "https://placehold.co/1920x600/1e40af/FFFFFF/png?text=NSCET+Banner",
+  height
 }) => {
+  const ref = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+  
+  // Parallax effect: Moves the background image slightly slower than the page scroll
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
   return (
     <section 
+      ref={ref}
       className="page-banner"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      style={{ 
+        ...(height ? { '--custom-banner-height': height } : {})
+      }}
     >
+      {/* Parallax Background */}
+      <motion.div 
+        className="banner-bg-image"
+        style={{ 
+          backgroundImage: `url(${backgroundImage})`,
+          y: backgroundY
+        }}
+      />
+
+      {/* Subtle Dark Overlay */}
       <div className="banner-overlay"></div>
       
       <div className="banner-content">
-        <motion.h1 
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="banner-title"
-        >
-          {title}
-        </motion.h1>
-        
-        {subtitle && (
-          <motion.p 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="banner-subtitle"
-          >
-            {subtitle}
-          </motion.p>
-        )}
-
+        {/* 1. Breadcrumb */}
         {!hideBreadcrumb && (
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="banner-breadcrumb"
           >
             <Link to="/" className="breadcrumb-link">
@@ -63,6 +68,28 @@ const PageBanner = ({
               </React.Fragment>
             ))}
           </motion.div>
+        )}
+
+        {/* 2. Page Title */}
+        <motion.h1 
+          initial={{ y: 30, opacity: 0, scale: 0.98 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+          className="banner-title"
+        >
+          {title}
+        </motion.h1>
+        
+        {/* 3. Subtitle */}
+        {subtitle && (
+          <motion.p 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="banner-subtitle"
+          >
+            {subtitle}
+          </motion.p>
         )}
       </div>
     </section>

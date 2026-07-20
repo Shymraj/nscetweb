@@ -4,7 +4,8 @@ import { institutionalProfile } from "../data";
 
 const InstitutionalProfile = () => {
   return (
-    <section className="dev-section">
+    <section className="dev-section-wrapper bg-light-1">
+      <div className="dev-inner-container">
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -45,6 +46,7 @@ const InstitutionalProfile = () => {
           ))}
         </motion.div>
       </motion.div>
+      </div>
     </section>
   );
 };

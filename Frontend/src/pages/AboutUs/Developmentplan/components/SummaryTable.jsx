@@ -3,7 +3,8 @@ import { summaryTableData } from "../data";
 
 const SummaryTable = () => {
   return (
-    <section className="dev-section">
+    <section className="dev-section-wrapper bg-light-1">
+      <div className="dev-inner-container">
       <h2 className="dev-section-title" style={{ display: "block", textAlign: "center", marginBottom: "3rem" }}>
         Summary Alignment Table
       </h2>
@@ -47,6 +48,7 @@ const SummaryTable = () => {
           </table>
         </div>
       </motion.div>
+      </div>
     </section>
   );
 };

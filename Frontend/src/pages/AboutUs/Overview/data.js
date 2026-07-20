@@ -1,13 +1,19 @@
 import { FaGraduationCap, FaHandshake, FaLightbulb, FaBuilding, FaBriefcase, FaUsers } from "react-icons/fa";
 
+import campus1 from "./assets/campus-slider/campus1.jpg";
+import campus2 from "./assets/campus-slider/campus2.jpg";
+import campus3 from "./assets/campus-slider/campus3.jpg";
+import campus4 from "./assets/campus-slider/campus4.jpg";
+import campus5 from "./assets/campus-slider/campus5.jpg";
+import campus6 from "./assets/campus-slider/campus6.jpg";
+
 export const campusImages = [
-  // Keeping placeholders since actual images will be added by the user manually
-  "/src/pages/AboutUs/Overview/assets/campus-slider/campus1.jpg",
-  "/src/pages/AboutUs/Overview/assets/campus-slider/campus2.jpg",
-  "/src/pages/AboutUs/Overview/assets/campus-slider/campus3.jpg",
-  "/src/pages/AboutUs/Overview/assets/campus-slider/campus4.jpg",
-  "/src/pages/AboutUs/Overview/assets/campus-slider/campus5.jpg",
-  "/src/pages/AboutUs/Overview/assets/campus-slider/campus6.jpg",
+  campus1,
+  campus2,
+  campus3,
+  campus4,
+  campus5,
+  campus6,
 ];
 
 export const statistics = [
@@ -23,42 +29,42 @@ export const features = [
     title: "Academic Excellence",
     description: "Providing outcome-based education with experienced faculty and modern teaching methodologies.",
     icon: FaGraduationCap,
-    image: "/src/pages/AboutUs/Overview/assets/achievements/achievement1.jpg",
+    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement1.jpg",
   },
   {
     id: 2,
     title: "Industry Collaboration",
     description: "Strong partnerships with industries for internships, industrial visits and placements.",
     icon: FaHandshake,
-    image: "/src/pages/AboutUs/Overview/assets/achievements/achievement2.jpg",
+    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement2.jpg",
   },
   {
     id: 3,
     title: "Research & Innovation",
     description: "Research centers, innovation labs, incubation support and project-based learning.",
     icon: FaLightbulb,
-    image: "/src/pages/AboutUs/Overview/assets/achievements/achievement3.jpg",
+    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement3.jpg",
   },
   {
     id: 4,
     title: "Modern Infrastructure",
     description: "Smart classrooms, advanced laboratories, digital library, hostels and sports facilities.",
     icon: FaBuilding,
-    image: "/src/pages/AboutUs/Overview/assets/achievements/achievement4.jpg",
+    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement4.jpg",
   },
   {
     id: 5,
     title: "Placement Excellence",
     description: "Dedicated placement training, aptitude coaching and excellent recruitment opportunities.",
     icon: FaBriefcase,
-    image: "/src/pages/AboutUs/Overview/assets/achievements/achievement5.jpg",
+    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement5.jpg",
   },
   {
     id: 6,
     title: "Holistic Development",
     description: "Technical clubs, NSS, NCC, cultural events, hackathons and leadership activities.",
     icon: FaUsers,
-    image: "/src/pages/AboutUs/Overview/assets/achievements/achievement6.jpg",
+    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement6.jpg",
   },
 ];
 

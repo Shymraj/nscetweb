@@ -18,15 +18,13 @@ const Developmentplan = () => {
         hideBreadcrumb={true}
         backgroundImage={bannerImg}
       />
-      <div className="dev-container">
-        <ExecutiveSummary />
-        <InstitutionalProfile />
-        <VisionMission />
-        <SWOT />
-        <DepartmentAccordion />
-        <SummaryTable />
-        <DevelopmentImage />
-      </div>
+      <ExecutiveSummary />
+      <InstitutionalProfile />
+      <VisionMission />
+      <SWOT />
+      <DepartmentAccordion />
+      <SummaryTable />
+      <DevelopmentImage />
     </div>
   );
 };
