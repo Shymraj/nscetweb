@@ -1,6 +1,6 @@
 /* ===== DESIGN SYSTEM & VARIABLES ===== */
 :root {
-    --bg-ap-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    --bg-ap-gradient: linear-gradient(135deg, #fafafa 0%, #f1f5f9 100%);
     --ug-primary: #2563eb;
     --ug-gradient: linear-gradient(135deg, #1d4ed8, #3b82f6);
     --ug-glow: rgba(37, 99, 235, 0.15);
@@ -15,7 +15,7 @@
 
     --text-main: #0f172a;
     --text-muted: #475569;
-    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-bg: rgba(220, 217, 245, 0.85);
     --card-border: rgba(226, 232, 240, 0.8);
 }
 
@@ -134,7 +134,7 @@
 
 .nscet-ap-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(226, 232, 240, 1);
+    border-color: rgb(137, 165, 201);
 }
 
 .nscet-ap-card.ug-card-theme:hover {
@@ -154,7 +154,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-right: 1px solid rgba(226, 232, 240, 0.8);
+    border-right: 1px solid rgba(148, 175, 210, 0.8);
     padding-right: 40px;
 }
 
@@ -171,7 +171,7 @@
 
 .ug-card-theme .nscet-ap-icon-wrapper {
     background: var(--ug-gradient);
-    color: white;
+    color: rgb(234, 224, 224);
 }
 
 .pg-card-theme .nscet-ap-icon-wrapper {
@@ -212,7 +212,7 @@
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--text-muted);
-    background: #f1f5f9;
+    background: #e9eaec;
     padding: 6px 12px;
     border-radius: 8px;
     display: inline-block;
