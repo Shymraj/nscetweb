@@ -1,0 +1,910 @@
+/* ============================================
+   TMHNU TRUST PAGE — Premium Redesign
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+/* ---------- Root Variables ---------- */
+:root {
+  --tmhnu-primary: #0b2559;
+  --tmhnu-primary-light: #1e40af;
+  --tmhnu-accent: #f59e0b;
+  --tmhnu-accent-warm: #f97316;
+  --tmhnu-dark: #0f172a;
+  --tmhnu-text: #334155;
+  --tmhnu-text-light: #64748b;
+  --tmhnu-bg: #f8fafc;
+  --tmhnu-card-bg: #ffffff;
+  --tmhnu-gradient-1: linear-gradient(135deg, #0b2559 0%, #1e40af 50%, #3b82f6 100%);
+  --tmhnu-gradient-2: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  --tmhnu-gradient-3: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --tmhnu-shadow: 0 4px 20px rgba(11, 37, 89, 0.08);
+  --tmhnu-shadow-lg: 0 20px 60px rgba(11, 37, 89, 0.12);
+  --tmhnu-shadow-glow: 0 0 40px rgba(30, 64, 175, 0.15);
+  --tmhnu-radius: 20px;
+  --tmhnu-radius-sm: 12px;
+}
+
+/* ---------- Page Container ---------- */
+.tmhnu-page {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--tmhnu-bg);
+  overflow-x: hidden;
+}
+
+/* ---------- Premium Custom Hero Section ---------- */
+.tmhnu-premium-hero {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  min-height: 550px;
+  display: flex;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Image takes full right side */
+.tmhnu-premium-hero-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 65%;
+  height: 100%;
+  z-index: 1;
+}
+
+.tmhnu-premium-hero-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tmhnu-premium-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(7, 18, 42, 1) 0%, rgba(7, 18, 42, 0.4) 100%);
+}
+
+/* Left side with diagonal cut */
+.tmhnu-premium-hero-left {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  height: 100%;
+  background: rgba(7, 18, 42, 0.85); /* Navy blue with slight transparency for glass effect */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  padding: 0 4% 0 8%;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%); /* Diagonal split */
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tmhnu-premium-content {
+  max-width: 500px;
+}
+
+.tmhnu-premium-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.tmhnu-premium-accent-line {
+  height: 2px;
+  background: #d4af37;
+  margin-bottom: 24px;
+}
+
+.tmhnu-premium-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #d4af37;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.tmhnu-premium-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #e2e8f0;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .tmhnu-premium-hero {
+    height: 60vh;
+  }
+  .tmhnu-premium-hero-right {
+    width: 100%;
+  }
+  .tmhnu-premium-hero-left {
+    width: 100%;
+    clip-path: none;
+    background: linear-gradient(to right, rgba(7, 18, 42, 0.95) 0%, rgba(7, 18, 42, 0.8) 100%);
+    padding: 0 5%;
+    justify-content: center;
+  }
+  .tmhnu-premium-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* ---------- About TMHNU Section ---------- */
+.tmhnu-about-section {
+  padding: 80px 0 60px;
+  background: #ffffff;
+  position: relative;
+}
+
+.tmhnu-about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--tmhnu-gradient-1);
+}
+
+.tmhnu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.tmhnu-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.tmhnu-about-card {
+  background: var(--tmhnu-card-bg);
+  border-radius: var(--tmhnu-radius);
+  padding: 40px;
+  border: 1px solid rgba(11, 37, 89, 0.06);
+  box-shadow: var(--tmhnu-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+}
+
+.tmhnu-about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--tmhnu-shadow-lg);
+}
+
+.tmhnu-about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--tmhnu-gradient-1);
+  border-radius: 5px 0 0 5px;
+}
+
+.tmhnu-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(11, 37, 89, 0.06) 0%, rgba(30, 64, 175, 0.08) 100%);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--tmhnu-primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
+.tmhnu-section-badge .badge-icon {
+  font-size: 1rem;
+}
+
+.tmhnu-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--tmhnu-primary);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.tmhnu-section-tagline {
+  font-size: 0.95rem;
+  color: var(--tmhnu-accent-warm);
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(245, 158, 11, 0.15);
+}
+
+.tmhnu-about-text {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--tmhnu-text);
+  text-align: justify;
+}
+
+.tmhnu-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.tmhnu-stat-chip {
+  background: linear-gradient(135deg, rgba(11, 37, 89, 0.04) 0%, rgba(30, 64, 175, 0.06) 100%);
+  border-radius: var(--tmhnu-radius-sm);
+  padding: 18px 14px;
+  text-align: center;
+  border: 1px solid rgba(11, 37, 89, 0.06);
+  transition: all 0.3s ease;
+}
+
+.tmhnu-stat-chip:hover {
+  background: var(--tmhnu-gradient-1);
+  border-color: transparent;
+}
+
+.tmhnu-stat-chip:hover .stat-number,
+.tmhnu-stat-chip:hover .stat-label {
+  color: #ffffff;
+}
+
+.tmhnu-stat-chip .stat-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--tmhnu-primary);
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.tmhnu-stat-chip .stat-label {
+  font-size: 0.75rem;
+  color: var(--tmhnu-text-light);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+/* ---------- Governing Cell Section ---------- */
+.tmhnu-governing-section {
+  padding: 80px 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+  position: relative;
+}
+
+.tmhnu-governing-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--tmhnu-gradient-2);
+  border-radius: 4px;
+}
+
+.tmhnu-heading-center {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.tmhnu-heading-center .tmhnu-section-badge {
+  display: inline-flex;
+  margin: 0 auto 16px;
+}
+
+.tmhnu-heading-center .tmhnu-section-title {
+  font-size: 2.4rem;
+}
+
+.tmhnu-heading-center .tmhnu-heading-subtitle {
+  font-size: 1.05rem;
+  color: var(--tmhnu-text-light);
+  max-width: 600px;
+  margin: 12px auto 0;
+  line-height: 1.7;
+}
+
+/* Leadership Cards Grid */
+.tmhnu-leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tmhnu-leader-card {
+  background: var(--tmhnu-card-bg);
+  border-radius: var(--tmhnu-radius);
+  overflow: hidden;
+  box-shadow: var(--tmhnu-shadow);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  border: 1px solid rgba(11, 37, 89, 0.05);
+}
+
+.tmhnu-leader-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--tmhnu-shadow-lg), var(--tmhnu-shadow-glow);
+}
+
+.tmhnu-leader-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--tmhnu-gradient-1);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tmhnu-leader-card:hover::after {
+  opacity: 1;
+}
+
+.tmhnu-leader-card-inner {
+  display: flex;
+  align-items: center;
+  padding: 28px;
+  gap: 24px;
+}
+
+.tmhnu-leader-avatar-wrap {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.tmhnu-leader-avatar-ring {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  padding: 4px;
+  background: var(--tmhnu-gradient-1);
+  position: relative;
+}
+
+.tmhnu-leader-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+}
+
+.tmhnu-leader-rank {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: var(--tmhnu-gradient-2);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+}
+
+.tmhnu-leader-info {
+  flex: 1;
+}
+
+.tmhnu-leader-role {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(249, 115, 22, 0.12) 100%);
+  color: var(--tmhnu-accent-warm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 5px 14px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.tmhnu-leader-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--tmhnu-dark);
+  margin-bottom: 4px;
+}
+
+.tmhnu-leader-qual {
+  font-size: 0.85rem;
+  color: var(--tmhnu-text-light);
+  font-weight: 500;
+}
+
+/* ---------- Executive Committee Section ---------- */
+.tmhnu-committee-section {
+  padding: 80px 0;
+  background: var(--tmhnu-gradient-3);
+  position: relative;
+  overflow: hidden;
+}
+
+.tmhnu-committee-section::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(30, 64, 175, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.tmhnu-committee-section::after {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  left: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.tmhnu-committee-section .tmhnu-section-badge {
+  background: rgba(255, 255, 255, 0.08);
+  color: #93c5fd;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tmhnu-committee-section .tmhnu-section-title {
+  color: #ffffff;
+}
+
+.tmhnu-committee-section .tmhnu-heading-subtitle {
+  color: #94a3b8;
+}
+
+.tmhnu-committee-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.tmhnu-member-chip {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--tmhnu-radius-sm);
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: default;
+}
+
+.tmhnu-member-chip:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.tmhnu-member-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.3) 0%, rgba(59, 130, 246, 0.2) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+  color: #93c5fd;
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  transition: all 0.3s ease;
+}
+
+.tmhnu-member-chip:hover .tmhnu-member-icon {
+  background: var(--tmhnu-gradient-2);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.tmhnu-member-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  line-height: 1.4;
+}
+
+/* ---------- Prominent Personalities Section ---------- */
+.tmhnu-personalities-section {
+  padding: 80px 0 100px;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  position: relative;
+}
+
+.tmhnu-personalities-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--tmhnu-gradient-1);
+  border-radius: 4px;
+}
+
+.tmhnu-personalities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tmhnu-personality-card {
+  background: var(--tmhnu-card-bg);
+  border-radius: var(--tmhnu-radius);
+  overflow: hidden;
+  box-shadow: var(--tmhnu-shadow);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid rgba(11, 37, 89, 0.05);
+  text-align: center;
+}
+
+.tmhnu-personality-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--tmhnu-shadow-lg), var(--tmhnu-shadow-glow);
+}
+
+.tmhnu-personality-img-wrap {
+  position: relative;
+  width: 100%;
+  padding: 36px 36px 0;
+}
+
+.tmhnu-personality-img-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: var(--tmhnu-gradient-1);
+  border-radius: 0 0 50% 50% / 0 0 30px 30px;
+}
+
+.tmhnu-personality-avatar-ring {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, #f59e0b, #f97316, #ef4444);
+  position: relative;
+  z-index: 1;
+}
+
+.tmhnu-personality-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+}
+
+.tmhnu-personality-info {
+  padding: 24px 28px 32px;
+}
+
+.tmhnu-personality-role {
+  display: inline-block;
+  background: var(--tmhnu-gradient-1);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 6px 20px;
+  border-radius: 50px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 15px rgba(11, 37, 89, 0.2);
+}
+
+.tmhnu-personality-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--tmhnu-dark);
+  margin-bottom: 4px;
+}
+
+.tmhnu-personality-qual {
+  font-size: 0.88rem;
+  color: var(--tmhnu-text-light);
+  font-weight: 500;
+}
+
+/* ---------- Heritage Timeline Bar ---------- */
+.tmhnu-heritage-bar {
+  background: var(--tmhnu-gradient-1);
+  padding: 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tmhnu-heritage-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.tmhnu-heritage-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+.tmhnu-heritage-item {
+  text-align: center;
+  padding: 0 20px;
+}
+
+.tmhnu-heritage-year {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.tmhnu-heritage-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 6px;
+}
+
+.tmhnu-heritage-divider {
+  width: 1px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .tmhnu-about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .tmhnu-leaders-grid {
+    max-width: 100%;
+  }
+
+  .tmhnu-committee-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .tmhnu-about-section,
+  .tmhnu-governing-section,
+  .tmhnu-committee-section,
+  .tmhnu-personalities-section {
+    padding: 60px 0;
+  }
+
+  .tmhnu-about-card {
+    padding: 28px;
+  }
+
+  .tmhnu-section-title {
+    font-size: 1.6rem;
+  }
+
+  .tmhnu-heading-center .tmhnu-section-title {
+    font-size: 1.9rem;
+  }
+
+  .tmhnu-leaders-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .tmhnu-leader-card-inner {
+    padding: 22px;
+    gap: 18px;
+  }
+
+  .tmhnu-leader-avatar-ring {
+    width: 90px;
+    height: 90px;
+  }
+
+  .tmhnu-committee-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .tmhnu-member-chip {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .tmhnu-member-name {
+    font-size: 0.84rem;
+  }
+
+  .tmhnu-personalities-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 360px;
+  }
+
+  .tmhnu-heritage-content {
+    gap: 30px;
+  }
+
+  .tmhnu-heritage-year {
+    font-size: 1.8rem;
+  }
+
+  .tmhnu-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tmhnu-container {
+    padding: 0 16px;
+  }
+
+  .tmhnu-about-card {
+    padding: 22px;
+  }
+
+  .tmhnu-committee-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tmhnu-stats-row {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .tmhnu-leader-card-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 22px;
+  }
+
+  .tmhnu-leader-role {
+    margin: 0 auto 10px;
+  }
+
+  .tmhnu-heritage-divider {
+    display: none;
+  }
+
+  .tmhnu-heritage-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* ---------- Dark Mode Support ---------- */
+body.dark-mode .tmhnu-about-section {
+  background: #111827;
+}
+
+body.dark-mode .tmhnu-about-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+body.dark-mode .tmhnu-section-title {
+  color: #e2e8f0;
+}
+
+body.dark-mode .tmhnu-about-text {
+  color: #cbd5e1;
+}
+
+body.dark-mode .tmhnu-section-badge {
+  background: rgba(147, 197, 253, 0.1);
+  color: #93c5fd;
+}
+
+body.dark-mode .tmhnu-stat-chip {
+  background: rgba(30, 64, 175, 0.1);
+  border-color: rgba(59, 130, 246, 0.15);
+}
+
+body.dark-mode .tmhnu-stat-chip .stat-number {
+  color: #93c5fd;
+}
+
+body.dark-mode .tmhnu-stat-chip .stat-label {
+  color: #94a3b8;
+}
+
+body.dark-mode .tmhnu-governing-section {
+  background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+}
+
+body.dark-mode .tmhnu-leader-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+body.dark-mode .tmhnu-leader-name {
+  color: #f1f5f9;
+}
+
+body.dark-mode .tmhnu-leader-qual {
+  color: #94a3b8;
+}
+
+body.dark-mode .tmhnu-personalities-section {
+  background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+}
+
+body.dark-mode .tmhnu-personality-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+body.dark-mode .tmhnu-personality-name {
+  color: #f1f5f9;
+}
+
+body.dark-mode .tmhnu-personality-qual {
+  color: #94a3b8;
+}
+
+body.dark-mode .tmhnu-heading-center .tmhnu-heading-subtitle {
+  color: #94a3b8;
+}

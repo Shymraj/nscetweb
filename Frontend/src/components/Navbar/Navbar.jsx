@@ -10,13 +10,26 @@ function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 34) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
@@ -25,13 +38,25 @@ function Navbar() {
       document.body.classList.remove("dark-mode");
     }
   }, [darkMode]);
+
   return (
-    <header>
+    <header className={isScrolled ? "scrolled" : ""}>
       <div className="topbar">
         <div className="topbar-left">
-          <a href="tel:+914567890123" className="topbar-contact phone-contact" aria-label="Phone"><FaPhoneAlt className="contact-icon" /> +91 4567 890 123</a>
-          <a href="mailto:info@nscet.org" className="topbar-contact" aria-label="Email"><FaEnvelope className="contact-icon" /> info@nscet.org</a>
-          <span className="topbar-contact topbar-address" aria-label="Address"><FaMapMarkerAlt className="contact-icon" /> Theni Road, Vadapudupatti, Theni - 625531</span>
+          <span className="topbar-contact phone-contact" aria-label="Phone">
+            <span className="contact-btn" aria-hidden="true"><FaPhoneAlt className="contact-icon" /></span>
+            <span className="contact-text">+91 4567 890 123</span>
+          </span>
+
+          <span className="topbar-contact" aria-label="Email">
+            <span className="contact-btn" aria-hidden="true"><FaEnvelope className="contact-icon" /></span>
+            <span className="contact-text">info@nscet.org</span>
+          </span>
+
+          <span className="topbar-contact topbar-address" aria-label="Address">
+            <span className="contact-btn" aria-hidden="true"><FaMapMarkerAlt className="contact-icon" /></span>
+            <span className="contact-text">Theni Road, Vadapudupatti, Theni - 625531</span>
+          </span>
         </div>
         <div className="topbar-right">
           <span className="follow-text">Follow Us:</span>
