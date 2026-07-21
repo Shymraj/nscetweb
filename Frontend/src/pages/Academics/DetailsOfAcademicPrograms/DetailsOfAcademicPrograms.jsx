@@ -1,5 +1,6 @@
 import React from 'react';
 import './AcademicPrograms.css';
+import clgImage from '../../../assets/clg.jpeg';
 
 const ugPrograms = [
   'B.E. - Civil Engineering',
@@ -35,12 +36,7 @@ const AcademicPrograms = () => {
             </p>
           </div>
 
-          <div className='ap-hero-image'>
-            <img
-  src='/images/college-building.jpg'
-  alt='College Building'
-/>
-          </div>
+
         </div>
       </section>
 
