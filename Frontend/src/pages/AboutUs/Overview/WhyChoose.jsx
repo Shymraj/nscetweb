@@ -3,7 +3,8 @@ import { features } from "./data";
 
 const Achievements = () => {
   return (
-    <section className="achievements-section">
+    <section className="about-section-wrapper bg-white">
+      <div className="about-inner-container achievements-section">
       <h2 className="section-title">Achievements & Awards</h2>
       <div className="achievements-grid">
         {features.map((achievement, index) => {
@@ -36,6 +37,7 @@ const Achievements = () => {
             </motion.div>
           );
         })}
+      </div>
       </div>
     </section>
   );

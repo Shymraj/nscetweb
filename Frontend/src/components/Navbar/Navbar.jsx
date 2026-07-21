@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.webp";
 import { FaMoon, FaSun, FaSearch, FaTimes, FaBars, FaLinkedin, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import annualAccountsPdf from "../../pages/Aboutus/AnnualAccounts/assets/documents/annual-accounts.pdf";
+import naacLogo from "../../assets/Img/naac-logo.png";
 
 function Navbar() {
 
@@ -68,7 +69,7 @@ function Navbar() {
 
       <nav className="navbar">
 
-        <div className="logo-section">
+        <Link to="/" className="logo-section" style={{ textDecoration: 'none', color: 'inherit' }}>
           <div className="logo-box">
             <img src={logo} alt="NSCET Logo" className="logo" />
           </div>
@@ -76,7 +77,7 @@ function Navbar() {
           <div className="college-name">
             <h2>NSCET</h2>
           </div>
-        </div>
+        </Link>
 
         <ul key={location.pathname} className={isMobileMenuOpen ? "nav-links active" : "nav-links"}>
           <li><Link to="/">Home</Link></li>
@@ -206,22 +207,26 @@ function Navbar() {
         </ul>
 
         <div className="nav-right">
-          {!showSearch && (
+          <div className="nav-desktop-elements" style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: showSearch ? 0 : 1, visibility: showSearch ? 'hidden' : 'visible', pointerEvents: showSearch ? 'none' : 'auto', transition: 'opacity 0.3s ease' }}>
             <button
               className="search-btn"
               onClick={() => setShowSearch(true)}
             >
               <FaSearch />
             </button>
-          )}
+            <button
+              className="theme-btn"
+              onClick={() => setDarkMode(!darkMode)}
+            >
+              {darkMode ? <FaSun /> : <FaMoon />}
+            </button>
 
+            <img src={naacLogo} alt="NAAC Logo" className="naac-logo" />
+          </div>
 
-          {showSearch ? (
-
+          {showSearch && (
             <div className="search-box">
-
               <FaSearch className="search-icon" />
-
               <input
                 type="text"
                 placeholder="Search..."
@@ -233,23 +238,7 @@ function Navbar() {
               >
                 <FaTimes />
               </button>
-
             </div>
-          ) : (
-
-            <>
-              <button
-                className="theme-btn"
-                onClick={() => setDarkMode(!darkMode)}
-              >
-                {darkMode ? <FaSun /> : <FaMoon />}
-              </button>
-
-              <button className="apply-btn">
-                Apply Now →
-              </button>
-            </>
-
           )}
           <button className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <FaTimes /> : <FaBars />}

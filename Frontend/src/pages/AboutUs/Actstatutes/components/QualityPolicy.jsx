@@ -3,7 +3,8 @@ import { qualityPolicyIntro, qualityPolicyCards, qualityPolicyCommitment } from 
 
 const QualityPolicy = () => {
   return (
-    <section id="quality-policy" className="act-section">
+    <section id="quality-policy" className="about-section-wrapper bg-light-1">
+      <div className="about-inner-container act-section">
       <div className="section-header">
         <motion.h2
           initial={{ y: 20, opacity: 0 }}
@@ -57,6 +58,7 @@ const QualityPolicy = () => {
           </blockquote>
         </div>
       </motion.div>
+      </div>
     </section>
   );
 };

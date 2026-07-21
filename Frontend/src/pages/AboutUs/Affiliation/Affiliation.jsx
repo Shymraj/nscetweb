@@ -25,7 +25,8 @@ const Affiliation = () => {
         backgroundImage={bannerImg}
       />
 
-      <div className="affiliation-container">
+      <section className="about-section-wrapper bg-white">
+        <div className="about-inner-container">
         <motion.div 
           className="affiliation-premium-card"
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -163,7 +164,8 @@ const Affiliation = () => {
             </div>
           </div>
         </motion.div>
-      </div>
+        </div>
+      </section>
       
       {/* Background decorations */}
       <div className="affiliation-bg-blobs">

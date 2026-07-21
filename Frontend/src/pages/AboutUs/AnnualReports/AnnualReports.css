@@ -1,4 +1,4 @@
-
+﻿
 :root {
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
   --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
@@ -15,12 +15,31 @@
   padding-bottom: 5rem;
 }
 
-.annual-reports-container {
-  max-width: 1200px;
-  margin: -40px auto 0;
-  padding: 0 2rem;
+/* Full-Width Section Architecture */
+.about-section-wrapper {
+  width: 100%;
   position: relative;
-  z-index: 10;
+  z-index: 1;
+}
+
+.about-inner-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+/* Alternate Backgrounds */
+.bg-white { background-color: #FFFFFF; }
+.bg-light-1 { background-color: #F8FBFF; }
+.bg-light-2 { background-color: #F5F9FF; }
+
+/* Prevent double padding when overlapping the PageBanner */
+.page-banner + .about-section-wrapper {
+  padding: 0 !important;
+  margin-top: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
 }
 
 /* Background Blobs */
@@ -410,13 +429,15 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .about-inner-container { padding: 60px 48px; }
+}
+
 @media (max-width: 768px) {
+  .about-inner-container { padding: 60px 24px; }
+
   .ar-section-title {
     font-size: 2rem;
-  }
-  
-  .annual-reports-container {
-    padding: 0 1rem;
   }
   
   .ar-glass-card {
@@ -431,3 +452,4 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
+

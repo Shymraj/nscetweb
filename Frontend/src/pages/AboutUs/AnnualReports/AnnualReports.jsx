@@ -15,13 +15,13 @@ const AnnualReports = () => {
         subtitle="A Year of Academic Excellence, Innovation and Institutional Growth."
         hideBreadcrumb={true}
       />
-      <div className="annual-reports-container">
+
         <AboutReport />
         <Highlights />
         <Statistics />
         <InstitutionalValues />
         <ReportDocument />
-      </div>
+
       
       {/* Background Blobs */}
       <div className="ar-bg-blobs">

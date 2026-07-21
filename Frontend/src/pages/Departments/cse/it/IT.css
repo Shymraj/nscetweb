@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* ================= VARIABLES ================= */
 :root {
@@ -27,7 +27,7 @@
 
 /* ================= HERO SECTION ================= */
 .it-hero-section {
-    padding: 1.5rem 2.5rem 0;
+    padding: 0;
     margin-bottom: 3rem;
 }
 
@@ -35,7 +35,7 @@
     position: relative;
     width: 100%;
     min-height: 500px;
-    border-radius: 30px;
+    border-radius: 0;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -53,7 +53,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.55) 100%);
-    border-radius: 30px;
+    border-radius: 0;
     z-index: 1;
 }
 
@@ -87,16 +87,16 @@
 
 @media (max-width: 768px) {
     .it-hero-section {
-        padding: 1rem 1rem 0;
+        padding: 0;
     }
 
     .it-hero-box {
         min-height: 280px;
-        border-radius: 20px;
+        border-radius: 0;
     }
 
     .it-hero-overlay {
-        border-radius: 20px;
+        border-radius: 0;
     }
 
     .it-hero-title {
@@ -340,7 +340,7 @@
 }
 
 .glass-card li::before {
-    content: '✓';
+    content: 'âœ“';
     position: absolute;
     left: 0;
     top: 1px;
@@ -864,3 +864,4 @@ body.dark-mode .empty-events-state {
     border-color: #334155;
     color: #94a3b8;
 }
+

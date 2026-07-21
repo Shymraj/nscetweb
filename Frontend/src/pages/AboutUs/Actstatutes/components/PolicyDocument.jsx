@@ -8,7 +8,8 @@ const PolicyDocument = () => {
   };
 
   return (
-    <section id="policy-document" className="act-section">
+    <section id="policy-document" className="about-section-wrapper bg-white">
+      <div className="about-inner-container act-section">
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -41,6 +42,7 @@ const PolicyDocument = () => {
           </div>
         </div>
       </motion.div>
+      </div>
     </section>
   );
 };
