@@ -1,0 +1,299 @@
+/* ===== Academic Programs Page ===== */
+
+.ap-page {
+    min-height: 100vh;
+    background: #f8f9fb;
+    padding: 0 0 60px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* ---------- Hero Section ---------- */
+.ap-hero {
+    background: linear-gradient(135deg, #0a1f44 0%, #163a7a 60%, #1d4ed8 100%);
+    padding: 80px 5% 60px;
+    color: #fff;
+    border-radius: 0 0 40px 40px;
+    margin-bottom: 50px;
+}
+
+.ap-hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.ap-hero-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.ap-hero-text h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.ap-hero-text h1 span {
+    color: #60a5fa;
+}
+
+.ap-line {
+    width: 60px;
+    height: 4px;
+    background: #60a5fa;
+    border-radius: 4px;
+    margin-bottom: 18px;
+}
+
+.ap-hero-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    opacity: 0.88;
+    max-width: 520px;
+}
+
+.ap-hero-image {
+    flex: 0 0 360px;
+    max-width: 100%;
+}
+
+.ap-hero-image img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+    object-fit: cover;
+}
+
+/* ---------- Card Base ---------- */
+.ap-card {
+    max-width: 1200px;
+    margin: 0 auto 36px;
+    display: flex;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    background: #fff;
+}
+
+/* ---------- Left Panel ---------- */
+.ap-left {
+    flex: 0 0 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 24px;
+    color: #fff;
+    text-align: center;
+    gap: 10px;
+}
+
+.ap-left.blue {
+    background: linear-gradient(180deg, #1d4ed8, #2563eb);
+}
+
+.ap-left.green {
+    background: linear-gradient(180deg, #059669, #10b981);
+}
+
+.ap-left.purple {
+    background: linear-gradient(180deg, #7c3aed, #8b5cf6);
+}
+
+.ap-icon {
+    font-size: 2.4rem;
+    margin-bottom: 4px;
+}
+
+.ap-left h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.ap-divider {
+    width: 40px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+}
+
+.ap-left span {
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+/* ---------- Right Panel ---------- */
+.ap-right {
+    flex: 1;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+}
+
+.ap-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+}
+
+.ap-grid-single {
+    grid-template-columns: 1fr;
+}
+
+/* ---------- Program Items ---------- */
+.ap-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: #eff6ff;
+    border-radius: 12px;
+    border-left: 4px solid #2563eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ap-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+}
+
+.ap-item.green-item {
+    background: #ecfdf5;
+    border-left-color: #10b981;
+}
+
+.ap-item.green-item:hover {
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.15);
+}
+
+.ap-check {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2563eb;
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dbeafe;
+    border-radius: 50%;
+}
+
+.ap-check.green-check {
+    color: #059669;
+    background: #d1fae5;
+}
+
+.ap-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+/* ---------- PG + Doctoral Row ---------- */
+.ap-row {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.ap-row .ap-card {
+    margin: 0;
+}
+
+/* ---------- Research Box (Doctoral) ---------- */
+.ap-research-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    background: #f5f3ff;
+    border-radius: 14px;
+    border-left: 4px solid #7c3aed;
+}
+
+.ap-research-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.ap-research-box h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #4c1d95;
+}
+
+.ap-research-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: #475569;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .ap-row {
+        grid-template-columns: 1fr;
+    }
+
+    .ap-card {
+        flex-direction: column;
+    }
+
+    .ap-left {
+        flex: unset;
+        padding: 24px;
+    }
+
+    .ap-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ap-hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ap-hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .ap-hero-image {
+        flex: unset;
+        max-width: 340px;
+    }
+
+    .ap-line {
+        margin: 0 auto 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ap-hero {
+        padding: 60px 4% 40px;
+        border-radius: 0 0 24px 24px;
+    }
+
+    .ap-hero-text h1 {
+        font-size: 1.6rem;
+    }
+
+    .ap-right {
+        padding: 20px;
+    }
+
+    .ap-item {
+        padding: 12px 14px;
+    }
+}

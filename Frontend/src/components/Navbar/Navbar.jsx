@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.webp";
 import { FaMoon, FaSun, FaSearch, FaTimes, FaBars, FaLinkedin, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import annualAccountsPdf from "../../pages/Aboutus/AnnualAccounts/assets/documents/annual-accounts.pdf";
-import naacLogo from "../../assets/Img/naac-logo.png";
 
 function Navbar() {
 
@@ -221,7 +220,7 @@ function Navbar() {
               {darkMode ? <FaSun /> : <FaMoon />}
             </button>
 
-            <img src={naacLogo} alt="NAAC Logo" className="naac-logo" />
+            <img src="/images/naac.png" alt="NAAC Logo" className="naac-logo" />
           </div>
 
           {showSearch && (
