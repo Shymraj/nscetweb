@@ -1,7 +1,8 @@
- 
+
 import './AcademicCalendar.css';
 import calendarIcon from './banner/calendar-icon.svg';
 import heroImage from '../../../assets/ps1.jpg';
+import PageBanner from '../../../components/common/PageBanner/PageBanner';
 
 const infoCards = [
   {
@@ -34,63 +35,54 @@ const calendarLinks = [
 
 const AcademicCalendar = () => {
   return (
-    <div className="academic-calendar-wrapper">
-      <header
-        className="header"
-        style={{
-          '--header-width': '1200px',
-          '--title-width': '640px',
-          backgroundImage: `linear-gradient(rgba(6, 32, 61, 0.78), rgba(15, 33, 68, 0.78)), url(${heroImage})`,
-        }}
-      >
-        <div className="header-content">
-            <div className="header-decor">
+    <div className="academic-calendar-page">
+      <PageBanner
+        title="Academic Calendar"
+        subtitle="Important dates, schedules & academic events"
+        hideBreadcrumb={true}
+        backgroundImage={heroImage}
+      />
+
+      <div className="academic-calendar-content">
+        <section className="info-section">
+          {infoCards.map((card) => (
+            <article key={card.title} className={`info-card info-card-${card.theme}`}>
+              <div className="info-icon">
+                <img src={calendarIcon} alt="calendar icon" />
+              </div>
+              <div className="info-content">
+                <h2>{card.title}</h2>
+                <p>{card.text}</p>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <section className="section-content">
+          <div className="section-heading">
+            <h2 className="section-title">Academic Calendars List</h2>
+            <div className="section-decor">
               <span className="line" />
               <span className="calendar-symbol">📅</span>
               <span className="line" />
             </div>
-            <h1 className="header-title">Academic Calendar</h1>
-        </div>
-      </header>
-
-      <section className="info-section">
-        {infoCards.map((card) => (
-          <article key={card.title} className={`info-card info-card-${card.theme}`}>
-            <div className="info-icon">
-              <img src={calendarIcon} alt="calendar icon" />
-            </div>
-            <div className="info-content">
-              <h2>{card.title}</h2>
-              <p>{card.text}</p>
-            </div>
-          </article>
-        ))}
-      </section>
-
-      <section className="section-content">
-        <div className="section-heading">
-          <h2 className="section-title">Academic Calendars List</h2>
-          <div className="section-decor">
-            <span className="line" />
-            <span className="calendar-symbol">📅</span>
-            <span className="line" />
           </div>
-        </div>
 
-        <div className="calendar-grid" role="list">
-          {calendarLinks.map((title, index) => (
-            <button key={`${title}-${index}`} type="button" className="calendar-card">
-              <div className="calendar-card-left">
-                <div className="calendar-card-icon">
-                  <img src={calendarIcon} alt="calendar icon" />
+          <div className="calendar-grid" role="list">
+            {calendarLinks.map((title, index) => (
+              <button key={`${title}-${index}`} type="button" className="calendar-card">
+                <div className="calendar-card-left">
+                  <div className="calendar-card-icon">
+                    <img src={calendarIcon} alt="calendar icon" />
+                  </div>
+                  <span className="calendar-card-text">{title}</span>
                 </div>
-                <span className="calendar-card-text">{title}</span>
-              </div>
-              <span className="calendar-card-arrow">→</span>
-            </button>
-          ))}
-        </div>
-      </section>
+                <span className="calendar-card-arrow">→</span>
+              </button>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
