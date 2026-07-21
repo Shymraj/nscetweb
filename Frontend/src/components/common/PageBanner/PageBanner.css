@@ -2,10 +2,7 @@
 .page-banner {
   position: relative;
   width: 100%;
-  height: 400px; /* Adjust height as needed */
-  background-size: cover;
-  background-position: center;
-  /* background-attachment: scroll; removed fixed for lag */ /* Parallax effect */
+  height: var(--custom-banner-height, 65vh);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,54 +12,84 @@
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
+/* --- Parallax Background --- */
+.banner-bg-image {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 120%; /* Extra height to allow parallax translation */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* --- Subtle Dark Overlay --- */
 .banner-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(11, 37, 89, 0.9) 0%, rgba(30, 64, 175, 0.6) 100%);
+  background: rgba(8, 18, 40, 0.45);
   z-index: 1;
 }
 
+/* --- Banner Content --- */
 .banner-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   padding: 0 5%;
-  max-width: 1000px;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
 .banner-title {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 800;
-  margin-bottom: 1rem;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  line-height: 1.1;
+  word-wrap: break-word;
 }
 
 .banner-subtitle {
   font-size: 1.25rem;
   color: #e2e8f0;
-  margin-bottom: 2rem;
-  font-weight: 500;
+  margin: 0;
+  font-weight: 400;
+  max-width: 800px;
+  line-height: 1.6;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* --- Premium Glass Breadcrumb --- */
 .banner-breadcrumb {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: inline-flex;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.5rem;
 }
 
 .breadcrumb-link {
-  color: white;
+  color: #f8fafc;
   text-decoration: none;
   transition: all 0.3s ease;
   display: flex;
@@ -71,7 +98,7 @@
 }
 
 .breadcrumb-link:hover {
-  color: #f59e0b; /* nscet-accent */
+  color: #60a5fa; /* Soft blue hover */
 }
 
 .breadcrumb-icon {
@@ -79,27 +106,78 @@
 }
 
 .breadcrumb-separator {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
 }
 
 .breadcrumb-current {
-  color: #f59e0b;
-  font-weight: 600;
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* --- Premium Content Overlap Transition --- */
+/* Selects the immediate sibling of the page banner */
+.page-banner + * {
+  position: relative;
+  z-index: 10;
+  margin-top: -65px; /* Pull content up over the banner */
+  background-color: var(--card-bg, #ffffff);
+  border-radius: 32px 32px 0 0; /* Round only the top corners */
+  box-shadow: 0 -10px 40px rgba(15, 23, 42, 0.08); /* Adjust shadow for full-width */
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 40px 5%; /* Base padding for the floating card */
+  margin-bottom: 0;
+  box-sizing: border-box; /* Crucial to prevent horizontal overflow */
+}
+
+/* In dark mode, adjust the floating card shadow */
+body.dark-mode .page-banner + * {
+  background-color: var(--card-bg, rgba(15, 23, 42, 0.95));
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1440px) {
+  .page-banner {
+    height: var(--custom-banner-height, 60vh);
+  }
+}
+
+@media (max-width: 1024px) {
+  .page-banner {
+    height: var(--custom-banner-height, 50vh);
+  }
+  .banner-title {
+    font-size: 3.2rem;
+  }
+  .page-banner + * {
+    margin-top: -50px;
+    padding: 30px 4%;
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
   .page-banner {
-    height: 300px;
+    height: var(--custom-banner-height, 42vh);
   }
   .banner-title {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
   }
   .banner-subtitle {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
   .banner-breadcrumb {
-    font-size: 0.85rem;
-    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+    padding: 0.5rem 1.2rem;
+  }
+  .page-banner + * {
+    margin-top: -40px;
+    padding: 20px 3%;
+    width: 100%;
+    border-radius: 24px 24px 0 0;
   }
 }

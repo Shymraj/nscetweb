@@ -13,7 +13,8 @@ const iconMap = [
 
 const ExecutiveSummary = () => {
   return (
-    <section className="dev-section">
+    <section className="dev-section-wrapper bg-white">
+      <div className="dev-inner-container">
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -63,6 +64,7 @@ const ExecutiveSummary = () => {
           ))}
         </div>
       </motion.div>
+      </div>
     </section>
   );
 };

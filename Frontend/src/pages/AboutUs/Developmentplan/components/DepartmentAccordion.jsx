@@ -11,7 +11,8 @@ const DepartmentAccordion = () => {
   };
 
   return (
-    <section className="dev-section">
+    <section className="dev-section-wrapper bg-white">
+      <div className="dev-inner-container">
       <h2 className="dev-section-title" style={{ display: "block", textAlign: "center", marginBottom: "3rem" }}>
         Department-wise Alignment
       </h2>
@@ -82,6 +83,7 @@ const DepartmentAccordion = () => {
             </AnimatePresence>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   );

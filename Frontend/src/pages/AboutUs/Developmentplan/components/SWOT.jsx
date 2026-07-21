@@ -11,7 +11,8 @@ const iconComponents = {
 
 const SWOT = () => {
   return (
-    <section className="dev-section">
+    <section className="dev-section-wrapper bg-light-2">
+      <div className="dev-inner-container">
       <h2 className="dev-section-title" style={{ display: "block", textAlign: "center", marginBottom: "3rem" }}>
         Institutional SWOT Analysis
       </h2>
@@ -38,6 +39,7 @@ const SWOT = () => {
             </ul>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   );

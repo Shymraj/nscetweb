@@ -33,7 +33,8 @@ const DevelopmentImage = () => {
   }, [isOpen, handleKeyDown]);
 
   return (
-    <section className="dev-section dev-image-section">
+    <section className="dev-section-wrapper bg-white">
+      <div className="dev-inner-container">
       <div className="dev-image-header">
         <h2 className="dev-section-title">Institutional Development Plan Roadmap</h2>
         <p className="dev-image-subtitle">Visual representation of NSCET's strategic development roadmap.</p>
@@ -99,6 +100,7 @@ const DevelopmentImage = () => {
         </AnimatePresence>,
         document.body
       )}
+      </div>
     </section>
   );
 };
