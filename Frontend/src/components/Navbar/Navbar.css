@@ -52,7 +52,7 @@ header.scrolled {
 }
 .topbar-left{
     display:flex;
-    gap:12px;
+    gap:25px; /* Increased gap between Phone, Email, Location groups */
     align-items:center;
     font-size:13px; /* increased slightly for readability */
     color: rgba(255,255,255,0.95);
@@ -61,7 +61,7 @@ header.scrolled {
     color: rgba(255,255,255,0.95);
     text-decoration: none;
     display: inline-flex;
-    gap:6px;
+    gap:4px; /* Reduced gap between the icon and the text */
     align-items:center;
     font-size:13px; /* increased, logo not modified */
 }
@@ -192,6 +192,8 @@ header.scrolled {
     font-weight: 700;
     color: #0d3b8e;
     line-height: 1.2;
+    text-shadow: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .college-name p {
@@ -286,30 +288,16 @@ body.dark-mode .nav-links a::after {
 
 }
 
-.apply-btn {
-    background: #ff7a00;
-    color: white;
+.naac-logo {
+    width: auto;
+    height: 56px;
+    max-width: 140px;
+    object-fit: contain;
     border: none;
-    padding: 0 22px;
-    border-radius: 14px;
-    width: 150px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
-    margin-left: 3px;
+    outline: none;
+    background: transparent;
+    margin-left: 12px;
     margin-right: 0;
-}
-
-.apply-btn:hover {
-    background: #e56d00;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(229,109,0,.2);
 }
 
 .theme-btn {
@@ -364,19 +352,19 @@ body.dark-mode .nav-links a::after {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 260px;
-    min-width: 260px;
+    width: auto;
+    min-width: auto;
     height: 52px;
     position: relative;
-    margin-right: 55px;
+    margin-right: 30px;
     gap: 8px;
     flex-wrap: nowrap;
     overflow: visible;
 }
 .search-box{
-    position:absolute;
-    top: 50%;
+    position: absolute;
     right: 0;
+    top: 50%;
     transform: translateY(-50%);
     width: 240px;
     max-width: 240px;
@@ -396,6 +384,12 @@ body.dark-mode .nav-links a::after {
     overflow:visible;
     z-index: 20;
     animation: reveal .4s ease forwards;
+}
+
+@media screen and (max-width: 1024px) {
+    .search-box {
+        right: 45px;
+    }
 }
 
 @keyframes reveal{
@@ -669,6 +663,11 @@ body.dark-mode .search-box input::placeholder {
     color: #cbd5e1;
 }
 
+body.dark-mode .search-btn:hover {
+    color: #ff7a00;
+    border-color: #ff7a00;
+}
+
 body.dark-mode .theme-btn:hover {
     border: 1px solid #ff7a00;
     color: #ff7a00;
@@ -690,11 +689,19 @@ body.dark-mode .dropdown-menu li a:hover {
     color: #ff7a00;
 }
 
-/* Topbar — dark mode specific styles (only modify dark appearance) */
+/* Header and Topbar dark mode styles */
+body.dark-mode header {
+    background: transparent; /* Allow hero image to show through */
+    padding-bottom: 15px; /* Gap below the floating navbar */
+}
+
 body.dark-mode .topbar {
-    background: #06203a; /* deeper navy for dark theme */
+    background: rgba(15, 23, 42, 0.7); /* Slightly darker translucent background */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: #e6f3ff;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 0; /* Removed gap between topbar and navbar */
 }
 
 body.dark-mode .topbar-left,
@@ -733,9 +740,26 @@ body.dark-mode .social-btn:hover{
     box-shadow: 0 6px 16px rgba(2,6,23,0.45);
 }
 
+
 /* ensure navbar below remains readable in dark mode */
 body.dark-mode .navbar {
-    background: #111827; /* keep existing feel but ensure separation */
+    background: rgba(15, 23, 42, 0.5); /* Translucent dark background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    height: 72px; /* Increased slightly so images don't touch top border */
+    padding-top: 3px; /* Pushes the extra space to the top */
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Soft subtle border */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure NAAC logo 'A' is white without a full white background box */
+body.dark-mode .naac-logo {
+    background: radial-gradient(circle at 50% 45%, #ffffff 0%, #ffffff 30%, transparent 35%);
+    border-radius: 50%; /* Optional: helps constrain background if needed */
+    padding: 0;
 }
 
 /* ================= NESTED SUB-DROPDOWN ================= */
