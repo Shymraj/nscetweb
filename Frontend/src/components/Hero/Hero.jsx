@@ -24,7 +24,6 @@ const Hero = () => {
         {/* LEFT CONTENT PANEL */}
         <div className="hero-left-content">
           <div className="hero-brand">
-            <img src={logo} alt="NSCET Logo" className="hero-logo" />
             <div className="badge">
               <FaStar />
               <span>Theni Melapettai Hindu Nadargal Uravinmurai</span>
@@ -42,9 +41,10 @@ const Hero = () => {
           <p className="college-tagline">Empowering Minds, Shaping the Future</p>
 
           <p className="left-description">
-            Join a vibrant learning community that inspires innovation,
-            nurtures talent, and transforms dreams into real-world success.
-            Excellence in education, innovation in every step.
+            Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai
+Accredited by NAAC with 'A' Grade | Recognized under 2(f) of the UGC Act, 1956
+An ISO 9001:2015 Certified Institution
+Vadapudupatti, Annanji (PO), Theni - 625531.
           </p>
 
           <div className="hero-buttons">
