@@ -29,7 +29,8 @@ const JourneyTimeline = React.memo(() => {
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section className="journey-section">
+    <section className="about-section-wrapper bg-light-2">
+      <div className="about-inner-container journey-section">
       <h2 className="section-title">Our Journey</h2>
       <div className="timeline-container">
         <div className="timeline-line"></div>
@@ -41,6 +42,7 @@ const JourneyTimeline = React.memo(() => {
         {milestones.map((milestone, index) => (
           <TimelineItem key={index} milestone={milestone} index={index} />
         ))}
+      </div>
       </div>
     </section>
   );

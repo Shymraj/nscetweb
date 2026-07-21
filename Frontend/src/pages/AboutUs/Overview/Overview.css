@@ -1,4 +1,4 @@
-/* Overview.css */
+﻿/* Overview.css */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,600;1,600&display=swap');
 
 :root {
@@ -797,3 +797,39 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Full-Width Section Architecture */
+.about-section-wrapper {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.about-inner-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+/* Alternate Backgrounds */
+.bg-white { background-color: #FFFFFF; }
+.bg-light-1 { background-color: #F8FBFF; }
+.bg-light-2 { background-color: #F5F9FF; }
+
+/* Prevent double padding when overlapping the PageBanner */
+.page-banner + .about-section-wrapper {
+  padding: 0 !important;
+  margin-top: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+@media (max-width: 1024px) {
+  .about-inner-container { padding: 60px 48px; }
+}
+
+@media (max-width: 768px) {
+  .about-inner-container { padding: 60px 24px; }
+}
+

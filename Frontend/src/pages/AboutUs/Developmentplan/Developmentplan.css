@@ -1,4 +1,4 @@
-
+﻿
 :root {
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
   --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
@@ -60,6 +60,10 @@
 /* Prevent double padding when overlapping the PageBanner */
 .page-banner + .dev-section-wrapper {
   padding: 0 !important;
+  margin-top: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
 }
 
 .bg-light-1 {
@@ -1025,3 +1029,4 @@
     font-size: 1.25rem;
   }
 }
+
