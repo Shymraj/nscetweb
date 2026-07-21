@@ -4,7 +4,8 @@ import { vision, mission } from "../data";
 
 const VisionMission = () => {
   return (
-    <div className="vision-mission-wrapper">
+    <section className="about-section-wrapper bg-white">
+      <div className="about-inner-container vision-mission-wrapper">
       <div className="vision-mission-compact-container">
         
         <motion.div
@@ -47,7 +48,8 @@ const VisionMission = () => {
         </motion.div>
 
       </div>
-    </div>
+      </div>
+    </section>
   );
 };
 

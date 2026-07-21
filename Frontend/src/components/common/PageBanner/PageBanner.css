@@ -115,29 +115,6 @@
   font-weight: 400;
 }
 
-/* --- Premium Content Overlap Transition --- */
-/* Selects the immediate sibling of the page banner */
-.page-banner + * {
-  position: relative;
-  z-index: 10;
-  margin-top: -65px; /* Pull content up over the banner */
-  background-color: var(--card-bg, #ffffff);
-  border-radius: 32px 32px 0 0; /* Round only the top corners */
-  box-shadow: 0 -10px 40px rgba(15, 23, 42, 0.08); /* Adjust shadow for full-width */
-  width: 100%;
-  max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 40px 5%; /* Base padding for the floating card */
-  margin-bottom: 0;
-  box-sizing: border-box; /* Crucial to prevent horizontal overflow */
-}
-
-/* In dark mode, adjust the floating card shadow */
-body.dark-mode .page-banner + * {
-  background-color: var(--card-bg, rgba(15, 23, 42, 0.95));
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-}
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 1440px) {
