@@ -208,19 +208,21 @@ const Contact = () => {
           style={{ marginTop: '4rem', marginBottom: '2rem' }}
         >
           <h2 className="glam-title">Find Us on <span>Google Maps</span></h2>
-          <div style={{ width: '100%', height: '500px', borderRadius: '1.5rem', overflow: 'hidden', boxShadow: '0 15px 40px rgba(0,0,0,0.1)' }}>
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://maps.google.com/maps?q=Nadar%20Saraswathi%20College%20of%20Engineering%20%26%20Technology,%20Vadapudupatti,%20Theni&t=k&z=16&ie=UTF8&iwloc=&output=embed"
-              frameBorder="0"
-              scrolling="no"
-              marginHeight="0"
-              marginWidth="0"
-              title="NSCET Campus Map"
-              style={{ border: 0 }}
-              allowFullScreen
-            ></iframe>
+          <div className="map-glow-wrapper">
+            <div className="map-inner">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://maps.google.com/maps?q=Nadar%20Saraswathi%20College%20of%20Engineering%20%26%20Technology,%20Vadapudupatti,%20Theni&t=k&z=16&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                title="NSCET Campus Map"
+                style={{ border: 0 }}
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         </motion.div>
       </main>

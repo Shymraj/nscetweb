@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import distinguishedPoster from '../../../assets/Img/distinguished_alumni.jpg';
-import { FaTrophy, FaBriefcase, FaGlobeAmericas } from 'react-icons/fa';
+import { FaTrophy, FaBriefcase, FaGlobeAmericas, FaBuilding } from 'react-icons/fa';
 
 const DistinguishedAlumni = () => {
 
@@ -46,27 +46,32 @@ const DistinguishedAlumni = () => {
             whileHover={{ scale: 1.02, rotateY: 2, rotateX: 2 }}
             transition={{ type: "spring", stiffness: 300 }}
           />
-          <div className="poster-glow-backdrop"></div>
         </div>
       </motion.div>
 
-      <motion.div className="alumni-impact-grid" variants={staggerContainer}>
-        <motion.div className="impact-card" variants={fadeInUp}>
-          <div className="impact-icon"><FaGlobeAmericas /></div>
-          <h4>Global Footprint</h4>
+      <motion.div className="vision-mission-grid" variants={staggerContainer} style={{ marginTop: '4rem' }}>
+        <motion.div className="vm-card" variants={fadeInUp}>
+          <div className="vm-icon icon-gradient-1" style={{ borderRadius: '12px', padding: '10px', display: 'inline-block' }}><FaGlobeAmericas /></div>
+          <h3>Global Footprint</h3>
           <p>Our alumni are stationed internationally and nationally, bringing innovation to corporate conglomerates globally.</p>
         </motion.div>
 
-        <motion.div className="impact-card" variants={fadeInUp}>
-          <div className="impact-icon"><FaBriefcase /></div>
-          <h4>Public & Core Sectors</h4>
+        <motion.div className="vm-card" variants={fadeInUp}>
+          <div className="vm-icon icon-gradient-2" style={{ borderRadius: '12px', padding: '10px', display: 'inline-block' }}><FaBriefcase /></div>
+          <h3>Public & Core Sectors</h3>
           <p>Serving with dedication as leading engineers, police officials, and in state administrative departments.</p>
         </motion.div>
 
-        <motion.div className="impact-card" variants={fadeInUp}>
-          <div className="impact-icon"><FaTrophy /></div>
-          <h4>Academic Excellence</h4>
+        <motion.div className="vm-card" variants={fadeInUp}>
+          <div className="vm-icon icon-gradient-3" style={{ borderRadius: '12px', padding: '10px', display: 'inline-block' }}><FaTrophy /></div>
+          <h3>Academic Excellence</h3>
           <p>Leading as professors, researchers, and inspiring the subsequent generations at renowned institutions.</p>
+        </motion.div>
+
+        <motion.div className="vm-card" variants={fadeInUp}>
+          <div className="vm-icon icon-gradient-4" style={{ borderRadius: '12px', padding: '10px', display: 'inline-block' }}><FaBuilding /></div>
+          <h3>Corporate Leadership</h3>
+          <p>Steering multinational IT projects and driving technological innovation across global corporate sectors.</p>
         </motion.div>
       </motion.div>
 

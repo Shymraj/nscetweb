@@ -59,11 +59,13 @@ import DevelopmentPlan from "./pages/Aboutus/Developmentplan/Developmentplan";
 import Affiliation from "./pages/Aboutus/Affiliation/Affiliation";
 import AnnualReports from "./pages/Aboutus/AnnualReports/AnnualReports";
 
+import Preloader from "./components/Preloader/Preloader";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <Preloader />
       <ScrollToTop />
       <Navbar />
 
