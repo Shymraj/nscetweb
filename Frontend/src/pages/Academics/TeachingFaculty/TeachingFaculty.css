@@ -20,7 +20,7 @@
 .tf-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding-top: 140px;
+  padding-top: 90px;
 }
 
 .tf-nav-section {
@@ -156,6 +156,8 @@
   box-shadow: 0 4px 20px rgba(0,0,0,0.03);
   border: 1px solid var(--tf-border);
   margin-bottom: 4rem;
+  border-top: 4px solid transparent;
+  transition: all 0.3s ease-in-out;
 }
 
 .tf-hod-image-col {
@@ -338,17 +340,23 @@
 .tf-scroll-track {
   display: flex;
   gap: 2rem;
-  width: 100%;
+  width: 100%; /* Container aada koodathu */
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 1rem 0;
-  /* Hides scrollbar for clean look */
   -ms-overflow-style: none;  
   scrollbar-width: none;  
 }
 
 .tf-scroll-track::-webkit-scrollbar {
   display: none;
+}
+
+/* Track-la mouse vechalum, touch/click pannalum ella cards-um onna nikanum (idikkathu) */
+.tf-scroll-track:hover .tf-staff-card,
+.tf-scroll-track:active .tf-staff-card,
+.tf-scroll-track:focus-within .tf-staff-card {
+  animation-play-state: paused !important;
 }
 
 /* Individual Staff Card inside Scroll Track */
@@ -364,12 +372,17 @@
   flex-shrink: 0;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid transparent;
+  transition: all 0.3s ease-in-out; 
+  animation: moveCardsOnly 20s linear infinite; /* Cards mattum move aaga */
 }
 
 .tf-staff-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 30px rgba(90, 50, 250, 0.15);
   border-color: var(--tf-primary-light);
+  border-top: 4px solid #6200ea;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================
@@ -471,6 +484,9 @@
     align-items: center;
   }
 }
+.tf-hod-card:hover {
+    border-top: 4px solid #6200ea !important; 
+}
 
 @media (max-width: 768px) {
   .tf-pill-nav-container {
@@ -497,4 +513,10 @@
   .tf-slider-btn {
     display: none; /* Hide arrows on mobile, they can swipe directly */
   }
+}
+
+/* Ulla irukka Cards mattum move aagurathukkaana animation */
+@keyframes moveCardsOnly {
+  0% { left: 0; }
+  100% { left: -1000px; }
 }
