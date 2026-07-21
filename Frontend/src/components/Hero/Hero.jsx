@@ -27,7 +27,7 @@ const Hero = () => {
             <img src={logo} alt="NSCET Logo" className="hero-logo" />
             <div className="badge">
               <FaStar />
-              <span>Excellence in Engineering Education</span>
+              <span>Theni Melapettai Hindu Nadargal Uravinmurai</span>
             </div>
           </div>
 
@@ -97,4 +97,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Hero;  
