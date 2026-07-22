@@ -5,6 +5,7 @@ import {
     FaEnvelope, FaCodeBranch, FaShieldAlt, FaCalendarTimes
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./CSE.css";
 
 import cseBannerImg from "./images/cse-banner.png";
@@ -46,32 +47,12 @@ const MECSE = () => {
         <div className="cse-container">
 
             {/* HERO BANNER */}
-            <section className="cse-hero-section">
-                <div
-                    className="cse-hero-box"
-                    style={{ backgroundImage: `url(${cseBannerImg})` }}
-                >
-                    <div className="cse-hero-overlay"></div>
-                    <div className="cse-hero-content">
-                        <motion.h1
-                            className="cse-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF ME COMPUTER SCIENCE AND ENGINEERING
-                        </motion.h1>
-                        <motion.p
-                            className="cse-hero-subtitle"
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Advancing postgraduate excellence in software engineering, research innovation, and computational technology.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            <PageBanner
+                title="DEPARTMENT OF ME COMPUTER SCIENCE AND ENGINEERING"
+                subtitle="Driving the next generation of computing through advanced research, scalable architecture, and intelligent systems."
+                hideBreadcrumb={true}
+                backgroundImage={cseBannerImg}
+            />
 
             <main className="content-wrapper">
 

@@ -5,6 +5,7 @@ import {
     FaEnvelope, FaSatelliteDish, FaRobot, FaLaptopCode, FaCalendarTimes
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./Electronics.css";
 
 import eceBannerImg from "./images/ece-banner.png";
@@ -60,34 +61,13 @@ const Electronics = () => {
     return (
         <div className="ece-container">
 
-            {/* HERO BANNER — Curved box, no blue overlay */}
-            <section className="ece-hero-section">
-                <div
-                    className="ece-hero-box"
-                    style={{ backgroundImage: `url(${eceBannerImg})` }}
-                >
-                    <div className="ece-hero-overlay"></div>
-                    <div className="ece-hero-content">
-                        <motion.h1
-                            className="ece-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF ELECTRONICS AND COMMUNICATION ENGINEERING
-                        </motion.h1>
-                        <motion.p
-                            className="ece-hero-subtitle"
-                            style={{ fontSize: "1.15rem", maxWidth: "750px", marginTop: "1rem", fontWeight: 400, letterSpacing: "normal" }}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Bridging the world with high-speed transmission, integrated circuitry, and modern digital technology.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            {/* HERO BANNER */}
+            <PageBanner
+                title="DEPARTMENT OF ELECTRONICS AND COMMUNICATION ENGINEERING"
+                subtitle="Connecting the world through silicon and signals — mastering semiconductor design, embedded systems, and telecommunication."
+                hideBreadcrumb={true}
+                backgroundImage={eceBannerImg}
+            />
 
             <main className="content-wrapper">
 

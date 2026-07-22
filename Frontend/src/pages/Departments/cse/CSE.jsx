@@ -5,6 +5,7 @@ import {
     FaEnvelope, FaCodeBranch, FaShieldAlt, FaCalendarTimes
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./CSE.css";
 
 import cseBannerImg from "./images/cse-banner.png";
@@ -61,33 +62,13 @@ const CSE = () => {
     return (
         <div className="cse-container">
 
-            {/* HERO BANNER — Curved box, no blue overlay */}
-            <section className="cse-hero-section">
-                <div
-                    className="cse-hero-box"
-                    style={{ backgroundImage: `url(${cseBannerImg})` }}
-                >
-                    <div className="cse-hero-overlay"></div>
-                    <div className="cse-hero-content">
-                        <motion.h1
-                            className="cse-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
-                        </motion.h1>
-                        <motion.p
-                            className="cse-hero-subtitle"
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Pioneering algorithms, crafting complex software architecture, and elevating computational technology.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            {/* HERO BANNER */}
+            <PageBanner
+                title="DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING"
+                subtitle="Innovating the digital frontier — shaping the future through code, intelligence, and boundless creativity."
+                hideBreadcrumb={true}
+                backgroundImage={cseBannerImg}
+            />
 
             <main className="content-wrapper">
 

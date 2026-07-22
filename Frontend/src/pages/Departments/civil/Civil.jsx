@@ -58,33 +58,13 @@ const Civil = () => {
     return (
         <div className="civil-container">
 
-            {/* HERO BANNER — Curved box, no blue overlay */}
-            <section className="civil-hero-section">
-                <div
-                    className="civil-hero-box"
-                    style={{ backgroundImage: `url(${civilBannerImg})` }}
-                >
-                    <div className="civil-hero-overlay"></div>
-                    <div className="civil-hero-content">
-                        <motion.h1
-                            className="civil-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF CIVIL ENGINEERING
-                        </motion.h1>
-                        <motion.p
-                            className="civil-hero-subtitle"
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Building the foundations of tomorrow — structural stability, sustainability, and aesthetic construction.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            {/* HERO BANNER */}
+            <PageBanner
+                title="DEPARTMENT OF CIVIL ENGINEERING"
+                subtitle="Building the foundation of tomorrow — where sustainable design meets structural excellence."
+                hideBreadcrumb={true}
+                backgroundImage={civilBannerImg}
+            />
 
             <main className="content-wrapper">
 

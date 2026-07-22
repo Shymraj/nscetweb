@@ -15,6 +15,12 @@ body {
   transition: background-color .3s ease, color .3s ease;
 }
 
+/* Fix for spacing after PageBanner in departments and alumni */
+.content-wrapper,
+.alumni-container {
+  margin-top: 3rem;
+}
+
 body.dark-mode {
   background: #111827;
   color: #ffffff;

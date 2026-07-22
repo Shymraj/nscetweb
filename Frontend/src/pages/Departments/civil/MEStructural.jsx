@@ -4,6 +4,7 @@ import {
     FaEnvelope, FaAward, FaFlask, FaMapMarkedAlt, FaCalendarTimes
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./Civil.css";
 
 import civilBannerImg from "./images/civil-banner.png";
@@ -48,32 +49,12 @@ const MEStructural = () => {
         <div className="civil-container">
 
             {/* HERO BANNER */}
-            <section className="civil-hero-section">
-                <div
-                    className="civil-hero-box"
-                    style={{ backgroundImage: `url(${civilBannerImg})` }}
-                >
-                    <div className="civil-hero-overlay"></div>
-                    <div className="civil-hero-content">
-                        <motion.h1
-                            className="civil-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF ME STRUCTURAL ENGINEERING
-                        </motion.h1>
-                        <motion.p
-                            className="civil-hero-subtitle"
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Advancing postgraduate excellence in structural design, analysis, and innovative construction engineering.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            <PageBanner
+                title="DEPARTMENT OF ME STRUCTURAL ENGINEERING"
+                subtitle="Pioneering advanced design and analysis for resilient, modern, and sustainable infrastructure."
+                hideBreadcrumb={true}
+                backgroundImage={civilBannerImg}
+            />
 
             <main className="content-wrapper">
 

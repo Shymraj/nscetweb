@@ -5,6 +5,7 @@ import {
     FaEnvelope, FaNetworkWired, FaCloudUploadAlt, FaDatabase, FaCalendarTimes
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import PageBanner from "../../../../components/common/PageBanner/PageBanner";
 import "./IT.css";
 
 import itBannerImg from "./images/it-banner.png";
@@ -57,34 +58,13 @@ const IT = () => {
     return (
         <div className="it-container">
 
-            {/* HERO BANNER — Curved box, no blue overlay */}
-            <section className="it-hero-section">
-                <div
-                    className="it-hero-box"
-                    style={{ backgroundImage: `url(${itBannerImg})` }}
-                >
-                    <div className="it-hero-overlay"></div>
-                    <div className="it-hero-content">
-                        <motion.h1
-                            className="it-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF INFORMATION TECHNOLOGY
-                        </motion.h1>
-                        <motion.p
-                            className="it-hero-subtitle"
-                            style={{ fontSize: "1.15rem", maxWidth: "750px", marginTop: "1rem", fontWeight: 400, letterSpacing: "normal" }}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Deciphering the multidisciplinary domain of Information Science to build intelligent, globally adaptive, and secure infrastructures.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            {/* HERO BANNER */}
+            <PageBanner
+                title="DEPARTMENT OF INFORMATION TECHNOLOGY"
+                subtitle="Empowering the connected world — transforming data into intelligent solutions for a digital future."
+                hideBreadcrumb={true}
+                backgroundImage={itBannerImg}
+            />
 
             <main className="content-wrapper">
 

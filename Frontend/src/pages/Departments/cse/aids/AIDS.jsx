@@ -5,6 +5,7 @@ import {
     FaEnvelope, FaRobot, FaDatabase, FaProjectDiagram, FaCalendarTimes
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import PageBanner from "../../../../components/common/PageBanner/PageBanner";
 import "./AIDS.css";
 
 import aidsBannerImg from "./images/aids-banner.png";
@@ -57,34 +58,13 @@ const AIDS = () => {
     return (
         <div className="aids-container">
 
-            {/* HERO BANNER — Curved box, no blue overlay */}
-            <section className="aids-hero-section">
-                <div
-                    className="aids-hero-box"
-                    style={{ backgroundImage: `url(${aidsBannerImg})` }}
-                >
-                    <div className="aids-hero-overlay"></div>
-                    <div className="aids-hero-content">
-                        <motion.h1
-                            className="aids-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF ARTIFICIAL INTELLIGENCE & DATA SCIENCE
-                        </motion.h1>
-                        <motion.p
-                            className="aids-hero-subtitle"
-                            style={{ fontSize: "1.15rem", maxWidth: "750px", marginTop: "1rem", fontWeight: 400, letterSpacing: "normal" }}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Equipping engineers to combine cutting-edge technology, neural optimization, and analytics to create intelligent software capable of limitless automation.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            {/* HERO BANNER */}
+            <PageBanner
+                title="DEPARTMENT OF ARTIFICIAL INTELLIGENCE & DATA SCIENCE"
+                subtitle="Equipping engineers to combine cutting-edge technology, neural optimization, and analytics to create intelligent software capable of limitless automation."
+                hideBreadcrumb={true}
+                backgroundImage={aidsBannerImg}
+            />
 
             <main className="content-wrapper">
 

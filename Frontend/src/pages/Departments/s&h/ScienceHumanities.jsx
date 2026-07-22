@@ -5,6 +5,7 @@ import {
     FaEnvelope, FaSquareRootAlt, FaGlobe, FaBookOpen, FaCalendarTimes, FaAtom
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./ScienceHumanities.css";
 
 import shBannerImg from "./images/sh-banner.png";
@@ -108,34 +109,13 @@ const ScienceHumanities = () => {
     return (
         <div className="sh-container">
 
-            {/* HERO BANNER — Curved box, no blue overlay */}
-            <section className="sh-hero-section">
-                <div
-                    className="sh-hero-box"
-                    style={{ backgroundImage: `url(${shBannerImg})` }}
-                >
-                    <div className="sh-hero-overlay"></div>
-                    <div className="sh-hero-content">
-                        <motion.h1
-                            className="sh-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF SCIENCE AND HUMANITIES
-                        </motion.h1>
-                        <motion.p
-                            className="sh-hero-subtitle"
-                            style={{ fontSize: "1.15rem", maxWidth: "750px", marginTop: "1rem", fontWeight: 400, letterSpacing: "normal" }}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Providing a strong foundation for students—bridging the gap between school and engineering through applied mathematics, physics, chemistry, and communication.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            {/* HERO BANNER */}
+            <PageBanner
+                title="DEPARTMENT OF SCIENCE AND HUMANITIES"
+                subtitle="Nurturing the scientific temper, analytical reasoning, and foundational intellect that bridge raw curiosity with advanced engineering."
+                hideBreadcrumb={true}
+                backgroundImage={shBannerImg}
+            />
 
             <main className="content-wrapper">
 

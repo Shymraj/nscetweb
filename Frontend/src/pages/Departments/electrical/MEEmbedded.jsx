@@ -5,6 +5,7 @@ import {
     FaEnvelope, FaSolarPanel, FaIndustry, FaBroadcastTower, FaCalendarTimes
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./Electrical.css";
 
 import eeeBannerImg from "./images/eee-banner.png";
@@ -47,32 +48,12 @@ const MEEmbedded = () => {
         <div className="eee-container">
 
             {/* HERO BANNER */}
-            <section className="eee-hero-section">
-                <div
-                    className="eee-hero-box"
-                    style={{ backgroundImage: `url(${eeeBannerImg})` }}
-                >
-                    <div className="eee-hero-overlay"></div>
-                    <div className="eee-hero-content">
-                        <motion.h1
-                            className="eee-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF ME EMBEDDED SYSTEM AND TECHNOLOGIES
-                        </motion.h1>
-                        <motion.p
-                            className="eee-hero-subtitle"
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Advancing postgraduate excellence in embedded systems, intelligent technologies, and innovative electronics engineering.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            <PageBanner
+                title="DEPARTMENT OF ME EMBEDDED SYSTEMS"
+                subtitle="Mastering the core of smart technology—designing sophisticated embedded architecture for automation and intelligent computing."
+                hideBreadcrumb={true}
+                backgroundImage={eeeBannerImg}
+            />
 
             <main className="content-wrapper">
 

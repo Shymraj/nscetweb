@@ -33,32 +33,12 @@ const Alumni = () => {
 
   return (
     <div className="alumni-page">
-      <section className="alumni-hero-section">
-        <div
-          className="alumni-hero-box"
-          style={{ backgroundImage: `url(${bannerImg})` }}
-        >
-          <div className="alumni-hero-overlay"></div>
-          <div className="alumni-hero-content">
-            <motion.h1
-              className="alumni-hero-title"
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              ALUMNI ASSOCIATION
-            </motion.h1>
-            <motion.p
-              className="alumni-hero-subtitle"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Building a lifelong connection among students and alumni, fostering personal and professional growth globally.
-            </motion.p>
-          </div>
-        </div>
-      </section>
+      <PageBanner
+        title="ALUMNI ASSOCIATION"
+        subtitle="Building a lifelong connection among students and alumni, fostering personal and professional growth globally."
+        hideBreadcrumb={true}
+        backgroundImage={bannerImg}
+      />
 
       <div className="alumni-container">
         <div className="alumni-layout">

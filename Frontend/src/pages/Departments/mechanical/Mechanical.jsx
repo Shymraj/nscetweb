@@ -6,6 +6,7 @@ import {
 } from "react-icons/fa";
 import { GiGears } from "react-icons/gi";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./Mechanical.css";
 
 import mechBannerImg from "./images/mech-banner.png";
@@ -62,33 +63,13 @@ const Mechanical = () => {
     return (
         <div className="mech-container">
 
-            {/* HERO BANNER — Curved box, no blue overlay */}
-            <section className="mech-hero-section">
-                <div
-                    className="mech-hero-box"
-                    style={{ backgroundImage: `url(${mechBannerImg})` }}
-                >
-                    <div className="mech-hero-overlay"></div>
-                    <div className="mech-hero-content">
-                        <motion.h1
-                            className="mech-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF MECHANICAL ENGINEERING
-                        </motion.h1>
-                        <motion.p
-                            className="mech-hero-subtitle"
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Engineering innovation from design to manufacturing — powering industries with precision, creativity, and excellence.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            {/* HERO BANNER */}
+            <PageBanner
+                title="DEPARTMENT OF MECHANICAL ENGINEERING"
+                subtitle="Engineering innovation from design to manufacturing — powering industries with precision, creativity, and excellence."
+                hideBreadcrumb={true}
+                backgroundImage={mechBannerImg}
+            />
 
             <main className="content-wrapper">
 

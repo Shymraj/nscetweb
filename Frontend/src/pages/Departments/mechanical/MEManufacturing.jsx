@@ -5,6 +5,7 @@ import {
     FaEnvelope, FaFlask, FaRobot, FaTools, FaCalendarTimes
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./Mechanical.css";
 
 import mechBannerImg from "./images/mech-banner.png";
@@ -47,32 +48,12 @@ const MEManufacturing = () => {
         <div className="mech-container">
 
             {/* HERO BANNER */}
-            <section className="mech-hero-section">
-                <div
-                    className="mech-hero-box"
-                    style={{ backgroundImage: `url(${mechBannerImg})` }}
-                >
-                    <div className="mech-hero-overlay"></div>
-                    <div className="mech-hero-content">
-                        <motion.h1
-                            className="mech-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF ME MANUFACTURING ENGINEERING
-                        </motion.h1>
-                        <motion.p
-                            className="mech-hero-subtitle"
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Advancing postgraduate excellence in manufacturing systems, research innovation, and industrial engineering technology.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            <PageBanner
+                title="DEPARTMENT OF ME MANUFACTURING ENGINEERING"
+                subtitle="Advancing postgraduate excellence in manufacturing systems, research innovation, and industrial engineering technology."
+                hideBreadcrumb={true}
+                backgroundImage={mechBannerImg}
+            />
 
             <main className="content-wrapper">
 
