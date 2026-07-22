@@ -71,7 +71,7 @@
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 22px;
-  background: #ffffff;
+  background: #d1e8ff;
   border-radius: 24px;
   padding: 100px;
   box-shadow: 0 24px 48px rgba(37, 78, 131, 0.12);
@@ -141,7 +141,7 @@
 }
 
 .iqac-member-card {
-  background: #ffffff;
+  background: #d1e8ff;
   border-radius: 22px;
   box-shadow: 0 16px 32px rgba(15, 46, 81, 0.08);
   padding: 24px;

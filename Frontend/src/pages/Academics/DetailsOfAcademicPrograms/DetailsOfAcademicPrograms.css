@@ -77,7 +77,17 @@
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    background: #fff;
+    background: #d1e8ff;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ap-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0, 100, 255, 0.15);
+}
+
+.ap-card.ap-ug {
+    margin-top: 50px;
 }
 
 /* ---------- Left Panel ---------- */

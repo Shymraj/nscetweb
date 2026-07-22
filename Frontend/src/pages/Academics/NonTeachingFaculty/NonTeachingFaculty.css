@@ -87,7 +87,7 @@
 }
 
 .non-teaching-dept-card {
-    background-color: white;
+    background-color: #d1e8ff;
     border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
     padding: 20px;
@@ -152,7 +152,7 @@
 }
 
 .non-teaching-staff-card {
-    background-color: white;
+    background-color: #d1e8ff;
     border-radius: 20px;
     padding: 24px;
     border: 1px solid rgba(0, 0, 0, 0.04);
@@ -224,7 +224,7 @@
     height: 32px;
     border-radius: 50%;
     border: 1px solid #e2e8f0;
-    background-color: white;
+    background-color: #d1e8ff;
     color: #64748b;
     display: flex;
     align-items: center;

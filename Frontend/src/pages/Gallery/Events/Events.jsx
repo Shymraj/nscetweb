@@ -2,6 +2,7 @@ import "./Events.css";
 import { eventsData } from "./data/eventsData";
 import EventCard from "./components/EventCard";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
+import bannerImage from "./assets/banner/pongal3.webp";
 
 const Events = () => {
   return (
@@ -9,6 +10,7 @@ const Events = () => {
       <PageBanner
         title="Events Gallery"
         subtitle="Explore memorable moments from our institution's history"
+        backgroundImage={bannerImage}
         hideBreadcrumb={true}
       />
       <div className="events-gallery-container">
