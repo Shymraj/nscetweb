@@ -1,5 +1,5 @@
 import React from 'react';
-import './AcademicPrograms.css';
+import './DetailsOfAcademicPrograms.css';
 
 const ugPrograms = [
   'B.E. - Civil Engineering',
@@ -36,10 +36,7 @@ const AcademicPrograms = () => {
           </div>
 
           <div className='ap-hero-image'>
-            <img
-  src='/images/college-building.jpg'
-  alt='College Building'
-/>
+            
           </div>
         </div>
       </section>

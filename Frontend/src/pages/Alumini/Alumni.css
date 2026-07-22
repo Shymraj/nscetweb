@@ -5,6 +5,8 @@
 
 /* Global and Container */
 .alumni-page {
+    --primary-accent: #c9a84c;
+    --secondary-accent: #1e3a8a;
     font-family: 'Inter', 'Roboto', sans-serif;
     background-color: var(--bg-color, #f8fafc);
     color: var(--text-color, #1e293b);
@@ -16,6 +18,8 @@
 }
 
 body.dark-mode .alumni-page {
+    --primary-accent: #eab308;
+    --secondary-accent: #3b82f6;
     --premium-card-bg: rgba(30, 41, 59, 0.7);
     --premium-card-border: 1px solid rgba(255, 255, 255, 0.1);
     background-color: #0f172a;
@@ -187,6 +191,7 @@ body.dark-mode .sidebar-link.active {
     font-weight: 800;
     background: linear-gradient(135deg, var(--secondary-accent) 0%, var(--primary-accent) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
     position: relative;
@@ -196,6 +201,7 @@ body.dark-mode .sidebar-link.active {
 body.dark-mode .section-title {
     background: linear-gradient(135deg, #bfdbfe 0%, var(--primary-accent) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -358,9 +364,15 @@ body.dark-mode .sub-section-title {
 
 .activities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .activity-card {
@@ -442,8 +454,8 @@ body.dark-mode .activity-card p {
 }
 
 .incharge-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 1rem;
 }
@@ -470,6 +482,28 @@ body.dark-mode .activity-card p {
 
 body.dark-mode .incharge-avatar {
     background: #1e293b;
+}
+
+.incharge-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 3px solid var(--primary-accent, #c9a84c);
+    box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.incharge-photo:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 35px rgba(201, 168, 76, 0.45);
+}
+
+body.dark-mode .incharge-photo {
+    border-color: var(--primary-accent, #c9a84c);
+    box-shadow: 0 8px 25px rgba(201, 168, 76, 0.2);
 }
 
 .incharge-details h4 {
@@ -527,8 +561,8 @@ body.dark-mode .incharge-details p {
 }
 
 body.dark-mode .alumni-table td {
-    color: #cbd5e1;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    color: #e2e8f0 !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05) !important;
 }
 
 .alumni-table tr:last-child td {
@@ -552,7 +586,7 @@ body.dark-mode .alumni-table tr:hover td {
 }
 
 body.dark-mode .text-primary {
-    color: var(--primary-accent);
+    color: var(--primary-accent) !important;
 }
 
 .alumni-bullets {
@@ -562,6 +596,21 @@ body.dark-mode .text-primary {
 
 .alumni-bullets li {
     margin-bottom: 0.5rem;
+}
+
+body.dark-mode .alumni-bullets li {
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .alumni-table-container {
+    background: #1e293b !important;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .alumni-table-container .table-responsive,
+body.dark-mode .alumni-table {
+    background: transparent !important;
 }
 
 .alumni-sublist {
@@ -574,6 +623,14 @@ body.dark-mode .text-primary {
     margin-bottom: 0.5rem;
     border-left: 3px solid var(--primary-accent);
     padding-left: 0.75rem;
+}
+
+body.dark-mode .alumni-sublist li {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .alumni-sublist li strong {
+    color: #ffffff !important;
 }
 
 
@@ -770,7 +827,7 @@ body.dark-mode .guest-box ul li {
 
 /* Distinguished Alumni Styling */
 .poster-showcase-container {
-    margin: 3rem 0;
+    margin: 3rem 0 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -782,9 +839,45 @@ body.dark-mode .guest-box ul li {
     border-radius: 20px;
     padding: 1rem;
     background: var(--premium-card-bg);
-    border: var(--premium-card-border);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: inline-block;
+    z-index: 2;
+}
+
+/* Beautiful Animated Glowing Aura Border */
+.poster-glass-wrapper::before,
+.poster-glass-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    left: -4px;
+    right: -4px;
+    background: linear-gradient(270deg, var(--primary-accent, #c9a84c), var(--secondary-accent, #3b82f6), #a855f7, var(--primary-accent, #c9a84c));
+    background-size: 300% 300%;
+    border-radius: 24px;
+    z-index: -1;
+    animation: rgbBorderSweep 6s ease infinite;
+}
+
+.poster-glass-wrapper::after {
+    filter: blur(25px);
+    opacity: 0.7;
+    z-index: -2;
+}
+
+@keyframes rgbBorderSweep {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .distinguished-poster-img {
@@ -795,19 +888,6 @@ body.dark-mode .guest-box ul li {
     z-index: 2;
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.poster-glow-backdrop {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
-    filter: blur(40px);
-    z-index: 1;
-    opacity: 0.6;
 }
 
 .alumni-impact-grid {
@@ -1271,6 +1351,7 @@ body.dark-mode .vm-card {
     background: linear-gradient(135deg, #f59e0b, #ef4444);
     color: white !important;
     -webkit-background-clip: unset !important;
+    background-clip: unset !important;
 }
 
 .icon-gradient-2 {
@@ -1396,6 +1477,7 @@ body.dark-mode .archive {
 .glam-title span {
     background: linear-gradient(135deg, #ec4899, #8b5cf6);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -1527,7 +1609,9 @@ body.dark-mode .activity-card:nth-child(3) {
 
 body.dark-mode .activity-card:nth-child(4) {
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(8, 145, 178, 0.5)) !important;
-}/* EXPLICIT HOVER OVERRIDES FOR ACTIVITY & VM CARDS TO ENSURE EFFECTS WORK */
+}
+
+/* EXPLICIT HOVER OVERRIDES FOR ACTIVITY & VM CARDS TO ENSURE EFFECTS WORK */
 
 .activities-grid .activity-card:hover,
 .vision-mission-grid .vm-card:hover {
@@ -1548,11 +1632,13 @@ body.dark-mode .vision-mission-grid .vm-card:hover {
 }
 
 /* Glass Sweeping Glare Effect */
-.activity-card::after, .vm-card::after {
+.activity-card::after,
+.vm-card::after {
     content: '';
     position: absolute;
     top: -50%;
-    left: -150%; /* Start off-screen */
+    left: -150%;
+    /* Start off-screen */
     width: 50%;
     height: 200%;
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
@@ -1562,14 +1648,18 @@ body.dark-mode .vision-mission-grid .vm-card:hover {
     z-index: 5;
 }
 
-.activity-card:hover::after, .vm-card:hover::after {
-    left: 200%; /* Sweep completely across */
+.activity-card:hover::after,
+.vm-card:hover::after {
+    left: 200%;
+    /* Sweep completely across */
     transition: all 0.8s ease-in-out;
 }
 
-body.dark-mode .activity-card::after, body.dark-mode .vm-card::after {
+body.dark-mode .activity-card::after,
+body.dark-mode .vm-card::after {
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
 }
+
 /* ADVANCED ANIMATIONS FOR CELL INCHARGE CARDS */
 
 .incharge-card {
@@ -1601,7 +1691,7 @@ body.dark-mode .incharge-list .incharge-card:hover {
     content: '';
     position: absolute;
     top: -50%;
-    left: -150%; 
+    left: -150%;
     width: 50%;
     height: 200%;
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
@@ -1620,7 +1710,10 @@ body.dark-mode .incharge-card::after {
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
 }
 
-.incharge-card h4, .incharge-card p, .incharge-avatar, .incharge-details {
+.incharge-card h4,
+.incharge-card p,
+.incharge-avatar,
+.incharge-details {
     position: relative;
     z-index: 2;
 }
@@ -1632,13 +1725,18 @@ body.dark-mode .incharge-card::after {
 
 /* Base vibrant gradients for the incharge cards */
 .incharge-card:nth-child(1) {
-    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(219,234,254,0.8)) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(219, 234, 254, 0.8)) !important;
 }
+
 .incharge-card:nth-child(2) {
-    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(253,230,138,0.8)) !important; 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(253, 230, 138, 0.8)) !important;
 }
 
 /* Dark mode specific subtle shifts */
-body.dark-mode .incharge-card:nth-child(1) { background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(30,58,138,0.5)) !important; }
-body.dark-mode .incharge-card:nth-child(2) { background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(133,77,14,0.5)) !important; }
+body.dark-mode .incharge-card:nth-child(1) {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(30, 58, 138, 0.5)) !important;
+}
 
+body.dark-mode .incharge-card:nth-child(2) {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(133, 77, 14, 0.5)) !important;
+}

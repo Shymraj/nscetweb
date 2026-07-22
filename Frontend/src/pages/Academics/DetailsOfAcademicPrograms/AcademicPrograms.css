@@ -1,7 +1,7 @@
 /* ===== Academic Programs Page ===== */
 .ap-page {
     width: 100%;
-    background: #f6f8fc;
+    background: #ffffff;
     font-family: 'Segoe UI', sans-serif;
     color: #0f172a;
     overflow-x: hidden;
@@ -9,9 +9,12 @@
 
 /* ===== Hero Section ===== */
 .ap-hero {
-    background: linear-gradient(135deg, #001a4d 0%, #003399 100%);
-    padding: 150px 150px;
-
+    position: relative;
+    background: url('/background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 180px 150px;
 }
 
 .ap-hero-content {
@@ -21,31 +24,34 @@
     grid-template-columns: 1.1fr 1fr;
     align-items: center;
     gap: 40px;
+    position: relative;
+    z-index: 2;
 }
 
 .ap-hero-text h1 {
     font-size: 4rem;
     font-weight: 800;
+    
     line-height: 1.1;
-    color: #fff;
+    color: #20b01b;
     margin-bottom: 20px;
 }
 
 .ap-hero-text h1 span {
-    color: #3b82f6;
+    color: #f97316;
     display: block;
 }
 
 .ap-line {
     width: 90px;
     height: 4px;
-    background: #3b82f6;
+    background: #f97316;
     border-radius: 10px;
     margin-bottom: 24px;
 }
 
 .ap-hero-text p {
-    color: #dbeafe;
+    color: #e2e8f0;
     font-size: 1.2rem;
     line-height: 1.8;
     max-width: 620px;
