@@ -4,8 +4,7 @@ import CampusSlider from "./CampusSlider";
 
 const HeroSection = () => {
   return (
-    <section className="about-section-wrapper bg-white">
-      <div className="about-inner-container hero-section">
+    <section className="hero-section">
       {/* Background ambient gradients */}
       <div className="ambient-blob blob-1"></div>
       <div className="ambient-blob blob-2"></div>
@@ -74,7 +73,6 @@ const HeroSection = () => {
             </div>
           </div>
         </motion.div>
-      </div>
       </div>
     </section>
   );

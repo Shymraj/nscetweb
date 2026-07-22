@@ -1,4 +1,4 @@
-﻿/* Overview.css */
+/* Overview.css */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,600;1,600&display=swap');
 
 :root {
@@ -360,18 +360,28 @@
 }
 
 .stat-card {
-  background: var(--premium-card-bg);
-  backdrop-filter: blur(10px);
-  border: var(--premium-card-border);
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .stat-card:hover {
-  transform: translateY(-10px) rotate(2deg);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15);
 }
 
 .stat-value {
@@ -560,12 +570,14 @@
 
 .timeline-content {
   width: 45%;
-  background: var(--premium-card-bg);
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 2.5rem 2rem;
   border-radius: 20px;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
-  border: var(--premium-card-border);
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
 
@@ -593,9 +605,12 @@
 }
 
 .timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
-  border-color: var(--nscet-blue);
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15);
 }
 
 .timeline-year {
@@ -831,5 +846,79 @@
 
 @media (max-width: 768px) {
   .about-inner-container { padding: 60px 24px; }
+}
+
+/* ==================================================
+   DARK MODE
+   ================================================== */
+body.dark-mode .overview-page {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+body.dark-mode .hero-section,
+body.dark-mode .achievements-section,
+body.dark-mode .journey-section {
+  background: transparent;
+}
+
+body.dark-mode .bg-white,
+body.dark-mode .bg-light-1,
+body.dark-mode .bg-light-2 {
+  background-color: transparent !important;
+}
+
+body.dark-mode .stats-section {
+  background: transparent;
+}
+
+body.dark-mode .hero-title,
+body.dark-mode .section-title,
+body.dark-mode .timeline-title,
+body.dark-mode .timeline-year,
+body.dark-mode .caption-content h4 {
+  color: #f8fafc;
+}
+
+body.dark-mode .hero-description,
+body.dark-mode .timeline-description,
+body.dark-mode .caption-content p {
+  color: #94a3b8;
+}
+
+body.dark-mode .info-card,
+body.dark-mode .hero-quote-card,
+body.dark-mode .floating-caption,
+body.dark-mode .stat-card,
+body.dark-mode .timeline-content,
+body.dark-mode .achievement-card {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .stat-card:hover,
+body.dark-mode .timeline-content:hover {
+  background: rgba(15, 23, 42, 0.25);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .timeline-content::before {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .hero-quote-card p {
+  color: #e2e8f0;
+}
+
+body.dark-mode .info-year, 
+body.dark-mode .info-highlight {
+  color: #60a5fa;
+}
+
+body.dark-mode .info-highlight.grade-a {
+  color: #eab308;
 }
 

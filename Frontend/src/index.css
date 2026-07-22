@@ -255,9 +255,7 @@ body.dark-mode .premium-quote-panel,
 body.dark-mode .org-chart-box,
 body.dark-mode .year-badge,
 body.dark-mode .image-placeholder,
-body.dark-mode .stat-label,
-body.dark-mode .achievement-card,
-body.dark-mode .timeline-item {
+body.dark-mode .stat-label {
   background: #1f2937 !important;
   color: #f3f4f6 !important;
   border-color: #374151 !important;
