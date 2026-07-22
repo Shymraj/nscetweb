@@ -20,7 +20,8 @@ const OrganizationalChart = () => {
   }, [isModalOpen]);
 
   return (
-    <section id="organizational-chart" className="act-section">
+    <section id="organizational-chart" className="about-section-wrapper bg-light-2">
+      <div className="about-inner-container act-section">
       <div className="section-header">
         <h2 className="section-title">Organizational Chart</h2>
       </div>
@@ -71,6 +72,7 @@ const OrganizationalChart = () => {
         </AnimatePresence>,
         document.body
       )}
+      </div>
     </section>
   );
 };

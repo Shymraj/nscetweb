@@ -14,7 +14,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 150px 150px;
+    padding: 180px 150px;
 }
 
 .ap-hero-content {
@@ -31,6 +31,7 @@
 .ap-hero-text h1 {
     font-size: 4rem;
     font-weight: 800;
+    
     line-height: 1.1;
     color: #20b01b;
     margin-bottom: 20px;

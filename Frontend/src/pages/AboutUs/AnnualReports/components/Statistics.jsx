@@ -51,7 +51,8 @@ const Counter = ({ value, suffix }) => {
 
 const Statistics = () => {
   return (
-    <section className="ar-section ar-statistics">
+    <section className="about-section-wrapper bg-white">
+      <div className="about-inner-container ar-section ar-statistics">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -80,6 +81,7 @@ const Statistics = () => {
             <p className="stat-label">{stat.label}</p>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   );

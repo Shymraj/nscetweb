@@ -13,7 +13,8 @@ const StatsSection = () => {
   });
 
   return (
-    <section ref={statsRef} className="stats-section">
+    <section ref={statsRef} className="about-section-wrapper bg-light-1">
+      <div className="about-inner-container stats-section">
       {statistics.map((stat, index) => (
         <motion.div
           key={stat.id}
@@ -29,6 +30,7 @@ const StatsSection = () => {
           <div className="stat-label">{stat.label}</div>
         </motion.div>
       ))}
+      </div>
     </section>
   );
 };

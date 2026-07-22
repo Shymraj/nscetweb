@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaNetworkWired, FaHandsHelping, FaLightbulb, FaBriefcase, FaUserTie } from 'react-icons/fa';
+import { FaGraduationCap, FaNetworkWired, FaHandsHelping, FaLightbulb, FaBriefcase } from 'react-icons/fa';
+
+import vennimalaiImg from './vennimalai_rajan.png';
+import kanimozhiImg from './kanimozhi.png';
 
 const Overview = () => {
   const containerVariants = {
@@ -88,14 +91,14 @@ const Overview = () => {
         <motion.h3 className="glam-title">Cell <span>In-charges</span></motion.h3>
         <div className="incharge-list">
           <div className="incharge-card">
-            <FaUserTie className="incharge-avatar" />
+            <img src={vennimalaiImg} alt="Mr. A. Vennimalai Rajan" className="incharge-photo" />
             <div className="incharge-details">
               <h4>Mr. A. Vennimalai Rajan</h4>
               <p>Assistant Professor, Mechanical Engineering</p>
             </div>
           </div>
           <div className="incharge-card">
-            <FaUserTie className="incharge-avatar" />
+            <img src={kanimozhiImg} alt="Ms. M. Kanimozhi" className="incharge-photo" />
             <div className="incharge-details">
               <h4>Ms. M. Kanimozhi</h4>
               <p>Assistant Professor, Civil Engineering</p>

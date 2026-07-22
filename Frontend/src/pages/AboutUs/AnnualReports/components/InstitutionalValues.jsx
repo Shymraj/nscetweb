@@ -14,7 +14,8 @@ const iconMap = {
 
 const InstitutionalValues = () => {
   return (
-    <section className="ar-section ar-institutional-values">
+    <section className="about-section-wrapper bg-light-2">
+      <div className="about-inner-container ar-section ar-institutional-values">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -45,6 +46,7 @@ const InstitutionalValues = () => {
             </div>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   );

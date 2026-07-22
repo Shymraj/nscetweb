@@ -76,17 +76,23 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px; /* Tighter padding */
-  background: rgba(0, 15, 30, 0.7); /* Darker glass backdrop for high legibility */
+  background: rgba(0, 15, 30, 0.7) !important; /* Darker glass backdrop for high legibility */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 40px;
-  color: #ffffff;
+  color: #ffffff !important;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.5px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.badge span {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-transform: capitalize !important;
 }
 
 .badge svg {
@@ -133,6 +139,19 @@
   text-shadow: 
     0 2px 5px rgba(0, 0, 0, 0.9),
     0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure these specific Hero elements keep their light mode orange styles in dark mode */
+body.dark-mode .college-name .accent-text {
+  color: #f7a521 !important;
+  -webkit-text-fill-color: #f7a521 !important;
+}
+
+body.dark-mode .college-tagline {
+  color: #f7a521 !important;
+  text-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.9),
+    0 0 15px rgba(0, 0, 0, 0.5) !important;
 }
 
 .left-description {

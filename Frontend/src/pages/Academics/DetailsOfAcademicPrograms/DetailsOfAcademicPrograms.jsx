@@ -1,6 +1,5 @@
 import React from 'react';
-import './AcademicPrograms.css';
-import clgImage from '../../../assets/clg.jpeg';
+import './DetailsOfAcademicPrograms.css';
 
 const ugPrograms = [
   'B.E. - Civil Engineering',
@@ -36,7 +35,9 @@ const AcademicPrograms = () => {
             </p>
           </div>
 
-
+          <div className='ap-hero-image'>
+            
+          </div>
         </div>
       </section>
 
