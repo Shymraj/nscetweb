@@ -2,7 +2,7 @@
 .ap-page {
     width: 100%;
     background: #ffffff;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: var(--font-body);
     color: #0f172a;
     overflow-x: hidden;
 }

@@ -1,7 +1,7 @@
 /* Scoped styling for Non-Teaching Faculty Page */
 .non-teaching-page {
     width: 100%;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-body);
     background-color: #f8fafc;
     min-height: 100vh;
 }

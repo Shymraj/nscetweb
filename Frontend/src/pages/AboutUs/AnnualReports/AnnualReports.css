@@ -6,7 +6,7 @@
 /* AnnualReports.css */
 
 .annual-reports-page {
-  font-family: 'Inter', 'Roboto', sans-serif;
+  font-family: var(--font-body);
   background-color: #f8fafc;
   color: #1e293b;
   min-height: 100vh;
@@ -93,8 +93,9 @@
 }
 
 .ar-section-title {
+  font-family: var(--font-section);
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #0f172a;
   margin-bottom: 0.5rem;
   text-align: center;
@@ -269,8 +270,9 @@
 }
 
 .stat-label {
+  font-family: var(--font-subtopic);
   color: #64748b;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.05rem;
   margin: 0;
 }
@@ -437,6 +439,8 @@
   .about-inner-container { padding: 60px 24px; }
 
   .ar-section-title {
+  font-weight: 700;
+  font-family: var(--font-section);
     font-size: 2rem;
   }
   

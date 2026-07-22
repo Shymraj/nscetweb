@@ -4,7 +4,7 @@
     min-height: 100vh;
     background: #f8f9fb;
     padding: 0 0 60px;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-family: var(--font-body);
 }
 
 /* ---------- Hero Section ---------- */

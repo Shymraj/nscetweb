@@ -17,7 +17,7 @@
 }
 
 .overview-page {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   color: #333;
   overflow-x: hidden;
   background-color: #f8fafc;
@@ -88,9 +88,9 @@
 }
 
 .hero-title {
-  font-family: "ITC New Baskerville", "Baskerville", "Libre Baskerville", "Cormorant Garamond", "Times New Roman", serif;
+  font-family: var(--font-heading);
   font-size: 3rem; /* Slightly reduced for better balance */
-  font-weight: 900;
+  font-weight: 800;
   color: var(--nscet-blue);
   line-height: 1.1;
   margin: 0;
@@ -98,11 +98,11 @@
 }
 
 .hero-subtitle {
-  font-family: "Cormorant Infant", "Libre Baskerville", "Baskerville", serif;
+  font-family: var(--font-section);
   font-style: italic;
   font-size: 1.45rem;
   color: #C9971A;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
   letter-spacing: 0.6px;
   line-height: 1.4;
@@ -140,8 +140,9 @@
 }
 
 .info-year, .info-highlight {
+  font-family: var(--font-subtopic);
   font-size: 1.2rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--nscet-blue);
   line-height: 1;
   margin-bottom: 0.2rem;
@@ -152,11 +153,12 @@
 }
 
 .info-label {
+  font-family: var(--font-subtopic);
   font-size: 0.8rem;
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* Text Content */
@@ -392,8 +394,9 @@
 }
 
 .stat-label {
+  font-family: var(--font-subtopic);
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -407,9 +410,10 @@
 }
 
 .section-title {
+  font-family: var(--font-section);
   text-align: center;
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--nscet-blue);
   margin-bottom: 4rem;
   position: relative;
@@ -768,6 +772,8 @@
 
 @media (max-width: 768px) {
   .hero-title {
+  font-weight: 800;
+  font-family: var(--font-heading);
     font-size: 2.5rem;
   }
   
@@ -915,6 +921,8 @@ body.dark-mode .hero-quote-card p {
 
 body.dark-mode .info-year, 
 body.dark-mode .info-highlight {
+  font-weight: 700;
+  font-family: var(--font-subtopic);
   color: #60a5fa;
 }
 

@@ -7,7 +7,7 @@
 
 /* Global and Container */
 .act-statutes-page {
-  font-family: 'Inter', 'Roboto', sans-serif;
+  font-family: var(--font-body);
   background-color: #f8fafc;
   color: #1e293b;
   min-height: 100vh;
@@ -158,8 +158,9 @@
 }
 
 .section-title {
+  font-family: var(--font-section);
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 700;
   background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -222,6 +223,7 @@
 }
 
 .card-title {
+  font-family: var(--font-subtopic);
   font-size: 2rem;
   font-weight: 700;
   color: #1e293b;
@@ -270,6 +272,7 @@
 }
 
 .elegant-card-title {
+  font-family: var(--font-subtopic);
   font-size: 1.5rem;
   font-weight: 700;
   color: #1e293b;
@@ -757,6 +760,8 @@
 @media (max-width: 768px) {
   .about-inner-container { padding: 60px 24px; }
   .section-title {
+  font-weight: 700;
+  font-family: var(--font-section);
     font-size: 2rem;
   }
   .premium-card {

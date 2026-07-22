@@ -5,7 +5,7 @@
 }
 /* Affiliation.css */
 .affiliation-page {
-  font-family: 'Inter', 'Roboto', sans-serif;
+  font-family: var(--font-body);
   background-color: #f8fafc;
   color: #1e293b;
   min-height: 100vh;
@@ -221,8 +221,9 @@
 
 /* Content Area */
 .affiliation-heading {
+  font-family: var(--font-subtopic);
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #0f172a;
   margin-bottom: 0.5rem;
   line-height: 1.2;
@@ -258,11 +259,12 @@
 }
 
 .cert-chip {
+  font-family: var(--font-body);
   background: var(--premium-card-bg);
   border: var(--premium-card-border);
   padding: 0.75rem 1.5rem;
   border-radius: 50px; /* Pill design */
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.95rem;
   color: #334155;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
@@ -350,6 +352,8 @@
 @media (max-width: 768px) {
   .about-inner-container { padding: 60px 24px; }
   .affiliation-heading {
+  font-weight: 700;
+  font-family: var(--font-subtopic);
     font-size: 2rem;
   }
   

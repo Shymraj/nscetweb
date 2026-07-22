@@ -11,7 +11,7 @@
 .tf-page-wrapper {
   background-color: var(--tf-bg);
   min-height: 100vh;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   padding: 4rem 2rem;
   color: var(--tf-text-dark);
   overflow-x: hidden;

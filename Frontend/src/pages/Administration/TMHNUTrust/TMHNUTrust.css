@@ -27,7 +27,7 @@
 
 /* ---------- Page Container ---------- */
 .tmhnu-page {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   background: var(--tmhnu-bg);
   overflow-x: hidden;
 }
@@ -89,9 +89,9 @@
 }
 
 .tmhnu-premium-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #ffffff;
   margin-bottom: 8px;
   letter-spacing: 1px;
@@ -104,9 +104,9 @@
 }
 
 .tmhnu-premium-subtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-section);
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 700;
   color: #d4af37;
   margin-bottom: 20px;
   letter-spacing: 1px;
@@ -217,7 +217,7 @@
 }
 
 .tmhnu-section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-section);
   font-size: 2rem;
   font-weight: 700;
   color: var(--tmhnu-primary);
@@ -432,7 +432,7 @@
 }
 
 .tmhnu-leader-name {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-subtopic);
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--tmhnu-dark);
@@ -644,7 +644,7 @@
 }
 
 .tmhnu-personality-name {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-subtopic);
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--tmhnu-dark);
@@ -691,9 +691,9 @@
 }
 
 .tmhnu-heritage-year {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-section);
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #ffffff;
   line-height: 1;
 }

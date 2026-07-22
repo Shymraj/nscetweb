@@ -1,6 +1,6 @@
 
 .iqac-page {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   color: #102a43;
   max-width: 1200px;
   margin: 0 auto;

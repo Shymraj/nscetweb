@@ -7,7 +7,7 @@
 
 /* Global and Container */
 .dev-plan-page {
-  font-family: 'Inter', 'Roboto', sans-serif;
+  font-family: var(--font-body);
   background-color: #f8fafc;
   color: #1e293b;
   min-height: 100vh;
@@ -76,8 +76,9 @@
 
 /* General Section Utilities */
 .dev-section-title {
+  font-family: var(--font-section);
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 700;
   background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -472,6 +473,8 @@
     padding: 60px 24px;
   }
   .dev-section-title {
+  font-weight: 700;
+  font-family: var(--font-section);
     font-size: 2rem;
   }
   .exec-right {
@@ -638,8 +641,9 @@
 }
 
 .accordion-title {
+  font-family: var(--font-subtopic);
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #1e293b;
   margin: 0;
 }
@@ -764,13 +768,14 @@
 }
 
 .year-badge {
+  font-family: var(--font-subtopic);
   background: #f8fafc;
   border: 1px solid #cbd5e1;
   color: #334155;
   padding: 0.35rem 0.75rem;
   border-radius: 8px;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   display: inline-block;
 }
 
@@ -823,6 +828,8 @@
     padding: 1.25rem;
   }
   .accordion-title {
+  font-weight: 700;
+  font-family: var(--font-subtopic);
     font-size: 1.1rem;
   }
   .table-container-card {

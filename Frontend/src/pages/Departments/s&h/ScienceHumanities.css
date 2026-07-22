@@ -18,7 +18,7 @@
     width: 100%;
     min-height: 100vh;
     padding-top: 100px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-body);
     color: var(--sh-text);
     background-color: var(--sh-bg);
     overflow-x: hidden;

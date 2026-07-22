@@ -7,7 +7,7 @@
 .alumni-page {
     --primary-accent: #c9a84c;
     --secondary-accent: #1e3a8a;
-    font-family: 'Inter', 'Roboto', sans-serif;
+    font-family: var(--font-body);
     background-color: var(--bg-color, #f8fafc);
     color: var(--text-color, #1e293b);
     min-height: 100vh;

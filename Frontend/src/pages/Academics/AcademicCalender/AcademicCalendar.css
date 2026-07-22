@@ -1,7 +1,7 @@
 /* Academic Calendar Page - uses shared PageBanner for banner */
 .academic-calendar-page {
   width: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   color: #212d44;
 }
 
