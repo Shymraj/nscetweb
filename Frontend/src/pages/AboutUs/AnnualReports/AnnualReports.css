@@ -104,7 +104,7 @@
 .ar-underline {
   height: 4px;
   width: 80px;
-  background: linear-gradient(90deg, #3b82f6, #f97316);
+  background: linear-gradient(90deg, var(--theme-primary-light, #38BDF8), #f97316);
   border-radius: 2px;
   margin: 0 auto 3rem;
 }
@@ -165,7 +165,7 @@
   width: 60px;
   height: 60px;
   background: linear-gradient(135deg, #eff6ff, #dbeafe);
-  color: #3b82f6;
+  color: var(--theme-primary-light, #38BDF8);
   border-radius: 16px;
   display: flex;
   justify-content: center;
@@ -264,7 +264,7 @@
   color: #0f172a;
   line-height: 1.2;
   margin-bottom: 0.5rem;
-  background: linear-gradient(to right, #1e3a8a, #3b82f6);
+  background: linear-gradient(to right, #1e3a8a, var(--theme-primary-light, #38BDF8));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -317,7 +317,7 @@
 }
 
 .value-value {
-  color: #3b82f6;
+  color: var(--theme-primary-light, #38BDF8);
   font-weight: 600;
   font-size: 1rem;
   margin: 0;
@@ -457,3 +457,160 @@
   }
 }
 
+
+
+/* =========================================
+   ALUMNI PREMIUM ANIMATIONS & DESIGN PORTED OVER
+   ========================================= */
+
+@keyframes arGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.ar-glass-card,
+.highlight-category-card,
+.stat-card,
+.value-card,
+.document-glass-card {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 20px !important;
+    background-size: 200% 200% !important;
+    animation: arGradientShift 6s ease infinite !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
+}
+
+.ar-glass-card::before,
+.highlight-category-card::before,
+.stat-card::before,
+.value-card::before,
+.document-glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent) !important;
+    transform: skewX(-20deg) !important;
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    pointer-events: none;
+    z-index: 10;
+}
+
+body.dark-mode .ar-glass-card,
+body.dark-mode .highlight-category-card,
+body.dark-mode .stat-card,
+body.dark-mode .value-card,
+body.dark-mode .document-glass-card {
+    background: rgba(30, 41, 59, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .ar-glass-card::before,
+body.dark-mode .highlight-category-card::before,
+body.dark-mode .stat-card::before,
+body.dark-mode .value-card::before,
+body.dark-mode .document-glass-card::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+}
+
+.ar-glass-card:hover::before,
+.highlight-category-card:hover::before,
+.stat-card:hover::before,
+.value-card:hover::before,
+.document-glass-card:hover::before {
+    left: 150% !important;
+}
+
+.ar-glass-card:hover,
+.highlight-category-card:hover,
+.stat-card:hover,
+.value-card:hover,
+.document-glass-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15) !important;
+}
+
+body.dark-mode .ar-glass-card:hover,
+body.dark-mode .highlight-category-card:hover,
+body.dark-mode .stat-card:hover,
+body.dark-mode .value-card:hover,
+body.dark-mode .document-glass-card:hover {
+    background: rgba(15, 23, 42, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Fix text readability for all cards */
+.ar-glass-card, .highlight-category-card, .stat-card, .value-card, .document-glass-card,
+.ar-glass-card h1, .ar-glass-card h2, .ar-glass-card h3, .ar-glass-card h4, .ar-glass-card p, .ar-glass-card li, .ar-glass-card span,
+.highlight-category-card h1, .highlight-category-card h2, .highlight-category-card h3, .highlight-category-card h4, .highlight-category-card p, .highlight-category-card li, .highlight-category-card span,
+.stat-card h1, .stat-card h2, .stat-card h3, .stat-card h4, .stat-card p, .stat-card li, .stat-card span,
+.value-card h1, .value-card h2, .value-card h3, .value-card h4, .value-card p, .value-card li, .value-card span,
+.document-glass-card h1, .document-glass-card h2, .document-glass-card h3, .document-glass-card h4, .document-glass-card p, .document-glass-card li, .document-glass-card span {
+    color: var(--theme-text) !important;
+}
+
+body.dark-mode .ar-glass-card, body.dark-mode .highlight-category-card, body.dark-mode .stat-card, body.dark-mode .value-card, body.dark-mode .document-glass-card,
+body.dark-mode .ar-glass-card h1, body.dark-mode .ar-glass-card h2, body.dark-mode .ar-glass-card h3, body.dark-mode .ar-glass-card h4, body.dark-mode .ar-glass-card p, body.dark-mode .ar-glass-card li, body.dark-mode .ar-glass-card span,
+body.dark-mode .highlight-category-card h1, body.dark-mode .highlight-category-card h2, body.dark-mode .highlight-category-card h3, body.dark-mode .highlight-category-card h4, body.dark-mode .highlight-category-card p, body.dark-mode .highlight-category-card li, body.dark-mode .highlight-category-card span,
+body.dark-mode .stat-card h1, body.dark-mode .stat-card h2, body.dark-mode .stat-card h3, body.dark-mode .stat-card h4, body.dark-mode .stat-card p, body.dark-mode .stat-card li, body.dark-mode .stat-card span,
+body.dark-mode .value-card h1, body.dark-mode .value-card h2, body.dark-mode .value-card h3, body.dark-mode .value-card h4, body.dark-mode .value-card p, body.dark-mode .value-card li, body.dark-mode .value-card span,
+body.dark-mode .document-glass-card h1, body.dark-mode .document-glass-card h2, body.dark-mode .document-glass-card h3, body.dark-mode .document-glass-card h4, body.dark-mode .document-glass-card p, body.dark-mode .document-glass-card li, body.dark-mode .document-glass-card span {
+    color: #f1f5f9 !important;
+}
+
+
+/* =========================================
+   FIX FOR BOXES INSIDE BOXES (highlight-item, doc-badge)
+   ========================================= */
+
+.highlight-item,
+.doc-badge {
+    background: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    transition: all 0.3s ease !important;
+    color: var(--theme-text) !important;
+}
+
+body.dark-mode .highlight-item,
+body.dark-mode .doc-badge {
+    background: rgba(30, 41, 59, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #f1f5f9 !important;
+}
+
+.highlight-item:hover,
+.doc-badge:hover {
+    background: rgba(255, 255, 255, 0.8) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(31, 38, 135, 0.1) !important;
+}
+
+body.dark-mode .highlight-item:hover,
+body.dark-mode .doc-badge:hover {
+    background: rgba(15, 23, 42, 0.6) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+
+/* =========================================
+   HERO BOX PUSH DOWN FIX
+   ========================================= */
+.annual-reports-page {
+    padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
+}

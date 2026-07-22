@@ -1,4 +1,5 @@
 import React from "react";
+import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import {
     FaLaptopCode, FaDatabase, FaServer, FaUserTie,
@@ -62,7 +63,7 @@ const MECSE = () => {
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
                 >
                     <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3>Our Department</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
                         <p>
                             The Department of ME Computer Science and Engineering aims to produce the engineers with the abilities:
                         </p>
@@ -75,7 +76,7 @@ const MECSE = () => {
                     </motion.div>
 
                     <motion.div className="bento-card" variants={zoomIn}>
-                        <h3>Overview</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
                         <p><strong>Excellence:</strong> Nurturing a conducive environment for advanced research and postgraduate learning by adopting cutting-edge computing technologies while producing confident, research-driven software professionals.</p>
                         <p><strong>Environment:</strong> The department features an excellent academic grounding intertwined with teamwork, inspiring technical enhancement through deep, continuous faculty-guided learning and research.</p>
                     </motion.div>

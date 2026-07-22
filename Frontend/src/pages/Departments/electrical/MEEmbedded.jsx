@@ -1,4 +1,5 @@
 import React from "react";
+import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import {
     FaBolt, FaMicrochip, FaUserTie,
@@ -63,7 +64,7 @@ const MEEmbedded = () => {
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
                 >
                     <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3>Our Department</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
                         <p>
                             The Department of ME Embedded System and Technologies aims to produce engineers with the abilities:
                         </p>
@@ -77,7 +78,7 @@ const MEEmbedded = () => {
                     </motion.div>
 
                     <motion.div className="bento-card" variants={zoomIn}>
-                        <h3>Overview</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
                         <p><strong>Scope:</strong> Embedded systems engineering covers the design, development, and optimization of hardware-software integrated systems used in industrial automation, IoT, robotics, and intelligent technologies.</p>
                         <p><strong>Competence:</strong> The department emphasizes analytical ability, technical skills, and ethical engineering practices to create reliable, commercial, and safe embedded products for real-world applications.</p>
                     </motion.div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import {
     FaLaptopCode, FaDatabase, FaServer, FaUserTie,
@@ -78,7 +79,7 @@ const CSE = () => {
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
                 >
                     <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3>Our Department</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
                         <p>
                             The Department of Computer Science and Engineering aims to produce engineers who are life-long learners pursuing professional development and thriving in a multidisciplinary, systems-oriented work environment.
                         </p>
@@ -88,7 +89,7 @@ const CSE = () => {
                     </motion.div>
 
                     <motion.div className="bento-card" variants={zoomIn}>
-                        <h3>Overview</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
                         <p><strong>Excellence:</strong> Nurturing a conducive environment for erudition and research by adopting appropriate computing technologies while creating confident, real-time software professionals.</p>
                         <p><strong>Environment:</strong> The department features an excellent academic grounding intertwined with teamwork, inspiring technical enhancement through deep, continuous faculty-guided learning.</p>
                     </motion.div>

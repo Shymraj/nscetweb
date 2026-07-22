@@ -118,7 +118,7 @@
 }
 
 .ap-left.purple {
-    background: linear-gradient(180deg, #7c3aed, #5b21b6);
+    background: linear-gradient(180deg, var(--theme-primary-dark, #0369A1), #5b21b6);
 }
 
 .ap-icon {

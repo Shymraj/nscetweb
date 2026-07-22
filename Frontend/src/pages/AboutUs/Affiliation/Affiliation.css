@@ -140,7 +140,7 @@
   height: 12px;
   bottom: 25%;
   right: 25%;
-  background: #3b82f6;
+  background: var(--theme-primary-light, #38BDF8);
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
 }
 
@@ -273,7 +273,7 @@
 }
 
 .cert-chip:hover {
-  border-color: #3b82f6;
+  border-color: var(--theme-primary-light, #38BDF8);
   color: #2563eb;
   box-shadow: 0 10px 20px rgba(59, 130, 246, 0.15);
   background: linear-gradient(to right, #ffffff, #f8fafc);
@@ -370,3 +370,11 @@
   }
 }
 
+
+
+/* =========================================
+   HERO BOX PUSH DOWN FIX
+   ========================================= */
+.affiliation-page {
+    padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
+}

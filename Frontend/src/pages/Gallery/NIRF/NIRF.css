@@ -9,8 +9,8 @@
   --nirf-secondary: #64748B;
   --nirf-card-bg: rgba(255, 255, 255, 0.85);
   --nirf-card-border: rgba(226, 232, 240, 0.8);
-  --nirf-accent: #0B5ED7;
-  --nirf-accent-light: #4F9CF9;
+  --nirf-accent: var(--theme-accent);
+  --nirf-accent-light: var(--theme-accent-light);
   --nirf-orange: #FF8A00;
   --nirf-shadow: rgba(11, 60, 145, 0.05);
   --nirf-shadow-hover: rgba(11, 60, 145, 0.12);
@@ -28,8 +28,8 @@ body.dark-mode {
   --nirf-secondary: #94A3B8;
   --nirf-card-bg: rgba(15, 23, 42, 0.7);
   --nirf-card-border: rgba(255, 255, 255, 0.08);
-  --nirf-accent: #60A5FA;
-  --nirf-accent-light: #93C5FD;
+  --nirf-accent: var(--theme-accent);
+  --nirf-accent-light: var(--theme-accent-light);
   --nirf-orange: #FFB347;
   --nirf-shadow: rgba(0, 0, 0, 0.4);
   --nirf-shadow-hover: rgba(0, 0, 0, 0.6);
@@ -524,4 +524,204 @@ body.dark-mode .card-shine-sweep {
     height: 4px;
     bottom: auto;
   }
+}
+
+
+/* =========================================
+   GLOBAL ALUMNI GLASSMORPHISM & DARK MODE FIX
+   ========================================= */
+
+@keyframes galleryGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.premium-glass-card,
+.card-pos-4,
+.card-pos-5,
+.card-animated-border,
+.card-shine-sweep,
+.card-action-footer {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 20px !important;
+    background-size: 200% 200% !important;
+    animation: galleryGradientShift 6s ease infinite !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
+}
+
+.premium-glass-card::before,
+.card-pos-4::before,
+.card-pos-5::before,
+.card-animated-border::before,
+.card-shine-sweep::before,
+.card-action-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent) !important;
+    transform: skewX(-20deg) !important;
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    pointer-events: none;
+    z-index: 10;
+}
+
+body.dark-mode .premium-glass-card,
+body.dark-mode .card-pos-4,
+body.dark-mode .card-pos-5,
+body.dark-mode .card-animated-border,
+body.dark-mode .card-shine-sweep,
+body.dark-mode .card-action-footer {
+    background: rgba(30, 41, 59, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .premium-glass-card::before,
+body.dark-mode .card-pos-4::before,
+body.dark-mode .card-pos-5::before,
+body.dark-mode .card-animated-border::before,
+body.dark-mode .card-shine-sweep::before,
+body.dark-mode .card-action-footer::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+}
+
+.premium-glass-card:hover::before,
+.card-pos-4:hover::before,
+.card-pos-5:hover::before,
+.card-animated-border:hover::before,
+.card-shine-sweep:hover::before,
+.card-action-footer:hover::before {
+    left: 150% !important;
+}
+
+.premium-glass-card:hover,
+.card-pos-4:hover,
+.card-pos-5:hover,
+.card-animated-border:hover,
+.card-shine-sweep:hover,
+.card-action-footer:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15) !important;
+}
+
+body.dark-mode .premium-glass-card:hover,
+body.dark-mode .card-pos-4:hover,
+body.dark-mode .card-pos-5:hover,
+body.dark-mode .card-animated-border:hover,
+body.dark-mode .card-shine-sweep:hover,
+body.dark-mode .card-action-footer:hover {
+    background: rgba(15, 23, 42, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Fix text readability for all cards */
+.premium-glass-card, .card-pos-4, .card-pos-5, .card-animated-border, .card-shine-sweep, .card-action-footer,
+.premium-glass-card h1,
+.premium-glass-card h2,
+.premium-glass-card h3,
+.premium-glass-card h4,
+.premium-glass-card p,
+.premium-glass-card li,
+.premium-glass-card span,
+.card-pos-4 h1,
+.card-pos-4 h2,
+.card-pos-4 h3,
+.card-pos-4 h4,
+.card-pos-4 p,
+.card-pos-4 li,
+.card-pos-4 span,
+.card-pos-5 h1,
+.card-pos-5 h2,
+.card-pos-5 h3,
+.card-pos-5 h4,
+.card-pos-5 p,
+.card-pos-5 li,
+.card-pos-5 span,
+.card-animated-border h1,
+.card-animated-border h2,
+.card-animated-border h3,
+.card-animated-border h4,
+.card-animated-border p,
+.card-animated-border li,
+.card-animated-border span,
+.card-shine-sweep h1,
+.card-shine-sweep h2,
+.card-shine-sweep h3,
+.card-shine-sweep h4,
+.card-shine-sweep p,
+.card-shine-sweep li,
+.card-shine-sweep span,
+.card-action-footer h1,
+.card-action-footer h2,
+.card-action-footer h3,
+.card-action-footer h4,
+.card-action-footer p,
+.card-action-footer li,
+.card-action-footer span {
+    color: var(--theme-text) !important;
+}
+
+body.dark-mode .premium-glass-card,
+body.dark-mode .card-pos-4,
+body.dark-mode .card-pos-5,
+body.dark-mode .card-animated-border,
+body.dark-mode .card-shine-sweep,
+body.dark-mode .card-action-footer,
+body.dark-mode .premium-glass-card h1,
+body.dark-mode .premium-glass-card h2,
+body.dark-mode .premium-glass-card h3,
+body.dark-mode .premium-glass-card h4,
+body.dark-mode .premium-glass-card p,
+body.dark-mode .premium-glass-card li,
+body.dark-mode .premium-glass-card span,
+body.dark-mode .card-pos-4 h1,
+body.dark-mode .card-pos-4 h2,
+body.dark-mode .card-pos-4 h3,
+body.dark-mode .card-pos-4 h4,
+body.dark-mode .card-pos-4 p,
+body.dark-mode .card-pos-4 li,
+body.dark-mode .card-pos-4 span,
+body.dark-mode .card-pos-5 h1,
+body.dark-mode .card-pos-5 h2,
+body.dark-mode .card-pos-5 h3,
+body.dark-mode .card-pos-5 h4,
+body.dark-mode .card-pos-5 p,
+body.dark-mode .card-pos-5 li,
+body.dark-mode .card-pos-5 span,
+body.dark-mode .card-animated-border h1,
+body.dark-mode .card-animated-border h2,
+body.dark-mode .card-animated-border h3,
+body.dark-mode .card-animated-border h4,
+body.dark-mode .card-animated-border p,
+body.dark-mode .card-animated-border li,
+body.dark-mode .card-animated-border span,
+body.dark-mode .card-shine-sweep h1,
+body.dark-mode .card-shine-sweep h2,
+body.dark-mode .card-shine-sweep h3,
+body.dark-mode .card-shine-sweep h4,
+body.dark-mode .card-shine-sweep p,
+body.dark-mode .card-shine-sweep li,
+body.dark-mode .card-shine-sweep span,
+body.dark-mode .card-action-footer h1,
+body.dark-mode .card-action-footer h2,
+body.dark-mode .card-action-footer h3,
+body.dark-mode .card-action-footer h4,
+body.dark-mode .card-action-footer p,
+body.dark-mode .card-action-footer li,
+body.dark-mode .card-action-footer span {
+    color: #f1f5f9 !important;
 }

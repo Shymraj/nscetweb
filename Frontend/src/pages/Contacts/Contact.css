@@ -13,19 +13,19 @@
 body.dark-mode .contact-container {
     --text-color: #f1f5f9;
     --bg-color: #0f172a;
-    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-bg: var(--theme-bg);
     --border-color: rgba(255, 255, 255, 0.1);
-    --hover-bg: rgba(51, 65, 85, 0.8);
-    --primary-accent: #eab308;
-    --secondary-accent: #3b82f6;
+    --hover-bg: var(--theme-bg);
+    --primary-accent: var(--theme-accent);
+    --secondary-accent: var(--theme-accent);
 }
 
 .contact-container {
-    --card-bg: rgba(255, 255, 255, 0.8);
+    --card-bg: var(--theme-bg);
     --border-color: rgba(0, 0, 0, 0.1);
-    --hover-bg: rgba(241, 245, 249, 0.9);
-    --primary-accent: #c9a84c;
-    --secondary-accent: #1e3a8a;
+    --hover-bg: var(--theme-bg);
+    --primary-accent: var(--theme-accent);
+    --secondary-accent: var(--theme-accent);
 }
 
 /* ========== HERO BANNER ========== */
@@ -201,7 +201,7 @@ body.dark-mode .contact-card:hover {
 
 /* Tertiary Card (Soft Blue / Teal Theme) */
 .contact-card.tertiary {
-    background: linear-gradient(135deg, #3b82f6, var(--secondary-accent));
+    background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8), var(--secondary-accent));
     color: white;
     border: none;
 }
@@ -407,7 +407,7 @@ body.dark-mode .table-responsive {
 }
 
 .contact-card.tertiary {
-    background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #3b82f6 100%);
+    background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8) 0%, #06b6d4 50%, var(--theme-primary-light, #38BDF8) 100%);
 }
 
 /* Appended Map Glow Effect */

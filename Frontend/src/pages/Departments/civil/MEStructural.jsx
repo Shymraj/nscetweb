@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
 import {
     FaHardHat, FaDraftingCompass, FaUserTie,
     FaEnvelope, FaAward, FaFlask, FaMapMarkedAlt, FaCalendarTimes
@@ -64,7 +65,7 @@ const MEStructural = () => {
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
                 >
                     <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3>Our Department</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
                         <p>
                             The Department of Structural Engineering aims to produce engineers with the abilities:
                         </p>
@@ -77,7 +78,7 @@ const MEStructural = () => {
                     </motion.div>
 
                     <motion.div className="bento-card" variants={zoomIn}>
-                        <h3>Overview</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
                         <p><strong>Scope:</strong> Structural Engineering encompasses the design and analysis of a wide range of structures including buildings, bridges, towers, flyovers, and tunnels with focus on safety and serviceability.</p>
                         <p><strong>Competence:</strong> The department emphasizes strength, stiffness, stability alongside cost-effectiveness, constructability, safety, aesthetics, and sustainability in all engineering solutions.</p>
                     </motion.div>

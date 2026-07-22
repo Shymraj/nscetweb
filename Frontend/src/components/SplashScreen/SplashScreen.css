@@ -229,7 +229,7 @@
 /* Progress Fill Bar */
 .splash-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #1E40AF 0%, #3B82F6 40%, #F59E0B 80%, #FDE68A 100%);
+  background: linear-gradient(90deg, #1E40AF 0%, var(--theme-primary-light, #38BDF8) 40%, #F59E0B 80%, #FDE68A 100%);
   border-radius: 999px;
   position: relative;
   transition: width 0.2s ease-out;

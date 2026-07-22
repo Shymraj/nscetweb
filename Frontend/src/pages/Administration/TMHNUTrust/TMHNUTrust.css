@@ -6,22 +6,22 @@
 
 /* ---------- Root Variables ---------- */
 :root {
-  --tmhnu-primary: #0b2559;
-  --tmhnu-primary-light: #1e40af;
-  --tmhnu-accent: #f59e0b;
+  --tmhnu-primary: var(--theme-primary);
+  --tmhnu-primary-light: var(--theme-primary-light);
+  --tmhnu-accent: var(--theme-accent);
   --tmhnu-accent-warm: #f97316;
   --tmhnu-dark: #0f172a;
-  --tmhnu-text: #334155;
-  --tmhnu-text-light: #64748b;
-  --tmhnu-bg: #f8fafc;
+  --tmhnu-text: var(--theme-text);
+  --tmhnu-text-light: var(--theme-text-light);
+  --tmhnu-bg: var(--theme-bg);
   --tmhnu-card-bg: #ffffff;
-  --tmhnu-gradient-1: linear-gradient(135deg, #0b2559 0%, #1e40af 50%, #3b82f6 100%);
+  --tmhnu-gradient-1: linear-gradient(135deg, #0b2559 0%, #1e40af 50%, var(--theme-primary-light, #38BDF8) 100%);
   --tmhnu-gradient-2: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
   --tmhnu-gradient-3: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   --tmhnu-shadow: 0 4px 20px rgba(11, 37, 89, 0.08);
   --tmhnu-shadow-lg: 0 20px 60px rgba(11, 37, 89, 0.12);
   --tmhnu-shadow-glow: 0 0 40px rgba(30, 64, 175, 0.15);
-  --tmhnu-radius: 20px;
+  --tmhnu-radius: var(--theme-radius);
   --tmhnu-radius-sm: 12px;
 }
 

@@ -112,7 +112,7 @@
 }
 
 .ap-left.purple {
-    background: linear-gradient(180deg, #7c3aed, #8b5cf6);
+    background: linear-gradient(180deg, var(--theme-primary-dark, #0369A1), var(--theme-primary-dark, #0369A1));
 }
 
 .ap-icon {
@@ -230,7 +230,7 @@
     padding: 24px;
     background: #f5f3ff;
     border-radius: 14px;
-    border-left: 4px solid #7c3aed;
+    border-left: 4px solid var(--theme-primary-dark, #0369A1);
 }
 
 .ap-research-icon {

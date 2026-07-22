@@ -1,4 +1,5 @@
 import React from "react";
+import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import {
     FaLaptopCode, FaServer, FaUserTie,
@@ -74,7 +75,7 @@ const IT = () => {
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
                 >
                     <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3>Our Department</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
                         <p>
                             The Information Technology department aims to produce engineers equipped to understand the Multidisciplinary Domain of Information Science and work towards Industrial needs.
                         </p>
@@ -84,7 +85,7 @@ const IT = () => {
                     </motion.div>
 
                     <motion.div className="bento-card" variants={zoomIn}>
-                        <h3>Overview</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
                         <p><strong>Ecosystem:</strong> Nurturing a conducive environment for erudition and research using appropriate, scalable computing technologies.</p>
                         <p><strong>Professionalism:</strong> The prime objective is to produce confident professionals tuned to real-time working environments with cutting-edge academic faculty.</p>
                     </motion.div>

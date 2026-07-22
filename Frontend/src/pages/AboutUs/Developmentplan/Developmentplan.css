@@ -1,4 +1,4 @@
-﻿
+
 :root {
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
   --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
@@ -79,7 +79,7 @@
   font-family: var(--font-section);
   font-size: 2.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #1e40af 0%, var(--theme-primary-light, #38BDF8) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1.5rem;
@@ -94,7 +94,7 @@
   left: 0;
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #93c5fd);
+  background: linear-gradient(90deg, var(--theme-primary-light, #38BDF8), #93c5fd);
   border-radius: 2px;
 }
 
@@ -167,7 +167,7 @@
 }
 
 .focus-bullet {
-  color: #3b82f6;
+  color: var(--theme-primary-light, #38BDF8);
   font-size: 1.25rem;
 }
 
@@ -255,7 +255,7 @@
 }
 
 .profile-bullet {
-  color: #8b5cf6;
+  color: var(--theme-primary-dark, #0369A1);
   font-size: 1.2rem;
   margin-top: 0.25rem;
   flex-shrink: 0;
@@ -340,7 +340,7 @@
   color: #334155;
   font-weight: 500;
   font-style: italic;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid var(--theme-primary-light, #38BDF8);
   padding-left: 1.5rem;
 }
 
@@ -573,7 +573,7 @@
 }
 
 /* SWOT Colors */
-.swot-blue .swot-icon-wrapper { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
+.swot-blue .swot-icon-wrapper { background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8) 0%, #1d4ed8 100%); }
 .swot-blue:hover { box-shadow: 0 20px 45px rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.3); }
 
 .swot-red .swot-icon-wrapper { background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); }
@@ -604,7 +604,7 @@
 }
 
 .accordion-item.open {
-  border-left-color: #3b82f6;
+  border-left-color: var(--theme-primary-light, #38BDF8);
   box-shadow: 0 15px 35px rgba(59, 130, 246, 0.08);
 }
 
@@ -629,7 +629,7 @@
 }
 
 .accordion-icon {
-  color: #3b82f6;
+  color: var(--theme-primary-light, #38BDF8);
   font-size: 1.25rem;
   background: rgba(59, 130, 246, 0.1);
   width: 40px;
@@ -654,7 +654,7 @@
 }
 
 .accordion-item.open .accordion-toggle-icon {
-  color: #3b82f6;
+  color: var(--theme-primary-light, #38BDF8);
 }
 
 .accordion-content-wrapper {
@@ -671,7 +671,7 @@
 
 .accordion-section h4 {
   font-size: 1.05rem;
-  color: #3b82f6;
+  color: var(--theme-primary-light, #38BDF8);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 0.75rem;
@@ -1037,3 +1037,154 @@
   }
 }
 
+
+
+/* =========================================
+   ALUMNI PREMIUM ANIMATIONS & DESIGN PORTED OVER
+   ========================================= */
+
+@keyframes devPlanGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.premium-glass-card,
+.feature-card,
+.profile-card,
+.vmq-card,
+.mission-check-card,
+.quality-info-card,
+.swot-card,
+.table-container-card {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 20px !important;
+    background-size: 200% 200% !important;
+    animation: devPlanGradientShift 6s ease infinite !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
+}
+
+.premium-glass-card::before,
+.feature-card::before,
+.profile-card::before,
+.vmq-card::before,
+.mission-check-card::before,
+.quality-info-card::before,
+.swot-card::before,
+.table-container-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent) !important;
+    transform: skewX(-20deg) !important;
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    pointer-events: none;
+    z-index: 10;
+}
+
+body.dark-mode .premium-glass-card,
+body.dark-mode .feature-card,
+body.dark-mode .profile-card,
+body.dark-mode .vmq-card,
+body.dark-mode .mission-check-card,
+body.dark-mode .quality-info-card,
+body.dark-mode .swot-card,
+body.dark-mode .table-container-card {
+    background: rgba(30, 41, 59, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .premium-glass-card::before,
+body.dark-mode .feature-card::before,
+body.dark-mode .profile-card::before,
+body.dark-mode .vmq-card::before,
+body.dark-mode .mission-check-card::before,
+body.dark-mode .quality-info-card::before,
+body.dark-mode .swot-card::before,
+body.dark-mode .table-container-card::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+}
+
+.premium-glass-card:hover::before,
+.feature-card:hover::before,
+.profile-card:hover::before,
+.vmq-card:hover::before,
+.mission-check-card:hover::before,
+.quality-info-card:hover::before,
+.swot-card:hover::before,
+.table-container-card:hover::before {
+    left: 150% !important;
+}
+
+.premium-glass-card:hover,
+.feature-card:hover,
+.profile-card:hover,
+.vmq-card:hover,
+.mission-check-card:hover,
+.quality-info-card:hover,
+.swot-card:hover,
+.table-container-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15) !important;
+}
+
+body.dark-mode .premium-glass-card:hover,
+body.dark-mode .feature-card:hover,
+body.dark-mode .profile-card:hover,
+body.dark-mode .vmq-card:hover,
+body.dark-mode .mission-check-card:hover,
+body.dark-mode .quality-info-card:hover,
+body.dark-mode .swot-card:hover,
+body.dark-mode .table-container-card:hover {
+    background: rgba(15, 23, 42, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Fix text readability for all cards with light backgrounds */
+.premium-glass-card, .feature-card, .profile-card, .vmq-card, .mission-check-card, .quality-info-card, .swot-card, .table-container-card,
+.premium-glass-card h1, .premium-glass-card h2, .premium-glass-card h3, .premium-glass-card h4, .premium-glass-card p, .premium-glass-card li, .premium-glass-card span,
+.feature-card h1, .feature-card h2, .feature-card h3, .feature-card h4, .feature-card p, .feature-card li, .feature-card span,
+.profile-card h1, .profile-card h2, .profile-card h3, .profile-card h4, .profile-card p, .profile-card li, .profile-card span,
+.vmq-card h1, .vmq-card h2, .vmq-card h3, .vmq-card h4, .vmq-card p, .vmq-card li, .vmq-card span,
+.mission-check-card h1, .mission-check-card h2, .mission-check-card h3, .mission-check-card h4, .mission-check-card p, .mission-check-card li, .mission-check-card span,
+.quality-info-card h1, .quality-info-card h2, .quality-info-card h3, .quality-info-card h4, .quality-info-card p, .quality-info-card li, .quality-info-card span,
+.swot-card h1, .swot-card h2, .swot-card h3, .swot-card h4, .swot-card p, .swot-card li, .swot-card span,
+.table-container-card h1, .table-container-card h2, .table-container-card h3, .table-container-card h4, .table-container-card p, .table-container-card li, .table-container-card span {
+    color: var(--theme-text) !important;
+}
+
+body.dark-mode .premium-glass-card, body.dark-mode .feature-card, body.dark-mode .profile-card, body.dark-mode .vmq-card, body.dark-mode .mission-check-card, body.dark-mode .quality-info-card, body.dark-mode .swot-card, body.dark-mode .table-container-card,
+body.dark-mode .premium-glass-card h1, body.dark-mode .premium-glass-card h2, body.dark-mode .premium-glass-card h3, body.dark-mode .premium-glass-card h4, body.dark-mode .premium-glass-card p, body.dark-mode .premium-glass-card li, body.dark-mode .premium-glass-card span,
+body.dark-mode .feature-card h1, body.dark-mode .feature-card h2, body.dark-mode .feature-card h3, body.dark-mode .feature-card h4, body.dark-mode .feature-card p, body.dark-mode .feature-card li, body.dark-mode .feature-card span,
+body.dark-mode .profile-card h1, body.dark-mode .profile-card h2, body.dark-mode .profile-card h3, body.dark-mode .profile-card h4, body.dark-mode .profile-card p, body.dark-mode .profile-card li, body.dark-mode .profile-card span,
+body.dark-mode .vmq-card h1, body.dark-mode .vmq-card h2, body.dark-mode .vmq-card h3, body.dark-mode .vmq-card h4, body.dark-mode .vmq-card p, body.dark-mode .vmq-card li, body.dark-mode .vmq-card span,
+body.dark-mode .mission-check-card h1, body.dark-mode .mission-check-card h2, body.dark-mode .mission-check-card h3, body.dark-mode .mission-check-card h4, body.dark-mode .mission-check-card p, body.dark-mode .mission-check-card li, body.dark-mode .mission-check-card span,
+body.dark-mode .quality-info-card h1, body.dark-mode .quality-info-card h2, body.dark-mode .quality-info-card h3, body.dark-mode .quality-info-card h4, body.dark-mode .quality-info-card p, body.dark-mode .quality-info-card li, body.dark-mode .quality-info-card span,
+body.dark-mode .swot-card h1, body.dark-mode .swot-card h2, body.dark-mode .swot-card h3, body.dark-mode .swot-card h4, body.dark-mode .swot-card p, body.dark-mode .swot-card li, body.dark-mode .swot-card span,
+body.dark-mode .table-container-card h1, body.dark-mode .table-container-card h2, body.dark-mode .table-container-card h3, body.dark-mode .table-container-card h4, body.dark-mode .table-container-card p, body.dark-mode .table-container-card li, body.dark-mode .table-container-card span {
+    color: var(--theme-text) !important;
+}
+
+
+
+
+/* =========================================
+   HERO BOX PUSH DOWN FIX
+   ========================================= */
+.dev-plan-page {
+    padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
+}

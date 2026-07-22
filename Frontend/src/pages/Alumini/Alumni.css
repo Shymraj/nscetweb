@@ -5,8 +5,8 @@
 
 /* Global and Container */
 .alumni-page {
-    --primary-accent: #c9a84c;
-    --secondary-accent: #1e3a8a;
+    --primary-accent: var(--theme-accent);
+    --secondary-accent: var(--theme-accent);
     font-family: var(--font-body);
     background-color: var(--bg-color, #f8fafc);
     color: var(--text-color, #1e293b);
@@ -18,8 +18,8 @@
 }
 
 body.dark-mode .alumni-page {
-    --primary-accent: #eab308;
-    --secondary-accent: #3b82f6;
+    --primary-accent: var(--theme-accent);
+    --secondary-accent: var(--theme-accent);
     --premium-card-bg: rgba(30, 41, 59, 0.7);
     --premium-card-border: 1px solid rgba(255, 255, 255, 0.1);
     background-color: #0f172a;
@@ -490,7 +490,7 @@ body.dark-mode .incharge-avatar {
     border-radius: 50%;
     object-fit: cover;
     object-position: top;
-    border: 3px solid var(--primary-accent, #c9a84c);
+    border: 3px solid var(--primary-accent, var(--theme-accent, #F59E0B));
     box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
     flex-shrink: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -502,7 +502,7 @@ body.dark-mode .incharge-avatar {
 }
 
 body.dark-mode .incharge-photo {
-    border-color: var(--primary-accent, #c9a84c);
+    border-color: var(--primary-accent, var(--theme-accent, #F59E0B));
     box-shadow: 0 8px 25px rgba(201, 168, 76, 0.2);
 }
 
@@ -853,7 +853,7 @@ body.dark-mode .guest-box ul li {
     bottom: -4px;
     left: -4px;
     right: -4px;
-    background: linear-gradient(270deg, var(--primary-accent, #c9a84c), var(--secondary-accent, #3b82f6), #a855f7, var(--primary-accent, #c9a84c));
+    background: linear-gradient(270deg, var(--primary-accent, var(--theme-accent, #F59E0B)), var(--secondary-accent, var(--theme-primary-light, #38BDF8)), #a855f7, var(--primary-accent, var(--theme-accent, #F59E0B)));
     background-size: 300% 300%;
     border-radius: 24px;
     z-index: -1;
@@ -1055,12 +1055,12 @@ body.dark-mode .glam-title {
     left: 10%;
     width: 60px;
     height: 4px;
-    background: var(--primary-accent, #c9a84c);
+    background: var(--primary-accent, var(--theme-accent, #F59E0B));
     border-radius: 50px;
 }
 
 .glam-title span {
-    color: var(--primary-accent, #c9a84c);
+    color: var(--primary-accent, var(--theme-accent, #F59E0B));
 }
 
 /* Modern Alumni Meets UI (Bento Layout) */
@@ -1096,7 +1096,7 @@ body.dark-mode .glam-title {
     left: 0;
     width: 100%;
     height: 6px;
-    background: linear-gradient(90deg, var(--secondary-accent, #1e3a8a), var(--primary-accent, #c9a84c));
+    background: linear-gradient(90deg, var(--secondary-accent, #1e3a8a), var(--primary-accent, var(--theme-accent, #F59E0B)));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.5s ease;
@@ -1113,7 +1113,7 @@ body.dark-mode .glam-title {
 
 .featured-meet {
     grid-column: 1 / -1;
-    background: linear-gradient(145deg, var(--secondary-accent, #1e3a8a) 0%, #2b5a8c 100%);
+    background: linear-gradient(145deg, var(--secondary-accent, #1e3a8a) 0%, var(--theme-primary-light, #38BDF8) 100%);
     color: white;
     border-color: rgba(201, 168, 76, 0.3);
 }
@@ -1129,7 +1129,7 @@ body.dark-mode .glam-title {
 
 .featured-meet .meet-event-title,
 .featured-meet .meet-year-badge {
-    color: var(--primary-accent, #c9a84c);
+    color: var(--primary-accent, var(--theme-accent, #F59E0B));
 }
 
 .expanded-meet {
@@ -1147,7 +1147,7 @@ body.dark-mode .glam-title {
 }
 
 body.dark-mode .meet-year-badge {
-    color: var(--primary-accent, #c9a84c);
+    color: var(--primary-accent, var(--theme-accent, #F59E0B));
 }
 
 .meet-event-title {
@@ -1187,7 +1187,7 @@ body.dark-mode .meet-meta-item {
 
 .highlight-meta {
     background: rgba(201, 168, 76, 0.15) !important;
-    color: var(--primary-accent, #b8943f) !important;
+    color: var(--primary-accent, var(--theme-accent, #F59E0B)) !important;
 }
 
 .meet-description {
@@ -1258,7 +1258,7 @@ body.dark-mode .guest-list-panel ul li {
 
 .guest-list-panel ul li::before {
     content: '✦';
-    color: var(--primary-accent, #c9a84c);
+    color: var(--primary-accent, var(--theme-accent, #F59E0B));
     font-size: 0.8rem;
     margin-top: 2px;
 }
@@ -1309,12 +1309,12 @@ body.dark-mode .guest-list-panel ul li {
 .sidebar-link:hover {
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.05));
     border: 1px solid rgba(99, 102, 241, 0.2);
-    color: #4f46e5;
+    color: var(--theme-primary-dark, #0369A1);
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.05);
 }
 
 .sidebar-link.active {
-    background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%) !important;
+    background: linear-gradient(135deg, var(--theme-primary-dark, #0369A1) 0%, var(--theme-primary, #0EA5E9) 100%) !important;
     color: white !important;
     box-shadow: 0 10px 20px rgba(236, 72, 153, 0.25) !important;
     border-radius: 12px;
@@ -1355,17 +1355,17 @@ body.dark-mode .vm-card {
 }
 
 .icon-gradient-2 {
-    background: linear-gradient(135deg, #10b981, #3b82f6);
+    background: linear-gradient(135deg, #10b981, var(--theme-primary-light, #38BDF8));
     color: white !important;
 }
 
 .icon-gradient-3 {
-    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+    background: linear-gradient(135deg, var(--theme-primary-dark, #0369A1), var(--theme-primary, #0EA5E9));
     color: white !important;
 }
 
 .icon-gradient-4 {
-    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    background: linear-gradient(135deg, #06b6d4, var(--theme-primary-light, #38BDF8));
     color: white !important;
 }
 
@@ -1413,13 +1413,13 @@ body.dark-mode .activity-card:hover {
 
 /* Incharge Avatar Gradients */
 .incharge-avatar:nth-child(1) {
-    background: linear-gradient(135deg, #3b82f6, #06b6d4) !important;
+    background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8), #06b6d4) !important;
     color: white !important;
     box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2) !important;
 }
 
 .incharge-card:nth-child(2) .incharge-avatar {
-    background: linear-gradient(135deg, #ec4899, #8b5cf6) !important;
+    background: linear-gradient(135deg, var(--theme-primary, #0EA5E9), var(--theme-primary-dark, #0369A1)) !important;
     color: white !important;
     box-shadow: 0 8px 20px rgba(236, 72, 153, 0.2) !important;
 }
@@ -1457,25 +1457,25 @@ body.dark-mode .meet-card.standard-meet {
 
 .archive {
     background: rgba(99, 102, 241, 0.1);
-    color: #4f46e5 !important;
+    color: var(--theme-primary-dark, #0369A1) !important;
     padding: 0.4rem 1rem;
     border-radius: 20px;
 }
 
 body.dark-mode .archive {
     background: rgba(99, 102, 241, 0.2);
-    color: #818cf8 !important;
+    color: var(--theme-primary-light, #38BDF8) !important;
 }
 
 /* Beautiful Glowing Title Upgrade */
 .glam-title::after {
-    background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6) !important;
+    background: linear-gradient(90deg, var(--theme-primary, #0EA5E9), var(--theme-primary-dark, #0369A1), var(--theme-primary-light, #38BDF8)) !important;
     width: 80px !important;
     height: 5px !important;
 }
 
 .glam-title span {
-    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    background: linear-gradient(135deg, var(--theme-primary, #0EA5E9), var(--theme-primary-dark, #0369A1));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1739,4 +1739,225 @@ body.dark-mode .incharge-card:nth-child(1) {
 
 body.dark-mode .incharge-card:nth-child(2) {
     background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(133, 77, 14, 0.5)) !important;
+}
+
+/* =========================================
+   GLOBAL ALUMNI GLASSMORPHISM & DARK MODE FIX RE-APPLIED
+   ========================================= */
+
+@keyframes alumniGlobalGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.sidebar-glass-card,
+.overview-intro-card,
+.vm-card,
+.activity-card,
+.incharge-card,
+.impact-card,
+.meet-card {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 20px !important;
+    background-size: 200% 200% !important;
+    animation: alumniGlobalGradientShift 6s ease infinite !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
+}
+
+.sidebar-glass-card::before,
+.overview-intro-card::before,
+.vm-card::before,
+.activity-card::before,
+.incharge-card::before,
+.impact-card::before,
+.meet-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent) !important;
+    transform: skewX(-20deg) !important;
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    pointer-events: none;
+    z-index: 10;
+}
+
+body.dark-mode .sidebar-glass-card,
+body.dark-mode .overview-intro-card,
+body.dark-mode .vm-card,
+body.dark-mode .activity-card,
+body.dark-mode .incharge-card,
+body.dark-mode .impact-card,
+body.dark-mode .meet-card {
+    background: rgba(30, 41, 59, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .sidebar-glass-card::before,
+body.dark-mode .overview-intro-card::before,
+body.dark-mode .vm-card::before,
+body.dark-mode .activity-card::before,
+body.dark-mode .incharge-card::before,
+body.dark-mode .impact-card::before,
+body.dark-mode .meet-card::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+}
+
+.sidebar-glass-card:hover::before,
+.overview-intro-card:hover::before,
+.vm-card:hover::before,
+.activity-card:hover::before,
+.incharge-card:hover::before,
+.impact-card:hover::before,
+.meet-card:hover::before {
+    left: 150% !important;
+}
+
+.sidebar-glass-card:hover,
+.overview-intro-card:hover,
+.vm-card:hover,
+.activity-card:hover,
+.incharge-card:hover,
+.impact-card:hover,
+.meet-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15) !important;
+}
+
+body.dark-mode .sidebar-glass-card:hover,
+body.dark-mode .overview-intro-card:hover,
+body.dark-mode .vm-card:hover,
+body.dark-mode .activity-card:hover,
+body.dark-mode .incharge-card:hover,
+body.dark-mode .impact-card:hover,
+body.dark-mode .meet-card:hover {
+    background: rgba(15, 23, 42, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Fix text readability for all cards */
+.sidebar-glass-card, .overview-intro-card, .vm-card, .activity-card, .incharge-card, .impact-card, .meet-card,
+.sidebar-glass-card h1,
+.sidebar-glass-card h2,
+.sidebar-glass-card h3,
+.sidebar-glass-card h4,
+.sidebar-glass-card p,
+.sidebar-glass-card li,
+.sidebar-glass-card span,
+.overview-intro-card h1,
+.overview-intro-card h2,
+.overview-intro-card h3,
+.overview-intro-card h4,
+.overview-intro-card p,
+.overview-intro-card li,
+.overview-intro-card span,
+.vm-card h1,
+.vm-card h2,
+.vm-card h3,
+.vm-card h4,
+.vm-card p,
+.vm-card li,
+.vm-card span,
+.activity-card h1,
+.activity-card h2,
+.activity-card h3,
+.activity-card h4,
+.activity-card p,
+.activity-card li,
+.activity-card span,
+.incharge-card h1,
+.incharge-card h2,
+.incharge-card h3,
+.incharge-card h4,
+.incharge-card p,
+.incharge-card li,
+.incharge-card span,
+.impact-card h1,
+.impact-card h2,
+.impact-card h3,
+.impact-card h4,
+.impact-card p,
+.impact-card li,
+.impact-card span,
+.meet-card h1,
+.meet-card h2,
+.meet-card h3,
+.meet-card h4,
+.meet-card p,
+.meet-card li,
+.meet-card span {
+    color: var(--theme-text) !important;
+}
+
+body.dark-mode .sidebar-glass-card,
+body.dark-mode .overview-intro-card,
+body.dark-mode .vm-card,
+body.dark-mode .activity-card,
+body.dark-mode .incharge-card,
+body.dark-mode .impact-card,
+body.dark-mode .meet-card,
+body.dark-mode .sidebar-glass-card h1,
+body.dark-mode .sidebar-glass-card h2,
+body.dark-mode .sidebar-glass-card h3,
+body.dark-mode .sidebar-glass-card h4,
+body.dark-mode .sidebar-glass-card p,
+body.dark-mode .sidebar-glass-card li,
+body.dark-mode .sidebar-glass-card span,
+body.dark-mode .overview-intro-card h1,
+body.dark-mode .overview-intro-card h2,
+body.dark-mode .overview-intro-card h3,
+body.dark-mode .overview-intro-card h4,
+body.dark-mode .overview-intro-card p,
+body.dark-mode .overview-intro-card li,
+body.dark-mode .overview-intro-card span,
+body.dark-mode .vm-card h1,
+body.dark-mode .vm-card h2,
+body.dark-mode .vm-card h3,
+body.dark-mode .vm-card h4,
+body.dark-mode .vm-card p,
+body.dark-mode .vm-card li,
+body.dark-mode .vm-card span,
+body.dark-mode .activity-card h1,
+body.dark-mode .activity-card h2,
+body.dark-mode .activity-card h3,
+body.dark-mode .activity-card h4,
+body.dark-mode .activity-card p,
+body.dark-mode .activity-card li,
+body.dark-mode .activity-card span,
+body.dark-mode .incharge-card h1,
+body.dark-mode .incharge-card h2,
+body.dark-mode .incharge-card h3,
+body.dark-mode .incharge-card h4,
+body.dark-mode .incharge-card p,
+body.dark-mode .incharge-card li,
+body.dark-mode .incharge-card span,
+body.dark-mode .impact-card h1,
+body.dark-mode .impact-card h2,
+body.dark-mode .impact-card h3,
+body.dark-mode .impact-card h4,
+body.dark-mode .impact-card p,
+body.dark-mode .impact-card li,
+body.dark-mode .impact-card span,
+body.dark-mode .meet-card h1,
+body.dark-mode .meet-card h2,
+body.dark-mode .meet-card h3,
+body.dark-mode .meet-card h4,
+body.dark-mode .meet-card p,
+body.dark-mode .meet-card li,
+body.dark-mode .meet-card span {
+    color: #f1f5f9 !important;
 }

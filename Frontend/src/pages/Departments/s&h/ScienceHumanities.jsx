@@ -1,4 +1,5 @@
 import React from "react";
+import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import {
     FaFlask, FaMicroscope, FaUserTie,
@@ -125,7 +126,7 @@ const ScienceHumanities = () => {
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
                 >
                     <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3>Our Department</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
                         <p>
                             Science and Humanities dept. aims to provide a strong foundation for students of Engineering. It is one of the indispensable departments of the institute.
                         </p>
@@ -135,7 +136,7 @@ const ScienceHumanities = () => {
                     </motion.div>
 
                     <motion.div className="bento-card" variants={zoomIn}>
-                        <h3>Overview</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
                         <p><strong>Core Focus:</strong> Comprises applied physics, applied chemistry, applied mathematics, along with essential communication skills.</p>
                         <p><strong>Excellence:</strong> Qualified staff enable students to employ fundamental principles to create innovative new technologies across well-equipped advanced labs.</p>
                     </motion.div>

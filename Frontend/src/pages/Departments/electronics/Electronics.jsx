@@ -1,4 +1,5 @@
 import React from "react";
+import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import {
     FaMicrochip, FaBroadcastTower, FaUserTie,
@@ -77,7 +78,7 @@ const Electronics = () => {
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
                 >
                     <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3>Our Department</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
                         <p>
                             The Department of Electronics and Communication Engineering aims to impart an enduring source of inspiration and a frame of reference for students' professional and ethical values.
                         </p>
@@ -87,7 +88,7 @@ const Electronics = () => {
                     </motion.div>
 
                     <motion.div className="bento-card" variants={zoomIn}>
-                        <h3>Overview</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
                         <p><strong>Core Focus:</strong> Optimum mix of Electronics, Communication, and Computer Engineering emphasizing VLSI, Embedded Systems, Instrumentation, Automation, and Robotics.</p>
                         <p><strong>Excellence:</strong> Strict adherence to quality norms in teaching-learning is our strength, carving students to be technically skilled and socially conscious.</p>
                     </motion.div>

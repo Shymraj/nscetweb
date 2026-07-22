@@ -1,14 +1,14 @@
 /* Color Variables & Base Setup */
 :root {
   --primary-blue: #2563eb;
-  --primary-purple: #7c3aed;
+  --primary-purple: var(--theme-primary-dark, #0369A1);
   --primary-orange: #ea580c;
   --bg-gradient-start: #f8fafc;
   --bg-gradient-end: #e2e8f0;
   --text-main: #0f172a;
   --text-muted: #64748b;
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-bg: var(--theme-bg);
+  --glass-border: var(--theme-border);
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
@@ -250,8 +250,8 @@
   color: white;
 }
 
-.bg-blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.bg-purple { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+.bg-blue { background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8), #2563eb); }
+.bg-purple { background: linear-gradient(135deg, #a855f7, var(--theme-primary-dark, #0369A1)); }
 .bg-orange { background: linear-gradient(135deg, #f97316, #ea580c); }
 
 .card-header h2 {

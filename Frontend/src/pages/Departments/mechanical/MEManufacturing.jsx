@@ -1,4 +1,5 @@
 import React from "react";
+import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import {
     FaCogs, FaIndustry, FaUserTie,
@@ -63,7 +64,7 @@ const MEManufacturing = () => {
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
                 >
                     <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3>Our Department</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
                         <p>
                             The Department of Manufacture Engineering aims to produce engineers with the abilities:
                         </p>
@@ -78,7 +79,7 @@ const MEManufacturing = () => {
                     </motion.div>
 
                     <motion.div className="bento-card" variants={zoomIn}>
-                        <h3>Overview</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
                         <p><strong>Scope:</strong> Principles employed in industries such as power generation, manufacturing, automotive, aerospace, robotics, and nanotechnology.</p>
                         <p><strong>Competence:</strong> Interdisciplinary themes such as Health, Environment, Civics, and Entrepreneurship are taught to motivate, inspire, and build trust.</p>
                     </motion.div>

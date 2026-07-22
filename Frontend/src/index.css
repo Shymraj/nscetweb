@@ -1,5 +1,28 @@
 @import './typography.css';
 
+:root {
+  --theme-primary: #0EA5E9;
+  --theme-primary-light: #38BDF8;
+  --theme-primary-dark: #0284C7;
+  --theme-accent: #F59E0B;
+  --theme-accent-light: #FCD34D;
+  
+  --theme-bg: #F8FAFC;
+  --theme-card: #FFFFFF;
+  --theme-text: #1E293B;
+  --theme-text-light: #64748B;
+  --theme-border: #E2E8F0;
+  --theme-radius: 16px;
+}
+
+body.dark-mode {
+  --theme-bg: #0F172A;
+  --theme-card: #1E293B;
+  --theme-text: #F8FAFC;
+  --theme-text-light: #94A3B8;
+  --theme-border: #334155;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,8 +45,8 @@ body {
 }
 
 body.dark-mode {
-  background: #111827;
-  color: #ffffff;
+  background: var(--theme-bg);
+  color: var(--theme-text);
 }
 
 #root {
@@ -47,9 +70,9 @@ body.dark-mode .journey-section,
 body.dark-mode .hero-section,
 body.dark-mode .stats-section,
 body.dark-mode .cta-section {
-  background-color: #111827 !important;
-  background: #111827 !important;
-  color: #ffffff !important;
+  background-color: var(--theme-bg) !important;
+  background: var(--theme-bg) !important;
+  color: var(--theme-text) !important;
 }
 
 body.dark-mode .premium-glass-card,
@@ -74,9 +97,9 @@ body.dark-mode .calendar-card,
 body.dark-mode .library-card,
 body.dark-mode .iqac-card,
 body.dark-mode .report-card {
-  background: #1f2937 !important;
-  color: #f3f4f6 !important;
-  border-color: #374151 !important;
+  background: var(--theme-card) !important;
+  color: var(--theme-text) !important;
+  border-color: var(--theme-border) !important;
 }
 
 body.dark-mode p,
@@ -125,8 +148,8 @@ body.dark-mode .commitment-quote {
 
 body.dark-mode .sidebar-link.active,
 body.dark-mode .sidebar-link:hover {
-  background: rgba(59, 130, 246, 0.15) !important;
-  color: #60a5fa !important;
+  background: rgba(14, 165, 233, 0.15) !important;
+  color: var(--theme-primary) !important;
 }
 
 body.dark-mode .premium-btn,
@@ -138,8 +161,8 @@ body.dark-mode .btn-primary {
 body.dark-mode .info-card-blue,
 body.dark-mode .info-card-green,
 body.dark-mode .calendar-card {
-  background: #1f2937 !important;
-  border-color: #374151 !important;
+  background: var(--theme-card) !important;
+  border-color: var(--theme-border) !important;
 }
 
 body.dark-mode .calendar-card-text,
@@ -162,8 +185,8 @@ body.dark-mode .info-icon {
    DARK MODE OVERRIDES for Library Page
    ========================================= */
 body.dark-mode .model1-landing-wrapper {
-  background-color: #111827 !important;
-  color: #ffffff !important;
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text) !important;
 }
 
 body.dark-mode .m1-about-card,
@@ -171,14 +194,14 @@ body.dark-mode .m1-tab-content-card,
 body.dark-mode .m1-gallery-item-wrapper,
 body.dark-mode .m1-info-card,
 body.dark-mode .m1-tabs-nav button {
-  background: #1f2937 !important;
-  color: #ffffff !important;
-  border-color: #374151 !important;
+  background: var(--theme-card) !important;
+  color: var(--theme-text) !important;
+  border-color: var(--theme-border) !important;
 }
 
 body.dark-mode .m1-tabs-nav button.active {
-  background: #4338ca !important;
-  border-color: #4338ca !important;
+  background: var(--theme-primary) !important;
+  border-color: var(--theme-primary) !important;
 }
 
 body.dark-mode .m1-section-title,
@@ -224,9 +247,9 @@ body.dark-mode .report-doc-card,
 body.dark-mode .pdf-thumbnail,
 body.dark-mode .nscet-card,
 body.dark-mode .naac-card {
-  background: #1f2937 !important;
-  color: #f3f4f6 !important;
-  border-color: #374151 !important;
+  background: var(--theme-card) !important;
+  color: var(--theme-text) !important;
+  border-color: var(--theme-border) !important;
 }
 
 body.dark-mode .affiliation-heading,
@@ -235,8 +258,8 @@ body.dark-mode .affiliation-description p {
 }
 
 body.dark-mode .cert-chip:hover {
-  background: #374151 !important;
-  color: #3b82f6 !important;
+  background: var(--theme-border) !important;
+  color: var(--theme-primary) !important;
 }
 
 body.dark-mode .ar-card-title,
@@ -262,9 +285,9 @@ body.dark-mode .org-chart-box,
 body.dark-mode .year-badge,
 body.dark-mode .image-placeholder,
 body.dark-mode .stat-label {
-  background: #1f2937 !important;
-  color: #f3f4f6 !important;
-  border-color: #374151 !important;
+  background: var(--theme-card) !important;
+  color: var(--theme-text) !important;
+  border-color: var(--theme-border) !important;
 }
 
 body.dark-mode .elegant-vision-text,
@@ -285,5 +308,524 @@ body.dark-mode .affiliation-page,
 body.dark-mode .annual-reports-page,
 body.dark-mode .achievements-section,
 body.dark-mode .journey-section {
-  background-color: #111827 !important;
+  background-color: var(--theme-bg) !important;
+}
+
+/* =========================================
+   GLOBAL PREMIUM CARD ANIMATION (Inspired by Alumni Page)
+   Applies smooth glassy shine and hover scale to all cards.
+   ========================================= */
+
+.achievement-card,
+.activity-card,
+.affiliation-card-glow,
+.affiliation-premium-card,
+.ap-card,
+.ar-card,
+.ar-glass-card,
+.bento-card,
+.calendar-card,
+.cap-card,
+.chart-preview-card,
+.club-card,
+.contact-card,
+.coordinator-card,
+.department-card,
+.document-glass-card,
+.document-showcase-card,
+.duty-card,
+.elegant-card,
+.event-card,
+.feature-card,
+.floating-card,
+.glass-card,
+.glass-logo-card,
+.hero-quote-card,
+.highlight-card,
+.highlight-category-card,
+.impact-card,
+.incharge-card,
+.info-card,
+.info-card-blue,
+.info-card-green,
+.info-highlight-card,
+.iqac-about-card,
+.iqac-card,
+.iqac-member-card,
+.iqac-record-card,
+.library-card,
+.m1-about-card,
+.m1-info-card,
+.m1-stat-card,
+.mech-bento-card,
+.mech-cap-card,
+.mech-glass-card,
+.mech-member-card,
+.meet-card,
+.member-card,
+.members-card,
+.mission-card,
+.mission-check-card,
+.naac-card,
+.newsletter-card,
+.no-duties-card,
+.non-teaching-dept-card,
+.non-teaching-staff-card,
+.nscet-card,
+.overview-intro-card,
+.premium-card,
+.premium-glass-card,
+.principal-hero-card,
+.profile-card,
+.quality-card,
+.quality-info-card,
+.report-card,
+.report-doc-card,
+.sidebar-glass-card,
+.stat-card,
+.stats-card,
+.statutes-card,
+.swot-card,
+.tf-hod-card,
+.tf-staff-card,
+.tmhnu-about-card,
+.tmhnu-leader-card,
+.tmhnu-personality-card,
+.value-card,
+.vision-card,
+.vm-card,
+.vmq-card,
+.why-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* The sweeping shine pseudo element */
+.achievement-card::before,
+.activity-card::before,
+.affiliation-card-glow::before,
+.affiliation-premium-card::before,
+.ap-card::before,
+.ar-card::before,
+.ar-glass-card::before,
+.bento-card::before,
+.calendar-card::before,
+.cap-card::before,
+.chart-preview-card::before,
+.club-card::before,
+.contact-card::before,
+.coordinator-card::before,
+.department-card::before,
+.document-glass-card::before,
+.document-showcase-card::before,
+.duty-card::before,
+.elegant-card::before,
+.event-card::before,
+.feature-card::before,
+.floating-card::before,
+.glass-card::before,
+.glass-logo-card::before,
+.hero-quote-card::before,
+.highlight-card::before,
+.highlight-category-card::before,
+.impact-card::before,
+.incharge-card::before,
+.info-card::before,
+.info-card-blue::before,
+.info-card-green::before,
+.info-highlight-card::before,
+.iqac-about-card::before,
+.iqac-card::before,
+.iqac-member-card::before,
+.iqac-record-card::before,
+.library-card::before,
+.m1-about-card::before,
+.m1-info-card::before,
+.m1-stat-card::before,
+.mech-bento-card::before,
+.mech-cap-card::before,
+.mech-glass-card::before,
+.mech-member-card::before,
+.meet-card::before,
+.member-card::before,
+.members-card::before,
+.mission-card::before,
+.mission-check-card::before,
+.naac-card::before,
+.newsletter-card::before,
+.no-duties-card::before,
+.non-teaching-dept-card::before,
+.non-teaching-staff-card::before,
+.nscet-card::before,
+.overview-intro-card::before,
+.premium-card::before,
+.premium-glass-card::before,
+.principal-hero-card::before,
+.profile-card::before,
+.quality-card::before,
+.quality-info-card::before,
+.report-card::before,
+.report-doc-card::before,
+.sidebar-glass-card::before,
+.stat-card::before,
+.stats-card::before,
+.statutes-card::before,
+.swot-card::before,
+.tf-hod-card::before,
+.tf-staff-card::before,
+.tmhnu-about-card::before,
+.tmhnu-leader-card::before,
+.tmhnu-personality-card::before,
+.value-card::before,
+.vision-card::before,
+.vm-card::before,
+.vmq-card::before,
+.why-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+body.dark-mode .achievement-card::before,
+body.dark-mode .activity-card::before,
+body.dark-mode .affiliation-card-glow::before,
+body.dark-mode .affiliation-premium-card::before,
+body.dark-mode .ap-card::before,
+body.dark-mode .ar-card::before,
+body.dark-mode .ar-glass-card::before,
+body.dark-mode .bento-card::before,
+body.dark-mode .calendar-card::before,
+body.dark-mode .cap-card::before,
+body.dark-mode .chart-preview-card::before,
+body.dark-mode .club-card::before,
+body.dark-mode .contact-card::before,
+body.dark-mode .coordinator-card::before,
+body.dark-mode .department-card::before,
+body.dark-mode .document-glass-card::before,
+body.dark-mode .document-showcase-card::before,
+body.dark-mode .duty-card::before,
+body.dark-mode .elegant-card::before,
+body.dark-mode .event-card::before,
+body.dark-mode .feature-card::before,
+body.dark-mode .floating-card::before,
+body.dark-mode .glass-card::before,
+body.dark-mode .glass-logo-card::before,
+body.dark-mode .hero-quote-card::before,
+body.dark-mode .highlight-card::before,
+body.dark-mode .highlight-category-card::before,
+body.dark-mode .impact-card::before,
+body.dark-mode .incharge-card::before,
+body.dark-mode .info-card::before,
+body.dark-mode .info-card-blue::before,
+body.dark-mode .info-card-green::before,
+body.dark-mode .info-highlight-card::before,
+body.dark-mode .iqac-about-card::before,
+body.dark-mode .iqac-card::before,
+body.dark-mode .iqac-member-card::before,
+body.dark-mode .iqac-record-card::before,
+body.dark-mode .library-card::before,
+body.dark-mode .m1-about-card::before,
+body.dark-mode .m1-info-card::before,
+body.dark-mode .m1-stat-card::before,
+body.dark-mode .mech-bento-card::before,
+body.dark-mode .mech-cap-card::before,
+body.dark-mode .mech-glass-card::before,
+body.dark-mode .mech-member-card::before,
+body.dark-mode .meet-card::before,
+body.dark-mode .member-card::before,
+body.dark-mode .members-card::before,
+body.dark-mode .mission-card::before,
+body.dark-mode .mission-check-card::before,
+body.dark-mode .naac-card::before,
+body.dark-mode .newsletter-card::before,
+body.dark-mode .no-duties-card::before,
+body.dark-mode .non-teaching-dept-card::before,
+body.dark-mode .non-teaching-staff-card::before,
+body.dark-mode .nscet-card::before,
+body.dark-mode .overview-intro-card::before,
+body.dark-mode .premium-card::before,
+body.dark-mode .premium-glass-card::before,
+body.dark-mode .principal-hero-card::before,
+body.dark-mode .profile-card::before,
+body.dark-mode .quality-card::before,
+body.dark-mode .quality-info-card::before,
+body.dark-mode .report-card::before,
+body.dark-mode .report-doc-card::before,
+body.dark-mode .sidebar-glass-card::before,
+body.dark-mode .stat-card::before,
+body.dark-mode .stats-card::before,
+body.dark-mode .statutes-card::before,
+body.dark-mode .swot-card::before,
+body.dark-mode .tf-hod-card::before,
+body.dark-mode .tf-staff-card::before,
+body.dark-mode .tmhnu-about-card::before,
+body.dark-mode .tmhnu-leader-card::before,
+body.dark-mode .tmhnu-personality-card::before,
+body.dark-mode .value-card::before,
+body.dark-mode .vision-card::before,
+body.dark-mode .vm-card::before,
+body.dark-mode .vmq-card::before,
+body.dark-mode .why-card::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* The hover trigger */
+.achievement-card:hover::before,
+.activity-card:hover::before,
+.affiliation-card-glow:hover::before,
+.affiliation-premium-card:hover::before,
+.ap-card:hover::before,
+.ar-card:hover::before,
+.ar-glass-card:hover::before,
+.bento-card:hover::before,
+.calendar-card:hover::before,
+.cap-card:hover::before,
+.chart-preview-card:hover::before,
+.club-card:hover::before,
+.contact-card:hover::before,
+.coordinator-card:hover::before,
+.department-card:hover::before,
+.document-glass-card:hover::before,
+.document-showcase-card:hover::before,
+.duty-card:hover::before,
+.elegant-card:hover::before,
+.event-card:hover::before,
+.feature-card:hover::before,
+.floating-card:hover::before,
+.glass-card:hover::before,
+.glass-logo-card:hover::before,
+.hero-quote-card:hover::before,
+.highlight-card:hover::before,
+.highlight-category-card:hover::before,
+.impact-card:hover::before,
+.incharge-card:hover::before,
+.info-card:hover::before,
+.info-card-blue:hover::before,
+.info-card-green:hover::before,
+.info-highlight-card:hover::before,
+.iqac-about-card:hover::before,
+.iqac-card:hover::before,
+.iqac-member-card:hover::before,
+.iqac-record-card:hover::before,
+.library-card:hover::before,
+.m1-about-card:hover::before,
+.m1-info-card:hover::before,
+.m1-stat-card:hover::before,
+.mech-bento-card:hover::before,
+.mech-cap-card:hover::before,
+.mech-glass-card:hover::before,
+.mech-member-card:hover::before,
+.meet-card:hover::before,
+.member-card:hover::before,
+.members-card:hover::before,
+.mission-card:hover::before,
+.mission-check-card:hover::before,
+.naac-card:hover::before,
+.newsletter-card:hover::before,
+.no-duties-card:hover::before,
+.non-teaching-dept-card:hover::before,
+.non-teaching-staff-card:hover::before,
+.nscet-card:hover::before,
+.overview-intro-card:hover::before,
+.premium-card:hover::before,
+.premium-glass-card:hover::before,
+.principal-hero-card:hover::before,
+.profile-card:hover::before,
+.quality-card:hover::before,
+.quality-info-card:hover::before,
+.report-card:hover::before,
+.report-doc-card:hover::before,
+.sidebar-glass-card:hover::before,
+.stat-card:hover::before,
+.stats-card:hover::before,
+.statutes-card:hover::before,
+.swot-card:hover::before,
+.tf-hod-card:hover::before,
+.tf-staff-card:hover::before,
+.tmhnu-about-card:hover::before,
+.tmhnu-leader-card:hover::before,
+.tmhnu-personality-card:hover::before,
+.value-card:hover::before,
+.vision-card:hover::before,
+.vm-card:hover::before,
+.vmq-card:hover::before,
+.why-card:hover::before {
+    left: 150%;
+}
+
+/* The upward pop scale */
+.achievement-card:hover,
+.activity-card:hover,
+.affiliation-card-glow:hover,
+.affiliation-premium-card:hover,
+.ap-card:hover,
+.ar-card:hover,
+.ar-glass-card:hover,
+.bento-card:hover,
+.calendar-card:hover,
+.cap-card:hover,
+.chart-preview-card:hover,
+.club-card:hover,
+.contact-card:hover,
+.coordinator-card:hover,
+.department-card:hover,
+.document-glass-card:hover,
+.document-showcase-card:hover,
+.duty-card:hover,
+.elegant-card:hover,
+.event-card:hover,
+.feature-card:hover,
+.floating-card:hover,
+.glass-card:hover,
+.glass-logo-card:hover,
+.hero-quote-card:hover,
+.highlight-card:hover,
+.highlight-category-card:hover,
+.impact-card:hover,
+.incharge-card:hover,
+.info-card:hover,
+.info-card-blue:hover,
+.info-card-green:hover,
+.info-highlight-card:hover,
+.iqac-about-card:hover,
+.iqac-card:hover,
+.iqac-member-card:hover,
+.iqac-record-card:hover,
+.library-card:hover,
+.m1-about-card:hover,
+.m1-info-card:hover,
+.m1-stat-card:hover,
+.mech-bento-card:hover,
+.mech-cap-card:hover,
+.mech-glass-card:hover,
+.mech-member-card:hover,
+.meet-card:hover,
+.member-card:hover,
+.members-card:hover,
+.mission-card:hover,
+.mission-check-card:hover,
+.naac-card:hover,
+.newsletter-card:hover,
+.no-duties-card:hover,
+.non-teaching-dept-card:hover,
+.non-teaching-staff-card:hover,
+.nscet-card:hover,
+.overview-intro-card:hover,
+.premium-card:hover,
+.premium-glass-card:hover,
+.principal-hero-card:hover,
+.profile-card:hover,
+.quality-card:hover,
+.quality-info-card:hover,
+.report-card:hover,
+.report-doc-card:hover,
+.sidebar-glass-card:hover,
+.stat-card:hover,
+.stats-card:hover,
+.statutes-card:hover,
+.swot-card:hover,
+.tf-hod-card:hover,
+.tf-staff-card:hover,
+.tmhnu-about-card:hover,
+.tmhnu-leader-card:hover,
+.tmhnu-personality-card:hover,
+.value-card:hover,
+.vision-card:hover,
+.vm-card:hover,
+.vmq-card:hover,
+.why-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .achievement-card:hover,
+body.dark-mode .activity-card:hover,
+body.dark-mode .affiliation-card-glow:hover,
+body.dark-mode .affiliation-premium-card:hover,
+body.dark-mode .ap-card:hover,
+body.dark-mode .ar-card:hover,
+body.dark-mode .ar-glass-card:hover,
+body.dark-mode .bento-card:hover,
+body.dark-mode .calendar-card:hover,
+body.dark-mode .cap-card:hover,
+body.dark-mode .chart-preview-card:hover,
+body.dark-mode .club-card:hover,
+body.dark-mode .contact-card:hover,
+body.dark-mode .coordinator-card:hover,
+body.dark-mode .department-card:hover,
+body.dark-mode .document-glass-card:hover,
+body.dark-mode .document-showcase-card:hover,
+body.dark-mode .duty-card:hover,
+body.dark-mode .elegant-card:hover,
+body.dark-mode .event-card:hover,
+body.dark-mode .feature-card:hover,
+body.dark-mode .floating-card:hover,
+body.dark-mode .glass-card:hover,
+body.dark-mode .glass-logo-card:hover,
+body.dark-mode .hero-quote-card:hover,
+body.dark-mode .highlight-card:hover,
+body.dark-mode .highlight-category-card:hover,
+body.dark-mode .impact-card:hover,
+body.dark-mode .incharge-card:hover,
+body.dark-mode .info-card:hover,
+body.dark-mode .info-card-blue:hover,
+body.dark-mode .info-card-green:hover,
+body.dark-mode .info-highlight-card:hover,
+body.dark-mode .iqac-about-card:hover,
+body.dark-mode .iqac-card:hover,
+body.dark-mode .iqac-member-card:hover,
+body.dark-mode .iqac-record-card:hover,
+body.dark-mode .library-card:hover,
+body.dark-mode .m1-about-card:hover,
+body.dark-mode .m1-info-card:hover,
+body.dark-mode .m1-stat-card:hover,
+body.dark-mode .mech-bento-card:hover,
+body.dark-mode .mech-cap-card:hover,
+body.dark-mode .mech-glass-card:hover,
+body.dark-mode .mech-member-card:hover,
+body.dark-mode .meet-card:hover,
+body.dark-mode .member-card:hover,
+body.dark-mode .members-card:hover,
+body.dark-mode .mission-card:hover,
+body.dark-mode .mission-check-card:hover,
+body.dark-mode .naac-card:hover,
+body.dark-mode .newsletter-card:hover,
+body.dark-mode .no-duties-card:hover,
+body.dark-mode .non-teaching-dept-card:hover,
+body.dark-mode .non-teaching-staff-card:hover,
+body.dark-mode .nscet-card:hover,
+body.dark-mode .overview-intro-card:hover,
+body.dark-mode .premium-card:hover,
+body.dark-mode .premium-glass-card:hover,
+body.dark-mode .principal-hero-card:hover,
+body.dark-mode .profile-card:hover,
+body.dark-mode .quality-card:hover,
+body.dark-mode .quality-info-card:hover,
+body.dark-mode .report-card:hover,
+body.dark-mode .report-doc-card:hover,
+body.dark-mode .sidebar-glass-card:hover,
+body.dark-mode .stat-card:hover,
+body.dark-mode .stats-card:hover,
+body.dark-mode .statutes-card:hover,
+body.dark-mode .swot-card:hover,
+body.dark-mode .tf-hod-card:hover,
+body.dark-mode .tf-staff-card:hover,
+body.dark-mode .tmhnu-about-card:hover,
+body.dark-mode .tmhnu-leader-card:hover,
+body.dark-mode .tmhnu-personality-card:hover,
+body.dark-mode .value-card:hover,
+body.dark-mode .vision-card:hover,
+body.dark-mode .vm-card:hover,
+body.dark-mode .vmq-card:hover,
+body.dark-mode .why-card:hover {
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
 }

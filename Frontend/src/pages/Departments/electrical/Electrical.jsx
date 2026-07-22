@@ -1,4 +1,5 @@
 import React from "react";
+import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import {
     FaBolt, FaMicrochip, FaUserTie,
@@ -77,7 +78,7 @@ const Electrical = () => {
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
                 >
                     <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3>Our Department</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
                         <p>
                             We aim to produce engineers with the abilities to make students the best in analytical ability, technical skills, and engineering concepts necessary to renovate a concept into a reliable, commercial, and safe product.
                         </p>
@@ -87,7 +88,7 @@ const Electrical = () => {
                     </motion.div>
 
                     <motion.div className="bento-card" variants={zoomIn}>
-                        <h3>Overview</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
                         <p><strong>Multidisciplinary:</strong> Enhancing the knowledge of students in varied areas with scientific and engineering scope to understand, examine, and design products securely.</p>
                         <p><strong>Societal Focus:</strong> Preparing students to solve relevant challenges while emphasizing ethical engineering solutions and continuous life-long learning.</p>
                     </motion.div>
