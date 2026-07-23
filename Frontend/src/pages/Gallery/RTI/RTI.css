@@ -31,7 +31,7 @@ body.dark-mode {
 .rti-page {
   background-color: var(--rti-bg-primary);
   min-height: 100vh;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   transition: background-color 0.3s ease;
 }
 

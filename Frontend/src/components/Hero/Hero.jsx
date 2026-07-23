@@ -26,7 +26,7 @@ const Hero = () => {
           <div className="hero-brand">
             <div className="badge">
               <FaStar />
-              <span>Theni Melapettai Hindu Nadargal Uravinmurai</span>
+              <span>&nbsp;Theni Melapettai Hindu Nadargal Uravinmurai</span>
             </div>
           </div>
 

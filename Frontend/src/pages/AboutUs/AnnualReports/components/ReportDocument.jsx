@@ -9,7 +9,8 @@ const ReportDocument = () => {
   };
 
   return (
-    <section className="ar-section ar-report-document">
+    <section className="about-section-wrapper bg-white">
+      <div className="about-inner-container ar-section ar-report-document">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -49,6 +50,7 @@ const ReportDocument = () => {
           </button>
         </div>
       </motion.div>
+      </div>
     </section>
   );
 };

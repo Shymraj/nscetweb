@@ -252,7 +252,7 @@
 }
 
 .members-card .info-icon-wrapper {
-  color: #7c3aed;
+  color: var(--theme-primary-dark, #0369A1);
 }
 
 .info-content {
@@ -292,7 +292,7 @@
 }
 
 .title-icon {
-  color: #3b82f6;
+  color: var(--theme-primary-light, #38BDF8);
   font-size: 1.2rem;
 }
 
@@ -361,4 +361,261 @@
 .club-modal-content::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 20px;
+}
+
+
+/* =========================================
+   GLOBAL ALUMNI GLASSMORPHISM & DARK MODE FIX
+   ========================================= */
+
+@keyframes galleryGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.club-card,
+.info-highlight-card,
+.coordinator-card,
+.members-card,
+.duty-card,
+.no-duties-card {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 20px !important;
+    background-size: 200% 200% !important;
+    animation: galleryGradientShift 6s ease infinite !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
+}
+
+.club-card::before,
+.info-highlight-card::before,
+.coordinator-card::before,
+.members-card::before,
+.duty-card::before,
+.no-duties-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent) !important;
+    transform: skewX(-20deg) !important;
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    pointer-events: none;
+    z-index: 10;
+}
+
+body.dark-mode .club-card,
+body.dark-mode .info-highlight-card,
+body.dark-mode .coordinator-card,
+body.dark-mode .members-card,
+body.dark-mode .duty-card,
+body.dark-mode .no-duties-card {
+    background: rgba(30, 41, 59, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .club-card::before,
+body.dark-mode .info-highlight-card::before,
+body.dark-mode .coordinator-card::before,
+body.dark-mode .members-card::before,
+body.dark-mode .duty-card::before,
+body.dark-mode .no-duties-card::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+}
+
+.club-card:hover::before,
+.info-highlight-card:hover::before,
+.coordinator-card:hover::before,
+.members-card:hover::before,
+.duty-card:hover::before,
+.no-duties-card:hover::before {
+    left: 150% !important;
+}
+
+.club-card:hover,
+.info-highlight-card:hover,
+.coordinator-card:hover,
+.members-card:hover,
+.duty-card:hover,
+.no-duties-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15) !important;
+}
+
+body.dark-mode .club-card:hover,
+body.dark-mode .info-highlight-card:hover,
+body.dark-mode .coordinator-card:hover,
+body.dark-mode .members-card:hover,
+body.dark-mode .duty-card:hover,
+body.dark-mode .no-duties-card:hover {
+    background: rgba(15, 23, 42, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Fix text readability for all cards */
+.club-card, .info-highlight-card, .coordinator-card, .members-card, .duty-card, .no-duties-card,
+.club-card h1,
+.club-card h2,
+.club-card h3,
+.club-card h4,
+.club-card p,
+.club-card li,
+.club-card span,
+.info-highlight-card h1,
+.info-highlight-card h2,
+.info-highlight-card h3,
+.info-highlight-card h4,
+.info-highlight-card p,
+.info-highlight-card li,
+.info-highlight-card span,
+.coordinator-card h1,
+.coordinator-card h2,
+.coordinator-card h3,
+.coordinator-card h4,
+.coordinator-card p,
+.coordinator-card li,
+.coordinator-card span,
+.members-card h1,
+.members-card h2,
+.members-card h3,
+.members-card h4,
+.members-card p,
+.members-card li,
+.members-card span,
+.duty-card h1,
+.duty-card h2,
+.duty-card h3,
+.duty-card h4,
+.duty-card p,
+.duty-card li,
+.duty-card span,
+.no-duties-card h1,
+.no-duties-card h2,
+.no-duties-card h3,
+.no-duties-card h4,
+.no-duties-card p,
+.no-duties-card li,
+.no-duties-card span {
+    color: var(--theme-text) !important;
+}
+
+body.dark-mode .club-card,
+body.dark-mode .info-highlight-card,
+body.dark-mode .coordinator-card,
+body.dark-mode .members-card,
+body.dark-mode .duty-card,
+body.dark-mode .no-duties-card,
+body.dark-mode .club-card h1,
+body.dark-mode .club-card h2,
+body.dark-mode .club-card h3,
+body.dark-mode .club-card h4,
+body.dark-mode .club-card p,
+body.dark-mode .club-card li,
+body.dark-mode .club-card span,
+body.dark-mode .info-highlight-card h1,
+body.dark-mode .info-highlight-card h2,
+body.dark-mode .info-highlight-card h3,
+body.dark-mode .info-highlight-card h4,
+body.dark-mode .info-highlight-card p,
+body.dark-mode .info-highlight-card li,
+body.dark-mode .info-highlight-card span,
+body.dark-mode .coordinator-card h1,
+body.dark-mode .coordinator-card h2,
+body.dark-mode .coordinator-card h3,
+body.dark-mode .coordinator-card h4,
+body.dark-mode .coordinator-card p,
+body.dark-mode .coordinator-card li,
+body.dark-mode .coordinator-card span,
+body.dark-mode .members-card h1,
+body.dark-mode .members-card h2,
+body.dark-mode .members-card h3,
+body.dark-mode .members-card h4,
+body.dark-mode .members-card p,
+body.dark-mode .members-card li,
+body.dark-mode .members-card span,
+body.dark-mode .duty-card h1,
+body.dark-mode .duty-card h2,
+body.dark-mode .duty-card h3,
+body.dark-mode .duty-card h4,
+body.dark-mode .duty-card p,
+body.dark-mode .duty-card li,
+body.dark-mode .duty-card span,
+body.dark-mode .no-duties-card h1,
+body.dark-mode .no-duties-card h2,
+body.dark-mode .no-duties-card h3,
+body.dark-mode .no-duties-card h4,
+body.dark-mode .no-duties-card p,
+body.dark-mode .no-duties-card li,
+body.dark-mode .no-duties-card span {
+    color: #f1f5f9 !important;
+}
+
+
+/* =========================================
+   DARK MODE FIXES FOR MODALS & INNER BOXES
+   ========================================= */
+
+body.dark-mode .club-modal-content {
+    background: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .modal-header {
+    background: linear-gradient(to bottom, #1e293b, #0f172a) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .modal-header h2 {
+    color: #f8fafc !important;
+}
+
+body.dark-mode .modal-close-btn {
+    background: #1e293b !important;
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .modal-close-btn:hover {
+    background: #334155 !important;
+    color: #f8fafc !important;
+}
+
+body.dark-mode .info-icon-wrapper {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+
+body.dark-mode .modal-body {
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .club-card-content {
+    background: transparent !important;
+}
+
+
+/* =========================================
+   PAGE BACKGROUND DARK MODE OVERRIDE
+   ========================================= */
+body.dark-mode .clubs-chapters-page {
+    background-color: #0f172a !important; /* Force dark background */
+}
+body.dark-mode .club-card-header h3 {
+    color: #f1f5f9 !important;
+}
+body.dark-mode .club-card-header {
+    background-color: transparent !important;
 }

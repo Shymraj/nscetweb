@@ -1,17 +1,17 @@
 :root {
-  --tf-bg: #f9fafb;
+  --tf-bg: var(--theme-bg);
   --tf-white: #ffffff;
   --tf-text-dark: #1f2937;
   --tf-text-muted: #6b7280;
-  --tf-primary: #5a32fa;
-  --tf-primary-light: #f3f0ff;
-  --tf-border: #e5e7eb;
+  --tf-primary: var(--theme-primary);
+  --tf-primary-light: var(--theme-primary-light);
+  --tf-border: var(--theme-border);
 }
 
 .tf-page-wrapper {
   background-color: var(--tf-bg);
   min-height: 100vh;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   padding: 4rem 2rem;
   color: var(--tf-text-dark);
   overflow-x: hidden;

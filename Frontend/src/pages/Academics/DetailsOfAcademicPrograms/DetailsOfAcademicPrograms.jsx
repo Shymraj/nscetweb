@@ -1,5 +1,6 @@
 import React from 'react';
-import './AcademicPrograms.css';
+import './DetailsOfAcademicPrograms.css';
+import PageBanner from '../../../components/common/PageBanner/PageBanner';
 
 const ugPrograms = [
   'B.E. - Civil Engineering',
@@ -21,28 +22,11 @@ const AcademicPrograms = () => {
     <div className='ap-page'>
 
       {/* Hero Section */}
-      <section className='ap-hero'>
-        <div className='ap-hero-content'>
-          <div className='ap-hero-text'>
-            <h1>
-              Details of <span>Academic Programs</span>
-            </h1>
-            <div className='ap-line'></div>
-            <p>
-              Explore our wide range of undergraduate, postgraduate,
-              and doctoral research programs designed to foster
-              excellence and innovation.
-            </p>
-          </div>
-
-          <div className='ap-hero-image'>
-            <img
-  src='/images/college-building.jpg'
-  alt='College Building'
-/>
-          </div>
-        </div>
-      </section>
+      <PageBanner
+        title="Details of Academic Programs"
+        subtitle="Explore our wide range of undergraduate, postgraduate, and doctoral research programs designed to foster excellence and innovation."
+        hideBreadcrumb={true}
+      />
 
       {/* UG Programs */}
       <section className='ap-card ap-ug'>

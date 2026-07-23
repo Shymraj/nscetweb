@@ -12,7 +12,7 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-body);
 }
 
 body {
@@ -38,10 +38,11 @@ header.scrolled {
     transform: translateY(-34px);
 }
 
-.topbar{
+.topbar {
     position: relative;
     width: 100%;
-    height: 34px; /* slightly reduced height for compact layout */
+    height: 34px;
+    /* slightly reduced height for compact layout */
     background: #0d3b8e;
     color: #fff;
     display: flex;
@@ -50,119 +51,149 @@ header.scrolled {
     padding: 0 14px;
     z-index: 1001;
 }
-.topbar-left{
-    display:flex;
-    gap:12px;
-    align-items:center;
-    font-size:13px; /* increased slightly for readability */
-    color: rgba(255,255,255,0.95);
+
+.topbar-left {
+    display: flex;
+    gap: 25px;
+    /* Increased gap between Phone, Email, Location groups */
+    align-items: center;
+    font-size: 13px;
+    /* increased slightly for readability */
+    color: rgba(255, 255, 255, 0.95);
 }
-.topbar-contact{
-    color: rgba(255,255,255,0.95);
+
+.topbar-contact {
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
     display: inline-flex;
-    gap:6px;
-    align-items:center;
-    font-size:13px; /* increased, logo not modified */
+    gap: 4px;
+    align-items: center;
+    font-size: 13.5px;
+    font-weight: 600;
 }
-.topbar-contact:hover{
-    color: inherit; /* disable hover color change for all contact items */
+
+.topbar-contact:hover {
+    color: inherit;
+    /* disable hover color change for all contact items */
     text-decoration: none;
 }
+
 .topbar .contact-icon {
-    font-size:13px; /* slightly larger icon size to match text */
-    line-height:1;
-    color: #ffffff !important; /* ensure icons are white and not overridden by Footer */
+    font-size: 13px;
+    /* slightly larger icon size to match text */
+    line-height: 1;
+    color: #ffffff !important;
+    /* ensure icons are white and not overridden by Footer */
 }
 
 /* Keep icons white even when the parent link is hovered */
-.topbar-contact:hover .contact-icon{
+.topbar-contact:hover .contact-icon {
     color: #ffffff;
 }
-.topbar-right{
-    display:flex;
-    align-items:center;
-    gap:10px;
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-.follow-text{
-    font-family: 'Poppins', 'Segoe UI', Roboto, Arial, sans-serif;
-    font-size:12px; /* increased for emphasis */
-    color: rgba(255,255,255,0.95);
-    margin-right:8px;
-    font-weight:700;
-    letter-spacing:0.8px;
-    text-transform:uppercase;
-    font-style:normal;
+
+.follow-text {
+    font-family: var(--font-body);
+    font-size: 12px;
+    /* increased for emphasis */
+    color: rgba(255, 255, 255, 0.95);
+    margin-right: 8px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-style: normal;
 }
 
 /* disable hover color change for phone link */
-.topbar-contact.phone-contact:hover{
-    color: rgba(255,255,255,0.95);
+.topbar-contact.phone-contact:hover {
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
 }
-.social-btn{
-    width:28px;
-    height:28px;
-    border-radius:50%;
-    background: rgba(255,255,255,0.07);
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    font-size:12px;
+
+.social-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 12px;
     transition: transform .15s ease, background .18s ease, color .18s ease;
-    text-decoration:none;
+    text-decoration: none;
     border: 1px solid transparent;
 }
-.contact-btn{
-    width:22px;
-    height:22px;
-    border-radius:50%;
-    background: rgba(255,255,255,0.12);
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    font-size:12px;
-    flex-shrink:0;
-    margin-right:6px;
+
+.contact-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-right: 6px;
 }
-.topbar-contact:hover .contact-btn{
+
+.topbar-contact:hover .contact-btn {
     /* keep contact icon button appearance unchanged on hover */
-    background: rgba(255,255,255,0.12) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
     transform: none !important;
     color: #ffffff !important;
     border-color: transparent !important;
     box-shadow: none !important;
 }
-.topbar-contact:hover .contact-text{
+
+.topbar-contact:hover .contact-text {
     color: inherit !important;
 }
-.contact-text{
-    display:inline-block;
-    vertical-align:middle;
+
+.contact-text {
+    display: inline-block;
+    vertical-align: middle;
 }
-.social-btn:hover{
+
+.social-btn:hover {
     transform: translateY(-2px);
     background: #fff;
     color: #0d3b8e;
-    border-color: rgba(0,0,0,0.06);
+    border-color: rgba(0, 0, 0, 0.06);
 }
 
 .navbar {
     position: relative;
-    width: 100%;
-    height: 80px;
-    background: #fff;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    height: 76px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 35px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    border: 1.5px solid rgba(212, 175, 55, 0.85);
+    box-shadow: 0 0 22px rgba(212, 175, 55, 0.2), 0 8px 25px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 
-.logo-section{
+.navbar:hover {
+    border-color: #D4AF37;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.35), 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.logo-section {
     display: flex;
     align-items: center;
     gap: 14px;
@@ -192,6 +223,8 @@ header.scrolled {
     font-weight: 700;
     color: #0d3b8e;
     line-height: 1.2;
+    text-shadow: none;
+    font-family: var(--font-body);
 }
 
 .college-name p {
@@ -234,8 +267,6 @@ header.scrolled {
 }
 
 .nav-links a {
-
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -248,7 +279,6 @@ header.scrolled {
     transition: all .3s ease;
     white-space: nowrap;
     position: relative;
-
 }
 
 .nav-links a::after {
@@ -275,41 +305,31 @@ header.scrolled {
 }
 
 body.dark-mode .nav-links a::after {
-    background: #ff7a00;
+    background: #D4AF37;
 }
 
 .nav-links a:hover {
-
     background: #fff3e8;
     color: #ff7a00;
     box-shadow: 0 4px 12px rgba(255, 122, 0, 0.15);
-
 }
 
-.apply-btn {
-    background: #ff7a00;
-    color: white;
+.naac-logo {
+    width: auto;
+    height: 56px;
+    max-width: 140px;
+    object-fit: contain;
     border: none;
-    padding: 0 22px;
-    border-radius: 14px;
-    width: 150px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
-    margin-left: 3px;
+    outline: none;
+    background: transparent;
+    margin-left: 12px;
     margin-right: 0;
 }
 
 .apply-btn:hover {
     background: #e56d00;
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(229,109,0,.2);
+    box-shadow: 0 6px 18px rgba(229, 109, 0, .2);
 }
 
 .theme-btn {
@@ -319,7 +339,7 @@ body.dark-mode .nav-links a::after {
     min-height: 46px;
     border: 1px solid #ddd;
     background: #fff;
-    border-radius:50%;
+    border-radius: 50%;
     color: #1f2937;
     cursor: pointer;
     font-size: 20px;
@@ -364,153 +384,163 @@ body.dark-mode .nav-links a::after {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 260px;
-    min-width: 260px;
+    width: auto;
+    min-width: auto;
     height: 52px;
     position: relative;
-    margin-right: 55px;
+    margin-right: 30px;
     gap: 8px;
     flex-wrap: nowrap;
     overflow: visible;
 }
-.search-box{
-    position:absolute;
-    top: 50%;
+
+.search-box {
+    position: absolute;
     right: 0;
+    top: 50%;
     transform: translateY(-50%);
     width: 240px;
     max-width: 240px;
     min-width: 240px;
-    height:52px;
+    height: 52px;
 
-    display:flex;
-    align-items:center;
-    gap:12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-    padding:0 16px 0 16px;
+    padding: 0 16px 0 16px;
 
-    background:#fff;
-    border:1px solid #d1d5db;
-    border-radius:30px;
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 30px;
 
-    overflow:visible;
+    overflow: visible;
     z-index: 20;
     animation: reveal .4s ease forwards;
 }
 
-@keyframes reveal{
-    from{
-        clip-path: inset(0 100% 0 0);
-        opacity:0;
-    }
-
-    to{
-        clip-path: inset(0 0 0 0);
-        opacity:1;
+@media screen and (max-width: 1024px) {
+    .search-box {
+        right: 45px;
     }
 }
 
-.search-icon{
-    font-size:20px;
-    color:#666;
-    flex-shrink:0;
+@keyframes reveal {
+    from {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+    }
+}
+
+.search-icon {
+    font-size: 20px;
+    color: #666;
+    flex-shrink: 0;
     animation: iconSlide .35s ease;
 }
-@keyframes iconSlide{
 
-    from{
-        opacity:0;
-        transform:translateX(-15px);
+@keyframes iconSlide {
+
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
     }
 
-    to{
-        opacity:1;
-        transform:translateX(0);
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 
 }
 
-.search-box input{
-    flex:1;
-    height:100%;
+.search-box input {
+    flex: 1;
+    height: 100%;
 
-    border:none;
-    outline:none;
+    border: none;
+    outline: none;
 
-    background:transparent;
-    color:#111827;
-    font-size:16px;
+    background: transparent;
+    color: #111827;
+    font-size: 16px;
     animation: textSlide .35s ease;
-    padding:0 6px 0 0;
+    padding: 0 6px 0 0;
 }
 
 .search-box input::placeholder {
-    color:#9ca3af;
+    color: #9ca3af;
 }
 
 body.dark-mode .search-box input {
-    color:#f8fafc;
+    color: #f8fafc;
 }
 
-@keyframes textSlide{
+@keyframes textSlide {
 
-    from{
-        opacity:0;
-        transform:translateX(-25px);
+    from {
+        opacity: 0;
+        transform: translateX(-25px);
     }
 
-    to{
-        opacity:1;
-        transform:translateX(0);
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 
 }
-.close-search{
-    width:26px;
-    height:26px;
-    position:absolute;
-    right:8px;
-    top:50%;
-    transform:translateY(-50%);
-    flex-shrink:0;
-    border:1px solid #ff7a00;
-    border-radius:50%;
-    background:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    font-size:14px;
-    font-weight:bold;
-    color:#ff7a00;
-    opacity:1;
+
+.close-search {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-shrink: 0;
+    border: 1px solid #ff7a00;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff7a00;
+    opacity: 1;
     animation: closeSlide .35s ease;
-    transition:.25s;
-    padding:0;
-    line-height:1;
-    box-shadow: 0 2px 6px rgba(255,122,0,0.12);
-    z-index:2;
-}
-@keyframes closeSlide{
-
-    from{
-        opacity:0;
-        transform:translateY(-50%) translateX(20px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(-50%) translateX(0);
-    }
-
+    transition: .25s;
+    padding: 0;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(255, 122, 0, 0.12);
+    z-index: 2;
 }
 
-.close-search:hover{
+@keyframes closeSlide {
 
-    background:#ff7a00;
-    color:#fff;
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(20px);
+    }
 
-    transform:translateY(-50%) rotate(90deg);
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+
+}
+
+.close-search:hover {
+
+    background: #ff7a00;
+    color: #fff;
+
+    transform: translateY(-50%) rotate(90deg);
 
 }
 
@@ -624,7 +654,7 @@ body.dark-mode .navbar {
 }
 
 body.dark-mode .college-name h2 {
-    color: white;
+    color: #ffffff;
 }
 
 body.dark-mode .college-name p {
@@ -632,110 +662,160 @@ body.dark-mode .college-name p {
 }
 
 body.dark-mode .nav-links a {
-    color: white;
+    color: #ffffff;
 }
 
 body.dark-mode .nav-links a:hover {
-    background: #374151;
-    color: #ff7a00;
+    background: rgba(212, 175, 55, 0.12);
+    color: #D4AF37;
+    box-shadow: none;
 }
 
-
-
 body.dark-mode .theme-btn {
-    background: #374151;
-    color: white;
-    border: 1px solid #4b5563;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 body.dark-mode .search-btn {
-    background: #374151;
-    color: white;
-    border: 1px solid #4b5563;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 body.dark-mode .search-box {
-    background: #374151;
-    border: 1px solid #4b5563;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 body.dark-mode .search-box input {
     background: transparent;
-    color: #f8fafc;
+    color: #ffffff;
     border: none;
 }
 
 body.dark-mode .search-box input::placeholder {
-    color: #cbd5e1;
+    color: #e2e8f0;
+}
+
+body.dark-mode .search-btn:hover {
+    color: #ffffff;
+    background: #D4AF37;
+    border-color: #D4AF37;
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
 }
 
 body.dark-mode .theme-btn:hover {
-    border: 1px solid #ff7a00;
-    color: #ff7a00;
-    box-shadow: 0 0 12px rgba(255, 122, 0, 0.35);
+    background: #D4AF37;
+    color: #ffffff;
+    border-color: #D4AF37;
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
     transform: scale(1.05);
 }
 
 body.dark-mode .dropdown-menu {
-    background: #1f2937;
-    border: 1px solid #374151;
+    background: rgba(30, 35, 50, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    padding: 5px 0;
 }
 
 body.dark-mode .dropdown-menu li a {
-    color: white;
+    color: #e2e8f0;
+    padding: 9px 20px;
+    font-size: 13px;
 }
 
 body.dark-mode .dropdown-menu li a:hover {
-    background: #374151;
-    color: #ff7a00;
+    background: rgba(212, 175, 55, 0.12) !important;
+    color: #D4AF37 !important;
 }
 
-/* Topbar — dark mode specific styles (only modify dark appearance) */
+/* Header and Topbar dark mode styles */
+body.dark-mode header {
+    background: transparent;
+    padding-bottom: 10px;
+}
+
 body.dark-mode .topbar {
-    background: #06203a; /* deeper navy for dark theme */
+    background: rgba(30, 35, 50, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     color: #e6f3ff;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 0;
 }
 
 body.dark-mode .topbar-left,
 body.dark-mode .topbar-left .topbar-contact,
 body.dark-mode .topbar-right .follow-text {
-    color: rgba(230,243,255,0.95);
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.3px;
 }
 
 /* Ensure topbar icons remain white in dark mode too */
-body.dark-mode .topbar .contact-icon{
+body.dark-mode .topbar .contact-icon {
     color: #ffffff;
 }
-body.dark-mode .topbar-contact:hover .contact-btn{
-    background: rgba(255,255,255,0.12) !important;
+
+body.dark-mode .topbar-contact:hover .contact-btn {
+    background: rgba(255, 255, 255, 0.12) !important;
     color: #ffffff !important;
 }
 
-/* logo: use original image colors (no forced filter) */
-
-
 /* keep phone link visually stable in dark mode too */
-body.dark-mode .topbar-contact.phone-contact:hover{
-    color: rgba(230,243,255,0.95);
+body.dark-mode .topbar-contact.phone-contact:hover {
+    color: rgba(230, 243, 255, 0.95);
 }
 
-body.dark-mode .social-btn{
-    background: rgba(255,255,255,0.06);
+body.dark-mode .social-btn {
+    background: rgba(255, 255, 255, 0.06);
     color: #fff;
-    border-color: rgba(255,255,255,0.03);
+    border-color: rgba(255, 255, 255, 0.03);
 }
 
-body.dark-mode .social-btn:hover{
-    background: #ffffff; /* show white circle on hover */
-    color: #06203a; /* icon turns dark to contrast */
+body.dark-mode .social-btn:hover {
+    background: #ffffff;
+    /* show white circle on hover */
+    color: #06203a;
+    /* icon turns dark to contrast */
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(2,6,23,0.45);
+    box-shadow: 0 6px 16px rgba(2, 6, 23, 0.45);
 }
 
-/* ensure navbar below remains readable in dark mode */
+
+/* Dark Mode Floating Navbar matching exact reference image colors */
 body.dark-mode .navbar {
-    background: #111827; /* keep existing feel but ensure separation */
+    background: rgba(30, 35, 50, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    height: 76px;
+    padding-top: 0;
+    border-radius: 20px;
+    border: 1.5px solid rgba(212, 175, 55, 0.85);
+    box-shadow: 0 0 22px rgba(212, 175, 55, 0.32), 0 8px 30px rgba(0, 0, 0, 0.35);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .navbar:hover {
+    border-color: #D4AF37;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.45), 0 10px 35px rgba(0, 0, 0, 0.45);
+}
+
+/* Ensure NAAC logo 'A' is white without a full white background box */
+body.dark-mode .naac-logo {
+    background: radial-gradient(circle at 50% 45%, #ffffff 0%, #ffffff 30%, transparent 35%);
+    border-radius: 50%;
+    /* Optional: helps constrain background if needed */
+    padding: 0;
 }
 
 /* ================= NESTED SUB-DROPDOWN ================= */
@@ -744,10 +824,36 @@ body.dark-mode .navbar {
     position: relative;
 }
 
-.has-submenu>a {
+.has-submenu>a,
+.submenu-label {
     display: flex !important;
     justify-content: space-between;
     align-items: center;
+}
+
+.submenu-label {
+    padding: 12px 24px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: default;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.has-submenu:hover>.submenu-label {
+    background: #fff4eb;
+    color: #ff7a00;
+}
+
+body.dark-mode .submenu-label {
+    color: white;
+}
+
+body.dark-mode .has-submenu:hover>.submenu-label {
+    background: #374151;
+    color: #ff7a00;
 }
 
 .submenu-arrow {
@@ -794,18 +900,24 @@ body.dark-mode .navbar {
 
 /* Dark mode for sub-dropdown */
 body.dark-mode .sub-dropdown-menu {
-    background: #1f2937;
-    border: 1px solid #374151;
+    background: rgba(30, 35, 50, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .sub-dropdown-menu li a {
-    color: white;
+    color: #e2e8f0;
+    padding: 9px 18px;
+    font-size: 13px;
 }
 
 body.dark-mode .sub-dropdown-menu li a:hover {
-    background: #374151;
-    color: #ff7a00;
-}/* ================= MOBILE RESPONSIVENESS ================= */
+    background: rgba(212, 175, 55, 0.12);
+    color: #D4AF37;
+}
+
+/* ================= MOBILE RESPONSIVENESS ================= */
 .mobile-menu-icon {
     display: none;
     background: transparent;
@@ -836,7 +948,7 @@ body.dark-mode .mobile-menu-icon {
         align-items: flex-start;
         padding: 20px 30px;
         transition: 0.4s ease;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         margin: 0;
     }
 
@@ -888,6 +1000,7 @@ body.dark-mode .mobile-menu-icon {
     }
 
     .apply-btn {
-        display: none; /* Hide apply btn on mobile to save space */
+        display: none;
+        /* Hide apply btn on mobile to save space */
     }
 }

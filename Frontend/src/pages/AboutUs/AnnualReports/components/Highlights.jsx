@@ -13,7 +13,8 @@ const iconMap = {
 
 const Highlights = () => {
   return (
-    <section className="ar-section ar-highlights">
+    <section className="about-section-wrapper bg-light-1">
+      <div className="about-inner-container ar-section ar-highlights">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -51,6 +52,7 @@ const Highlights = () => {
             </div>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   );

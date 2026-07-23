@@ -2,23 +2,23 @@
 
 /* ================= VARIABLES ================= */
 :root {
-    --mech-primary: #1e3a5f;
-    --mech-primary-light: #2b5a8c;
-    --mech-accent: #c9a84c;
-    --mech-accent-light: #e8d48b;
-    --mech-bg: #f7f8fa;
-    --mech-card: #ffffff;
-    --mech-text: #1e293b;
-    --mech-text-light: #64748b;
-    --mech-border: #e2e8f0;
-    --mech-radius: 16px;
+    --mech-primary: var(--theme-primary);
+    --mech-primary-light: var(--theme-primary-light);
+    --mech-accent: var(--theme-accent);
+    --mech-accent-light: var(--theme-accent-light);
+    --mech-bg: var(--theme-bg);
+    --mech-card: var(--theme-card);
+    --mech-text: var(--theme-text);
+    --mech-text-light: var(--theme-text-light);
+    --mech-border: var(--theme-border);
+    --mech-radius: var(--theme-radius);
 }
 
 .mech-container {
     width: 100%;
     min-height: 100vh;
     padding-top: 100px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-body);
     color: var(--mech-text);
     background-color: var(--mech-bg);
     overflow-x: hidden;
@@ -160,7 +160,7 @@
 }
 
 .mech-bento-card {
-    background: linear-gradient(145deg, #1e3a5f 0%, #2b4a7a 100%);
+    background: linear-gradient(145deg, var(--theme-primary, #0EA5E9) 0%, var(--theme-primary-light, #38BDF8) 100%);
     background-size: 200% 200%;
     animation: mechGradientShift 6s ease infinite;
     border: 1px solid rgba(201, 168, 76, 0.3);
@@ -196,7 +196,7 @@
 }
 
 .mech-bento-card.primary {
-    background: linear-gradient(135deg, #0f2744 0%, #1e3a5f 50%, #2b5a8c 100%);
+    background: linear-gradient(135deg, var(--theme-primary-dark, #0369A1) 0%, var(--theme-primary, #0EA5E9) 50%, var(--theme-primary-light, #38BDF8) 100%);
     background-size: 200% 200%;
     animation: mechGradientShift 6s ease infinite;
     color: white;
@@ -340,7 +340,7 @@
 }
 
 .mech-glass-card li::before {
-    content: '✓';
+    content: 'âœ“';
     position: absolute;
     left: 0;
     top: 1px;
@@ -432,7 +432,7 @@
     gap: 4rem;
     max-width: 100%;
     margin: 0 auto 4rem;
-    background: linear-gradient(135deg, #0f2744 0%, var(--mech-primary) 50%, #2b5a8c 100%);
+    background: linear-gradient(135deg, var(--theme-primary-dark, #0369A1) 0%, var(--mech-primary) 50%, var(--theme-primary-light, #38BDF8) 100%);
     background-size: 200% 200%;
     animation: mechGradientShift 6s ease infinite;
     border-radius: 20px;
@@ -506,7 +506,7 @@
 .mech-hod-avatar {
     width: 200px;
     height: 200px;
-    background: linear-gradient(135deg, var(--mech-accent), #b8943f);
+    background: linear-gradient(135deg, var(--mech-accent), var(--theme-accent, #F59E0B));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -702,7 +702,7 @@
 
 /* ================= EVENTS & ASSOCIATION ================= */
 .mech-glam-banner {
-    background: linear-gradient(135deg, #0f2744 0%, #1e3a5f 40%, #2b5a8c 100%);
+    background: linear-gradient(135deg, var(--theme-primary-dark, #0369A1) 0%, var(--theme-primary, #0EA5E9) 40%, var(--theme-primary-light, #38BDF8) 100%);
     background-size: 200% 200%;
     animation: mechGradientShift 6s ease infinite;
     padding: 3.5rem 2.5rem;
@@ -859,4 +859,210 @@ body.dark-mode .mech-empty-events-state {
     background: #1e293b;
     border-color: #334155;
     color: #94a3b8;
+}
+
+
+
+
+
+/* =========================================
+   GLOBAL ALUMNI GLASSMORPHISM AUTOMATICALLY APPLIED
+   ========================================= */
+
+@keyframes deptGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.mech-bento-card,
+.mech-glass-card,
+.mech-cap-card,
+.mech-member-card {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 20px !important;
+    background-size: 200% 200% !important;
+    animation: deptGradientShift 6s ease infinite !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
+}
+
+.mech-bento-card::before,
+.mech-glass-card::before,
+.mech-cap-card::before,
+.mech-member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent) !important;
+    transform: skewX(-20deg) !important;
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    pointer-events: none;
+    z-index: 10;
+}
+
+body.dark-mode .mech-bento-card,
+body.dark-mode .mech-glass-card,
+body.dark-mode .mech-cap-card,
+body.dark-mode .mech-member-card {
+    background: rgba(30, 41, 59, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .mech-bento-card::before,
+body.dark-mode .mech-glass-card::before,
+body.dark-mode .mech-cap-card::before,
+body.dark-mode .mech-member-card::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+}
+
+.mech-bento-card:hover::before,
+.mech-glass-card:hover::before,
+.mech-cap-card:hover::before,
+.mech-member-card:hover::before {
+    left: 150% !important;
+}
+
+.mech-bento-card:hover,
+.mech-glass-card:hover,
+.mech-cap-card:hover,
+.mech-member-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15) !important;
+}
+
+body.dark-mode .mech-bento-card:hover,
+body.dark-mode .mech-glass-card:hover,
+body.dark-mode .mech-cap-card:hover,
+body.dark-mode .mech-member-card:hover {
+    background: rgba(15, 23, 42, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Fix text readability for all cards */
+.mech-bento-card, .mech-glass-card, .mech-cap-card, .mech-member-card,
+.mech-bento-card h1,
+.mech-bento-card h2,
+.mech-bento-card h3,
+.mech-bento-card h4,
+.mech-bento-card p,
+.mech-bento-card li,
+.mech-bento-card span,
+.mech-glass-card h1,
+.mech-glass-card h2,
+.mech-glass-card h3,
+.mech-glass-card h4,
+.mech-glass-card p,
+.mech-glass-card li,
+.mech-glass-card span,
+.mech-cap-card h1,
+.mech-cap-card h2,
+.mech-cap-card h3,
+.mech-cap-card h4,
+.mech-cap-card p,
+.mech-cap-card li,
+.mech-cap-card span,
+.mech-member-card h1,
+.mech-member-card h2,
+.mech-member-card h3,
+.mech-member-card h4,
+.mech-member-card p,
+.mech-member-card li,
+.mech-member-card span {
+    color: var(--theme-text) !important;
+}
+
+body.dark-mode .mech-bento-card,
+body.dark-mode .mech-glass-card,
+body.dark-mode .mech-cap-card,
+body.dark-mode .mech-member-card,
+body.dark-mode .mech-bento-card h1,
+body.dark-mode .mech-bento-card h2,
+body.dark-mode .mech-bento-card h3,
+body.dark-mode .mech-bento-card h4,
+body.dark-mode .mech-bento-card p,
+body.dark-mode .mech-bento-card li,
+body.dark-mode .mech-bento-card span,
+body.dark-mode .mech-glass-card h1,
+body.dark-mode .mech-glass-card h2,
+body.dark-mode .mech-glass-card h3,
+body.dark-mode .mech-glass-card h4,
+body.dark-mode .mech-glass-card p,
+body.dark-mode .mech-glass-card li,
+body.dark-mode .mech-glass-card span,
+body.dark-mode .mech-cap-card h1,
+body.dark-mode .mech-cap-card h2,
+body.dark-mode .mech-cap-card h3,
+body.dark-mode .mech-cap-card h4,
+body.dark-mode .mech-cap-card p,
+body.dark-mode .mech-cap-card li,
+body.dark-mode .mech-cap-card span,
+body.dark-mode .mech-member-card h1,
+body.dark-mode .mech-member-card h2,
+body.dark-mode .mech-member-card h3,
+body.dark-mode .mech-member-card h4,
+body.dark-mode .mech-member-card p,
+body.dark-mode .mech-member-card li,
+body.dark-mode .mech-member-card span {
+    color: #f1f5f9 !important;
+}
+
+
+/* =========================================
+   PROFESSIONAL STAFF HIGHLIGHT OVERRIDES
+   ========================================= */
+
+.mech-member-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.8)) !important;
+    border: 2px solid rgba(59, 130, 246, 0.4) !important;
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.12) !important;
+    transform: translateY(-2px);
+}
+
+body.dark-mode .mech-member-card {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.6)) !important;
+    border: 2px solid rgba(96, 165, 250, 0.3) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Enhanced Hover State */
+.mech-member-card:hover {
+    transform: translateY(-10px) scale(1.03) !important;
+    border-color: rgba(59, 130, 246, 0.8) !important;
+    box-shadow: 0 20px 50px rgba(59, 130, 246, 0.25) !important;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(240, 249, 255, 0.95)) !important;
+}
+
+body.dark-mode .mech-member-card:hover {
+    border-color: rgba(96, 165, 250, 0.7) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.25) !important;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.8)) !important;
+}
+
+/* Subtle glowing accent line on top */
+.mech-member-card::before {
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.8), transparent) !important;
+    height: 4px !important;
+    width: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    opacity: 0.8 !important;
+}
+
+body.dark-mode .mech-member-card::before {
+    background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.8), transparent) !important;
 }

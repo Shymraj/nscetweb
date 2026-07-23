@@ -5,8 +5,8 @@
   --m1-white: #ffffff;
   --m1-text-dark: #111827;
   --m1-text-muted: #6b7280;
-  --m1-accent: #4338ca; 
-  --m1-border: #e5e7eb;
+  --m1-accent: var(--theme-accent); 
+  --m1-border: var(--theme-border);
 }
 
 body {
@@ -17,7 +17,7 @@ body {
 .model1-landing-wrapper {
   background-color: var(--m1-bg-main);
   min-height: 100vh;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   color: var(--m1-text-dark);
   padding-top: 100px; 
   box-sizing: border-box;

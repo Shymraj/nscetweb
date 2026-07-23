@@ -1,10 +1,12 @@
 import React from "react";
+import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import {
     FaFlask, FaMicroscope, FaUserTie,
     FaEnvelope, FaSquareRootAlt, FaGlobe, FaBookOpen, FaCalendarTimes, FaAtom
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./ScienceHumanities.css";
 
 import shBannerImg from "./images/sh-banner.png";
@@ -108,34 +110,13 @@ const ScienceHumanities = () => {
     return (
         <div className="sh-container">
 
-            {/* HERO BANNER — Curved box, no blue overlay */}
-            <section className="sh-hero-section">
-                <div
-                    className="sh-hero-box"
-                    style={{ backgroundImage: `url(${shBannerImg})` }}
-                >
-                    <div className="sh-hero-overlay"></div>
-                    <div className="sh-hero-content">
-                        <motion.h1
-                            className="sh-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF SCIENCE AND HUMANITIES
-                        </motion.h1>
-                        <motion.p
-                            className="sh-hero-subtitle"
-                            style={{ fontSize: "1.15rem", maxWidth: "750px", marginTop: "1rem", fontWeight: 400, letterSpacing: "normal" }}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Providing a strong foundation for students—bridging the gap between school and engineering through applied mathematics, physics, chemistry, and communication.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            {/* HERO BANNER */}
+            <PageBanner
+                title="DEPARTMENT OF SCIENCE AND HUMANITIES"
+                subtitle="Nurturing the scientific temper, analytical reasoning, and foundational intellect that bridge raw curiosity with advanced engineering."
+                hideBreadcrumb={true}
+                backgroundImage={shBannerImg}
+            />
 
             <main className="content-wrapper">
 
@@ -145,7 +126,7 @@ const ScienceHumanities = () => {
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
                 >
                     <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3>Our Department</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
                         <p>
                             Science and Humanities dept. aims to provide a strong foundation for students of Engineering. It is one of the indispensable departments of the institute.
                         </p>
@@ -155,7 +136,7 @@ const ScienceHumanities = () => {
                     </motion.div>
 
                     <motion.div className="bento-card" variants={zoomIn}>
-                        <h3>Overview</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
                         <p><strong>Core Focus:</strong> Comprises applied physics, applied chemistry, applied mathematics, along with essential communication skills.</p>
                         <p><strong>Excellence:</strong> Qualified staff enable students to employ fundamental principles to create innovative new technologies across well-equipped advanced labs.</p>
                     </motion.div>

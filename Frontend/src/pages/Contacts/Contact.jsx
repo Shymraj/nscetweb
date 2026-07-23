@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaGlobe, FaMobileAlt } from "react-icons/fa";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import PageBanner from "../../components/common/PageBanner/PageBanner";
 import "./Contact.css";
 
 import heroImg from "../../assets/Img/contact_hero_generated.png";
@@ -64,43 +65,18 @@ const Contact = () => {
 
   return (
     <div className="contact-container">
-      {/* HERO BANNER */}
-      <section className="contact-hero-section">
-        <div
-          className="contact-hero-box"
-          style={{ backgroundImage: `url(${heroImg})` }}
-        >
-          <div className="contact-hero-overlay"></div>
-          <div className="contact-hero-content">
-            <motion.h4
-              className="contact-hero-accreditation"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              Theni Melapettai Hindu Nadargal Uravinmurai
-            </motion.h4>
-            <motion.h1
-              className="contact-hero-title"
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              NADAR SARASWATHI COLLEGE OF ENGINEERING & TECHNOLOGY
-            </motion.h1>
-            <motion.div
-              className="contact-hero-subtitle"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <p>Approved by AICTE, New Delhi | Affiliated to Anna University, Chennai</p>
-              <p>Accredited by NAAC with 'A' Grade | Recognized under 2(f) of the UGC Act, 1956</p>
-              <p>An ISO 9001:2015 Certified Institution</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <PageBanner
+        title="NADAR SARASWATHI COLLEGE OF ENGINEERING & TECHNOLOGY"
+        subtitle={
+          <>
+            Approved by AICTE, New Delhi | Affiliated to Anna University, Chennai<br />
+            Accredited by NAAC with 'A' Grade | Recognized under 2(f) of the UGC Act, 1956<br />
+            An ISO 9001:2015 Certified Institution
+          </>
+        }
+        hideBreadcrumb={true}
+        backgroundImage={heroImg}
+      />
 
       <main className="content-wrapper">
         {/* BENTO GRID: CONTACT INFO */}
@@ -208,19 +184,21 @@ const Contact = () => {
           style={{ marginTop: '4rem', marginBottom: '2rem' }}
         >
           <h2 className="glam-title">Find Us on <span>Google Maps</span></h2>
-          <div style={{ width: '100%', height: '500px', borderRadius: '1.5rem', overflow: 'hidden', boxShadow: '0 15px 40px rgba(0,0,0,0.1)' }}>
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://maps.google.com/maps?q=Nadar%20Saraswathi%20College%20of%20Engineering%20%26%20Technology,%20Vadapudupatti,%20Theni&t=k&z=16&ie=UTF8&iwloc=&output=embed"
-              frameBorder="0"
-              scrolling="no"
-              marginHeight="0"
-              marginWidth="0"
-              title="NSCET Campus Map"
-              style={{ border: 0 }}
-              allowFullScreen
-            ></iframe>
+          <div className="map-glow-wrapper">
+            <div className="map-inner">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://maps.google.com/maps?q=Nadar%20Saraswathi%20College%20of%20Engineering%20%26%20Technology,%20Vadapudupatti,%20Theni&t=k&z=16&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                title="NSCET Campus Map"
+                style={{ border: 0 }}
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         </motion.div>
       </main>

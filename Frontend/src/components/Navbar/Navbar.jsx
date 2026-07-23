@@ -68,7 +68,7 @@ function Navbar() {
 
       <nav className="navbar">
 
-        <div className="logo-section">
+        <Link to="/" className="logo-section" style={{ textDecoration: 'none', color: 'inherit' }}>
           <div className="logo-box">
             <img src={logo} alt="NSCET Logo" className="logo" />
           </div>
@@ -76,7 +76,7 @@ function Navbar() {
           <div className="college-name">
             <h2>NSCET</h2>
           </div>
-        </div>
+        </Link>
 
         <ul key={location.pathname} className={isMobileMenuOpen ? "nav-links active" : "nav-links"}>
           <li><Link to="/">Home</Link></li>
@@ -135,7 +135,7 @@ function Navbar() {
             <Link to="#" onClick={(e) => e.preventDefault()}>Departments</Link>
             <ul className="dropdown-menu">
               <li className="has-submenu">
-                <Link to="/departments/cse">Faculty of Computer Science & Engineering <span className="submenu-arrow">›</span></Link>
+                <span className="submenu-label">Faculty of Computer Science & Engineering <span className="submenu-arrow">›</span></span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/cse">B.E Computer Science & Engineering</Link></li>
                   <li><Link to="/departments/me-cse">M.E Computer Science & Engineering</Link></li>
@@ -144,28 +144,28 @@ function Navbar() {
                 </ul>
               </li>
               <li className="has-submenu">
-                <Link to="/departments/civil">Faculty of Civil Engineering <span className="submenu-arrow">›</span></Link>
+                <span className="submenu-label">Faculty of Civil Engineering <span className="submenu-arrow">›</span></span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/civil">B.E Civil Engineering</Link></li>
                   <li><Link to="/departments/me-structural">M.E Structural Engineering</Link></li>
                 </ul>
               </li>
               <li className="has-submenu">
-                <Link to="/departments/mechanical">Faculty of Mechanical Engineering <span className="submenu-arrow">›</span></Link>
+                <span className="submenu-label">Faculty of Mechanical Engineering <span className="submenu-arrow">›</span></span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/mechanical">B.E Mechanical Engineering</Link></li>
                   <li><Link to="/departments/me-manufacturing">M.E Manufacturing Engineering</Link></li>
                 </ul>
               </li>
               <li className="has-submenu">
-                <Link to="/departments/electrical">Faculty of Electrical Engineering <span className="submenu-arrow">›</span></Link>
+                <span className="submenu-label">Faculty of Electrical Engineering <span className="submenu-arrow">›</span></span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/electrical">B.E Electrical & Electronics Engineering</Link></li>
                   <li><Link to="/departments/me-embedded">M.E Embedded System & Technology</Link></li>
                 </ul>
               </li>
               <li className="has-submenu">
-                <Link to="/departments/electronics">Faculty of Electronics Engineering <span className="submenu-arrow">›</span></Link>
+                <span className="submenu-label">Faculty of Electronics Engineering <span className="submenu-arrow">›</span></span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/electronics">B.E Electronics & Communication Engineering</Link></li>
                 </ul>
@@ -192,11 +192,6 @@ function Navbar() {
               <li><Link to="/gallery/clubs-chapters">CLUBS & CHAPTERS</Link></li>
               <li><Link to="/gallery/nirf">NIRF</Link></li>
               <li><Link to="/gallery/rti">RTI</Link></li>
-              <li><Link to="/gallery/ssr">SSR</Link></li>
-              <li><Link to="/gallery/icrtt26">ICRTT 26</Link></li>
-              <li><Link to="/gallery/iceece26">ICEECE26</Link></li>
-              <li><Link to="/gallery/ampse25">AMPSE25</Link></li>
-              <li><Link to="/gallery/icams2k25">ICAMS 2K25</Link></li>
               <li><Link to="/gallery/iqarena">IQARENA</Link></li>
               <li><Link to="/gallery/events">Events</Link></li>
             </ul>
@@ -206,22 +201,26 @@ function Navbar() {
         </ul>
 
         <div className="nav-right">
-          {!showSearch && (
+          <div className="nav-desktop-elements" style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: showSearch ? 0 : 1, visibility: showSearch ? 'hidden' : 'visible', pointerEvents: showSearch ? 'none' : 'auto', transition: 'opacity 0.3s ease' }}>
             <button
               className="search-btn"
               onClick={() => setShowSearch(true)}
             >
               <FaSearch />
             </button>
-          )}
+            <button
+              className="theme-btn"
+              onClick={() => setDarkMode(!darkMode)}
+            >
+              {darkMode ? <FaSun /> : <FaMoon />}
+            </button>
 
+            <img src="/images/naac.png" alt="NAAC Logo" className="naac-logo" />
+          </div>
 
-          {showSearch ? (
-
+          {showSearch && (
             <div className="search-box">
-
               <FaSearch className="search-icon" />
-
               <input
                 type="text"
                 placeholder="Search..."
@@ -233,23 +232,7 @@ function Navbar() {
               >
                 <FaTimes />
               </button>
-
             </div>
-          ) : (
-
-            <>
-              <button
-                className="theme-btn"
-                onClick={() => setDarkMode(!darkMode)}
-              >
-                {darkMode ? <FaSun /> : <FaMoon />}
-              </button>
-
-              <button className="apply-btn">
-                Apply Now →
-              </button>
-            </>
-
           )}
           <button className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <FaTimes /> : <FaBars />}

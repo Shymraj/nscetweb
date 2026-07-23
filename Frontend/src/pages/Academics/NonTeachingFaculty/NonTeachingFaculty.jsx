@@ -11,6 +11,8 @@ import {
   FaPhoneAlt, 
   FaUsers 
 } from 'react-icons/fa';
+import PageBanner from '../../../components/common/PageBanner/PageBanner';
+import heroImage from '../../../assets/ps1.jpg';
 
 const departmentData = {
   "Mech": [
@@ -69,19 +71,15 @@ const DepartmentDirectory = () => {
   const [activeDept, setActiveDept] = useState("Mech");
 
   return (
-    <div className="non-teaching-container">
-      {/* Page Header */}
-      <header className="non-teaching-header">
-        <div className="non-teaching-header-icon">
-          <FaUsers />
-        </div>
-        <h1>Non-Teaching Faculty</h1>
-        <div className="non-teaching-header-divider"></div>
-        <p>
-          Meet the dedicated technical and administrative staff members who maintain our laboratories, 
-          manage workshops, and ensure smooth academic operations across various departments.
-        </p>
-      </header>
+    <div className="non-teaching-page">
+      <PageBanner
+        title="Non-Teaching Faculty"
+        subtitle="Meet the dedicated technical and administrative staff members who maintain our laboratories, manage workshops, and ensure smooth academic operations across various departments."
+        hideBreadcrumb={true}
+        backgroundImage={heroImage}
+      />
+
+      <div className="non-teaching-content">
 
       {/* Department Tabs Grid */}
       <div className="non-teaching-dept-grid">
@@ -118,6 +116,7 @@ const DepartmentDirectory = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

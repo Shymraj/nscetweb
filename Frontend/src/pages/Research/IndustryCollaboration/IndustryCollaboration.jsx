@@ -1,6 +1,6 @@
 function IndustryCollaboration() {
   return (
-    <div style={{ padding: "120px 20px", fontFamily: "Arial, sans-serif" }}>
+    <div style={{ padding: "120px 20px", fontFamily: "var(--font-body)" }}>
       <h1>Industry Collaboration</h1>
       <p>Page open: Industry Collaboration</p>
     </div>

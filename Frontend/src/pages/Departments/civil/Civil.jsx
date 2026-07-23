@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
+import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import {
     FaHardHat, FaDraftingCompass, FaUserTie,
     FaEnvelope, FaAward, FaFlask, FaMapMarkedAlt, FaCalendarTimes
@@ -58,33 +60,13 @@ const Civil = () => {
     return (
         <div className="civil-container">
 
-            {/* HERO BANNER — Curved box, no blue overlay */}
-            <section className="civil-hero-section">
-                <div
-                    className="civil-hero-box"
-                    style={{ backgroundImage: `url(${civilBannerImg})` }}
-                >
-                    <div className="civil-hero-overlay"></div>
-                    <div className="civil-hero-content">
-                        <motion.h1
-                            className="civil-hero-title"
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            DEPARTMENT OF CIVIL ENGINEERING
-                        </motion.h1>
-                        <motion.p
-                            className="civil-hero-subtitle"
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            Building the foundations of tomorrow — structural stability, sustainability, and aesthetic construction.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
+            {/* HERO BANNER */}
+            <PageBanner
+                title="DEPARTMENT OF CIVIL ENGINEERING"
+                subtitle="Building the foundation of tomorrow — where sustainable design meets structural excellence."
+                hideBreadcrumb={true}
+                backgroundImage={civilBannerImg}
+            />
 
             <main className="content-wrapper">
 
@@ -94,7 +76,7 @@ const Civil = () => {
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
                 >
                     <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3>Engineering the World</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Engineering the World</h3>
                         <p>
                             Our department aims to produce engineers with extraordinary abilities focusing on the
                             Strength, Stiffness, and Stability of structures. We embed a deep understanding of Cost,
@@ -107,7 +89,7 @@ const Civil = () => {
                     </motion.div>
 
                     <motion.div className="bento-card" variants={zoomIn}>
-                        <h3>Overview</h3>
+                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
                         <p><strong>Approved Intake:</strong> Active UG program with stellar placements and training.</p>
                         <p><strong>PG Specialization:</strong> Dedicated M.E. in Structural Engineering with an exclusive intake of 18 scholars shaping advanced techno-managers.</p>
                     </motion.div>

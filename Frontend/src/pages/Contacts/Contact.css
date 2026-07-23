@@ -4,7 +4,7 @@
 .contact-container {
     width: 100%;
     min-height: 100vh;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-body);
     color: var(--text-color, #1f2937);
     background-color: var(--bg-color, #f8f9fa);
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -13,25 +13,25 @@
 body.dark-mode .contact-container {
     --text-color: #f1f5f9;
     --bg-color: #0f172a;
-    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-bg: var(--theme-bg);
     --border-color: rgba(255, 255, 255, 0.1);
-    --hover-bg: rgba(51, 65, 85, 0.8);
-    --primary-accent: #eab308;
-    --secondary-accent: #3b82f6;
+    --hover-bg: var(--theme-bg);
+    --primary-accent: var(--theme-accent);
+    --secondary-accent: var(--theme-accent);
 }
 
 .contact-container {
-    --card-bg: rgba(255, 255, 255, 0.8);
+    --card-bg: var(--theme-bg);
     --border-color: rgba(0, 0, 0, 0.1);
-    --hover-bg: rgba(241, 245, 249, 0.9);
-    --primary-accent: #c9a84c;
-    --secondary-accent: #1e3a8a;
+    --hover-bg: var(--theme-bg);
+    --primary-accent: var(--theme-accent);
+    --secondary-accent: var(--theme-accent);
 }
 
 /* ========== HERO BANNER ========== */
 .contact-hero-section {
     width: 100%;
-    padding: 2rem 5%;
+    padding: 1.5rem 2.5rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,10 +41,8 @@ body.dark-mode .contact-container {
 .contact-hero-box {
     position: relative;
     width: 100%;
-    max-width: 1400px;
-    height: 40vh;
-    min-height: 350px;
-    border-radius: 2rem;
+    min-height: 500px;
+    border-radius: 30px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -52,13 +50,14 @@ body.dark-mode .contact-container {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
 }
 
 .contact-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.15));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.55) 100%);
+    border-radius: 30px;
     z-index: 1;
 }
 
@@ -78,6 +77,7 @@ body.dark-mode .contact-container {
     letter-spacing: -1px;
     background: linear-gradient(to right, #ffffff, var(--primary-accent));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -96,9 +96,9 @@ body.dark-mode .contact-container {
 
 /* ========== CONTENT WRAPPER ========== */
 .content-wrapper {
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 2rem 5%;
+    padding: 0 2.5rem;
 }
 
 .glam-title {
@@ -118,7 +118,7 @@ body.dark-mode .contact-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
-    margin-top: -3rem;
+    margin-top: 2.5rem;
     position: relative;
     z-index: 10;
 }
@@ -201,7 +201,7 @@ body.dark-mode .contact-card:hover {
 
 /* Tertiary Card (Soft Blue / Teal Theme) */
 .contact-card.tertiary {
-    background: linear-gradient(135deg, #3b82f6, var(--secondary-accent));
+    background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8), var(--secondary-accent));
     color: white;
     border: none;
 }
@@ -296,7 +296,7 @@ body.dark-mode .table-responsive {
     color: var(--primary-accent);
     font-weight: 600;
     font-size: 0.95rem;
-    padding-right: 8px; 
+    padding-right: 8px;
 }
 
 
@@ -319,7 +319,9 @@ body.dark-mode .table-responsive {
 
 /* VIBRANT & ANIMATED CONTACT CARDS UPDATE */
 
-.contact-card.primary, .contact-card.secondary, .contact-card.tertiary {
+.contact-card.primary,
+.contact-card.secondary,
+.contact-card.tertiary {
     background-size: 200% 200%;
     animation: contactGradientShift 6s ease infinite;
     position: relative;
@@ -327,9 +329,17 @@ body.dark-mode .table-responsive {
 }
 
 @keyframes contactGradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .contact-card::before {
@@ -349,7 +359,10 @@ body.dark-mode .table-responsive {
     transform: translateX(100%);
 }
 
-.contact-card h3, .contact-card p, .contact-card a, .contact-icon-wrapper {
+.contact-card h3,
+.contact-card p,
+.contact-card a,
+.contact-icon-wrapper {
     position: relative;
     z-index: 2;
 }
@@ -359,17 +372,27 @@ body.dark-mode .table-responsive {
 }
 
 @keyframes floatContactIcon {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
 }
 
 /* Distinct Hover Shadows */
 .contact-card.primary:hover {
     box-shadow: 0 20px 45px rgba(30, 41, 59, 0.5) !important;
 }
+
 .contact-card.secondary:hover {
     box-shadow: 0 20px 45px rgba(99, 102, 241, 0.5) !important;
 }
+
 .contact-card.tertiary:hover {
     box-shadow: 0 20px 45px rgba(59, 130, 246, 0.5) !important;
 }
@@ -378,9 +401,73 @@ body.dark-mode .table-responsive {
 .contact-card.primary {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
 }
+
 .contact-card.secondary {
     background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #6366f1 100%);
 }
+
 .contact-card.tertiary {
-    background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #3b82f6 100%);
+    background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8) 0%, #06b6d4 50%, var(--theme-primary-light, #38BDF8) 100%);
+}
+
+/* Appended Map Glow Effect */
+.map-glow-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 1.5rem;
+    padding: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+body.dark-mode .map-glow-wrapper {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.map-glow-wrapper::before,
+.map-glow-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    left: -4px;
+    right: -4px;
+    background: linear-gradient(270deg, var(--primary-accent), var(--secondary-accent), #a855f7, var(--primary-accent));
+    background-size: 300% 300%;
+    border-radius: 28px;
+    z-index: -1;
+    animation: mapRgbBorderSweep 6s ease infinite;
+}
+
+.map-glow-wrapper::after {
+    filter: blur(25px);
+    opacity: 0.7;
+    z-index: -2;
+}
+
+@keyframes mapRgbBorderSweep {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.map-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
 }
