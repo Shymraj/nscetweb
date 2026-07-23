@@ -230,3 +230,155 @@
   color: #aaa;
   font-size: 1.1rem;
 }
+
+
+/* =========================================
+   GLOBAL ALUMNI GLASSMORPHISM & DARK MODE FIX
+   ========================================= */
+
+@keyframes galleryGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.event-card,
+.event-card-title {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 20px !important;
+    background-size: 200% 200% !important;
+    animation: galleryGradientShift 6s ease infinite !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
+}
+
+.event-card::before,
+.event-card-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent) !important;
+    transform: skewX(-20deg) !important;
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    pointer-events: none;
+    z-index: 10;
+}
+
+body.dark-mode .event-card,
+body.dark-mode .event-card-title {
+    background: rgba(30, 41, 59, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .event-card::before,
+body.dark-mode .event-card-title::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+}
+
+.event-card:hover::before,
+.event-card-title:hover::before {
+    left: 150% !important;
+}
+
+.event-card:hover,
+.event-card-title:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15) !important;
+}
+
+body.dark-mode .event-card:hover,
+body.dark-mode .event-card-title:hover {
+    background: rgba(15, 23, 42, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Fix text readability for all cards */
+.event-card, .event-card-title,
+.event-card h1,
+.event-card h2,
+.event-card h3,
+.event-card h4,
+.event-card p,
+.event-card li,
+.event-card span,
+.event-card-title h1,
+.event-card-title h2,
+.event-card-title h3,
+.event-card-title h4,
+.event-card-title p,
+.event-card-title li,
+.event-card-title span {
+    color: var(--theme-text) !important;
+}
+
+body.dark-mode .event-card,
+body.dark-mode .event-card-title,
+body.dark-mode .event-card h1,
+body.dark-mode .event-card h2,
+body.dark-mode .event-card h3,
+body.dark-mode .event-card h4,
+body.dark-mode .event-card p,
+body.dark-mode .event-card li,
+body.dark-mode .event-card span,
+body.dark-mode .event-card-title h1,
+body.dark-mode .event-card-title h2,
+body.dark-mode .event-card-title h3,
+body.dark-mode .event-card-title h4,
+body.dark-mode .event-card-title p,
+body.dark-mode .event-card-title li,
+body.dark-mode .event-card-title span {
+    color: #f1f5f9 !important;
+}
+
+
+/* =========================================
+   DARK MODE FIXES FOR EVENTS INNER CONTENT
+   ========================================= */
+
+body.dark-mode .event-card-content {
+    background: transparent !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .event-card-title {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .event-card:hover .event-card-title {
+    color: #f37021 !important;
+}
+
+.event-card-content {
+    background: transparent !important;
+}
+
+
+/* =========================================
+   PAGE BACKGROUND DARK MODE OVERRIDE
+   ========================================= */
+body.dark-mode .events-gallery-page {
+    background-color: #0f172a !important; /* Force dark background */
+}
+body.dark-mode .events-gallery-container {
+    background-color: transparent !important;
+}
+body.dark-mode .events-header h1,
+body.dark-mode .events-header p {
+    color: #f1f5f9 !important;
+}
+body.dark-mode .event-card-image-wrapper {
+    background-color: rgba(30, 41, 59, 0.6) !important;
+}

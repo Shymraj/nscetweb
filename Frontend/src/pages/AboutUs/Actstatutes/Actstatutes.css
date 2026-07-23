@@ -7,7 +7,7 @@
 
 /* Global and Container */
 .act-statutes-page {
-  font-family: 'Inter', 'Roboto', sans-serif;
+  font-family: var(--font-body);
   background-color: #f8fafc;
   color: #1e293b;
   min-height: 100vh;
@@ -123,7 +123,7 @@
   top: 0;
   height: 100%;
   width: 4px;
-  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8) 0%, #1e40af 100%);
   border-radius: 4px 0 0 4px;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -158,9 +158,10 @@
 }
 
 .section-title {
+  font-family: var(--font-section);
   font-size: 2.5rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  font-weight: 700;
+  background: linear-gradient(135deg, #1e40af 0%, var(--theme-primary-light, #38BDF8) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
@@ -175,7 +176,7 @@
   left: 0;
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #93c5fd);
+  background: linear-gradient(90deg, var(--theme-primary-light, #38BDF8), #93c5fd);
   border-radius: 2px;
 }
 
@@ -222,6 +223,7 @@
 }
 
 .card-title {
+  font-family: var(--font-subtopic);
   font-size: 2rem;
   font-weight: 700;
   color: #1e293b;
@@ -231,7 +233,7 @@
 .gradient-line {
   height: 4px;
   width: 80px;
-  background: linear-gradient(90deg, #3b82f6, #a855f7);
+  background: linear-gradient(90deg, var(--theme-primary-light, #38BDF8), #a855f7);
   border-radius: 2px;
   margin-top: 1rem;
 }
@@ -270,6 +272,7 @@
 }
 
 .elegant-card-title {
+  font-family: var(--font-subtopic);
   font-size: 1.5rem;
   font-weight: 700;
   color: #1e293b;
@@ -279,7 +282,7 @@
 .elegant-line {
   height: 3px;
   width: 50px;
-  background: #3b82f6;
+  background: var(--theme-primary-light, #38BDF8);
   border-radius: 2px;
   margin-top: 0.75rem;
 }
@@ -295,7 +298,7 @@
   color: #334155;
   position: relative;
   padding-left: 1rem;
-  border-left: 3px solid #3b82f6;
+  border-left: 3px solid var(--theme-primary-light, #38BDF8);
 }
 
 .elegant-mission-list {
@@ -315,7 +318,7 @@
 
 .elegant-icon-wrapper {
   background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
+  color: var(--theme-primary-light, #38BDF8);
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -397,7 +400,7 @@
   left: 0;
   width: 40px;
   height: 3px;
-  background: #3b82f6;
+  background: var(--theme-primary-light, #38BDF8);
   border-radius: 2px;
   transition: width 0.3s ease;
 }
@@ -585,7 +588,7 @@
   display: inline-block;
   width: 8px;
   height: 8px;
-  background-color: #3b82f6;
+  background-color: var(--theme-primary-light, #38BDF8);
   border-radius: 50%;
   margin-right: 0.5rem;
 }
@@ -757,6 +760,8 @@
 @media (max-width: 768px) {
   .about-inner-container { padding: 60px 24px; }
   .section-title {
+  font-weight: 700;
+  font-family: var(--font-section);
     font-size: 2rem;
   }
   .premium-card {
@@ -770,3 +775,11 @@
   }
 }
 
+
+
+/* =========================================
+   HERO BOX PUSH DOWN FIX
+   ========================================= */
+.act-statutes-page {
+    padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
+}

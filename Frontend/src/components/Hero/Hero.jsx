@@ -26,7 +26,7 @@ const Hero = () => {
           <div className="hero-brand">
             <div className="badge">
               <FaStar />
-              <span>&nbsp;Theni Melapettai Hindu Nadargal Uravinmurai</span>
+              <span>Theni Melapettai Hindu Nadargal Uravinmurai</span>
             </div>
           </div>
 
@@ -42,8 +42,8 @@ const Hero = () => {
 
           <p className="left-description">
             Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai
-Accredited by NAAC with 'A' Grade | Recognized under 2(f) of the UGC Act, 1956
-An ISO 9001:2015 Certified Institution
+Accredited by NAAC with 'A' Grade <br />Recognized under 2(f) of the UGC Act, 1956 <br />
+An ISO 9001:2015 Certified Institution <br />
 Vadapudupatti, Annanji (PO), Theni - 625531.
           </p>
 

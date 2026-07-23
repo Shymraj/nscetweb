@@ -1,4 +1,4 @@
-﻿/* Overview.css */
+/* Overview.css */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,600;1,600&display=swap');
 
 :root {
@@ -10,14 +10,14 @@
 :root {
   --nscet-blue: #0b2559;
   --nscet-light-blue: #1e40af;
-  --nscet-accent: #f59e0b;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --nscet-accent: var(--theme-accent);
+  --glass-bg: var(--theme-bg);
+  --glass-border: var(--theme-border);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
 }
 
 .overview-page {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   color: #333;
   overflow-x: hidden;
   background-color: #f8fafc;
@@ -27,7 +27,7 @@
    HERO SECTION REDESIGN
    ================================================== */
 .hero-section {
-  padding: 6rem 5%;
+  padding: 6rem 3%;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   position: relative;
   /* Removed min-height: 90vh and overflow: hidden to fix scroll layout bugs */
@@ -66,7 +66,7 @@
   display: flex;
   align-items: center;
   gap: 4rem;
-  max-width: 1400px;
+  max-width: 1800px;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -78,7 +78,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 600px; /* Reduced width for readability */
+  max-width: 850px; /* Increased width to cover more screen */
 }
 
 .hero-header {
@@ -88,9 +88,9 @@
 }
 
 .hero-title {
-  font-family: "ITC New Baskerville", "Baskerville", "Libre Baskerville", "Cormorant Garamond", "Times New Roman", serif;
+  font-family: var(--font-heading);
   font-size: 3rem; /* Slightly reduced for better balance */
-  font-weight: 900;
+  font-weight: 800;
   color: var(--nscet-blue);
   line-height: 1.1;
   margin: 0;
@@ -98,11 +98,11 @@
 }
 
 .hero-subtitle {
-  font-family: "Cormorant Infant", "Libre Baskerville", "Baskerville", serif;
+  font-family: var(--font-section);
   font-style: italic;
   font-size: 1.45rem;
   color: #C9971A;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
   letter-spacing: 0.6px;
   line-height: 1.4;
@@ -140,8 +140,9 @@
 }
 
 .info-year, .info-highlight {
+  font-family: var(--font-subtopic);
   font-size: 1.2rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--nscet-blue);
   line-height: 1;
   margin-bottom: 0.2rem;
@@ -152,11 +153,12 @@
 }
 
 .info-label {
+  font-family: var(--font-subtopic);
   font-size: 0.8rem;
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* Text Content */
@@ -360,18 +362,28 @@
 }
 
 .stat-card {
-  background: var(--premium-card-bg);
-  backdrop-filter: blur(10px);
-  border: var(--premium-card-border);
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .stat-card:hover {
-  transform: translateY(-10px) rotate(2deg);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15);
 }
 
 .stat-value {
@@ -382,8 +394,9 @@
 }
 
 .stat-label {
+  font-family: var(--font-subtopic);
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -397,9 +410,10 @@
 }
 
 .section-title {
+  font-family: var(--font-section);
   text-align: center;
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--nscet-blue);
   margin-bottom: 4rem;
   position: relative;
@@ -560,12 +574,14 @@
 
 .timeline-content {
   width: 45%;
-  background: var(--premium-card-bg);
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 2.5rem 2rem;
   border-radius: 20px;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
-  border: var(--premium-card-border);
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
 
@@ -593,9 +609,12 @@
 }
 
 .timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
-  border-color: var(--nscet-blue);
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15);
 }
 
 .timeline-year {
@@ -753,6 +772,8 @@
 
 @media (max-width: 768px) {
   .hero-title {
+  font-weight: 800;
+  font-family: var(--font-heading);
     font-size: 2.5rem;
   }
   
@@ -806,9 +827,9 @@
 }
 
 .about-inner-container {
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 80px 40px;
+  padding: 60px 40px;
 }
 
 /* Alternate Backgrounds */
@@ -833,3 +854,87 @@
   .about-inner-container { padding: 60px 24px; }
 }
 
+/* ==================================================
+   DARK MODE
+   ================================================== */
+body.dark-mode .overview-page {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+body.dark-mode .hero-section,
+body.dark-mode .achievements-section,
+body.dark-mode .journey-section {
+  background: transparent;
+}
+
+body.dark-mode .bg-white,
+body.dark-mode .bg-light-1,
+body.dark-mode .bg-light-2 {
+  background-color: transparent !important;
+}
+
+body.dark-mode .stats-section {
+  background: transparent;
+}
+
+body.dark-mode .hero-title,
+body.dark-mode .section-title,
+body.dark-mode .timeline-title,
+body.dark-mode .timeline-year,
+body.dark-mode .caption-content h4 {
+  color: #f8fafc;
+}
+
+body.dark-mode .hero-description,
+body.dark-mode .timeline-description,
+body.dark-mode .caption-content p {
+  color: #94a3b8;
+}
+
+body.dark-mode .info-card,
+body.dark-mode .hero-quote-card,
+body.dark-mode .floating-caption,
+body.dark-mode .stat-card,
+body.dark-mode .timeline-content,
+body.dark-mode .achievement-card {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .stat-card:hover,
+body.dark-mode .timeline-content:hover {
+  background: rgba(15, 23, 42, 0.25);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .timeline-content::before {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .hero-quote-card p {
+  color: #e2e8f0;
+}
+
+body.dark-mode .info-year, 
+body.dark-mode .info-highlight {
+  font-weight: 700;
+  font-family: var(--font-subtopic);
+  color: #60a5fa;
+}
+
+body.dark-mode .info-highlight.grade-a {
+  color: #eab308;
+}
+
+
+
+/* =========================================
+   HERO BOX PUSH DOWN FIX
+   ========================================= */
+.overview-page {
+    padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
+}

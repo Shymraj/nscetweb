@@ -1,0 +1,701 @@
+/* ======================================================
+   CONTACT SECTION
+====================================================== */
+
+.contact{
+    width:100%;
+    padding:110px 8%;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(180deg,#ffffff,#f8fbff);
+}
+
+/* ======================================================
+   BACKGROUND GLOW
+====================================================== */
+
+.contact-glow{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:0;
+}
+
+.glow-one{
+    width:420px;
+    height:420px;
+    background:rgba(37,99,235,.08);
+    top:-180px;
+    left:-180px;
+}
+
+.glow-two{
+    width:350px;
+    height:350px;
+    background:rgba(255,122,0,.08);
+    right:-120px;
+    bottom:-120px;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+.contact-header{
+    position:relative;
+    z-index:5;
+    text-align:center;
+    max-width:760px;
+    margin:auto;
+    margin-bottom:70px;
+}
+
+.contact-tag{
+    color:#2563eb;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.contact-header h2{
+    margin-top:18px;
+    font-size:52px;
+    font-weight:800;
+    color:#0f172a;
+    line-height:1.2;
+}
+
+.contact-header p{
+    margin-top:22px;
+    color:#64748b;
+    font-size:18px;
+    line-height:1.8;
+}
+
+.title-line{
+    width:90px;
+    height:4px;
+    border-radius:20px;
+    margin:28px auto 0;
+    background:linear-gradient(90deg,#2563eb,#ff7a00);
+}
+
+/* ======================================================
+   CONTAINER
+====================================================== */
+
+.contact-container{
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:35px;
+    position:relative;
+    z-index:5;
+}
+
+/* ======================================================
+   PREMIUM CARD
+====================================================== */
+
+.contact-info,
+.contact-form{
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:28px;
+    padding:42px;
+    box-shadow:0 25px 60px rgba(15,23,42,.08);
+    transition:.4s;
+}
+
+.contact-info:hover,
+.contact-form:hover{
+    transform:translateY(-10px);
+    box-shadow:
+    0 35px 80px rgba(37,99,235,.12),
+    0 0 30px rgba(255,122,0,.12);
+}
+
+/* ======================================================
+   INFO HEADER
+====================================================== */
+
+.info-header span,
+.form-header span{
+    color:#2563eb;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.info-header h3,
+.form-header h3{
+    margin-top:14px;
+    font-size:34px;
+    color:#0f172a;
+    font-weight:800;
+}
+
+.info-header p,
+.form-header p{
+    margin-top:16px;
+    color:#64748b;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* ======================================================
+   INFO BOX
+====================================================== */
+
+.info-list{
+    margin-top:35px;
+}
+
+.info-box{
+    display:flex;
+    gap:18px;
+    margin-bottom:22px;
+    align-items:flex-start;
+    transition:.35s;
+}
+
+.icon{
+    width:62px;
+    height:62px;
+    flex-shrink:0;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+    color:#fff;
+    font-size:22px;
+    box-shadow:0 12px 30px rgba(37,99,235,.25);
+}
+
+.info-content h4{
+    color:#0f172a;
+    font-size:18px;
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+.info-content p{
+    color:#64748b;
+    font-size:15px;
+    line-height:1.8;
+}
+/* ======================================================
+   SOCIAL ICONS
+====================================================== */
+
+.social-section{
+    margin-top:40px;
+    padding-top:28px;
+    border-top:1px solid rgba(15,23,42,.08);
+}
+
+.social-section h4{
+    font-size:18px;
+    color:#0f172a;
+    margin-bottom:18px;
+    font-weight:700;
+}
+
+.social-icons{
+    display:flex;
+    gap:15px;
+}
+
+.social-icons a{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ffffff;
+    color:#2563eb;
+    font-size:20px;
+    text-decoration:none;
+    border:1px solid rgba(37,99,235,.12);
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    transition:.35s;
+}
+
+.social-icons a:hover{
+    background:linear-gradient(135deg,#2563eb,#ff7a00);
+    color:#fff;
+    transform:translateY(-8px) rotate(8deg);
+    box-shadow:0 20px 40px rgba(37,99,235,.25);
+}
+
+/* ======================================================
+   FORM
+====================================================== */
+
+.contact-form form{
+    margin-top:35px;
+}
+
+.input-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-bottom:18px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:17px 20px;
+    border:none;
+    outline:none;
+    border-radius:16px;
+    background:#f8fbff;
+    border:1px solid #e5e7eb;
+    font-size:15px;
+    color:#0f172a;
+    transition:.35s;
+}
+
+.contact-form textarea{
+    resize:none;
+    min-height:180px;
+    margin-bottom:22px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+    color:#94a3b8;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:#2563eb;
+    background:#ffffff;
+    box-shadow:0 0 0 5px rgba(37,99,235,.10);
+}
+
+/* ======================================================
+   BUTTON
+====================================================== */
+
+.contact-form button{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:16px 34px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#ff7a00,#ea580c);
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.35s;
+    box-shadow:0 18px 35px rgba(255,122,0,.28);
+}
+
+.contact-form button:hover{
+    transform:translateY(-5px);
+    box-shadow:
+    0 28px 55px rgba(255,122,0,.35),
+    0 0 25px rgba(255,122,0,.25);
+}
+
+.contact-form button svg{
+    transition:.35s;
+}
+
+.contact-form button:hover svg{
+    transform:translateX(6px);
+}
+/* ======================================================
+   GOOGLE MAP
+====================================================== */
+
+.map-section{
+    margin-top:80px;
+    position:relative;
+    z-index:5;
+}
+
+.map-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.map-header h3{
+    font-size:38px;
+    color:#0f172a;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.map-header p{
+    max-width:700px;
+    margin:auto;
+    color:#64748b;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.map-container{
+    width:100%;
+    height:500px;
+    overflow:hidden;
+    border-radius:28px;
+    border:1px solid rgba(37,99,235,.08);
+    box-shadow:0 25px 60px rgba(15,23,42,.12);
+}
+
+.map-container iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+    .contact-container{
+        grid-template-columns:1fr;
+    }
+
+    .input-grid{
+        grid-template-columns:1fr;
+    }
+
+    .map-container{
+        height:350px;
+    }
+
+    .contact-header h2{
+        font-size:38px;
+    }
+}
+
+@media(max-width:480px){
+
+    .contact{
+        padding:80px 20px;
+    }
+
+    .map-container{
+        height:280px;
+    }
+
+    .contact-header h2{
+        font-size:30px;
+    }
+}
+/* ======================================================
+   BUTTON
+====================================================== */
+
+.contact-form button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    padding:16px 34px;
+
+    border:none;
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff7a00,#ea580c);
+
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 18px 35px rgba(255,122,0,.28);
+}
+
+.contact-form button:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 28px 55px rgba(255,122,0,.35),
+        0 0 25px rgba(255,122,0,.25);
+}
+
+.contact-form button svg{
+    transition:.35s;
+}
+
+.contact-form button:hover svg{
+    transform:translateX(6px);
+}
+
+/* ======================================================
+   GOOGLE MAP
+====================================================== */
+
+.map-section{
+    margin-top:90px;
+    position:relative;
+    z-index:5;
+}
+
+.map-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.map-header h3{
+    font-size:42px;
+    font-weight:800;
+    color:#0f172a;
+    margin-bottom:15px;
+}
+
+.map-header p{
+    max-width:700px;
+    margin:auto;
+
+    color:#64748b;
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
+.map-container{
+    width:100%;
+    height:520px;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    border:1px solid rgba(37,99,235,.08);
+
+    box-shadow:0 25px 60px rgba(15,23,42,.12);
+
+    transition:.4s;
+}
+
+.map-container:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 35px 80px rgba(37,99,235,.15),
+        0 0 35px rgba(255,122,0,.12);
+}
+
+.map-container iframe{
+    width:100%;
+    height:100%;
+    border:none;
+    display:block;
+}
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media(max-width:1100px){
+
+    .contact{
+        padding:90px 6%;
+    }
+
+    .contact-container{
+        grid-template-columns:1fr;
+    }
+
+    .contact-info,
+    .contact-form{
+        padding:35px;
+    }
+
+    .map-container{
+        height:450px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .contact{
+        padding:80px 5%;
+    }
+
+    .contact-header h2{
+        font-size:38px;
+    }
+
+    .contact-header p{
+        font-size:16px;
+    }
+
+    .info-header h3,
+    .form-header h3{
+        font-size:28px;
+    }
+
+    .input-grid{
+        grid-template-columns:1fr;
+    }
+
+    .icon{
+        width:56px;
+        height:56px;
+        font-size:20px;
+    }
+
+    .social-icons{
+        flex-wrap:wrap;
+    }
+
+    .map-header h3{
+        font-size:32px;
+    }
+
+    .map-container{
+        height:360px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .contact{
+        padding:70px 20px;
+    }
+
+    .contact-header h2{
+        font-size:30px;
+    }
+
+    .contact-info,
+    .contact-form{
+        padding:25px;
+    }
+
+    .info-header h3,
+    .form-header h3{
+        font-size:24px;
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+        padding:15px;
+        font-size:14px;
+    }
+
+    .contact-form button{
+        width:100%;
+        justify-content:center;
+    }
+
+    .icon{
+        width:48px;
+        height:48px;
+        font-size:18px;
+    }
+
+    .map-header h3{
+        font-size:26px;
+    }
+
+    .map-container{
+        height:280px;
+    }
+
+}
+
+/* ======================================================
+   DARK MODE
+====================================================== */
+
+body.dark-mode .contact{
+    background:linear-gradient(180deg,#0f172a,#111827);
+}
+
+body.dark-mode .contact-header h2,
+body.dark-mode .info-header h3,
+body.dark-mode .form-header h3,
+body.dark-mode .map-header h3,
+body.dark-mode .social-section h4,
+body.dark-mode .info-content h4{
+    color:#ffffff;
+}
+
+body.dark-mode .contact-header p,
+body.dark-mode .info-header p,
+body.dark-mode .form-header p,
+body.dark-mode .info-content p,
+body.dark-mode .map-header p{
+    color:#cbd5e1;
+}
+
+body.dark-mode .contact-info,
+body.dark-mode .contact-form{
+    background:rgba(30,41,59,.75);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea{
+    background:#1e293b;
+    color:#ffffff;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+body.dark-mode .contact-form input::placeholder,
+body.dark-mode .contact-form textarea::placeholder{
+    color:#94a3b8;
+}
+
+body.dark-mode .social-icons a{
+    background:#1e293b;
+    color:#ffffff;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+body.dark-mode .social-icons a:hover{
+    background:linear-gradient(135deg,#2563eb,#ff7a00);
+}
+
+body.dark-mode .map-container{
+    border:1px solid rgba(255,255,255,.08);
+}
+
+/* ======================================================
+   ENTRY ANIMATION
+====================================================== */
+
+@keyframes fadeUp{
+
+    0%{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.contact-header,
+.contact-info,
+.contact-form,
+.map-section{
+    animation:fadeUp .8s ease;
+}

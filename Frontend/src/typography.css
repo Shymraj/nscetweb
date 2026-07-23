@@ -1,0 +1,21 @@
+/* 
+  =========================================================
+  GLOBAL TYPOGRAPHY SYSTEM
+  =========================================================
+  This is the single source of truth for typography.
+  All components must consume these variables.
+  No hardcoded font-family declarations are allowed.
+  
+  System Rules:
+  - --font-heading: Poppins 800 (Main Page Headings / Hero Titles)
+  - --font-section: Manrope 700 (Section Headings / H2)
+  - --font-subtopic: Alegreya Sans SC 700 (H3, H4, Card Titles, Labels, Chips, Badges)
+  - --font-body: Inter 400 (Body Content, Paragraphs), 500 (Buttons, Links, Navbar), 600 (Table Headers)
+*/
+
+:root {
+  --font-heading: 'Poppins', sans-serif;
+  --font-section: 'Manrope', sans-serif;
+  --font-subtopic: 'Alegreya Sans SC', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}

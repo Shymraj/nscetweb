@@ -1,24 +1,24 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* ================= VARIABLES ================= */
 :root {
-    --aids-primary: #1e3a5f;
-    --aids-primary-light: #2b5a8c;
-    --aids-accent: #c9a84c;
-    --aids-accent-light: #e8d48b;
-    --aids-bg: #f7f8fa;
-    --aids-card: #ffffff;
-    --aids-text: #1e293b;
-    --aids-text-light: #64748b;
-    --aids-border: #e2e8f0;
-    --aids-radius: 16px;
+    --aids-primary: var(--theme-primary);
+    --aids-primary-light: var(--theme-primary-light);
+    --aids-accent: var(--theme-accent);
+    --aids-accent-light: var(--theme-accent-light);
+    --aids-bg: var(--theme-bg);
+    --aids-card: var(--theme-card);
+    --aids-text: var(--theme-text);
+    --aids-text-light: var(--theme-text-light);
+    --aids-border: var(--theme-border);
+    --aids-radius: var(--theme-radius);
 }
 
 .aids-container {
     width: 100%;
     min-height: 100vh;
     padding-top: 100px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-body);
     color: var(--aids-text);
     background-color: var(--aids-bg);
     overflow-x: hidden;
@@ -27,7 +27,7 @@
 
 /* ================= HERO SECTION ================= */
 .aids-hero-section {
-    padding: 0;
+    padding: 1.5rem 2.5rem 0;
     margin-bottom: 3rem;
 }
 
@@ -35,7 +35,7 @@
     position: relative;
     width: 100%;
     min-height: 500px;
-    border-radius: 0;
+    border-radius: 30px;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -53,7 +53,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.55) 100%);
-    border-radius: 0;
+    border-radius: 30px;
     z-index: 1;
 }
 
@@ -87,16 +87,16 @@
 
 @media (max-width: 768px) {
     .aids-hero-section {
-        padding: 0;
+        padding: 1rem 1rem 0;
     }
 
     .aids-hero-box {
         min-height: 280px;
-        border-radius: 0;
+        border-radius: 20px;
     }
 
     .aids-hero-overlay {
-        border-radius: 0;
+        border-radius: 20px;
     }
 
     .aids-hero-title {
@@ -160,7 +160,7 @@
 }
 
 .bento-card {
-    background: linear-gradient(145deg, #1e3a5f 0%, #2b4a7a 100%);
+    background: linear-gradient(145deg, var(--theme-primary, #0EA5E9) 0%, var(--theme-primary-light, #38BDF8) 100%);
     background-size: 200% 200%;
     animation: gradientShift 6s ease infinite;
     border: 1px solid rgba(201, 168, 76, 0.3);
@@ -196,7 +196,7 @@
 }
 
 .bento-card.primary {
-    background: linear-gradient(135deg, #0f2744 0%, #1e3a5f 50%, #2b5a8c 100%);
+    background: linear-gradient(135deg, var(--theme-primary-dark, #0369A1) 0%, var(--theme-primary, #0EA5E9) 50%, var(--theme-primary-light, #38BDF8) 100%);
     background-size: 200% 200%;
     animation: gradientShift 6s ease infinite;
     color: white;
@@ -436,7 +436,7 @@
     gap: 4rem;
     max-width: 100%;
     margin: 0 auto 4rem;
-    background: linear-gradient(135deg, #0f2744 0%, var(--aids-primary) 50%, #2b5a8c 100%);
+    background: linear-gradient(135deg, var(--theme-primary-dark, #0369A1) 0%, var(--aids-primary) 50%, var(--theme-primary-light, #38BDF8) 100%);
     background-size: 200% 200%;
     animation: gradientShift 6s ease infinite;
     border-radius: 20px;
@@ -510,7 +510,7 @@
 .hod-avatar {
     width: 200px;
     height: 200px;
-    background: linear-gradient(135deg, var(--aids-accent), #b8943f);
+    background: linear-gradient(135deg, var(--aids-accent), var(--theme-accent, #F59E0B));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -706,7 +706,7 @@
 
 /* ================= EVENTS & ASSOCIATION ================= */
 .glam-banner {
-    background: linear-gradient(135deg, #0f2744 0%, #1e3a5f 40%, #2b5a8c 100%);
+    background: linear-gradient(135deg, var(--theme-primary-dark, #0369A1) 0%, var(--theme-primary, #0EA5E9) 40%, var(--theme-primary-light, #38BDF8) 100%);
     background-size: 200% 200%;
     animation: gradientShift 6s ease infinite;
     padding: 3.5rem 2.5rem;
@@ -865,3 +865,206 @@ body.dark-mode .empty-events-state {
     color: #94a3b8;
 }
 
+
+
+/* =========================================
+   GLOBAL ALUMNI GLASSMORPHISM AUTOMATICALLY APPLIED
+   ========================================= */
+
+@keyframes deptGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.bento-card,
+.glass-card,
+.cap-card,
+.member-card {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 20px !important;
+    background-size: 200% 200% !important;
+    animation: deptGradientShift 6s ease infinite !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
+}
+
+.bento-card::before,
+.glass-card::before,
+.cap-card::before,
+.member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent) !important;
+    transform: skewX(-20deg) !important;
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    pointer-events: none;
+    z-index: 10;
+}
+
+body.dark-mode .bento-card,
+body.dark-mode .glass-card,
+body.dark-mode .cap-card,
+body.dark-mode .member-card {
+    background: rgba(30, 41, 59, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .bento-card::before,
+body.dark-mode .glass-card::before,
+body.dark-mode .cap-card::before,
+body.dark-mode .member-card::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+}
+
+.bento-card:hover::before,
+.glass-card:hover::before,
+.cap-card:hover::before,
+.member-card:hover::before {
+    left: 150% !important;
+}
+
+.bento-card:hover,
+.glass-card:hover,
+.cap-card:hover,
+.member-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15) !important;
+}
+
+body.dark-mode .bento-card:hover,
+body.dark-mode .glass-card:hover,
+body.dark-mode .cap-card:hover,
+body.dark-mode .member-card:hover {
+    background: rgba(15, 23, 42, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Fix text readability for all cards */
+.bento-card, .glass-card, .cap-card, .member-card,
+.bento-card h1,
+.bento-card h2,
+.bento-card h3,
+.bento-card h4,
+.bento-card p,
+.bento-card li,
+.bento-card span,
+.glass-card h1,
+.glass-card h2,
+.glass-card h3,
+.glass-card h4,
+.glass-card p,
+.glass-card li,
+.glass-card span,
+.cap-card h1,
+.cap-card h2,
+.cap-card h3,
+.cap-card h4,
+.cap-card p,
+.cap-card li,
+.cap-card span,
+.member-card h1,
+.member-card h2,
+.member-card h3,
+.member-card h4,
+.member-card p,
+.member-card li,
+.member-card span {
+    color: var(--theme-text) !important;
+}
+
+body.dark-mode .bento-card,
+body.dark-mode .glass-card,
+body.dark-mode .cap-card,
+body.dark-mode .member-card,
+body.dark-mode .bento-card h1,
+body.dark-mode .bento-card h2,
+body.dark-mode .bento-card h3,
+body.dark-mode .bento-card h4,
+body.dark-mode .bento-card p,
+body.dark-mode .bento-card li,
+body.dark-mode .bento-card span,
+body.dark-mode .glass-card h1,
+body.dark-mode .glass-card h2,
+body.dark-mode .glass-card h3,
+body.dark-mode .glass-card h4,
+body.dark-mode .glass-card p,
+body.dark-mode .glass-card li,
+body.dark-mode .glass-card span,
+body.dark-mode .cap-card h1,
+body.dark-mode .cap-card h2,
+body.dark-mode .cap-card h3,
+body.dark-mode .cap-card h4,
+body.dark-mode .cap-card p,
+body.dark-mode .cap-card li,
+body.dark-mode .cap-card span,
+body.dark-mode .member-card h1,
+body.dark-mode .member-card h2,
+body.dark-mode .member-card h3,
+body.dark-mode .member-card h4,
+body.dark-mode .member-card p,
+body.dark-mode .member-card li,
+body.dark-mode .member-card span {
+    color: #f1f5f9 !important;
+}
+
+
+/* =========================================
+   PROFESSIONAL STAFF HIGHLIGHT OVERRIDES
+   ========================================= */
+
+.member-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.8)) !important;
+    border: 2px solid rgba(59, 130, 246, 0.4) !important;
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.12) !important;
+    transform: translateY(-2px);
+}
+
+body.dark-mode .member-card {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.6)) !important;
+    border: 2px solid rgba(96, 165, 250, 0.3) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Enhanced Hover State */
+.member-card:hover {
+    transform: translateY(-10px) scale(1.03) !important;
+    border-color: rgba(59, 130, 246, 0.8) !important;
+    box-shadow: 0 20px 50px rgba(59, 130, 246, 0.25) !important;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(240, 249, 255, 0.95)) !important;
+}
+
+body.dark-mode .member-card:hover {
+    border-color: rgba(96, 165, 250, 0.7) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.25) !important;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.8)) !important;
+}
+
+/* Subtle glowing accent line on top */
+.member-card::before {
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.8), transparent) !important;
+    height: 4px !important;
+    width: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    opacity: 0.8 !important;
+}
+
+body.dark-mode .member-card::before {
+    background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.8), transparent) !important;
+}
