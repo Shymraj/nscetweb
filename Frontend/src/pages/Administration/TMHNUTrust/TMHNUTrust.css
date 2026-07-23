@@ -74,13 +74,13 @@
   z-index: 2;
   width: 50%;
   height: 100%;
-  background: rgba(7, 18, 42, 0.85); /* Navy blue with slight transparency for glass effect */
+  background: rgba(7, 18, 42, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   padding: 0 4% 0 8%;
-  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%); /* Diagonal split */
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
   border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
