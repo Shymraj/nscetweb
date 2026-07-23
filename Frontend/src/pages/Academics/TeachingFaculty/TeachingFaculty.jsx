@@ -16,6 +16,8 @@ const TeachingFaculty = () => {
   const [activeDept, setActiveDept] = useState('B.E. - Computer Science Engineering');
   const [clickedCardId, setClickedCardId] = useState(null);
   const scrollRef = useRef(null);
+  const scrollInterval = useRef(null); 
+  const scrollTimeout = useRef(null);// Added this here
 
   useEffect(() => {
     setActiveDept(programDepartments[activeProgram][0]);
@@ -28,7 +30,7 @@ const TeachingFaculty = () => {
   // ============================================================================
   const facultyData = [
     // --- B.Tech - Information Technology (Total: 8) ---
-    { id: 1, name: "Mr. C. Prathap", qualifications: ["M.Tech.", "Ph.D"], department: "B.Tech - Information Technology", position: " Assistant Professor & Head [I/C]", email: " prathapc@nscet.org", photo: "/Prathap C.jpg", isHOD: true },
+    { id: 1, name: "Mr. C. Prathap", qualifications: ["M.Tech.", "Ph.D"], department: "B.Tech - Information Technology", position: " Assistant Professor & Head [I/C]", email: " prathapc@nscet.org", photo: "/prathap c.jpg", isHOD: true },
     { id: 2, name: "Mr. R. Udhaya Kumar", qualifications: [" M.E (CSE), MBA (ITM), (Ph.D)"], department: "B.Tech - Information Technology", position: "Assistant Professor", email: " udhayakumar@nscet.org", photo: "/udhayakumar.jpg", isHOD: false },
     { id: 3, name: "Mr. N. Kesavamoorthy", qualifications: [" M.E (CSE)"], department: "B.Tech - Information Technology", position: "Assistant Professor", email: "kesavamoorthy@nscet.org", photo: "/kesavamoorthy.jpg", isHOD: false },
     { id: 4, name: "B. SAI SUGANYA", qualifications: ["M.TECH"], department: "B.Tech - Information Technology", position: "Assistant Professor", email: "saisuganya@nscet.org", photo: "/sai suganya.jpg", isHOD: false },
@@ -48,7 +50,7 @@ const TeachingFaculty = () => {
 
     // --- B.E. - Computer Science Engineering (Total: 8) ---
     { id: 16, name: "Dr. J. Mathalai Raj", qualifications: ["M.E (CSE), Ph.D"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor & Head [I/C]", email: "hodcse@nscet.org", photo: "/mathalairaj.jpg", isHOD: true },
-    { id: 17, name: "Mr. K. Velkumar", qualifications: ["M.E,(Ph.D)"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "velkumar@nscet.org", photo: "/Velkumar.JPG", isHOD: false },
+    { id: 17, name: "Mr. K. Velkumar", qualifications: ["M.E,(Ph.D)"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "velkumar@nscet.org", photo: "/velkumar.jpg", isHOD: false },
     { id: 18, name: "Mrs. R. Archana", qualifications: ["M.E., (Ph.D)"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "archana@nscet.org", photo: "/archana.jpg", isHOD: false },
     { id: 19, name: "Ms. S. Abirami Kayathiri", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "abiramikayathiri@nscet.org", photo: "/abirami.jpeg", isHOD: false },
     { id: 20, name: "Mrs. M. Venkata Lakshmi", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "venkatalakshmi@nscet.org", photo: "/venkatalakshmi.JPG", isHOD: false },
@@ -103,9 +105,9 @@ const TeachingFaculty = () => {
 
     // --- M.E. - Computer Science Engineering (Total: 2) ---
     { id: 49, name: "Dr. M. Sathya", qualifications: ["Ph.D", "M.E."], department: "M.E. - Computer Science Engineering", position: "Professor & Head", email: "hodit@nscet.org", photo: "/sathya.jpeg", isHOD: true },
-    { id: 50, name: "Mr. G. R. Naveenkarthick", qualifications: ["M.E."], department: "M.E. - Computer Science Engineering", position: "Assistant Professor", email: "grnaveenkarthick@gmail.com", photo: "/naveenkarthick.jpeg", isHOD: false },
+    { id: 50, name: "Mr. G. R. Naveenkarthick", qualifications: ["M.E."], department: "M.E. - Computer Science Engineering", position: "Assistant Professor", email: "grnaveenkarthick@gmail.com", photo: "/karthick.jpeg", isHOD: false },
 
-    // --- M.E. - Structural Engineering (Total: 2) ---
+    // --- M.E. - Structural Engineering (Total: 2) -JPG   
     { id: 51, name: "Dr. E. Anantha Krishnan", qualifications: ["M. E.", "Ph. D."], department: "M.E. - Structural Engineering", position: "Professor & Head", email: "ananthakrishnan@nscet.org", photo: "/ananthakrishnan.jpg", isHOD: true },
     { id: 52, name: "Mrs. M. Sindhu", qualifications: ["M.E."], department: "M.E. - Structural Engineering", position: "Assistant Professor", email: "sindhu@nscet.org", photo: "/sindhu.jpg", isHOD: false },
     { id: 94, name: "Mrs. K. Benita Merlin Isabella", qualifications: ["M.E."], department: "M.E. - Structural Engineering", position: "Assistant Professor", email: "benitamerlin22@gmail.com", photo: "/Benita.jpg", isHOD: false },
@@ -135,10 +137,10 @@ const TeachingFaculty = () => {
     { id: 68, name: "Dr. Sumathra M", qualifications: ["M.Sc", "Ph.D"], department: "Science & Humanities", position: "Assistant Professor", email: "sumathravms@gmail.com", photo: "/Sumathra.jpeg", isHOD: false },
     { id: 69, name: "Sangeetha V", qualifications: ["M.A.", "English"], department: "Science & Humanities", position: "Assistant Professor", email: "vijayansangeetha281985@gmail.com", photo: "/Sangeetha.jpeg", isHOD: false },
     { id: 70, name: "Murugan M", qualifications: ["M.Sc"], department: "Science & Humanities", position: "Assistant Professor", email: "muruganmaths92@gmail.com", photo: "/Murugan.jpeg", isHOD: false },
-    { id: 71, name: "Dr. Diana P", qualifications: ["M.Sc", "Ph.D"], department: "Science & Humanities", position: "Assistant Professor", email: "13diana83@gmail.com", photo: "/Diana.jpg", isHOD: false },
+    { id: 71, name: "Dr. Diana P", qualifications: ["M.Sc", "Ph.D"], department: "Science & Humanities", position: "Assistant Professor", email: "13diana83@gmail.com", photo: "/diana.jpg", isHOD: false },
     { id: 72, name: "Dr. Easwari M", qualifications: ["M.Sc", "Ph.D"], department: "Science & Humanities", position: "Assistant Professor", email: "easwariphy@gmail.com", photo: "/Easwari.jpeg", isHOD: false },
     { id: 73, name: "Ms. A. Iniya", qualifications: ["B.E.", "M.E."], department: "Science & Humanities", position: "Assistant Professor", email: "staff@nscet.org", photo: "/Iniya.jpeg", isHOD: false },
-    { id: 74, name: "Dr. Srinithi S", qualifications: ["M.Sc", "Ph.D"], department: "Science & Humanities", position: "Assistant Professor", email: "staff@nscet.org", photo: "/srinithi.jpeg", isHOD: false },
+    { id: 74, name: "Dr. Srinithi S", qualifications: ["M.Sc", "Ph.D"], department: "Science & Humanities", position: "Assistant Professor", email: "staff@nscet.org", photo: "/Srinithi.jpeg", isHOD: false },
     { id: 75, name: "Mrs. S. Rajeshshree", qualifications: ["B.E.", "M.E."], department: "Science & Humanities", position: "Assistant Professor", email: "rajeshshree@nscet.org", photo: "/Rajeshshree.jpeg", isHOD: false },
     { id: 76, name: "Mrs. N. Thisha", qualifications: ["B.A.", "M.A.", "NET"], department: "Science & Humanities", position: "Assistant Professor", email: "thisha@nscet.org", photo: "/thisha.jpeg", isHOD: false },
     { id: 77, name: "Mr. Ram Kumar K", qualifications: ["B.E.", "M.B.A."], department: "Science & Humanities", position: "Assistant Professor", email: "ramkumar@nscet.org", photo: "/ramkumar.jpeg", isHOD: false },
@@ -146,7 +148,7 @@ const TeachingFaculty = () => {
     { id: 79, name: "Mrs. R. Karunyah", qualifications: ["M.Sc", "M.Phil"], department: "Science & Humanities", position: "Assistant Professor", email: "karunyah@nscet.org", photo: "/karunyah.jpg", isHOD: false },
     { id: 80, name: "Dr. Premkumar S.", qualifications: ["M.E., Ph.D(Civil)"], department: "Science & Humanities", position: "Assistant Professor", email: "vignesan@nscet.org", photo: "/Premkumar.jpg", isHOD: false },
     { id: 81, name: "Ms. Nandhini M.", qualifications: ["ME(CSE)."], department: "Science & Humanities", position: "Assistant Professor", email: "benandhu10@gmail.com", photo: "/Nandini.jpeg", isHOD: false },
-    { id: 82, name: "Dr. R. Saravanakumar", qualifications: ["M.SC.Ph.D."], department: "Science & Humanities", position: "Assistant Professor", email: "saravanakumar@nscet.org", photo: "/saravanakumar.png", isHOD: false },
+    { id: 82, name: "Dr. R. Saravanakumar", qualifications: ["M.SC.Ph.D."], department: "Science & Humanities", position: "Assistant Professor", email: "saravanakumar@nscet.org", photo: "/Saravanakumar.png", isHOD: false },
     { id: 83, name: "Dr. S. Selvapriya", qualifications: ["M.A., M.Phil., Ph.D."], department: "Science & Humanities", position: "Assistant Professor", email: "selvapriyashailesh@gamil.com", photo: "/Selvapriya.jpg", isHOD: false },
     { id: 84, name: "Mrs. S. Reka", qualifications: ["M.A., M.Phil."], department: "Science & Humanities", position: "Professor", email: "subhalakshmireka@gamil.com", photo: "/Reka.jpg", isHOD: false },
     { id: 85, name: " Mr. G. Arun Kumar", qualifications: ["ME"], department: "Science & Humanities", position: "Assistant Professor", email: "arunkumar1603@gmail.com", photo: "/arunkumar.jpg", isHOD: false },
@@ -158,11 +160,61 @@ const TeachingFaculty = () => {
     { id: 91, name: " Ms. Jenifer K.", qualifications: ["B.Tech(IT)., ME(CSE)."], department: "Science & Humanities", position: "Assistant Professor", email: "jenifer.k@cietcbe.edu.in", photo: "/Jenifer.jpeg", isHOD: false },
   ];
 
-  // Filtering data for the selected department
+// Filtering data for the selected department
   const currentFaculty = facultyData.filter(staff => staff.department === activeDept);
   const hod = currentFaculty.find(staff => staff.isHOD);
   const regularStaffs = currentFaculty.filter(staff => !staff.isHOD);
 
+  // Requirement 3: 4 cards-kku mela iruntha mattum auto-move (marquee) aaganum
+  const shouldAnimate = regularStaffs.length > 4;
+
+  // JS Auto-Scroll Logic - ithu shouldAnimate-kku keela thaan irukkanum
+  useEffect(() => {
+    const track = scrollRef.current;
+    if (!track || !shouldAnimate) return;
+
+    const startScroll = () => {
+      clearInterval(scrollInterval.current); // Double speed aagama thadukka
+      scrollInterval.current = setInterval(() => {
+        if (track) {
+          track.scrollLeft += 1;
+          if (track.scrollLeft >= track.scrollWidth / 2) {
+            track.scrollLeft = 0;
+          }
+        }
+      }, 35);
+    };
+
+    startScroll();
+
+    const pauseScroll = () => {
+      clearInterval(scrollInterval.current);
+      clearTimeout(scrollTimeout.current); // Touch timeout-aiyum stop panrom
+    };
+
+    // Finger-a edutha udane start aagama, 1.5 seconds wait panni start aagum
+    const resumeScrollDelay = () => {
+      clearTimeout(scrollTimeout.current);
+      scrollTimeout.current = setTimeout(() => {
+        startScroll();
+      }, 1500); 
+    };
+
+    // Mouse ulla vecha (Desktop) OR touch panna (Mobile) pause aaganum
+    track.addEventListener('mouseenter', pauseScroll);
+    track.addEventListener('mouseleave', startScroll);
+    track.addEventListener('touchstart', pauseScroll, { passive: true });
+    track.addEventListener('touchend', resumeScrollDelay, { passive: true }); // <-- Delay function inga varum
+
+    return () => {
+      clearInterval(scrollInterval.current);
+      clearTimeout(scrollTimeout.current);
+      track.removeEventListener('mouseenter', pauseScroll);
+      track.removeEventListener('mouseleave', startScroll);
+      track.removeEventListener('touchstart', pauseScroll);
+      track.removeEventListener('touchend', resumeScrollDelay);
+    };
+  }, [shouldAnimate, activeDept]);
   const handleCardClick = (id) => {
     setClickedCardId(id);
     setTimeout(() => {
@@ -173,21 +225,46 @@ const TeachingFaculty = () => {
   const slideCards = (direction) => {
     if (scrollRef.current) {
       const scrollAmount = 290; 
+      
+      // Button click pannum pothu palaya actions-a strict-a cancel panrom (speed koodama irukka)
+      if (shouldAnimate) {
+        clearInterval(scrollInterval.current);
+        clearTimeout(scrollTimeout.current);
+      }
+
       scrollRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
       });
+
+      // Scroll mudinjathum auto-scroll thirumba start aaganum
+      if (shouldAnimate) {
+        scrollTimeout.current = setTimeout(() => {
+          scrollInterval.current = setInterval(() => {
+            if (scrollRef.current) {
+              scrollRef.current.scrollLeft += 1;
+              if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth / 2) {
+                scrollRef.current.scrollLeft = 0;
+              }
+            }
+          }, 30); // <-- Inga ungalukku thevayana speed number-a vechikonga (e.g., 25 or 30)
+        }, 600);
+      }
     }
   };
 
   const renderScrollCards = () => {
     if (regularStaffs.length === 0) return null;
 
-    return regularStaffs.map((staff, index) => (
+    // Requirement 3: Duplicate loopStaffs only if more than 4 cards exist
+    const loopStaffs = shouldAnimate ? [...regularStaffs, ...regularStaffs] : regularStaffs;
+
+    return loopStaffs.map((staff, index) => (
       <div 
         key={`scroll-${staff.id}-${index}`} 
         className={`tf-staff-card ${clickedCardId === staff.id ? 'card-zoom-animation' : ''}`}
         onClick={() => handleCardClick(staff.id)}
+        style={{ display: 'flex', flexDirection: 'column' }} // Requirement 5: Setup flex layout for neat alignment
       >
         <div className="tf-card-top">
           <div className="tf-mail-icon-bg">✉️</div>
@@ -202,12 +279,13 @@ const TeachingFaculty = () => {
           ))}
         </div>
 
-        <div className="tf-contact-item-small">
-  <span className="tf-icon">✉️</span> 
-  <a href={`mailto:${staff.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
-    {staff.email}
-  </a>
-</div>
+        {/* Requirement 5: Email ID strict straight bottom alignment (marginTop: auto) */}
+        <div className="tf-contact-item-small" style={{ marginTop: 'auto' }}>
+          <span className="tf-icon">✉️</span> 
+          <a href={`mailto:${staff.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+            {staff.email}
+          </a>
+        </div>
       </div>
     )); 
   };
@@ -270,12 +348,12 @@ const TeachingFaculty = () => {
             </div>
 
             <div className="tf-hod-contact-col">
-             <div className="tf-contact-item">
-             <span className="tf-icon">✉️</span> 
-             <a href={`mailto:${hod.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
-    {hod.email}
-  </a>
-</div>
+              <div className="tf-contact-item">
+                <span className="tf-icon">✉️</span> 
+                <a href={`mailto:${hod.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                  {hod.email}
+                </a>
+              </div>
             </div>
           </div>
         )}
@@ -286,10 +364,15 @@ const TeachingFaculty = () => {
               <h3 className="tf-section-title">Faculty Members</h3> 
             </div>
 
+            {/* Requirement 2: Static Outer Container */}
             <div className="tf-slider-container">
               <button className="tf-slider-btn left" onClick={() => slideCards('left')}>&#10094;</button>
               
-              <div className="tf-scroll-track" ref={scrollRef}>
+              <div 
+                className="tf-scroll-track" 
+                ref={scrollRef}
+                style={{ overflowX: 'auto' }} 
+              >
                 {renderScrollCards()}
               </div>
               

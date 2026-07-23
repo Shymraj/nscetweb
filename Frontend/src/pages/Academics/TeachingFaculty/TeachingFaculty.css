@@ -298,9 +298,10 @@
 .tf-slider-container {
   position: relative;
   display: flex;
-  align-items: center;
+ align-items: center;
   width: 100%;
   padding: 0 10px;
+  
 }
 
 .tf-slider-btn {
@@ -337,29 +338,35 @@
   right: -20px;
 }
 
+/* ==========================================
+   MOVING TRACK (Seamless Cards Marquee)
+   ========================================== */
 .tf-scroll-track {
   display: flex;
   gap: 2rem;
-  width: 100%; /* Container aada koodathu */
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 1rem 0;
+  width: max-content; 
+  padding: 1rem 0 20px 0;
   -ms-overflow-style: none;  
   scrollbar-width: none;  
+  /* React dynamically handles the animation speed now, so static animation line removed */
 }
 
 .tf-scroll-track::-webkit-scrollbar {
-  display: none;
+  display: block;
+  height: 8px;
 }
 
-/* Track-la mouse vechalum, touch/click pannalum ella cards-um onna nikanum (idikkathu) */
-.tf-scroll-track:hover .tf-staff-card,
-.tf-scroll-track:active .tf-staff-card,
-.tf-scroll-track:focus-within .tf-staff-card {
+/* Track mela mouse vecha cards nikanum */
+.tf-scroll-track:hover,
+.tf-scroll-track:active,
+.tf-scroll-track:focus-within {
   animation-play-state: paused !important;
 }
 
-/* Individual Staff Card inside Scroll Track */
+
+/* ==========================================
+   CARDS STYLING
+   ========================================== */
 .tf-staff-card {
   background: var(--tf-white);
   border-radius: 16px;
@@ -371,18 +378,15 @@
   width: 260px;
   flex-shrink: 0;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-top 0.3s ease-in-out;
   border-top: 4px solid transparent;
-  transition: all 0.3s ease-in-out; 
-  animation: moveCardsOnly 20s linear infinite; /* Cards mattum move aaga */
 }
 
 .tf-staff-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(90, 50, 250, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 12px 30px rgba(90, 50, 250, 0.15);
   border-color: var(--tf-primary-light);
   border-top: 4px solid #6200ea;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================
@@ -394,12 +398,12 @@
 }
 
 @keyframes cleanZoom {
-  0% { transform: scale(1); }
+  0% { transform: scale(1) translateX(0); }
   50% { 
-    transform: scale(1.08); 
+    transform: scale(1.08) translateX(0); 
     box-shadow: 0 15px 35px rgba(90, 50, 250, 0.2); 
   }
-  100% { transform: scale(1); }
+  100% { transform: scale(1) translateX(0); }
 }
 
 .tf-card-top {
@@ -429,7 +433,6 @@
   border: 4px solid var(--tf-white);
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   object-position: top;
-  object-fit: cover;
 }
 
 .tf-staff-name {
@@ -511,12 +514,14 @@
     text-align: center;
   }
   .tf-slider-btn {
-    display: none; /* Hide arrows on mobile, they can swipe directly */
+    display: none; /* Hide arrows on mobile */
   }
 }
 
-/* Ulla irukka Cards mattum move aagurathukkaana animation */
+/* ==========================================
+   SEAMLESS LOOP ANIMATION KEYFRAMES
+   ========================================== */
 @keyframes moveCardsOnly {
-  0% { left: 0; }
-  100% { left: -1000px; }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 1rem)); }
 }
