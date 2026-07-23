@@ -62,8 +62,11 @@
 .hero-brand {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  align-self: flex-start;
   gap: 15px;
-  margin-bottom: 22px;
+  margin-top: 0 !important;
+  margin-bottom: 16px !important;
   position: relative;
   z-index: 5;
 }
@@ -74,33 +77,43 @@
   filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.4));
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px; /* Tighter padding */
-  background: rgba(0, 15, 30, 0.7) !important; /* Darker glass backdrop for high legibility */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 40px;
+/* Full Dark Glass Pill Capsule (Image 1 Style) */
+.badge,
+.hero-brand .badge,
+body.dark-mode .hero-brand .badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 8px 20px !important;
+  background: rgba(10, 25, 47, 0.78) !important; /* Full dark glass pill capsule background */
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.28) !important;
+  border-radius: 50px !important;
   color: #ffffff !important;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
+  white-space: nowrap !important;
+  width: auto !important;
+  max-width: 100% !important;
 }
 
-.badge span {
+.badge span,
+.hero-brand .badge span {
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
   text-transform: capitalize !important;
+  white-space: nowrap !important;
 }
 
-.badge svg {
-  color: #ff9c00;
-  font-size: 13px;
+.badge svg,
+.hero-brand .badge svg {
+  color: #ff9c00 !important;
+  font-size: 14px !important;
+  flex-shrink: 0 !important;
 }
 
 /* College Name Styling with strong text shadow for bright background */
@@ -113,7 +126,7 @@ body.dark-mode .college-name {
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
   letter-spacing: 0.5px;
-  margin-top: 0;
+  margin-top: 8px !important;
   text-shadow: 
     0 2px 6px rgba(0, 0, 0, 0.9), 
     0 0 30px rgba(0, 0, 0, 0.4);
@@ -473,8 +486,9 @@ body.dark-mode .college-tagline {
   }
 
   .badge {
-    padding: 6px 14px;
+    padding: 6px 12px;
     font-size: 11px;
+    white-space: nowrap !important;
   }
 
   .college-name {
@@ -528,6 +542,12 @@ body.dark-mode .college-tagline {
 
 /* Small Mobile Screens */
 @media (max-width: 480px) {
+  .badge {
+    padding: 5px 10px;
+    font-size: 9.5px;
+    white-space: nowrap !important;
+  }
+
   .college-name {
     font-size: 26px;
   }

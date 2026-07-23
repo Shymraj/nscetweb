@@ -5,7 +5,7 @@ import {
   FaQuoteLeft, FaAward, FaLightbulb, FaUniversity, FaBuilding, 
   FaCheckCircle, FaStar, FaCalendarCheck
 } from 'react-icons/fa';
-import principalImg from '../../../assets/administration/principal.jpg';
+import principalImg from '../../../assets/administration/images/prinicipal.jpg';
 import './Principal.css';
 
 function Principal() {
