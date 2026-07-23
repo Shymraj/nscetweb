@@ -16,7 +16,7 @@
   opacity: 1;
   transform: scale(1);
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-body);
   user-select: none;
 }
 
@@ -130,7 +130,7 @@
 
 /* Main College Title */
 .splash-college-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-heading);
   font-size: 34px;
   font-weight: 800;
   line-height: 1.38;
@@ -162,7 +162,7 @@
 }
 
 .splash-tagline-text {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 5px;
@@ -229,7 +229,7 @@
 /* Progress Fill Bar */
 .splash-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #1E40AF 0%, #3B82F6 40%, #F59E0B 80%, #FDE68A 100%);
+  background: linear-gradient(90deg, #1E40AF 0%, var(--theme-primary-light, #38BDF8) 40%, #F59E0B 80%, #FDE68A 100%);
   border-radius: 999px;
   position: relative;
   transition: width 0.2s ease-out;
@@ -250,7 +250,7 @@
 
 /* Percentage Display */
 .splash-percentage {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-heading);
   font-size: 22px;
   font-weight: 800;
   color: #F59E0B;

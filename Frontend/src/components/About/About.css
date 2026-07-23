@@ -1,310 +1,407 @@
-.about {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 70px;
+/* ==========================================
+   ABOUT SECTION
+========================================== */
 
-padding: 50px 8% 90px;  background: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #f8fbff 100%
-  );
-
-  position: relative;
-  overflow: hidden;
+.about{
+    position:relative;
+    overflow:hidden;
+    padding:100px 8%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:80px;
+    background:linear-gradient(180deg,#ffffff,#f8fbff);
 }
 
-.about-image {
-  flex: 0.9;
-  display: flex;
-  justify-content: center;
+/* ==========================================
+   BACKGROUND EFFECT
+========================================== */
+
+.about::before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    background:rgba(37,99,235,.08);
+    border-radius:50%;
+    filter:blur(120px);
+    top:-180px;
+    left:-180px;
 }
 
-.about-badge {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px);
-
-  padding: 15px 20px;
-  border-radius: 16px;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-
-  transition: 0.4s ease;
+.about::after{
+    content:"";
+    position:absolute;
+    width:320px;
+    height:320px;
+    background:rgba(245,158,11,.08);
+    border-radius:50%;
+    filter:blur(120px);
+    right:-150px;
+    bottom:-150px;
 }
 
-.about-badge h3 {
-  margin: 0;
-  color: #2563eb;
-  font-size: 22px;
+/* ==========================================
+   LEFT
+========================================== */
+
+.about-left{
+    position:relative;
+    z-index:2;
 }
 
-.about-badge span {
-  color: #666;
-  font-size: 14px;
+.about-image{
+    position:relative;
 }
 
-.about-image:hover .about-badge {
-  transform: translateY(-5px);
-}
-.about-btn span {
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.about-btn:hover span {
-  transform: translateX(6px);
-}
-.about-content h2::after {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 4px;
-
-  margin-top: 15px;
-
-  border-radius: 20px;
-
-  background: linear-gradient(90deg, #2563eb, #f59e0b);
+.about-image img{
+    width:100%;
+    border-radius:24px;
+    display:block;
+    object-fit:cover;
+    box-shadow:0 30px 70px rgba(15,23,42,.15);
+    transition:.45s;
 }
 
-.about-image img {
-  width: 85%;          /* 100% → 85% */
-  max-width: 500px;    /* Maximum width */
-  height: auto;
-
-  border-radius: 22px;
-
-  box-shadow: 0 25px 60px rgba(0,0,0,.12);
-
-  transition: .50s;
-}
-.about-image img {
-  border: 4px solid transparent;
-  transition: all 0.4s ease;
+.about-image:hover img{
+    transform:scale(1.03);
 }
 
-.about-image img:hover {
-  border-color: #2563eb;
-  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.25);
+/* ==========================================
+   FLOATING BADGE
+========================================== */
+
+.about-badge{
+    position:absolute;
+    top:25px;
+    right:25px;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(15px);
+    padding:18px 26px;
+    border-radius:18px;
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+    text-align:center;
 }
 
-.about-image img:hover {
-  transform: scale(1.02);
-  border-color: #2563eb;
-box-shadow:
-0 25px 60px rgba(0,0,0,.12),
-0 10px 25px rgba(37,99,235,.10);}
-
-.about-content {
-  flex: 1;
+.about-badge h2{
+    font-size:34px;
+    color:#ff7a00;
+    margin:0;
+    font-weight:800;
 }
 
-.about-subtitle {
-  color: #2563eb;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
+.about-badge p{
+    margin-top:6px;
+    color:#64748b;
+    font-size:14px;
 }
 
-.about-content h2 {
+/* ==========================================
+   EXPERIENCE CARD
+========================================== */
 
-  font-size: 48px;
-
-  font-weight: 800;
-
-  line-height: 1.25;
-
-  color:#0f172a;
-
-  margin-bottom:25px;
-
-}
-.about-content h2::after{
-
-content:"";
-
-display:block;
-
-width:90px;
-
-height:4px;
-
-margin-top:15px;
-
-border-radius:30px;
-
-background:linear-gradient(
-90deg,
-#2563eb,
-#f59e0b);
-
-}
-.about-text{
-
-font-size:18px;
-
-line-height:1.9;
-
-color:#64748b;
-
-margin-bottom:35px;
-
-}
-.about-features p{
-
-display:flex;
-
-align-items:center;
-
-gap:15px;
-
-padding:14px 18px;
-
-margin-bottom:15px;
-
-border-radius:14px;
-
-background:white;
-
-box-shadow:0 8px 20px rgba(0,0,0,.05);
-
-transition:.4s;
-
-font-weight:600;
-
+.experience-card{
+    position:absolute;
+    left:30px;
+    bottom:30px;
+    background:#ffffff;
+    border-radius:18px;
+    padding:18px 22px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    box-shadow:0 18px 45px rgba(0,0,0,.12);
 }
 
-.about-features svg {
-  color: #2563eb;
+.experience-card svg{
+    font-size:34px;
+    color:#2563eb;
 }
 
-.about-btn {
-  margin-top: 20px;
-  padding: 15px 40px;
-
-  border: none;
-  border-radius: 12px;
-
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: white;
-
-  font-size: 17px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: all 0.4s ease;
-
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
-}
-.about-btn:hover {
-  background: linear-gradient(135deg, #f59e0b, #ea580c);
-
-  transform: translateY(-4px);
-
-  box-shadow: 0 15px 35px rgba(245, 158, 11, 0.35);
-}
-/* Responsive */
-
-@media (max-width: 992px) {
-
-  .about {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-features p {
-    justify-content: center;
-  }
-
-  .about-content h2 {
-    font-size: 34px;
-  }
-
-}
-.about::before {
-  content: "";
-  position: absolute;
-
-  width: 350px;
-  height: 350px;
-
-  background: rgba(37,99,235,.08);
-
-  border-radius: 50%;
-
-  filter: blur(90px);
-
-  left: -120px;
-  top: -100px;
+.experience-card h4{
+    color:#0f172a;
+    font-size:18px;
+    margin-bottom:4px;
 }
 
-.about::after {
-
-  content: "";
-
-  position: absolute;
-
-  width: 280px;
-  height: 280px;
-
-  background: rgba(245,158,11,.08);
-
-  border-radius: 50%;
-
-  filter: blur(90px);
-
-  right: -80px;
-  bottom: -100px;
-}
-.about-features p:hover{
-
-transform:translateX(8px);
-
-background:#f8fbff;
-
+.experience-card span{
+    color:#64748b;
+    font-size:14px;
 }
 
-body.dark-mode .about {
-  background: linear-gradient(180deg, #111827 0%, #111827 100%);
+/* ==========================================
+   RIGHT CONTENT
+========================================== */
+
+.about-right{
+    position:relative;
+    z-index:2;
 }
 
-body.dark-mode .about-badge {
-  background: rgba(15,23,42,0.92);
-  box-shadow: 0 12px 30px rgba(255,255,255,.05);
+.about-subtitle{
+    display:inline-block;
+    color:#2563eb;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:18px;
 }
 
-body.dark-mode .about-badge h3,
-body.dark-mode .about-content h2 {
-  color: #f8fafc;
+.about-title{
+    font-size:50px;
+    font-weight:800;
+    line-height:1.25;
+    color:#0f172a;
+    margin-bottom:25px;
 }
 
-body.dark-mode .about-badge span,
-body.dark-mode .about-text,
-body.dark-mode .about-features p {
-  color: #cbd5e1;
-  background: rgba(255,255,255,.04);
+.about-title span{
+    color:#ff7a00;
 }
 
-body.dark-mode .about-features p {
-  box-shadow: 0 8px 20px rgba(0,0,0,.2);
+.about-title::after{
+    content:"";
+    display:block;
+    width:90px;
+    height:4px;
+    margin-top:18px;
+    border-radius:20px;
+    background:linear-gradient(90deg,#2563eb,#ff7a00);
 }
 
-body.dark-mode .about-content h2::after,
-body.dark-mode .about .about-badge {
-  background: transparent;
+.about-description{
+    font-size:17px;
+    color:#64748b;
+    line-height:1.9;
+    margin-bottom:35px;
 }
 
-body.dark-mode .about-btn {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+/* ==========================================
+   FEATURE GRID
+========================================== */
+
+.about-features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+/* ==========================================
+   FEATURE BOX
+========================================== */
+
+.feature-box{
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+    padding:22px;
+    background:#ffffff;
+    border-radius:18px;
+    border:1px solid rgba(37,99,235,.08);
+    box-shadow:0 10px 30px rgba(15,23,42,.05);
+    transition:.35s ease;
 }
 
-body.dark-mode .about-btn:hover {
-  background: linear-gradient(135deg, #f59e0b, #ea580c);
+.feature-box svg{
+    font-size:28px;
+    color:#2563eb;
+    min-width:28px;
+    transition:.35s;
+}
+
+.feature-box h4{
+    font-size:18px;
+    font-weight:700;
+    color:#0f172a;
+    margin-bottom:8px;
+}
+
+.feature-box p{
+    font-size:14px;
+    color:#64748b;
+    line-height:1.7;
+}
+
+.feature-box:hover{
+    transform:translateY(-8px);
+    border-color:#ff7a00;
+    box-shadow:0 20px 40px rgba(255,122,0,.18);
+}
+
+.feature-box:hover svg{
+    color:#ff7a00;
+    transform:scale(1.1);
+}
+
+.feature-box:hover h4{
+    color:#ff7a00;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.about-btn{
+    margin-top:40px;
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:16px 34px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.35s;
+    box-shadow:0 15px 35px rgba(37,99,235,.25);
+}
+
+.about-btn svg{
+    transition:.35s;
+}
+
+.about-btn:hover{
+    background:linear-gradient(135deg,#ff7a00,#ea580c);
+    transform:translateY(-3px);
+    box-shadow:0 18px 40px rgba(255,122,0,.30);
+}
+
+.about-btn:hover svg{
+    transform:translateX(6px);
+}
+
+/* ==========================================
+   IMAGE HOVER
+========================================== */
+
+.about-image:hover .about-badge{
+    transform:translateY(-8px);
+}
+
+.about-image:hover .experience-card{
+    transform:translateY(-8px);
+}
+
+.about-badge,
+.experience-card{
+    transition:.35s;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1100px){
+
+.about{
+    grid-template-columns:1fr;
+    gap:60px;
+}
+
+.about-title{
+    font-size:42px;
+}
+
+}
+
+@media(max-width:768px){
+
+.about{
+    padding:80px 6%;
+}
+
+.about-title{
+    font-size:34px;
+}
+
+.about-description{
+    font-size:15px;
+}
+
+.about-features{
+    grid-template-columns:1fr;
+}
+
+.about-badge{
+    right:15px;
+    top:15px;
+    padding:14px 20px;
+}
+
+.about-badge h2{
+    font-size:26px;
+}
+
+.experience-card{
+    left:15px;
+    bottom:15px;
+    padding:14px 18px;
+}
+
+.experience-card h4{
+    font-size:16px;
+}
+
+.about-btn{
+    width:100%;
+    justify-content:center;
+}
+
+}
+
+/* ==========================================
+   DARK MODE
+========================================== */
+
+body.dark-mode .about{
+    background:linear-gradient(180deg,#111827,#0f172a);
+}
+
+body.dark-mode .about-title{
+    color:#ffffff;
+}
+
+body.dark-mode .about-description{
+    color:#cbd5e1;
+}
+
+body.dark-mode .feature-box{
+    background:rgba(255,255,255,.05);
+    border-color:rgba(255,255,255,.08);
+}
+
+body.dark-mode .feature-box h4{
+    color:#ffffff;
+}
+
+body.dark-mode .feature-box p{
+    color:#cbd5e1;
+}
+
+body.dark-mode .experience-card,
+body.dark-mode .about-badge{
+    background:rgba(15,23,42,.92);
+}
+
+body.dark-mode .experience-card h4{
+    color:#ffffff;
+}
+
+body.dark-mode .experience-card span,
+body.dark-mode .about-badge p{
+    color:#cbd5e1;
+}
+
+/* ==========================================
+   SMOOTH ANIMATION
+========================================== */
+
+.about img,
+.feature-box,
+.about-btn,
+.about-badge,
+.experience-card{
+    transition:all .35s ease;
 }

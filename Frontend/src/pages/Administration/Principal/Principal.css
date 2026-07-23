@@ -3,6 +3,7 @@
    ========================================================================== */
 
 :root {
+<<<<<<< HEAD
   --nav-dark: #0a192f;
   --royal-blue: #1e3a8a;
   --accent-cyan: #0ea5e9;
@@ -14,6 +15,18 @@
   --glass-bg: rgba(255, 255, 255, 0.85);
   --glass-border: rgba(255, 255, 255, 0.6);
   --card-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+=======
+  --primary-blue: #2563eb;
+  --primary-purple: var(--theme-primary-dark, #0369A1);
+  --primary-orange: #ea580c;
+  --bg-gradient-start: #f8fafc;
+  --bg-gradient-end: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --glass-bg: var(--theme-bg);
+  --glass-border: var(--theme-border);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+>>>>>>> 97a1c8434dbe49005cf2f8a7b5bb8be36e3e124e
 }
 
 .principal-page {
@@ -22,8 +35,13 @@
   background: #f8fafc;
   padding-bottom: 80px;
   overflow: hidden;
+<<<<<<< HEAD
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--text-dark);
+=======
+  font-family: var(--font-body);
+  color: var(--text-main);
+>>>>>>> 97a1c8434dbe49005cf2f8a7b5bb8be36e3e124e
 }
 
 .principal-container {
@@ -377,11 +395,23 @@
   flex-shrink: 0;
 }
 
+<<<<<<< HEAD
 .letter-title {
   font-size: 28px;
   font-weight: 800;
   color: var(--text-dark);
   margin: 0 0 4px 0;
+=======
+.bg-blue { background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8), #2563eb); }
+.bg-purple { background: linear-gradient(135deg, #a855f7, var(--theme-primary-dark, #0369A1)); }
+.bg-orange { background: linear-gradient(135deg, #f97316, #ea580c); }
+
+.card-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-main);
+>>>>>>> 97a1c8434dbe49005cf2f8a7b5bb8be36e3e124e
 }
 
 .letter-subtitle {

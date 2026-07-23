@@ -2,39 +2,58 @@ import "./Departments.css";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 
+import cse from "../../assets/departments/cse.jpg";
+import aids from "../../assets/departments/aids.jpg";
+import ece from "../../assets/departments/ece.jpg";
+import eee from "../../assets/departments/eee.jpg";
+import mech from "../../assets/departments/mech.jpg";
+import civil from "../../assets/departments/civil.jpg";
+
 const departments = [
   {
+    image: cse,
     title: "Computer Science & Engineering",
-    description: "Building future software engineers and innovators.",
+    description:
+      "Building future software engineers through innovation, coding excellence and industry-oriented learning.",
   },
   {
+    image: aids,
     title: "Artificial Intelligence & Data Science",
-    description: "Creating intelligent systems with modern AI technologies.",
+    description:
+      "Empowering students with Artificial Intelligence, Machine Learning and Data Analytics.",
   },
   {
-    title: "Electronics & Communication",
-    description: "Empowering communication and embedded technologies.",
+    image: ece,
+    title: "Electronics & Communication Engineering",
+    description:
+      "Creating communication professionals with expertise in embedded systems and IoT.",
   },
   {
-    title: "Electrical & Electronics",
-    description: "Power systems, automation and electrical innovation.",
+    image: eee,
+    title: "Electrical & Electronics Engineering",
+    description:
+      "Developing engineers for smart power systems, automation and renewable energy.",
   },
   {
+    image: mech,
     title: "Mechanical Engineering",
-    description: "Designing the future of machines and manufacturing.",
+    description:
+      "Designing modern machines through manufacturing, CAD/CAM and industrial technologies.",
   },
   {
+    image: civil,
     title: "Civil Engineering",
-    description: "Building sustainable infrastructure for tomorrow.",
+    description:
+      "Building sustainable infrastructure with innovative construction technologies.",
   },
 ];
 
 function Departments() {
   return (
-    
     <section className="departments">
 
       <div className="department-header">
+
         <p className="department-subtitle">
           OUR DEPARTMENTS
         </p>
@@ -44,36 +63,73 @@ function Departments() {
         </h2>
 
         <p className="department-description">
-          Discover diverse engineering disciplines designed to prepare students
-          for successful careers and innovative research.
+          Choose from world-class engineering programs designed to prepare
+          students for innovation, research and successful careers.
         </p>
+
       </div>
 
       <div className="department-grid">
+
         {departments.map((dept, index) => (
+
           <motion.div
-            className="department-card"
             key={index}
+            className="department-card"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.12,
+            }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
           >
+
+            {/* Image */}
+
             <div className="department-image">
-              Image Coming Soon
+
+              <img
+                src={dept.image}
+                alt={dept.title}
+              />
+
+              <div className="department-overlay">
+
+                <span className="department-tag">
+                  Department
+                </span>
+
+                <h4>
+                  {dept.title}
+                </h4>
+
+              </div>
+
             </div>
+
+            {/* Content */}
 
             <div className="department-content">
-              <h3>{dept.title}</h3>
 
-              <p>{dept.description}</p>
+              <p>
+                {dept.description}
+              </p>
 
               <button>
-                Explore <FaArrowRight />
+
+                Explore Department
+
+                <FaArrowRight />
+
               </button>
+
             </div>
+
           </motion.div>
+
         ))}
+
       </div>
 
     </section>

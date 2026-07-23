@@ -43,27 +43,19 @@
 /* Card */
 
 .why-card {
-  background: rgba(255,255,255,.85);
-  backdrop-filter: blur(15px);
-
+  background: #ffffff;
   border-radius: 22px;
-
   padding: 35px 25px;
-
   text-align: center;
-
-  box-shadow: 0 15px 35px rgba(0,0,0,.08);
-
-  transition: .4s ease;
-
-  border: 1px solid rgba(255,255,255,.4);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(37, 99, 235, 0.08);
 }
 
 .why-card:hover {
   transform: translateY(-12px);
-
-  box-shadow: 0 20px 45px rgba(37,99,235,.18);
-
+  background: linear-gradient(135deg, #ffffff, #f8faff);
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.12);
   border-color: #2563eb;
 }
 
@@ -129,16 +121,20 @@ body.dark-mode .why-icon {
 }
 
 .why-card h3 {
-  font-size: 23px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 22px;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   color: #0f172a;
+  letter-spacing: -0.02em;
 }
 
 .why-card p {
-  color: #64748b;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #475569;
   line-height: 1.7;
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 /* Responsive */

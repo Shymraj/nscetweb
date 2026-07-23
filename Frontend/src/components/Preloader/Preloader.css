@@ -948,7 +948,7 @@
 }
 
 .nscet-golden-text .letter {
-    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    font-family: var(--font-body);
     font-size: clamp(5rem, 18vw, 9rem);
     font-weight: 900;
     line-height: 1;
@@ -959,12 +959,12 @@
     background: linear-gradient(135deg,
             #8B6914 0%,
             #B8860B 12%,
-            #C9A84C 22%,
+            var(--theme-accent, #F59E0B) 22%,
             #FFD700 35%,
             #FFF8DC 45%,
             #FFD700 55%,
             #DAA520 68%,
-            #C9A84C 78%,
+            var(--theme-accent, #F59E0B) 78%,
             #B8860B 88%,
             #8B6914 100%);
     background-size: 300% 300%;
@@ -1117,7 +1117,7 @@
     display: flex;
     align-items: center;
     gap: 0;
-    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    font-family: var(--font-body);
     font-size: clamp(0.65rem, 1.5vw, 0.95rem);
     font-weight: 300;
     letter-spacing: 5px;
@@ -1359,7 +1359,7 @@
 
 .g-arc-blue {
     fill: none;
-    stroke: #c9a84c;
+    stroke: var(--theme-accent, #F59E0B);
     stroke-width: 3;
     stroke-linecap: round;
     stroke-dasharray: 70 230;
@@ -1430,11 +1430,11 @@
 
 .transition-n-letter {
     position: relative;
-    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    font-family: var(--font-body);
     font-size: 3rem;
     font-weight: 900;
     color: transparent;
-    background: linear-gradient(135deg, #b8860b 0%, #c9a84c 25%, #ffd700 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #b8860b 0%, var(--theme-accent, #F59E0B) 25%, #ffd700 50%, #daa520 75%, #b8860b 100%);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     background-clip: text;

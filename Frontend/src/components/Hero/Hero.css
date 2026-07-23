@@ -14,7 +14,8 @@
    ========================================================================== */
 .hero {
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* Reduced from 100vh to reduce bottom height of the hero */
+  min-height: 650px;
   position: relative;
   background-size: cover;
   background-position: center;
@@ -61,8 +62,10 @@
 .hero-brand {
   display: flex;
   align-items: center;
-  gap: 15px; /* Reduced gap */
-  margin-bottom: 15px; /* Reduced margin */
+  gap: 15px;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 5;
 }
 
 .hero-logo {
@@ -101,21 +104,25 @@
 }
 
 /* College Name Styling with strong text shadow for bright background */
-.college-name {
+.college-name,
+body.dark-mode .college-name {
   font-family: "Cinzel", "Playfair Display", serif;
   font-size: 48px; /* Slightly smaller to prevent excessive wrapping */
-  line-height: 1.1; /* Tighter line height to remove vertical gap */
+  line-height: 1.15;
   font-weight: 700;
-  color: #ffffff;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   letter-spacing: 0.5px;
+  margin-top: 0;
   text-shadow: 
     0 2px 6px rgba(0, 0, 0, 0.9), 
-    0 4px 15px rgba(0, 0, 0, 0.8),
     0 0 30px rgba(0, 0, 0, 0.4);
 }
 
-.college-name .accent-text {
-  color: #f7a521;
+.college-name .accent-text,
+body.dark-mode .college-name .accent-text {
+  color: #f7a521 !important;
+  -webkit-text-fill-color: #f7a521 !important;
 }
 
 /* Premium separator line */
@@ -223,7 +230,7 @@ body.dark-mode .college-tagline {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Reduced vertical card spacing */
+  gap: 12px; /* Reduced vertical card spacing */
   align-items: flex-end;
   animation: fadeInRight 1.2s ease-out forwards;
 }
@@ -231,13 +238,13 @@ body.dark-mode .college-tagline {
 .floating-card {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   background: rgba(0, 15, 30, 0.65); /* Rich dark-glass styling to stand out against bright background */
   backdrop-filter: blur(25px) saturate(140%);
   -webkit-backdrop-filter: blur(25px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 16px;
-  padding: 16px 22px; /* Reduced padding for cleaner look */
+  border-radius: 14px;
+  padding: 10px 18px; /* Compact height */
   width: 100%;
   max-width: 420px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45),
@@ -268,16 +275,16 @@ body.dark-mode .college-tagline {
 
 /* Feature Icon inside cards */
 .feature-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
   background: linear-gradient(135deg, rgba(255, 122, 0, 0.2), rgba(246, 179, 50, 0.2));
   border: 1.5px solid rgba(246, 179, 50, 0.35);
   display: flex;
   justify-content: center;
   align-items: center;
   color: #f6b332;
-  font-size: 22px;
+  font-size: 18px;
   flex-shrink: 0;
   transition: all 0.35s ease;
 }
@@ -399,7 +406,7 @@ body.dark-mode .college-tagline {
 @media (max-width: 1100px) {
   .hero {
     height: auto;
-    min-height: 100vh;
+    min-height: 85vh;
     padding: 100px 0 60px;
   }
 
@@ -499,14 +506,14 @@ body.dark-mode .college-tagline {
   }
 
   .floating-card {
-    padding: 14px 18px;
+    padding: 8px 14px;
     gap: 12px;
   }
 
   .feature-icon {
-    width: 44px;
-    height: 44px;
-    font-size: 18px;
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
     border-radius: 8px;
   }
 
@@ -530,13 +537,13 @@ body.dark-mode .college-tagline {
   }
 
   .floating-card {
-    padding: 12px 14px;
+    padding: 6px 12px;
   }
 
   .feature-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
   }
 
   .card-info h3 {

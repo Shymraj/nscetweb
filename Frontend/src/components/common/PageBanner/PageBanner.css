@@ -9,7 +9,7 @@
   color: white;
   text-align: center;
   overflow: hidden;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
 }
 
 /* --- Parallax Background --- */

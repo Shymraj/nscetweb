@@ -5,7 +5,7 @@
 }
 /* Affiliation.css */
 .affiliation-page {
-  font-family: 'Inter', 'Roboto', sans-serif;
+  font-family: var(--font-body);
   background-color: #f8fafc;
   color: #1e293b;
   min-height: 100vh;
@@ -140,7 +140,7 @@
   height: 12px;
   bottom: 25%;
   right: 25%;
-  background: #3b82f6;
+  background: var(--theme-primary-light, #38BDF8);
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
 }
 
@@ -221,8 +221,9 @@
 
 /* Content Area */
 .affiliation-heading {
+  font-family: var(--font-subtopic);
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #0f172a;
   margin-bottom: 0.5rem;
   line-height: 1.2;
@@ -258,11 +259,12 @@
 }
 
 .cert-chip {
+  font-family: var(--font-body);
   background: var(--premium-card-bg);
   border: var(--premium-card-border);
   padding: 0.75rem 1.5rem;
   border-radius: 50px; /* Pill design */
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.95rem;
   color: #334155;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
@@ -271,7 +273,7 @@
 }
 
 .cert-chip:hover {
-  border-color: #3b82f6;
+  border-color: var(--theme-primary-light, #38BDF8);
   color: #2563eb;
   box-shadow: 0 10px 20px rgba(59, 130, 246, 0.15);
   background: linear-gradient(to right, #ffffff, #f8fafc);
@@ -350,6 +352,8 @@
 @media (max-width: 768px) {
   .about-inner-container { padding: 60px 24px; }
   .affiliation-heading {
+  font-weight: 700;
+  font-family: var(--font-subtopic);
     font-size: 2rem;
   }
   
@@ -366,3 +370,11 @@
   }
 }
 
+
+
+/* =========================================
+   HERO BOX PUSH DOWN FIX
+   ========================================= */
+.affiliation-page {
+    padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
+}
