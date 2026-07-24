@@ -1,5 +1,5 @@
 import "./Hero.css";
-import heroImage from "../../assets/Img/hero.jpeg";
+import heroImage from "../../assets/hero.png";
 import logo from "../../assets/Img/nscet-logo.webp";
 
 import {
