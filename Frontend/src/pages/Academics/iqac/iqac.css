@@ -4,7 +4,7 @@
   color: #102a43;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 0 24px 24px; /* Removed top padding so hero goes behind navbar */
 }
 
 .iqac-hero {
@@ -239,3 +239,5 @@
     padding: 20px;
   }
 }
+
+/* trigger vite update */

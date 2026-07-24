@@ -261,7 +261,6 @@ const Contact = () => {
             </div>
           </div>
         </motion.div>
-        </div>
       </main>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import './IndustryCollaboration.css';
-import PageBanner from './images/dji_fly_20250823_102246_695_1755932926647_photo.jpg';
-
+import PageBanner from '../../../components/common/PageBanner/PageBanner';
+import bannerImg from './images/dji_fly_20250823_102246_695_1755932926647_photo.jpg';
 // Import Assets
 import pdfFile from './images/IIPC cell committee members.pdf';
 import img1 from './images/mou 1.jpeg';
@@ -76,6 +76,7 @@ function IndustryCollaboration() {
         title="Industry Collaboration"
         subtitle="Bridging the gap between academia and industry through strategic MOUs, internships, and dynamic partnerships."
         hideBreadcrumb={true}
+        backgroundImage={bannerImg}
       />
 
       {/* Introduction Section */}

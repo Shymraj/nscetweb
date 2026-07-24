@@ -40,11 +40,6 @@ body.dark-mode .contact-container {
   z-index: 10;
 }
 
-.content-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
 /* Titles */
 .glam-title {
   font-size: 2.25rem;

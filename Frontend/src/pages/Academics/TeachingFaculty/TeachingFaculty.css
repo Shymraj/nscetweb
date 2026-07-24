@@ -12,7 +12,7 @@
   background-color: var(--tf-bg);
   min-height: 100vh;
   font-family: var(--font-body);
-  padding: 4rem 2rem;
+  padding: 10rem 2rem 4rem; /* 10rem top padding to safely clear the floating Navbar */
   color: var(--tf-text-dark);
   overflow-x: hidden;
 }
@@ -20,7 +20,6 @@
 .tf-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding-top: 90px;
 }
 
 .tf-nav-section {
