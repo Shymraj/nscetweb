@@ -1,0 +1,351 @@
+/* Research Centre Page Styles */
+
+.rc-page {
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--text-color, #1f2937);
+  background-color: var(--bg-color, #f8fafc);
+}
+
+.rc-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+/* Section Styles */
+.rc-section {
+  margin-bottom: 3rem;
+  background: var(--card-bg, #ffffff);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.rc-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color, #e2e8f0);
+}
+
+.rc-header-icon {
+  font-size: 2rem;
+  color: var(--primary-accent, #0d3b8e);
+}
+
+.rc-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color, #1f2937);
+  margin: 0;
+}
+
+.rc-content {
+  line-height: 1.8;
+  color: var(--text-color, #1f2937);
+}
+
+.rc-content p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.rc-content strong {
+  color: var(--primary-accent, #0d3b8e);
+  font-weight: 600;
+}
+
+/* Overview Section */
+.rc-overview {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left: 5px solid var(--primary-accent, #0d3b8e);
+}
+
+/* Vision & Mission Row */
+.rc-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.rc-card {
+  background: var(--card-bg, #ffffff);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.rc-vision {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-left: 5px solid #f59e0b;
+}
+
+.rc-mission {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-left: 5px solid #3b82f6;
+}
+
+.rc-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.rc-card-icon {
+  font-size: 1.8rem;
+  color: var(--primary-accent, #0d3b8e);
+}
+
+.rc-vision .rc-card-icon {
+  color: #f59e0b;
+}
+
+.rc-mission .rc-card-icon {
+  color: #3b82f6;
+}
+
+.rc-card-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color, #1f2937);
+  margin: 0;
+}
+
+.rc-card-content p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: var(--text-color, #1f2937);
+}
+
+/* Approved Research Centre */
+.rc-approved {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  border-left: 5px solid #22c55e;
+}
+
+.rc-approved .rc-header-icon {
+  color: #22c55e;
+}
+
+.rc-featured {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Publications Section */
+.rc-publications h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-color, #1f2937);
+}
+
+.rc-table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.rc-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg, #ffffff);
+}
+
+.rc-table thead {
+  background: var(--primary-accent, #0d3b8e);
+  color: white;
+}
+
+.rc-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.rc-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  font-size: 0.95rem;
+}
+
+.rc-table tbody tr:hover {
+  background: rgba(13, 59, 142, 0.05);
+}
+
+.rc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-accent, #0d3b8e);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.rc-link:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+.rc-na {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Patents Section */
+.rc-patents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.rc-patent-card {
+  background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rc-patent-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.rc-patent-number {
+  font-size: 0.9rem;
+  color: #854d0e;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.rc-patent-author {
+  font-size: 1.1rem;
+  color: var(--text-color, #1f2937);
+  margin-bottom: 0.75rem;
+}
+
+.rc-patent-title {
+  font-size: 1rem;
+  color: #713f12;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Dark Mode Support */
+body.dark-mode .rc-page {
+  --text-color: #f1f5f9;
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --border-color: #334155;
+  --primary-accent: #38bdf8;
+}
+
+body.dark-mode .rc-section,
+body.dark-mode .rc-card {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .rc-overview {
+  background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+  border-left-color: var(--primary-accent);
+}
+
+body.dark-mode .rc-vision {
+  background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+  border-left-color: #f59e0b;
+}
+
+body.dark-mode .rc-mission {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+  border-left-color: #3b82f6;
+}
+
+body.dark-mode .rc-approved {
+  background: linear-gradient(135deg, #14532d 0%, #166534 100%);
+  border-left-color: #22c55e;
+}
+
+body.dark-mode .rc-featured {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+body.dark-mode .rc-table thead {
+  background: #1e3a5f;
+}
+
+body.dark-mode .rc-table tbody tr:hover {
+  background: rgba(56, 189, 248, 0.1);
+}
+
+body.dark-mode .rc-patent-card {
+  background: linear-gradient(135deg, #713f12 0%, #a16207 100%);
+  border-color: rgba(234, 179, 8, 0.4);
+}
+
+body.dark-mode .rc-patent-number {
+  color: #fef9c3;
+}
+
+body.dark-mode .rc-patent-author {
+  color: #f1f5f9;
+}
+
+body.dark-mode .rc-patent-title {
+  color: #fef3c7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .rc-container {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .rc-section {
+    padding: 1.5rem;
+  }
+
+  .rc-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .rc-row {
+    grid-template-columns: 1fr;
+  }
+
+  .rc-table {
+    font-size: 0.85rem;
+  }
+
+  .rc-table th,
+  .rc-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .rc-patents-grid {
+    grid-template-columns: 1fr;
+  }
+}
