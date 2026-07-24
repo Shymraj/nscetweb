@@ -5,26 +5,26 @@
 
 // Dynamically import all images for each event
 const imageGlobs = {
-  'diwali-celebration-2025': import.meta.glob('../assets/events/diwali-celebration-2025/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'waves-25': import.meta.glob('../assets/events/waves-25/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'onam-celebration-2025': import.meta.glob('../assets/events/onam-celebration-2025/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'freshers-day-2025': import.meta.glob('../assets/events/freshers-day-2025/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'independence-day-2025': import.meta.glob('../assets/events/independence-day-2025/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'signout-day-2025': import.meta.glob('../assets/events/signout-day-2025/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'pongal-2025': import.meta.glob('../assets/events/pongal-2025/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'waves-24': import.meta.glob('../assets/events/waves-24/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'annual-day-24': import.meta.glob('../assets/events/annual-day-24/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'sports-day': import.meta.glob('../assets/events/sports-day/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'sports-achievements': import.meta.glob('../assets/events/sports-achievements/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'nexus-aim-association': import.meta.glob('../assets/events/nexus-aim-association/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'diwali-celebration': import.meta.glob('../assets/events/diwali-celebration/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'freshers-day': import.meta.glob('../assets/events/freshers-day/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'graduation-day': import.meta.glob('../assets/events/graduation-day/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'kalam-awards': import.meta.glob('../assets/events/kalam-awards/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'onam-celebration': import.meta.glob('../assets/events/onam-celebration/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'signout-day': import.meta.glob('../assets/events/signout-day/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'nss-tree-plantation': import.meta.glob('../assets/events/nss-tree-plantation/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }),
-  'civil-association': import.meta.glob('../assets/events/civil-association/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' })
+  'diwali-celebration-2025': import.meta.glob('../assets/events/diwali-celebration-2025/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'waves-25': import.meta.glob('../assets/events/waves-25/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'onam-celebration-2025': import.meta.glob('../assets/events/onam-celebration-2025/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'freshers-day-2025': import.meta.glob('../assets/events/freshers-day-2025/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'independence-day-2025': import.meta.glob('../assets/events/independence-day-2025/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'signout-day-2025': import.meta.glob('../assets/events/signout-day-2025/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'pongal-2025': import.meta.glob('../assets/events/pongal-2025/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'waves-24': import.meta.glob('../assets/events/waves-24/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'annual-day-24': import.meta.glob('../assets/events/annual-day-24/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'sports-day': import.meta.glob('../assets/events/sports-day/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'sports-achievements': import.meta.glob('../assets/events/sports-achievements/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'nexus-aim-association': import.meta.glob('../assets/events/nexus-aim-association/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'diwali-celebration': import.meta.glob('../assets/events/diwali-celebration/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'freshers-day': import.meta.glob('../assets/events/freshers-day/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'graduation-day': import.meta.glob('../assets/events/graduation-day/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'kalam-awards': import.meta.glob('../assets/events/kalam-awards/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'onam-celebration': import.meta.glob('../assets/events/onam-celebration/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'signout-day': import.meta.glob('../assets/events/signout-day/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'nss-tree-plantation': import.meta.glob('../assets/events/nss-tree-plantation/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' }),
+  'civil-association': import.meta.glob('../assets/events/civil-association/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, query: '?url', import: 'default' })
 };
 
 // Helper to convert glob results to array of URLs
