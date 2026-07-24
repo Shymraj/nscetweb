@@ -79,11 +79,12 @@ const Contact = () => {
       />
 
       <main className="content-wrapper">
-        {/* BENTO GRID: CONTACT INFO */}
-        <motion.div
-          className="contact-bento"
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
-        >
+        <div className="content-inner">
+          {/* BENTO GRID: CONTACT INFO */}
+          <motion.div
+            className="contact-bento"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          >
           <motion.div
             className="contact-card primary"
             variants={zoomIn}
@@ -201,6 +202,7 @@ const Contact = () => {
             </div>
           </div>
         </motion.div>
+        </div>
       </main>
     </div>
   );

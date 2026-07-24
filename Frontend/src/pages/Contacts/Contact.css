@@ -101,6 +101,11 @@ body.dark-mode .contact-container {
     padding: 0 2.5rem;
 }
 
+.content-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
 .glam-title {
     font-size: 2.2rem;
     font-weight: 700;

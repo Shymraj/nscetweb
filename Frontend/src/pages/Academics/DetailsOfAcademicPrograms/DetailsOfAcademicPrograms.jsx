@@ -1,6 +1,7 @@
 import React from 'react';
 import './DetailsOfAcademicPrograms.css';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
+import heroImg from './images/college photos 3.jpg';
 
 const ugPrograms = [
   'B.E. - Civil Engineering',
@@ -26,6 +27,7 @@ const AcademicPrograms = () => {
         title="Details of Academic Programs"
         subtitle="Explore our wide range of undergraduate, postgraduate, and doctoral research programs designed to foster excellence and innovation."
         hideBreadcrumb={true}
+        backgroundImage={heroImg}
       />
 
       {/* UG Programs */}
