@@ -29,7 +29,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <h1 className="college-name">
+          <h1 className="hero-college-name">
             NADAR SARASWATHI
             <br />
             <span className="accent-text">

@@ -74,7 +74,7 @@ function Navbar() {
           </div>
 
           <div className="college-name">
-            <h2 className="nscet-text" style={{ color: darkMode ? '#ffffff' : '#0d3b8e', fontWeight: 800 }}>NSCET</h2>
+            <h2 className="nscet-text" style={{ color: darkMode ? '#ffffff' : '#0d3b8e', fontSize: '21px', fontWeight: 800 }}>NSCET</h2>
           </div>
         </Link>
 

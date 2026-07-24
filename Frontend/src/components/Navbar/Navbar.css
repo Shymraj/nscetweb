@@ -220,13 +220,13 @@ header.scrolled {
 .college-name h2,
 .nscet-text {
     margin: 0;
-    font-size: 28px;
+    font-size: 21px !important;
     font-weight: 800;
     color: #0d3b8e !important;
     line-height: 1.1;
     text-shadow: none;
     font-family: var(--font-body);
-    letter-spacing: 0.8px;
+    letter-spacing: 0.5px;
 }
 
 .college-name p {
