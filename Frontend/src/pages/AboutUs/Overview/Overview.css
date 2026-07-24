@@ -27,7 +27,7 @@
    HERO SECTION REDESIGN
    ================================================== */
 .hero-section {
-  padding: 6rem 3%;
+  padding: 11rem 3% 6rem; /* 11rem top padding to safely clear the floating Navbar when starting at y=0 */
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   position: relative;
   /* Removed min-height: 90vh and overflow: hidden to fix scroll layout bugs */
@@ -935,6 +935,6 @@ body.dark-mode .info-highlight.grade-a {
 /* =========================================
    HERO BOX PUSH DOWN FIX
    ========================================= */
+/* The padding-top: 140px was removed to allow the hero section to naturally flow behind the Navbar */
 .overview-page {
-    padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
 }

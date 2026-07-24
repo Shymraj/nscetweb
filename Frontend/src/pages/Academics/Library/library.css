@@ -19,7 +19,7 @@ body {
   min-height: 100vh;
   font-family: var(--font-body);
   color: var(--m1-text-dark);
-  padding-top: 100px; 
+  padding-top: 0; /* Changed to 0 so the hero background can span to the top */
   box-sizing: border-box;
 }
 
@@ -31,7 +31,7 @@ body {
 
 .m1-hero-section {
   color: white;
-  padding: 8rem 2rem; 
+  padding: 10rem 2rem 6rem; /* Increased top padding to safely clear the floating Navbar */
   min-height: 60vh; 
   display: flex;
   flex-direction: column;
@@ -491,3 +491,5 @@ body {
     grid-template-columns: 1fr; /* Phone-la onnukku keela onna vara */
   }
 }
+
+/* trigger vite update */
