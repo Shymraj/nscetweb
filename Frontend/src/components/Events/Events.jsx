@@ -3,10 +3,10 @@ import "./Events.css";
 import { motion } from "framer-motion";
 import { FaCalendarAlt, FaArrowRight } from "react-icons/fa";
 
-import waves from "../../assets/waves.jpeg";
-import sports from "../../assets/sports.jpeg";
-import pongal from "../../assets/pongal.webp";
-import ps1 from "../../assets/ps1.jpg";
+import waves from "../../assets/hackathon.png";
+import sports from "../../assets/waves.jpeg";
+import pongal from "../../assets/pongal.jpg";
+import ps1 from "../../assets/annual.jpg";
 
 const events = [
   {
@@ -34,7 +34,7 @@ const events = [
     categoryClass: "badge-blue",
     image: pongal,
     date: "12 Apr 2026",
-    title: "ICRTT 2026",
+    title: "Pongal 2026",
     description:
       "International Conference on Recent Trends in Technology with keynote speakers and paper presentations.",
     button: "Submit Paper"
@@ -80,9 +80,7 @@ const Events = () => {
           >
             <div className="event-image">
               <img src={event.image} alt={event.title} />
-              <span className={`badge ${event.categoryClass}`}>
-                {event.category}
-              </span>
+
             </div>
 
             <div className="event-content">

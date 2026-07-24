@@ -1,5 +1,5 @@
 import "./About.css";
-import aboutImage from "../../assets/about.jpeg";
+import aboutImage from "../../assets/about.png";
 
 import { motion } from "framer-motion";
 
