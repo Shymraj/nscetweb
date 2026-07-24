@@ -68,13 +68,13 @@ function Navbar() {
 
       <nav className="navbar">
 
-        <Link to="/" className="logo-section" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Link to="/" className="logo-section" style={{ textDecoration: 'none' }}>
           <div className="logo-box">
             <img src={logo} alt="NSCET Logo" className="logo" />
           </div>
 
           <div className="college-name">
-            <h2>NSCET</h2>
+            <h2 className="nscet-text" style={{ color: darkMode ? '#ffffff' : '#0d3b8e', fontWeight: 800 }}>NSCET</h2>
           </div>
         </Link>
 

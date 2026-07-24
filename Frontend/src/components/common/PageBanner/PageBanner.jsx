@@ -22,6 +22,18 @@ const PageBanner = ({
   // Parallax effect: Moves the background image slightly slower than the page scroll
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
+  // Calculate dynamic font size class based on title length
+  let titleSizeClass = "title-size-xl";
+  if (title) {
+    if (title.length > 40) {
+      titleSizeClass = "title-size-sm";
+    } else if (title.length > 25) {
+      titleSizeClass = "title-size-md";
+    } else if (title.length > 15) {
+      titleSizeClass = "title-size-lg";
+    }
+  }
+
   return (
     <section 
       ref={ref}
@@ -75,7 +87,7 @@ const PageBanner = ({
           initial={{ y: 30, opacity: 0, scale: 0.98 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          className="banner-title"
+          className={`banner-title ${titleSizeClass}`}
         >
           {title}
         </motion.h1>

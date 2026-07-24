@@ -7,7 +7,6 @@ import {
   FaUniversity,
   FaLandmark,
   FaArrowRight,
-  FaChevronDown,
   FaStar,
 } from "react-icons/fa";
 
@@ -17,7 +16,7 @@ const Hero = () => {
       className="hero"
       style={{ backgroundImage: `url(${heroImage})` }}
     >
-      {/* Premium Overlay (Styled transparent in CSS to highlight image brightness) */}
+      {/* Premium Overlay */}
       <div className="hero-overlay"></div>
 
       <div className="hero-container">
@@ -31,9 +30,15 @@ const Hero = () => {
           </div>
 
           <h1 className="college-name">
-            Nadar Saraswathi
+            NADAR SARASWATHI
             <br />
-            <span className="accent-text">College of Engineering & Technology</span>
+            <span className="accent-text">
+              COLLEGE OF
+              <br />
+              ENGINEERING &
+              <br />
+              TECHNOLOGY
+            </span>
           </h1>
 
           <div className="premium-line"></div>
