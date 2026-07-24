@@ -97,44 +97,42 @@ body.dark-mode .hero-brand .badge {
   letter-spacing: 0.3px !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
 }
-
-.badge span,
+.hero .badge span,
 .hero-brand .badge span {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
 }
 
-.badge svg,
+.hero .badge svg,
 .hero-brand .badge svg {
-  color: #f59e0b !important;
-  font-size: 14px !important;
-  flex-shrink: 0 !important;
+  color: #f59e0b;
+  font-size: 14px;
+  flex-shrink: 0;
 }
-
 /* College Name Styling matching reference design */
-.college-name,
-body.dark-mode .college-name {
+.hero-college-name,
+body.dark-mode .hero-college-name {
   font-family: "Cinzel", serif;
   font-size: 46px;
   line-height: 1.15;
   font-weight: 700;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
-.college-name .accent-text,
-body.dark-mode .college-name .accent-text {
-  color: #f59e0b !important;
-  -webkit-text-fill-color: #f59e0b !important;
+.hero-college-name .accent-text,
+body.dark-mode .hero-college-name .accent-text {
+  color: #f59e0b;
+  -webkit-text-fill-color: #f59e0b;
   display: block;
 }
 
 /* Accent separator line */
-.premium-line {
+.hero .premium-line {
   width: 80px;
   height: 4px;
   background: #f59e0b;
@@ -143,18 +141,18 @@ body.dark-mode .college-name .accent-text {
 }
 
 /* Tagline & Descriptions */
-.college-tagline,
-body.dark-mode .college-tagline {
+.hero .college-tagline,
+body.dark-mode .hero .college-tagline {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 22px;
   font-weight: 700;
-  color: #f59e0b !important;
+  color: #f59e0b;
   margin-bottom: 12px;
   letter-spacing: 0.2px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-.left-description {
+.hero .left-description {
   color: #ffffff;
   font-size: 15px;
   line-height: 1.6;

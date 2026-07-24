@@ -1,104 +1,43 @@
-/* Contact.css */
+/* ==========================================================================
+   CONTACT PAGE STYLES - ORDERLY & ELEGANT UI
+   ========================================================================== */
 
-/* ========== General Container ========== */
 .contact-container {
-    width: 100%;
-    min-height: 100vh;
-    font-family: var(--font-body);
-    color: var(--text-color, #1f2937);
-    background-color: var(--bg-color, #f8f9fa);
-    transition: background-color 0.3s ease, color 0.3s ease;
+  display: block !important;
+  width: 100% !important;
+  min-height: 100vh;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--text-color, #1f2937);
+  background-color: var(--bg-color, #f8fafc);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode .contact-container {
-    --text-color: #f1f5f9;
-    --bg-color: #0f172a;
-    --card-bg: var(--theme-bg);
-    --border-color: rgba(255, 255, 255, 0.1);
-    --hover-bg: var(--theme-bg);
-    --primary-accent: var(--theme-accent);
-    --secondary-accent: var(--theme-accent);
+  --text-color: #f1f5f9;
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --border-color: #334155;
+  --primary-blue: #38bdf8;
 }
 
 .contact-container {
-    --card-bg: var(--theme-bg);
-    --border-color: rgba(0, 0, 0, 0.1);
-    --hover-bg: var(--theme-bg);
-    --primary-accent: var(--theme-accent);
-    --secondary-accent: var(--theme-accent);
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --primary-blue: #0d3b8e;
 }
 
-/* ========== HERO BANNER ========== */
-.contact-hero-section {
-    width: 100%;
-    padding: 1.5rem 2.5rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
+/* Ensure content wrapper sits cleanly below page banner */
+.contact-container .page-banner + * {
+  margin-top: 0 !important;
 }
 
-.contact-hero-box {
-    position: relative;
-    width: 100%;
-    min-height: 500px;
-    border-radius: 30px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
-}
-
-.contact-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.55) 100%);
-    border-radius: 30px;
-    z-index: 1;
-}
-
-.contact-hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: #ffffff;
-    padding: 2rem;
-    max-width: 900px;
-}
-
-.contact-hero-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    margin-bottom: 1rem;
-    letter-spacing: -1px;
-    background: linear-gradient(to right, #ffffff, var(--primary-accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.contact-hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    opacity: 0.9;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-}
-
-.contact-hero-accreditation {
-    font-size: 0.9rem;
-    color: #cbd5e1;
-    font-weight: 500;
-}
-
-/* ========== CONTENT WRAPPER ========== */
+/* Content Wrapper */
 .content-wrapper {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 2.5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 5rem 1.5rem;
+  position: relative;
+  z-index: 10;
 }
 
 .content-inner {
@@ -106,373 +45,437 @@ body.dark-mode .contact-container {
     margin: 0 auto;
 }
 
+/* Titles */
 .glam-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 4rem 0 2rem;
-    color: var(--text-color);
+  font-size: 2.25rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 2.5rem 0 0.5rem 0;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
 }
 
 .glam-title span {
-    color: var(--primary-accent);
+  color: var(--primary-blue);
 }
 
-/* ========== BENTO GRID (CONTACT INFO) ========== */
+.directory-subtitle {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+body.dark-mode .directory-subtitle {
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   1. TOP CONTACT CARDS (BENTO GRID)
+   ========================================================================== */
 .contact-bento {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-    position: relative;
-    z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .contact-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 1.5rem;
-    padding: 2rem;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  border-color: var(--primary-blue);
+  box-shadow: 0 15px 35px rgba(13, 59, 142, 0.12);
 }
 
 body.dark-mode .contact-card:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
 }
 
 .contact-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(201, 168, 76, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: rgba(13, 59, 142, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+body.dark-mode .contact-icon-wrapper {
+  background: rgba(56, 189, 248, 0.15);
 }
 
 .contact-icon {
-    font-size: 1.8rem;
-    color: var(--primary-accent);
+  font-size: 1.5rem;
+  color: var(--primary-blue);
 }
 
-.contact-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    color: var(--text-color);
+.contact-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.contact-card p,
-.contact-card a {
-    font-size: 1rem;
-    color: var(--text-color);
-    line-height: 1.6;
-    margin: 0.2rem 0;
-    opacity: 0.8;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.contact-card-content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 8px 0;
 }
 
-.contact-card a:hover {
-    color: var(--primary-accent);
-    opacity: 1;
+.contact-card-content p {
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
 }
 
-/* Primary Card (Navy Blue Theme) */
-.contact-card.primary {
-    background: linear-gradient(135deg, var(--secondary-accent), #1e293b);
-    color: white;
-    border: none;
+body.dark-mode .contact-card-content p {
+  color: #cbd5e1;
 }
 
-/* Secondary Card (Violet / Indigo Theme) */
-.contact-card.secondary {
-    background: linear-gradient(135deg, #6366f1, #3730a3);
-    color: white;
-    border: none;
+.admissions-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-/* Tertiary Card (Soft Blue / Teal Theme) */
-.contact-card.tertiary {
-    background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8), var(--secondary-accent));
-    color: white;
-    border: none;
+.admissions-email:hover {
+  text-decoration: underline;
 }
 
-/* Ensure text and icons contrast fully on these dark/vibrant cards */
-.contact-card.primary h3,
-.contact-card.primary p,
-.contact-card.primary a,
-.contact-card.primary .contact-icon,
-.contact-card.secondary h3,
-.contact-card.secondary p,
-.contact-card.secondary a,
-.contact-card.secondary .contact-icon,
-.contact-card.tertiary h3,
-.contact-card.tertiary p,
-.contact-card.tertiary a,
-.contact-card.tertiary .contact-icon {
-    color: white;
-    opacity: 1;
+.email-icon {
+  font-size: 1.1rem;
+  color: var(--primary-blue);
 }
 
-/* Custom Icon Wrappers for colored themes */
-.contact-card.primary .contact-icon-wrapper,
-.contact-card.secondary .contact-icon-wrapper,
-.contact-card.tertiary .contact-icon-wrapper {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.contact-card.primary p,
-.contact-card.secondary p,
-.contact-card.tertiary p {
-    opacity: 0.9;
-}
-
-
-/* ========== INTERCOM DIRECTORY TABLE ========== */
+/* ==========================================================================
+   2. INTERCOM DIRECTORY & CONTROLS
+   ========================================================================== */
 .intercom-section {
-    margin-top: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
+.directory-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Search Bar */
+.search-bar-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-bar-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #94a3b8;
+}
+
+.directory-search-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 20px 0 50px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 1.5px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-color);
+  outline: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+}
+
+.directory-search-input:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 4px rgba(13, 59, 142, 0.1);
+}
+
+body.dark-mode .directory-search-input:focus {
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+}
+
+/* Category Filter Tabs */
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cat-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1.5px solid var(--border-color);
+  background: var(--card-bg);
+  color: #64748b;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+body.dark-mode .cat-tab {
+  color: #94a3b8;
+}
+
+.cat-tab:hover {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  transform: translateY(-1px);
+}
+
+.cat-tab.active {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(13, 59, 142, 0.25);
+}
+
+body.dark-mode .cat-tab.active {
+  background: #38bdf8;
+  border-color: #38bdf8;
+  color: #0f172a !important;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+}
+
+.tab-icon {
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   3. DIRECTORY TABLE
+   ========================================================================== */
 .table-responsive {
-    overflow-x: auto;
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(10px);
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
 body.dark-mode .table-responsive {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .intercom-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
 }
 
 .intercom-table th {
-    background: var(--hover-bg);
-    color: var(--text-color);
-    font-weight: 600;
-    padding: 1.25rem 1.5rem;
-    font-size: 1.05rem;
-    border-bottom: 2px solid var(--border-color);
+  background: #0d3b8e;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 1.1rem 1.75rem;
+  font-size: 0.98rem;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+body.dark-mode .intercom-table th {
+  background: #1e293b;
+  color: #38bdf8;
+  border-bottom: 2px solid #334155;
 }
 
 .intercom-table td {
-    padding: 1rem 1.5rem;
-    color: var(--text-color);
-    border-bottom: 1px solid var(--border-color);
-    font-size: 0.95rem;
+  padding: 1.1rem 1.75rem;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.98rem;
+  vertical-align: middle;
 }
 
 .intercom-table tbody tr {
-    transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .intercom-table tbody tr:hover {
-    background-color: rgba(201, 168, 76, 0.05);
+  background-color: rgba(13, 59, 142, 0.04);
 }
 
-.intercom-table td strong {
-    font-weight: 500;
+body.dark-mode .intercom-table tbody tr:hover {
+  background-color: rgba(56, 189, 248, 0.06);
 }
 
-/* REMOVED BADGE STYLES FOR THE INTERCOM NUMBERS */
-.intercom-number {
-    display: inline-block;
-    color: var(--primary-accent);
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding-right: 8px;
+.location-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .contact-hero-title {
-        font-size: 2rem;
-    }
-
-    .contact-card {
-        padding: 1.5rem;
-    }
-
-    .intercom-table th,
-    .intercom-table td {
-        padding: 0.75rem 1rem;
-    }
+.location-icon {
+  font-size: 1.25rem;
+  color: var(--primary-blue);
+  flex-shrink: 0;
 }
 
-
-/* VIBRANT & ANIMATED CONTACT CARDS UPDATE */
-
-.contact-card.primary,
-.contact-card.secondary,
-.contact-card.tertiary {
-    background-size: 200% 200%;
-    animation: contactGradientShift 6s ease infinite;
-    position: relative;
-    overflow: hidden;
+.location-cell strong {
+  font-weight: 700;
+  color: var(--text-color);
 }
 
-@keyframes contactGradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+.phone-header,
+.intercom-header,
+.phone-cell,
+.intercom-cell {
+  text-align: center !important;
 }
 
-.contact-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.15) 50%, transparent 60%);
-    transition: all 0.6s ease;
-    transform: translateX(-100%);
-    z-index: 0;
+.intercom-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
-.contact-card:hover::before {
-    transform: translateX(100%);
+.phone-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #f1f5f9;
+  color: #334155;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.92rem;
 }
 
-.contact-card h3,
-.contact-card p,
-.contact-card a,
-.contact-icon-wrapper {
-    position: relative;
-    z-index: 2;
+body.dark-mode .phone-badge {
+  background: #334155;
+  color: #f1f5f9;
 }
 
-.contact-icon-wrapper {
-    animation: floatContactIcon 4s ease-in-out infinite;
+.dash-text {
+  color: #94a3b8;
+  font-weight: 600;
 }
 
-@keyframes floatContactIcon {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
+.intercom-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  margin: 2px 4px;
+  background: #e0f2fe;
+  color: #0369a1;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1px solid #bae6fd;
 }
 
-/* Distinct Hover Shadows */
-.contact-card.primary:hover {
-    box-shadow: 0 20px 45px rgba(30, 41, 59, 0.5) !important;
+body.dark-mode .intercom-badge {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.3);
 }
 
-.contact-card.secondary:hover {
-    box-shadow: 0 20px 45px rgba(99, 102, 241, 0.5) !important;
+.no-results {
+  text-align: center;
+  padding: 3rem 1.5rem !important;
+  color: #94a3b8;
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
-.contact-card.tertiary:hover {
-    box-shadow: 0 20px 45px rgba(59, 130, 246, 0.5) !important;
+/* ==========================================================================
+   4. GOOGLE MAPS SECTION
+   ========================================================================== */
+.map-section {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
-/* Enhance existing background themes for better gradients */
-.contact-card.primary {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-}
-
-.contact-card.secondary {
-    background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #6366f1 100%);
-}
-
-.contact-card.tertiary {
-    background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8) 0%, #06b6d4 50%, var(--theme-primary-light, #38BDF8) 100%);
-}
-
-/* Appended Map Glow Effect */
 .map-glow-wrapper {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    border-radius: 1.5rem;
-    padding: 12px;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-    box-sizing: border-box;
+  width: 100%;
+  height: 480px;
+  border-radius: 24px;
+  padding: 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  box-sizing: border-border-box;
 }
 
 body.dark-mode .map-glow-wrapper {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-}
-
-.map-glow-wrapper::before,
-.map-glow-wrapper::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    bottom: -4px;
-    left: -4px;
-    right: -4px;
-    background: linear-gradient(270deg, var(--primary-accent), var(--secondary-accent), #a855f7, var(--primary-accent));
-    background-size: 300% 300%;
-    border-radius: 28px;
-    z-index: -1;
-    animation: mapRgbBorderSweep 6s ease infinite;
-}
-
-.map-glow-wrapper::after {
-    filter: blur(25px);
-    opacity: 0.7;
-    z-index: -2;
-}
-
-@keyframes mapRgbBorderSweep {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .map-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .contact-bento {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 2rem 1rem 4rem 1rem;
+  }
+
+  .glam-title {
+    font-size: 1.85rem;
+  }
+
+  .directory-search-input {
+    height: 48px;
+    font-size: 0.92rem;
+  }
+
+  .cat-tab {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .intercom-table th,
+  .intercom-table td {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .map-glow-wrapper {
+    height: 360px;
+  }
 }
