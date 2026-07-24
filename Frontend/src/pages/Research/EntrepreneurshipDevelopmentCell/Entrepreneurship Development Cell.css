@@ -1,0 +1,297 @@
+/* Main Wrapper */
+.edc-grid-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+/* Page Title */
+.edc-page-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1a365d;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-top: 100px; /* Adjust based on your header height */
+}
+
+/* About Section */
+.edc-about-box {
+  background-color: #f8fafc;
+  padding: 2.5rem;
+  border-radius: 12px;
+  border-left: 5px solid #2563eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 4rem;
+}
+
+.edc-about-box h2 {
+  margin-top: 0;
+  color: #2563eb;
+  font-size: 1.5rem;
+}
+
+.edc-about-box p {
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 1rem;
+}
+
+.edc-about-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Section Headings */
+.section-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #2563eb;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* =========================================
+   ALTERED: VISION, MISSION & OBJECTIVES LAYOUT
+   ========================================= */
+.edc-values-highlight {
+  margin-bottom: 4rem;
+}
+
+/* Vision Banner */
+.vision-banner {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 2.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+}
+
+.banner-icon {
+  font-size: 3.5rem;
+  margin-right: 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.banner-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.6rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.banner-content p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* Mission & Objectives Split */
+.mission-obj-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.split-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  border-top: 5px solid;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  border-left: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  transition: transform 0.3s ease;
+}
+
+.split-card:hover {
+  transform: translateY(-5px);
+}
+
+.mission-card { border-top-color: #f59e0b; } /* Orange */
+.obj-card { border-top-color: #10b981; }    /* Green */
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #1e293b;
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.custom-list {
+  padding-left: 1.2rem;
+  color: #475569;
+}
+
+.custom-list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+/* Document Archives Section */
+.edc-archives-section {
+  text-align: center;
+  margin-bottom: 4rem;
+  background-color: #f1f5f9;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+}
+
+.archives-subtext {
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+.archives-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.archive-pill {
+  background-color: #ffffff;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.archive-pill:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Team Section Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.team-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.team-card:hover {
+  border-color: #93c5fd;
+  background-color: #f8fafc;
+}
+
+.profile-icon {
+  font-size: 2.5rem;
+  background: #e2e8f0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  overflow: hidden; /* Added to keep photo inside circle */
+}
+
+/* New class for the actual image */
+.real-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+   /* Photo stretch aagama perfect-a fit aagum */
+}
+
+.team-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-name {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.team-dept {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.team-role {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.role-coord {
+  background-color: #fef08a;
+  color: #854d0e;
+}
+
+.role-member {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+/* Responsive Setup */
+@media (max-width: 768px) {
+  .edc-page-title { font-size: 1.8rem; }
+  .edc-about-box { padding: 1.5rem; }
+  .mission-obj-split { grid-template-columns: 1fr; }
+  .vision-banner { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  .banner-icon { margin: 0 auto 1.5rem auto; }
+}
