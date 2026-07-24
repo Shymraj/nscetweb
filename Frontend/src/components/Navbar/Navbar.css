@@ -217,14 +217,16 @@ header.scrolled {
     align-items: flex-start;
 }
 
-.college-name h2 {
+.college-name h2,
+.nscet-text {
     margin: 0;
-    font-size: 20px;
-    font-weight: 700;
-    color: #0d3b8e;
-    line-height: 1.2;
+    font-size: 21px !important;
+    font-weight: 800;
+    color: #0d3b8e !important;
+    line-height: 1.1;
     text-shadow: none;
     font-family: var(--font-body);
+    letter-spacing: 0.5px;
 }
 
 .college-name p {
@@ -653,8 +655,9 @@ body.dark-mode .navbar {
     background: #1f2937;
 }
 
-body.dark-mode .college-name h2 {
-    color: #ffffff;
+body.dark-mode .college-name h2,
+body.dark-mode .nscet-text {
+    color: #ffffff !important;
 }
 
 body.dark-mode .college-name p {
