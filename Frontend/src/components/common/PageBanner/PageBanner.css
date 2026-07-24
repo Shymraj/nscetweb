@@ -207,3 +207,13 @@
     border-radius: 24px 24px 0 0;
   }
 }
+
+/* --- Dark Mode Overrides (Preserve Gold Accents) --- */
+body.dark-mode .banner-subtitle {
+  color: #d4af37 !important;
+  -webkit-text-fill-color: #d4af37 !important;
+}
+
+body.dark-mode .banner-accent-line {
+  background: #d4af37 !important;
+}
