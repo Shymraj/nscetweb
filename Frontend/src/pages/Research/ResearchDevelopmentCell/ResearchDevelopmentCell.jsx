@@ -65,6 +65,7 @@ const ResearchDevelopmentCell = () => {
     <div className="rdc-page">
       {/* SECTION 1: Intro */}
       <section className="rdc-section rdc-intro-section">
+        <div className="rdc-bg-decoration dec-1"></div>
         <div className="rdc-container rdc-intro-grid">
           <motion.div 
             className="rdc-intro-content"
@@ -105,6 +106,7 @@ const ResearchDevelopmentCell = () => {
 
       {/* SECTION 2: Objectives */}
       <section className="rdc-section rdc-objectives-section">
+        <div className="rdc-bg-decoration dec-2"></div>
         <div className="rdc-container">
           <motion.div 
             className="rdc-section-header"
@@ -122,7 +124,7 @@ const ResearchDevelopmentCell = () => {
           >
             {objectives.map((obj, i) => (
               <motion.div key={i} variants={fadeUp} className="rdc-objective-card" whileHover={{ y: -10 }}>
-                <div className="rdc-obj-icon-wrap">
+                <div className={`rdc-obj-icon-wrap obj-icon-bg-${(i % 5) + 1}`}>
                   {obj.icon}
                 </div>
                 <h4 className="rdc-obj-title">{obj.title}</h4>
@@ -135,6 +137,7 @@ const ResearchDevelopmentCell = () => {
 
       {/* SECTION 3: Members */}
       <section className="rdc-section rdc-members-section">
+        <div className="rdc-bg-decoration dec-3"></div>
         <div className="rdc-container">
           <motion.div 
             className="rdc-section-header"
@@ -168,6 +171,7 @@ const ResearchDevelopmentCell = () => {
 
       {/* SECTION 4: In-Charge */}
       <section className="rdc-section rdc-incharge-section">
+        <div className="rdc-bg-decoration dec-4"></div>
         <div className="rdc-container">
           <motion.div 
             className="rdc-incharge-card"
