@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.webp";
 import { FaMoon, FaSun, FaSearch, FaTimes, FaBars, FaLinkedin, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import annualAccountsPdf from "../../pages/Aboutus/AnnualAccounts/assets/documents/annual-accounts.pdf";
+import governingPdf from "../../pages/Administration/GoverningCouncil/governing.pdf";
 
 function Navbar() {
 
@@ -113,7 +114,17 @@ function Navbar() {
               <li><Link to="/administration/finance-officer">Finance Officer</Link></li>
               <li><Link to="/administration/controller-examination">Controller of Examination</Link></li>
               <li><Link to="/administration/ombudsperson">Ombudsperson</Link></li>
-              <li><Link to="/administration/governing-council">Governing Council</Link></li>
+              <li>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open(governingPdf, "_blank");
+                  }}
+                >
+                  Governing Council
+                </a>
+              </li>
               <li><Link to="/administration/internal-complaints-committee">Internal Complaints Committee</Link></li>
               <li><Link to="/administration/academic-leadership">Academic Leadership</Link></li>
             </ul>

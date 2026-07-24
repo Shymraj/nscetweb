@@ -1,0 +1,77 @@
+/* ScrollToTop.css - Floating Up Arrow Button */
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #0d3b8e;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(13, 59, 142, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: scrollTopFadeIn 0.3s ease forwards;
+}
+
+.scroll-top-icon {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.scroll-to-top-btn:hover {
+  background: #ff7a00;
+  border-color: #ff7a00;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 30px rgba(255, 122, 0, 0.4);
+}
+
+.scroll-to-top-btn:hover .scroll-top-icon {
+  transform: translateY(-2px);
+}
+
+/* Dark Mode Support */
+body.dark-mode .scroll-to-top-btn {
+  background: #38bdf8;
+  color: #0f172a;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+}
+
+body.dark-mode .scroll-to-top-btn:hover {
+  background: #D4AF37;
+  color: #ffffff;
+  border-color: #D4AF37;
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5);
+}
+
+@keyframes scrollTopFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile responsive placement */
+@media (max-width: 768px) {
+  .scroll-to-top-btn {
+    bottom: 24px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .scroll-top-icon {
+    font-size: 1rem;
+  }
+}
