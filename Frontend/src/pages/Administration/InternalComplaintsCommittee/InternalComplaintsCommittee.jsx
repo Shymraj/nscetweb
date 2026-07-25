@@ -2,6 +2,7 @@ import React from 'react';
 import './InternalComplaintsCommittee.css';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaShieldAlt, FaUsers, FaGavel, FaUserTie, FaFileAlt, FaCalendarAlt, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaCheckCircle, FaExclamationTriangle, FaBalanceScale, FaUniversity, FaHandHoldingHeart } from 'react-icons/fa';
+import bannerImg from './images/icc-banner.jpg';
 
 const committeeMembers = [
   { id: 1, name: "Dr. M. Sathya", designation: "Associate Professor / CSE", position: "Academic Convenor", contact: "9884854043", email: "vp_academic@nscet.org" },
@@ -70,6 +71,7 @@ function InternalComplaintsCommittee() {
         title="Internal Complaints Committee"
         subtitle="Ensuring a Safe, Inclusive, and Respectful Campus Environment"
         hideBreadcrumb={true}
+        backgroundImage={bannerImg}
       />
 
       <div className='icc-container'>

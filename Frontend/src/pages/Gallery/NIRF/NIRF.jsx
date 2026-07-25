@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaFilePdf, FaDownload, FaChalkboardTeacher, FaFlask, FaUserGraduate, FaGlobe, FaStar, FaArrowRight } from 'react-icons/fa';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import './NIRF.css';
+import bannerImg from './assets/images/nirf-banner.png';
 
 import pdfSustainable from './PDFs/IR-B-C-56319 SUSTAINABLE ENERGY.pdf';
 import pdfEngg from './PDFs/IR-E-C-56319 ENGG 25 (1).pdf';
@@ -90,6 +91,7 @@ const NIRF = () => {
     <div className="nirf-page">
       <PageBanner 
         title="NIRF" 
+        backgroundImage={bannerImg}
         hideBreadcrumb={true}
       />
       
@@ -164,11 +166,7 @@ const NIRF = () => {
                       <h3>{param.title}</h3>
                       <p>{param.description}</p>
                     </div>
-                    <div className="card-action-footer">
-                      <span className="learn-more-text">Learn More</span>
-                      <FaArrowRight className="learn-more-icon" />
                     </div>
-                  </div>
                 </motion.div>
               ))}
             </motion.div>

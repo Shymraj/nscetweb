@@ -1,4 +1,4 @@
-﻿
+
 :root {
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
   --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
@@ -783,3 +783,7 @@
 .act-statutes-page {
     padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
 }
+
+
+
+

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaUserTie, FaUsers, FaTasks, FaCheckCircle } from 'react-icons/fa';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { clubsData } from './data';
+import bannerImg from './assets/images/clubs-banner.png';
 import './ClubsAndChapters.css';
 
 // Using import.meta.glob to load all images from assets folder
@@ -31,6 +32,7 @@ const ClubsAndChapters = () => {
       <PageBanner
         title="Clubs & Chapters"
         subtitle="Empowering students beyond the classroom"
+        backgroundImage={bannerImg}
         hideBreadcrumb={true}
       />
       <div className="clubs-chapters-container">
