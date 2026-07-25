@@ -1,67 +1,17 @@
 import "./Contact.css";
 
 import { motion } from "framer-motion";
-
-import {
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaGlobe,
-  FaClock,
-  FaPaperPlane,
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaPaperPlane } from "react-icons/fa";
 
 const Contact = () => {
-
-  const contactInfo = [
-
-    {
-      icon: <FaMapMarkerAlt />,
-      title: "Campus Address",
-      value:
-        "Nadar Saraswathi College of Engineering & Technology, Theni Main Road, Theni - 625531, Tamil Nadu, India",
-    },
-
-    {
-      icon: <FaPhoneAlt />,
-      title: "Call Us",
-      value: "+91 XXXXX XXXXX",
-    },
-
-    {
-      icon: <FaEnvelope />,
-      title: "Email Address",
-      value: "info@nscet.org",
-    },
-
-    {
-      icon: <FaGlobe />,
-      title: "Official Website",
-      value: "www.nscet.org",
-    },
-
-    {
-      icon: <FaClock />,
-      title: "Office Hours",
-      value: "Monday - Saturday | 9:00 AM - 5:30 PM",
-    },
-
-  ];
-
   return (
-
     <section className="contact">
 
-      {/* ================= BACKGROUND GLOW ================= */}
-
+      {/* Background Glow */}
       <div className="contact-glow glow-one"></div>
       <div className="contact-glow glow-two"></div>
 
-      {/* ================= HEADER ================= */}
+      {/* Header */}
 
       <motion.div
         className="contact-header"
@@ -89,123 +39,23 @@ const Contact = () => {
 
       </motion.div>
 
-      {/* ================= MAIN CONTAINER ================= */}
+      {/* Quick Enquiry Form */}
 
-      <div className="contact-container">
-                {/* ================= LEFT CONTACT CARD ================= */}
+      <motion.div
+        className="contact-container"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
 
-        <motion.div
-          className="contact-info"
-          initial={{ opacity: 0, x: -70 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-        >
-
-          <div className="info-header">
-
-            <span>Contact Information</span>
-
-            <h3>
-              We're Always Here To Help
-            </h3>
-
-            <p>
-              Connect with NSCET through phone, email or visit our
-              beautiful campus. Our admission team is happy to guide
-              you through every step.
-            </p>
-
-          </div>
-
-          <div className="info-list">
-
-            {contactInfo.map((item, index) => (
-
-              <motion.div
-                key={index}
-                className="info-box"
-                whileHover={{
-                  x: 8,
-                  scale: 1.02,
-                }}
-              >
-
-                <div className="icon">
-
-                  {item.icon}
-
-                </div>
-
-                <div className="info-content">
-
-                  <h4>
-
-                    {item.title}
-
-                  </h4>
-
-                  <p>
-
-                    {item.value}
-
-                  </p>
-
-                </div>
-
-              </motion.div>
-
-            ))}
-
-          </div>
-
-          {/* ================= SOCIAL LINKS ================= */}
-
-          <div className="social-section">
-
-            <h4>Follow NSCET</h4>
-
-            <div className="social-icons">
-
-              <a href="#">
-                <FaFacebookF />
-              </a>
-
-              <a href="#">
-                <FaInstagram />
-              </a>
-
-              <a href="#">
-                <FaLinkedinIn />
-              </a>
-
-              <a href="#">
-                <FaYoutube />
-              </a>
-
-            </div>
-
-          </div>
-
-        </motion.div>
-
-        {/* ================= RIGHT FORM ================= */}
-
-        <motion.div
-          className="contact-form"
-          initial={{ opacity: 0, x: 70 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-        >
+        <div className="contact-form">
 
           <div className="form-header">
 
             <span>Quick Enquiry</span>
 
-            <h3>
-              Send Us a Message
-            </h3>
+            <h3>Send Us a Message</h3>
 
             <p>
               Fill out the form below and our team will
@@ -259,14 +109,15 @@ const Contact = () => {
 
           </form>
 
-        </motion.div>
+        </div>
 
-      </div>
-            {/* ================= GOOGLE MAP ================= */}
+      </motion.div>
+
+      {/* Google Map */}
 
       <motion.div
         className="map-section"
-        initial={{ opacity: 0, y: 70 }}
+        initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
@@ -274,7 +125,9 @@ const Contact = () => {
 
         <div className="map-header">
 
-          <h2>Visit Our Campus</h2>
+          <h3>
+            Visit Our Campus
+          </h3>
 
           <p>
             Experience the vibrant learning environment of
@@ -297,22 +150,8 @@ const Contact = () => {
 
       </motion.div>
 
-      {/* ================= PREMIUM CTA ================= */}
-
-      <motion.div
-        className="contact-banner"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-
-      </motion.div>
-
     </section>
-
   );
-
 };
 
 export default Contact;
