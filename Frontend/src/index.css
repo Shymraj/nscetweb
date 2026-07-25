@@ -6,7 +6,7 @@
   --theme-primary-dark: #0284C7;
   --theme-accent: #F59E0B;
   --theme-accent-light: #FCD34D;
-  
+
   --theme-bg: #F8FAFC;
   --theme-card: #FFFFFF;
   --theme-text: #1E293B;
@@ -69,7 +69,20 @@ body.dark-mode .achievements-section,
 body.dark-mode .journey-section,
 body.dark-mode .hero-section,
 body.dark-mode .stats-section,
-body.dark-mode .cta-section {
+body.dark-mode .cta-section,
+body.dark-mode .stats,
+body.dark-mode .vision-mission,
+body.dark-mode .about,
+body.dark-mode .departments,
+body.dark-mode .campus-life,
+body.dark-mode .events,
+body.dark-mode .whychoose,
+body.dark-mode .contact,
+body.dark-mode .placement,
+body.dark-mode .ombudsperson-page,
+body.dark-mode .principal-page,
+body.dark-mode .tmhnu-page,
+body.dark-mode .omb-modal-body {
   background-color: var(--theme-bg) !important;
   background: var(--theme-bg) !important;
   color: var(--theme-text) !important;
@@ -96,7 +109,35 @@ body.dark-mode .chart-preview-card,
 body.dark-mode .calendar-card,
 body.dark-mode .library-card,
 body.dark-mode .iqac-card,
-body.dark-mode .report-card {
+body.dark-mode .report-card,
+body.dark-mode .floating-card,
+body.dark-mode .experience-card,
+body.dark-mode .feature-box,
+body.dark-mode .why-card,
+body.dark-mode .vm-card,
+body.dark-mode .stats-card,
+body.dark-mode .event-card,
+body.dark-mode .department-card,
+body.dark-mode .info-box,
+body.dark-mode .facility-card,
+body.dark-mode .stat-box,
+body.dark-mode .strip-card,
+body.dark-mode .logo-card,
+body.dark-mode .banner-box,
+body.dark-mode .icon-box,
+body.dark-mode .omb-profile-card,
+body.dark-mode .omb-content-card,
+body.dark-mode .omb-letterhead-card,
+body.dark-mode .omb-modal-container,
+body.dark-mode .omb-contact-details-box,
+body.dark-mode .pr-info-card,
+body.dark-mode .tmhnu-about-card,
+body.dark-mode .tmhnu-leader-card,
+body.dark-mode .tmhnu-personality-card,
+body.dark-mode .omb-contact-panel,
+body.dark-mode .omb-chip,
+body.dark-mode .omb-modal-footer,
+body.dark-mode .omb-badge-pill {
   background: var(--theme-card) !important;
   color: var(--theme-text) !important;
   border-color: var(--theme-border) !important;
@@ -396,9 +437,9 @@ body.dark-mode .journey-section {
 .vm-card,
 .vmq-card,
 .why-card {
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* The sweeping shine pseudo element */
@@ -482,17 +523,17 @@ body.dark-mode .journey-section {
 .vm-card::before,
 .vmq-card::before,
 .why-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transform: skewX(-20deg);
-    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-    z-index: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
 }
 
 body.dark-mode .achievement-card::before,
@@ -575,7 +616,7 @@ body.dark-mode .vision-card::before,
 body.dark-mode .vm-card::before,
 body.dark-mode .vmq-card::before,
 body.dark-mode .why-card::before {
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
 }
 
 /* The hover trigger */
@@ -659,7 +700,7 @@ body.dark-mode .why-card::before {
 .vm-card:hover::before,
 .vmq-card:hover::before,
 .why-card:hover::before {
-    left: 150%;
+  left: 150%;
 }
 
 /* The upward pop scale */
@@ -743,8 +784,8 @@ body.dark-mode .why-card::before {
 .vm-card:hover,
 .vmq-card:hover,
 .why-card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode .achievement-card:hover,
@@ -827,5 +868,283 @@ body.dark-mode .vision-card:hover,
 body.dark-mode .vm-card:hover,
 body.dark-mode .vmq-card:hover,
 body.dark-mode .why-card:hover {
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   RESTORED DARK MODE OVERRIDES (DEPARTMENTS & RESEARCH)
+   ========================================= */
+
+/* 1. Department Pages Containers & Backgrounds */
+body.dark-mode .sh-container,
+body.dark-mode .mech-container,
+body.dark-mode .ece-container,
+body.dark-mode .eee-container,
+body.dark-mode .cse-container,
+body.dark-mode .it-container,
+body.dark-mode .aids-container,
+body.dark-mode .civil-container,
+body.dark-mode .tf-page-wrapper,
+body.dark-mode .ap-page,
+body.dark-mode .non-teaching-page,
+body.dark-mode .ic-page,
+body.dark-mode .iqac-page,
+body.dark-mode .academic-calendar-page,
+body.dark-mode .statutes-container {
+  background-color: var(--theme-bg) !important;
+  background: var(--theme-bg) !important;
+  color: var(--theme-text) !important;
+}
+
+/* 2. Department Cards (Bento, Glass, etc) */
+body.dark-mode .cse-bento-card, body.dark-mode .cse-glass-card, body.dark-mode .cse-cap-card, body.dark-mode .cse-member-card, body.dark-mode .cse-empty-events-state,
+body.dark-mode .it-bento-card, body.dark-mode .it-glass-card, body.dark-mode .it-cap-card, body.dark-mode .it-member-card, body.dark-mode .it-empty-events-state,
+body.dark-mode .aids-bento-card, body.dark-mode .aids-glass-card, body.dark-mode .aids-cap-card, body.dark-mode .aids-member-card, body.dark-mode .aids-empty-events-state,
+body.dark-mode .ece-bento-card, body.dark-mode .ece-glass-card, body.dark-mode .ece-cap-card, body.dark-mode .ece-member-card, body.dark-mode .ece-empty-events-state,
+body.dark-mode .eee-bento-card, body.dark-mode .eee-glass-card, body.dark-mode .eee-cap-card, body.dark-mode .eee-member-card, body.dark-mode .eee-empty-events-state,
+body.dark-mode .civil-bento-card, body.dark-mode .civil-glass-card, body.dark-mode .civil-cap-card, body.dark-mode .civil-member-card, body.dark-mode .civil-empty-events-state,
+body.dark-mode .sh-bento-card, body.dark-mode .sh-glass-card, body.dark-mode .sh-cap-card, body.dark-mode .sh-member-card, body.dark-mode .sh-empty-events-state,
+body.dark-mode .mech-bento-card, body.dark-mode .mech-glass-card, body.dark-mode .mech-cap-card, body.dark-mode .mech-member-card, body.dark-mode .mech-empty-events-state,
+body.dark-mode .bento-card, body.dark-mode .glass-card, body.dark-mode .cap-card, body.dark-mode .member-card, body.dark-mode .empty-events-state,
+body.dark-mode .tf-hod-card, body.dark-mode .tf-contact-item, body.dark-mode .tf-staff-card, body.dark-mode .tf-pill-nav-container,
+body.dark-mode .statutes-footer, body.dark-mode .statutes-course-capsule, body.dark-mode .statutes-btn-solid, body.dark-mode .statutes-footer-item,
+body.dark-mode .non-teaching-staff-card,
+body.dark-mode .ap-card, body.dark-mode .ap-item, body.dark-mode .ap-research-box, body.dark-mode .ap-check,
+body.dark-mode .iqac-about-card, body.dark-mode .iqac-member-card, body.dark-mode .iqac-record-card,
+body.dark-mode .m1-stat-card-inner {
+  background: var(--theme-card) !important;
+  color: var(--theme-text) !important;
+  border-color: var(--theme-border) !important;
+}
+
+/* 3. Text Overrides */
+body.dark-mode .iqac-member-card span,
+body.dark-mode .tf-sub-nav-btn:not(.active) {
+  color: #d1d5db !important;
+}
+
+body.dark-mode .iqac-member-card strong,
+body.dark-mode .iqac-record-year,
+body.dark-mode .iqac-record-card span,
+body.dark-mode .iqac-section h2 {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* 4. Industry Collaboration Page */
+body.dark-mode .ic-intro-section,
+body.dark-mode .ic-table-container {
+  background: var(--theme-card) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+body.dark-mode .ic-intro-section p,
+body.dark-mode .ic-table td {
+  color: #d1d5db !important;
+}
+body.dark-mode .ic-intro-section h2,
+body.dark-mode .ic-table-section h2,
+body.dark-mode .ic-table th {
+  color: #ffffff !important;
+}
+body.dark-mode .ic-table thead {
+  background: rgba(14, 165, 233, 0.15) !important;
+}
+body.dark-mode .ic-table th,
+body.dark-mode .ic-table td {
+  border-bottom-color: var(--theme-border) !important;
+}
+body.dark-mode .ic-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+body.dark-mode .ic-badge {
+  background-color: rgba(37, 99, 235, 0.2) !important;
+  color: #93c5fd !important;
+}
+
+/* 5. Entrepreneurship Development Cell */
+body.dark-mode .edc-about-box,
+body.dark-mode .split-card,
+body.dark-mode .edc-archives-section,
+body.dark-mode .team-card {
+  background: var(--theme-card) !important;
+  border-color: var(--theme-border) !important;
+}
+body.dark-mode .split-card.mission-card {
+  border-top-color: #f59e0b !important;
+}
+body.dark-mode .split-card.obj-card {
+  border-top-color: #10b981 !important;
+}
+body.dark-mode .edc-page-title,
+body.dark-mode .section-heading,
+body.dark-mode .edc-about-box h2,
+body.dark-mode .card-header h3,
+body.dark-mode .team-name {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+body.dark-mode .edc-about-box p,
+body.dark-mode .custom-list,
+body.dark-mode .custom-list li,
+body.dark-mode .archives-subtext {
+  color: #d1d5db !important;
+}
+body.dark-mode .team-dept {
+  color: #9ca3af !important;
+}
+body.dark-mode .card-header {
+  border-bottom-color: var(--theme-border) !important;
+}
+body.dark-mode .team-card:hover {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border-color: #3b82f6 !important;
+}
+body.dark-mode .archive-pill {
+  background-color: transparent !important;
+  color: #60a5fa !important;
+  border-color: #3b82f6 !important;
+}
+body.dark-mode .archive-pill:hover {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+body.dark-mode .profile-icon {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+body.dark-mode .role-coord {
+  background-color: rgba(253, 224, 71, 0.2) !important;
+  color: #fde047 !important;
+}
+body.dark-mode .role-member {
+  background-color: rgba(125, 211, 252, 0.2) !important;
+  color: #7dd3fc !important;
+}
+
+
+
+/* 6. Navbar Dropdown Fixes */
+body.dark-mode .dropdown-menu li a,
+body.dark-mode .sub-dropdown-menu li a,
+body.dark-mode .submenu-label {
+  color: #d1d5db !important;
+}
+
+body.dark-mode .dropdown-menu li a:hover,
+body.dark-mode .sub-dropdown-menu li a:hover,
+body.dark-mode .has-submenu:hover > .submenu-label {
+  background-color: rgba(212, 175, 55, 0.12) !important;
+  color: #D4AF37 !important;
+}
+
+/* =========================================
+   DARK MODE OVERRIDES for Teaching Faculty
+   ========================================= */
+body.dark-mode .tf-hod-card, 
+body.dark-mode .tf-staff-card, 
+body.dark-mode .tf-pill-nav-container {
+  background: var(--theme-card) !important;
+  border-color: var(--theme-border) !important;
+}
+
+body.dark-mode .tf-hod-name,
+body.dark-mode .tf-staff-name {
+  color: #ffffff !important;
+}
+
+body.dark-mode .tf-hod-position,
+body.dark-mode .tf-staff-pos {
+  color: #60a5fa !important; /* Lighter blue for dark mode */
+}
+
+body.dark-mode .tf-hod-dept,
+body.dark-mode .tf-staff-dept,
+body.dark-mode .tf-contact-item {
+  color: #9ca3af !important;
+}
+
+body.dark-mode .tf-sub-nav-btn:not(.active) {
+  background: var(--theme-card) !important;
+  color: #d1d5db !important;
+  border-color: var(--theme-border) !important;
+}
+
+body.dark-mode .tf-sub-nav-btn:not(.active):hover {
+  border-color: var(--theme-primary) !important;
+  color: var(--theme-primary) !important;
+}
+
+/* =========================================
+   DARK MODE OVERRIDES for Department Pages
+   ========================================= */
+body.dark-mode .bento-card:not(.primary), 
+body.dark-mode .glass-card, 
+body.dark-mode .course-card, 
+body.dark-mode .faculty-card {
+  background: var(--theme-card) !important;
+  border-color: var(--theme-border) !important;
+  color: var(--theme-text) !important;
+}
+
+body.dark-mode .bento-card.primary {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .glam-title {
+  color: #ffffff !important;
+}
+
+body.dark-mode .bento-card p, 
+body.dark-mode .glass-card p, 
+body.dark-mode .course-desc, 
+body.dark-mode .faculty-desig,
+body.dark-mode .faculty-email {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .bento-card h3,
+body.dark-mode .glass-card h3,
+body.dark-mode .course-title,
+body.dark-mode .faculty-name {
+  color: #ffffff !important;
+}
+
+/* =========================================
+   DARK MODE OVERRIDES for Non-Teaching Faculty
+   ========================================= */
+body.dark-mode .non-teaching-dept-card,
+body.dark-mode .non-teaching-staff-card {
+  background: var(--theme-card) !important;
+  border: 1px solid var(--theme-border) !important;
+  color: var(--theme-text) !important;
+}
+
+body.dark-mode .non-teaching-dept-card.active {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important;
+  border-color: transparent !important;
+}
+
+body.dark-mode .non-teaching-dept-name,
+body.dark-mode .non-teaching-staff-name {
+  color: #ffffff !important;
+}
+
+body.dark-mode .non-teaching-dept-count,
+body.dark-mode .non-teaching-staff-pos {
+  color: #9ca3af !important;
+}
+
+body.dark-mode .non-teaching-dept-card.active .non-teaching-dept-name,
+body.dark-mode .non-teaching-dept-card.active .non-teaching-dept-count,
+body.dark-mode .non-teaching-dept-card.active .non-teaching-dept-icon {
+  color: #ffffff !important;
+}
+
+body.dark-mode .non-teaching-dept-icon {
+  color: #60a5fa !important;
+}
+
+body.dark-mode .non-teaching-avatar {
+  background: rgba(59, 130, 246, 0.15) !important;
+  color: #60a5fa !important;
 }
