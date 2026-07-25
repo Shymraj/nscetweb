@@ -1,0 +1,180 @@
+/* FinanceOfficer.css - Exact Reference Design Matching Screenshot */
+
+.fo-page-container {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 130px;
+  padding-bottom: 90px;
+  background-color: #ffffff;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: #1f2937;
+}
+
+body.dark-mode .fo-page-container {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+.fo-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Page Main Title */
+.fo-main-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1e293b;
+  text-align: center;
+  margin: 0 0 50px 0;
+  letter-spacing: -0.02em;
+}
+
+body.dark-mode .fo-main-title {
+  color: #f8fafc;
+}
+
+/* Grid Layout: Left Card & Right Responsibilities Box */
+.fo-grid-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 36px;
+  align-items: stretch;
+}
+
+/* Left Card Styling */
+.fo-left-box {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  padding: 45px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+body.dark-mode .fo-left-box {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.fo-img-container {
+  width: 170px;
+  height: 200px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fo-officer-photo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.fo-name-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #64748b;
+  margin: 0 0 8px 0;
+}
+
+body.dark-mode .fo-name-text {
+  color: #94a3b8;
+}
+
+.fo-degree-text {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+body.dark-mode .fo-degree-text {
+  color: #f8fafc;
+}
+
+/* Right Responsibilities Box */
+.fo-right-box {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 40px 45px;
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark-mode .fo-right-box {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+.fo-resp-header {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 28px 0;
+  line-height: 1.4;
+}
+
+body.dark-mode .fo-resp-header {
+  color: #f8fafc;
+}
+
+.fo-resp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fo-resp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.fo-check-icon {
+  color: #0066ff;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+body.dark-mode .fo-check-icon {
+  color: #38bdf8;
+}
+
+.fo-item-text {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #475569;
+  font-weight: 500;
+}
+
+body.dark-mode .fo-item-text {
+  color: #cbd5e1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .fo-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .fo-left-box {
+    padding: 35px 20px;
+  }
+
+  .fo-right-box {
+    padding: 30px 25px;
+  }
+}

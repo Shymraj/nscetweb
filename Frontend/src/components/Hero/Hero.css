@@ -13,29 +13,60 @@
    HERO CONTAINER & BACKGROUND
    ========================================================================== */
 .hero {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+    width:100%;
+    min-height:100vh;
+    position:relative;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+
+    /* Soft outer shadow */
+    box-shadow:
+        inset 0 -70px 90px rgba(0,0,0,0.15),
+        inset 0 60px 80px rgba(0,0,0,0.08);
 }
 
 /* Subtle gradient overlay to enhance readability while preserving bright campus photo */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(10, 15, 26, 0.65) 0%,
-    rgba(10, 15, 26, 0.4) 45%,
-    rgba(10, 15, 26, 0.55) 100%
-  );
+
+  /* Premium shadow overlay */
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10,15,26,0.60) 0%,
+      rgba(10,15,26,0.28) 40%,
+      rgba(10,15,26,0.48) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.08) 0%,
+      rgba(0,0,0,0.18) 100%
+    );
+
   z-index: 1;
   pointer-events: none;
+
+  /* Soft inset shadow */
+  box-shadow:
+    inset 0 0 120px rgba(0.18,0.18,0.18,0.18),
+    inset 0 -80px 120px rgba(0.25,0.25,0.25,0.25);
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+
+    box-shadow:
+        inset 0 0 80px rgba(0,0,0,.10),
+        inset 0 -120px 120px rgba(0,0,0,.18);
+
+    z-index:1;
 }
 
 .hero-container {
@@ -158,7 +189,7 @@ body.dark-mode .hero .college-tagline {
   line-height: 1.6;
   margin-bottom: 28px;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 400;
+  font-weight: 900;
   max-width: 580px;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }

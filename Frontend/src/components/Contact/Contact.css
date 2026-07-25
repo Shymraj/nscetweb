@@ -97,7 +97,7 @@
    PREMIUM CARD
 ====================================================== */
 
-.contact-info,
+.contact .contact-info,
 .contact-form{
     background:rgba(255,255,255,.78);
     backdrop-filter:blur(18px);
@@ -108,7 +108,7 @@
     transition:.4s;
 }
 
-.contact-info:hover,
+.contact .contact-info:hover,
 .contact-form:hover{
     transform:translateY(-10px);
     box-shadow:

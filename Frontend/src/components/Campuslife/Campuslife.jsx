@@ -12,11 +12,11 @@ import {
   FaUsers,
 } from "react-icons/fa";
 
-import campusImg from "../../assets/library.jpeg";
-import libraryImg from "../../assets/library.jpeg";
-import labImg from "../../assets/ps1.jpg";
-import sportsImg from "../../assets/ps1.jpg";
-import hostelImg from "../../assets/ps1.jpg";
+import campusImg from "../../assets/lab.jpg";
+import libraryImg from "../../assets/library.jpg";
+import labImg from "../../assets/lab.jpg";
+import sportsImg from "../../assets/sports.jpeg";
+import hostelImg from "../../assets/hostel.jpg";
 
 const facilities = [
   {

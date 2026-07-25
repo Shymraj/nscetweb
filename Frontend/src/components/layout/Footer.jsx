@@ -1,16 +1,9 @@
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronUp } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import "./Footer.css";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  };
 
   return (
     <footer className="global-footer">
@@ -98,9 +91,6 @@ const Footer = () => {
           <div className="copyright">
             &copy; {currentYear} Nadar Saraswathi College of Engineering and Technology. All Rights Reserved.
           </div>
-          <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
-            <FaChevronUp />
-          </button>
         </div>
       </div>
     </footer>

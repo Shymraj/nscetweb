@@ -248,7 +248,14 @@
 
 .contact-info {
   list-style: none;
-  padding: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .contact-info li {
@@ -256,14 +263,24 @@
   align-items: flex-start;
   gap: 1rem;
   margin-bottom: 1rem;
-  color: #94a3b8;
+  color: #94a3b8 !important;
   line-height: 1.5;
 }
 
-.contact-icon {
-  color: var(--nscet-accent);
-  font-size: 1.2rem;
-  margin-top: 3px;
+.contact-info .contact-icon {
+  color: var(--nscet-accent, #f59e0b) !important;
+  font-size: 1.15rem !important;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  flex-shrink: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 2px !important;
 }
 
 .map-btn {
