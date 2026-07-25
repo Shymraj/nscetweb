@@ -193,7 +193,6 @@ function Navbar() {
               <li><Link to="/research/statistics">Research Statistics</Link></li>
               <li><Link to="/research/centre">Research Centre</Link></li>
               <li><Link to="/research/entrepreneurship-cell">Entrepreneurship Development Cell</Link></li>
-              <li><Link to="/research/industry-collaboration">Industry Collaboration</Link></li>
             </ul>
           </li>
           <li className="dropdown">

@@ -1,8 +1,241 @@
+import React from 'react';
+import './ControllerOfExamination.css';
+import PageBanner from '../../../components/common/PageBanner/PageBanner';
+import { FaFileAlt, FaClipboardCheck, FaExclamationTriangle, FaUserTie, FaProjectDiagram, FaCertificate, FaUserGraduate, FaRupeeSign } from 'react-icons/fa';
+import ganeshImg from './images/ganesh.jpg';
+import sivaganesanImg from './images/sivaganesan.jpg';
+import examCellPdf from './images/1 ExamCell Constitution FC.pdf';
+import internalAssessmentPdf from './images/2 Internal Assessment Mechanism.pdf';
+import ieGrievancePdf from './images/3 IE Grievance FC FINAL.pdf';
+import eeGrievancesPdf from './images/4 EE Grievances FC fINAL.pdf';
+import examProcessImg from './images/Exam Cell Process.png';
+
+const deputyControllers = [
+  {
+    id: 1,
+    name: "Mr. K. Ganesh",
+    qualification: "M.E (Ph.D.)",
+    role: "Deputy Controller of Examinations",
+    image: ganeshImg
+  },
+  {
+    id: 2,
+    name: "Mr. V. Sivaganesan",
+    qualification: "M.E., MISTE.",
+    role: "Deputy Controller of Examinations",
+    image: sivaganesanImg
+  }
+];
+
+const verificationSteps = [
+  { id: 1, icon: FaUserGraduate, title: "Register", description: "Create a new account for first-time users" },
+  { id: 2, icon: FaFileAlt, title: "Login", description: "Login with registered credentials" },
+  { id: 3, icon: FaProjectDiagram, title: "Upload Certificate", description: "Upload scanned copy of the certificate" },
+  { id: 4, icon: FaRupeeSign, title: "Pay Fee", description: "Pay ₹200 per certificate via QR Code / Net Banking and upload payment proof" },
+  { id: 5, icon: FaClipboardCheck, title: "Verification", description: "Exam Cell Coordinators will verify the submission" },
+  { id: 6, icon: FaCertificate, title: "Get Report", description: "Verification report available within 3 working days" },
+];
+
 function ControllerOfExamination() {
   return (
-    <div style={{ padding: "120px 20px", fontFamily: "var(--font-body)" }}>
-      <h1>Controller of Examination</h1>
-      <p>Page open: Controller of Examination</p>
+    <div className='coe-page'>
+      <PageBanner
+        title="Controller of Examination"
+        subtitle="Ensuring Academic Excellence through Fair and Transparent Examination Processes"
+        hideBreadcrumb={true}
+      />
+
+      <div className='coe-container'>
+        {/* Controller of Examinations */}
+        <section className='coe-section coe-intro'>
+          <div className='coe-header'>
+            <FaUserTie className='coe-header-icon' />
+            <h2>Controller Of Examinations</h2>
+          </div>
+          <div className='coe-content coe-featured'>
+            <p>
+              <strong>Mr. C. Prathap, HoD/S&H</strong> is the Controller of Examination of the Autonomous College.
+              The Exam Cell ensures smooth conduct of examinations, fair evaluation processes, and timely declaration of results.
+            </p>
+          </div>
+        </section>
+
+        {/* Page Sections Overview */}
+        <section className='coe-section coe-sections'>
+          <div className='coe-header'>
+            <FaFileAlt className='coe-header-icon' />
+            <h2>Page Sections</h2>
+          </div>
+          <div className='coe-sections-grid'>
+            <div className='coe-section-card'>
+              <FaFileAlt className='section-card-icon' />
+              <h3>Exam Cell Constitution</h3>
+              <p>Governance structure and committee members</p>
+            </div>
+            <div className='coe-section-card'>
+              <FaClipboardCheck className='section-card-icon' />
+              <h3>Internal Assessment Mechanism</h3>
+              <p>Continuous evaluation process and criteria</p>
+            </div>
+            <div className='coe-section-card'>
+              <FaExclamationTriangle className='section-card-icon' />
+              <h3>Internal Examinations Grievance</h3>
+              <p>Redressal mechanism for internal exam concerns</p>
+            </div>
+            <div className='coe-section-card'>
+              <FaExclamationTriangle className='section-card-icon' />
+              <h3>External Examinations Grievances</h3>
+              <p>Process for addressing external exam issues</p>
+            </div>
+            <div className='coe-section-card'>
+              <FaProjectDiagram className='section-card-icon' />
+              <h3>Exam Cell Process Chart</h3>
+              <p>Visual workflow of examination procedures</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Exam Cell Process Chart */}
+        <section className='coe-section coe-process'>
+          <div className='coe-header'>
+            <FaProjectDiagram className='coe-header-icon' />
+            <h2>Exam Cell Process Chart</h2>
+          </div>
+          <div className='coe-content'>
+            <div className='coe-process-image-wrapper'>
+              <img src={examProcessImg} alt="Exam Cell Process Chart" className='coe-process-image' />
+            </div>
+          </div>
+        </section>
+
+        {/* Controller of Examinations Team */}
+        <section className='coe-section coe-team'>
+          <div className='coe-header'>
+            <FaUserTie className='coe-header-icon' />
+            <h2>Controller of Examinations Team</h2>
+          </div>
+          <div className='coe-content'>
+            <h3>Deputy Controllers of Examinations</h3>
+            <div className='coe-team-grid'>
+              {deputyControllers.map((member) => (
+                <div key={member.id} className='coe-team-card'>
+                  <div className='coe-team-image'>
+                    <img src={member.image} alt={member.name} />
+                  </div>
+                  <div className='coe-team-info'>
+                    <h4>{member.name}</h4>
+                    <p className='coe-qualification'>{member.qualification}</p>
+                    <p className='coe-role'>{member.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Certificate Verification Portal */}
+        <section className='coe-section coe-verification'>
+          <div className='coe-header'>
+            <FaCertificate className='coe-header-icon' />
+            <h2>Certificate Verification Portal</h2>
+          </div>
+          <div className='coe-content'>
+            <p className='coe-intro-text'>
+              There is a separate Certificate Verification system for students and employers to verify academic credentials.
+            </p>
+            <h3>Verification Procedure</h3>
+            <div className='coe-steps-grid'>
+              {verificationSteps.map((step) => (
+                <div key={step.id} className='coe-step-card'>
+                  <div className='coe-step-number'>{step.id}</div>
+                  <div className='coe-step-icon'>
+                    <step.icon />
+                  </div>
+                  <h4>{step.title}</h4>
+                  <p>{step.description}</p>
+                </div>
+              ))}
+            </div>
+            <div className='coe-fee-info'>
+              <FaRupeeSign className='fee-icon' />
+              <p><strong>Fee:</strong> ₹200 per certificate</p>
+              <p><strong>Payment Methods:</strong> QR Code / Net Banking</p>
+              <p><strong>Processing Time:</strong> Within 3 working days</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Additional Notes */}
+        <section className='coe-section coe-notes'>
+          <div className='coe-header'>
+            <FaFileAlt className='coe-header-icon' />
+            <h2>Additional Information</h2>
+          </div>
+          <div className='coe-content'>
+            <ul className='coe-notes-list'>
+              <li>
+                <strong>Escalation System:</strong> Exam Cell is part of the college's escalation/helpdesk system (Level 2–4 involves Exam Cell Co-ordinators).
+              </li>
+              <li>
+                <strong>Academic Calendars:</strong> Internal Examinations schedules are mentioned in academic calendars (e.g., Internal I for UG/PG).
+              </li>
+              <li>
+                <strong>Process Documentation:</strong> Detailed process flow, committee members, and grievance redressal steps are documented in official charts and PDFs.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Document Downloads */}
+        <section className='coe-section coe-documents'>
+          <div className='coe-header'>
+            <FaFileAlt className='coe-header-icon' />
+            <h2>Documents</h2>
+          </div>
+          <div className='coe-content'>
+            <div className='coe-doc-card'>
+              <FaFileAlt className='doc-icon' />
+              <div className='doc-info'>
+                <h4>Exam Cell Constitution</h4>
+                <p>Official constitution document</p>
+              </div>
+              <a href={examCellPdf} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+                PDF
+              </a>
+            </div>
+            <div className='coe-doc-card'>
+              <FaFileAlt className='doc-icon' />
+              <div className='doc-info'>
+                <h4>Internal Assessment Mechanism</h4>
+                <p>Assessment process and criteria</p>
+              </div>
+              <a href={internalAssessmentPdf} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+                PDF
+              </a>
+            </div>
+            <div className='coe-doc-card'>
+              <FaFileAlt className='doc-icon' />
+              <div className='doc-info'>
+                <h4>Internal Examinations Grievance</h4>
+                <p>Grievance redressal for internal exams</p>
+              </div>
+              <a href={ieGrievancePdf} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+                PDF
+              </a>
+            </div>
+            <div className='coe-doc-card'>
+              <FaFileAlt className='doc-icon' />
+              <div className='doc-info'>
+                <h4>External Examinations Grievances</h4>
+                <p>Grievance process for external exams</p>
+              </div>
+              <a href={eeGrievancesPdf} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+                PDF
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
