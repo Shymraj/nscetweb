@@ -7,10 +7,10 @@ const ugPrograms = [
   'B.E. - Civil Engineering',
   'B.E. - Computer Science and Engineering',
   'B.E. - Electronics & Communication Engineering',
-  'B.E. - Electrical & Electronics Engineering',
-  'B.E. - Mechanical Engineering',
   'B.Tech. - Information Technology',
+  'B.E. - Mechanical Engineering',
   'B.Tech. - Artificial Intelligence & Data Science',
+  'B.E. - Electrical & Electronics Engineering',
 ];
 
 const pgPrograms = [

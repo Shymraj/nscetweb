@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/layout/Footer";
@@ -58,15 +58,20 @@ import DevelopmentPlan from "./pages/Aboutus/Developmentplan/Developmentplan";
 import Affiliation from "./pages/Aboutus/Affiliation/Affiliation";
 import AnnualReports from "./pages/Aboutus/AnnualReports/AnnualReports";
 
+import AdminLogin from "./pages/Admin/Login";
+import AdminDashboard from "./pages/Admin/Dashboard";
 import PageTransition from "./components/Preloader/PageTransition";
 import ScrollToTop from "./components/ScrollToTop";
 
-function App() {
+const AppContent = () => {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
-    <BrowserRouter>
+    <>
       <PageTransition />
       <ScrollToTop />
-      <Navbar />
+      {!isAdminRoute && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -123,8 +128,20 @@ function App() {
         <Route path="/about/development-plan" element={<DevelopmentPlan />} />
         <Route path="/about/affiliation" element={<Affiliation />} />
         <Route path="/about/annual-reports" element={<AnnualReports />} />
+
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
-      <Footer />
+      
+      {!isAdminRoute && <Footer />}
+    </>
+  );
+};
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 }

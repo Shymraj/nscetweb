@@ -1,0 +1,36 @@
+const express = require("express");
+const router = express.Router();
+const upload = require("../middleware/upload");
+
+console.log("✅ adminRoutes.js Loaded");
+
+router.get("/test", (req, res) => {
+    res.send("Admin Route Working");
+});
+
+const { 
+  loginAdmin,
+  getStaff, addStaff, deleteStaff,
+  getEvents, addEvent, addEventPhoto, deleteEvent,
+  getDepartments, addDepartment, deleteDepartment
+} = require("../controllers/adminController");
+
+router.post("/login", loginAdmin);
+
+// Staff Routes
+router.get("/staff", getStaff);
+router.post("/staff", upload.single("photo"), addStaff);
+router.delete("/staff/:id", deleteStaff);
+
+// Event Routes
+router.get("/events", getEvents);
+router.post("/events", addEvent);
+router.post("/events/:id/photo", upload.single("photo"), addEventPhoto);
+router.delete("/events/:id", deleteEvent);
+
+// Department Routes
+router.get("/departments", getDepartments);
+router.post("/departments", upload.single("photo"), addDepartment);
+router.delete("/departments/:id", deleteDepartment);
+
+module.exports = router;

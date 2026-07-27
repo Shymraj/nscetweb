@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import StatCard from './components/StatCard';
 import { FaTimes } from 'react-icons/fa';
+import bannerImg from './assets/images/research-stats-banner.png';
 import './ResearchStatistics.css';
 
 // Safely load images using import.meta.glob (support multiple formats)
@@ -38,6 +39,7 @@ const ResearchStatistics = () => {
       <PageBanner
         title="Research Statistics"
         subtitle="Explore the institution's research achievements through publications, patents, funded projects, research grants, doctoral statistics, consultancy activities, intellectual property, and academic contributions."
+        backgroundImage={bannerImg}
       />
       
       <div className="rs-container">
