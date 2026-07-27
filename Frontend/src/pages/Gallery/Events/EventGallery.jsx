@@ -1,17 +1,38 @@
 import { useParams, Navigate } from "react-router-dom";
-import { eventsData } from "./data/eventsData";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Event3DGallery from "./components/Event3DGallery";
 
 const EventGallery = () => {
   const { eventSlug } = useParams();
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  // Find the selected event
-  const selectedEvent = eventsData.find((e) => e.slug === eventSlug);
+  useEffect(() => {
+    const fetchEvent = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/admin/events");
+        const allEvents = res.data.data;
+        const event = allEvents.find((e) => e.slug === eventSlug);
+        
+        if (event) {
+          event.images = event.images ? event.images.map(img => `http://localhost:5000${img}`) : [];
+          setSelectedEvent(event);
+        } else {
+          setError(true);
+        }
+      } catch (err) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchEvent();
+  }, [eventSlug]);
 
-  // If the event doesn't exist, redirect back to the events gallery
-  if (!selectedEvent) {
-    return <Navigate to="/gallery/events" replace />;
-  }
+  if (loading) return <div>Loading gallery...</div>;
+  if (error) return <Navigate to="/gallery/events" replace />;
 
   return (
     <Event3DGallery 
