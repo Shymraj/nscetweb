@@ -1,11 +1,39 @@
-import { Suspense, useRef, useMemo, useEffect } from "react";
+import React, { Suspense, useRef, useMemo, useEffect, useState, useCallback } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, useTexture } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import { Link } from "react-router-dom";
-import { FaArrowLeft, FaImage } from "react-icons/fa";
+import { FaArrowLeft, FaImage, FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 
-function ParticleSphere({ images }) {
+class GalleryErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.warn("3D Gallery Canvas Error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="empty-gallery-state">
+          <FaImage size={60} color="#f37021" />
+          <h2>Gallery Syncing...</h2>
+          <p>Please refresh the page to reload updated photos.</p>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+function ParticleSphere({ images, onSelectImage, isPaused, isFreshersDay }) {
   const PARTICLE_COUNT = 1500;
   const PARTICLE_SIZE_MIN = 0.005;
   const PARTICLE_SIZE_MAX = 0.010;
@@ -14,30 +42,61 @@ function ParticleSphere({ images }) {
   const ROTATION_SPEED_X = 0.0;
   const ROTATION_SPEED_Y = 0.0005;
   const PARTICLE_OPACITY = 1;
-  const IMAGE_COUNT = images.length;
-  const IMAGE_SIZE = 3.5; // Increased size so photos are clearly visible
-  const ORBIT_RADIUS_X = 12; // Elliptical X radius
-  const ORBIT_RADIUS_Z = 8;  // Elliptical Z radius (depth)
 
   const groupRef = useRef(null);
+  const [textures, setTextures] = useState([]);
 
-  // Load textures dynamically
-  const textures = useTexture(images);
+  // Robust texture loader with error fallback for locked/broken image files
+  useEffect(() => {
+    const loader = new THREE.TextureLoader();
+    let isMounted = true;
 
-  useMemo(() => {
-    textures.forEach((texture) => {
-      if (texture) {
-        texture.wrapS = THREE.ClampToEdgeWrapping;
-        texture.wrapT = THREE.ClampToEdgeWrapping;
-        texture.flipY = false;
-        // Optionally set colorSpace to SRGBColorSpace for accurate colors in newer three.js versions
-        texture.colorSpace = THREE.SRGBColorSpace;
+    const loadAllTextures = async () => {
+      const loadedList = await Promise.all(
+        images.map(
+          (url) =>
+            new Promise((resolve) => {
+              loader.load(
+                url,
+                (tex) => {
+                  tex.wrapS = THREE.ClampToEdgeWrapping;
+                  tex.wrapT = THREE.ClampToEdgeWrapping;
+                  tex.flipY = true;
+                  tex.colorSpace = THREE.SRGBColorSpace;
+                  resolve(tex);
+                },
+                undefined,
+                () => {
+                  resolve(null); // Skip unreadable file without crashing
+                }
+              );
+            })
+        )
+      );
+
+      if (isMounted) {
+        setTextures(loadedList.filter(Boolean));
       }
-    });
-  }, [textures]);
+    };
+
+    if (images && images.length > 0) {
+      loadAllTextures();
+    }
+
+    return () => {
+      isMounted = false;
+    };
+  }, [images]);
+
+  const textureCount = textures.length;
+
+  // Small circle radius specifically for Fresher's Day / small photo count
+  const isSmallEvent = isFreshersDay || textureCount <= 8;
+  const CIRCLE_RADIUS = isSmallEvent ? 6.5 : 13.0;
+  const IMAGE_SIZE = isSmallEvent ? 2.8 : 3.2;
 
   const particles = useMemo(() => {
-    const particles = [];
+    const particlesArr = [];
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       const phi = Math.acos(-1 + (2 * i) / PARTICLE_COUNT);
       const theta = Math.sqrt(PARTICLE_COUNT * Math.PI) * phi;
@@ -46,7 +105,7 @@ function ParticleSphere({ images }) {
       const y = radiusVariation * Math.cos(phi);
       const z = radiusVariation * Math.sin(theta) * Math.sin(phi);
 
-      particles.push({
+      particlesArr.push({
         position: [x, y, z],
         scale: Math.random() * (PARTICLE_SIZE_MAX - PARTICLE_SIZE_MIN) + PARTICLE_SIZE_MIN,
         color: new THREE.Color().setHSL(
@@ -57,61 +116,51 @@ function ParticleSphere({ images }) {
         rotationSpeed: (Math.random() - 0.5) * 0.01,
       });
     }
-    return particles;
+    return particlesArr;
   }, [PARTICLE_COUNT, SPHERE_RADIUS, POSITION_RANDOMNESS, PARTICLE_SIZE_MIN, PARTICLE_SIZE_MAX]);
 
+  // Circle Ring Calculation (Compact for Fresher's Day, Expanded for large events)
   const orbitingImages = useMemo(() => {
     const calculatedImages = [];
-    if (IMAGE_COUNT === 0) return calculatedImages;
+    if (textureCount === 0) return calculatedImages;
 
-    for (let i = 0; i < IMAGE_COUNT; i++) {
-      const angle = (i / IMAGE_COUNT) * Math.PI * 2;
-      const x = ORBIT_RADIUS_X * Math.cos(angle);
+    for (let i = 0; i < textureCount; i++) {
+      const angle = (i / textureCount) * Math.PI * 2;
+      const x = CIRCLE_RADIUS * Math.sin(angle);
       const y = 0;
-      const z = ORBIT_RADIUS_Z * Math.sin(angle);
+      const z = CIRCLE_RADIUS * Math.cos(angle);
 
-      const position = new THREE.Vector3(x, y, z);
-      const center = new THREE.Vector3(0, 0, 0);
-      const outwardDirection = position.clone().sub(center).normalize();
-
-      const euler = new THREE.Euler();
-      const matrix = new THREE.Matrix4();
-      matrix.lookAt(position, position.clone().add(outwardDirection), new THREE.Vector3(0, 1, 0));
-      euler.setFromRotationMatrix(matrix);
-      euler.z += Math.PI; // Flip image upright if needed based on original implementation
+      const euler = new THREE.Euler(0, angle, 0);
 
       calculatedImages.push({
         position: [x, y, z],
         rotation: [euler.x, euler.y, euler.z],
-        textureIndex: i, // We have a 1:1 mapping now
-        color: new THREE.Color().setHSL(Math.random(), 0.7, 0.6),
+        textureIndex: i,
       });
     }
     return calculatedImages;
-  }, [IMAGE_COUNT, SPHERE_RADIUS]);
+  }, [textureCount, CIRCLE_RADIUS]);
 
   const targetRotation = useRef(0);
   const currentRotation = useRef(0);
 
   useEffect(() => {
     const handleWheel = (e) => {
-      // Small multiplier to make scroll feel natural
-      targetRotation.current += e.deltaY * 0.002;
+      if (!isPaused) {
+        targetRotation.current += e.deltaY * 0.002;
+      }
     };
 
-    // Add non-passive event listener so it behaves consistently
     window.addEventListener('wheel', handleWheel, { passive: true });
     return () => window.removeEventListener('wheel', handleWheel);
-  }, []);
+  }, [isPaused]);
 
   useFrame(() => {
     if (groupRef.current) {
-      // Continuously add the auto-rotation speed to the target
-      targetRotation.current += ROTATION_SPEED_Y;
-
-      // Lerp (smoothly interpolate) current rotation towards target rotation
+      if (!isPaused) {
+        targetRotation.current += ROTATION_SPEED_Y;
+      }
       currentRotation.current += (targetRotation.current - currentRotation.current) * 0.05;
-
       groupRef.current.rotation.y = currentRotation.current;
       groupRef.current.rotation.x += ROTATION_SPEED_X;
     }
@@ -127,8 +176,23 @@ function ParticleSphere({ images }) {
       ))}
 
       {orbitingImages.map((image, index) => (
-        <mesh key={`image-${index}`} position={image.position} rotation={image.rotation}>
-          <planeGeometry args={[IMAGE_SIZE * 1.5, IMAGE_SIZE]} /> {/* Made it slightly wide like a landscape photo */}
+        <mesh 
+          key={`image-${index}`} 
+          position={image.position} 
+          rotation={image.rotation}
+          onClick={(e) => {
+            e.stopPropagation();
+            onSelectImage(index);
+          }}
+          onPointerOver={(e) => {
+            e.stopPropagation();
+            document.body.style.cursor = 'pointer';
+          }}
+          onPointerOut={() => {
+            document.body.style.cursor = 'auto';
+          }}
+        >
+          <planeGeometry args={[IMAGE_SIZE * 1.5, IMAGE_SIZE]} />
           <meshBasicMaterial
             map={textures[image.textureIndex]}
             opacity={1}
@@ -141,6 +205,40 @@ function ParticleSphere({ images }) {
 }
 
 export function Event3DGallery({ event, images }) {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  const isFreshersDay = (event?.slug || "").includes("fresher");
+  const isSmallEvent = isFreshersDay || (images && images.length <= 8);
+  const cameraZ = isSmallEvent ? 10.5 : 16.0;
+
+  const handleNext = useCallback(() => {
+    if (selectedIndex === null || !images || images.length === 0) return;
+    setSelectedIndex((prev) => (prev + 1) % images.length);
+  }, [selectedIndex, images]);
+
+  const handlePrev = useCallback(() => {
+    if (selectedIndex === null || !images || images.length === 0) return;
+    setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
+  }, [selectedIndex, images]);
+
+  const handleClose = useCallback(() => {
+    setSelectedIndex(null);
+    document.body.style.cursor = 'auto';
+  }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (selectedIndex === null) return;
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "Escape") handleClose();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedIndex, handleNext, handlePrev, handleClose]);
+
   // Handle empty state explicitly before initializing 3D Canvas
   if (!images || images.length === 0) {
     return (
@@ -161,6 +259,8 @@ export function Event3DGallery({ event, images }) {
     );
   }
 
+  const isModalOpen = selectedIndex !== null;
+
   return (
     <div className="event-3d-page">
       <div className="event-3d-header">
@@ -169,29 +269,69 @@ export function Event3DGallery({ event, images }) {
         </Link>
         <h1>{event?.title || 'Event Gallery'}</h1>
         <p>Explore moments from {event?.title}</p>
+        <span className="gallery-instruction-tip">
+          💡 Click any photo to expand & freeze view
+        </span>
       </div>
 
       <div className="event-3d-canvas-container">
-        <Canvas
-          camera={{
-            position: [0, 0, 14], // Moved camera closer for immersive full-screen feel
-            fov: 65,
-          }}
-        >
-          <ambientLight intensity={0.5} />
-          <Suspense fallback={null}>
-            <ParticleSphere images={images} />
-          </Suspense>
-          <OrbitControls
-            enablePan={false}
-            enableZoom={false}
-            enableRotate={true}
-            minDistance={10}
-            maxDistance={30}
-            autoRotate={false}
-          />
-        </Canvas>
+        <GalleryErrorBoundary>
+          <Canvas
+            camera={{
+              position: [0, 0, cameraZ],
+              fov: 65,
+            }}
+          >
+            <ambientLight intensity={0.5} />
+            <Suspense fallback={null}>
+              <ParticleSphere 
+                images={images} 
+                onSelectImage={(idx) => setSelectedIndex(idx)} 
+                isPaused={isModalOpen}
+                isFreshersDay={isFreshersDay}
+              />
+            </Suspense>
+            <OrbitControls
+              enablePan={false}
+              enableZoom={!isModalOpen}
+              enableRotate={!isModalOpen}
+              minDistance={7}
+              maxDistance={35}
+              autoRotate={false}
+            />
+          </Canvas>
+        </GalleryErrorBoundary>
       </div>
+
+      {/* Lightbox Modal when an image is clicked */}
+      {isModalOpen && (
+        <div className="gallery-lightbox-overlay" onClick={handleClose}>
+          <div className="gallery-lightbox-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="lightbox-close-btn" onClick={handleClose} title="Close (Esc)">
+              <FaTimes />
+            </button>
+
+            <button className="lightbox-nav-btn prev" onClick={handlePrev} title="Previous (Left Arrow)">
+              <FaChevronLeft />
+            </button>
+
+            <div className="lightbox-image-container">
+              <img 
+                src={images[selectedIndex]} 
+                alt={`${event?.title || 'Event'} Photo ${selectedIndex + 1}`} 
+                className="lightbox-image"
+              />
+              <div className="lightbox-counter">
+                Photo {selectedIndex + 1} of {images.length}
+              </div>
+            </div>
+
+            <button className="lightbox-nav-btn next" onClick={handleNext} title="Next (Right Arrow)">
+              <FaChevronRight />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

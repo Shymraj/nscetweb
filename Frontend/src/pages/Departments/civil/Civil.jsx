@@ -6,6 +6,7 @@ import {
     FaEnvelope, FaAward, FaFlask, FaMapMarkedAlt, FaCalendarTimes
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import bannerImg from "./images/banner/civil.png";
 import "./Civil.css";
 
 import imgNagarathinam from "./images/nagarathinam.jpg";
@@ -64,7 +65,7 @@ const Civil = () => {
                 title="DEPARTMENT OF CIVIL ENGINEERING"
                 subtitle="Building the foundation of tomorrow — where sustainable design meets structural excellence."
                 hideBreadcrumb={true}
-                
+                backgroundImage={bannerImg}
             />
 
             <main className="content-wrapper">

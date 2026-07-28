@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import StatCard from './components/StatCard';
 import { FaTimes } from 'react-icons/fa';
-import bannerImg from './assets/images/research-stats-banner.png';
+import bannerImg from './assets/images/Research&Statistics.png';
 import './ResearchStatistics.css';
 
 // Safely load images using import.meta.glob (support multiple formats)

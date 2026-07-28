@@ -2,7 +2,7 @@ import React from 'react';
 import './ResearchCentre.css';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaGraduationCap, FaBullseye, FaRocket, FaAward, FaFileAlt, FaExternalLinkAlt } from 'react-icons/fa';
-import heroImg from './images/img_1.jpg';
+import heroImg from './images/researchcentre.png';
 
 const facultyData = [
   { id: 1, name: "Dr. N. David Mathan", department: "Chemistry", designation: "Professor", googleScholar: "https://scholar.google.co.in/citations?user=8vCJQToAAAAJ&hl=en", scopus: "https://www.scopus.com/authid/detail.uri?authorId=35746491800", orcid: "https://orcid.org/0000-0003-0894-4260" },

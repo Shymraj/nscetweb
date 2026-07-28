@@ -57,6 +57,7 @@ import ActStatus from "./pages/Aboutus/Actstatutes/Actstatutes";
 import DevelopmentPlan from "./pages/Aboutus/Developmentplan/Developmentplan";
 import Affiliation from "./pages/Aboutus/Affiliation/Affiliation";
 import AnnualReports from "./pages/Aboutus/AnnualReports/AnnualReports";
+import AnnualAccounts from "./pages/Aboutus/AnnualAccounts/AnnualAccounts";
 
 import AdminLogin from "./pages/Admin/Login";
 import AdminDashboard from "./pages/Admin/Dashboard";
@@ -128,6 +129,7 @@ const AppContent = () => {
         <Route path="/about/development-plan" element={<DevelopmentPlan />} />
         <Route path="/about/affiliation" element={<Affiliation />} />
         <Route path="/about/annual-reports" element={<AnnualReports />} />
+        <Route path="/about/annual-accounts" element={<AnnualAccounts />} />
 
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />

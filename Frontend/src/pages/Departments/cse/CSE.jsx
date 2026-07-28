@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
+import bannerImg from "./CSE_banner/CSE.png";
 import "./CSE.css";
 
 import fistLogo from "./images/fist.png";
@@ -67,7 +68,7 @@ const CSE = () => {
                 title="DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING"
                 subtitle="Innovating the digital frontier — shaping the future through code, intelligence, and boundless creativity."
                 hideBreadcrumb={true}
-                
+                backgroundImage={bannerImg}
             />
 
             <main className="content-wrapper">

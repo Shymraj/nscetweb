@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
+import bannerImg from "./meCSE_banner/ME_CSE.png";
 import "./CSE.css";
 
 
@@ -51,7 +52,7 @@ const MECSE = () => {
                 title="DEPARTMENT OF ME COMPUTER SCIENCE AND ENGINEERING"
                 subtitle="Driving the next generation of computing through advanced research, scalable architecture, and intelligent systems."
                 hideBreadcrumb={true}
-                
+                backgroundImage={bannerImg}
             />
 
             <main className="content-wrapper">

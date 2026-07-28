@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
+import bannerImg from "./images/banner/S&H.png";
 import "./ScienceHumanities.css";
 
 // If a specific 7th sense association logo is available, replace this icon with an image tag.
@@ -114,7 +115,7 @@ const ScienceHumanities = () => {
                 title="DEPARTMENT OF SCIENCE AND HUMANITIES"
                 subtitle="Nurturing the scientific temper, analytical reasoning, and foundational intellect that bridge raw curiosity with advanced engineering."
                 hideBreadcrumb={true}
-                
+                backgroundImage={bannerImg}
             />
 
             <main className="content-wrapper">

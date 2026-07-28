@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../../components/common/PageBanner/PageBanner";
+import bannerImg from "./banner/AI&DS.png";
 import "./AIDS.css";
 
 import aimLogo from "./images/aim.png";
@@ -63,7 +64,7 @@ const AIDS = () => {
                 title="DEPARTMENT OF ARTIFICIAL INTELLIGENCE & DATA SCIENCE"
                 subtitle="Equipping engineers to combine cutting-edge technology, neural optimization, and analytics to create intelligent software capable of limitless automation."
                 hideBreadcrumb={true}
-                
+                backgroundImage={bannerImg}
             />
 
             <main className="content-wrapper">
