@@ -3,7 +3,7 @@ import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import AboutReport from './components/AboutReport';
 import Highlights from './components/Highlights';
 import Statistics from './components/Statistics';
-import InstitutionalValues from './components/InstitutionalValues';
+import ReportDocument from './components/ReportDocument';
 import DetailedAnnualReport from './components/DetailedAnnualReport';
 import './AnnualReports.css';
 import bannerImage from './assets/banner/annual-reports-hero-banner.png';

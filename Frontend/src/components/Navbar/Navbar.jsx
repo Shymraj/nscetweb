@@ -91,17 +91,7 @@ function Navbar() {
               <li><Link to="/about/development-plan">Institutional Development Plan</Link></li>
               <li><Link to="/about/affiliation">Affiliation & Accreditation</Link></li>
               <li><Link to="/about/annual-reports">Annual Reports</Link></li>
-              <li>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.open(annualAccountsPdf, "_blank");
-                  }}
-                >
-                  Annual Accounts
-                </a>
-              </li>
+              <li><Link to="/about/annual-accounts">Annual Accounts</Link></li>
             </ul>
           </li>
 

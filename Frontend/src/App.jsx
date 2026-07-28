@@ -128,6 +128,7 @@ const AppContent = () => {
         <Route path="/about/development-plan" element={<DevelopmentPlan />} />
         <Route path="/about/affiliation" element={<Affiliation />} />
         <Route path="/about/annual-reports" element={<AnnualReports />} />
+        <Route path="/about/annual-accounts" element={<AnnualReports />} />
 
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
