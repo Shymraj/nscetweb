@@ -82,9 +82,10 @@ const Contact = () => {
   return (
     <div className="contact-container">
       <PageBanner
-        title="Contact Us"
-        subtitle="Nadar Saraswathi College of Engineering & Technology, Vadapudupatti, Theni"
-        breadcrumb={[{ label: "Contact Us" }]}
+        title=""
+        subtitle=""
+        hideBreadcrumb={true}
+        showOverlay={false}
         {...(customBanner ? { backgroundImage: customBanner } : {})}
       />
 
