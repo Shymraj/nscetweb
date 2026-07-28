@@ -6,7 +6,7 @@ import Statistics from './components/Statistics';
 import InstitutionalValues from './components/InstitutionalValues';
 import ReportDocument from './components/ReportDocument';
 import './AnnualReports.css';
-import bannerImage from './assets/banner/dji_fly_20250823_103504_700_1755932917562_photo.jpg';
+import bannerImage from './assets/banner/annual-reports-hero-banner.png';
 
 const AnnualReports = () => {
   return (
@@ -16,6 +16,7 @@ const AnnualReports = () => {
         subtitle="A Year of Academic Excellence, Innovation and Institutional Growth."
         hideBreadcrumb={true}
         backgroundImage={bannerImage}
+        imageFit="cover"
       />
 
         <AboutReport />
