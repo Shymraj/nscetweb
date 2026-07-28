@@ -10,16 +10,15 @@
 }
 
 /* =========================================
-   BANNER (Forced Compact Size, No Overlap)
+   BANNER (Strict 8:3 Ratio)
    ========================================= */
 .al-hero {
   background-color: #3b82f6 !important; 
   color: #ffffff !important;
   text-align: center !important;
+  aspect-ratio: 8 / 3 !important;
   width: 100% !important;
   height: auto !important;
-  min-height: 140px !important;
-  max-height: 180px !important;
   padding: 30px 20px !important;
   display: flex !important;
   flex-direction: column !important;
@@ -215,22 +214,20 @@
   overflow: hidden; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
   border: 1px solid #e2e8f0;
-  min-height: 180px; 
   min-height: 220px;
   position: relative; 
   cursor: pointer;
   
   opacity: 0; 
   animation: slideUpFade 0.5s ease forwards;
-  /* 🌟 UPDATED: Smooth transition for hover zoom */
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
 }
 
-/* Ithu FULL CONTAINER-a zoom pandra code */
 .exec-premium-card:hover {
-  transform: scale(1.06) translateY(-5px); /* <--- 1.06 nu maathunga, ippo box nalla perisa zoom aagum */
+  transform: scale(1.06) translateY(-5px); 
   box-shadow: 0 20px 45px rgba(37, 99, 235, 0.18); 
 }
+
 .exec-premium-card:active {
   transform: scale(0.97);
 }
@@ -391,14 +388,11 @@
   
   opacity: 0;
   animation: slideUpFade 0.4s ease forwards;
-  /* 🌟 UPDATED: Smooth transition for hover zoom */
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
 }
 
-
-/* Ithu FULL CONTAINER-a zoom pandra code */
 .hod-horizontal-card:hover {
-  transform: scale(5) translateY(-5px); /* <--- 1.06 nu maathunga, ippo box nalla perisa zoom aagum */
+  transform: scale(1.06) translateY(-5px); 
   box-shadow: 0 20px 45px rgba(37, 99, 235, 0.18); 
 }
 
