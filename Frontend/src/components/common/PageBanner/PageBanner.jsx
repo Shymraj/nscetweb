@@ -10,7 +10,10 @@ const PageBanner = ({
   breadcrumb = [], 
   hideBreadcrumb = false,
   backgroundImage = "https://placehold.co/1920x600/1e40af/FFFFFF/png?text=NSCET+Banner",
-  height
+  height,
+  imageFit = "cover",
+  imagePosition = "center",
+  className = ""
 }) => {
   // Calculate dynamic font size class based on title length
   let titleSizeClass = "title-size-xl";
@@ -26,14 +29,24 @@ const PageBanner = ({
 
   return (
     <section 
-      className="page-banner"
+      className={`page-banner ${className}`.trim()}
       style={{ 
         ...(height ? { '--custom-banner-height': height } : {})
       }}
     >
       {/* Right side background image (TMHNU Trust style) */}
       <div className="page-banner-right">
-        <img src={backgroundImage} alt={title || "Page Banner"} />
+        {imageFit === "contain" && (
+          <img src={backgroundImage} alt="" className="page-banner-bg-blur" aria-hidden="true" />
+        )}
+        <img 
+          src={backgroundImage} 
+          alt={title || "Page Banner"} 
+          className={`page-banner-main-img fit-${imageFit}`}
+          style={{
+            objectPosition: imagePosition
+          }}
+        />
         <div className="page-banner-overlay"></div>
       </div>
 

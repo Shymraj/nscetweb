@@ -6,7 +6,7 @@ import SWOT from "./components/SWOT";
 import DepartmentAccordion from "./components/DepartmentAccordion";
 import SummaryTable from "./components/SummaryTable";
 import DevelopmentImage from "./components/DevelopmentImage";
-import bannerImg from "./assets/images/banner.png";
+import bannerImg from "./assets/images/dev-plan-hero-banner.png";
 import "./Developmentplan.css";
 
 const Developmentplan = () => {
@@ -17,6 +17,7 @@ const Developmentplan = () => {
         subtitle="Strategic Roadmap for NSCET (2024–2029)"
         hideBreadcrumb={true}
         backgroundImage={bannerImg}
+        imageFit="cover"
       />
       <ExecutiveSummary />
       <InstitutionalProfile />

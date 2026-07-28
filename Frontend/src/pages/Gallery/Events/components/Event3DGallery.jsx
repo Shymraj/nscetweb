@@ -1,4 +1,4 @@
-import { useRef, useMemo, useEffect } from "react";
+import { Suspense, useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
 import * as THREE from "three";
@@ -45,7 +45,7 @@ function ParticleSphere({ images }) {
       const x = radiusVariation * Math.cos(theta) * Math.sin(phi);
       const y = radiusVariation * Math.cos(phi);
       const z = radiusVariation * Math.sin(theta) * Math.sin(phi);
-      
+
       particles.push({
         position: [x, y, z],
         scale: Math.random() * (PARTICLE_SIZE_MAX - PARTICLE_SIZE_MIN) + PARTICLE_SIZE_MIN,
@@ -69,17 +69,17 @@ function ParticleSphere({ images }) {
       const x = ORBIT_RADIUS_X * Math.cos(angle);
       const y = 0;
       const z = ORBIT_RADIUS_Z * Math.sin(angle);
-      
+
       const position = new THREE.Vector3(x, y, z);
       const center = new THREE.Vector3(0, 0, 0);
       const outwardDirection = position.clone().sub(center).normalize();
-      
+
       const euler = new THREE.Euler();
       const matrix = new THREE.Matrix4();
       matrix.lookAt(position, position.clone().add(outwardDirection), new THREE.Vector3(0, 1, 0));
       euler.setFromRotationMatrix(matrix);
       euler.z += Math.PI; // Flip image upright if needed based on original implementation
-      
+
       calculatedImages.push({
         position: [x, y, z],
         rotation: [euler.x, euler.y, euler.z],
@@ -98,7 +98,7 @@ function ParticleSphere({ images }) {
       // Small multiplier to make scroll feel natural
       targetRotation.current += e.deltaY * 0.002;
     };
-    
+
     // Add non-passive event listener so it behaves consistently
     window.addEventListener('wheel', handleWheel, { passive: true });
     return () => window.removeEventListener('wheel', handleWheel);
@@ -108,10 +108,10 @@ function ParticleSphere({ images }) {
     if (groupRef.current) {
       // Continuously add the auto-rotation speed to the target
       targetRotation.current += ROTATION_SPEED_Y;
-      
+
       // Lerp (smoothly interpolate) current rotation towards target rotation
       currentRotation.current += (targetRotation.current - currentRotation.current) * 0.05;
-      
+
       groupRef.current.rotation.y = currentRotation.current;
       groupRef.current.rotation.x += ROTATION_SPEED_X;
     }
@@ -125,7 +125,7 @@ function ParticleSphere({ images }) {
           <meshBasicMaterial color={particle.color} transparent opacity={PARTICLE_OPACITY} />
         </mesh>
       ))}
-      
+
       {orbitingImages.map((image, index) => (
         <mesh key={`image-${index}`} position={image.position} rotation={image.rotation}>
           <planeGeometry args={[IMAGE_SIZE * 1.5, IMAGE_SIZE]} /> {/* Made it slightly wide like a landscape photo */}
@@ -179,7 +179,9 @@ export function Event3DGallery({ event, images }) {
           }}
         >
           <ambientLight intensity={0.5} />
-          <ParticleSphere images={images} />
+          <Suspense fallback={null}>
+            <ParticleSphere images={images} />
+          </Suspense>
           <OrbitControls
             enablePan={false}
             enableZoom={false}
