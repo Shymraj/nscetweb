@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
+import bannerImg from "./images/manufacturing_eng/manufacturing_eng.png";
 import "./Mechanical.css";
 
 
@@ -52,7 +53,7 @@ const MEManufacturing = () => {
                 title="DEPARTMENT OF ME MANUFACTURING ENGINEERING"
                 subtitle="Advancing postgraduate excellence in manufacturing systems, research innovation, and industrial engineering technology."
                 hideBreadcrumb={true}
-                
+                backgroundImage={bannerImg}
             />
 
             <main className="content-wrapper">

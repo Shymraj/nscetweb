@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../../components/common/PageBanner/PageBanner";
+import bannerImg from "./banner/IT.png";
 import "./IT.css";
 
 import nexusLogo from "./images/nexus.jpg";
@@ -63,7 +64,7 @@ const IT = () => {
                 title="DEPARTMENT OF INFORMATION TECHNOLOGY"
                 subtitle="Empowering the connected world — transforming data into intelligent solutions for a digital future."
                 hideBreadcrumb={true}
-                
+                backgroundImage={bannerImg}
             />
 
             <main className="content-wrapper">

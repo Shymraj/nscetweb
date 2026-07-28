@@ -6,6 +6,7 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
+import bannerImg from "./images/banner/me_structuraleng.png";
 import "./Civil.css";
 
 
@@ -53,7 +54,7 @@ const MEStructural = () => {
                 title="DEPARTMENT OF ME STRUCTURAL ENGINEERING"
                 subtitle="Pioneering advanced design and analysis for resilient, modern, and sustainable infrastructure."
                 hideBreadcrumb={true}
-                
+                backgroundImage={bannerImg}
             />
 
             <main className="content-wrapper">
