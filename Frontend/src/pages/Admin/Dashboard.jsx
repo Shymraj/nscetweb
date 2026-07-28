@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import HomePageManager from './HomePageManager';
-import { FaChevronUp, FaHome, FaUsers, FaBriefcase, FaCalendarCheck, FaImages, FaCalendarAlt, FaCog, FaSignOutAlt, FaUserPlus, FaUserTie, FaGraduationCap, FaEnvelope, FaBook, FaBuilding, FaImage, FaCheck, FaTimes } from "react-icons/fa";
+import { FaChevronUp, FaHome, FaUsers, FaBriefcase, FaCalendarCheck, FaImages, FaCalendarAlt, FaCog, FaSignOutAlt, FaUserPlus, FaUserTie, FaGraduationCap, FaEnvelope, FaBook, FaBuilding, FaImage, FaCheck, FaTimes, FaUpload, FaRedo } from "react-icons/fa";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('staff');
@@ -36,40 +36,49 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-layout">
-      <div className="admin-header">
-        <h1>NSCET - Admin</h1>
-      </div>
-      <div className="admin-dashboard">
-        <div className="admin-sidebar">
-          <ul>
-            <li className={activeTab === 'home' ? 'active' : ''} onClick={() => setActiveTab('home')}><FaHome /> Home Page</li>
-            <li className={activeTab === 'staff' ? 'active' : ''} onClick={() => setActiveTab('staff')}><FaUsers /> Faculties</li>
-            <li className={activeTab === 'placements' ? 'active' : ''} onClick={() => setActiveTab('placements')}><FaBriefcase /> Placements</li>
-            <li className={activeTab === 'updates' ? 'active' : ''} onClick={() => setActiveTab('updates')}><FaCalendarCheck /> Daily Updates</li>
-            <li className={activeTab === 'gallery' ? 'active' : ''} onClick={() => setActiveTab('gallery')}><FaImages /> Gallery</li>
-            <li className={activeTab === 'events' ? 'active' : ''} onClick={() => setActiveTab('events')}><FaCalendarAlt /> Events</li>
-          </ul>
-          
-          <div className="sidebar-settings-label">SETTINGS</div>
-          <button className="logout-btn-sidebar" onClick={handleLogout}><FaSignOutAlt /> Logout</button>
+      {/* Sidebar */}
+      <div className="admin-sidebar">
+        <div className="sidebar-header">
+          <h2>NSCET - ADMIN</h2>
         </div>
-        <div className="admin-content" onScroll={handleScroll}>
-        {activeTab === 'home' && <HomePageManager />}
-        {activeTab === 'staff' && <StaffManager />}
-        {activeTab === 'placements' && <div><h2>Placements</h2><p>Coming Soon...</p></div>}
-        {activeTab === 'updates' && <div><h2>Daily Updates</h2><p>Coming Soon...</p></div>}
-        {activeTab === 'gallery' && <div><h2>Gallery</h2><p>Coming Soon...</p></div>}
-        {activeTab === 'events' && <EventsManager />}
-        {/* Hidden but still accessible via logic if needed */}
-        {activeTab === 'departments' && <DepartmentsManager />}
         
-        {showScrollTop && (
-          <button className="scroll-to-top-admin" onClick={handleScrollTop} title="Scroll to Top">
-            <FaChevronUp />
+        <ul className="sidebar-menu">
+          <li className={activeTab === 'home' ? 'active' : ''} onClick={() => setActiveTab('home')}><FaHome className="sidebar-icon" /> Home Page</li>
+          <li className={activeTab === 'staff' ? 'active' : ''} onClick={() => setActiveTab('staff')}><FaUsers className="sidebar-icon" /> Faculties</li>
+          <li className={activeTab === 'placements' ? 'active' : ''} onClick={() => setActiveTab('placements')}><FaBriefcase className="sidebar-icon" /> Placements</li>
+          <li className={activeTab === 'updates' ? 'active' : ''} onClick={() => setActiveTab('updates')}><FaCalendarCheck className="sidebar-icon" /> Daily Updates</li>
+          <li className={activeTab === 'gallery' ? 'active' : ''} onClick={() => setActiveTab('gallery')}><FaImages className="sidebar-icon" /> Gallery</li>
+          <li className={activeTab === 'events' ? 'active' : ''} onClick={() => setActiveTab('events')}><FaCalendarAlt className="sidebar-icon" /> Events</li>
+        </ul>
+        
+        <div className="sidebar-footer">
+          <button className="logout-btn-sidebar" onClick={handleLogout}>
+            <FaSignOutAlt className="sidebar-icon" /> Logout
           </button>
-        )}
+        </div>
       </div>
-    </div>
+
+      {/* Main Content Area */}
+      <div className="admin-main">
+
+
+        {/* Scrollable Content */}
+        <div className="admin-content" onScroll={handleScroll}>
+          {activeTab === 'home' && <HomePageManager />}
+          {activeTab === 'staff' && <StaffManager />}
+          {activeTab === 'placements' && <PlacementsManager />}
+          {activeTab === 'updates' && <div><h2 className="page-title">Daily Updates</h2><p>Coming Soon...</p></div>}
+          {activeTab === 'gallery' && <GalleryManager />}
+          {activeTab === 'events' && <EventsManager />}
+          {activeTab === 'departments' && <DepartmentsManager />}
+          
+          {showScrollTop && (
+            <button className="scroll-to-top-admin" onClick={handleScrollTop} title="Scroll to Top">
+              <FaChevronUp />
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
@@ -77,83 +86,165 @@ const AdminDashboard = () => {
 // --- EVENTS MANAGER ---
 const EventsManager = () => {
   const [events, setEvents] = useState([]);
+  const [department, setDepartment] = useState('');
+  const [date, setDate] = useState('');
   const [title, setTitle] = useState('');
-  const [slug, setSlug] = useState('');
   const [description, setDescription] = useState('');
-  const [photo, setPhoto] = useState(null);
-  const [selectedEventId, setSelectedEventId] = useState('');
+  const [image, setImage] = useState(null);
 
   const fetchEvents = async () => {
-    const res = await axios.get('http://localhost:5000/api/admin/events');
-    setEvents(res.data.data);
+    try {
+      // const res = await axios.get('http://localhost:5000/api/admin/events');
+      // setEvents(res.data.data || []);
+      setEvents([]); // Placeholder
+    } catch (error) {
+      console.error(error);
+      setEvents([]);
+    }
   };
 
   useEffect(() => { fetchEvents(); }, []);
 
-  const handleAddEvent = async (e) => {
+  const handleCreateEvent = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/admin/events', { title, slug, description });
-    setTitle(''); setSlug(''); setDescription('');
-    fetchEvents();
-  };
-
-  const handleAddPhoto = async (e) => {
-    e.preventDefault();
-    if (!selectedEventId || !photo) return alert("Select event and photo");
     const formData = new FormData();
-    formData.append('photo', photo);
-    await axios.post(`http://localhost:5000/api/admin/events/${selectedEventId}/photo`, formData);
-    setPhoto(null);
-    fetchEvents();
+    formData.append('department', department);
+    formData.append('date', date);
+    formData.append('title', title);
+    formData.append('description', description);
+    if (image) formData.append('image', image);
+
+    try {
+      // await axios.post('http://localhost:5000/api/admin/events', formData);
+      setDepartment(''); setDate(''); setTitle(''); setDescription(''); setImage(null);
+      fetchEvents();
+      alert('Event creation connected to backend (placeholder).');
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleDeleteEvent = async (id) => {
     if (window.confirm("Are you sure?")) {
-      await axios.delete(`http://localhost:5000/api/admin/events/${id}`);
-      fetchEvents();
+      try {
+        // await axios.delete(`http://localhost:5000/api/admin/events/${id}`);
+        fetchEvents();
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
+  const deptNames = [
+    'Computer Science and Engineering',
+    'Electronics and Communication Engineering',
+    'Mechanical Engineering',
+    'Electrical and Electronics Engineering',
+    'Civil Engineering',
+    'Artificial Intelligence & Data Science',
+    'Information Technology',
+    'Science and Humanities'
+  ];
+
   return (
     <div>
-      <h2>Manage Events</h2>
-      <div className="form-section">
-        <h3>Add New Event</h3>
-        <form onSubmit={handleAddEvent}>
-          <input type="text" placeholder="Title" value={title} onChange={e=>setTitle(e.target.value)} required />
-          <input type="text" placeholder="Slug (e.g. waves-25)" value={slug} onChange={e=>setSlug(e.target.value)} required />
-          <textarea placeholder="Description" value={description} onChange={e=>setDescription(e.target.value)}></textarea>
-          <button type="submit">Create Event</button>
+      <div className="page-header" style={{marginBottom: '20px'}}>
+        <h2 className="page-title" style={{marginBottom: '4px', color: '#0A1A3A', display: 'flex', alignItems: 'center'}}>
+          <FaCalendarAlt style={{marginRight: '10px'}}/> Department Events Management
+        </h2>
+        <div style={{fontSize: '12px', color: '#6b7280'}}>Home / Events</div>
+      </div>
+      
+      {/* Create New Event Card */}
+      <div className="staff-card-form" style={{marginBottom: '30px', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '24px', backgroundColor: '#ffffff', boxShadow: '0 1px 3px rgba(0,0,0,0.05)'}}>
+        <div className="staff-form-header" style={{color: '#374151', fontSize: '16px', fontWeight: '600', display: 'flex', alignItems: 'center', marginBottom: '24px', borderBottom: '1px solid #f3f4f6', paddingBottom: '12px'}}>
+          <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', borderRadius: '50%', border: '1.5px solid #6b7280', marginRight: '10px', fontSize: '14px', color: '#6b7280'}}>+</span> 
+          Create New Event
+        </div>
+        
+        <form onSubmit={handleCreateEvent}>
+          <div className="staff-grid-inputs" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '24px'}}>
+            <div className="input-group" style={{marginBottom: 0}}>
+              <label style={{fontWeight: '500', color: '#4b5563', fontSize: '13px', marginBottom: '8px'}}>Department <span style={{color: '#ef4444'}}>*</span></label>
+              <select value={department} onChange={e=>setDepartment(e.target.value)} required style={{padding: '10px 14px', border: '1px solid #d1d5db', borderRadius: '6px', width: '100%', backgroundColor: 'white', outline: 'none', fontSize: '13px'}}>
+                <option value="">-- Select Department --</option>
+                {deptNames.map(d => <option key={d} value={d}>{d}</option>)}
+              </select>
+            </div>
+            
+            <div className="input-group" style={{marginBottom: 0}}>
+              <label style={{fontWeight: '500', color: '#4b5563', fontSize: '13px', marginBottom: '8px'}}>Event Date <span style={{color: '#ef4444'}}>*</span></label>
+              <input type="date" value={date} onChange={e=>setDate(e.target.value)} required style={{padding: '10px 14px', border: '1px solid #d1d5db', borderRadius: '6px', width: '100%', outline: 'none', fontSize: '13px', color: '#4b5563', backgroundColor: 'white'}}/>
+            </div>
+          </div>
+
+          <div className="input-group" style={{marginBottom: '24px'}}>
+            <label style={{fontWeight: '500', color: '#4b5563', fontSize: '13px', marginBottom: '8px'}}>Event Title <span style={{color: '#ef4444'}}>*</span></label>
+            <input type="text" placeholder="e.g., Annual Tech Fest 2024" value={title} onChange={e=>setTitle(e.target.value)} required style={{padding: '10px 14px', border: '1px solid #d1d5db', borderRadius: '6px', width: '100%', outline: 'none', fontSize: '13px'}}/>
+          </div>
+
+          <div className="input-group" style={{marginBottom: '24px'}}>
+            <label style={{fontWeight: '500', color: '#4b5563', fontSize: '13px', marginBottom: '8px'}}>Event Description <span style={{color: '#ef4444'}}>*</span></label>
+            <textarea placeholder="Enter detailed event description..." value={description} onChange={e=>setDescription(e.target.value)} required style={{padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', width: '100%', outline: 'none', minHeight: '100px', resize: 'vertical', fontSize: '13px', fontFamily: 'inherit'}}></textarea>
+            <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>Provide comprehensive details about the event</div>
+          </div>
+
+          <div className="input-group" style={{marginBottom: '24px'}}>
+            <label style={{fontWeight: '500', color: '#4b5563', fontSize: '13px', marginBottom: '8px'}}>Event Image <span style={{color: '#ef4444'}}>*</span></label>
+            <div style={{display: 'flex', border: '1px solid #d1d5db', borderRadius: '6px', overflow: 'hidden', alignItems: 'center', backgroundColor: '#ffffff'}}>
+              <div style={{backgroundColor: '#f9fafb', padding: '10px 14px', borderRight: '1px solid #d1d5db', color: '#4b5563', fontSize: '13px', whiteSpace: 'nowrap', fontWeight: '500'}}>Choose file</div>
+              <input type="file" onChange={e=>setImage(e.target.files[0])} accept="image/*" style={{padding: '7px 10px', width: '100%', border: 'none', background: 'transparent', fontSize: '13px'}} required />
+            </div>
+            <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>Max 5MB. Formats: JPG, PNG, GIF, WEBP</div>
+          </div>
+          
+          <button type="submit" className="btn-primary" style={{backgroundColor: '#3b82f6', borderRadius: '6px', padding: '10px 20px', fontSize: '14px', display: 'flex', alignItems: 'center', fontWeight: '500', border: 'none', cursor: 'pointer', color: 'white'}}>
+            <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '14px', height: '14px', borderRadius: '50%', border: '1.5px solid white', marginRight: '8px', fontSize: '10px', fontWeight: 'bold'}}>+</span> Create Event
+          </button>
         </form>
       </div>
 
-      <div className="form-section">
-        <h3>Add Photo to Event</h3>
-        <form onSubmit={handleAddPhoto}>
-          <select value={selectedEventId} onChange={e=>setSelectedEventId(e.target.value)} required>
-            <option value="">Select Event</option>
-            {events.map(ev => <option key={ev.id} value={ev.id}>{ev.title}</option>)}
-          </select>
-          <input type="file" onChange={e=>setPhoto(e.target.files[0])} required />
-          <button type="submit">Upload Photo</button>
-        </form>
-      </div>
-
-      <div className="list-section">
-        <h3>Existing Events</h3>
-        <table className="admin-table">
-          <thead><tr><th>Title</th><th>Slug</th><th>Photos Count</th><th>Action</th></tr></thead>
-          <tbody>
-            {events.map(ev => (
-              <tr key={ev.id}>
-                <td>{ev.title}</td>
-                <td>{ev.slug}</td>
-                <td>{ev.images?.length || 0}</td>
-                <td><button className="delete-btn" onClick={() => handleDeleteEvent(ev.id)}>Delete</button></td>
+      {/* All Events List */}
+      <div className="staff-card-form" style={{border: '1px solid #e5e7eb', borderRadius: '8px', padding: '24px', backgroundColor: '#ffffff', boxShadow: '0 1px 3px rgba(0,0,0,0.05)'}}>
+        <div className="staff-form-header" style={{color: '#374151', fontSize: '16px', fontWeight: '600', display: 'flex', alignItems: 'center', marginBottom: '20px'}}>
+          <FaBook style={{marginRight: '10px', color: '#6b7280'}}/> All Events ({events.length})
+        </div>
+        
+        <div style={{overflowX: 'auto', borderRadius: '6px', border: '1px solid #e5e7eb'}}>
+          <table className="admin-table" style={{width: '100%', borderCollapse: 'collapse', margin: 0}}>
+            <thead>
+              <tr style={{backgroundColor: '#f9fafb', borderBottom: '1px solid #e5e7eb'}}>
+                <th style={{padding: '12px 16px', textAlign: 'left', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Title</th>
+                <th style={{padding: '12px 16px', textAlign: 'left', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Department</th>
+                <th style={{padding: '12px 16px', textAlign: 'left', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Date</th>
+                <th style={{padding: '12px 16px', textAlign: 'right', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {events.length === 0 ? (
+                <tr>
+                  <td colSpan="4" style={{padding: '60px 20px', textAlign: 'center', color: '#9ca3af'}}>
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                      <FaImages style={{fontSize: '48px', color: '#d1d5db', marginBottom: '16px'}} />
+                      <span style={{fontSize: '14px', color: '#6b7280'}}>No events created yet. Create your first event above!</span>
+                    </div>
+                  </td>
+                </tr>
+              ) : (
+                events.map(ev => (
+                  <tr key={ev.id} style={{borderBottom: '1px solid #e5e7eb'}}>
+                    <td style={{padding: '12px 16px', fontSize: '14px', color: '#111827', fontWeight: '500'}}>{ev.title}</td>
+                    <td style={{padding: '12px 16px', fontSize: '14px', color: '#4b5563'}}>{ev.department}</td>
+                    <td style={{padding: '12px 16px', fontSize: '14px', color: '#4b5563'}}>{ev.date}</td>
+                    <td style={{padding: '12px 16px', textAlign: 'right'}}>
+                      <button onClick={() => handleDeleteEvent(ev.id)} style={{backgroundColor: '#fee2e2', color: '#dc2626', border: 'none', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', transition: 'background-color 0.2s'}}>Delete</button>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
@@ -316,7 +407,272 @@ const StaffManager = () => {
   );
 };
 
-// --- DEPARTMENTS MANAGER ---
+// --- PLACEMENTS MANAGER ---
+const PlacementsManager = () => {
+  const [images, setImages] = useState([]);
+  const [photo, setPhoto] = useState(null);
+
+  const fetchImages = async () => {
+    try {
+      // Stub for fetching images
+      setImages([]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => { fetchImages(); }, []);
+
+  const handleUploadImage = async (e) => {
+    e.preventDefault();
+    if (!photo) return;
+    const formData = new FormData();
+    formData.append('photo', photo);
+    try {
+      // await axios.post('http://localhost:5000/api/admin/placements', formData);
+      setPhoto(null);
+      fetchImages();
+      alert('Upload functionality to be connected to backend.');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleClear = () => setPhoto(null);
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setPhoto(e.target.files[0]);
+    }
+  };
+
+  return (
+    <div>
+      <div className="page-header" style={{marginBottom: '20px'}}>
+        <h2 className="page-title" style={{marginBottom: '4px', color: '#0A1A3A'}}>Placement Management</h2>
+        <div style={{fontSize: '12px', color: '#6b7280'}}>Home / Placements</div>
+      </div>
+      
+      <div className="staff-card-form" style={{marginBottom: '30px', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '24px'}}>
+        <div className="staff-form-header" style={{color: '#374151', fontSize: '18px', fontWeight: '600', display: 'flex', alignItems: 'center'}}>
+          <FaImage style={{marginRight: '10px', color: '#007bff'}}/> Add Placement Image
+        </div>
+        <div className="staff-form-subtitle" style={{marginBottom: '20px', color: '#6b7280', fontSize: '13px'}}>
+          Upload company logos and placement related images
+        </div>
+        
+        <div style={{borderTop: '2px solid #3b82f6', margin: '0 -24px 24px -24px'}}></div>
+
+        <form onSubmit={handleUploadImage}>
+          <div className="input-group">
+            <label style={{color: '#059669', fontWeight: '600', display: 'flex', alignItems: 'center'}}><FaUpload style={{marginRight: '6px'}}/> Select Image</label>
+            <div className="upload-area" style={{border: '1px dashed #d1d5db', borderRadius: '8px', padding: '40px 20px', backgroundColor: '#f9fafb', transition: 'all 0.3s'}}>
+              <input type="file" onChange={handleFileChange} accept="image/*" />
+              <FaImage className="upload-icon" style={{fontSize: '36px', color: '#3b82f6'}} />
+              <div style={{marginTop: '12px', fontWeight: '500', color: '#4b5563'}}>Click to select or drag & drop image</div>
+              <div style={{fontSize: '12px', color: '#9ca3af', marginTop: '6px'}}>(JPG, PNG, WEBP - Max 5MB)</div>
+              {photo && <div style={{marginTop: '12px', color: '#059669', fontWeight: '600'}}><FaCheck /> {photo.name}</div>}
+            </div>
+          </div>
+
+          <div className="form-actions" style={{display: 'flex', gap: '12px', marginTop: '24px'}}>
+            <button type="submit" className="btn-primary" style={{flex: 1, backgroundColor: '#1d4ed8', fontSize: '14px', padding: '12px', borderRadius: '6px'}}><FaUpload style={{marginRight: '8px'}}/> Upload Image</button>
+            <button type="button" className="btn-secondary" onClick={handleClear} style={{flex: 1, backgroundColor: '#6b7280', color: 'white', border: 'none', fontSize: '14px', padding: '12px', borderRadius: '6px', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><FaRedo style={{marginRight: '8px'}}/> Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <div className="dept-group" style={{marginTop: '40px'}}>
+        <div className="dept-header" style={{backgroundColor: '#15803d', borderRadius: '8px 8px 0 0', padding: '16px 24px', display: 'flex', justifyContent: 'space-between', color: 'white', fontWeight: '600', alignItems: 'center'}}>
+          <div style={{display: 'flex', alignItems: 'center'}}><FaBuilding style={{marginRight: '10px'}}/> Placement Images</div>
+          <div className="dept-badge" style={{backgroundColor: 'rgba(255,255,255,0.25)', color: 'white', padding: '4px 12px', borderRadius: '20px', fontSize: '12px'}}>{images.length} Images</div>
+        </div>
+        <div className="staff-cards-grid" style={{padding: '30px', border: '1px solid #e5e7eb', borderTop: 'none', borderRadius: '0 0 8px 8px', background: 'white'}}>
+          {images.length === 0 ? (
+            <div style={{textAlign: 'center', color: '#6b7280', width: '100%', gridColumn: '1 / -1'}}>No placement images found.</div>
+          ) : (
+            images.map((img, i) => (
+               <div key={i} className="staff-card">Image Placeholder</div>
+            ))
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// --- GALLERY MANAGER ---
+const GalleryManager = () => {
+  const [events, setEvents] = useState([]);
+  const [eventName, setEventName] = useState('');
+  const [thumbnail, setThumbnail] = useState(null);
+  const [selectedEventId, setSelectedEventId] = useState('');
+  const [eventImages, setEventImages] = useState(null);
+
+  const fetchEvents = async () => {
+    try {
+      // const res = await axios.get('http://localhost:5000/api/admin/events');
+      // setEvents(res.data.data || []);
+      setEvents([]); // Placeholder
+    } catch (e) {
+      console.error(e);
+      setEvents([]);
+    }
+  };
+
+  useEffect(() => { fetchEvents(); }, []);
+
+  const handleCreateEvent = async (e) => {
+    e.preventDefault();
+    if (!eventName) return;
+    const formData = new FormData();
+    formData.append('title', eventName);
+    formData.append('slug', eventName.toLowerCase().replace(/ /g, '-'));
+    if (thumbnail) formData.append('thumbnail', thumbnail);
+
+    try {
+      // await axios.post('http://localhost:5000/api/admin/events', formData);
+      setEventName(''); setThumbnail(null);
+      fetchEvents();
+      alert('Event creation connected to backend (placeholder).');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleUploadImages = async (e) => {
+    e.preventDefault();
+    if (!selectedEventId || !eventImages) return alert("Select event and images");
+    const formData = new FormData();
+    for (let i = 0; i < eventImages.length; i++) {
+      formData.append('photos', eventImages[i]);
+    }
+    try {
+      // await axios.post(`http://localhost:5000/api/admin/events/${selectedEventId}/photos`, formData);
+      setEventImages(null);
+      fetchEvents();
+      alert('Images upload connected to backend (placeholder).');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleDeleteEvent = async (id) => {
+    if (window.confirm("Are you sure?")) {
+      try {
+        // await axios.delete(`http://localhost:5000/api/admin/events/${id}`);
+        fetchEvents();
+      } catch (e) { console.error(e); }
+    }
+  };
+
+  return (
+    <div>
+      <div className="page-header" style={{marginBottom: '20px'}}>
+        <h2 className="page-title" style={{marginBottom: '4px', color: '#0A1A3A', display: 'flex', alignItems: 'center'}}>
+          <FaImages style={{marginRight: '10px'}}/> Gallery Management
+        </h2>
+        <div style={{fontSize: '12px', color: '#6b7280'}}>Home / Gallery</div>
+      </div>
+      
+      {/* Create New Event Card */}
+      <div className="staff-card-form" style={{marginBottom: '30px', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '24px', backgroundColor: '#ffffff', boxShadow: '0 1px 3px rgba(0,0,0,0.05)'}}>
+        <div className="staff-form-header" style={{color: '#374151', fontSize: '16px', fontWeight: '600', display: 'flex', alignItems: 'center', marginBottom: '24px', borderBottom: '1px solid #f3f4f6', paddingBottom: '12px'}}>
+          <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', borderRadius: '50%', border: '1.5px solid #6b7280', marginRight: '10px', fontSize: '14px', color: '#6b7280'}}>+</span> 
+          Create New Event
+        </div>
+        
+        <form onSubmit={handleCreateEvent}>
+          <div className="staff-grid-inputs" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px'}}>
+            <div className="input-group" style={{marginBottom: 0}}>
+              <label style={{fontWeight: '500', color: '#4b5563', fontSize: '13px', marginBottom: '8px'}}>Event Name <span style={{color: '#ef4444'}}>*</span></label>
+              <input type="text" placeholder="e.g., Annual Day 2024" value={eventName} onChange={e=>setEventName(e.target.value)} required style={{padding: '10px 14px', border: '1px solid #d1d5db', borderRadius: '6px', width: '100%', outline: 'none', transition: 'border-color 0.2s'}}/>
+              <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>Use unique event names</div>
+            </div>
+            
+            <div className="input-group" style={{marginBottom: 0}}>
+              <label style={{fontWeight: '500', color: '#4b5563', fontSize: '13px', marginBottom: '8px'}}>Card/Thumbnail Image <span style={{color: '#ef4444'}}>*</span></label>
+              <div style={{display: 'flex', border: '1px solid #d1d5db', borderRadius: '6px', overflow: 'hidden', alignItems: 'center', backgroundColor: '#ffffff'}}>
+                <div style={{backgroundColor: '#f9fafb', padding: '10px 14px', borderRight: '1px solid #d1d5db', color: '#4b5563', fontSize: '13px', whiteSpace: 'nowrap', fontWeight: '500'}}>Choose file</div>
+                <input type="file" onChange={e=>setThumbnail(e.target.files[0])} accept="image/*" style={{padding: '7px 10px', width: '100%', border: 'none', background: 'transparent', fontSize: '13px'}} required />
+              </div>
+              <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>Max 5MB. Formats: JPG, PNG, GIF, WEBP</div>
+            </div>
+          </div>
+          <button type="submit" className="btn-primary" style={{marginTop: '24px', backgroundColor: '#3b82f6', borderRadius: '6px', padding: '10px 20px', fontSize: '14px', display: 'flex', alignItems: 'center', fontWeight: '500', border: 'none', cursor: 'pointer', color: 'white'}}>
+            <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '14px', height: '14px', borderRadius: '50%', border: '1.5px solid white', marginRight: '8px', fontSize: '10px', fontWeight: 'bold'}}>+</span> Create Event
+          </button>
+        </form>
+      </div>
+
+      {/* Upload Images to Event Card */}
+      <div className="staff-card-form" style={{marginBottom: '30px', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '24px', backgroundColor: '#ffffff', boxShadow: '0 1px 3px rgba(0,0,0,0.05)'}}>
+        <div className="staff-form-header" style={{color: '#374151', fontSize: '16px', fontWeight: '600', display: 'flex', alignItems: 'center', marginBottom: '24px', borderBottom: '1px solid #f3f4f6', paddingBottom: '12px'}}>
+          <FaUpload style={{marginRight: '10px', color: '#6b7280'}}/> Upload Images to Event
+        </div>
+        
+        <form onSubmit={handleUploadImages}>
+          <div className="staff-grid-inputs" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px'}}>
+            <div className="input-group" style={{marginBottom: 0}}>
+              <label style={{fontWeight: '500', color: '#4b5563', fontSize: '13px', marginBottom: '8px'}}>Select Event <span style={{color: '#ef4444'}}>*</span></label>
+              <select value={selectedEventId} onChange={e=>setSelectedEventId(e.target.value)} required style={{padding: '10px 14px', border: '1px solid #d1d5db', borderRadius: '6px', width: '100%', backgroundColor: 'white', outline: 'none', fontSize: '13px'}}>
+                <option value="">-- Select Event --</option>
+                {events.map(ev => <option key={ev.id} value={ev.id}>{ev.title}</option>)}
+              </select>
+            </div>
+            
+            <div className="input-group" style={{marginBottom: 0}}>
+              <label style={{fontWeight: '500', color: '#4b5563', fontSize: '13px', marginBottom: '8px'}}>Select Images <span style={{color: '#ef4444'}}>*</span> (Multiple)</label>
+              <div style={{display: 'flex', border: '1px solid #d1d5db', borderRadius: '6px', overflow: 'hidden', alignItems: 'center', backgroundColor: '#ffffff'}}>
+                <div style={{backgroundColor: '#f9fafb', padding: '10px 14px', borderRight: '1px solid #d1d5db', color: '#4b5563', fontSize: '13px', whiteSpace: 'nowrap', fontWeight: '500'}}>Choose files</div>
+                <input type="file" multiple onChange={e=>setEventImages(e.target.files)} accept="image/*" style={{padding: '7px 10px', width: '100%', border: 'none', background: 'transparent', fontSize: '13px'}} required />
+              </div>
+              <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>You can select multiple images at once</div>
+            </div>
+          </div>
+          <button type="submit" className="btn-primary" style={{marginTop: '24px', backgroundColor: '#15803d', borderRadius: '6px', padding: '10px 20px', fontSize: '14px', display: 'flex', alignItems: 'center', fontWeight: '500', border: 'none', cursor: 'pointer', color: 'white'}}>
+            <FaUpload style={{marginRight: '8px'}}/> Upload Images
+          </button>
+        </form>
+      </div>
+
+      {/* Manage Events List */}
+      <div className="staff-card-form" style={{border: '1px solid #e5e7eb', borderRadius: '8px', padding: '24px', backgroundColor: '#ffffff', boxShadow: '0 1px 3px rgba(0,0,0,0.05)'}}>
+        <div className="staff-form-header" style={{color: '#374151', fontSize: '16px', fontWeight: '600', display: 'flex', alignItems: 'center', marginBottom: '20px'}}>
+          <FaBook style={{marginRight: '10px', color: '#6b7280'}}/> Manage Events ({events.length})
+        </div>
+        
+        <div style={{overflowX: 'auto', borderRadius: '6px', border: '1px solid #e5e7eb'}}>
+          <table className="admin-table" style={{width: '100%', borderCollapse: 'collapse', margin: 0}}>
+            <thead>
+              <tr style={{backgroundColor: '#f9fafb', borderBottom: '1px solid #e5e7eb'}}>
+                <th style={{padding: '12px 16px', textAlign: 'left', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Event Name</th>
+                <th style={{padding: '12px 16px', textAlign: 'left', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Photos Count</th>
+                <th style={{padding: '12px 16px', textAlign: 'right', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {events.length === 0 ? (
+                <tr><td colSpan="3" style={{padding: '30px', textAlign: 'center', color: '#6b7280', fontSize: '14px'}}>No events found.</td></tr>
+              ) : (
+                events.map(ev => (
+                  <tr key={ev.id} style={{borderBottom: '1px solid #e5e7eb'}}>
+                    <td style={{padding: '12px 16px', fontSize: '14px', color: '#111827', fontWeight: '500'}}>{ev.title}</td>
+                    <td style={{padding: '12px 16px', fontSize: '14px', color: '#4b5563'}}>{ev.images?.length || 0}</td>
+                    <td style={{padding: '12px 16px', textAlign: 'right'}}>
+                      <button onClick={() => handleDeleteEvent(ev.id)} style={{backgroundColor: '#fee2e2', color: '#dc2626', border: 'none', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', transition: 'background-color 0.2s'}}>Delete</button>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const DepartmentsManager = () => {
   const [departments, setDepartments] = useState([]);
   const [name, setName] = useState('');
