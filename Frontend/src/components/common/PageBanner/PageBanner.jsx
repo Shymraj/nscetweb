@@ -14,6 +14,7 @@ const PageBanner = ({
   imageFit = "cover",
   imagePosition = "center",
   showOverlay = false,
+  showText = false,
   className = ""
 }) => {
   // Calculate dynamic font size class based on title length
@@ -55,7 +56,7 @@ const PageBanner = ({
       </div>
 
       {/* Left side content (TMHNU Trust style) */}
-      {hasContent && (
+      {showText && hasContent && (
         <div className="page-banner-left">
           <div className="page-banner-content">
             
