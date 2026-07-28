@@ -10,7 +10,6 @@ import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./Mechanical.css";
 
-import mechBannerImg from "./images/mech-banner.png";
 import massLogo from "./images/mass.png";
 
 // Faculty images
@@ -69,7 +68,7 @@ const Mechanical = () => {
                 title="DEPARTMENT OF MECHANICAL ENGINEERING"
                 subtitle="Engineering innovation from design to manufacturing — powering industries with precision, creativity, and excellence."
                 hideBreadcrumb={true}
-                backgroundImage={mechBannerImg}
+                
             />
 
             <main className="content-wrapper">

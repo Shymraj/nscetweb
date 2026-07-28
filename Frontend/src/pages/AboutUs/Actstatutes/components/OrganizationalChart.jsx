@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaSearchPlus, FaTimes } from "react-icons/fa";
-import chartImg from "../assets/images/organizational-chart.png";
 
 const OrganizationalChart = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,7 +34,7 @@ const OrganizationalChart = () => {
         onClick={() => setIsModalOpen(true)}
       >
         <div className="img-placeholder">
-          <img src={chartImg} alt="Organizational Chart" className="chart-thumbnail" />
+          <img src="https://placehold.co/800x600/1e40af/FFFFFF/png?text=Organizational+Chart" alt="Organizational Chart" className="chart-thumbnail" />
           <div className="hover-overlay">
             <FaSearchPlus className="zoom-icon" />
             <span>Click to View Full Screen</span>
@@ -62,7 +61,7 @@ const OrganizationalChart = () => {
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                src={chartImg}
+                src="https://placehold.co/800x600/1e40af/FFFFFF/png?text=Organizational+Chart"
                 alt="Organizational Chart Fullscreen"
                 className="chart-fullscreen-img"
                 onClick={(e) => e.stopPropagation()}

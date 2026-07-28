@@ -17,7 +17,6 @@ import imgAruljebaraj from "./images/aruljebaraj.jpg";
 import imgNathirunSabinash from "./images/nathirunsabinash.jpg";
 import imgHariprasath from "./images/hariprasath.jpg";
 import imgManojPrabakar from "./images/Manoj_prabakar.jpg";
-import civilBannerImg from "./images/civil-banner.png";
 import eycaLogo from "./images/eyca-logo.png";
 
 const Civil = () => {
@@ -65,7 +64,7 @@ const Civil = () => {
                 title="DEPARTMENT OF CIVIL ENGINEERING"
                 subtitle="Building the foundation of tomorrow — where sustainable design meets structural excellence."
                 hideBreadcrumb={true}
-                backgroundImage={civilBannerImg}
+                
             />
 
             <main className="content-wrapper">

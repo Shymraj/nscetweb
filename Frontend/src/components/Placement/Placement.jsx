@@ -20,11 +20,9 @@ import tcs from "../../assets/recruiters/tcs.webp";
 import infosys from "../../assets/recruiters/infosys.webp";
 import accenture from "../../assets/recruiters/accenture.png";
 import cognizant from "../../assets/recruiters/cognizant.png";
-import wipro from "../../assets/recruiters/wipro.png";
 import hcl from "../../assets/recruiters/hcl.png";
 import zoho from "../../assets/recruiters/zoho.png";
 import capgemini from "../../assets/recruiters/capgemini.jpeg";
-import ibm from "../../assets/recruiters/ibm.png";
 import amazon from "../../assets/recruiters/amazon.webp";
 import deloitte from "../../assets/recruiters/deloitte.jpeg";
 import techm from "../../assets/recruiters/techm.jpg";
@@ -105,11 +103,9 @@ const recruiters = [
   { name: "Infosys", logo: infosys },
   { name: "Accenture", logo: accenture },
   { name: "Cognizant", logo: cognizant },
-  { name: "Wipro", logo: wipro },
   { name: "HCL", logo: hcl },
   { name: "Zoho", logo: zoho },
   { name: "Capgemini", logo: capgemini },
-  { name: "IBM", logo: ibm },
   { name: "Amazon", logo: amazon },
   { name: "Deloitte", logo: deloitte },
   { name: "Tech Mahindra", logo: techm },
