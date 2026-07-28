@@ -65,7 +65,7 @@ import ScrollToTop from "./components/ScrollToTop";
 
 const AppContent = () => {
   const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith("/admin");
+  const isAdminRoute = location.pathname.startsWith("/admin-");
 
   return (
     <>
