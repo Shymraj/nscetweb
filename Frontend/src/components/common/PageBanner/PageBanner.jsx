@@ -13,6 +13,7 @@ const PageBanner = ({
   height,
   imageFit = "cover",
   imagePosition = "center",
+  showOverlay = true,
   className = ""
 }) => {
   // Calculate dynamic font size class based on title length
@@ -26,6 +27,9 @@ const PageBanner = ({
       titleSizeClass = "title-size-lg";
     }
   }
+
+  const hasContent = Boolean(title || subtitle || (!hideBreadcrumb && breadcrumb.length > 0));
+  const renderOverlay = showOverlay && hasContent;
 
   return (
     <section 
@@ -47,7 +51,7 @@ const PageBanner = ({
             objectPosition: imagePosition
           }}
         />
-        <div className="page-banner-overlay"></div>
+        {renderOverlay && <div className="page-banner-overlay"></div>}
       </div>
 
       {/* Left side content (TMHNU Trust style) */}

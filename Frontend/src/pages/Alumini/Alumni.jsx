@@ -8,8 +8,12 @@ import DistinguishedAlumni from "./components/DistinguishedAlumni";
 import Certificate from "./components/Certificate";
 import { AnimatePresence, motion } from "framer-motion";
 
-import bannerImg from "../../assets/Img/alumni_hero.png";
+import defaultBannerImg from "../../assets/Img/alumni_hero.png";
 import "./Alumni.css";
+
+// Automatically load any image manually placed inside src/pages/Alumini/assets/banner/
+const bannerGlobs = import.meta.glob("./assets/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const customBanner = Object.values(bannerGlobs)[0] || defaultBannerImg;
 
 const Alumni = () => {
   const [activeSection, setActiveSection] = useState("overview");
@@ -34,10 +38,11 @@ const Alumni = () => {
   return (
     <div className="alumni-page">
       <PageBanner
-        title="ALUMNI ASSOCIATION"
-        subtitle="Building a lifelong connection among students and alumni, fostering personal and professional growth globally."
+        title=""
+        subtitle=""
         hideBreadcrumb={true}
-        backgroundImage={bannerImg}
+        backgroundImage={customBanner}
+        showOverlay={false}
       />
 
       <div className="alumni-container">
