@@ -1021,3 +1021,120 @@ body.dark-mode .doc-badge:hover {
   }
 }
 
+/* =========================================
+   DARK MODE OVERRIDES FOR ANNUAL ACCOUNTS
+   ========================================= */
+
+body.dark-mode .ar-report-lead,
+.dark .ar-report-lead {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .ar-sec-accordion-card,
+.dark .ar-sec-accordion-card {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .ar-sec-accordion-card.open,
+.dark .ar-sec-accordion-card.open {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .ar-sec-header,
+.dark .ar-sec-header {
+  background: #1e293b !important;
+}
+
+body.dark-mode .ar-sec-header:hover,
+.dark .ar-sec-header:hover {
+  background: #0f172a !important;
+}
+
+body.dark-mode .sec-title,
+.dark .sec-title {
+  color: #f8fafc !important;
+}
+
+body.dark-mode .sec-summary,
+.dark .sec-summary {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .sec-toggle-btn,
+.dark .sec-toggle-btn {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .ar-sec-body,
+.dark .ar-sec-body {
+  background: #0f172a !important;
+  border-top-color: #334155 !important;
+}
+
+body.dark-mode .detail-block,
+.dark .detail-block {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.dark-mode .detail-block.highlight-block,
+.dark .detail-block.highlight-block {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(3, 105, 161, 0.25) 100%) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+}
+
+body.dark-mode .detail-title,
+.dark .detail-title {
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .detail-grid-item,
+.dark .detail-grid-item {
+  background: #0f172a !important;
+  border-color: #1e293b !important;
+}
+
+body.dark-mode .grid-item-label,
+.dark .grid-item-label {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .grid-item-val,
+.dark .grid-item-val {
+  color: #f8fafc !important;
+}
+
+body.dark-mode .detail-text,
+.dark .detail-text {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .detail-pill-chip,
+.dark .detail-pill-chip {
+  background: rgba(2, 132, 199, 0.2) !important;
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+
+body.dark-mode .timeline-row,
+.dark .timeline-row {
+  background: #0f172a !important;
+}
+
+body.dark-mode .timeline-date,
+.dark .timeline-date {
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .timeline-label,
+.dark .timeline-label {
+  color: #f1f5f9 !important;
+}
+
+
