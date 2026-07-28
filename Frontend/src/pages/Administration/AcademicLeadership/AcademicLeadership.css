@@ -1,375 +1,537 @@
+/* =========================================
+   BASE PAGE & FULL WIDE LAYOUT 
+   ========================================= */
 .al-page {
-  background-color: #f4f7fb;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  background-color: #f1f5f9;
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #1e293b;
-  display: flex;
-  flex-direction: column;
+  padding-bottom: 5rem;
 }
 
+/* =========================================
+   BANNER (Strict 8:3 Ratio)
+   ========================================= */
 .al-hero {
-  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-  color: #ffffff;
-  padding: 60px 5%;
-  text-align: center;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  padding-top: 120px; /* Extra padding for hero section */
+  background-color: #3b82f6 !important; 
+  color: #ffffff !important;
+  text-align: center !important;
+  aspect-ratio: 8 / 3 !important;
+  width: 100% !important;
+  height: auto !important;
+  padding: 30px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .al-hero h2 {
-  font-size: 36px;
-  font-weight: 800;
-  margin: 0 0 12px 0;
-  letter-spacing: 0.5px;
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  margin: 0 0 0.4rem 0 !important;
 }
 
 .al-hero p {
-  font-size: 18px;
-  color: #cbd5e1;
-  margin: 0;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 0.95rem !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+  opacity: 0.9 !important;
 }
 
 .al-container {
   display: flex;
-  flex-grow: 1; /* Makes container take remaining height */
-  width: 100%;
-  padding: 0;
-  /* Removed max-width to make it full page width */
+  max-width: 1400px;
+  margin: 2rem auto 0 auto; 
+  gap: 1.8rem;
+  padding: 0 0.8rem;
+  align-items: stretch; 
 }
 
-/* Sidebar */
+
+/* =========================================
+   LEFT SIDEBAR 
+   ========================================= */
 .al-sidebar {
-  width: 320px; /* Slightly wider for better breathing room */
+  width: 270px;
   flex-shrink: 0;
   background: #ffffff;
-  border-right: 1px solid #e2e8f0;
-  padding: 30px 20px;
-  min-height: calc(100vh - 200px); /* Full height sidebar */
-  box-shadow: 2px 0 8px rgba(0,0,0,0.03);
+  padding: 1.8rem 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
 }
 
 .al-sidebar-header {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 0.75rem;
   color: #64748b;
-  margin-bottom: 24px;
-  padding-left: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 1.2rem 0;
 }
 
-.al-nav-item {
+.al-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex-grow: 1; 
+}
+
+.al-nav-item, .al-accordion-btn {
   width: 100%;
   text-align: left;
-  background: none;
+  background: transparent;
   border: none;
-  padding: 12px 16px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #334155;
+  padding: 0.7rem 0.9rem;
   border-radius: 8px;
+  font-size: 0.9rem;
+  color: #475569;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-bottom: 8px;
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
 
-/* Sidebar Hover Effects */
-.al-nav-item:hover {
-  background: #f1f5f9;
-  color: #0f172a;
-  transform: translateX(4px); /* Slight move right on hover */
-}
+.al-nav-item:hover, .al-accordion-btn:hover { background: #f1f5f9; }
 
 .al-nav-item.active {
   background: #eff6ff;
   color: #2563eb;
   font-weight: 600;
-  border-left: 4px solid #2563eb;
+  border-left: 3px solid #2563eb;
+  border-radius: 0 8px 8px 0;
 }
 
 .al-group-title {
-  font-size: 14px;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 1.2rem 0 0.4rem 0.8rem;
   font-weight: 600;
-  color: #475569;
-  margin: 28px 0 12px 8px;
-  border-bottom: 1px solid #f1f5f9;
-  padding-bottom: 8px;
 }
 
 .al-accordion-btn {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: none;
-  border: none;
-  padding: 12px 16px;
-  font-size: 15px;
-  font-weight: 500;
-  color: #334155;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-}
-
-.al-accordion-btn:hover {
-  background: #f8fafc;
-  color: #0f172a;
-}
-
-.al-accordion-btn.open {
-  background: #f1f5f9;
 }
 
 .al-chevron {
-  font-size: 11px;
+  font-size: 0.7rem;
   color: #94a3b8;
-  transition: transform 0.3s ease;
 }
 
 .al-submenu {
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
-  margin-top: 8px;
-  margin-bottom: 16px;
-  gap: 6px;
+  gap: 0.6rem;
+  padding: 0.6rem 0 0.6rem 1.4rem;
   border-left: 2px solid #e2e8f0;
-  margin-left: 24px;
+  margin-left: 0.8rem;
+  animation: menuSlideDown 0.3s ease-out forwards;
 }
 
 .al-submenu button {
-  background: none;
-  border: none;
   text-align: left;
-  padding: 10px 16px;
-  font-size: 14px;
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
   color: #64748b;
   cursor: pointer;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  position: relative;
+  transition: color 0.2s ease;
 }
 
-/* Submenu Hover Effects */
-.al-submenu button:hover {
-  color: #0f172a;
-  background: #f1f5f9;
-  padding-left: 20px; /* Text slides slightly right */
-}
-
-.al-submenu button.active {
+.al-submenu button:hover, .al-submenu button.active {
   color: #2563eb;
-  background: #eff6ff;
   font-weight: 600;
 }
 
-.al-submenu button.active::before {
-  content: "•";
-  position: absolute;
-  left: 6px;
-  color: #2563eb;
+.al-sidebar-widget {
+  margin-top: 2rem; 
+  background: linear-gradient(135deg, #f8fafc, #eff6ff);
+  border: 1px solid #e2e8f0;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
 }
 
-/* Main Content */
+.al-sidebar-widget h4 {
+  margin: 0 0 0.3rem 0;
+  color: #1e293b;
+  font-size: 0.9rem;
+}
+
+.al-sidebar-widget p {
+  margin: 0 0 0.8rem 0;
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+.widget-contact {
+  background: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-weight: 700;
+  color: #2563eb;
+  font-size: 0.8rem;
+  border: 1px solid #dbeafe;
+  animation: contactPulse 2.5s infinite;
+  display: inline-block;
+}
+
+
+/* =========================================
+   RIGHT MAIN CONTENT 
+   ========================================= */
 .al-main-content {
   flex-grow: 1;
-  padding: 40px 5%; /* Responsive padding */
-  background: #f4f7fb;
+  padding: 0.5rem 0 2rem 0; 
 }
 
 .al-content-header h3 {
-  font-size: 26px;
-  font-weight: 700;
-  margin: 0 0 32px 0;
+  font-size: 1.6rem;
   color: #0f172a;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 12px;
-  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
 }
 
-/* Executive Cards */
-.al-executive-grid {
+
+/* =========================================
+   EXECUTIVE ADMIN CARDS
+   ========================================= */
+.exec-cards-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  max-width: 900px; /* Keeps executive cards readable */
+  gap: 1.5rem; 
 }
 
-.al-executive-card {
+.exec-premium-card {
   display: flex;
   background: #ffffff;
-  border-radius: 16px;
-  padding: 32px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  gap: 32px;
-  align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid transparent;
+  border-radius: 12px;
+  overflow: hidden; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+  min-height: 220px;
+  position: relative; 
+  cursor: pointer;
+  
+  opacity: 0; 
+  animation: slideUpFade 0.5s ease forwards;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
 }
 
-/* Executive Card Hover Effect */
-.al-executive-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  border-color: #e2e8f0;
+.exec-premium-card:hover {
+  transform: scale(1.06) translateY(-5px); 
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.18); 
 }
 
-.al-avatar-large {
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #64748b;
-  font-size: 16px;
-  font-weight: 600;
-  flex-shrink: 0;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+.exec-premium-card:active {
+  transform: scale(0.97);
 }
 
-.al-details h4 {
-  margin: 0 0 10px 0;
-  font-size: 24px;
-  color: #0f172a;
-}
-
-.al-badge {
-  display: inline-block;
-  background: #dbeafe;
-  color: #1e40af;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 24px;
-  margin-bottom: 12px;
-}
-
-.al-qual {
-  margin: 0 0 16px 0;
-  font-size: 15px;
-  color: #64748b;
-}
-
-.al-quote {
-  margin: 0;
-  font-size: 15px;
-  font-style: italic;
-  color: #475569;
-  border-left: 4px solid #2563eb;
-  padding-left: 16px;
-  background: #f8fafc;
-  padding: 12px 16px;
-  border-radius: 0 8px 8px 0;
-}
-
-/* HOD Grid */
-.al-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 28px;
-}
-
-.al-hod-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 32px 24px;
-  text-align: center;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  border: 1px solid #f1f5f9;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* HOD Card Hover Effect */
-.al-hod-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border-color: #cbd5e1;
-}
-
-/* Subtle top border accent on hover */
-.al-hod-card::before {
-  content: '';
+.exec-premium-card::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 4px;
-  background: #2563eb;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+  width: 4px;
+  height: 0%;
+  background-color: #3b82f6;
+  transition: height 0.3s ease-out;
+  z-index: 10;
 }
 
-.al-hod-card:hover::before {
-  transform: scaleX(1);
+.exec-premium-card:hover::before {
+  height: 100%;
 }
 
-.al-avatar-medium {
-  width: 96px;
-  height: 96px;
-  background: #e2e8f0;
+.exec-photo-wrapper {
+  width: 145px; 
+  height: 145px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #64748b;
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0 auto 20px;
-  transition: transform 0.3s ease;
+  border: 3px solid #3b82f6;
+  margin: 1.5rem 0 1.5rem 2rem; 
+  align-self: center; 
+  flex-shrink: 0;
+  background-color: #f1f5f9;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* Make image placeholder slightly bigger on hover */
-.al-hod-card:hover .al-avatar-medium {
-  transform: scale(1.05);
-  background: #cbd5e1;
-}
-
-.al-hod-card h4 {
-  margin: 0 0 8px 0;
-  font-size: 18px;
-  color: #0f172a;
-}
-
-.al-dept {
-  font-size: 15px;
-  font-weight: 600;
-  color: #2563eb;
-  margin: 0 0 6px 0;
-}
-
-.al-role {
-  font-size: 14px;
-  color: #64748b;
-  margin: 0;
-}
-
-/* 👇 ITHU THAAN PUTHU CODE (For image fit) 👇 */
-.al-profile-img {
+.exec-photo-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
-  object-position: center 15%;
+  object-position: top;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .al-container {
+.exec-premium-card:hover .exec-photo-wrapper img {
+  transform: scale(1.1);
+}
+
+.no-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #cbd5e1;
+}
+
+.exec-content {
+  flex-grow: 1;
+  padding: 1.5rem 2rem; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.exec-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.exec-details h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.exec-qual {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.exec-quote-box {
+  flex: 1;
+  background: #f8fafc;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  position: relative;
+  border-left: 3px solid #3b82f6;
+  max-width: 320px;
+}
+
+.quote-mark {
+  position: absolute;
+  top: -12px;
+  left: 8px;
+  font-size: 3rem;
+  color: #dbeafe;
+  font-family: serif;
+  line-height: 1;
+}
+
+.exec-quote-box p {
+  margin: 0;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #475569;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+}
+
+.role-badge {
+  display: inline-block;
+  width: fit-content;
+  background-color: #eff6ff;
+  color: #2563eb;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin: 2px 0;
+}
+
+.badge-secondary {
+  background-color: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+
+/* =========================================
+   STAFF / HODs CARDS 
+   ========================================= */
+.hod-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; 
+}
+
+.hod-horizontal-card {
+  display: flex;
+  background: #ffffff;
+  border-radius: 12px; 
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  min-height: 220px; 
+  position: relative; 
+  cursor: pointer;
+  
+  opacity: 0;
+  animation: slideUpFade 0.4s ease forwards;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+}
+
+.hod-horizontal-card:hover {
+  transform: scale(1.06) translateY(-5px); 
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.18); 
+}
+
+.hod-horizontal-card:active {
+  transform: scale(0.97);
+}
+
+.hod-horizontal-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0%;
+  background-color: #3b82f6;
+  transition: height 0.3s ease-out;
+  z-index: 10;
+}
+
+.hod-horizontal-card:hover::before {
+  height: 100%;
+}
+
+.hod-list-photo {
+  width: 145px; 
+  height: 145px;
+  border-radius: 50%;
+  border: 3px solid #3b82f6;
+  margin: 1.5rem 0 1.5rem 2rem;
+  align-self: center;
+  flex-shrink: 0;
+  background: #f1f5f9;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.hod-list-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hod-horizontal-card:hover .hod-list-photo img {
+  transform: scale(1.1);
+}
+
+.hod-list-content {
+  padding: 1.5rem 2rem; 
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.hod-text-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.hod-list-content h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.hod-dept {
+  margin: 0;
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.hod-badge {
+  padding: 6px 16px;
+  font-size: 0.85rem;
+}
+
+
+/* =========================================
+   ALL KEYFRAME ANIMATIONS
+   ========================================= */
+
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes menuSlideDown {
+  0% { opacity: 0; transform: translateY(-8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes contactPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.3); }
+  70% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN 
+   ========================================= */
+@media (max-width: 992px) {
+  .al-container { 
+    flex-direction: column; 
+    margin-top: 1.5rem; 
+  }
+  
+  .al-sidebar { 
+    width: 100%; 
+  }
+}
+
+@media (max-width: 768px) {
+  .exec-premium-card, .hod-horizontal-card {
     flex-direction: column;
-  }
-  .al-sidebar {
-    width: 100%;
     min-height: auto;
-    border-right: none;
-    border-bottom: 1px solid #e2e8f0;
   }
+  
+  .exec-photo-wrapper, .hod-list-photo {
+    width: 110px !important;
+    height: 110px !important;
+    margin: 2rem auto 0 auto !important; 
+  }
+  
+  .exec-content, .hod-list-content {
+    flex-direction: column;
+    padding: 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hod-list-content { gap: 1rem; }
 }

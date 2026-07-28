@@ -13,6 +13,8 @@ const PageBanner = ({
   height,
   imageFit = "cover",
   imagePosition = "center",
+  showOverlay = false,
+  showText = false,
   className = ""
 }) => {
   // Calculate dynamic font size class based on title length
@@ -26,6 +28,9 @@ const PageBanner = ({
       titleSizeClass = "title-size-lg";
     }
   }
+
+  const hasContent = Boolean((title && title.trim() !== "") || (subtitle && subtitle.trim() !== "") || (!hideBreadcrumb && breadcrumb.length > 0));
+  const renderOverlay = showOverlay && hasContent;
 
   return (
     <section 
@@ -47,72 +52,78 @@ const PageBanner = ({
             objectPosition: imagePosition
           }}
         />
-        <div className="page-banner-overlay"></div>
+        {renderOverlay && <div className="page-banner-overlay"></div>}
       </div>
 
       {/* Left side content (TMHNU Trust style) */}
-      <div className="page-banner-left">
-        <div className="page-banner-content">
-          
-          {/* Breadcrumb */}
-          {!hideBreadcrumb && (
-            <motion.div 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="banner-breadcrumb"
-            >
-              <Link to="/" className="breadcrumb-link">
-                <FaHome className="breadcrumb-icon" /> Home
-              </Link>
-              
-              {breadcrumb.map((item, index) => (
-                <React.Fragment key={index}>
-                  <FaChevronRight className="breadcrumb-separator" />
-                  {item.link ? (
-                    <Link to={item.link} className="breadcrumb-link">
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <span className="breadcrumb-current">{item.label}</span>
-                  )}
-                </React.Fragment>
-              ))}
-            </motion.div>
-          )}
+      {showText && hasContent && (
+        <div className="page-banner-left">
+          <div className="page-banner-content">
+            
+            {/* Breadcrumb */}
+            {!hideBreadcrumb && breadcrumb.length > 0 && (
+              <motion.div 
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="banner-breadcrumb"
+              >
+                <Link to="/" className="breadcrumb-link">
+                  <FaHome className="breadcrumb-icon" /> Home
+                </Link>
+                
+                {breadcrumb.map((item, index) => (
+                  <React.Fragment key={index}>
+                    <FaChevronRight className="breadcrumb-separator" />
+                    {item.link ? (
+                      <Link to={item.link} className="breadcrumb-link">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <span className="breadcrumb-current">{item.label}</span>
+                    )}
+                  </React.Fragment>
+                ))}
+              </motion.div>
+            )}
 
-          {/* Page Title */}
-          <motion.h1 
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className={`banner-title ${titleSizeClass}`}
-          >
-            {title}
-          </motion.h1>
-          
-          {/* Accent Line (from TMHNUTrust style) */}
-          <motion.div 
-            initial={{ opacity: 0, width: 0 }}
-            animate={{ opacity: 1, width: "60px" }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="banner-accent-line"
-          ></motion.div>
+            {/* Page Title */}
+            {title && (
+              <motion.h1 
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className={`banner-title ${titleSizeClass}`}
+              >
+                {title}
+              </motion.h1>
+            )}
+            
+            {/* Accent Line */}
+            {title && (
+              <motion.div 
+                initial={{ opacity: 0, width: 0 }}
+                animate={{ opacity: 1, width: "60px" }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="banner-accent-line"
+              ></motion.div>
+            )}
 
-          {/* Subtitle */}
-          {subtitle && (
-            <motion.h3 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="banner-subtitle"
-            >
-              {subtitle}
-            </motion.h3>
-          )}
+            {/* Subtitle */}
+            {subtitle && (
+              <motion.h3 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                className="banner-subtitle"
+              >
+                {subtitle}
+              </motion.h3>
+            )}
 
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };

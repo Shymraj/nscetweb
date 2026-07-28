@@ -7,6 +7,7 @@
 const imageGlobs = {
   'annual-day-24': import.meta.glob('../assets/events/annual-day-24/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'civil-association': import.meta.glob('../assets/events/civil-association/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
+  'diwali-celebration-2025': import.meta.glob('../assets/events/diwali-celebration-2025/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'diwali-celebration': import.meta.glob('../assets/events/diwali-celebration/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'freshers-day': import.meta.glob('../assets/events/freshers-day/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'graduation-day': import.meta.glob('../assets/events/graduation-day/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
@@ -17,6 +18,7 @@ const imageGlobs = {
   'pongal-2025': import.meta.glob('../assets/events/pongal-2025/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'signout-day': import.meta.glob('../assets/events/signout-day/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'sports-achievements': import.meta.glob('../assets/events/sports-achievements/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
+  'waves-25': import.meta.glob('../assets/events/waves-25/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'waves-24': import.meta.glob('../assets/events/waves-24/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' })
 };
 
@@ -36,19 +38,14 @@ export const eventsData = [
   { id: 5, title: "Independence Day 2025", slug: "independence-day-2025" },
   { id: 6, title: "Signout Day 2025", slug: "signout-day-2025" },
   { id: 7, title: "Pongal 2025", slug: "pongal-2025" },
-  { id: 8, title: "Waves'24", slug: "waves-24" },
-  { id: 9, title: "Annual Day '24", slug: "annual-day-24" },
-  { id: 10, title: "Sports Day", slug: "sports-day" },
-  { id: 11, title: "Sports Achievements", slug: "sports-achievements" },
-  { id: 12, title: "Nexus & AIM Association", slug: "nexus-aim-association" },
-  { id: 13, title: "Diwali Celebration", slug: "diwali-celebration" },
-  { id: 14, title: "Fresher's Day", slug: "freshers-day" },
-  { id: 15, title: "Graduation Day", slug: "graduation-day" },
-  { id: 16, title: "Kalam Awards", slug: "kalam-awards" },
-  { id: 17, title: "Onam Celebration", slug: "onam-celebration" },
-  { id: 18, title: "Signout Day", slug: "signout-day" },
-  { id: 19, title: "NSS Tree Plantation", slug: "nss-tree-plantation" },
-  { id: 20, title: "Civil Association", slug: "civil-association" }
+  { id: 8, title: "Annual Day '24", slug: "annual-day-24" },
+  { id: 9, title: "Sports Day", slug: "sports-day" },
+  { id: 10, title: "Sports Achievements", slug: "sports-achievements" },
+  { id: 11, title: "Fresher's Day", slug: "freshers-day" },
+  { id: 12, title: "Graduation Day", slug: "graduation-day" },
+  { id: 13, title: "Kalam Awards", slug: "kalam-awards" },
+  { id: 14, title: "Signout Day", slug: "signout-day" },
+  { id: 15, title: "NSS Tree Plantation", slug: "nss-tree-plantation" }
 ].map(event => {
   const images = getImages(event.slug);
   return {

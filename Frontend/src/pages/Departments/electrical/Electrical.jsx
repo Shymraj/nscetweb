@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
+import bannerImg from "./images/be_banner/EEE.png";
 import "./Electrical.css";
 
 import electroblitzLogo from "./images/Electroblitz.png";
@@ -66,6 +67,7 @@ const Electrical = () => {
                 title="DEPARTMENT OF ELECTRICAL AND ELECTRONICS ENGINEERING"
                 subtitle="The front runner of modern innovation — powering generation, automation, and consumer electronics with technical expertise."
                 hideBreadcrumb={true}
+                backgroundImage={bannerImg}
             />
 
             <main className="content-wrapper">
