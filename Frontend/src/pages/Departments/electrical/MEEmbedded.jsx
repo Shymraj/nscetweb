@@ -9,7 +9,6 @@ import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./Electrical.css";
 
-import eeeBannerImg from "./images/eee-banner.png";
 
 // Faculty images
 import imgKalaivani from "./images/kalaivani.jpg";
@@ -53,7 +52,7 @@ const MEEmbedded = () => {
                 title="DEPARTMENT OF ME EMBEDDED SYSTEMS"
                 subtitle="Mastering the core of smart technology—designing sophisticated embedded architecture for automation and intelligent computing."
                 hideBreadcrumb={true}
-                backgroundImage={eeeBannerImg}
+                
             />
 
             <main className="content-wrapper">

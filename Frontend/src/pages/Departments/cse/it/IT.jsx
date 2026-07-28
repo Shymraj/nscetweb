@@ -9,7 +9,6 @@ import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../../components/common/PageBanner/PageBanner";
 import "./IT.css";
 
-import itBannerImg from "./images/it-banner.png";
 import nexusLogo from "./images/nexus.jpg";
 
 // Faculty Imports
@@ -64,7 +63,7 @@ const IT = () => {
                 title="DEPARTMENT OF INFORMATION TECHNOLOGY"
                 subtitle="Empowering the connected world — transforming data into intelligent solutions for a digital future."
                 hideBreadcrumb={true}
-                backgroundImage={itBannerImg}
+                
             />
 
             <main className="content-wrapper">

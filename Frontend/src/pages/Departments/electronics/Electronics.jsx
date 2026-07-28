@@ -9,7 +9,6 @@ import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./Electronics.css";
 
-import eceBannerImg from "./images/ece-banner.png";
 import echelonzLogo from "./images/ECHELONZ.png";
 
 import imgVenishkumar from "./images/venishkumar.jpg";
@@ -67,7 +66,7 @@ const Electronics = () => {
                 title="DEPARTMENT OF ELECTRONICS AND COMMUNICATION ENGINEERING"
                 subtitle="Connecting the world through silicon and signals — mastering semiconductor design, embedded systems, and telecommunication."
                 hideBreadcrumb={true}
-                backgroundImage={eceBannerImg}
+                
             />
 
             <main className="content-wrapper">
