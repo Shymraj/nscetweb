@@ -8,7 +8,6 @@ import DistinguishedAlumni from "./components/DistinguishedAlumni";
 import Certificate from "./components/Certificate";
 import { AnimatePresence, motion } from "framer-motion";
 
-import bannerImg from "../../assets/Img/alumni_hero.png";
 import "./Alumni.css";
 
 const Alumni = () => {
@@ -37,7 +36,7 @@ const Alumni = () => {
         title="ALUMNI ASSOCIATION"
         subtitle="Building a lifelong connection among students and alumni, fostering personal and professional growth globally."
         hideBreadcrumb={true}
-        backgroundImage={bannerImg}
+        
       />
 
       <div className="alumni-container">

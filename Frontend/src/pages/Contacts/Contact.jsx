@@ -16,7 +16,6 @@ import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import PageBanner from "../../components/common/PageBanner/PageBanner";
 import "./Contact.css";
 
-import heroImg from "../../assets/Img/contact_hero_generated.png";
 
 const Contact = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -99,7 +98,7 @@ const Contact = () => {
         title="Contact Us"
         subtitle="Nadar Saraswathi College of Engineering & Technology, Vadapudupatti, Theni"
         breadcrumb={[{ label: "Contact Us" }]}
-        backgroundImage={heroImg}
+        
       />
 
       <main className="content-wrapper">

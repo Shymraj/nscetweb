@@ -8,7 +8,6 @@ import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./Civil.css";
 
-import civilBannerImg from "./images/civil-banner.png";
 
 // Faculty images
 import imgAnanthaKrishnan from "./images/ananthakrishnan.jpg";
@@ -54,7 +53,7 @@ const MEStructural = () => {
                 title="DEPARTMENT OF ME STRUCTURAL ENGINEERING"
                 subtitle="Pioneering advanced design and analysis for resilient, modern, and sustainable infrastructure."
                 hideBreadcrumb={true}
-                backgroundImage={civilBannerImg}
+                
             />
 
             <main className="content-wrapper">
