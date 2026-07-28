@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaImages, FaCalendarAlt, FaArrowRight, FaFilter, FaStar } from "react-icons/fa";
 import axios from "axios";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
-import bannerImage from "./assets/banner/pongal3.webp";
+import bannerImage from "./assets/banner/EventsGallery.png";
 import { eventsData as staticEvents } from "./data/eventsData";
 import "./Events.css";
 

@@ -8,7 +8,7 @@ import DistinguishedAlumni from "./components/DistinguishedAlumni";
 import Certificate from "./components/Certificate";
 import { AnimatePresence, motion } from "framer-motion";
 
-import defaultBannerImg from "../../assets/Img/alumni_hero.png";
+import defaultBannerImg from "./assets/banner/alumniassociation.png";
 import "./Alumni.css";
 
 // Automatically load any image manually placed inside src/pages/Alumini/assets/banner/
