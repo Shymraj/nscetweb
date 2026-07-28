@@ -4,8 +4,8 @@ import './AcademicLeadership.css';
 const AcademicLeadership = () => {
   const data = {
     executiveAdmin: [
-      { id: "ea1", name: "Dr. C. Mathalai Sundaram", role: "Principal", qualification: "M.E., M.B.A., Ph.D.", photo: "/principle.png" },
-      { id: "ea2", name: "Dr. M. Sathya", role: "Vice Principal & Academic", qualification: "M.Tech., M.B.A., Ph.D", photo: "/sathya.jpeg", quote: null }
+      { id: "ea1", name: "Dr. C. Mathalai Sundaram", role: "Principal", qualification: "M.E., M.B.A., Ph.D.", photo: "/principle.png", quote: "Empowering students for the future through excellence in education." },
+      { id: "ea2", name: "Dr. M. Sathya", role: "Vice Principal & Academic", qualification: "M.Tech., M.B.A., Ph.D", photo: "/sathya.jpeg", quote: "Fostering innovation and academic brilliance across all departments." }
     ],
     departmentHeads: {
       "be": [
@@ -27,7 +27,6 @@ const AcademicLeadership = () => {
         { id: "h10", name: "Dr. E. Anantha Krishnan", dept: "Structural Engg.", role: "Head [I/C]", photo: "/ananthakrishnan.jpg" },
         { id: "h11", name: "Dr. R. Athilingam", dept: "Embedded Systems", role: "Head [I/C]", photo: "/athilingam.jpg" }
       ],
-    
       "phd": [
         { id: "h13", name: "Dr. C. Chithra", dept: "Ph.D Scholar Rep", role: "Coordinator", photo: "/chithra.jpg" }
       ]
@@ -49,14 +48,14 @@ const AcademicLeadership = () => {
 
   return (
     <div className="al-page">
-      {/* Hero Banner */}
+      {/* Banner */}
       <div className="al-hero">
         <h2>Academic Leadership</h2>
-        <p>Meet the visionary leaders driving educational excellence and innovation at NSCET.</p>
+        <p>Meet the visionary leaders driving educational excellence at NSCET.</p>
       </div>
 
       <div className="al-container">
-        {/* Left Sidebar Menu */}
+        {/* Left Sidebar */}
         <aside className="al-sidebar">
           <div className="al-sidebar-header">Quick Filters</div>
           <nav className="al-nav">
@@ -70,7 +69,6 @@ const AcademicLeadership = () => {
             <div className="al-group">
               <div className="al-group-title">Department Heads</div>
               
-              {/* UG Section */}
               <div className="al-accordion">
                 <button className={`al-accordion-btn ${openUg ? "open" : ""}`} onClick={() => setOpenUg(!openUg)}>
                   <span>Undergraduate (UG)</span>
@@ -85,7 +83,6 @@ const AcademicLeadership = () => {
                 )}
               </div>
 
-              {/* PG Section */}
               <div className="al-accordion">
                 <button className={`al-accordion-btn ${openPg ? "open" : ""}`} onClick={() => setOpenPg(!openPg)}>
                   <span>Postgraduate (PG)</span>
@@ -98,7 +95,6 @@ const AcademicLeadership = () => {
                 )}
               </div>
 
-              {/* PhD Button */}
               <button 
                 className={`al-nav-item ${selectedView.label === "PhD" ? "active" : ""}`}
                 onClick={() => showDepartmentHeads("PhD", "phd")}
@@ -106,46 +102,76 @@ const AcademicLeadership = () => {
                 Ph.D. Research
               </button>
             </div>
+            
+            {/* Bottom Support Widget */}
+            <div className="al-sidebar-widget">
+              <h4>NSCET Admin</h4>
+              <p>For administrative queries and support, contact the office.</p>
+              <div className="widget-contact">📞 +91 4546 292929</div>
+            </div>
+
           </nav>
         </aside>
 
-        {/* Main Display Grid */}
+        {/* Main Display Area */}
         <main className="al-main-content">
           <div className="al-content-header">
             <h3>{selectedView.category === "Executive Admin" ? "Executive Leadership" : `Heads of Department — ${selectedView.label}`}</h3>
           </div>
 
           {selectedView.category === "Executive Admin" ? (
-            <div className="al-executive-grid">
+            
+            /* EXECUTIVE ADMIN - COMPACT WIDE CARDS */
+            <div className="exec-cards-container">
               {data.executiveAdmin.map(admin => (
-                <div className="al-executive-card" key={admin.id}>
-                  <div className="al-avatar-large">
-                    {/* Added Image Rendering Logic here */}
-                    {admin.photo ? <img src={admin.photo} alt={admin.name} className="al-profile-img" /> : <span>Photo</span>}
+                <div className="exec-premium-card" key={admin.id}>
+                  
+                  <div className="exec-photo-wrapper">
+                    {admin.photo ? <img src={admin.photo} alt={admin.name} /> : <div className="no-photo-placeholder">👤</div>}
                   </div>
-                  <div className="al-details">
-                    <h4>{admin.name}</h4>
-                    <span className="al-badge">{admin.role}</span>
-                    <p className="al-qual">{admin.qualification}</p>
-                    {admin.quote && <blockquote className="al-quote">"{admin.quote}"</blockquote>}
+                  
+                  <div className="exec-content">
+                    <div className="exec-details">
+                      <h3>{admin.name}</h3>
+                      <span className={`role-badge ${admin.role.includes("Vice") ? "badge-secondary" : ""}`}>
+                        {admin.role}
+                      </span>
+                      <p className="exec-qual">{admin.qualification}</p>
+                    </div>
+                    
+                    <div className="exec-quote-box">
+                      <span className="quote-mark">“</span>
+                      <p>{admin.quote || "Empowering students for the future through excellence in education."}</p>
+                    </div>
                   </div>
+
                 </div>
               ))}
             </div>
+
           ) : (
-            <div className="al-card-grid">
+
+            /* STAFF / HODs - COMPACT LIST CARDS */
+            <div className="hod-list-container">
               {getActiveList().map(hod => (
-                <div className="al-hod-card" key={hod.id}>
-                  <div className="al-avatar-medium">
-                    {/* Added Image Rendering Logic here */}
-                    {hod.photo ? <img src={hod.photo} alt={hod.name} className="al-profile-img" /> : <span>Photo</span>}
+                <div className="hod-horizontal-card" key={hod.id}>
+                  
+                  <div className="hod-list-photo">
+                    {hod.photo ? <img src={hod.photo} alt={hod.name} /> : <div className="no-photo-placeholder">👤</div>}
                   </div>
-                  <h4>{hod.name}</h4>
-                  <p className="al-dept">{hod.dept}</p>
-                  <p className="al-role">{hod.role}</p>
+                  
+                  <div className="hod-list-content">
+                    <div className="hod-text-info">
+                      <h4>{hod.name}</h4>
+                      <p className="hod-dept">{hod.dept}</p>
+                    </div>
+                    <span className="role-badge hod-badge">{hod.role}</span>
+                  </div>
+
                 </div>
               ))}
             </div>
+
           )}
         </main>
       </div>
