@@ -1,11 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaFilePdf, FaEye } from 'react-icons/fa';
-import reportPdf from '../assets/documents/annual-report.pdf';
+import { FaFileAlt, FaEye } from 'react-icons/fa';
 
 const ReportDocument = () => {
   const handleView = () => {
-    window.open(reportPdf, '_blank');
+    const el = document.getElementById('detailed-report');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -17,7 +19,7 @@ const ReportDocument = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="ar-section-title">Official Annual Report</h2>
+        <h2 className="ar-section-title">Official Annual Report Showcase</h2>
         <div className="ar-underline"></div>
       </motion.div>
 
@@ -29,24 +31,24 @@ const ReportDocument = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="document-icon-wrapper">
-          <FaFilePdf className="document-pdf-icon" />
+          <FaFileAlt className="document-pdf-icon" />
         </div>
         
         <div className="document-info">
-          <h3 className="document-title">Annual Report</h3>
+          <h3 className="document-title">Annual Report (2023–24)</h3>
           <p className="document-description">
-            Official IQAC Annual Report of Nadar Saraswathi College of Engineering and Technology for the Academic Year 2023–24.
+            Official IQAC Annual Report of Nadar Saraswathi College of Engineering and Technology highlighting 7 core quality dimensions.
           </p>
           
           <div className="document-badges">
-            <span className="doc-badge">Pages : 3</span>
-            <span className="doc-badge doc-badge-type">Document Type : PDF</span>
+            <span className="doc-badge">7 Sections</span>
+            <span className="doc-badge doc-badge-type">Format : Interactive Web Report</span>
           </div>
         </div>
         
         <div className="document-actions">
           <button onClick={handleView} className="btn-view-doc">
-            <FaEye /> View Annual Report
+            <FaEye /> Explore Full Report Below
           </button>
         </div>
       </motion.div>
