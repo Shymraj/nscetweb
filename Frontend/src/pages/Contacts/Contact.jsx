@@ -16,6 +16,9 @@ import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import PageBanner from "../../components/common/PageBanner/PageBanner";
 import "./Contact.css";
 
+// Automatically load any image manually placed inside src/pages/Contacts/assets/banner/
+const bannerGlobs = import.meta.glob("./assets/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const customBanner = Object.values(bannerGlobs)[0] || null;
 
 const Contact = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -44,22 +47,6 @@ const Contact = () => {
   const intercomData = [
     { location: "Reception 1", phone: "263900", intercom: ["900"], category: "Administration" },
     { location: "Reception 2", phone: "263901", intercom: ["901"], category: "Administration" },
-    { location: "Secretary Room", phone: "263903", intercom: ["903"], category: "Administration" },
-    { location: "Principal", phone: "263904", intercom: ["904"], category: "Administration" },
-    { location: "Vice Principal", phone: "263905", intercom: ["905"], category: "Administration" },
-    { location: "Placement Cell", phone: "263902", intercom: ["902"], category: "Facilities & Cells" },
-    { location: "Placement Officer", phone: "-", intercom: ["906"], category: "Facilities & Cells" },
-    { location: "Exam Cell", phone: "-", intercom: ["907"], category: "Facilities & Cells" },
-    { location: "ECE Department", phone: "-", intercom: ["908"], category: "Academic Departments" },
-    { location: "Civil Department", phone: "-", intercom: ["909"], category: "Academic Departments" },
-    { location: "CSE Department", phone: "-", intercom: ["910"], category: "Academic Departments" },
-    { location: "Mechanical Department", phone: "-", intercom: ["911"], category: "Academic Departments" },
-    { location: "EEE Department", phone: "-", intercom: ["912"], category: "Academic Departments" },
-    { location: "S&H Department", phone: "-", intercom: ["913"], category: "Academic Departments" },
-    { location: "Library", phone: "-", intercom: ["914"], category: "Facilities & Cells" },
-    { location: "Store", phone: "-", intercom: ["915"], category: "Facilities & Cells" },
-    { location: "Admission Cell", phone: "-", intercom: ["916", "917"], category: "Facilities & Cells" },
-    { location: "QIC Cell", phone: "-", intercom: ["918"], category: "Facilities & Cells" },
     { location: "Auditorium", phone: "-", intercom: ["919"], category: "Facilities & Cells" },
     { location: "Boys Hostel", phone: "-", intercom: ["920"], category: "Hostels & Security" },
     { location: "Boys Hostel Security", phone: "-", intercom: ["921"], category: "Hostels & Security" },
@@ -98,7 +85,7 @@ const Contact = () => {
         title="Contact Us"
         subtitle="Nadar Saraswathi College of Engineering & Technology, Vadapudupatti, Theni"
         breadcrumb={[{ label: "Contact Us" }]}
-        
+        {...(customBanner ? { backgroundImage: customBanner } : {})}
       />
 
       <main className="content-wrapper">
