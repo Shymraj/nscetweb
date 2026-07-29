@@ -8,6 +8,8 @@ import bannerImage from "./assets/banner/EventsGallery.png";
 import { eventsData as staticEvents } from "./data/eventsData";
 import "./Events.css";
 
+import CardFanCarousel from "../../../components/ui/CardFanCarousel";
+
 // Helper to determine category tags for filtering
 const getCategory = (event) => {
   const title = (event.title || "").toLowerCase();
@@ -121,7 +123,7 @@ const Events = () => {
           <span className="bento-section-subtitle">Showing {filteredEvents.length} Events</span>
         </div>
 
-        {/* Structured Animated Card Grid */}
+        {/* Structured Animated Card Grid (Now Fan Carousel) */}
         <AnimatePresence mode="wait">
           <motion.div 
             key={activeFilter}
@@ -129,72 +131,8 @@ const Events = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
-            className="structured-events-grid"
           >
-            {filteredEvents.map((event, index) => {
-              const is2025 = event.slug.includes("2025") || event.slug.includes("-25");
-              const categoryTag = getCategory(event);
-
-              return (
-                <motion.div
-                  key={event.id || event.slug}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.4, delay: index * 0.04 }}
-                  className="structured-event-card"
-                >
-                  <Link to={`/gallery/events/${event.slug}`} className="structured-card-link">
-                    {/* Image Box */}
-                    <div className="structured-image-wrapper">
-                      {event.coverImage ? (
-                        <img 
-                          src={event.coverImage} 
-                          alt={event.title} 
-                          className="structured-image" 
-                          loading="lazy" 
-                        />
-                      ) : (
-                        <div className="structured-placeholder">
-                          <FaImages className="placeholder-icon" />
-                          <span>Photos Coming Soon</span>
-                        </div>
-                      )}
-                      
-                      {/* Top Badges */}
-                      <div className="structured-card-badges">
-                        <span className="badge-category">{categoryTag}</span>
-                        <span className="badge-photos">
-                          <FaImages /> {event.images?.length || 1}
-                        </span>
-                      </div>
-                      
-                      {/* Shimmer Effect */}
-                      <div className="card-shimmer"></div>
-                    </div>
-
-                    {/* Card Body */}
-                    <div className="structured-card-body">
-                      <div className="structured-card-meta">
-                        <span className="meta-year">
-                          <FaCalendarAlt /> {event.date || (is2025 ? "2025 Edition" : "Annual Event")}
-                        </span>
-                      </div>
-
-                      <h3 className="structured-card-title">{event.title}</h3>
-
-                      <div className="structured-card-footer">
-                        <span className="action-text">Explore Album</span>
-                        <span className="action-arrow">
-                          <FaArrowRight />
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
+            <CardFanCarousel events={filteredEvents} getCategory={getCategory} />
           </motion.div>
         </AnimatePresence>
 
