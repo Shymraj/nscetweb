@@ -1,7 +1,7 @@
 /* Footer.css */
 
 .global-footer {
-  background: linear-gradient(180deg, var(--theme-primary-dark, #0284C7) 0%, #030816 100%);
+  background: #0A1128;
   color: #e2e8f0;
   position: relative;
   overflow: hidden;
