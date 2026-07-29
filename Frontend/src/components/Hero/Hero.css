@@ -197,47 +197,83 @@ body.dark-mode .hero .college-tagline {
 /* Action Buttons */
 .hero-buttons {
   display: flex;
-  gap: 16px;
+  gap: 18px;
   align-items: center;
 }
 
-.btn-primary,
-.btn-secondary {
-  padding: 14px 28px;
+.hero .btn-primary,
+.hero .btn-secondary,
+.hero-buttons .btn-primary,
+.hero-buttons .btn-secondary {
+  padding: 14px 30px;
   border-radius: 50px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  font-size: 15px;
+  font-size: 17px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: "Plus Jakarta Sans", sans-serif;
+  text-decoration: none;
 }
 
-.btn-primary {
-  border: none;
-  background: #f59e0b;
-  color: #0f172a;
-  font-weight: 700;
-  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+.hero .btn-primary,
+.hero-buttons .btn-primary,
+body.dark-mode .hero .btn-primary,
+body.dark-mode .hero-buttons .btn-primary {
+  border: 2px solid transparent !important;
+  background: #f89d0c !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 15px rgba(248, 157, 12, 0.3);
 }
 
-.btn-primary:hover {
-  background: #ea580c;
-  color: #ffffff;
+.hero .btn-primary svg,
+.hero-buttons .btn-primary svg,
+body.dark-mode .hero .btn-primary svg {
+  color: #000000 !important;
+  fill: #000000 !important;
+  font-size: 18px;
+}
+
+.hero .btn-primary:hover,
+.hero-buttons .btn-primary:hover,
+body.dark-mode .hero .btn-primary:hover {
+  background: #e08b00 !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.5);
+  box-shadow: 0 6px 20px rgba(248, 157, 12, 0.5);
 }
 
-.btn-secondary {
-  background: transparent;
-  color: #ffffff;
-  border: 1.5px solid #ffffff;
-  font-weight: 600;
+.hero .btn-secondary,
+.hero-buttons .btn-secondary,
+body.dark-mode .hero .btn-secondary,
+body.dark-mode .hero-buttons .btn-secondary {
+  background: transparent !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  font-weight: 800 !important;
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
+.hero .btn-secondary svg,
+.hero-buttons .btn-secondary svg,
+body.dark-mode .hero .btn-secondary svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-size: 18px;
+}
+
+.hero .btn-secondary:hover,
+.hero-buttons .btn-secondary:hover,
+body.dark-mode .hero .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   transform: translateY(-2px);
 }
 

@@ -2,15 +2,23 @@ import React, { useState } from "react";
 import "./ResearchHub.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBookOpen, FaRunning, FaBed, FaUsers, FaCoffee, FaArrowRight } from "react-icons/fa";
+import ispin from "../../assets/ispin.mp4"; // Placeholder image for the library video
+// STEP 1: Import your video file here. Make sure the path is correct based on your folder structure!
+// import libraryVideo from "../../assets/library-vid.mp4"; 
 
 const campusData = [
   {
     id: "library",
-    title: "Central Library",
+    title: "ISPIN",
     icon: <FaBookOpen />,
-    image: "https://images.unsplash.com/photo-1568667256549-094345857637?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    description: "A multi-storied, fully automated library with over 100,000+ volumes, digital journals, and quiet reading zones designed for deep focus and research.",
-    highlight: "24/7 Digital Access"
+    // STEP 2: Remove 'image' and add 'video' for the library
+    // video: libraryVideo, 
+    
+    // For now, I'm putting a placeholder video URL so you can see it working immediately. 
+    // Replace this string with your imported variable (e.g., video: libraryVideo)
+    video: ispin, 
+    description: "Innovative Software Product at NSCET",
+    highlight: "Department of (CSE,IT,AI & DS)"
   },
   {
     id: "sports",
@@ -56,13 +64,12 @@ function CampusLife() {
         {/* ================= HEADER ================= */}
         <div className="campus-header">
           <div className="header-left">
-            <p className="campus-subtitle">INNOVATION HUB</p>
-            <h2 className="campus-title">Research and Innovation</h2>
+            <p className="campus-subtitle">BEYOND THE CLASSROOM</p>
+            <h2 className="campus-title">Research and Development</h2>
           </div>
           <p className="campus-header-desc">
-              Our Research & Innovation Hub empowers visionary minds to solve 
-              real-world challenges. We provide state-of-the-art infrastructure, 
-              seed funding, and industry mentorship to turn ideas into global solutions.
+            Our vibrant green campus offers a perfect blend of academics, 
+            culture, and recreation to ensure holistic development.
           </p>
         </div>
 
@@ -97,10 +104,28 @@ function CampusLife() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
               >
-                {/* Background Image */}
-                <div className="display-image-container">
-                  <img src={activeTab.image} alt={activeTab.title} className="display-image" />
-                  <div className="image-overlay"></div>
+                {/* BACKGROUND MEDIA (Video or Image) */}
+                <div className="display-media-container">
+                  {/* STEP 3: Condition to check if it's a video or an image */}
+                  {activeTab.video ? (
+                    <video 
+                      src={activeTab.video} 
+                      className="display-media" 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline 
+                    />
+                  ) : (
+                    <img 
+                      src={activeTab.image} 
+                      alt={activeTab.title} 
+                      className="display-media" 
+                    />
+                  )}
+                  
+                  {/* Gentle gradient so the white text box looks good on any background */}
+                  <div className="media-overlay"></div>
                 </div>
 
                 {/* Floating Glassmorphism Info Box */}
