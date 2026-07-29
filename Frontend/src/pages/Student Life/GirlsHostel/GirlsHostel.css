@@ -1,0 +1,312 @@
+/* Typography guidelines from AGENTS.md */
+.girlshostel-page {
+  font-family: var(--font-body);
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.hostel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* College Header Info */
+.college-header-info {
+  text-align: center;
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-top: 5px solid var(--nscet-accent, #0284C7);
+}
+
+.college-header-info h5 {
+  font-family: var(--font-subtopic);
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.college-header-info h2 {
+  font-family: var(--font-heading);
+  color: #0f172a;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+.college-header-info .approvals {
+  font-family: var(--font-body);
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.college-header-info .address {
+  font-family: var(--font-body);
+  color: #0284C7;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Section Common Styles */
+.section-header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section-header h3 {
+  font-family: var(--font-section);
+  font-size: 2rem;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.header-line {
+  height: 4px;
+  width: 60px;
+  background: var(--nscet-accent, #f59e0b);
+  border-radius: 2px;
+}
+
+/* About Section */
+.about-hostel p {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1.8;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border-left: 4px solid var(--theme-primary-dark, #0284C7);
+}
+
+/* Wardens Section */
+.warden-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.warden-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+}
+
+.warden-card:hover {
+  transform: translateY(-5px);
+}
+
+.warden-card h4 {
+  font-family: var(--font-subtopic);
+  font-size: 1.3rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.warden-card p {
+  font-family: var(--font-body);
+  color: var(--nscet-accent, #0284C7);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.warden-card.principal {
+  border-top: 4px solid #f59e0b;
+}
+
+.warden-card.deputy {
+  border-top: 4px solid #0284C7;
+}
+
+/* Facilities Section */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.facility-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.facility-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.facility-icon {
+  font-size: 2rem;
+  color: var(--nscet-accent, #0284C7);
+  flex-shrink: 0;
+  padding: 12px;
+  background: #f0f9ff;
+  border-radius: 12px;
+}
+
+.facility-card p {
+  font-family: var(--font-body);
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Strength Section (Stats Grid) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem 1rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--theme-primary-dark, #0284C7);
+}
+
+.stat-label {
+  font-family: var(--font-subtopic);
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.stat-card.highlight {
+  background: linear-gradient(135deg, var(--theme-primary-dark, #0284C7), #1e3a8a);
+}
+.stat-card.highlight .stat-number,
+.stat-card.highlight .stat-label {
+  color: white;
+}
+
+/* Events Section */
+.event-box {
+  background: white;
+  border-radius: 15px;
+  padding: 2.5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.event-icon-wrap {
+  font-size: 3rem;
+  color: #f59e0b;
+  background: #fffbeb;
+  padding: 1.5rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.event-details h4 {
+  font-family: var(--font-subtopic);
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.event-details p {
+  font-family: var(--font-body);
+  color: #475569;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Rules Section */
+.rules-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.rules-list li {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  font-family: var(--font-body);
+  color: #334155;
+  line-height: 1.6;
+}
+
+.rule-icon {
+  color: #ef4444;
+  font-size: 1.2rem;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hostel-container {
+    padding: 2rem 1rem;
+    gap: 3rem;
+  }
+  
+  .event-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .college-header-info {
+    padding: 2rem 1.5rem;
+  }
+  
+  .college-header-info h2 {
+    font-size: 1.4rem;
+  }
+  
+  .rules-list {
+    grid-template-columns: 1fr;
+  }
+}

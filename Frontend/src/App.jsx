@@ -59,6 +59,19 @@ import Affiliation from "./pages/Aboutus/Affiliation/Affiliation";
 import AnnualReports from "./pages/Aboutus/AnnualReports/AnnualReports";
 import AnnualAccounts from "./pages/Aboutus/AnnualAccounts/AnnualAccounts";
 
+// Student Life
+import Sports from "./pages/Student Life/Sports/Sports";
+import NSS from "./pages/Student Life/NSS/NSS";
+import BoysHostel from "./pages/Student Life/BoysHostel/BoysHostel";
+import GirlsHostel from "./pages/Student Life/GirlsHostel/GirlsHostel";
+import Placements from "./pages/Student Life/Placements/Placements";
+import GrievanceRedressal from "./pages/Student Life/GrievanceRedressal/GrievanceRedressal";
+import AntiRaggingCell from "./pages/Student Life/AntiRaggingCell/AntiRaggingCell";
+import EqualOpportunityCell from "./pages/Student Life/EqualOpportunityCell/EqualOpportunityCell";
+import HealthMedicalFacilities from "./pages/Student Life/HealthMedicalFacilities/HealthMedicalFacilities";
+import TransportFacilities from "./pages/Student Life/TransportFacilities/TransportFacilities";
+import SEDG from "./pages/Student Life/SEDG/SEDG";
+
 import AdminLogin from "./pages/Admin/Login";
 import AdminDashboard from "./pages/Admin/Dashboard";
 import PageTransition from "./components/Preloader/PageTransition";
@@ -130,6 +143,19 @@ const AppContent = () => {
         <Route path="/about/affiliation" element={<Affiliation />} />
         <Route path="/about/annual-reports" element={<AnnualReports />} />
         <Route path="/about/annual-accounts" element={<AnnualAccounts />} />
+
+        {/* Student Life */}
+        <Route path="/student-life/sports" element={<Sports />} />
+        <Route path="/student-life/nss" element={<NSS />} />
+        <Route path="/student-life/boys-hostel" element={<BoysHostel />} />
+        <Route path="/student-life/girls-hostel" element={<GirlsHostel />} />
+        <Route path="/student-life/placements" element={<Placements />} />
+        <Route path="/student-life/grievance-redressal" element={<GrievanceRedressal />} />
+        <Route path="/student-life/anti-ragging-cell" element={<AntiRaggingCell />} />
+        <Route path="/student-life/equal-opportunity-cell" element={<EqualOpportunityCell />} />
+        <Route path="/student-life/health-medical-facilities" element={<HealthMedicalFacilities />} />
+        <Route path="/student-life/transport-facilities" element={<TransportFacilities />} />
+        <Route path="/student-life/sedg" element={<SEDG />} />
 
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
