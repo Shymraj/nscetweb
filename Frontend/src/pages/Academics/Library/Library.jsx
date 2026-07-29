@@ -1,4 +1,17 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  FaBook, 
+  FaLaptopCode, 
+  FaClock, 
+  FaUserGraduate, 
+  FaCheckCircle, 
+  FaLayerGroup, 
+  FaUniversity,
+  FaLightbulb,
+  FaShieldAlt,
+  FaImages
+} from 'react-icons/fa';
 import './Library.css'; 
 
 const AnimatedNumber = ({ value }) => {
@@ -9,8 +22,8 @@ const AnimatedNumber = ({ value }) => {
     const end = parseInt(value, 10);
     if (start === end) return;
 
-    let totalMilSecDur = 4000; 
-    let steps = 150; 
+    let totalMilSecDur = 2500; 
+    let steps = 100; 
     let incrementTime = totalMilSecDur / steps; 
 
     const timer = setInterval(() => {
@@ -26,7 +39,7 @@ const AnimatedNumber = ({ value }) => {
     return () => clearInterval(timer);
   }, [value]);
 
-  return <span>{count}+</span>;
+  return <span>{count.toLocaleString()}+</span>;
 };
 
 const Library = () => {
@@ -43,39 +56,39 @@ const Library = () => {
   }, [heroImages.length]);
 
   const collections = [
-    { label: "VOLUMES", count: 21810 },
-    { label: "TITLES", count: 5016 },
-    { label: "PERIODICALS", count: 124 },
-    { label: "CIVIL", count: 3544 },
-    { label: "MECH", count: 3820 },
-    { label: "CSE", count: 3720 },
-    { label: "ECE", count: 3831 },
-    { label: "EEE", count: 2471 },
-    { label: "IT", count: 250 },
-    { label: "AI&DS", count: 250 }
+    { label: "VOLUMES", count: 21810, icon: <FaBook /> },
+    { label: "TITLES", count: 5016, icon: <FaLayerGroup /> },
+    { label: "PERIODICALS", count: 124, icon: <FaUniversity /> },
+    { label: "CIVIL", count: 3544, icon: <FaBook /> },
+    { label: "MECH", count: 3820, icon: <FaBook /> },
+    { label: "CSE", count: 3720, icon: <FaBook /> },
+    { label: "ECE", count: 3831, icon: <FaBook /> },
+    { label: "EEE", count: 2471, icon: <FaBook /> },
+    { label: "IT", count: 250, icon: <FaBook /> },
+    { label: "AI&DS", count: 250, icon: <FaBook /> }
   ];
 
   const objectivesList = [
-    "To acquire, organize, and preserve academic resources effectively.",
+    "To acquire, organize, and preserve academic resources effectively for learning & research.",
     "To support the college curriculum and research needs of faculty and students.",
-    "To provide high-quality digital infrastructure and seamless access to e-journals.",
-    "To foster a habit of continuous reading and self-paced technical learning."
+    "To provide high-quality digital infrastructure and seamless access to e-journals & digital repositories.",
+    "To foster a habit of continuous reading and self-paced technical learning among engineering scholars."
   ];
 
   const facilitiesList = [
-    "Open Access System",
-    "Online Public Access Catalogue",
-    "Well-Stocked Reference Section",
-    "Separate Study Space",
-    "Well-Equipped Reading Hall",
-    "Free Internet Access"
+    "Open Access System for seamless book selection and physical exploration.",
+    "Online Public Access Catalogue (OPAC) for rapid digital search & retrieval.",
+    "Well-Stocked Reference Section with rare technical volumes & research periodicals.",
+    "Dedicated Quiet Study Space for deep research and individual reading.",
+    "Well-Equipped Air-Conditioned Reading Hall with high seating capacity.",
+    "Free High-Speed Wi-Fi & Internet Access across the library premises."
   ];
 
   const rulesList = [
-    "Strict silence must be maintained in the library.",
-    "ID cards are mandatory for borrowing and returning books.",
-    "Books must be returned on or before the due date.",
-    "Using mobile phones inside the library is strictly prohibited."
+    "Strict silence and decorum must be maintained inside the library at all times.",
+    "College ID cards are mandatory for borrowing, returning, and accessing library resources.",
+    "Borrowed books must be returned on or before the specified due date to avoid fines.",
+    "Using mobile phones for audio calls or media playback inside the reading hall is strictly prohibited."
   ];
   
   const galleryImages = [
@@ -83,7 +96,6 @@ const Library = () => {
     "/5.jpeg", "/6.jpeg", "/7.jpeg", "/background.jpeg"
   ];
 
-  // --- NEW MAGIC: Mouse track pannum function ---
   const handleMouseMove = (e) => {
     for(const card of document.getElementsByClassName("m1-stat-card")) {
       const rect = card.getBoundingClientRect(),
@@ -91,58 +103,117 @@ const Library = () => {
             y = e.clientY - rect.top;
       card.style.setProperty("--mouse-x", `${x}px`);
       card.style.setProperty("--mouse-y", `${y}px`);
-    };
-  }
+    }
+  };
 
   return (
     <div className="model1-landing-wrapper">
       
+      {/* 1. HERO BANNER AT TOP (INTACT AS REQUESTED) */}
       <section 
         className="m1-hero-section"
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.3)), url('${heroImages[currentBgIndex]}')`
+          backgroundImage: `linear-gradient(to right, rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.5)), url('${heroImages[currentBgIndex]}')`
         }}
       >
         <div className="m1-hero-container">
-          <span className="m1-welcome-text">Welcome to</span>
+          <span className="m1-welcome-text">WELCOME TO</span>
           <h1 className="m1-hero-title">Central Library</h1>
           <p className="m1-hero-subtitle">
             A hub of knowledge, innovation, and inspiration.<br/>
             Empowering minds, shaping futures across all engineering disciplines.
           </p>
-          <div className="m1-hero-actions">
-            <button className="m1-btn-primary">Explore More</button>
-            <button className="m1-btn-secondary">E-Library</button>
-          </div>
         </div>
       </section>
 
+      {/* MAIN CONTAINER (R&D CELL / IQAC STYLE SHOWCASE) */}
       <main className="m1-main-container">
         
-        <section className="m1-section m1-about-section">
+        {/* EXECUTIVE SHOWCASE CARD (R&D STYLE) */}
+        <motion.div 
+          className="lib-exec-card"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="exec-badge-wrap">
+            <span className="exec-badge">
+              <FaBook /> 21,810+ Volumes & 5,016+ Titles
+            </span>
+            <span className="exec-badge gold">
+              <FaLaptopCode /> 30 High-Speed E-Library Systems
+            </span>
+          </div>
+
+          <div className="exec-grid">
+            <div className="exec-main-text">
+              <h3>Gateway to World-Class Technical Learning</h3>
+              <p>
+                Our Central Library functions as a modern Learning Resource Centre, housing an expansive collection of print volumes, Indian and foreign periodicals, and high-speed digital infrastructure to empower scholarly research across all engineering disciplines.
+              </p>
+            </div>
+            <div className="exec-principal-card">
+              <div className="principal-avatar">
+                <FaUserGraduate />
+              </div>
+              <div className="principal-info">
+                <h4>Dr. S. Sinthan</h4>
+                <p className="p-deg">Chief Librarian</p>
+                <p className="p-role">NSCET Central Library</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ABOUT LIBRARY & E-LIBRARY DUAL CARDS */}
+        <section className="m1-section m1-about-section" id="elibrary">
           <div className="m1-about-grid">
-            <div className="m1-about-card">
-              <h2 className="m1-about-title">About NSCET Library</h2>
+            <motion.div 
+              className="m1-about-card"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="about-card-header">
+                <div className="about-icon-bg"><FaBook /></div>
+                <h2 className="m1-about-title">About NSCET Central Library</h2>
+              </div>
               <p className="m1-about-text">
-                The Library, in today’s context, is a modern Learning Resource Centre with a dynamic learning space where students undertake a journey of knowledge acquisition and intellectual enrichment. Our Library is a well-equipped Learning Resource Centre. We have a strong collection of about 21810 books and 120 Indian and foreign journals. The NSCET library is a storehouse of knowledge and it comprises books, journals, e-resources, other learning materials, and technology-aided learning mechanisms which enable students to acquire information, knowledge, and skills required for their study programmes.
+                The Library is a modern Learning Resource Centre with a dynamic learning space where students undertake a journey of knowledge acquisition and intellectual enrichment. We maintain a strong collection of over 21,810 books and 124 Indian and international journals, serving as a comprehensive storehouse of academic knowledge.
               </p>
-            </div>
-            <div className="m1-about-card">
-              <h2 className="m1-about-title">About NSCET E-Library</h2>
+            </motion.div>
+
+            <motion.div 
+              className="m1-about-card"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="about-card-header">
+                <div className="about-icon-bg teal"><FaLaptopCode /></div>
+                <h2 className="m1-about-title">About NSCET E-Library</h2>
+              </div>
               <p className="m1-about-text">
-                Our E-Library includes 30 high-speed systems with uninterrupted internet access, enabling students and faculty to explore a wide range of e-resources, including e-books, online journals, and digital learning materials. The integration of technology-aided learning tools ensures that users can conveniently access information and develop the knowledge and skills required for their academic journey. The NSCET E-Library is truly a modern hub for intellectual enrichment and knowledge acquisition.
+                Our E-Library is equipped with 30 high-speed computer terminals with uninterrupted internet access, enabling students and faculty to explore e-books, online IEEE/Springer journals, and digital learning portals seamlessly. Technology-aided learning tools ensure instant access to global research literature.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* --- Collections Section (Mouse event inga attach aagirukku) --- */}
+        {/* STATS & COLLECTIONS GRID (GLOWING SPOTLIGHT CARDS) */}
         <section className="m1-section m1-collections">
-          <h2 className="m1-section-title">Our Collections</h2>
+          <div className="section-title-wrap">
+            <span className="section-subtitle-badge">COLLECTION STATISTICAL BREAKDOWN</span>
+            <h2 className="m1-section-title">Library Resources & Departmental Holdings</h2>
+          </div>
+          
           <div className="m1-stats-grid" onMouseMove={handleMouseMove}>
             {collections.map((item, index) => (
               <div key={index} className="m1-stat-card">
                 <div className="m1-stat-card-inner">
+                  <div className="stat-card-icon">{item.icon}</div>
                   <span className="m1-stat-num">
                     <AnimatedNumber value={item.count} />
                   </span>
@@ -153,63 +224,111 @@ const Library = () => {
           </div>
         </section>
 
-        <section className="m1-section m1-explore">
-          <h2 className="m1-section-title">Explore Library</h2>
+        {/* EXPLORE LIBRARY TABS (OBJECTIVES / FACILITIES / RULES) */}
+        <section className="m1-section m1-explore" id="explore">
+          <div className="section-title-wrap">
+            <span className="section-subtitle-badge">GUIDELINES & SERVICES</span>
+            <h2 className="m1-section-title">Explore Library Operations</h2>
+          </div>
           
           <div className="m1-tabs-wrapper">
             <div className="m1-tabs-nav">
-              <button className={activeTab === 'objectives' ? 'active' : ''} onClick={() => setActiveTab('objectives')}>Objectives</button>
-              <button className={activeTab === 'facilities' ? 'active' : ''} onClick={() => setActiveTab('facilities')}>Facilities</button>
-              <button className={activeTab === 'rules' ? 'active' : ''} onClick={() => setActiveTab('rules')}>Rules</button>
+              <button 
+                className={`ntf-tab-chip ${activeTab === 'objectives' ? 'active' : ''}`} 
+                onClick={() => setActiveTab('objectives')}
+              >
+                <FaLightbulb className="tab-icon" /> Objectives
+              </button>
+              <button 
+                className={`ntf-tab-chip ${activeTab === 'facilities' ? 'active' : ''}`} 
+                onClick={() => setActiveTab('facilities')}
+              >
+                <FaUniversity className="tab-icon" /> Facilities
+              </button>
+              <button 
+                className={`ntf-tab-chip ${activeTab === 'rules' ? 'active' : ''}`} 
+                onClick={() => setActiveTab('rules')}
+              >
+                <FaShieldAlt className="tab-icon" /> Rules & Regulations
+              </button>
             </div>
             
             <div className="m1-tab-content-card">
               <div className="m1-tab-text">
                 {activeTab === 'objectives' && (
-                  <ul>{objectivesList.map((item, i) => <li key={i}>{item}</li>)}</ul>
+                  <ul>
+                    {objectivesList.map((item, i) => (
+                      <li key={i}>
+                        <FaCheckCircle className="li-check-icon" /> {item}
+                      </li>
+                    ))}
+                  </ul>
                 )}
                 {activeTab === 'facilities' && (
-                  <ul>{facilitiesList.map((item, i) => <li key={i}>{item}</li>)}</ul>
+                  <ul>
+                    {facilitiesList.map((item, i) => (
+                      <li key={i}>
+                        <FaCheckCircle className="li-check-icon" /> {item}
+                      </li>
+                    ))}
+                  </ul>
                 )}
                 {activeTab === 'rules' && (
-                  <ul>{rulesList.map((item, i) => <li key={i}>{item}</li>)}</ul>
+                  <ul>
+                    {rulesList.map((item, i) => (
+                      <li key={i}>
+                        <FaCheckCircle className="li-check-icon" /> {item}
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </div>
             </div>
           </div>
         </section>
 
+        {/* GALLERY SECTION */}
         <section className="m1-section m1-gallery">
-          <h2 className="m1-section-title">Gallery</h2>
+          <div className="section-title-wrap">
+            <span className="section-subtitle-badge">CAMPUS INFRASTRUCTURE</span>
+            <h2 className="m1-section-title"><FaImages /> Central Library Gallery</h2>
+          </div>
+          
           <div className="m1-gallery-grid">
             {galleryImages.map((img, index) => (
-              <div key={index} className="m1-gallery-item-wrapper">
+              <motion.div 
+                key={index} 
+                className="m1-gallery-item-wrapper"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
                 <img src={img} alt={`Library ${index + 1}`} className="m1-gallery-img" />
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
+        {/* BOTTOM INFO: WORKING HOURS & LIBRARIAN */}
         <section className="m1-section m1-bottom-info">
           
           <div className="m1-info-card">
-            <h3 className="m1-info-title">Working Hours</h3>
+            <h3 className="m1-info-title"><FaClock /> Working Hours</h3>
             <div className="m1-time-row">
               <span className="m1-time-day">Monday - Friday</span>
-              <span className="m1-time-hours">8.30 AM - 5.30 PM</span>
+              <span className="m1-time-hours">8:30 AM - 5:30 PM</span>
             </div>
             <div className="m1-time-row">
               <span className="m1-time-day">Saturday</span>
-              <span className="m1-time-hours">9.00 AM - 4.00 PM</span>
+              <span className="m1-time-hours">9:00 AM - 4:00 PM</span>
             </div>
             <div className="m1-time-row">
-              <span className="m1-time-day">Sunday</span>
+              <span className="m1-time-day">Sunday & Public Holidays</span>
               <span className="m1-time-hours m1-closed">Closed</span>
             </div>
           </div>
 
           <div className="m1-info-card">
-            <h3 className="m1-info-title">Librarian</h3>
+            <h3 className="m1-info-title"><FaUserGraduate /> Chief Librarian</h3>
             <div className="m1-lib-profile">
               <img src="/Sinthan.jpg" alt="Dr. S. Sinthan" className="m1-lib-img" />
               <div className="m1-lib-details">
@@ -218,7 +337,7 @@ const Library = () => {
               </div>
             </div>
             <p className="m1-lib-quote">
-              "Our library vows to shape future leaders by providing unlimited access to global knowledge."
+              "Our library vows to shape future engineering leaders by providing unlimited access to global technical knowledge and cutting-edge digital resources."
             </p>
           </div>
 

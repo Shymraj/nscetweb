@@ -19,6 +19,28 @@
   font-family: var(--font-body);
 }
 
+/* Auto-height adaptation when height="auto" is passed */
+.page-banner.auto-height,
+.page-banner[style*="--custom-banner-height: auto"],
+.page-banner[style*="--custom-banner-height:auto"] {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.page-banner.auto-height .page-banner-right,
+.page-banner[style*="--custom-banner-height: auto"] .page-banner-right,
+.page-banner[style*="--custom-banner-height:auto"] .page-banner-right {
+  position: relative !important;
+  height: auto !important;
+}
+
+.page-banner.auto-height .page-banner-main-img,
+.page-banner[style*="--custom-banner-height: auto"] .page-banner-main-img,
+.page-banner[style*="--custom-banner-height:auto"] .page-banner-main-img {
+  height: auto !important;
+  display: block !important;
+}
+
 /* --- Right Side Background --- */
 .page-banner-right {
   position: absolute;

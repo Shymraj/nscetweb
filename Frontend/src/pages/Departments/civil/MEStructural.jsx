@@ -6,7 +6,9 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
-import bannerImg from "./images/banner/me_structuraleng.png";
+// Auto-load me_structuraleng banner image from ./images/banner/
+const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const bannerImg = Object.entries(bannerGlobs).find(([path]) => path.toLowerCase().includes("me_structural") || path.toLowerCase().includes("structural"))?.[1] || Object.values(bannerGlobs)[0] || null;
 import "./Civil.css";
 
 
@@ -55,6 +57,7 @@ const MEStructural = () => {
                 subtitle="Pioneering advanced design and analysis for resilient, modern, and sustainable infrastructure."
                 hideBreadcrumb={true}
                 backgroundImage={bannerImg}
+                height="auto"
             />
 
             <main className="content-wrapper">

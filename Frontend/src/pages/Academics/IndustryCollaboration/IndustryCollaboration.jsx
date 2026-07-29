@@ -1,7 +1,7 @@
 import React from 'react';
 import './IndustryCollaboration.css';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
-import bannerImg from './images/dji_fly_20250823_102246_695_1755932926647_photo.jpg';
+import bannerImg from './images/INDUSTRYCOLLABRATION.png';
 // Import Assets
 import pdfFile from './images/IIPC cell committee members.pdf';
 import img1 from './images/mou 1.jpeg';
