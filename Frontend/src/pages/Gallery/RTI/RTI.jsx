@@ -5,6 +5,10 @@ import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import './RTI.css';
 import RTICertificate from './assets/certificate/RTI.jpg';
 
+// Auto-load custom banner image from ./assets/banner/
+const bannerGlobs = import.meta.glob("./assets/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const customBanner = Object.values(bannerGlobs)[0] || null;
+
 const RTI = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -20,8 +24,10 @@ const RTI = () => {
   return (
     <div className="rti-page">
       <PageBanner 
-        title="Right to Information" 
+        title="" 
+        subtitle=""
         hideBreadcrumb={true}
+        {...(customBanner ? { backgroundImage: customBanner } : {})}
       />
 
       <div className="rti-premium-container">
