@@ -1,36 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ResearchHub.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBookOpen, FaRunning, FaBed, FaUsers, FaCoffee, FaArrowRight } from "react-icons/fa";
-import ispin from "../../assets/ispin.mp4"; // Placeholder image for the library video
-// STEP 1: Import your video file here. Make sure the path is correct based on your folder structure!
-// import libraryVideo from "../../assets/library-vid.mp4"; 
+
+// Imports for videos and images
+import ispin from "../../assets/ispin.mp4"; 
+import drone1 from "../../assets/Drone.jpg";
+import drone2 from "../../assets/Drone1.jpg";
+import drone3 from "../../assets/Drone2.jpg";
 
 const campusData = [
   {
     id: "library",
     title: "ISPIN",
     icon: <FaBookOpen />,
-    // STEP 2: Remove 'image' and add 'video' for the library
-    // video: libraryVideo, 
-    
-    // For now, I'm putting a placeholder video URL so you can see it working immediately. 
-    // Replace this string with your imported variable (e.g., video: libraryVideo)
     video: ispin, 
     description: "Innovative Software Product at NSCET",
     highlight: "Department of (CSE,IT,AI & DS)"
   },
   {
     id: "sports",
-    title: "Sports & Athletics",
+    title: "Drone Technology",
     icon: <FaRunning />,
-    image: "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    description: "State-of-the-art indoor stadium, synthetic athletic tracks, and courts for basketball, tennis, and badminton to keep our students physically and mentally fit.",
-    highlight: "Olympic Standard Courts"
+    // INGA DHAAN CHANGES PANNIRUKOM: Single image-ku badhila array of 3 images
+    images: [drone1, drone2, drone3], 
+    description: "State-of-the-art facilities for assembling, testing, and flying customized drones. Students get hands-on experience in modern aerial robotics.",
+    highlight: "Advanced Robotics"
   },
   {
     id: "hostel",
-    title: "Student Residences",
+    title: "3D-Printing",
     icon: <FaBed />,
     image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     description: "Safe, secure, and comfortable AC/Non-AC hostels with high-speed Wi-Fi, hygienic mess facilities, and recreation rooms offering a home away from home.",
@@ -38,7 +37,7 @@ const campusData = [
   },
   {
     id: "clubs",
-    title: "Clubs & Societies",
+    title: "IQARENA",
     icon: <FaUsers />,
     image: "https://images.unsplash.com/photo-1523580494112-071d324be806?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     description: "From Robotics and Coding to Drama and Music, join over 30+ active student clubs to pursue your passion, build leadership skills, and network.",
@@ -56,6 +55,24 @@ const campusData = [
 
 function CampusLife() {
   const [activeTab, setActiveTab] = useState(campusData[0]);
+  const [imageIndex, setImageIndex] = useState(0);
+
+  // Tab change aagumbodhu index-a 0 ku reset pandrom
+  useEffect(() => {
+    setImageIndex(0);
+  }, [activeTab]);
+
+  // Image Slideshow Timer Logic
+  useEffect(() => {
+    let interval;
+    // Active tab-la 'images' array irundhu, adhula 1-ku mela images irundha mattum slider odum
+    if (activeTab.images && activeTab.images.length > 1) {
+      interval = setInterval(() => {
+        setImageIndex((prevIndex) => (prevIndex + 1) % activeTab.images.length);
+      }, 3500); // 3.5 seconds-ku oru thadava image change aagum
+    }
+    return () => clearInterval(interval);
+  }, [activeTab]);
 
   return (
     <section className="campus-section">
@@ -104,10 +121,12 @@ function CampusLife() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
               >
-                {/* BACKGROUND MEDIA (Video or Image) */}
+                
+                {/* BACKGROUND MEDIA (Video, Slideshow, or Single Image) */}
                 <div className="display-media-container">
-                  {/* STEP 3: Condition to check if it's a video or an image */}
+                  
                   {activeTab.video ? (
+                    // Video render
                     <video 
                       src={activeTab.video} 
                       className="display-media" 
@@ -116,7 +135,22 @@ function CampusLife() {
                       muted 
                       playsInline 
                     />
+                  ) : activeTab.images ? (
+                    // Crossfade Blur Slideshow render
+                    <AnimatePresence mode="popLayout">
+                      <motion.img 
+                        key={imageIndex}
+                        src={activeTab.images[imageIndex]} 
+                        alt={activeTab.title}
+                        className="display-media sliding-media"
+                        initial={{ opacity: 0, filter: "blur(12px)", scale: 1.05 }}
+                        animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+                        exit={{ opacity: 0, filter: "blur(12px)", scale: 1.05 }}
+                        transition={{ duration: 1, ease: "easeInOut" }}
+                      />
+                    </AnimatePresence>
                   ) : (
+                    // Default Single Image render
                     <img 
                       src={activeTab.image} 
                       alt={activeTab.title} 
@@ -124,7 +158,7 @@ function CampusLife() {
                     />
                   )}
                   
-                  {/* Gentle gradient so the white text box looks good on any background */}
+                  {/* Gentle gradient overlay */}
                   <div className="media-overlay"></div>
                 </div>
 

@@ -144,33 +144,40 @@
   position: relative;
 }
 
-/* Media Container (Handles both Image and Video) */
+/* Media Container */
 .display-media-container {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
 }
 
-/* This targets BOTH the <img> and <video> tags */
+/* Targets <img> and <video> tags */
 .display-media {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures video fills the area without stretching */
+  object-fit: cover; 
   display: block;
 }
 
-/* Gentle overlay so the bottom card is readable without hiding the video */
+/* Specific class for slideshow images to overlap smoothly */
+.sliding-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Gentle overlay */
 .media-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(to top, rgba(17, 24, 39, 0.7) 0%, rgba(17, 24, 39, 0.1) 50%, transparent 100%);
-  pointer-events: none; /* Allows user to click video if controls were enabled */
+  pointer-events: none; 
 }
 
 /* --- Floating Info Card (Glassmorphism) --- */
 .display-info-card {
   position: absolute;
   bottom: 40px; 
-  left: 40px;   /* Placed in bottom left exactly like your image reference */
+  left: 40px;  
   max-width: 450px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);

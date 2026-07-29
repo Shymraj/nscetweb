@@ -36,7 +36,7 @@ function About() {
 
           <div className="about-badge">
 
-            <h2>18+</h2>
+            <h2>15+</h2>
 
             <p>Years of Excellence</p>
 
@@ -50,7 +50,7 @@ function About() {
 
             <div>
 
-              <h4>Established in 2006</h4>
+              <h4>Established in 2010</h4>
 
               <span>Quality Engineering Education</span>
 

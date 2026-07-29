@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 // Indha lines unga file mela iruka nu check pannikonga
 import cse from "../../assets/departments/cse.jpg";
+import it from "../../assets/departments/it.jpg";
 import aids from "../../assets/departments/aids.jpg";
 import ece from "../../assets/departments/ece.jpg";
 import eee from "../../assets/departments/eee.jpg";
@@ -21,7 +22,7 @@ const allDepartments = [
   { image: mech, title: "Mechanical Engineering", category: "B.E", link: "/departments/mechanical" },
 
   // ================= B.TECH PROGRAMS =================
-  { image: aids, title: "Information Technology", category: "B.Tech", link: "/departments/it" },
+  { image: it, title: "Information Technology", category: "B.Tech", link: "/departments/it" },
   { image: aids, title: "Artificial Intelligence & Data Science", category: "B.Tech", link: "/departments/aids" },
 
   // ================= M.E PROGRAMS =================
