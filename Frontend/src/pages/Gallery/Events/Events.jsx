@@ -178,7 +178,7 @@ const Events = () => {
                     <div className="structured-card-body">
                       <div className="structured-card-meta">
                         <span className="meta-year">
-                          <FaCalendarAlt /> {is2025 ? "2025 Edition" : "Annual Event"}
+                          <FaCalendarAlt /> {event.date || (is2025 ? "2025 Edition" : "Annual Event")}
                         </span>
                       </div>
 

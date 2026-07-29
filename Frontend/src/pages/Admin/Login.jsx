@@ -16,7 +16,7 @@ const AdminLogin = () => {
     if ((username === 'admin' && password === 'admin') || 
         (username === 'nscet' && password === 'nscet9210')) {
       localStorage.setItem('isAdmin', 'true');
-      navigate('/admin-dashboard');
+      window.open('/admin-dashboard', '_blank');
       return;
     }
 
@@ -24,7 +24,7 @@ const AdminLogin = () => {
       const res = await axios.post('http://localhost:5000/api/admin/login', { username, password });
       if (res.data.success) {
         localStorage.setItem('isAdmin', 'true');
-        navigate('/admin-dashboard');
+        window.open('/admin-dashboard', '_blank');
       }
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');

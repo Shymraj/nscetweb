@@ -196,6 +196,22 @@ function Navbar() {
               <li><Link to="/gallery/events">Events</Link></li>
             </ul>
           </li>
+          <li className="dropdown">
+            <Link to="#" onClick={(e) => e.preventDefault()}>Student Life</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/student-life/sports">Sports</Link></li>
+              <li><Link to="/student-life/nss">NSS</Link></li>
+              <li><Link to="/student-life/boys-hostel">Boys Hostel</Link></li>
+              <li><Link to="/student-life/girls-hostel">Girls Hostel</Link></li>
+              <li><Link to="/student-life/placements">Placements</Link></li>
+              <li><Link to="/student-life/grievance-redressal">Grievance Redressal</Link></li>
+              <li><Link to="/student-life/anti-ragging-cell">Anti-Ragging Cell</Link></li>
+              <li><Link to="/student-life/equal-opportunity-cell">Equal Opportunity Cell</Link></li>
+              <li><Link to="/student-life/health-medical-facilities">Health and Medical Facilities</Link></li>
+              <li><Link to="/student-life/transport-facilities">Transport Facilities</Link></li>
+              <li><Link to="/student-life/sedg">SEDG</Link></li>
+            </ul>
+          </li>
           <li><Link to="/alumni">Alumni</Link></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>

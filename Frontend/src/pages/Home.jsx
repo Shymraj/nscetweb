@@ -1,3 +1,4 @@
+import MarqueeBanner from "../components/MarqueeBanner/MarqueeBanner";
 import Hero from "../components/Hero/Hero";
 import Stats from "../components/Stats/Stats";
 import VisionMission from "../components/VisionMission/VisionMission";
@@ -14,6 +15,7 @@ import Placement from "../components/Placement/Placement";
 function Home() {
   return (
     <>
+      <MarqueeBanner />
       <Hero />
       <Stats />
       <VisionMission />

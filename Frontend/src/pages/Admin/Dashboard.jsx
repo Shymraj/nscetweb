@@ -6,7 +6,7 @@ import HomePageManager from './HomePageManager';
 import { FaChevronUp, FaHome, FaUsers, FaBriefcase, FaCalendarCheck, FaImages, FaCalendarAlt, FaCog, FaSignOutAlt, FaUserPlus, FaUserTie, FaGraduationCap, FaEnvelope, FaBook, FaBuilding, FaImage, FaCheck, FaTimes, FaUpload, FaRedo } from "react-icons/fa";
 
 const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState('staff');
+  const [activeTab, setActiveTab] = useState('home');
   const [showScrollTop, setShowScrollTop] = useState(false);
   const navigate = useNavigate();
 
@@ -91,12 +91,12 @@ const EventsManager = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
+  const [editingId, setEditingId] = useState(null);
 
   const fetchEvents = async () => {
     try {
-      // const res = await axios.get('http://localhost:5000/api/admin/events');
-      // setEvents(res.data.data || []);
-      setEvents([]); // Placeholder
+      const res = await axios.get('http://localhost:5000/api/admin/events');
+      setEvents(res.data.data || []);
     } catch (error) {
       console.error(error);
       setEvents([]);
@@ -105,7 +105,7 @@ const EventsManager = () => {
 
   useEffect(() => { fetchEvents(); }, []);
 
-  const handleCreateEvent = async (e) => {
+  const handleCreateOrUpdateEvent = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('department', department);
@@ -115,19 +115,40 @@ const EventsManager = () => {
     if (image) formData.append('image', image);
 
     try {
-      // await axios.post('http://localhost:5000/api/admin/events', formData);
-      setDepartment(''); setDate(''); setTitle(''); setDescription(''); setImage(null);
+      if (editingId) {
+        await axios.put(`http://localhost:5000/api/admin/events/${editingId}`, formData);
+        alert('Event updated successfully.');
+      } else {
+        await axios.post('http://localhost:5000/api/admin/events', formData);
+        alert('Event created successfully.');
+      }
+      resetForm();
       fetchEvents();
-      alert('Event creation connected to backend (placeholder).');
     } catch (error) {
       console.error(error);
+      alert('Error saving event.');
     }
   };
 
+  const resetForm = () => {
+    setDepartment(''); setDate(''); setTitle(''); setDescription(''); setImage(null); setEditingId(null);
+  };
+
+  const handleEdit = (ev) => {
+    setEditingId(ev.id);
+    setDepartment(ev.department || '');
+    setDate(ev.date || '');
+    setTitle(ev.title || '');
+    setDescription(ev.description || '');
+    setImage(null); // Force re-upload or keep existing backend logic
+    // Scroll to top
+    document.querySelector('.admin-content').scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleDeleteEvent = async (id) => {
-    if (window.confirm("Are you sure?")) {
+    if (window.confirm("Are you sure you want to delete this event?")) {
       try {
-        // await axios.delete(`http://localhost:5000/api/admin/events/${id}`);
+        await axios.delete(`http://localhost:5000/api/admin/events/${id}`);
         fetchEvents();
       } catch (error) {
         console.error(error);
@@ -158,11 +179,11 @@ const EventsManager = () => {
       {/* Create New Event Card */}
       <div className="staff-card-form" style={{marginBottom: '30px', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '24px', backgroundColor: '#ffffff', boxShadow: '0 1px 3px rgba(0,0,0,0.05)'}}>
         <div className="staff-form-header" style={{color: '#374151', fontSize: '16px', fontWeight: '600', display: 'flex', alignItems: 'center', marginBottom: '24px', borderBottom: '1px solid #f3f4f6', paddingBottom: '12px'}}>
-          <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', borderRadius: '50%', border: '1.5px solid #6b7280', marginRight: '10px', fontSize: '14px', color: '#6b7280'}}>+</span> 
-          Create New Event
+          <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', borderRadius: '50%', border: '1.5px solid #6b7280', marginRight: '10px', fontSize: '14px', color: '#6b7280'}}>{editingId ? '✎' : '+'}</span> 
+          {editingId ? 'Edit Event' : 'Create New Event'}
         </div>
         
-        <form onSubmit={handleCreateEvent}>
+        <form onSubmit={handleCreateOrUpdateEvent}>
           <div className="staff-grid-inputs" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '24px'}}>
             <div className="input-group" style={{marginBottom: 0}}>
               <label style={{fontWeight: '500', color: '#4b5563', fontSize: '13px', marginBottom: '8px'}}>Department <span style={{color: '#ef4444'}}>*</span></label>
@@ -195,12 +216,19 @@ const EventsManager = () => {
               <div style={{backgroundColor: '#f9fafb', padding: '10px 14px', borderRight: '1px solid #d1d5db', color: '#4b5563', fontSize: '13px', whiteSpace: 'nowrap', fontWeight: '500'}}>Choose file</div>
               <input type="file" onChange={e=>setImage(e.target.files[0])} accept="image/*" style={{padding: '7px 10px', width: '100%', border: 'none', background: 'transparent', fontSize: '13px'}} required />
             </div>
-            <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>Max 5MB. Formats: JPG, PNG, GIF, WEBP</div>
+            <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>Max 5MB. Formats: JPG, PNG, GIF, WEBP {editingId && "(Leave blank to keep existing)"}</div>
           </div>
           
-          <button type="submit" className="btn-primary" style={{backgroundColor: '#3b82f6', borderRadius: '6px', padding: '10px 20px', fontSize: '14px', display: 'flex', alignItems: 'center', fontWeight: '500', border: 'none', cursor: 'pointer', color: 'white'}}>
-            <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '14px', height: '14px', borderRadius: '50%', border: '1.5px solid white', marginRight: '8px', fontSize: '10px', fontWeight: 'bold'}}>+</span> Create Event
-          </button>
+          <div style={{display: 'flex', gap: '10px'}}>
+            <button type="submit" className="btn-primary" style={{backgroundColor: '#3b82f6', borderRadius: '6px', padding: '10px 20px', fontSize: '14px', display: 'flex', alignItems: 'center', fontWeight: '500', border: 'none', cursor: 'pointer', color: 'white'}}>
+              <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '14px', height: '14px', borderRadius: '50%', border: '1.5px solid white', marginRight: '8px', fontSize: '10px', fontWeight: 'bold'}}>{editingId ? '✓' : '+'}</span> {editingId ? 'Update Event' : 'Create Event'}
+            </button>
+            {editingId && (
+              <button type="button" onClick={resetForm} style={{backgroundColor: '#6b7280', borderRadius: '6px', padding: '10px 20px', fontSize: '14px', display: 'flex', alignItems: 'center', fontWeight: '500', border: 'none', cursor: 'pointer', color: 'white'}}>
+                Cancel
+              </button>
+            )}
+          </div>
         </form>
       </div>
 
@@ -233,10 +261,16 @@ const EventsManager = () => {
               ) : (
                 events.map(ev => (
                   <tr key={ev.id} style={{borderBottom: '1px solid #e5e7eb'}}>
-                    <td style={{padding: '12px 16px', fontSize: '14px', color: '#111827', fontWeight: '500'}}>{ev.title}</td>
+                    <td style={{padding: '12px 16px', fontSize: '14px', color: '#111827', fontWeight: '500'}}>
+                      <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                        {ev.image_url ? <img src={`http://localhost:5000${ev.image_url}`} alt={ev.title} style={{width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px'}} /> : <div style={{width: '40px', height: '40px', backgroundColor: '#e5e7eb', borderRadius: '4px'}} />}
+                        {ev.title}
+                      </div>
+                    </td>
                     <td style={{padding: '12px 16px', fontSize: '14px', color: '#4b5563'}}>{ev.department}</td>
                     <td style={{padding: '12px 16px', fontSize: '14px', color: '#4b5563'}}>{ev.date}</td>
-                    <td style={{padding: '12px 16px', textAlign: 'right'}}>
+                    <td style={{padding: '12px 16px', textAlign: 'right', display: 'flex', justifyContent: 'flex-end', gap: '8px', alignItems: 'center'}}>
+                      <button onClick={() => handleEdit(ev)} style={{backgroundColor: '#f3f4f6', color: '#4b5563', border: '1px solid #d1d5db', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', transition: 'background-color 0.2s'}}>Edit</button>
                       <button onClick={() => handleDeleteEvent(ev.id)} style={{backgroundColor: '#fee2e2', color: '#dc2626', border: 'none', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', transition: 'background-color 0.2s'}}>Delete</button>
                     </td>
                   </tr>

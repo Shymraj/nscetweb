@@ -46,7 +46,7 @@ const deleteStaff = (req, res) => {
 
 // --- EVENTS ---
 const getEvents = (req, res) => {
-  db.query("SELECT * FROM events", (err, events) => {
+  db.query("SELECT * FROM events ORDER BY id DESC", (err, events) => {
     if (err) return res.status(500).json({ success: false, message: "Database Error" });
     db.query("SELECT * FROM event_photos", (err, photos) => {
       if (err) return res.status(500).json({ success: false, message: "Database Error" });
@@ -54,7 +54,7 @@ const getEvents = (req, res) => {
         return {
           ...event,
           images: photos.filter(p => p.event_id === event.id).map(p => p.photo_url),
-          coverImage: photos.find(p => p.event_id === event.id)?.photo_url || null
+          coverImage: event.image_url || photos.find(p => p.event_id === event.id)?.photo_url || null
         };
       });
       res.json({ success: true, data: eventsWithPhotos });
@@ -63,12 +63,39 @@ const getEvents = (req, res) => {
 };
 
 const addEvent = (req, res) => {
-  const { title, slug, description } = req.body;
-  const sql = "INSERT INTO events (title, slug, description) VALUES (?, ?, ?)";
-  db.query(sql, [title, slug, description], (err, result) => {
+  const { title, description, department, date } = req.body;
+  const baseSlug = title ? title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : 'event';
+  const slug = `${baseSlug}-${Date.now()}`;
+  const image_url = req.file ? `/uploads/events/${req.file.filename}` : null;
+  
+  const sql = "INSERT INTO events (title, slug, description, department, date, image_url) VALUES (?, ?, ?, ?, ?, ?)";
+  db.query(sql, [title, slug, description, department, date, image_url], (err, result) => {
     if (err) return res.status(500).json({ success: false, message: err.message });
     res.json({ success: true, message: "Event added", id: result.insertId });
   });
+};
+
+const updateEvent = (req, res) => {
+  const { id } = req.params;
+  const { title, description, department, date } = req.body;
+  
+  if (req.file) {
+    // If a new file is uploaded, update image_url
+    const image_url = `/uploads/events/${req.file.filename}`;
+    // Optionally delete old image from disk here
+    const sql = "UPDATE events SET title=?, description=?, department=?, date=?, image_url=? WHERE id=?";
+    db.query(sql, [title, description, department, date, image_url, id], (err) => {
+      if (err) return res.status(500).json({ success: false, message: err.message });
+      res.json({ success: true, message: "Event updated with new image" });
+    });
+  } else {
+    // Keep existing image
+    const sql = "UPDATE events SET title=?, description=?, department=?, date=? WHERE id=?";
+    db.query(sql, [title, description, department, date, id], (err) => {
+      if (err) return res.status(500).json({ success: false, message: err.message });
+      res.json({ success: true, message: "Event updated" });
+    });
+  }
 };
 
 const addEventPhoto = (req, res) => {
@@ -83,16 +110,28 @@ const addEventPhoto = (req, res) => {
 
 const deleteEvent = (req, res) => {
   const { id } = req.params;
-  db.query("SELECT photo_url FROM event_photos WHERE event_id = ?", [id], (err, results) => {
-    if (results) {
-      results.forEach(row => {
-        const filePath = path.join(__dirname, "..", row.photo_url);
-        if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-      });
+  
+  // First delete main image if exists
+  db.query("SELECT image_url FROM events WHERE id = ?", [id], (err, results) => {
+    if (results && results.length > 0 && results[0].image_url) {
+      const filePath = path.join(__dirname, "..", results[0].image_url);
+      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
     }
-    db.query("DELETE FROM events WHERE id = ?", [id], (err) => {
-      if (err) return res.status(500).json({ success: false, message: err.message });
-      res.json({ success: true, message: "Event deleted" });
+    
+    // Then delete extra photos
+    db.query("SELECT photo_url FROM event_photos WHERE event_id = ?", [id], (err, photoResults) => {
+      if (photoResults) {
+        photoResults.forEach(row => {
+          const fp = path.join(__dirname, "..", row.photo_url);
+          if (fs.existsSync(fp)) fs.unlinkSync(fp);
+        });
+      }
+      
+      // Finally delete DB record
+      db.query("DELETE FROM events WHERE id = ?", [id], (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Event deleted" });
+      });
     });
   });
 };
@@ -132,6 +171,6 @@ const deleteDepartment = (req, res) => {
 module.exports = { 
   loginAdmin, 
   getStaff, addStaff, deleteStaff,
-  getEvents, addEvent, addEventPhoto, deleteEvent,
+  getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent,
   getDepartments, addDepartment, deleteDepartment
 };

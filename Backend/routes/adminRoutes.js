@@ -11,7 +11,7 @@ router.get("/test", (req, res) => {
 const { 
   loginAdmin,
   getStaff, addStaff, deleteStaff,
-  getEvents, addEvent, addEventPhoto, deleteEvent,
+  getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent,
   getDepartments, addDepartment, deleteDepartment
 } = require("../controllers/adminController");
 
@@ -24,7 +24,8 @@ router.delete("/staff/:id", deleteStaff);
 
 // Event Routes
 router.get("/events", getEvents);
-router.post("/events", addEvent);
+router.post("/events", upload.single("image"), addEvent);
+router.put("/events/:id", upload.single("image"), updateEvent);
 router.post("/events/:id/photo", upload.single("photo"), addEventPhoto);
 router.delete("/events/:id", deleteEvent);
 

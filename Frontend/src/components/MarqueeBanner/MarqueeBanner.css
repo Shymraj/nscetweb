@@ -1,0 +1,42 @@
+.marquee-container {
+  background-color: #1e3a8a; /* A nice deep blue matching typical college themes */
+  color: white;
+  padding: 8px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  margin-top: 115px; /* Offset for the fixed Navbar (34px topbar + 76px navbar) */
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0 20px;
+}
+
+.marquee-separator {
+  margin: 0 15px;
+  color: #fbbf24; /* A nice yellow accent for separator */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
