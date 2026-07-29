@@ -1,37 +1,59 @@
 
+import React from 'react';
 import './AcademicCalendar.css';
 import calendarIcon from './banner/calendar-icon.svg';
 import heroImage from '../../../assets/ps1.jpg';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
+import { FaCalendarAlt, FaDownload, FaInfoCircle, FaStar, FaGift, FaClock, FaEye } from 'react-icons/fa';
 
-const infoCards = [
-  {
-    title: 'Academic Calendar Overview',
-    text: 'Our academic calendar provides a structured timeline of important dates, including semester start and end dates, examination schedules, holidays, and other key academic events. It helps students and faculty stay informed and plan their academic activities efficiently.',
-    theme: 'blue',
-  },
-  {
-    title: 'Stay Updated',
-    text: 'Regular updates ensure that any changes or additions are promptly communicated. The calendar serves as a guide for academic progress, assisting students in meeting deadlines and preparing for assessments.',
-    theme: 'green',
-  },
+import cal1 from './images/Academic Calendar 23.pdf';
+import cal2 from './images/Aca Calendar 2022-2023 Full.pdf';
+import cal3 from './images/Aca Calendar 2022-2023 EVEN Sem.pdf';
+import cal4 from './images/Aca Calendar 2022-2023 ODD Sem.pdf';
+import cal5 from './images/Acade Calendar 2021-2022.pdf';
+import cal6 from './images/Aca Calendar 2019-2020 Even Sem.pdf';
+import cal7 from './images/Aca Calendar 2018-2019 Even Sem.pdf';
+
+const academicCalendars = [
+  { title: 'Academic Calendar 2025-2026 Even Sem', latest: true, revised: true, file: cal1 },
+  { title: 'Academic Calendar 2024-2025', latest: false, revised: false, file: cal2 },
+  { title: 'Academic Calendar 2023-2024 Even Sem', latest: false, revised: false, file: cal3 },
+  { title: 'Academic Calendar 2023-2024 Odd Sem', latest: false, revised: false, file: cal4 },
+  { title: 'Academic Calendar 2023', latest: false, revised: false, file: cal5 },
+  { title: 'Academic Calendar 2022-2023 (Full / Even / Odd)', latest: false, revised: false, file: cal2 },
+  { title: 'Academic Calendar 2021-2022 (Full / Odd)', latest: false, revised: false, file: cal5 },
+  { title: 'Academic Calendar 2019-2020 (Even / Odd)', latest: false, revised: false, file: cal6 },
+  { title: 'Academic Calendar 2018-2019 Even Sem', latest: false, revised: false, file: cal7 },
 ];
 
-const calendarLinks = [
-  'Academic Calendar 2025–2026 Even Sem',
-  'Academic Calendar 2024–2025',
-  'Academic Calendar 2025–2024 Even Sem',
-  'Academic Calendar 2023–2024 ODD Sem',
-  'Academic Calendar 2023',
-  'Academic Calendar 2022–2023',
-  'Academic Calendar 2022–2023 Even Sem',
-  'Academic Calendar 2022–2023 ODD Sem',
-  'Academic Calendar 2021–2022 ODD Sem',
-  'Academic Calendar 2021–2022',
-  'Academic Calendar 2019–2020 Even Sem',
-  'Academic Calendar 2019–2020 ODD Sem',
-  'Academic Calendar 2018–2019 Even Sem',
+const importantDates = [
+  { event: 'Reopening for UG Sem III, V & VII + PG Sem III', date: '28 July 2025', remarks: 'For all years' },
+  { event: 'Freshers Induction', date: '11 August 2025', remarks: '-' },
+  { event: 'Reopening for UG I Sem', date: '18 August 2025', remarks: '-' },
+  { event: 'Internal Assessment – I (UG III, V, VII & PG III)', date: '01 – 08 September 2025', remarks: '-' },
+  { event: 'Teachers Day Celebration', date: '13 September 2025', remarks: '-' },
+  { event: '16th Batch Fresher\'s Day', date: '17 September 2025', remarks: '-' },
+  { event: 'NSCET Hackathon', date: '19 – 20 September 2025', remarks: '-' },
+  { event: 'Waves \'25', date: '26 – 27 September 2025', remarks: '-' },
+  { event: 'Navarathri Celebration', date: '29 September 2025', remarks: '-' },
+  { event: 'Internal Assessment – I (UG I Sem)', date: '06 – 13 October 2025', remarks: '-' },
+  { event: 'Diwali Celebration', date: '18 October 2025', remarks: '-' },
+  { event: 'Diwali Holidays', date: '20 – 21 October 2025', remarks: '-' },
+  { event: 'Internal Assessment – II (UG III, V, VII)', date: '03 – 08 November 2025', remarks: '-' },
+  { event: 'University Model Practical', date: '10 – 12 November 2025', remarks: '-' },
+  { event: 'Last Working Day (UG Sem III, V & VII)', date: '14 November 2025', remarks: 'For all years' },
+  { event: 'Commencement of University Examinations (UG Sem III, V, VII)', date: '19 November 2025', remarks: '-' },
+  { event: 'Last Working Day (UG Sem I)', date: '10 December 2025', remarks: '-' },
+  { event: 'Commencement of University Examinations (UG Sem I)', date: '16 December 2025', remarks: '-' },
 ];
+
+const holidays = [
+  { name: 'Teachers Day Celebration', date: '13 September 2025' },
+  { name: 'Navarathri Celebration', date: '29 September 2025' },
+  { name: 'Diwali Celebration', date: '18 October 2025' },
+  { name: 'Diwali Holidays', date: '20 – 21 October 2025' },
+];
+
 
 const AcademicCalendar = () => {
   return (
@@ -44,41 +66,94 @@ const AcademicCalendar = () => {
       />
 
       <div className="academic-calendar-content">
-        <section className="info-section">
-          {infoCards.map((card) => (
-            <article key={card.title} className={`info-card info-card-${card.theme}`}>
-              <div className="info-icon">
-                <img src={calendarIcon} alt="calendar icon" />
-              </div>
-              <div className="info-content">
-                <h2>{card.title}</h2>
-                <p>{card.text}</p>
-              </div>
-            </article>
-          ))}
+        {/* About Section */}
+        <section className="ac-about-section">
+          <div className="ac-about-header">
+            <FaInfoCircle className="ac-header-icon" />
+            <h2>About Academic Calendar</h2>
+          </div>
+          <div className="ac-about-content">
+            <p>
+              The academic calendar provides a structured timeline of important dates including semester start/end dates, examination schedules, holidays, and other key academic events. It helps students and faculty plan activities efficiently.Regular updates ensure that any changes or additions are promptly communicated. The calendar serves as a guide for academic progress, assisting students in meeting deadlines and preparing for assessments. Stay updated to make the most of your academic journey.
+            </p>
+          </div>
         </section>
 
-        <section className="section-content">
-          <div className="section-heading">
-            <h2 className="section-title">Academic Calendars List</h2>
-            <div className="section-decor">
-              <span className="line" />
-              <span className="calendar-symbol">📅</span>
-              <span className="line" />
+        {/* Important Dates Table */}
+        <section className="ac-dates-section">
+          <div className="ac-section-header">
+            <FaClock className="ac-header-icon" />
+            <h2>Important Dates (Odd Semester Focus – Higher Years)</h2>
+          </div>
+          <div className="ac-table-wrapper">
+            <table className="ac-dates-table">
+              <thead>
+                <tr>
+                  <th>Event</th>
+                  <th>Date</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                {importantDates.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.event}</td>
+                    <td>{item.date}</td>
+                    <td>{item.remarks}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+
+
+        {/* Even Semester */}
+        <section className="ac-even-section">
+          <div className="ac-section-header">
+            <FaCalendarAlt className="ac-header-icon" />
+            <h2>Even Semester (Tentative)</h2>
+          </div>
+          <div className="ac-even-content">
+            <div className="ac-even-card">
+              <p>
+                <strong>Reopening for UG Sem II, IV, VI & VIII + PG Sem II & IV</strong> → 
+                <span className="ac-even-date">05 January 2026</span>
+              </p>
             </div>
           </div>
+        </section>
 
-          <div className="calendar-grid" role="list">
-            {calendarLinks.map((title, index) => (
-              <button key={`${title}-${index}`} type="button" className="calendar-card">
-                <div className="calendar-card-left">
-                  <div className="calendar-card-icon">
-                    <img src={calendarIcon} alt="calendar icon" />
+
+
+        {/* Available Academic Calendars */}
+        <section className="ac-calendars-section">
+          <div className="ac-section-header">
+            <FaCalendarAlt className="ac-header-icon" />
+            <h2>Available Academic Calendars</h2>
+          </div>
+          <div className="ac-calendars-grid">
+            {academicCalendars.map((calendar, index) => (
+              <div key={index} className="ac-calendar-card">
+                <div className="ac-calendar-info">
+                  <h3>{calendar.title}</h3>
+                  <div className="ac-calendar-badges">
+                    {calendar.latest && <span className="ac-badge ac-badge-latest">Latest</span>}
+                    {calendar.revised && <span className="ac-badge ac-badge-revised">Revised</span>}
                   </div>
-                  <span className="calendar-card-text">{title}</span>
                 </div>
-                <span className="calendar-card-arrow">→</span>
-              </button>
+                <div className="ac-calendar-actions">
+                  <a href={calendar.file} target="_blank" rel="noopener noreferrer" className="ac-view-btn">
+                    <FaEye className="ac-view-icon" />
+                    View
+                  </a>
+                  <a href={calendar.file} download={`${calendar.title}.pdf`} className="ac-download-btn">
+                    <FaDownload className="ac-download-icon" />
+                    Download
+                  </a>
+                </div>
+              </div>
             ))}
           </div>
         </section>
