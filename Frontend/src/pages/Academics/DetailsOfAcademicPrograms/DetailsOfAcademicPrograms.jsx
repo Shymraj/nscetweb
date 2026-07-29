@@ -1,7 +1,9 @@
 import React from 'react';
 import './DetailsOfAcademicPrograms.css';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
-import heroImg from './images/college photos 3.jpg';
+// Auto-load any image inside ./images/
+const imageGlobs = import.meta.glob("./images/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const heroImg = Object.values(imageGlobs)[0] || null;
 
 const ugPrograms = [
   'B.E. - Civil Engineering',

@@ -2,7 +2,6 @@
 import React from 'react';
 import './AcademicCalendar.css';
 import calendarIcon from './banner/calendar-icon.svg';
-import heroImage from '../../../assets/ps1.jpg';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaCalendarAlt, FaDownload, FaInfoCircle, FaStar, FaGift, FaClock, FaEye } from 'react-icons/fa';
 
@@ -13,6 +12,10 @@ import cal4 from './images/Aca Calendar 2022-2023 ODD Sem.pdf';
 import cal5 from './images/Acade Calendar 2021-2022.pdf';
 import cal6 from './images/Aca Calendar 2019-2020 Even Sem.pdf';
 import cal7 from './images/Aca Calendar 2018-2019 Even Sem.pdf';
+
+// Auto-load custom banner image from ./banner/ (excluding svg icons)
+const bannerGlobs = import.meta.glob("./banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const heroImage = Object.values(bannerGlobs)[0] || null;
 
 const academicCalendars = [
   { title: 'Academic Calendar 2025-2026 Even Sem', latest: true, revised: true, file: cal1 },
@@ -59,10 +62,11 @@ const AcademicCalendar = () => {
   return (
     <div className="academic-calendar-page">
       <PageBanner
-        title="Academic Calendar"
-        subtitle="Important dates, schedules & academic events"
+        title=""
+        subtitle=""
         hideBreadcrumb={true}
-        backgroundImage={heroImage}
+        {...(heroImage ? { backgroundImage: heroImage } : {})}
+        height="auto"
       />
 
       <div className="academic-calendar-content">

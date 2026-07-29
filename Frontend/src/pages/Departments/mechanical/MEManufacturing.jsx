@@ -7,7 +7,9 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
-import bannerImg from "./images/manufacturing_eng/manufacturing_eng.png";
+// Auto-load any banner image inside ./images/manufacturing_eng/
+const bannerGlobs = import.meta.glob("./images/manufacturing_eng/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const bannerImg = Object.values(bannerGlobs)[0] || null;
 import "./Mechanical.css";
 
 

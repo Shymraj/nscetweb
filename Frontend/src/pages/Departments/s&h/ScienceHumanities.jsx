@@ -7,7 +7,9 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
-import bannerImg from "./images/banner/S&H.png";
+// Auto-load any banner image inside ./images/banner/
+const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const bannerImg = Object.values(bannerGlobs)[0] || null;
 import "./ScienceHumanities.css";
 
 // If a specific 7th sense association logo is available, replace this icon with an image tag.

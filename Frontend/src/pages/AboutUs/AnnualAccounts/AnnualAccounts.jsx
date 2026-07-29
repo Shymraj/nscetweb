@@ -2,17 +2,16 @@ import React from 'react';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import DetailedAnnualReport from '../AnnualReports/components/DetailedAnnualReport';
 import '../AnnualReports/AnnualReports.css';
-import bannerImage from '../AnnualReports/assets/banner/annual-reports-hero-banner.png';
+import bannerImage from './banner/AnnualAccounts.png';
 
 const AnnualAccounts = () => {
   return (
     <div className="annual-reports-page">
       <PageBanner
-        title="Annual Accounts"
-        subtitle="Institutional Quality Assurance & Academic Financial Overview (2023–24)"
-        hideBreadcrumb={true}
         backgroundImage={bannerImage}
-        imageFit="cover"
+        hideBreadcrumb={true}
+        showOverlay={false}
+        showText={false}
       />
 
       <DetailedAnnualReport />

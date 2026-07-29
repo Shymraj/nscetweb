@@ -7,7 +7,9 @@ import {
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../../components/common/PageBanner/PageBanner";
-import bannerImg from "./banner/IT.png";
+// Auto-load any banner image inside ./banner/
+const bannerGlobs = import.meta.glob("./banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const bannerImg = Object.values(bannerGlobs)[0] || null;
 import "./IT.css";
 
 import nexusLogo from "./images/nexus.jpg";

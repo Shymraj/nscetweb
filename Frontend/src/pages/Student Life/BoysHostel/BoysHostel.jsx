@@ -1,5 +1,6 @@
 import React from 'react';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
+import bannerImg from './banner/boyshostel.png';
 import { FaDumbbell, FaTv, FaBook, FaUtensils, FaShieldAlt, FaCalendarCheck, FaExclamationCircle } from 'react-icons/fa';
 import './BoysHostel.css';
 
@@ -7,9 +8,10 @@ const BoysHostel = () => {
   return (
     <div className="boyshostel-page">
       <PageBanner
-        title="Boys Hostel"
-        subtitle="Home Away From Home"
-        hideBreadcrumb={false}
+        backgroundImage={bannerImg}
+        hideBreadcrumb={true}
+        showOverlay={false}
+        showText={false}
       />
       
       <div className="hostel-container">

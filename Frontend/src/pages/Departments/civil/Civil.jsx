@@ -6,7 +6,9 @@ import {
     FaEnvelope, FaAward, FaFlask, FaMapMarkedAlt, FaCalendarTimes
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
-import bannerImg from "./images/banner/civil.png";
+// Auto-load civil banner image from ./images/banner/
+const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const bannerImg = Object.entries(bannerGlobs).find(([path]) => path.toLowerCase().includes("/civil.") || path.toLowerCase().endsWith("civil.png"))?.[1] || Object.values(bannerGlobs)[0] || null;
 import "./Civil.css";
 
 import imgNagarathinam from "./images/nagarathinam.jpg";
@@ -66,6 +68,7 @@ const Civil = () => {
                 subtitle="Building the foundation of tomorrow — where sustainable design meets structural excellence."
                 hideBreadcrumb={true}
                 backgroundImage={bannerImg}
+                height="auto"
             />
 
             <main className="content-wrapper">

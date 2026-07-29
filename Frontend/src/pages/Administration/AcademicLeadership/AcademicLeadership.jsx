@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './AcademicLeadership.css';
+import PageBanner from '../../../components/common/PageBanner/PageBanner';
+import bannerImg from './Banner/AcademicLeadership.png';
 
 const AcademicLeadership = () => {
   const data = {
@@ -49,10 +51,12 @@ const AcademicLeadership = () => {
   return (
     <div className="al-page">
       {/* Banner */}
-      <div className="al-hero">
-        <h2>Academic Leadership</h2>
-        <p>Meet the visionary leaders driving educational excellence at NSCET.</p>
-      </div>
+      <PageBanner
+        backgroundImage={bannerImg}
+        hideBreadcrumb={true}
+        showOverlay={false}
+        showText={false}
+      />
 
       <div className="al-container">
         {/* Left Sidebar */}

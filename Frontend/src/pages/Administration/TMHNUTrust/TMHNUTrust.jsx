@@ -7,6 +7,7 @@ import {
   FaBookOpen, FaLandmark, FaChessKing, FaChessQueen
 } from "react-icons/fa";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
+import bannerImg from "./Banner/TMHNUTRUST.png";
 import "./TMHNUTrust.css";
 
 /* ─── Animation Helpers ─── */
@@ -112,49 +113,13 @@ const prominentPersonalities = [
 function TMHNUTrust() {
   return (
     <div className="tmhnu-page">
-      {/* Hero Banner */}
-      {/* Premium Custom Hero Banner */}
-      <section className="tmhnu-premium-hero">
-        <div className="tmhnu-premium-hero-right">
-          <img src="https://nscet.org/assets/img/main/college_main.jpg" alt="NSCET College Campus Cinematic View" />
-          <div className="tmhnu-premium-overlay"></div>
-        </div>
-        
-        <div className="tmhnu-premium-hero-left">
-          <div className="tmhnu-premium-content">
-            <motion.h1 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="tmhnu-premium-title"
-            >
-              TMHNU TRUST
-            </motion.h1>
-            <motion.div 
-              initial={{ opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: "60px" }}
-              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="tmhnu-premium-accent-line"
-            ></motion.div>
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="tmhnu-premium-subtitle"
-            >
-              Serving Education Since 1898
-            </motion.h3>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-              className="tmhnu-premium-desc"
-            >
-              A legacy of academic excellence, dedicated to nurturing brilliant minds and empowering future leaders through world-class educational institutions.
-            </motion.p>
-          </div>
-        </div>
-      </section>
+      {/* Hero Banner (Only TMHNUTRUST.png image as requested) */}
+      <PageBanner
+        backgroundImage={bannerImg}
+        hideBreadcrumb={true}
+        showOverlay={false}
+        showText={false}
+      />
 
       {/* About TMHNU & Our Journey */}
       <section className="tmhnu-about-section">

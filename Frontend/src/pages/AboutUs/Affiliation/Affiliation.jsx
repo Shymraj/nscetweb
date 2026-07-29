@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import nscetLogo from './assets/logos/nscet-logo.png';
 import naacLogo from './assets/logos/naac-logo.png';
-import bannerImg from './assets/banner.jpg';
+import bannerImg from './assets/banner.png';
 import './Affiliation.css';
 
 const certifications = [
@@ -19,10 +19,10 @@ const Affiliation = () => {
   return (
     <div className="affiliation-page">
       <PageBanner
-        title="Affiliation & Accreditation"
-        subtitle="Excellence Recognized by Premier Institutions"
-        hideBreadcrumb={true}
         backgroundImage={bannerImg}
+        hideBreadcrumb={true}
+        showOverlay={false}
+        showText={false}
       />
 
       <section className="about-section-wrapper bg-white">
