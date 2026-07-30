@@ -1,4 +1,746 @@
-/* NSS.css */
+/* ==========================================================================
+   National Service Scheme (NSS) Page Styles
+   Strictly following AGENTS.md typography and R&D Cell design language
+   ========================================================================== */
+
 .nss-page {
-  /* Add your styles here */
+  font-family: var(--font-body);
+  color: #1e293b;
+  width: 100%;
+  overflow-x: hidden;
+  background: #ffffff;
+  position: relative;
+}
+
+body.dark-mode .nss-page {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+/* Sections & Alternating Backgrounds */
+.nss-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.nss-intro-section {
+  background: #ffffff;
+}
+
+.nss-objectives-section {
+  background: linear-gradient(180deg, #f8fbff 0%, #eef6ff 100%);
+}
+
+.nss-activities-section {
+  background: #ffffff;
+}
+
+.nss-team-section {
+  background: linear-gradient(180deg, #f5f9ff 0%, #eef2ff 100%);
+}
+
+.nss-gallery-section {
+  background: #ffffff;
+}
+
+.nss-motto-section {
+  background: linear-gradient(180deg, #f8fbff 0%, #eef6ff 100%);
+}
+
+body.dark-mode .nss-intro-section { background: #0f172a; }
+body.dark-mode .nss-objectives-section { background: linear-gradient(180deg, #111827 0%, #1e293b 100%); }
+body.dark-mode .nss-activities-section { background: #0f172a; }
+body.dark-mode .nss-team-section { background: linear-gradient(180deg, #111827 0%, #172033 100%); }
+body.dark-mode .nss-gallery-section { background: #0f172a; }
+body.dark-mode .nss-motto-section { background: linear-gradient(180deg, #111827 0%, #1e293b 100%); }
+
+/* Background Decorations */
+.nss-bg-decoration {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  opacity: 0.06;
+  pointer-events: none;
+}
+body.dark-mode .nss-bg-decoration {
+  opacity: 0.15;
+}
+.dec-1 { width: 400px; height: 400px; background: #2563eb; top: -100px; left: -100px; }
+.dec-2 { width: 300px; height: 300px; background: #059669; bottom: -50px; right: 10%; }
+.dec-3 { width: 450px; height: 450px; background: #d97706; top: 15%; right: -150px; }
+.dec-4 { width: 350px; height: 350px; background: #7c3aed; bottom: 10%; left: -50px; }
+
+.nss-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Typography & Section Headers */
+.nss-section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.nss-section-title {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+body.dark-mode .nss-section-title { color: #f8fafc; }
+
+.nss-subheading {
+  font-family: var(--font-subtopic);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 1.2rem;
+}
+body.dark-mode .nss-subheading { color: #38bdf8; }
+
+.nss-desc {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #475569;
+  font-weight: 400;
+}
+body.dark-mode .nss-desc { color: #94a3b8; }
+
+.nss-accent-line {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  border-radius: 4px;
+  margin-bottom: 1.8rem;
+}
+
+.nss-accent-line.center {
+  margin: 0 auto 1.8rem auto;
+}
+
+/* ==========================================================================
+   SECTION 1: About NSS
+   ========================================================================== */
+.nss-intro-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.nss-intro-illustration {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nss-illustration-bg-glow {
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+body.dark-mode .nss-illustration-bg-glow {
+  background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, rgba(255,255,255,0) 70%);
+}
+
+.nss-illustration-circle {
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  position: absolute;
+  z-index: 1;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  transition: all 0.3s ease;
+}
+body.dark-mode .nss-illustration-circle {
+  background: #1e293b;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.nss-illustration-circle.main-circle {
+  width: 170px;
+  height: 170px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+}
+body.dark-mode .nss-illustration-circle.main-circle {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.nss-ill-icon {
+  font-size: 1.8rem;
+  color: #2563eb;
+}
+.nss-ill-icon.main {
+  font-size: 4.2rem;
+  color: #2563eb;
+}
+body.dark-mode .nss-ill-icon { color: #38bdf8; }
+body.dark-mode .nss-ill-icon.main { color: #60a5fa; }
+
+.nss-illustration-circle.orbit-1 { width: 85px; height: 85px; top: 12%; right: 12%; }
+.nss-illustration-circle.orbit-2 { width: 95px; height: 95px; bottom: 12%; right: 18%; }
+.nss-illustration-circle.orbit-3 { width: 85px; height: 85px; bottom: 15%; left: 10%; }
+.nss-illustration-circle.orbit-4 { width: 80px; height: 80px; top: 15%; left: 12%; }
+
+/* ==========================================================================
+   SECTION 2: Objectives Grid
+   ========================================================================== */
+.nss-objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.nss-objective-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+body.dark-mode .nss-objective-card {
+  background: #1e293b;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.nss-objective-card:hover {
+  box-shadow: 0 16px 36px rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+body.dark-mode .nss-objective-card:hover {
+  box-shadow: 0 16px 36px rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.nss-obj-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.06);
+}
+
+.obj-icon-bg-1 { background: linear-gradient(135deg, #eff6ff 0%, #bfdbfe 100%); color: #2563eb; }
+.obj-icon-bg-2 { background: linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%); color: #16a34a; }
+.obj-icon-bg-3 { background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%); color: #ea580c; }
+.obj-icon-bg-4 { background: linear-gradient(135deg, #faf5ff 0%, #e9d5ff 100%); color: #9333ea; }
+.obj-icon-bg-5 { background: linear-gradient(135deg, #f0fdfa 0%, #99f6e4 100%); color: #0d9488; }
+
+body.dark-mode .obj-icon-bg-1 { background: rgba(37, 99, 235, 0.2); color: #60a5fa; }
+body.dark-mode .obj-icon-bg-2 { background: rgba(22, 163, 74, 0.2); color: #4ade80; }
+body.dark-mode .obj-icon-bg-3 { background: rgba(234, 88, 12, 0.2); color: #fb923c; }
+body.dark-mode .obj-icon-bg-4 { background: rgba(147, 51, 234, 0.2); color: #c084fc; }
+body.dark-mode .obj-icon-bg-5 { background: rgba(13, 148, 136, 0.2); color: #2dd4bf; }
+
+.nss-obj-title {
+  font-family: var(--font-subtopic);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.8rem;
+}
+body.dark-mode .nss-obj-title { color: #f8fafc; }
+
+.nss-obj-desc {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: #64748b;
+  margin: 0;
+  font-weight: 400;
+}
+body.dark-mode .nss-obj-desc { color: #94a3b8; }
+
+/* ==========================================================================
+   SECTION 3: Activities Grid
+   ========================================================================== */
+.nss-activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.nss-activity-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.2rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  transition: all 0.3s ease;
+  position: relative;
+}
+body.dark-mode .nss-activity-card {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.nss-activity-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.1);
+}
+body.dark-mode .nss-activity-card:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.15);
+}
+
+.nss-activity-badge {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  font-family: var(--font-subtopic);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+body.dark-mode .nss-activity-badge {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.nss-activity-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: #eff6ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+body.dark-mode .nss-activity-icon {
+  background: rgba(37, 99, 235, 0.2);
+  color: #60a5fa;
+}
+
+.nss-activity-card:hover .nss-activity-icon {
+  background: #2563eb;
+  color: #ffffff;
+}
+body.dark-mode .nss-activity-card:hover .nss-activity-icon {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+.nss-activity-title {
+  font-family: var(--font-subtopic);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+body.dark-mode .nss-activity-title { color: #f8fafc; }
+
+.nss-activity-desc {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: #64748b;
+  margin: 0;
+  font-weight: 400;
+}
+body.dark-mode .nss-activity-desc { color: #94a3b8; }
+
+/* ==========================================================================
+   SECTION 4: NSS Team Grid
+   ========================================================================== */
+.nss-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.nss-member-card {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+  transition: all 0.3s ease;
+}
+body.dark-mode .nss-member-card {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.nss-member-card:hover {
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  border-color: #3b82f6;
+}
+body.dark-mode .nss-member-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border-color: #38bdf8;
+}
+
+.nss-member-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  border: 1px solid #cbd5e1;
+  transition: all 0.3s ease;
+}
+body.dark-mode .nss-member-avatar {
+  background: #0f172a;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+}
+
+.nss-member-card:hover .nss-member-avatar {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+}
+body.dark-mode .nss-member-card:hover .nss-member-avatar {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.nss-member-info {
+  flex: 1;
+}
+
+.nss-member-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.nss-member-name {
+  font-family: var(--font-subtopic);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+body.dark-mode .nss-member-name { color: #f8fafc; }
+
+.nss-role-badge {
+  font-family: var(--font-subtopic);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 99px;
+  text-transform: capitalize;
+}
+
+.nss-role-badge.coordinator {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+.nss-role-badge.member {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+body.dark-mode .nss-role-badge.coordinator {
+  background: rgba(37, 99, 235, 0.2);
+  color: #60a5fa;
+  border-color: rgba(96, 165, 250, 0.3);
+}
+body.dark-mode .nss-role-badge.member {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.nss-member-dept {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+body.dark-mode .nss-member-dept { color: #94a3b8; }
+
+/* ==========================================================================
+   SECTION 5: NSS Gallery Grid
+   ========================================================================== */
+.nss-gallery-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: #64748b;
+  max-width: 780px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-weight: 400;
+}
+body.dark-mode .nss-gallery-subtitle { color: #94a3b8; }
+
+.nss-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.nss-gallery-item {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  cursor: pointer;
+  background: #f8fafc;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  outline-offset: 4px;
+}
+body.dark-mode .nss-gallery-item {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+
+.nss-gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+body.dark-mode .nss-gallery-item:hover {
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.nss-gallery-item:focus-visible {
+  outline: 3px solid #2563eb;
+}
+
+.nss-gallery-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.nss-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nss-gallery-item:hover .nss-gallery-img {
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   SECTION 6: NSS Motto / Contact Card (Solid premium card, no heavy glassmorphism)
+   ========================================================================== */
+.nss-motto-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 4rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+body.dark-mode .nss-motto-card {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nss-motto-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #2563eb, #10b981, #f59e0b);
+}
+
+.nss-motto-header {
+  margin-bottom: 2rem;
+}
+
+.nss-motto-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-subtopic);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 16px;
+  border-radius: 99px;
+  background: #eff6ff;
+  color: #2563eb;
+  margin-bottom: 1.2rem;
+  border: 1px solid #bfdbfe;
+}
+body.dark-mode .nss-motto-tag {
+  background: rgba(37, 99, 235, 0.2);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.nss-tag-icon {
+  color: #ef4444;
+}
+
+.nss-motto-title {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+body.dark-mode .nss-motto-title { color: #f8fafc; }
+
+.nss-quote-icon {
+  font-size: 1.5rem;
+  color: #2563eb;
+  opacity: 0.6;
+}
+body.dark-mode .nss-quote-icon { color: #38bdf8; }
+
+.nss-motto-desc {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: #475569;
+  max-width: 780px;
+  margin: 0 auto 2.5rem auto;
+  font-weight: 400;
+}
+body.dark-mode .nss-motto-desc { color: #cbd5e1; }
+
+.nss-motto-pillars {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 2rem;
+}
+body.dark-mode .nss-motto-pillars {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.nss-pillar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.pillar-num {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #2563eb;
+}
+body.dark-mode .pillar-num { color: #38bdf8; }
+
+.pillar-label {
+  font-family: var(--font-subtopic);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+body.dark-mode .pillar-label { color: #f8fafc; }
+
+/* Responsive Queries */
+@media (max-width: 992px) {
+  .nss-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .nss-intro-content {
+    text-align: center;
+  }
+  .nss-accent-line {
+    margin: 0 auto 1.8rem auto;
+  }
+  .nss-section-title {
+    font-size: 2.3rem;
+  }
+  .nss-motto-title {
+    font-size: 2.1rem;
+  }
+  .nss-illustration-circle.orbit-1 { right: 5%; }
+  .nss-illustration-circle.orbit-2 { right: 10%; bottom: 5%; }
+  .nss-illustration-circle.orbit-3 { left: 5%; }
+}
+
+@media (max-width: 768px) {
+  .nss-container {
+    padding: 60px 20px;
+  }
+  .nss-section-title {
+    font-size: 2rem;
+  }
+  .nss-motto-card {
+    padding: 2.5rem 1.5rem;
+  }
+  .nss-motto-pillars {
+    gap: 1.5rem;
+  }
+  .nss-team-grid {
+    grid-template-columns: 1fr;
+  }
 }

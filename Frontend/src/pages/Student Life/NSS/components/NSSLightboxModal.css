@@ -1,0 +1,156 @@
+/* ==========================================================================
+   NSS Gallery Dedicated Fullscreen Lightbox Styles
+   Portalled directly to document.body (z-index 99999999) to float above Navbar
+   ========================================================================== */
+
+.nss-fullscreen-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999999;
+  background: rgba(5, 8, 18, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: nssFadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes nssFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Close Button (Top Right Viewport Fixed) */
+.nss-lightbox-close-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100000000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.nss-lightbox-close-btn:hover,
+.nss-lightbox-close-btn:focus-visible {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+  filter: brightness(1.15);
+  outline: none;
+}
+
+/* Fixed Navigation Buttons */
+.nss-lightbox-nav-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100000000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.nss-lightbox-nav-btn.prev {
+  left: 24px;
+}
+
+.nss-lightbox-nav-btn.next {
+  right: 24px;
+}
+
+.nss-lightbox-nav-btn:hover,
+.nss-lightbox-nav-btn:focus-visible {
+  background: rgba(37, 99, 235, 0.9);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.05);
+  filter: brightness(1.15);
+  outline: none;
+}
+
+/* Centered Main Floating Image Stage */
+.nss-lightbox-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 92vw;
+  max-height: 92vh;
+  z-index: 100000000;
+  position: relative;
+}
+
+.nss-lightbox-image-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.nss-lightbox-main-img {
+  max-width: 88vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  user-select: none;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .nss-lightbox-close-btn {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .nss-lightbox-nav-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .nss-lightbox-nav-btn.prev {
+    left: 12px;
+  }
+
+  .nss-lightbox-nav-btn.next {
+    right: 12px;
+  }
+
+  .nss-lightbox-main-img {
+    max-width: 86vw;
+    max-height: 78vh;
+  }
+}

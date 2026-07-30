@@ -4,6 +4,7 @@ import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaImage, FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
+import LightboxModal from "../../../../components/common/LightboxModal/LightboxModal";
 
 class GalleryErrorBoundary extends React.Component {
   constructor(props) {
@@ -303,35 +304,16 @@ export function Event3DGallery({ event, images }) {
         </GalleryErrorBoundary>
       </div>
 
-      {/* Lightbox Modal when an image is clicked */}
-      {isModalOpen && (
-        <div className="gallery-lightbox-overlay" onClick={handleClose}>
-          <div className="gallery-lightbox-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="lightbox-close-btn" onClick={handleClose} title="Close (Esc)">
-              <FaTimes />
-            </button>
-
-            <button className="lightbox-nav-btn prev" onClick={handlePrev} title="Previous (Left Arrow)">
-              <FaChevronLeft />
-            </button>
-
-            <div className="lightbox-image-container">
-              <img 
-                src={images[selectedIndex]} 
-                alt={`${event?.title || 'Event'} Photo ${selectedIndex + 1}`} 
-                className="lightbox-image"
-              />
-              <div className="lightbox-counter">
-                Photo {selectedIndex + 1} of {images.length}
-              </div>
-            </div>
-
-            <button className="lightbox-nav-btn next" onClick={handleNext} title="Next (Right Arrow)">
-              <FaChevronRight />
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Reusable Shared Lightbox Modal */}
+      <LightboxModal
+        isOpen={isModalOpen}
+        images={images}
+        selectedIndex={selectedIndex}
+        onClose={handleClose}
+        onPrev={handlePrev}
+        onNext={handleNext}
+        title={event?.title || 'Event Gallery'}
+      />
     </div>
   );
 }

@@ -1,0 +1,178 @@
+/* ==========================================================================
+   Reusable Lightbox Modal Styles
+   Modern Viewport Controls (Google Photos / Apple Photos / Unsplash style)
+   ========================================================================== */
+
+.reusable-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 10, 20, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: lightboxFadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes lightboxFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.reusable-lightbox-modal {
+  position: relative;
+  max-width: 88vw;
+  max-height: 86vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reusable-lightbox-image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+
+.reusable-lightbox-image {
+  max-width: 80vw;
+  max-height: 76vh;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  user-select: none;
+}
+
+/* Image Counter Centered Below Image */
+.reusable-lightbox-counter {
+  margin-top: 14px;
+  color: #ffffff;
+  font-family: var(--font-subtopic);
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 6px 18px;
+  border-radius: 99px;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Top-Right Viewport Fixed Close Button */
+.reusable-lightbox-close-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 19px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10005;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.reusable-lightbox-close-btn:hover,
+.reusable-lightbox-close-btn:focus-visible {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  transform: scale(1.05);
+  outline: none;
+  filter: brightness(1.15);
+}
+
+/* Vertically Centered Fixed Navigation Buttons */
+.reusable-lightbox-nav-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10005;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.reusable-lightbox-nav-btn.prev {
+  left: 24px;
+}
+
+.reusable-lightbox-nav-btn.next {
+  right: 24px;
+}
+
+.reusable-lightbox-nav-btn:hover,
+.reusable-lightbox-nav-btn:focus-visible {
+  background: rgba(37, 99, 235, 0.85);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.05);
+  outline: none;
+  filter: brightness(1.15);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .reusable-lightbox-close-btn {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .reusable-lightbox-nav-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .reusable-lightbox-nav-btn.prev {
+    left: 12px;
+  }
+
+  .reusable-lightbox-nav-btn.next {
+    right: 12px;
+  }
+
+  .reusable-lightbox-image {
+    max-width: 86vw;
+    max-height: calc(80vh - 60px);
+  }
+
+  .reusable-lightbox-counter {
+    font-size: 0.85rem;
+    padding: 5px 14px;
+  }
+}
