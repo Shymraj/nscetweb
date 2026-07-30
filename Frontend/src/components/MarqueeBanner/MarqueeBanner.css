@@ -1,15 +1,23 @@
 .marquee-container {
   background-color: #1e3a8a; /* A nice deep blue matching typical college themes */
   color: white;
-  padding: 8px 0;
+  padding: 4px 0; /* Reduced padding to decrease height */
   overflow: hidden;
   white-space: nowrap;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
-  position: relative;
-  z-index: 10;
-  margin-top: 115px; /* Offset for the fixed Navbar (34px topbar + 76px navbar) */
+  position: fixed; /* Changed from absolute to fixed to stick on scroll */
+  top: 110px; /* Offset for the fixed Navbar (34px topbar + 76px navbar) */
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  border-top: 1.5px solid rgba(212, 175, 55, 0.85); /* Matches Navbar border */
+  transition: transform 0.3s ease;
+}
+
+.marquee-container.scrolled {
+  transform: translateY(-34px);
 }
 
 .marquee-content {
