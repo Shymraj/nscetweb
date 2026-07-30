@@ -207,7 +207,7 @@ const AntiRaggingCell = () => {
             </div>
           </div>
         </section>
-      </div>
+       </div>
     </div>
   );
 };
