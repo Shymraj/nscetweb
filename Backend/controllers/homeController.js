@@ -26,6 +26,19 @@ exports.addMarquee = (req, res) => {
     res.json({ success: true, message: "Added successfully", id: result.insertId });
   });
 };
+
+exports.updateMarquee = (req, res) => {
+  const { id } = req.params;
+  const { content } = req.body;
+  db.query(
+    "UPDATE home_marquee SET content=? WHERE id=?",
+    [content, id],
+    (err) => {
+      if (err) return res.status(500).json({ success: false, message: err.message });
+      res.json({ success: true, message: "Updated successfully" });
+    }
+  );
+};
 exports.deleteMarquee = deleteRecord('home_marquee');
 
 // Hero
@@ -42,6 +55,31 @@ exports.addHero = (req, res) => {
     }
   );
 };
+exports.updateHero = (req, res) => {
+  const { id } = req.params;
+  const { heading, sub_heading, paragraph, button_name, url } = req.body;
+  
+  if (req.file) {
+    const photo_url = `/uploads/home/${req.file.filename}`;
+    db.query(
+      "UPDATE home_hero SET heading=?, sub_heading=?, paragraph=?, button_name=?, url=?, photo_url=? WHERE id=?",
+      [heading, sub_heading, paragraph, button_name, url, photo_url, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  } else {
+    db.query(
+      "UPDATE home_hero SET heading=?, sub_heading=?, paragraph=?, button_name=?, url=? WHERE id=?",
+      [heading, sub_heading, paragraph, button_name, url, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  }
+};
 exports.deleteHero = deleteRecord('home_hero');
 
 // Timer
@@ -52,6 +90,19 @@ exports.addTimer = (req, res) => {
     if (err) return res.status(500).json({ success: false, message: err.message });
     res.json({ success: true, message: "Added successfully", id: result.insertId });
   });
+};
+
+exports.updateTimer = (req, res) => {
+  const { id } = req.params;
+  const { event_name, target_date } = req.body;
+  db.query(
+    "UPDATE home_timer SET event_name=?, target_date=? WHERE id=?",
+    [event_name, target_date, id],
+    (err) => {
+      if (err) return res.status(500).json({ success: false, message: err.message });
+      res.json({ success: true, message: "Updated successfully" });
+    }
+  );
 };
 exports.deleteTimer = deleteRecord('home_timer');
 
@@ -64,6 +115,19 @@ exports.addNews = (req, res) => {
     res.json({ success: true, message: "Added successfully", id: result.insertId });
   });
 };
+
+exports.updateNews = (req, res) => {
+  const { id } = req.params;
+  const { title, date, content } = req.body;
+  db.query(
+    "UPDATE home_news SET title=?, date=?, content=? WHERE id=?",
+    [title, date, content, id],
+    (err) => {
+      if (err) return res.status(500).json({ success: false, message: err.message });
+      res.json({ success: true, message: "Updated successfully" });
+    }
+  );
+};
 exports.deleteNews = deleteRecord('home_news');
 
 // Video
@@ -74,6 +138,19 @@ exports.addVideo = (req, res) => {
     if (err) return res.status(500).json({ success: false, message: err.message });
     res.json({ success: true, message: "Added successfully", id: result.insertId });
   });
+};
+
+exports.updateVideo = (req, res) => {
+  const { id } = req.params;
+  const { title, video_url } = req.body;
+  db.query(
+    "UPDATE home_video SET title=?, video_url=? WHERE id=?",
+    [title, video_url, id],
+    (err) => {
+      if (err) return res.status(500).json({ success: false, message: err.message });
+      res.json({ success: true, message: "Updated successfully" });
+    }
+  );
 };
 exports.deleteVideo = deleteRecord('home_video');
 
@@ -87,6 +164,31 @@ exports.addImage = (req, res) => {
     res.json({ success: true, message: "Added successfully", id: result.insertId });
   });
 };
+
+exports.updateImage = (req, res) => {
+  const { id } = req.params;
+  const { caption } = req.body;
+  if (req.file) {
+    const photo_url = `/uploads/home/${req.file.filename}`;
+    db.query(
+      "UPDATE home_image SET caption=?, photo_url=? WHERE id=?",
+      [caption, photo_url, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  } else {
+    db.query(
+      "UPDATE home_image SET caption=? WHERE id=?",
+      [caption, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  }
+};
 exports.deleteImage = deleteRecord('home_image');
 
 // Principal
@@ -98,6 +200,31 @@ exports.addPrincipal = (req, res) => {
     if (err) return res.status(500).json({ success: false, message: err.message });
     res.json({ success: true, message: "Added successfully", id: result.insertId });
   });
+};
+
+exports.updatePrincipal = (req, res) => {
+  const { id } = req.params;
+  const { name, message } = req.body;
+  if (req.file) {
+    const photo_url = `/uploads/home/${req.file.filename}`;
+    db.query(
+      "UPDATE home_principal SET name=?, message=?, photo_url=? WHERE id=?",
+      [name, message, photo_url, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  } else {
+    db.query(
+      "UPDATE home_principal SET name=?, message=? WHERE id=?",
+      [name, message, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  }
 };
 exports.deletePrincipal = deleteRecord('home_principal');
 
@@ -111,6 +238,31 @@ exports.addUGCourse = (req, res) => {
     res.json({ success: true, message: "Added successfully", id: result.insertId });
   });
 };
+
+exports.updateUGCourse = (req, res) => {
+  const { id } = req.params;
+  const { course_name, description } = req.body;
+  if (req.file) {
+    const photo_url = `/uploads/home/${req.file.filename}`;
+    db.query(
+      "UPDATE home_ug_course SET course_name=?, description=?, photo_url=? WHERE id=?",
+      [course_name, description, photo_url, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  } else {
+    db.query(
+      "UPDATE home_ug_course SET course_name=?, description=? WHERE id=?",
+      [course_name, description, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  }
+};
 exports.deleteUGCourse = deleteRecord('home_ug_course');
 
 // PG Course
@@ -123,6 +275,31 @@ exports.addPGCourse = (req, res) => {
     res.json({ success: true, message: "Added successfully", id: result.insertId });
   });
 };
+
+exports.updatePGCourse = (req, res) => {
+  const { id } = req.params;
+  const { course_name, description } = req.body;
+  if (req.file) {
+    const photo_url = `/uploads/home/${req.file.filename}`;
+    db.query(
+      "UPDATE home_pg_course SET course_name=?, description=?, photo_url=? WHERE id=?",
+      [course_name, description, photo_url, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  } else {
+    db.query(
+      "UPDATE home_pg_course SET course_name=?, description=? WHERE id=?",
+      [course_name, description, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  }
+};
 exports.deletePGCourse = deleteRecord('home_pg_course');
 
 // Counter
@@ -133,6 +310,19 @@ exports.addCounter = (req, res) => {
     if (err) return res.status(500).json({ success: false, message: err.message });
     res.json({ success: true, message: "Added successfully", id: result.insertId });
   });
+};
+
+exports.updateCounter = (req, res) => {
+  const { id } = req.params;
+  const { title, count_value } = req.body;
+  db.query(
+    "UPDATE home_counter SET title=?, count_value=? WHERE id=?",
+    [title, count_value, id],
+    (err) => {
+      if (err) return res.status(500).json({ success: false, message: err.message });
+      res.json({ success: true, message: "Updated successfully" });
+    }
+  );
 };
 exports.deleteCounter = deleteRecord('home_counter');
 
@@ -145,5 +335,30 @@ exports.addRecruiter = (req, res) => {
     if (err) return res.status(500).json({ success: false, message: err.message });
     res.json({ success: true, message: "Added successfully", id: result.insertId });
   });
+};
+
+exports.updateRecruiter = (req, res) => {
+  const { id } = req.params;
+  const { company_name } = req.body;
+  if (req.file) {
+    const photo_url = `/uploads/home/${req.file.filename}`;
+    db.query(
+      "UPDATE home_recruiter SET company_name=?, photo_url=? WHERE id=?",
+      [company_name, photo_url, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  } else {
+    db.query(
+      "UPDATE home_recruiter SET company_name=? WHERE id=?",
+      [company_name, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  }
 };
 exports.deleteRecruiter = deleteRecord('home_recruiter');

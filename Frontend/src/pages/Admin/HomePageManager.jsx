@@ -37,6 +37,7 @@ const delBtnStyle = { backgroundColor: '#dc3545', color: 'white', border: 'none'
 
 const MarqueeManager = () => {
   const [items, setItems] = useState([]);
+  const [editId, setEditId] = useState(null);
   const [content, setContent] = useState('');
 
   const fetchItems = async () => {
@@ -45,10 +46,27 @@ const MarqueeManager = () => {
   };
   useEffect(() => { fetchItems(); }, []);
 
-  const handleAdd = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/admin/home/marquee', { content });
-    setContent(''); fetchItems();
+    try {
+      if (editId) {
+        await axios.put(`http://localhost:5000/api/admin/home/marquee/${editId}`, { content });
+      } else {
+        await axios.post(`http://localhost:5000/api/admin/home/marquee`, { content });
+      }
+      setContent(''); setEditId(null);
+      fetchItems();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save.");
+    }
+  };
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setContent(item.content || '');
+  };
+  const cancelEdit = () => {
+    setContent(''); setEditId(null);
   };
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:5000/api/admin/home/marquee/${id}`);
@@ -64,21 +82,25 @@ const MarqueeManager = () => {
           {items.map(item => (
             <tr key={item.id}>
               <td>{item.content}</td>
-              <td><button style={delBtnStyle} onClick={() => handleDelete(item.id)}>Delete</button></td>
+              <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
+                <button style={{...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleEdit(item)}>Edit</button>
+                <button style={{...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div style={addTitleStyle}>Add Marquee Section</div>
-      <form onSubmit={handleAdd}>
+      <div style={addTitleStyle}>{editId ? "Edit Marquee Section" : "Add Marquee Section"}</div>
+      <form onSubmit={handleSubmit}>
         <div style={formRowStyle}>
           <div style={labelStyle}>Marquee :</div>
           <div style={inputGroupStyle}>
             <textarea style={{ flex: 1, padding: '8px', minHeight: '60px', border: '1px solid #ccc', borderRadius: '4px' }} value={content} onChange={e=>setContent(e.target.value)} required placeholder="Content"></textarea>
           </div>
         </div>
-        <button type="submit" style={addBtnStyle}>Add</button>
+        <button type="submit" style={addBtnStyle}>{editId ? "Update" : "Add"}</button>
+        {editId && <button type="button" onClick={cancelEdit} style={{...delBtnStyle, marginLeft: '10px', padding: '8px 25px'}}>Cancel</button>}
       </form>
     </div>
   );
@@ -86,6 +108,7 @@ const MarqueeManager = () => {
 
 const HeroManager = () => {
   const [items, setItems] = useState([]);
+  const [editId, setEditId] = useState(null);
   const [heading, setHeading] = useState('');
   const [subHeading, setSubHeading] = useState('');
   const [paragraph, setParagraph] = useState('');
@@ -99,7 +122,7 @@ const HeroManager = () => {
   };
   useEffect(() => { fetchItems(); }, []);
 
-  const handleAdd = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('heading', heading);
@@ -108,10 +131,30 @@ const HeroManager = () => {
     formData.append('button_name', buttonName);
     formData.append('url', url);
     if(photo) formData.append('photo', photo);
-    
-    await axios.post('http://localhost:5000/api/admin/home/hero', formData);
-    setHeading(''); setSubHeading(''); setParagraph(''); setButtonName(''); setUrl(''); setPhoto(null);
-    fetchItems();
+    try {
+      if (editId) {
+        await axios.put(`http://localhost:5000/api/admin/home/hero/${editId}`, formData);
+      } else {
+        await axios.post(`http://localhost:5000/api/admin/home/hero`, formData);
+      }
+      setHeading(''); setSubHeading(''); setParagraph(''); setButtonName(''); setUrl(''); setPhoto(null); setEditId(null);
+      fetchItems();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save.");
+    }
+  };
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setHeading(item.heading || '');
+    setSubHeading(item.sub_heading || '');
+    setParagraph(item.paragraph || '');
+    setButtonName(item.button_name || '');
+    setUrl(item.url || '');
+    setPhoto(null);
+  };
+  const cancelEdit = () => {
+    setHeading(''); setSubHeading(''); setParagraph(''); setButtonName(''); setUrl(''); setPhoto(null); setEditId(null);
   };
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:5000/api/admin/home/hero/${id}`);
@@ -132,14 +175,17 @@ const HeroManager = () => {
               <td>{item.button_name}</td>
               <td>{item.url}</td>
               <td>{item.photo_url && <img src={`http://localhost:5000${item.photo_url}`} alt="hero" style={{width: '50px'}} />}</td>
-              <td><button style={delBtnStyle} onClick={() => handleDelete(item.id)}>Delete</button></td>
+              <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
+                <button style={{...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleEdit(item)}>Edit</button>
+                <button style={{...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div style={addTitleStyle}>Add Hero Section</div>
-      <form onSubmit={handleAdd}>
+      <div style={addTitleStyle}>{editId ? "Edit Hero Section" : "Add Hero Section"}</div>
+      <form onSubmit={handleSubmit}>
         <div style={formRowStyle}>
           <div style={labelStyle}>Hero Details :</div>
           <div style={inputGroupStyle}>
@@ -161,7 +207,8 @@ const HeroManager = () => {
             <input type="file" style={{ flex: 1, padding: '5px', border: '1px solid #ccc', borderRadius: '4px' }} onChange={e=>setPhoto(e.target.files[0])} />
           </div>
         </div>
-        <button type="submit" style={addBtnStyle}>Add</button>
+        <button type="submit" style={addBtnStyle}>{editId ? "Update" : "Add"}</button>
+        {editId && <button type="button" onClick={cancelEdit} style={{...delBtnStyle, marginLeft: '10px', padding: '8px 25px'}}>Cancel</button>}
       </form>
     </div>
   );
@@ -169,6 +216,7 @@ const HeroManager = () => {
 
 const TimerManager = () => {
   const [items, setItems] = useState([]);
+  const [editId, setEditId] = useState(null);
   const [eventName, setEventName] = useState('');
   const [targetDate, setTargetDate] = useState('');
 
@@ -178,10 +226,28 @@ const TimerManager = () => {
   };
   useEffect(() => { fetchItems(); }, []);
 
-  const handleAdd = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/admin/home/timer', { event_name: eventName, target_date: targetDate });
-    setEventName(''); setTargetDate(''); fetchItems();
+    try {
+      if (editId) {
+        await axios.put(`http://localhost:5000/api/admin/home/timer/${editId}`, { event_name: eventName, target_date: targetDate });
+      } else {
+        await axios.post(`http://localhost:5000/api/admin/home/timer`, { event_name: eventName, target_date: targetDate });
+      }
+      setEventName(''); setTargetDate(''); setEditId(null);
+      fetchItems();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save.");
+    }
+  };
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setEventName(item.event_name || '');
+    setTargetDate(item.target_date ? new Date(item.target_date).toISOString().slice(0, 16) : '');
+  };
+  const cancelEdit = () => {
+    setEventName(''); setTargetDate(''); setEditId(null);
   };
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:5000/api/admin/home/timer/${id}`);
@@ -198,14 +264,17 @@ const TimerManager = () => {
             <tr key={item.id}>
               <td>{item.event_name}</td>
               <td>{new Date(item.target_date).toLocaleString()}</td>
-              <td><button style={delBtnStyle} onClick={() => handleDelete(item.id)}>Delete</button></td>
+              <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
+                <button style={{...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleEdit(item)}>Edit</button>
+                <button style={{...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div style={addTitleStyle}>Add Timer Section</div>
-      <form onSubmit={handleAdd}>
+      <div style={addTitleStyle}>{editId ? "Edit Timer Section" : "Add Timer Section"}</div>
+      <form onSubmit={handleSubmit}>
         <div style={formRowStyle}>
           <div style={labelStyle}>Timer :</div>
           <div style={inputGroupStyle}>
@@ -213,7 +282,8 @@ const TimerManager = () => {
             <input type="datetime-local" style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }} value={targetDate} onChange={e=>setTargetDate(e.target.value)} required />
           </div>
         </div>
-        <button type="submit" style={addBtnStyle}>Add</button>
+        <button type="submit" style={addBtnStyle}>{editId ? "Update" : "Add"}</button>
+        {editId && <button type="button" onClick={cancelEdit} style={{...delBtnStyle, marginLeft: '10px', padding: '8px 25px'}}>Cancel</button>}
       </form>
     </div>
   );
@@ -221,6 +291,7 @@ const TimerManager = () => {
 
 const NewsManager = () => {
   const [items, setItems] = useState([]);
+  const [editId, setEditId] = useState(null);
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [content, setContent] = useState('');
@@ -231,10 +302,29 @@ const NewsManager = () => {
   };
   useEffect(() => { fetchItems(); }, []);
 
-  const handleAdd = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/admin/home/news', { title, date, content });
-    setTitle(''); setDate(''); setContent(''); fetchItems();
+    try {
+      if (editId) {
+        await axios.put(`http://localhost:5000/api/admin/home/news/${editId}`, { title, date, content });
+      } else {
+        await axios.post(`http://localhost:5000/api/admin/home/news`, { title, date, content });
+      }
+      setTitle(''); setDate(''); setContent(''); setEditId(null);
+      fetchItems();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save.");
+    }
+  };
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setTitle(item.title || '');
+    setDate(item.date ? new Date(item.date).toISOString().split('T')[0] : '');
+    setContent(item.content || '');
+  };
+  const cancelEdit = () => {
+    setTitle(''); setDate(''); setContent(''); setEditId(null);
   };
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:5000/api/admin/home/news/${id}`);
@@ -251,14 +341,17 @@ const NewsManager = () => {
             <tr key={item.id}>
               <td>{item.title}</td>
               <td>{new Date(item.date).toLocaleDateString()}</td>
-              <td><button style={delBtnStyle} onClick={() => handleDelete(item.id)}>Delete</button></td>
+              <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
+                <button style={{...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleEdit(item)}>Edit</button>
+                <button style={{...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div style={addTitleStyle}>Add News Section</div>
-      <form onSubmit={handleAdd}>
+      <div style={addTitleStyle}>{editId ? "Edit News Section" : "Add News Section"}</div>
+      <form onSubmit={handleSubmit}>
         <div style={formRowStyle}>
           <div style={labelStyle}>News :</div>
           <div style={inputGroupStyle}>
@@ -267,7 +360,8 @@ const NewsManager = () => {
             <textarea style={{ flex: 2, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }} placeholder="Content" value={content} onChange={e=>setContent(e.target.value)} required></textarea>
           </div>
         </div>
-        <button type="submit" style={addBtnStyle}>Add</button>
+        <button type="submit" style={addBtnStyle}>{editId ? "Update" : "Add"}</button>
+        {editId && <button type="button" onClick={cancelEdit} style={{...delBtnStyle, marginLeft: '10px', padding: '8px 25px'}}>Cancel</button>}
       </form>
     </div>
   );
@@ -275,6 +369,7 @@ const NewsManager = () => {
 
 const VideoManager = () => {
   const [items, setItems] = useState([]);
+  const [editId, setEditId] = useState(null);
   const [title, setTitle] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
 
@@ -284,10 +379,28 @@ const VideoManager = () => {
   };
   useEffect(() => { fetchItems(); }, []);
 
-  const handleAdd = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/admin/home/video', { title, video_url: videoUrl });
-    setTitle(''); setVideoUrl(''); fetchItems();
+    try {
+      if (editId) {
+        await axios.put(`http://localhost:5000/api/admin/home/video/${editId}`, { title, video_url: videoUrl });
+      } else {
+        await axios.post(`http://localhost:5000/api/admin/home/video`, { title, video_url: videoUrl });
+      }
+      setTitle(''); setVideoUrl(''); setEditId(null);
+      fetchItems();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save.");
+    }
+  };
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setTitle(item.title || '');
+    setVideoUrl(item.video_url || '');
+  };
+  const cancelEdit = () => {
+    setTitle(''); setVideoUrl(''); setEditId(null);
   };
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:5000/api/admin/home/video/${id}`);
@@ -303,14 +416,17 @@ const VideoManager = () => {
           {items.map(item => (
             <tr key={item.id}>
               <td>{item.video_url}</td>
-              <td><button style={delBtnStyle} onClick={() => handleDelete(item.id)}>Delete</button></td>
+              <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
+                <button style={{...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleEdit(item)}>Edit</button>
+                <button style={{...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div style={addTitleStyle}>Add Video Section</div>
-      <form onSubmit={handleAdd}>
+      <div style={addTitleStyle}>{editId ? "Edit Video Section" : "Add Video Section"}</div>
+      <form onSubmit={handleSubmit}>
         <div style={formRowStyle}>
           <div style={labelStyle}>Video Section :</div>
           <div style={inputGroupStyle}>
@@ -318,7 +434,8 @@ const VideoManager = () => {
             <input type="text" style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }} placeholder="Url" value={videoUrl} onChange={e=>setVideoUrl(e.target.value)} required />
           </div>
         </div>
-        <button type="submit" style={addBtnStyle}>Add</button>
+        <button type="submit" style={addBtnStyle}>{editId ? "Update" : "Add"}</button>
+        {editId && <button type="button" onClick={cancelEdit} style={{...delBtnStyle, marginLeft: '10px', padding: '8px 25px'}}>Cancel</button>}
       </form>
     </div>
   );
@@ -326,6 +443,7 @@ const VideoManager = () => {
 
 const ImageManager = () => {
   const [items, setItems] = useState([]);
+  const [editId, setEditId] = useState(null);
   const [caption, setCaption] = useState('');
   const [photo, setPhoto] = useState(null);
 
@@ -335,13 +453,31 @@ const ImageManager = () => {
   };
   useEffect(() => { fetchItems(); }, []);
 
-  const handleAdd = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('caption', caption);
     if(photo) formData.append('photo', photo);
-    await axios.post('http://localhost:5000/api/admin/home/image', formData);
-    setCaption(''); setPhoto(null); fetchItems();
+    try {
+      if (editId) {
+        await axios.put(`http://localhost:5000/api/admin/home/image/${editId}`, formData);
+      } else {
+        await axios.post(`http://localhost:5000/api/admin/home/image`, formData);
+      }
+      setCaption(''); setPhoto(null); setEditId(null);
+      fetchItems();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save.");
+    }
+  };
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setCaption(item.caption || '');
+    setPhoto(null);
+  };
+  const cancelEdit = () => {
+    setCaption(''); setPhoto(null); setEditId(null);
   };
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:5000/api/admin/home/image/${id}`);
@@ -357,14 +493,17 @@ const ImageManager = () => {
           {items.map(item => (
             <tr key={item.id}>
               <td>{item.photo_url && <img src={`http://localhost:5000${item.photo_url}`} alt="img" style={{width: '80px', borderRadius: '4px'}} />}</td>
-              <td><button style={delBtnStyle} onClick={() => handleDelete(item.id)}>Delete</button></td>
+              <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
+                <button style={{...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleEdit(item)}>Edit</button>
+                <button style={{...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div style={addTitleStyle}>Add Image Section</div>
-      <form onSubmit={handleAdd}>
+      <div style={addTitleStyle}>{editId ? "Edit Image Section" : "Add Image Section"}</div>
+      <form onSubmit={handleSubmit}>
         <div style={formRowStyle}>
           <div style={labelStyle}>Image Section :</div>
           <div style={inputGroupStyle}>
@@ -372,7 +511,8 @@ const ImageManager = () => {
             <input type="file" style={{ flex: 1, padding: '5px', border: '1px solid #ccc', borderRadius: '4px' }} onChange={e=>setPhoto(e.target.files[0])} required />
           </div>
         </div>
-        <button type="submit" style={addBtnStyle}>Add</button>
+        <button type="submit" style={addBtnStyle}>{editId ? "Update" : "Add"}</button>
+        {editId && <button type="button" onClick={cancelEdit} style={{...delBtnStyle, marginLeft: '10px', padding: '8px 25px'}}>Cancel</button>}
       </form>
     </div>
   );
@@ -380,6 +520,7 @@ const ImageManager = () => {
 
 const PrincipalManager = () => {
   const [items, setItems] = useState([]);
+  const [editId, setEditId] = useState(null);
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [photo, setPhoto] = useState(null);
@@ -390,14 +531,33 @@ const PrincipalManager = () => {
   };
   useEffect(() => { fetchItems(); }, []);
 
-  const handleAdd = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('name', name);
     formData.append('message', message);
     if(photo) formData.append('photo', photo);
-    await axios.post('http://localhost:5000/api/admin/home/principal', formData);
-    setName(''); setMessage(''); setPhoto(null); fetchItems();
+    try {
+      if (editId) {
+        await axios.put(`http://localhost:5000/api/admin/home/principal/${editId}`, formData);
+      } else {
+        await axios.post(`http://localhost:5000/api/admin/home/principal`, formData);
+      }
+      setName(''); setMessage(''); setPhoto(null); setEditId(null);
+      fetchItems();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save.");
+    }
+  };
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setName(item.name || '');
+    setMessage(item.message || '');
+    setPhoto(null);
+  };
+  const cancelEdit = () => {
+    setName(''); setMessage(''); setPhoto(null); setEditId(null);
   };
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:5000/api/admin/home/principal/${id}`);
@@ -415,14 +575,17 @@ const PrincipalManager = () => {
               <td>{item.name}</td>
               <td>{item.message}</td>
               <td>{item.photo_url && <img src={`http://localhost:5000${item.photo_url}`} alt="principal" style={{width: '50px'}} />}</td>
-              <td><button style={delBtnStyle} onClick={() => handleDelete(item.id)}>Delete</button></td>
+              <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
+                <button style={{...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleEdit(item)}>Edit</button>
+                <button style={{...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div style={addTitleStyle}>Add Principal Section</div>
-      <form onSubmit={handleAdd}>
+      <div style={addTitleStyle}>{editId ? "Edit Principal Section" : "Add Principal Section"}</div>
+      <form onSubmit={handleSubmit}>
         <div style={formRowStyle}>
           <div style={labelStyle}>Principal :</div>
           <div style={inputGroupStyle}>
@@ -436,7 +599,8 @@ const PrincipalManager = () => {
             <input type="file" style={{ flex: 1, padding: '5px', border: '1px solid #ccc', borderRadius: '4px' }} onChange={e=>setPhoto(e.target.files[0])} required />
           </div>
         </div>
-        <button type="submit" style={addBtnStyle}>Add</button>
+        <button type="submit" style={addBtnStyle}>{editId ? "Update" : "Add"}</button>
+        {editId && <button type="button" onClick={cancelEdit} style={{...delBtnStyle, marginLeft: '10px', padding: '8px 25px'}}>Cancel</button>}
       </form>
     </div>
   );
@@ -447,6 +611,7 @@ const CourseManager = ({ type }) => {
   const apiPath = `http://localhost:5000/api/admin/home/${type}`;
   
   const [items, setItems] = useState([]);
+  const [editId, setEditId] = useState(null);
   const [courseName, setCourseName] = useState('');
   const [description, setDescription] = useState('');
   const [photo, setPhoto] = useState(null);
@@ -457,14 +622,33 @@ const CourseManager = ({ type }) => {
   };
   useEffect(() => { fetchItems(); }, [apiPath]);
 
-  const handleAdd = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('course_name', courseName);
     formData.append('description', description);
     if(photo) formData.append('photo', photo);
-    await axios.post(apiPath, formData);
-    setCourseName(''); setDescription(''); setPhoto(null); fetchItems();
+    try {
+      if (editId) {
+        await axios.put(`${apiPath}/${editId}`, formData);
+      } else {
+        await axios.post(`${apiPath}`, formData);
+      }
+      setCourseName(''); setDescription(''); setPhoto(null); setEditId(null);
+      fetchItems();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save.");
+    }
+  };
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setCourseName(item.course_name || '');
+    setDescription(item.description || '');
+    setPhoto(null);
+  };
+  const cancelEdit = () => {
+    setCourseName(''); setDescription(''); setPhoto(null); setEditId(null);
   };
   const handleDelete = async (id) => {
     await axios.delete(`${apiPath}/${id}`);
@@ -482,14 +666,17 @@ const CourseManager = ({ type }) => {
               <td>{item.course_name}</td>
               <td>{item.description}</td>
               <td>{item.photo_url && <img src={`http://localhost:5000${item.photo_url}`} alt="course" style={{width: '50px'}} />}</td>
-              <td><button style={delBtnStyle} onClick={() => handleDelete(item.id)}>Delete</button></td>
+              <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
+                <button style={{...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleEdit(item)}>Edit</button>
+                <button style={{...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div style={addTitleStyle}>Add {type === 'ug_course' ? 'UG' : 'PG'} Course Section</div>
-      <form onSubmit={handleAdd}>
+      <div style={addTitleStyle}>{editId ? "Edit {type === 'ug_course' ? 'UG' : 'PG'} Course Section" : "Add {type === 'ug_course' ? 'UG' : 'PG'} Course Section"}</div>
+      <form onSubmit={handleSubmit}>
         <div style={formRowStyle}>
           <div style={labelStyle}>{type === 'ug_course' ? 'UG' : 'PG'} Course :</div>
           <div style={inputGroupStyle}>
@@ -503,7 +690,8 @@ const CourseManager = ({ type }) => {
             <input type="file" style={{ flex: 1, padding: '5px', border: '1px solid #ccc', borderRadius: '4px' }} onChange={e=>setPhoto(e.target.files[0])} required />
           </div>
         </div>
-        <button type="submit" style={addBtnStyle}>Add</button>
+        <button type="submit" style={addBtnStyle}>{editId ? "Update" : "Add"}</button>
+        {editId && <button type="button" onClick={cancelEdit} style={{...delBtnStyle, marginLeft: '10px', padding: '8px 25px'}}>Cancel</button>}
       </form>
     </div>
   );
@@ -511,6 +699,7 @@ const CourseManager = ({ type }) => {
 
 const CounterManager = () => {
   const [items, setItems] = useState([]);
+  const [editId, setEditId] = useState(null);
   const [title, setTitle] = useState('');
   const [countValue, setCountValue] = useState('');
 
@@ -520,10 +709,28 @@ const CounterManager = () => {
   };
   useEffect(() => { fetchItems(); }, []);
 
-  const handleAdd = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/admin/home/counter', { title, count_value: countValue });
-    setTitle(''); setCountValue(''); fetchItems();
+    try {
+      if (editId) {
+        await axios.put(`http://localhost:5000/api/admin/home/counter/${editId}`, { title, count_value: countValue });
+      } else {
+        await axios.post(`http://localhost:5000/api/admin/home/counter`, { title, count_value: countValue });
+      }
+      setTitle(''); setCountValue(''); setEditId(null);
+      fetchItems();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save.");
+    }
+  };
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setTitle(item.title || '');
+    setCountValue(item.count_value || '');
+  };
+  const cancelEdit = () => {
+    setTitle(''); setCountValue(''); setEditId(null);
   };
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:5000/api/admin/home/counter/${id}`);
@@ -540,14 +747,17 @@ const CounterManager = () => {
             <tr key={item.id}>
               <td>{item.title}</td>
               <td>{item.count_value}</td>
-              <td><button style={delBtnStyle} onClick={() => handleDelete(item.id)}>Delete</button></td>
+              <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
+                <button style={{...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleEdit(item)}>Edit</button>
+                <button style={{...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div style={addTitleStyle}>Add Counter Section</div>
-      <form onSubmit={handleAdd}>
+      <div style={addTitleStyle}>{editId ? "Edit Counter Section" : "Add Counter Section"}</div>
+      <form onSubmit={handleSubmit}>
         <div style={formRowStyle}>
           <div style={labelStyle}>Counter Section :</div>
           <div style={inputGroupStyle}>
@@ -555,7 +765,8 @@ const CounterManager = () => {
             <input type="number" style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }} placeholder="Count" value={countValue} onChange={e=>setCountValue(e.target.value)} required />
           </div>
         </div>
-        <button type="submit" style={addBtnStyle}>Add</button>
+        <button type="submit" style={addBtnStyle}>{editId ? "Update" : "Add"}</button>
+        {editId && <button type="button" onClick={cancelEdit} style={{...delBtnStyle, marginLeft: '10px', padding: '8px 25px'}}>Cancel</button>}
       </form>
     </div>
   );
@@ -563,6 +774,7 @@ const CounterManager = () => {
 
 const RecruiterManager = () => {
   const [items, setItems] = useState([]);
+  const [editId, setEditId] = useState(null);
   const [companyName, setCompanyName] = useState('');
   const [photo, setPhoto] = useState(null);
 
@@ -572,13 +784,31 @@ const RecruiterManager = () => {
   };
   useEffect(() => { fetchItems(); }, []);
 
-  const handleAdd = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('company_name', companyName);
     if(photo) formData.append('photo', photo);
-    await axios.post('http://localhost:5000/api/admin/home/recruiter', formData);
-    setCompanyName(''); setPhoto(null); fetchItems();
+    try {
+      if (editId) {
+        await axios.put(`http://localhost:5000/api/admin/home/recruiter/${editId}`, formData);
+      } else {
+        await axios.post(`http://localhost:5000/api/admin/home/recruiter`, formData);
+      }
+      setCompanyName(''); setPhoto(null); setEditId(null);
+      fetchItems();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save.");
+    }
+  };
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setCompanyName(item.company_name || '');
+    setPhoto(null);
+  };
+  const cancelEdit = () => {
+    setCompanyName(''); setPhoto(null); setEditId(null);
   };
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:5000/api/admin/home/recruiter/${id}`);
@@ -595,14 +825,17 @@ const RecruiterManager = () => {
             <tr key={item.id}>
               <td>{item.company_name}</td>
               <td>{item.logo_url && <img src={`http://localhost:5000${item.logo_url}`} alt="logo" style={{width: '50px'}} />}</td>
-              <td><button style={delBtnStyle} onClick={() => handleDelete(item.id)}>Delete</button></td>
+              <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
+                <button style={{...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleEdit(item)}>Edit</button>
+                <button style={{...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div style={addTitleStyle}>Add Recruiter Section</div>
-      <form onSubmit={handleAdd}>
+      <div style={addTitleStyle}>{editId ? "Edit Recruiter Section" : "Add Recruiter Section"}</div>
+      <form onSubmit={handleSubmit}>
         <div style={formRowStyle}>
           <div style={labelStyle}>Recruiter :</div>
           <div style={inputGroupStyle}>
@@ -615,7 +848,8 @@ const RecruiterManager = () => {
             <input type="file" style={{ flex: 1, padding: '5px', border: '1px solid #ccc', borderRadius: '4px' }} onChange={e=>setPhoto(e.target.files[0])} required />
           </div>
         </div>
-        <button type="submit" style={addBtnStyle}>Add</button>
+        <button type="submit" style={addBtnStyle}>{editId ? "Update" : "Add"}</button>
+        {editId && <button type="button" onClick={cancelEdit} style={{...delBtnStyle, marginLeft: '10px', padding: '8px 25px'}}>Cancel</button>}
       </form>
     </div>
   );
