@@ -6,6 +6,10 @@ import {
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import "./Sports.css";
 
+// Auto-load banner image inside ./images/banner/
+const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const bannerImg = Object.values(bannerGlobs)[0] || null;
+
 // Staff Images
 import Sundararajan from "./images/Sundararajan.JPG";
 import Vayalsamy from "./images/Vayalsamy.JPG";
@@ -106,6 +110,8 @@ const Sports = () => {
                 title="SPORTS AT NSCET"
                 subtitle="Promoting all-round growth — nurturing champions through discipline, teamwork, and athletic excellence."
                 hideBreadcrumb={true}
+                backgroundImage={bannerImg}
+                height="auto"
             />
 
             <main className="content-wrapper">
