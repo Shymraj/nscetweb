@@ -4,6 +4,20 @@ import './MarqueeBanner.css';
 
 const MarqueeBanner = () => {
   const [marquees, setMarquees] = useState([]);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 34) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const fetchMarquees = async () => {
@@ -25,7 +39,7 @@ const MarqueeBanner = () => {
   if (marquees.length === 0) return null;
 
   return (
-    <div className="marquee-container">
+    <div className={`marquee-container ${isScrolled ? "scrolled" : ""}`}>
       <div className="marquee-content">
         {marquees.map((mq, index) => (
           <span key={mq.id} className="marquee-item">

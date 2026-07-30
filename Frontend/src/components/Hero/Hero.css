@@ -78,7 +78,7 @@
   display: grid;
   grid-template-columns: 58% 42%;
   align-items: center;
-  padding: 70px 60px 40px;
+  padding: 110px 60px 40px; /* Increased top padding slightly to clear marquee */
   gap: 40px;
 }
 

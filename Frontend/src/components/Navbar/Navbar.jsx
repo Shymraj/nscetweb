@@ -1,10 +1,71 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.webp";
 import { FaMoon, FaSun, FaSearch, FaTimes, FaBars, FaLinkedin, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import annualAccountsPdf from "../../pages/Aboutus/AnnualAccounts/assets/documents/annual-accounts.pdf";
 import governingPdf from "../../pages/Administration/GoverningCouncil/governing.pdf";
+
+const searchData = [
+  { name: "Home", path: "/" },
+  { name: "Overview", path: "/about/overview" },
+  { name: "Act and Statutes", path: "/about/actstatutes" },
+  { name: "Institutional Development Plan", path: "/about/development-plan" },
+  { name: "Affiliation & Accreditation", path: "/about/affiliation" },
+  { name: "Annual Reports", path: "/about/annual-reports" },
+  { name: "Annual Accounts", path: "/about/annual-accounts" },
+  { name: "TMHNU Trust", path: "/administration/tmhnutrust" },
+  { name: "Principal", path: "/administration/principal" },
+  { name: "Finance Officer", path: "/administration/finance-officer" },
+  { name: "Controller of Examination", path: "/administration/controller-examination" },
+  { name: "Ombudsperson", path: "/administration/ombudsperson" },
+  { name: "Governing Council", path: governingPdf, isPdf: true },
+  { name: "Internal Complaints Committee", path: "/administration/internal-complaints-committee" },
+  { name: "Academic Leadership", path: "/administration/academic-leadership" },
+  { name: "Details of Academic Programs", path: "/academics/details-of-academic-programs" },
+  { name: "Academic Calendar", path: "/academics/academic-calendar" },
+  { name: "Statutes/Ordinances Pertaining", path: "/academics/statutes-ordinances-pertaining" },
+  { name: "Teaching Faculty", path: "/academics/teaching-faculty" },
+  { name: "Non-Teaching Faculty", path: "/academics/non-teaching-faculty" },
+  { name: "IQAC", path: "/academics/iqac" },
+  { name: "Library", path: "/academics/library" },
+  { name: "Industry Collaboration", path: "/academics/industry-collaboration" },
+  { name: "B.E Computer Science & Engineering", path: "/departments/cse" },
+  { name: "M.E Computer Science & Engineering", path: "/departments/me-cse" },
+  { name: "B.TECH Information Technology", path: "/departments/it" },
+  { name: "B.TECH Artificial Intelligence & Data Science", path: "/departments/aids" },
+  { name: "B.E Civil Engineering", path: "/departments/civil" },
+  { name: "M.E Structural Engineering", path: "/departments/me-structural" },
+  { name: "B.E Mechanical Engineering", path: "/departments/mechanical" },
+  { name: "M.E Manufacturing Engineering", path: "/departments/me-manufacturing" },
+  { name: "B.E Electrical & Electronics Engineering", path: "/departments/electrical" },
+  { name: "M.E Embedded System & Technology", path: "/departments/me-embedded" },
+  { name: "B.E Electronics & Communication Engineering", path: "/departments/electronics" },
+  { name: "Department of Science & Humanities", path: "/departments/science-humanities" },
+  { name: "Research and Development Cell", path: "/research/rnd-cell" },
+  { name: "Research Statistics", path: "/research/statistics" },
+  { name: "Research Centre", path: "/research/centre" },
+  { name: "Entrepreneurship Development Cell", path: "/research/entrepreneurship-cell" },
+  { name: "WAVES'25", path: "/gallery/waves25" },
+  { name: "CLUBS & CHAPTERS", path: "/gallery/clubs-chapters" },
+  { name: "NIRF", path: "/gallery/nirf" },
+  { name: "RTI", path: "/gallery/rti" },
+  { name: "IQARENA", path: "/gallery/iqarena" },
+  { name: "Events", path: "/gallery/events" },
+  { name: "Sports", path: "/student-life/sports" },
+  { name: "NSS", path: "/student-life/nss" },
+  { name: "Boys Hostel", path: "/student-life/boys-hostel" },
+  { name: "Girls Hostel", path: "/student-life/girls-hostel" },
+  { name: "Placements", path: "/student-life/placements" },
+  { name: "Grievance Redressal", path: "/student-life/grievance-redressal" },
+  { name: "Anti-Ragging Cell", path: "/student-life/anti-ragging-cell" },
+  { name: "Equal Opportunity Cell", path: "/student-life/equal-opportunity-cell" },
+  { name: "Health and Medical Facilities", path: "/student-life/health-medical-facilities" },
+  { name: "Transport Facilities", path: "/student-life/transport-facilities" },
+  { name: "SEDG", path: "/student-life/sedg" },
+  { name: "Alumni", path: "/alumni" },
+  { name: "Contact", path: "/contact" }
+];
 
 function Navbar() {
 
@@ -13,7 +74,11 @@ function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
+  
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -39,6 +104,30 @@ function Navbar() {
       document.body.classList.remove("dark-mode");
     }
   }, [darkMode]);
+
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    if (query.trim() === "") {
+      setSearchResults([]);
+    } else {
+      const results = searchData.filter(item => 
+        item.name.toLowerCase().includes(query.toLowerCase())
+      );
+      setSearchResults(results);
+    }
+  };
+
+  const handleSearchResultClick = (result) => {
+    if (result.isPdf) {
+      window.open(result.path, "_blank");
+    } else {
+      navigate(result.path);
+    }
+    setShowSearch(false);
+    setSearchQuery("");
+    setSearchResults([]);
+  };
 
   return (
     <header className={isScrolled ? "scrolled" : ""}>
@@ -239,15 +328,40 @@ function Navbar() {
               <FaSearch className="search-icon" />
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder="Search"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && searchResults.length > 0) {
+                    handleSearchResultClick(searchResults[0]);
+                  }
+                }}
                 autoFocus
               />
               <button
                 className="close-search"
-                onClick={() => setShowSearch(false)}
+                onClick={() => {
+                  setShowSearch(false);
+                  setSearchQuery("");
+                  setSearchResults([]);
+                }}
               >
                 <FaTimes />
               </button>
+              
+              {searchResults.length > 0 && (
+                <div className="search-results">
+                  {searchResults.map((result, index) => (
+                    <div 
+                      key={index} 
+                      className="search-result-item"
+                      onClick={() => handleSearchResultClick(result)}
+                    >
+                      {result.name}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
           <button className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
