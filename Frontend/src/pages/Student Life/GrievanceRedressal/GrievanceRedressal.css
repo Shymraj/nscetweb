@@ -1,4 +1,334 @@
-/* GrievanceRedressal.css */
-.grievanceredressal-page {
-  /* Add your styles here */
+/* Typography guidelines from AGENTS.md */
+.grc-page {
+  font-family: var(--font-body);
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.grc-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* College Header Info */
+.college-header-info {
+  text-align: center;
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-top: 5px solid var(--nscet-accent, #0284C7);
+}
+
+.college-header-info h5 {
+  font-family: var(--font-subtopic);
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.college-header-info h2 {
+  font-family: var(--font-heading);
+  color: #0f172a;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+.college-header-info .approvals {
+  font-family: var(--font-body);
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.college-header-info .address {
+  font-family: var(--font-body);
+  color: #0284C7;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Section Common Styles */
+.section-header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section-header h3 {
+  font-family: var(--font-section);
+  font-size: 2rem;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.header-line {
+  height: 4px;
+  width: 60px;
+  background: var(--nscet-accent, #f59e0b);
+  border-radius: 2px;
+}
+
+/* Intro Section */
+.intro-text {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1.8;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border-left: 4px solid var(--theme-primary-dark, #0284C7);
+  margin-bottom: 1.5rem;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--theme-primary-dark, #0284C7);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #0369a1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+/* Objective Section */
+.objective-card {
+  background: linear-gradient(135deg, var(--theme-primary-dark, #0284C7), #1e3a8a);
+  border-radius: 20px;
+  padding: 3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.2);
+}
+
+.objective-icon {
+  font-size: 3rem;
+  color: #f59e0b;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+.objective-content h3 {
+  font-family: var(--font-section);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.objective-content p {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.95;
+  margin: 0;
+}
+
+/* Members Table Section */
+.members-table-wrapper {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  width: 100%;
+}
+
+.members-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.members-table th {
+  background: var(--theme-primary-dark, #0284C7);
+  color: white;
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.members-table td {
+  padding: 1.2rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-family: var(--font-body);
+  color: #334155;
+  line-height: 1.6;
+}
+
+.members-table tr:last-child td {
+  border-bottom: none;
+}
+
+.members-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.highlight-row {
+  background: #f0f9ff;
+}
+
+.highlight-row td {
+  color: #0369a1;
+}
+
+/* Important Sections/Links */
+.grc-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.grc-action-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #0f172a;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-bottom: 4px solid #cbd5e1;
+}
+
+.grc-action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: var(--nscet-accent, #f59e0b);
+}
+
+.action-icon {
+  font-size: 2.5rem;
+  color: var(--theme-primary-dark, #0284C7);
+  margin-bottom: 1.5rem;
+}
+
+.grc-action-card h4 {
+  font-family: var(--font-subtopic);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.grc-action-card p {
+  font-family: var(--font-body);
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-card:hover {
+  border-color: #ef4444;
+}
+.contact-card .action-icon {
+  color: #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grc-container {
+    padding: 2rem 1rem;
+    gap: 3rem;
+  }
+  
+  .college-header-info {
+    padding: 2rem 1.5rem;
+  }
+  
+  .college-header-info h2 {
+    font-size: 1.4rem;
+  }
+
+  .objective-card {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .objective-icon {
+    margin: 0 auto;
+  }
+
+  .members-table-wrapper {
+    overflow-x: auto;
+  }
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .grc-page {
+  background: var(--bg-primary);
+}
+
+body.dark-mode .college-header-info,
+body.dark-mode .intro-text,
+body.dark-mode .members-table-wrapper,
+body.dark-mode .grc-action-card {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .college-header-info h2,
+body.dark-mode .section-header h3,
+body.dark-mode .members-table th,
+body.dark-mode .grc-action-card h4 {
+  color: var(--text-primary);
+}
+
+body.dark-mode .college-header-info h5,
+body.dark-mode .college-header-info .approvals,
+body.dark-mode .members-table td,
+body.dark-mode .grc-action-card p {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .members-table th {
+  background: var(--theme-primary-dark, #0284C7);
+}
+
+body.dark-mode .members-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .highlight-row {
+  background: rgba(2, 132, 199, 0.1);
+}
+
+body.dark-mode .highlight-row td {
+  color: #38bdf8;
+}
+
+body.dark-mode .objective-card {
+  background: linear-gradient(135deg, #1e3a8a, var(--bg-secondary));
+  border: 1px solid var(--border-color);
 }

@@ -1,8 +1,8 @@
 /* Footer.css */
 
 .global-footer {
-  background: #0A1128;
-  color: #e2e8f0;
+  background: #2C3E50; /* Noticeably less dense background */
+  color: #ffffff;
   position: relative;
   overflow: hidden;
   font-family: var(--font-body);
@@ -75,9 +75,9 @@
 .footer-container {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  max-width: 90%; /* Wide enough to minimize side empty space */
   margin: 0 auto;
-  padding: 3rem 5% 1rem;
+  padding: 3rem 2% 1rem; /* Optimal padding for the perfect box size */
 }
 
 /* Newsletter section with Glassmorphism */
@@ -150,8 +150,8 @@
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
+  gap: 3.5rem; /* Spaced out contents perfectly */
+  margin-bottom: 2rem;
 }
 
 .footer-col h4 {
@@ -195,7 +195,7 @@
 }
 
 .footer-about {
-  color: #94a3b8;
+  color: #f8fafc;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -234,7 +234,7 @@
 }
 
 .footer-links a {
-  color: #94a3b8;
+  color: #f8fafc;
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
@@ -266,7 +266,7 @@
   align-items: flex-start;
   gap: 0.5rem;
   margin-bottom: 0.2rem;
-  color: #94a3b8 !important;
+  color: #f8fafc !important;
   line-height: 1.5;
 }
 
@@ -309,12 +309,14 @@
 /* Footer Bottom */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 2rem;
+  padding-top: 1.5rem; /* Balanced top space */
+  padding-bottom: 1rem; /* Minimal bottom space */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  color: #64748b;
+  color: #cbd5e1;
   font-size: 0.9rem;
+  text-align: center;
 }
 
 .back-to-top {

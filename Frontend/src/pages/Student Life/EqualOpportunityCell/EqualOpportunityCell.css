@@ -1,4 +1,340 @@
-/* EqualOpportunityCell.css */
-.equalopportunitycell-page {
-  /* Add your styles here */
+/* Typography guidelines from AGENTS.md */
+.eoc-page {
+  font-family: var(--font-body);
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.eoc-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* College Header Info */
+.college-header-info {
+  text-align: center;
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-top: 5px solid var(--nscet-accent, #0284C7);
+}
+
+.college-header-info h5 {
+  font-family: var(--font-subtopic);
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.college-header-info h2 {
+  font-family: var(--font-heading);
+  color: #0f172a;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+.college-header-info .approvals {
+  font-family: var(--font-body);
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.college-header-info .address {
+  font-family: var(--font-body);
+  color: #0284C7;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Section Common Styles */
+.section-header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section-header h3 {
+  font-family: var(--font-section);
+  font-size: 2rem;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.header-line {
+  height: 4px;
+  width: 60px;
+  background: var(--nscet-accent, #f59e0b);
+  border-radius: 2px;
+}
+
+/* Intro Section */
+.intro-text {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1.8;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border-left: 4px solid var(--theme-primary-dark, #0284C7);
+  margin-bottom: 1.5rem;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--theme-primary-dark, #0284C7);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #0369a1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+/* Objectives Section */
+.objectives-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.objectives-list li {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  font-family: var(--font-body);
+  color: #334155;
+  line-height: 1.6;
+}
+
+.obj-icon {
+  color: #10b981;
+  font-size: 1.2rem;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* Roles Section */
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.role-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border-top: 4px solid var(--nscet-accent, #f59e0b);
+  transition: transform 0.3s ease;
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.role-card h4 {
+  font-family: var(--font-subtopic);
+  font-size: 1.25rem;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.role-card p {
+  font-family: var(--font-body);
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Focus Areas Section */
+.focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.focus-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: #0f172a;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.focus-tag:hover {
+  background: var(--theme-primary-dark, #0284C7);
+  color: white;
+  border-color: var(--theme-primary-dark, #0284C7);
+  transform: scale(1.05);
+}
+
+.focus-tag svg {
+  color: #f59e0b;
+}
+.focus-tag:hover svg {
+  color: #fff;
+}
+
+/* Members Table Section */
+.members-table-wrapper {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  width: 100%;
+}
+
+.members-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.members-table th {
+  background: var(--theme-primary-dark, #0284C7);
+  color: white;
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.members-table td {
+  padding: 1.2rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-family: var(--font-body);
+  color: #334155;
+  line-height: 1.6;
+}
+
+.members-table tr:last-child td {
+  border-bottom: none;
+}
+
+.members-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.highlight-row {
+  background: #f0f9ff;
+}
+
+.highlight-row td {
+  color: #0369a1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .eoc-container {
+    padding: 2rem 1rem;
+    gap: 3rem;
+  }
+  
+  .college-header-info {
+    padding: 2rem 1.5rem;
+  }
+  
+  .college-header-info h2 {
+    font-size: 1.4rem;
+  }
+  
+  .objectives-list {
+    grid-template-columns: 1fr;
+  }
+
+  .members-table-wrapper {
+    overflow-x: auto;
+  }
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .eoc-page {
+  background: var(--bg-primary);
+}
+
+body.dark-mode .college-header-info,
+body.dark-mode .intro-text,
+body.dark-mode .objectives-list li,
+body.dark-mode .role-card,
+body.dark-mode .focus-tag,
+body.dark-mode .members-table-wrapper {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .college-header-info h2,
+body.dark-mode .section-header h3,
+body.dark-mode .role-card h4,
+body.dark-mode .members-table th {
+  color: var(--text-primary);
+}
+
+body.dark-mode .college-header-info h5,
+body.dark-mode .college-header-info .approvals,
+body.dark-mode .role-card p,
+body.dark-mode .objectives-list li span,
+body.dark-mode .members-table td {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .members-table th {
+  background: var(--theme-primary-dark, #0284C7);
+}
+
+body.dark-mode .focus-tag {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+body.dark-mode .members-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .highlight-row {
+  background: rgba(2, 132, 199, 0.1);
+}
+
+body.dark-mode .highlight-row td {
+  color: #38bdf8;
 }

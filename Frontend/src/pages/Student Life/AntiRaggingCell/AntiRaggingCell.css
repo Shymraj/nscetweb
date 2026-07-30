@@ -1,4 +1,481 @@
-/* AntiRaggingCell.css */
+/* Typography guidelines from AGENTS.md */
 .antiraggingcell-page {
-  /* Add your styles here */
+  font-family: var(--font-body);
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.arc-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Section Common Styles */
+.arc-section-header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.arc-section-header h3 {
+  font-family: var(--font-section);
+  font-size: 2.2rem;
+  color: #0f172a;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.arc-header-icon {
+  color: var(--theme-primary-dark, #0284C7);
+  font-size: 2.2rem;
+}
+
+.arc-header-line {
+  height: 5px;
+  width: 70px;
+  background: linear-gradient(90deg, var(--nscet-accent, #f59e0b), #fbbf24);
+  border-radius: 3px;
+  margin-top: 0.5rem;
+}
+
+/* About Section */
+.arc-about-content p {
+  font-size: 1.2rem;
+  color: #334155;
+  line-height: 1.8;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid var(--theme-primary-dark, #0284C7);
+}
+
+.arc-about-content strong {
+  color: #0284C7;
+  font-weight: 700;
+}
+
+/* Objectives Section */
+.arc-objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.arc-objective-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  border-bottom: 4px solid #f59e0b;
+}
+
+.arc-objective-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.arc-objective-number {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  font-size: 6rem;
+  font-weight: 900;
+  color: rgba(2, 132, 199, 0.05);
+  z-index: 0;
+}
+
+.arc-objective-card p {
+  position: relative;
+  z-index: 1;
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* Mechanism Section */
+.arc-mechanism-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.arc-mechanism-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.arc-mechanism-item:hover {
+  transform: translateX(5px);
+  background: #f8fafc;
+  border-left: 4px solid var(--theme-primary-dark, #0284C7);
+}
+
+.arc-check-icon {
+  color: #10b981;
+  font-size: 1.5rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.arc-mechanism-item span {
+  font-size: 1.05rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* Committee Section */
+.arc-table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.arc-committee-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+.arc-committee-table th {
+  background: linear-gradient(135deg, var(--theme-primary-dark, #0284C7), #1e3a8a);
+  color: white;
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.arc-committee-table td {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 1.05rem;
+}
+
+.arc-committee-table tr:last-child td {
+  border-bottom: none;
+}
+
+.arc-committee-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.arc-chair-row {
+  background-color: #fffbeb !important;
+}
+
+.arc-chair-row td {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.arc-position-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.arc-badge-chair {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.arc-badge-convener {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.arc-badge-member {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* Procedure Section */
+.arc-procedure-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.arc-procedure-card {
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+}
+
+.arc-procedure-card p {
+  font-size: 1.1rem;
+  color: #334155;
+  line-height: 1.7;
+}
+
+/* Instructions Section */
+.arc-instructions-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.arc-instructions-list li {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  color: #9f1239;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.arc-instruction-icon {
+  color: #e11d48;
+  font-size: 1.5rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* Complaint Section */
+.arc-complaint-card {
+  background: linear-gradient(135deg, var(--theme-primary-dark, #0284C7), #1e40af);
+  border-radius: 20px;
+  padding: 3rem;
+  color: white;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(2, 132, 199, 0.2);
+}
+
+.arc-complaint-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.arc-complaint-icon {
+  font-size: 2.5rem;
+  color: #f59e0b;
+}
+
+.arc-complaint-header h3 {
+  font-family: var(--font-section);
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.arc-complaint-text {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+}
+
+.arc-complaint-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+
+.arc-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: #f59e0b;
+  color: #fff;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+}
+
+.arc-btn-primary:hover {
+  background: #d97706;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(245, 158, 11, 0.4);
+}
+
+.arc-helpline-box {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.arc-helpline-icon {
+  font-size: 2.5rem;
+  color: #f59e0b;
+}
+
+.arc-helpline-box div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.arc-helpline-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.arc-helpline-number {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  letter-spacing: 2px;
+}
+
+.arc-helpline-info {
+  font-size: 0.9rem;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .arc-container {
+    padding: 2rem 1rem;
+    gap: 3rem;
+  }
+  
+  .arc-section-header h3 {
+    font-size: 1.8rem;
+  }
+  
+  .arc-header-icon {
+    font-size: 1.8rem;
+  }
+  
+  .arc-complaint-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .arc-complaint-header h3 {
+    font-size: 2rem;
+  }
+  
+  .arc-complaint-actions {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .arc-helpline-box {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --- Dark Mode Support --- */
+body.dark-mode .antiraggingcell-page {
+  background: var(--theme-bg, #0f172a);
+}
+
+body.dark-mode .arc-section-header h3 {
+  color: var(--theme-text, #f1f5f9);
+}
+
+body.dark-mode .arc-about-content p,
+body.dark-mode .arc-objective-card,
+body.dark-mode .arc-mechanism-item,
+body.dark-mode .arc-table-wrapper,
+body.dark-mode .arc-procedure-card {
+  background: var(--theme-card, rgba(30, 41, 59, 0.7));
+  color: var(--theme-text, #e2e8f0);
+  border: 1px solid var(--theme-border, rgba(255, 255, 255, 0.1));
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .arc-about-content p {
+  border-left: 5px solid var(--theme-primary-dark, #38bdf8);
+}
+
+body.dark-mode .arc-mechanism-item:hover {
+  background: rgba(51, 65, 85, 0.8);
+}
+
+body.dark-mode .arc-mechanism-item span {
+  color: var(--theme-text, #e2e8f0);
+}
+
+body.dark-mode .arc-committee-table th {
+  background: linear-gradient(135deg, #1e3a8a, #0f172a);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+}
+
+body.dark-mode .arc-committee-table td {
+  color: var(--theme-text, #cbd5e1);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .arc-committee-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .arc-chair-row {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+body.dark-mode .arc-chair-row td {
+  color: #fcd34d;
+}
+
+body.dark-mode .arc-badge-member {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+body.dark-mode .arc-procedure-card p {
+  color: var(--theme-text, #e2e8f0);
+}
+
+body.dark-mode .arc-instructions-list li {
+  background: rgba(159, 18, 57, 0.2);
+  border-color: rgba(225, 29, 72, 0.3);
+  color: #fda4af;
+}
+
+body.dark-mode .arc-complaint-card {
+  background: linear-gradient(135deg, #1e3a8a, #0f172a);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }

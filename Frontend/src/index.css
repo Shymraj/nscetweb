@@ -82,7 +82,12 @@ body.dark-mode .placement,
 body.dark-mode .ombudsperson-page,
 body.dark-mode .principal-page,
 body.dark-mode .tmhnu-page,
-body.dark-mode .omb-modal-body {
+body.dark-mode .omb-modal-body,
+body.dark-mode .sports-dept-container,
+body.dark-mode .boyshostel-page,
+body.dark-mode .girlshostel-page,
+body.dark-mode .eoc-page,
+body.dark-mode .grc-page {
   background-color: var(--theme-bg) !important;
   background: var(--theme-bg) !important;
   color: var(--theme-text) !important;
@@ -137,7 +142,19 @@ body.dark-mode .tmhnu-personality-card,
 body.dark-mode .omb-contact-panel,
 body.dark-mode .omb-chip,
 body.dark-mode .omb-modal-footer,
-body.dark-mode .omb-badge-pill {
+body.dark-mode .omb-badge-pill,
+body.dark-mode .warden-card,
+body.dark-mode .about-hostel p,
+body.dark-mode .event-box,
+body.dark-mode .rules-list li,
+body.dark-mode .intro-text,
+body.dark-mode .objectives-list li,
+body.dark-mode .role-card,
+body.dark-mode .focus-tag,
+body.dark-mode .members-table-wrapper,
+body.dark-mode .grc-action-card,
+body.dark-mode .objective-card,
+body.dark-mode .achievements-wrapper {
   background: var(--theme-card) !important;
   color: var(--theme-text) !important;
   border-color: var(--theme-border) !important;
