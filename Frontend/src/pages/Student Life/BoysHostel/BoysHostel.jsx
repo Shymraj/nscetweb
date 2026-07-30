@@ -3,24 +3,23 @@ import './BoysHostel.css';
 
 const BoysHostel = () => {
   const hostelData = {
-    about: "The boys hostel accommodates students in a comfortable and safe environment. We provide all the necessary amenities to make students feel at home, ensuring they can focus on their academics and personal growth.",
-    chiefWarden: { name: "Dr. C. Mathalai Sundaram", role: "Principal & Chief Warden", initials: "CMS" },
+    about: "The Boys Hostel at our college provides a comfortable and secure environment for students. Equipped with modern facilities and 24/7 supervision, the hostel ensures a home-like atmosphere where students can focus on their academics while enjoying their stay. Spacious rooms, hygienic dining, and recreational areas make it an ideal place for holistic growth and development.",
+    chiefWarden: { name: "Dr. C. Mathalai Sundaram", role: "Principal & Chief Warden" },
     deputyWardens: [
-      { name: "Dr. J. Mathalai Raj", role: "Deputy Warden", initials: "JMR" },
-      { name: "Mr. R. Santhaseelan", role: "Deputy Warden", initials: "RS" }
+      { name: "Dr. J. Mathalai Raj", role: "Deputy Warden" },
+      { name: "Mr. R. Santhaseelan", role: "Deputy Warden" }
     ],
     strength: { rooms: 28, blocks: 2, totalStudents: 22 },
     gallery: [
-        { id: 1, imgUrl: "/hostel1.JPG" },
-        { id: 2, imgUrl: "/hostel2.JPG" },
+      { id: 1, imgUrl: "/hostel1.JPG" },
+      { id: 2, imgUrl: "/hostel2.JPG" },
       { id: 3, imgUrl: "/hostel3.JPG" },
-      { id: 4, imgUrl: "/hostel.jpg" }
+      { id: 4, imgUrl: "/hostel5.JPG" }
     ],
     culture: [
-      { id: 1,  imgUrl: "/hc1.JPG" },
+      { id: 1, imgUrl: "/hc3.JPG" },
       { id: 2,  imgUrl: "/hc2.JPG" },
-      { id: 3,  imgUrl: "/hc3.JPG" },
-      { id: 4,  imgUrl: "/hc4.JPG" }
+      { id: 3, imgUrl: "/hc4.JPG" }
     ],
     facilities: [
       { title: "Gym", desc: "Well-equipped gym with modern exercise machines and weights." },
@@ -40,7 +39,6 @@ const BoysHostel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentCultureSlide, setCurrentCultureSlide] = useState(0);
 
-  // Gallery 3 Seconds Timer
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev === hostelData.gallery.length - 1 ? 0 : prev + 1));
@@ -48,7 +46,6 @@ const BoysHostel = () => {
     return () => clearInterval(timer);
   }, [hostelData.gallery.length]);
 
-  // Hostel Culture 3 Seconds Timer
   useEffect(() => {
     const cultureTimer = setInterval(() => {
       setCurrentCultureSlide((prev) => (prev === hostelData.culture.length - 1 ? 0 : prev + 1));
@@ -70,12 +67,12 @@ const BoysHostel = () => {
       <section className="hostel-hero">
         <div className="hero-content">
           <h1 className="animate-slide-down">NSCET BOYS HOSTEL</h1>
-        
         </div>
       </section>
 
       <div className="hostel-main-container">
         
+        {/* About Section */}
         <section className="hostel-section about-section animate-slide-up">
           <div className="about-text">
             <h2 className="section-title">About the Hostel</h2>
@@ -89,53 +86,56 @@ const BoysHostel = () => {
           </div>
         </section>
 
-        <section className="hostel-section admin-section animate-slide-up-delay-1">
-          <h2 className="section-title center">Hostel Administration</h2>
-          <div className="admin-cards-container">
-            <div className="admin-card chief">
-              <div className="admin-avatar">{hostelData.chiefWarden.initials}</div>
-              <h3>{hostelData.chiefWarden.name}</h3>
-              <span className="admin-role">{hostelData.chiefWarden.role}</span>
-            </div>
-            <div className="deputy-cards">
-              {hostelData.deputyWardens.map((warden, idx) => (
-                <div key={idx} className="admin-card deputy">
-                  <div className="admin-avatar">{warden.initials}</div>
-                  <h3>{warden.name}</h3>
-                  <span className="admin-role">{warden.role}</span>
+        {/* COMPACT & SPLIT CONTAINER: Left (Strength), Right (Admin) */}
+        <section className="hostel-section admin-infra-combined-section animate-slide-up-delay-1">
+          <div className="admin-infra-split">
+            
+            {/* Left Side: Strength & Infrastructure */}
+            <div className="infra-side">
+              <h2 className="section-title">Strength & Infrastructure</h2>
+              <div className="primary-stats">
+                <div className="stat-item">
+                  <span className="stat-number">{hostelData.strength.totalStudents}</span>
+                  <span className="stat-label">Total Students</span>
                 </div>
-              ))}
+                <div className="stat-divider"></div>
+                <div className="stat-item">
+                  <span className="stat-number">{hostelData.strength.rooms}</span>
+                  <span className="stat-label">Total Rooms</span>
+                </div>
+                <div className="stat-divider"></div>
+                <div className="stat-item">
+                  <span className="stat-number">{hostelData.strength.blocks}</span>
+                  <span className="stat-label">Blocks</span>
+                </div>
+              </div>
             </div>
+
+            {/* Right Side: Hostel Administration */}
+            <div className="admin-side">
+              <h2 className="section-title">Hostel Administration</h2>
+              <div className="admin-cards-container">
+                <div className="admin-card chief">
+                  <h3>{hostelData.chiefWarden.name}</h3>
+                  <span className="admin-role">{hostelData.chiefWarden.role}</span>
+                </div>
+                <div className="deputy-cards">
+                  {hostelData.deputyWardens.map((warden, idx) => (
+                    <div key={idx} className="admin-card deputy">
+                      <h3>{warden.name}</h3>
+                      <span className="admin-role">{warden.role}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 
-        <section className="hostel-section infra-section animate-slide-up-delay-2">
-          <h2 className="section-title">Strength & Infrastructure</h2>
-          <div className="primary-stats-container">
-            <div className="bento-card primary-stats">
-              <div className="stat-item">
-                <span className="stat-number">{hostelData.strength.totalStudents}</span>
-                <span className="stat-label">Total Students</span>
-              </div>
-              <div className="stat-divider"></div>
-              <div className="stat-item">
-                <span className="stat-number">{hostelData.strength.rooms}</span>
-                <span className="stat-label">Total Rooms</span>
-              </div>
-              <div className="stat-divider"></div>
-              <div className="stat-item">
-                <span className="stat-number">{hostelData.strength.blocks}</span>
-                <span className="stat-label">Blocks</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* --- CULTURE & FACILITIES SPLIT SECTION --- */}
         <section className="hostel-section culture-facilities-section animate-slide-up-delay-3">
           <div className="culture-facilities-grid">
             
-            {/* Left Side: Hostel Culture Auto Slider */}
             <div className="culture-side">
               <h2 className="section-title">Hostel Culture</h2>
               <div className="culture-image-card">
@@ -160,7 +160,6 @@ const BoysHostel = () => {
               </div>
             </div>
 
-            {/* Right Side: Facilities */}
             <div className="facilities-side">
               <h2 className="section-title">Facilities</h2>
               <div className="facilities-box">
@@ -217,21 +216,21 @@ const BoysHostel = () => {
                     alt={item.title} 
                     className="slider-real-image" 
                   />
-                  <div className="slide-caption">{item.title}</div>
                 </div>
               ))}
             </div>
             <button className="slider-btn prev-btn" onClick={prevSlide}>&#10094;</button>
             <button className="slider-btn next-btn" onClick={nextSlide}>&#10095;</button>
-            <div className="slider-dots">
-              {hostelData.gallery.map((_, idx) => (
-                <span 
-                  key={idx} 
-                  className={`dot ${idx === currentSlide ? 'active' : ''}`} 
-                  onClick={() => setCurrentSlide(idx)}
-                ></span>
-              ))}
-            </div>
+          </div>
+          
+          <div className="slider-dots-outside">
+            {hostelData.gallery.map((_, idx) => (
+              <span 
+                key={idx} 
+                className={`dot ${idx === currentSlide ? 'active' : ''}`} 
+                onClick={() => setCurrentSlide(idx)}
+              ></span>
+            ))}
           </div>
         </section>
 
@@ -239,10 +238,7 @@ const BoysHostel = () => {
           <h2 className="section-title">Nearby Essentials</h2>
           <div className="nearby-layout">
             <div className="map-integration-box">
-              <img src="/map-placeholder.jpg" alt="Google Map" className="map-zoom-image" />
-              <div className="map-text-overlay">
-                <span className="map-text">Google Map Integration Area</span>
-              </div>
+              <img src="/hosteldron.jpg" alt="Google Map" className="map-zoom-image" />
             </div>
             <div className="locations-box">
               <ul className="locations-list">
