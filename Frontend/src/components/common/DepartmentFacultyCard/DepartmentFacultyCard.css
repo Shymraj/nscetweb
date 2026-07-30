@@ -1,0 +1,247 @@
+/* ==========================================================================
+   Department Faculty Card Component Styles (Shared Across All Departments)
+   ========================================================================== */
+
+.dept-faculty-card {
+  background: #ffffff;
+  border-radius: 26px;
+  padding: 2.2rem 1.4rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  transition: all 0.35s ease;
+}
+
+body.dark-mode .dept-faculty-card {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+.dept-faculty-card:hover {
+  box-shadow: 0 16px 36px rgba(37, 99, 235, 0.1);
+  border-color: #bfdbfe;
+}
+
+body.dark-mode .dept-faculty-card:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.dept-faculty-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.dept-faculty-avatar-wrap {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 3px solid #ffffff;
+  background-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  transition: all 0.35s ease;
+}
+
+body.dark-mode .dept-faculty-avatar-wrap {
+  border-color: #1e293b;
+  background-color: #1e293b;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dept-faculty-card:hover .dept-faculty-avatar-wrap,
+.dept-faculty-avatar-wrap:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 6px rgba(30, 136, 229, 0.08), 0 20px 45px rgba(30, 136, 229, 0.18);
+}
+
+.dept-faculty-avatar {
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.dept-faculty-avatar-fallback {
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+}
+
+.dept-faculty-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.dept-faculty-name {
+  font-family: var(--font-subtopic);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.3rem 0;
+  min-height: 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.35;
+}
+
+body.dark-mode .dept-faculty-name {
+  color: #f8fafc;
+}
+
+.dept-faculty-role {
+  font-family: var(--font-subtopic);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.2rem;
+  min-height: 1.2rem;
+}
+
+body.dark-mode .dept-faculty-role {
+  color: #38bdf8;
+}
+
+.dept-faculty-qual {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.8rem;
+}
+
+body.dark-mode .dept-faculty-qual {
+  color: #94a3b8;
+}
+
+.dept-faculty-spec {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+  min-height: 2rem;
+  align-items: center;
+}
+
+.dept-spec-badge {
+  font-family: var(--font-subtopic);
+  font-size: 0.74rem;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 3px 10px;
+  border-radius: 99px;
+}
+
+body.dark-mode .dept-spec-badge {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.dept-spec-badge.extra {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+body.dark-mode .dept-spec-badge.extra {
+  background: rgba(37, 99, 235, 0.2);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.dept-faculty-email {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: #475569;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.dept-faculty-email:hover {
+  color: #2563eb;
+}
+
+body.dark-mode .dept-faculty-email {
+  color: #94a3b8;
+}
+
+body.dark-mode .dept-faculty-email:hover {
+  color: #38bdf8;
+}
+
+.dept-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 1.1rem;
+  border-radius: 99px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0F4C81;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  margin-top: auto;
+  align-self: center;
+}
+
+body.dark-mode .dept-profile-btn {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #38bdf8;
+}
+
+.dept-profile-btn:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+  color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+}
+
+body.dark-mode .dept-profile-btn:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
