@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './Placements.css';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
+
+// Auto-load banner image inside ./images/banner/
+const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const bannerImg = Object.values(bannerGlobs)[0] || null;
 import { FaBuilding, FaUserTie, FaChalkboardTeacher, FaBriefcase, FaWifi, FaUsers, FaGraduationCap, FaIndustry, FaPhone, FaEnvelope, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import geethaImg from './images/Geetha.jpeg';
 import ramkumarImg from './images/Ramkumar.jpeg';
@@ -84,7 +88,9 @@ const Placements = () => {
       <PageBanner
         title="Placements"
         subtitle="Training & Placement Cell"
-        hideBreadcrumb={false}
+        hideBreadcrumb={true}
+        backgroundImage={bannerImg}
+        height="auto"
       />
 
       <div className="placements-content">
