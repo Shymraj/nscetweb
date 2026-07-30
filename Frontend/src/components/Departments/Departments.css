@@ -1,5 +1,5 @@
 /* ===========================================================
-   WIDESCREEN ACADEMIC SECTION (Premium Infinite Loop)
+   WIDESCREEN ACADEMIC SECTION 
 =========================================================== */
 .wide-courses-section {
   width: 100%;
@@ -16,19 +16,15 @@
 }
 
 /* ===========================================================
-   HEADER 
+   HEADER (CENTERED)
 =========================================================== */
 .wide-courses-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 40px;
-  gap: 30px;
-}
-
-.w-header-left {
-  display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+  gap: 12px;
 }
 
 .w-subtitle {
@@ -36,7 +32,6 @@
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 2.5px;
-  margin-bottom: 12px;
   text-transform: uppercase;
 }
 
@@ -49,53 +44,57 @@
   letter-spacing: -0.5px;
 }
 
-.w-view-all-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 28px;
-  border-radius: 8px;
-  background-color: #f97316;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.2);
-  transition: all 0.3s ease;
-}
-
-.w-view-all-btn:hover {
-  background-color: #ea580c;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(249, 115, 22, 0.3);
-}
-
 /* ===========================================================
-   FILTER TABS
+   PREMIUM FILTER TABS (Hover & Click Animations)
 =========================================================== */
 .wide-filter-tabs-wrapper {
   display: flex;
-  gap: 12px;
-  margin-bottom: 40px;
+  justify-content: center; /* Centers the tabs */
+  gap: 16px;
+  margin-bottom: 50px;
   flex-wrap: wrap;
 }
 
 .wide-filter-tab {
   position: relative;
-  padding: 12px 28px;
-  background: transparent;
-  border: 1px solid rgba(0,0,0,0.1);
+  padding: 12px 30px;
+  background: #ffffff;
   color: #475569;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 50px;
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  border-radius: 50px;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1; 
 }
 
+/* Base text color */
+.tab-text {
+  position: relative;
+  z-index: 2;
+  color: #475569;
+  transition: color 0.3s ease;
+}
+
+/* Tab Hover State */
+.wide-filter-tab:hover:not(.is-active) {
+  transform: translateY(-3px);
+  border-color: rgba(249, 115, 22, 0.3);
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.1);
+}
+
+.wide-filter-tab:hover:not(.is-active) .tab-text {
+  color: #ea580c;
+}
+
+/* Tab Active State (Fixed Font Color) */
 .wide-filter-tab.is-active {
-  color: #ffffff;
-  border-color: transparent;
+  border-color: transparent !important;
+}
+
+.wide-filter-tab.is-active .tab-text {
+  color: #ffffff !important; /* Explicitly targets the text to turn white */
 }
 
 .wide-tab-bg {
@@ -104,16 +103,21 @@
   background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
   border-radius: 50px;
   z-index: -1;
-  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25);
-}
-
-.tab-text {
-  position: relative;
-  z-index: 2;
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.35);
 }
 
 /* ===========================================================
-   SLIDER WRAPPER & SIDE ARROWS
+   LAYOUT 1: ALL PROGRAMS GRID VIEW
+=========================================================== */
+.all-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+/* ===========================================================
+   LAYOUT 2: SLIDER WRAPPER & SIDE ARROWS (B.E, B.Tech, M.E)
 =========================================================== */
 .wide-slider-master-wrapper {
   position: relative;
@@ -151,9 +155,6 @@
 .left-arrow { left: -25px; }
 .right-arrow { right: -25px; }
 
-/* ===========================================================
-   VIEWPORT & TRACK (For Infinite Logic)
-=========================================================== */
 .wide-slider-viewport {
   width: 100%;
   overflow: hidden; 
@@ -163,7 +164,12 @@
 .wide-slider-track {
   display: flex;
   width: 100%;
-  /* Transform & Transition handled via inline styles in JSX for the loop effect */
+}
+
+.wide-slider-track.center-aligned-track {
+  justify-content: center !important;
+  transform: none !important;
+  gap: 0;
 }
 
 .wide-card-column {
@@ -172,7 +178,7 @@
 }
 
 /* ===========================================================
-   16:9 WIDESCREEN CARDS
+   COMMON CARD DESIGN (Works perfectly for both Grid & Slider)
 =========================================================== */
 .wide-course-card {
   position: relative;
@@ -268,7 +274,10 @@
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 1px;
-  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
   transition: all 0.3s ease;
 }
 
@@ -289,67 +298,24 @@
    RESPONSIVE DESIGN
 =========================================================== */
 @media (max-width: 1024px) {
+  .all-programs-grid { grid-template-columns: repeat(2, 1fr); }
   .left-arrow { left: -15px; }
   .right-arrow { right: -15px; }
 }
 
 @media (max-width: 768px) {
   .wide-courses-section { padding: 60px 0; }
-  .wide-courses-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
   .w-title { font-size: 32px; }
   
-  .side-arrow { width: 40px; height: 40px; font-size: 14px; }
-  .left-arrow { left: -5px; }
-  .right-arrow { right: -5px; }
-}
-/* ===========================================================
-   PREMIUM CONDITIONAL ALIGNMENT AND INTERACTIVE TABS HOVER
-=========================================================== */
-
-/* Centering layout rule config fields triggers dynamically override values */
-.wide-slider-track.center-aligned-track {
-  justify-content: center !important;
-  transform: none !important;
-  gap: 0;
-}
-
-/* 4. Professional Color Differences & Shifting States on Tabs Hover */
-.wide-filter-tab {
-  position: relative;
-  padding: 12px 28px;
-  background: #ffffff; /* Default background clean corporate style */
-  color: #475569;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 50px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Hover state changes color variant profiles smoothly */
-.wide-filter-tab:hover:not(.is-active) {
-  background-color: #fff7ed; /* Soft light orange ambient highlight text color shift */
-  color: #f97316;
-  border-color: rgba(249, 115, 22, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.08);
-}
-
-/* Active solid template button styles */
-.wide-filter-tab.is-active {
-  color: #ffffff !important;
-  border-color: transparent !important;
-}
-
-/* Track element corrections parameters on responsive view breakdown boundaries */
-@media (max-width: 992px) {
+  .all-programs-grid { grid-template-columns: 1fr; }
+  
   .wide-slider-track.center-aligned-track {
     justify-content: flex-start !important;
     overflow-x: auto;
     padding-bottom: 10px;
   }
+  
+  .side-arrow { width: 40px; height: 40px; font-size: 14px; }
+  .left-arrow { left: -5px; }
+  .right-arrow { right: -5px; }
 }

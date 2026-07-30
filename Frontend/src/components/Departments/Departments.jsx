@@ -1,10 +1,10 @@
 import "./Departments.css";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-// Indha lines unga file mela iruka nu check pannikonga
+// Images Import (Check paths as per your folder structure)
 import cse from "../../assets/departments/cse.jpg";
 import it from "../../assets/departments/it.jpg";
 import aids from "../../assets/departments/aids.jpg";
@@ -15,20 +15,20 @@ import civil from "../../assets/departments/civil.jpg";
 
 const allDepartments = [
   // ================= B.E PROGRAMS =================
-  { image: cse, title: "Computer Science & Engineering", category: "B.E", link: "/departments/cse" },
-  { image: ece, title: "Electronics & Communication Engineering", category: "B.E", link: "/departments/electronics" },
-  { image: eee, title: "Electrical & Electronics Engineering", category: "B.E", link: "/departments/electrical" },
-  { image: civil, title: "Civil Engineering", category: "B.E", link: "/departments/civil" },
-  { image: mech, title: "Mechanical Engineering", category: "B.E", link: "/departments/mechanical" },
+  { id: "be-cse", image: cse, title: "Computer Science & Engineering", category: "B.E", link: "/departments/cse" },
+  { id: "be-ece", image: ece, title: "Electronics & Communication Engineering", category: "B.E", link: "/departments/electronics" },
+  { id: "be-eee", image: eee, title: "Electrical & Electronics Engineering", category: "B.E", link: "/departments/electrical" },
+  { id: "be-civil", image: civil, title: "Civil Engineering", category: "B.E", link: "/departments/civil" },
+  { id: "be-mech", image: mech, title: "Mechanical Engineering", category: "B.E", link: "/departments/mechanical" },
 
   // ================= B.TECH PROGRAMS =================
-  { image: it, title: "Information Technology", category: "B.Tech", link: "/departments/it" },
-  { image: aids, title: "Artificial Intelligence & Data Science", category: "B.Tech", link: "/departments/aids" },
+  { id: "bt-it", image: it, title: "Information Technology", category: "B.Tech", link: "/departments/it" },
+  { id: "bt-aids", image: aids, title: "Artificial Intelligence & Data Science", category: "B.Tech", link: "/departments/aids" },
 
   // ================= M.E PROGRAMS =================
-  { image: cse, title: "Computer Science & Engineering", category: "M.E", link: "/departments/me-cse" },
-  { image: ece, title: "Embedded Systems & Technology", category: "M.E", link: "/departments/me-embedded" },
-  { image: civil, title: "Structural Engineering", category: "M.E", link: "/departments/me-structural" }
+  { id: "me-cse", image: cse, title: "Computer Science & Engineering", category: "M.E", link: "/departments/me-cse" },
+  { id: "me-ece", image: ece, title: "Embedded Systems & Technology", category: "M.E", link: "/departments/me-embedded" },
+  { id: "me-civil", image: civil, title: "Structural Engineering", category: "M.E", link: "/departments/me-structural" }
 ];
 
 const tabs = ["All Programs", "B.E", "B.Tech", "M.E"];
@@ -45,6 +45,7 @@ function Departments() {
   const navigate = useNavigate();
   const isAnimating = useRef(false);
 
+  // Responsive breakpoints
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768) setVisibleCards(1);
@@ -56,16 +57,14 @@ function Departments() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Filter and setup item mapping
+  // Filter and setup item mapping (Only for Slider categories)
   useEffect(() => {
-    const filtered = activeTab === "All Programs" 
-      ? allDepartments 
-      : allDepartments.filter(dept => dept.category === activeTab);
-    
+    if (activeTab === "All Programs") return; 
+
+    const filtered = allDepartments.filter(dept => dept.category === activeTab);
     let safeItems = [...filtered];
 
-    // CRITICAL: Only duplicate for loop if it is "All Programs" or "B.E"
-    if (activeTab === "All Programs" || activeTab === "B.E") {
+    if (activeTab === "B.E") {
       while (safeItems.length < visibleCards + 3) {
         safeItems = [...safeItems, ...filtered];
       }
@@ -81,10 +80,8 @@ function Departments() {
     setTransitionDuration("0s");
   }, [activeTab, visibleCards]);
 
-  // Next Slide Logic
   const nextSlide = useCallback(() => {
-    // BLOCK ACTION: If tab is B.Tech or M.E, prevent auto loop shifting mechanics
-    if (activeTab === "B.Tech" || activeTab === "M.E") return;
+    if (activeTab === "All Programs" || activeTab === "B.Tech" || activeTab === "M.E") return;
     if (isAnimating.current || items.length === 0) return;
     isAnimating.current = true;
 
@@ -103,9 +100,8 @@ function Departments() {
     }, 600);
   }, [items.length, activeTab]);
 
-  // Previous Slide Logic
   const prevSlide = useCallback(() => {
-    if (activeTab === "B.Tech" || activeTab === "M.E") return;
+    if (activeTab === "All Programs" || activeTab === "B.Tech" || activeTab === "M.E") return;
     if (isAnimating.current || items.length === 0) return;
     isAnimating.current = true;
 
@@ -127,10 +123,9 @@ function Departments() {
     }, 650);
   }, [items.length, activeTab]);
 
-  // Autoplay Logic triggered conditionally
   useEffect(() => {
     if (isHovered || items.length === 0) return;
-    if (activeTab === "B.Tech" || activeTab === "M.E") return; // Freeze interval loop straight ahead
+    if (activeTab === "All Programs" || activeTab === "B.Tech" || activeTab === "M.E") return; 
     
     const interval = setInterval(() => {
       nextSlide();
@@ -139,24 +134,37 @@ function Departments() {
     return () => clearInterval(interval);
   }, [nextSlide, isHovered, items.length, activeTab]);
 
-  // Determine if track template needs absolute alignment centering controls properties values overriding fallback
   const shouldCenterTrack = activeTab === "B.Tech" || activeTab === "M.E";
+
+  const renderCard = (dept) => (
+    <div className="wide-course-card">
+      <div className="w-card-image-box">
+        <img src={dept.image} alt={dept.title} className="w-card-img" />
+        <div className="w-card-gradient"></div>
+      </div>
+      <div className="w-card-top-badge">
+        <span>{dept.category}</span>
+      </div>
+      <div className="w-card-info-box">
+        <h3 className="w-card-name">{dept.title}</h3>
+        <button 
+          onClick={() => navigate(dept.link)} 
+          className="w-explore-btn"
+        >
+          EXPLORE COURSE <FaArrowRight className="w-arrow-icon" />
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <section className="wide-courses-section">
       <div className="wide-courses-container">
         
-        {/* ================= HEADER CONTROLS ================= */}
+        {/* ================= HEADER CONTROLS (CENTERED & REMOVED BUTTON) ================= */}
         <div className="wide-courses-header">
-          <div className="w-header-left">
-            <span className="w-subtitle">ACADEMIC DEPARTMENTS</span>
-            <h2 className="w-title">Explore Our Popular Programs</h2>
-          </div>
-          <div className="w-header-right">
-            <button onClick={() => navigate("/departments")} className="w-view-all-btn" style={{ cursor: "pointer", border: "none" }}>
-              VIEW ALL COURSES
-            </button>
-          </div>
+          <span className="w-subtitle">ACADEMIC DEPARTMENTS</span>
+          <h2 className="w-title">Explore Our Popular Programs</h2>
         </div>
 
         {/* ================= FILTER TABS ================= */}
@@ -172,79 +180,75 @@ function Departments() {
                 <motion.span 
                   className="wide-tab-bg" 
                   layoutId="wideActiveIndicator"
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 25 }}
                 />
               )}
             </button>
           ))}
         </div>
 
-        {/* ================= SLIDER WITH SIDE ARROWS ================= */}
-        <div 
-          className="wide-slider-master-wrapper"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          {/* Hide navigation indicators globally if columns fields structures are locked */}
-          {!shouldCenterTrack && (
-            <button className="side-arrow left-arrow" onClick={prevSlide}>
-              <FaChevronLeft />
-            </button>
-          )}
-
-          <div className="wide-slider-viewport">
-            <div 
-              className={`wide-slider-track ${shouldCenterTrack ? "center-aligned-track" : ""}`}
-              style={{
-                transform: shouldCenterTrack ? "none" : `translateX(calc(${offset} * (100% / ${visibleCards})))`,
-                transition: `transform ${transitionDuration} ease-in-out`
-              }}
-            >
-              {items.map((dept) => (
-                <div 
-                  className="wide-card-column"
-                  key={dept.uniqueId}
-                  style={{ 
-                    flex: shouldCenterTrack ? "0 1 33.33%" : `0 0 calc(100% / ${visibleCards})`, 
-                    width: shouldCenterTrack ? "33.33%" : `calc(100% / ${visibleCards})`,
-                    maxWidth: "440px"
-                  }}
+        {/* ================= DYNAMIC LAYOUT AREA ================= */}
+        {activeTab === "All Programs" ? (
+          <div className="all-programs-grid">
+            <AnimatePresence>
+              {allDepartments.map((dept, index) => (
+                <motion.div
+                  key={dept.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
                 >
-                  <div className="wide-course-card">
-                    
-                    <div className="w-card-image-box">
-                      <img src={dept.image} alt={dept.title} className="w-card-img" />
-                      <div className="w-card-gradient"></div>
-                    </div>
-
-                    <div className="w-card-top-badge">
-                      <span>{dept.category}</span>
-                    </div>
-
-                    <div className="w-card-info-box">
-                      <h3 className="w-card-name">{dept.title}</h3>
-                      
-                      <button 
-                        onClick={() => navigate(dept.link)} 
-                        className="w-explore-btn"
-                        style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
-                      >
-                        EXPLORE COURSE <FaArrowRight className="w-arrow-icon" />
-                      </button>
-                    </div>
-
-                  </div>
-                </div>
+                  {renderCard(dept)}
+                </motion.div>
               ))}
-            </div>
+            </AnimatePresence>
           </div>
+        ) : (
+          <motion.div 
+            className="wide-slider-master-wrapper"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            {!shouldCenterTrack && (
+              <button className="side-arrow left-arrow" onClick={prevSlide}>
+                <FaChevronLeft />
+              </button>
+            )}
 
-          {!shouldCenterTrack && (
-            <button className="side-arrow right-arrow" onClick={nextSlide}>
-              <FaChevronRight />
-            </button>
-          )}
-        </div>
+            <div className="wide-slider-viewport">
+              <div 
+                className={`wide-slider-track ${shouldCenterTrack ? "center-aligned-track" : ""}`}
+                style={{
+                  transform: shouldCenterTrack ? "none" : `translateX(calc(${offset} * (100% / ${visibleCards})))`,
+                  transition: `transform ${transitionDuration} ease-in-out`
+                }}
+              >
+                {items.map((dept) => (
+                  <div 
+                    className="wide-card-column"
+                    key={dept.uniqueId}
+                    style={{ 
+                      flex: shouldCenterTrack ? "0 1 33.33%" : `0 0 calc(100% / ${visibleCards})`, 
+                      width: shouldCenterTrack ? "33.33%" : `calc(100% / ${visibleCards})`,
+                      maxWidth: "440px"
+                    }}
+                  >
+                    {renderCard(dept)}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {!shouldCenterTrack && (
+              <button className="side-arrow right-arrow" onClick={nextSlide}>
+                <FaChevronRight />
+              </button>
+            )}
+          </motion.div>
+        )}
 
       </div>
     </section>
