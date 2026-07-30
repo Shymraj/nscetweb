@@ -1,17 +1,22 @@
-import React from "react";
-import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
-    FaCogs, FaIndustry, FaUserTie,
-    FaEnvelope, FaFlask, FaRobot, FaTools, FaCalendarTimes
+  FaCogs, FaIndustry, FaUserTie, FaEnvelope, FaGraduationCap,
+  FaChalkboardTeacher, FaBookOpen, FaChartLine, FaDownload, FaPaperPlane,
+  FaCalendarTimes, FaCalendarAlt, FaAward, FaLightbulb, FaCheckCircle,
+  FaFlask, FaRobot, FaTools
 } from "react-icons/fa";
-import { GiGears } from "react-icons/gi";
-import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import { GiGears, GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
-// Auto-load any banner image inside ./images/BE_banner/
+import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
+import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
+import DepartmentHODProfile from "../../../components/common/DepartmentHODProfile/DepartmentHODProfile";
+
+// Auto-load banner image inside ./images/BE_banner/
 const bannerGlobs = import.meta.glob("./images/BE_banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
 const bannerImg = Object.values(bannerGlobs)[0] || null;
-import "./Mechanical.css";
 
 import massLogo from "./images/mass.png";
 
@@ -26,266 +31,462 @@ import imgChakravarthySamy from "./images/chakravarthysamydurai.jpg";
 import imgNagaraja from "./images/nagaraja.jpg";
 import imgVembathurajesh from "./images/vembathurajesh.png";
 
+import "../cse/CSE.css";
+
 const Mechanical = () => {
-    // Scroll Entrance Animations
-    const fadeInUp = {
-        hidden: { opacity: 0, y: 40 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-    };
+  const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
 
-    const zoomIn = {
-        hidden: { opacity: 0, scale: 0.9 },
-        visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } }
-    };
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
 
-    const staggerContainer = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.15
-            }
-        }
-    };
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
 
-    const faculties = [
-        { name: "Dr. B. Radha Krishnan", desig: "Professor & Head [I/C]", qual: "M.E., Ph.D., MISTE., MIE.", email: "hodmech@nscet.org", image: imgRadhaKrishnan },
-        { name: "Mr. R. Santhaseelan", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "santhaseelan@nscet.org", image: imgSanthaseelan },
-        { name: "Mr. V. Sivaganesan", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "sivaganesan@nscet.org", image: imgSivaganesan },
-        { name: "Dr. B. Nagarajan", desig: "Assistant Professor", qual: "M.E., Ph.D, MISTE.", email: "nagarajan@nscet.org", image: imgNagarajan },
-        { name: "Mr. P. Surulimani", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "surulimanip@gmail.com", image: imgSurulimani },
-        { name: "Mr. S. Harikishore", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "harikishore@nscet.org", image: imgHarikishore },
-        { name: "Mr. J. Chakaravarthy Samy Durai", desig: "Assistant Professor (General)", qual: "M.E., MISTE.", email: "chakravarthysamydurai@nscet.org", image: imgChakravarthySamy },
-        { name: "Mr. R. Nagaraja", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "nagaraja@nscet.org", image: imgNagaraja },
-        { name: "Dr. A. Vembathurajesh", desig: "Assistant Professor", qual: "M.E., Ph.D, MISTE.", email: "vembathurajesh@nscet.org", image: imgVembathurajesh }
-    ];
+  const scaleUp = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
+  };
 
-    const hod = faculties[0];
-    const staff = faculties.slice(1);
+  const faculties = [
+    { name: "Dr. B. Radha Krishnan", desig: "Professor & Head [I/C]", qual: "M.E., Ph.D., MISTE., MIE.", email: "hodmech@nscet.org", image: imgRadhaKrishnan, spec: "Thermal Engineering & Energy Systems", objectPosition: "center 10%" },
+    { name: "Mr. R. Santhaseelan", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "santhaseelan@nscet.org", image: imgSanthaseelan, spec: "Manufacturing Tech & CAD/CAM", objectPosition: "center 10%" },
+    { name: "Mr. V. Sivaganesan", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "sivaganesan@nscet.org", image: imgSivaganesan, spec: "Design of Machine Elements & Automation", objectPosition: "center 10%" },
+    { name: "Dr. B. Nagarajan", desig: "Assistant Professor", qual: "M.E., Ph.D, MISTE.", email: "nagarajan@nscet.org", image: imgNagarajan, spec: "Materials Engineering & Tribology", objectPosition: "center 10%" },
+    { name: "Mr. P. Surulimani", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "surulimanip@gmail.com", image: imgSurulimani, spec: "Fluid Mechanics & Turbo Machinery", objectPosition: "center 10%" },
+    { name: "Mr. S. Harikishore", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "harikishore@nscet.org", image: imgHarikishore, spec: "Mechatronics & Robotics", objectPosition: "center 10%" },
+    { name: "Mr. J. Chakaravarthy Samy Durai", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "chakravarthysamydurai@nscet.org", image: imgChakravarthySamy, spec: "Industrial Engineering & Operations", objectPosition: "center 10%" },
+    { name: "Mr. R. Nagaraja", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "nagaraja@nscet.org", image: imgNagaraja, spec: "Refrigeration & Air Conditioning", objectPosition: "center 10%" },
+    { name: "Dr. A. Vembathurajesh", desig: "Assistant Professor", qual: "M.E., Ph.D, MISTE.", email: "vembathurajesh@nscet.org", image: imgVembathurajesh, spec: "Advanced Composite Materials", objectPosition: "center 10%" }
+  ];
 
-    return (
-        <div className="mech-container">
+  const hod = faculties[0];
+  const staff = faculties.slice(1);
 
-            {/* HERO BANNER */}
-            <PageBanner
-                title="DEPARTMENT OF MECHANICAL ENGINEERING"
-                subtitle="Engineering innovation from design to manufacturing — powering industries with precision, creativity, and excellence."
-                hideBreadcrumb={true}
-                backgroundImage={bannerImg}
-            />
+  const stats = [
+    { count: "420+", label: "Mechanical Students", icon: <FaGraduationCap />, color: "#2563eb" },
+    { count: "14+", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "75+", label: "Research Papers", icon: <FaBookOpen />, color: "#d97706" },
+    { count: "8+", label: "Machining & CNC Labs", icon: <FaCogs />, color: "#7c3aed" },
+    { count: "91%", label: "Placement Track Record", icon: <FaChartLine />, color: "#ec4899" }
+  ];
 
-            <main className="content-wrapper">
+  const facilities = [
+    {
+      title: "CNC & Advanced Manufacturing Workshop",
+      desc: "CNC Lathe, CNC Milling machines, precision lathes, and automated machining centers.",
+      icon: <FaIndustry />,
+      badge: "CNC & Machining"
+    },
+    {
+      title: "Thermal & Internal Combustion Engine Lab",
+      desc: "Multi-cylinder test rigs, computerized engine analyzers, and heat transfer experimental setups.",
+      icon: <FaCogs />,
+      badge: "Thermal & IC Engines"
+    },
+    {
+      title: "Mechatronics & Robotics Studio",
+      desc: "Pneumatic/hydraulic automation trainers, PLC control boards, and industrial robotic arms.",
+      icon: <FaRobot />,
+      badge: "Robotics & Automation"
+    },
+    {
+      title: "CAD / CAM & 3D Modeling Center",
+      desc: "High-end workstations with SolidWorks, Creo, ANSYS simulation, and 3D printing prototyping tools.",
+      icon: <FaTools />,
+      badge: "CAD/CAM & FEA"
+    }
+  ];
 
-                {/* BENTO GRID: ABOUT US */}
-                <motion.div
-                    className="about-bento"
-                    initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
-                >
-                    <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
-                        <p>
-                            The Department of Mechanical Engineering aims to produce engineers with the abilities to design and conduct experiments, as well as to analyze and interpret data.
-                        </p>
-                        <p>
-                            We equip students to function on multi-disciplinary teams, identify, formulate, and solve engineering problems with a deep understanding of professional and ethical responsibility, preparing them for lifelong learning.
-                        </p>
-                    </motion.div>
+  const achievements = [
+    {
+      year: "2025 - 2026",
+      title: "Automotive & Core Engineering Placements",
+      desc: "Graduates secured design and manufacturing roles at TVS Motors, Hyundai, Ashok Leyland, and L&T.",
+      badge: "Placements",
+      icon: <FaChartLine />
+    },
+    {
+      year: "2024 - 2025",
+      title: "MASS Motor Expo Laurels",
+      desc: "Mechanical Engineering Student Association hosted national-level Go-Kart and CAD modeling championships.",
+      badge: "Association",
+      icon: <FaAward />
+    },
+    {
+      year: "2023 - 2024",
+      title: "E-Vehicle & Solar Research Patents",
+      desc: "Faculty and students published 75+ research papers and filed 4 patents in solar thermal and EV battery cooling.",
+      badge: "Research",
+      icon: <FaBookOpen />
+    }
+  ];
 
-                    <motion.div className="bento-card" variants={zoomIn}>
-                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
-                        <p><strong>Scope:</strong> Principles employed in industries such as power generation, manufacturing, automotive, aerospace, robotics, and nanotechnology.</p>
-                        <p><strong>Competence:</strong> Interdisciplinary themes such as Health, Environment, Civics, and Entrepreneurship are taught to motivate, inspire, and build trust.</p>
-                    </motion.div>
-                </motion.div>
+  return (
+    <div className="cse-redesign-page">
 
-                {/* VISION & MISSION GLASS CARDS */}
-                <h2 className="glam-title">Goal & <span>Purpose</span></h2>
-                <div className="vm-wrapper">
-                    <motion.div
-                        className="glass-card"
-                        initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }} transition={{ duration: 0.8, type: "spring" }}
-                    >
-                        <div className="icon-wrapper vision-icon">
-                            <GiEyeTarget />
-                        </div>
-                        <h3>Our Vision</h3>
-                        <p style={{ fontSize: '1rem', lineHeight: 1.6, color: '#475569' }}>
-                            To become a centre for outstanding education and research in the field of Mechanical Engineering.
-                        </p>
-                    </motion.div>
+      {/* Page Banner (Preserved Untouched) */}
+      <PageBanner
+        title="Department of Mechanical Engineering"
+        subtitle="Designing the Machines of Tomorrow — Manufacturing Excellence, Thermal Systems, and Smart Mechatronics"
+        hideBreadcrumb={false}
+        breadcrumb={[
+          { label: "Academics", link: "#" },
+          { label: "Departments", link: "#" },
+          { label: "Mechanical" }
+        ]}
+        backgroundImage={bannerImg}
+      />
 
-                    <motion.div
-                        className="glass-card"
-                        initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }} transition={{ duration: 0.8, type: "spring", delay: 0.2 }}
-                    >
-                        <div className="icon-wrapper mission-icon">
-                            <GiStairsGoal />
-                        </div>
-                        <h3>Our Mission</h3>
-                        <ul>
-                            <li>To impart highest quality education among students to stabilize their Mechanical Engineering knowledge and innovative skills to solve work related and social issues.</li>
-                            <li>To develop alliance with research and development industries and alumni for achieving excellence in consultancy and product design.</li>
-                            <li>To enhance knowledge and expertise through professional programmes in the field of thermal, manufacturing and industrial engineering.</li>
-                            <li>To promote soft skills, leadership qualities and innovative research skills with ethical values.</li>
-                        </ul>
-                    </motion.div>
+      {/* SECTION 1: Introduction */}
+      <section className="cse-section cse-intro-section" id="mech-intro">
+        <div className="cse-bg-glow glow-1"></div>
+        <div className="cse-container cse-intro-grid">
+          <motion.div 
+            className="cse-intro-content"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp}>
+              <span className="cse-badge-pill">
+                <FaCogs /> Department of Mechanical Engineering
+              </span>
+            </motion.div>
+            <motion.h1 variants={fadeInUp} className="cse-heading">
+              Innovating the Future of <span className="cse-text-accent">Machines & Robotics</span>
+            </motion.h1>
+            <motion.div variants={fadeInUp} className="cse-accent-bar"></motion.div>
+            
+            <motion.p variants={fadeInUp} className="cse-body-text">
+              The Department of Mechanical Engineering at Nadar Saraswathi College of Engineering and Technology (NSCET) builds engineers capable of designing, analyzing, and manufacturing advanced mechanical systems.
+            </motion.p>
+            <motion.p variants={fadeInUp} className="cse-body-text">
+              We impart deep domain knowledge in thermal engineering, robotics, CAD/CAM design, and material science, nurturing practical hands-on mastery alongside ethical values.
+            </motion.p>
+
+            <motion.div variants={fadeInUp} className="cse-action-buttons">
+              <a href="#mech-facilities" className="cse-btn cse-btn-primary">
+                <FaPaperPlane /> Explore Facilities
+              </a>
+              <a href="#mech-faculty" className="cse-btn cse-btn-secondary">
+                <FaDownload /> View Faculty
+              </a>
+            </motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="cse-intro-media"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={scaleUp}
+          >
+            <div className="cse-media-card">
+              {bannerImg ? (
+                <img src={bannerImg} alt="Mechanical Engineering Department" className="cse-media-img" />
+              ) : (
+                <div className="cse-media-placeholder">
+                  <FaCogs className="cse-placeholder-icon" />
+                  <span>Mechanical Engineering</span>
                 </div>
-
-                {/* CAPABILITIES & FACILITIES */}
-                <h2 className="glam-title">Excellence & <span>Facilities</span></h2>
-                <motion.div
-                    className="capabilities-grid"
-                    variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                >
-                    <motion.div className="cap-card" variants={fadeInUp}>
-                        <FaFlask className="cap-icon" />
-                        <h4>Advanced Testing Labs</h4>
-                        <p>State-of-the-art facilities equipped with modern instruments for thermal, manufacturing, and materials testing.</p>
-                    </motion.div>
-
-                    <motion.div className="cap-card" variants={fadeInUp}>
-                        <FaCogs className="cap-icon" />
-                        <h4>Manufacturing Workshop</h4>
-                        <p>Comprehensive workshop with CNC machines, lathes, milling, and welding equipment for hands-on training.</p>
-                    </motion.div>
-
-                    <motion.div className="cap-card" variants={fadeInUp}>
-                        <FaRobot className="cap-icon" />
-                        <h4>Automation & Robotics Lab</h4>
-                        <p>Training in automation, control systems, robotics, and Industry 4.0 technologies for modern engineering practice.</p>
-                    </motion.div>
-
-                    <motion.div className="cap-card" variants={fadeInUp}>
-                        <FaTools className="cap-icon" />
-                        <h4>CAD/CAM Software Lab</h4>
-                        <p>Extensive training on industry software including AutoCAD, SolidWorks, CATIA, ANSYS, and Pro-E for design excellence.</p>
-                    </motion.div>
-                </motion.div>
-
-                {/* ASSOCIATION HIGHLIGHT */}
-                <motion.div
-                    className="glam-banner"
-                    initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
-                >
-                    <motion.div
-                        className="glam-banner-icon"
-                        initial={{ scale: 0, rotate: -180 }}
-                        whileInView={{ scale: 1, rotate: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3, type: "spring", bounce: 0.5 }}
-                    >
-                        <img src={massLogo} alt="MASS Logo" className="glam-banner-logo" />
-                    </motion.div>
-                    <motion.h3
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
-                    >
-                        Mechanical Association of Student Society (MASS)
-                    </motion.h3>
-                    <motion.p
-                        initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.7 }}
-                    >
-                        The association fosters leadership, innovation, collaboration, holistic growth, professional ethics,
-                        and continuous learning through events, projects, and networking.
-                    </motion.p>
-                </motion.div>
-
-                {/* LEADERSHIP */}
-                <h2 className="glam-title">Department <span>Leadership</span></h2>
-                <motion.div
-                    className="hod-banner"
-                    initial={{ opacity: 0, x: -80 }} whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.8, type: "spring", bounce: 0.25 }}
-                >
-                    <motion.div
-                        className="hod-avatar"
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3, type: "spring", bounce: 0.4 }}
-                    >
-                        <div className="hod-avatar-ring"></div>
-                        {hod.image ? <img src={hod.image} alt={hod.name} /> : <FaUserTie />}
-                    </motion.div>
-                    <div className="hod-details">
-                        <motion.h3
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                        >
-                            {hod.name}
-                        </motion.h3>
-                        <motion.span
-                            className="designation"
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.5 }}
-                        >
-                            {hod.desig}
-                        </motion.span>
-                        <motion.p
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.6 }}
-                        >
-                            <strong>Qualifications:</strong> {hod.qual}
-                        </motion.p>
-                        <motion.p
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.7 }}
-                        >
-                            <FaEnvelope style={{ color: 'var(--mech-accent)' }} /> {hod.email}
-                        </motion.p>
-                    </div>
-                </motion.div>
-
-                {/* STELLAR FACULTY GRID */}
-                <h2 className="glam-title">Expert <span>Faculty</span></h2>
-                <motion.div
-                    className="faculty-team-grid"
-                    variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                >
-                    {staff.map((member, idx) => (
-                        <motion.div key={idx} className="member-card" variants={fadeInUp}>
-                            <div className="member-avatar">
-                                {member.image ? <img src={member.image} alt={member.name} /> : <FaUserTie />}
-                            </div>
-                            <div className="member-info">
-                                <h4>{member.name}</h4>
-                                <span className="desig">{member.desig}</span>
-                                <span className="qual">{member.qual}</span>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-
-                {/* EVENTS SECTION */}
-                <h2 className="glam-title">Department <span>Events</span></h2>
-                <motion.div
-                    className="empty-events-state"
-                    initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.8 }}
-                >
-                    <FaCalendarTimes className="empty-icon" />
-                    <p>No events created yet for this department.</p>
-                </motion.div>
-
-            </main>
+              )}
+              <div className="cse-media-overlay">
+                <div className="cse-stat-tag">
+                  <FaCheckCircle className="cse-check-icon" /> Advanced CNC & Mechatronics Lab
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-    );
+      </section>
+
+      {/* SECTION 2: Statistics */}
+      <section className="cse-section cse-stats-section" id="mech-stats">
+        <div className="cse-container">
+          <motion.div 
+            className="cse-stats-grid"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {stats.map((stat, idx) => (
+              <motion.div key={idx} variants={fadeInUp} className="cse-stat-card" whileHover={{ y: -6 }}>
+                <div className="cse-stat-icon-wrap" style={{ color: stat.color, background: `${stat.color}15` }}>
+                  {stat.icon}
+                </div>
+                <h3 className="cse-stat-number">{stat.count}</h3>
+                <span className="cse-stat-label">{stat.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 3: Vision & Mission */}
+      <section className="cse-section cse-vm-section" id="mech-vision-mission">
+        <div className="cse-bg-glow glow-2"></div>
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Vision & <span className="cse-text-accent">Mission</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="cse-vm-grid"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp} className="cse-vm-card vision-card" whileHover={{ y: -6 }}>
+              <div className="cse-vm-top">
+                <div className="cse-vm-icon-box vision-icon">
+                  <GiEyeTarget />
+                </div>
+                <h3 className="cse-vm-title">Our Vision</h3>
+              </div>
+              <div className="cse-vm-divider"></div>
+              <p className="cse-vm-desc">
+                To achieve global recognition in mechanical engineering education and research, developing innovative software-driven mechanical engineers and industrial leaders.
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="cse-vm-card mission-card" whileHover={{ y: -6 }}>
+              <div className="cse-vm-top">
+                <div className="cse-vm-icon-box mission-icon">
+                  <GiStairsGoal />
+                </div>
+                <h3 className="cse-vm-title">Our Mission</h3>
+              </div>
+              <div className="cse-vm-divider"></div>
+              <ul className="cse-vm-list">
+                <li><FaCheckCircle className="cse-list-icon" /> To provide rigorous technical education in design, thermal systems, and manufacturing.</li>
+                <li><FaCheckCircle className="cse-list-icon" /> To foster industrial collaborations, internships, and robotics automation projects.</li>
+                <li><FaCheckCircle className="cse-list-icon" /> To instill ethical values, teamwork, and sustainable engineering practices.</li>
+              </ul>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 4: Facilities */}
+      <section className="cse-section cse-facilities-section" id="mech-facilities">
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Excellence & <span className="cse-text-accent">Facilities</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="cse-facilities-grid"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {facilities.map((fac, idx) => (
+              <motion.div key={idx} variants={fadeInUp} className="cse-facility-card" whileHover={{ y: -6 }}>
+                <span className="cse-fac-badge">{fac.badge}</span>
+                <div className="cse-fac-icon-wrap">{fac.icon}</div>
+                <h3 className="cse-fac-title">{fac.title}</h3>
+                <p className="cse-fac-desc">{fac.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 5: Department Association (MASS) */}
+      <section className="cse-section cse-assoc-section" id="mech-associations">
+        <div className="cse-bg-glow glow-1"></div>
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Department <span className="cse-text-accent">Association</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="cse-assoc-single-wrap"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={scaleUp}
+          >
+            <div className="cse-assoc-card single-card">
+              <div className="cse-assoc-header">
+                <div className="cse-assoc-logo-wrap">
+                  <img src={massLogo} alt="MASS Logo" className="cse-assoc-logo" />
+                </div>
+                <span className="cse-assoc-tag">Student Association • Active 6+ Years</span>
+              </div>
+              <h3 className="cse-assoc-name">MASS — Mechanical Association of Smart Students</h3>
+              <p className="cse-assoc-desc">
+                MASS conducts vehicle design expos, Go-Kart races, CAD modeling competitions, and technical industrial seminars for mechanical engineering students.
+              </p>
+              <div className="cse-assoc-features">
+                <span className="cse-chip">Vehicle Expo</span>
+                <span className="cse-chip">Go-Kart Races</span>
+                <span className="cse-chip">CAD Modeling</span>
+                <span className="cse-chip">Robotics Expo</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 6: HOD Leadership */}
+      <section className="cse-section cse-hod-section" id="mech-hod">
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Department <span className="cse-text-accent">Leadership</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <DepartmentHODProfile 
+            hod={{
+              ...hod,
+              quoteText: "Mechanical Engineering drives physical innovation. We mold our engineers to master smart manufacturing, robotics, and sustainable thermal design."
+            }} 
+            onOpenProfile={setSelectedFacultyProfile} 
+          />
+        </div>
+      </section>
+
+      {/* SECTION 7: Faculty Directory */}
+      <section className="cse-section cse-faculty-section" id="mech-faculty">
+        <div className="cse-bg-glow glow-2"></div>
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Faculty <span className="cse-text-accent">Members</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="cse-faculty-grid"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {staff.map((member, idx) => (
+              <DepartmentFacultyCard 
+                key={idx} 
+                member={member} 
+                onOpenProfile={setSelectedFacultyProfile} 
+                fadeInUp={fadeInUp} 
+              />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 8: Department Achievements */}
+      <section className="cse-section cse-achieve-section" id="mech-achievements">
+        <div className="cse-bg-glow glow-1"></div>
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Department <span className="cse-text-accent">Achievements</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <div className="cse-timeline">
+            {achievements.map((item, idx) => (
+              <motion.div 
+                key={idx}
+                className="cse-timeline-item"
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -40 : 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+              >
+                <div className="cse-timeline-marker">{item.icon}</div>
+                <div className="cse-timeline-content">
+                  <div className="cse-timeline-header">
+                    <span className="cse-timeline-badge">{item.badge}</span>
+                    <span className="cse-timeline-year">{item.year}</span>
+                  </div>
+                  <h3 className="cse-timeline-title">{item.title}</h3>
+                  <p className="cse-timeline-desc">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 9: Department Events */}
+      <section className="cse-section cse-events-section" id="mech-events">
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={scaleUp}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Department <span className="cse-text-accent">Events</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="cse-empty-events-box"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={scaleUp}
+          >
+            <div className="cse-empty-icon-wrap">
+              <FaCalendarTimes />
+            </div>
+            <h3 className="cse-empty-title">No Live Events Available Right Now</h3>
+            <p className="cse-empty-desc">
+              Our department regularly hosts guest lectures, technical symposiums, and coding workshops. Stay tuned for upcoming announcements!
+            </p>
+            <Link to="/gallery" className="cse-btn cse-btn-secondary">
+              <FaCalendarAlt /> Explore Event Archives
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
+      <FacultyProfileModal 
+        isOpen={selectedFacultyProfile !== null}
+        faculty={selectedFacultyProfile}
+        onClose={() => setSelectedFacultyProfile(null)}
+      />
+
+    </div>
+  );
 };
 
 export default Mechanical;

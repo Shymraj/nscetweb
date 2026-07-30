@@ -15,7 +15,8 @@ const PageBanner = ({
   imagePosition = "center",
   showOverlay = false,
   showText = false,
-  className = ""
+  className = "",
+  style = {}
 }) => {
   // Calculate dynamic font size class based on title length
   let titleSizeClass = "title-size-xl";
@@ -36,7 +37,8 @@ const PageBanner = ({
     <section 
       className={`page-banner ${className}`.trim()}
       style={{ 
-        ...(height ? { '--custom-banner-height': height } : {})
+        ...(height ? { '--custom-banner-height': height } : {}),
+        ...style
       }}
     >
       {/* Right side background image (TMHNU Trust style) */}

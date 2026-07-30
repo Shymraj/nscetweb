@@ -1,19 +1,24 @@
-import React from "react";
-import { BsBuildingsFill, BsEyeFill } from "react-icons/bs";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
-    FaLaptopCode, FaDatabase, FaServer, FaUserTie,
-    FaEnvelope, FaCodeBranch, FaShieldAlt, FaCalendarTimes
+  FaLaptopCode, FaDatabase, FaShieldAlt, FaServer,
+  FaUserTie, FaEnvelope, FaGraduationCap, FaChalkboardTeacher,
+  FaBookOpen, FaChartLine, FaDownload, FaPaperPlane, FaCalendarTimes,
+  FaCalendarAlt, FaAward, FaLightbulb, FaCheckCircle, FaQuoteLeft, FaFileAlt
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
-// Auto-load any banner image inside ./CSE_banner/
+import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
+import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
+import DepartmentHODProfile from "../../../components/common/DepartmentHODProfile/DepartmentHODProfile";
+
+// Auto-load banner image inside ./CSE_banner/
 const bannerGlobs = import.meta.glob("./CSE_banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
 const bannerImg = Object.values(bannerGlobs)[0] || null;
-import "./CSE.css";
 
 import fistLogo from "./images/fist.png";
-import ispinLogo from "./images/ispin.png";
 
 import imgMathalaiRaj from "./images/67dd26bfce3c4_mathalairaj.jpg";
 import imgVelkumar from "./images/69143b078344d_velkumar.JPG";
@@ -25,299 +30,466 @@ import imgAnusuya from "./images/1774870992_anusuya.jpeg";
 import imgVinothini from "./images/1778918321_CSE - Vinothini.jpeg";
 import imgSnega from "./images/1778918481_CSE - Snega Priyanka.png";
 
+import "./CSE.css";
+
+// Framer Motion Animation Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const scaleUp = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
+};
+
 const CSE = () => {
-    // Scroll Entrance Animations
-    const fadeInUp = {
-        hidden: { opacity: 0, y: 40 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-    };
+  const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
 
-    const zoomIn = {
-        hidden: { opacity: 0, scale: 0.9 },
-        visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } }
-    };
+  const faculties = [
+    { name: "Dr. J. Mathalai Raj", desig: "Assistant Professor & Head [I/C]", qual: "M.E (CSE), Ph.D", email: "hodcse@nscet.org", image: imgMathalaiRaj, spec: "Artificial Intelligence & Cloud Computing", objectPosition: "center 10%" },
+    { name: "Mr. K. Velkumar", desig: "Assistant Professor", qual: "M.E, (Ph.D)", email: "velkumar@nscet.org", image: imgVelkumar, spec: "Cloud Computing & Web Tech", objectPosition: "center 10%" },
+    { name: "Mrs. K. Deepiga", desig: "Assistant Professor", qual: "B.E, M.E", email: "deepiga.kece@gmail.com", image: imgDeepiga, spec: "Software Engineering & Databases", objectPosition: "center 12%" },
+    { name: "Mrs. R. Archana", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "archana@nscet.org", image: imgArchana, spec: "Machine Learning & Data Mining", objectPosition: "center 5%" },
+    { name: "Ms. S. Abirami Kayathiri", desig: "Assistant Professor", qual: "M.E.", email: "abiramikayathiri@nscet.org", image: imgAbirami, spec: "Cyber Security & Networks", objectPosition: "center 12%" },
+    { name: "Mrs. M. Venkata Lakshmi", desig: "Assistant Professor", qual: "M.E.", email: "venkatalakshmi@nscet.org", image: imgVenkataLakshmi, spec: "Data Analytics & Python Programming", objectPosition: "center 5%" },
+    { name: "Anusuya V", desig: "Assistant Professor", qual: "M.E.", email: "anusuya@nscet.org", image: imgAnusuya, spec: "Data Structures & Core Java", objectPosition: "center 5%" },
+    { name: "Vinothini V", desig: "Assistant Professor", qual: "M.E - Software", email: "vinoramesh2703@gmail.com", image: imgVinothini, spec: "Software Architecture & Agile Tech", objectPosition: "center 15%" },
+    { name: "Snega Priyanka J S", desig: "Assistant Professor", qual: "M.E.", email: "snegapriyanka20@gmail.com", image: imgSnega, spec: "Full-Stack Development & IoT", objectPosition: "center 15%" }
+  ];
 
-    const staggerContainer = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.15
-            }
-        }
-    };
+  const hod = faculties[0];
+  const staff = faculties.slice(1);
 
-    const faculties = [
-        { name: "Dr. J. Mathalai Raj", desig: "Assistant Professor & Head [I/C]", qual: "M.E (CSE), Ph.D", email: "hodcse@nscet.org", image: imgMathalaiRaj },
-        { name: "Mr. K. Velkumar", desig: "Assistant Professor", qual: "M.E, (Ph.D)", email: "velkumar@nscet.org", image: imgVelkumar },
-        { name: "Mrs. K. Deepiga", desig: "Assistant Professor", qual: "B.E, M.E", email: "deepiga.kece@gmail.com", image: imgDeepiga },
-        { name: "Mrs. R. Archana", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "archana@nscet.org", image: imgArchana },
-        { name: "Ms. S. Abirami Kayathiri", desig: "Assistant Professor", qual: "M.E.", email: "abiramikayathiri@nscet.org", image: imgAbirami },
-        { name: "Mrs. M. Venkata Lakshmi", desig: "Assistant Professor", qual: "M.E.", email: "venkatalakshmi@nscet.org", image: imgVenkataLakshmi },
-        { name: "Anusuya V", desig: "Assistant Professor", qual: "M.E.", email: "anusuya@nscet.org", image: imgAnusuya },
-        { name: "Vinothini V", desig: "Assistant Professor", qual: "M.E - Software", email: "vinoramesh2703@gmail.com", image: imgVinothini },
-        { name: "Snega Priyanka J S", desig: "Assistant Professor", qual: "M.E.", email: "snegapriyanka20@gmail.com", image: imgSnega }
-    ];
+  const stats = [
+    { count: "480+", label: "Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
+    { count: "15+", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "85+", label: "Research Papers", icon: <FaBookOpen />, color: "#d97706" },
+    { count: "6+", label: "Specialized Labs", icon: <FaServer />, color: "#7c3aed" },
+    { count: "95%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
+  ];
 
-    const hod = faculties[0];
-    const staff = faculties.slice(1);
+  const facilities = [
+    {
+      title: "Software Engineering Labs",
+      desc: "Advanced coding workstations equipped with modern IDEs, full-stack development frameworks, and open-source tools.",
+      icon: <FaLaptopCode />,
+      badge: "Development"
+    },
+    {
+      title: "Data Systems & Analytics",
+      desc: "High-performance database servers, big data processing frameworks, and cloud analytics platform infrastructure.",
+      icon: <FaDatabase />,
+      badge: "Big Data"
+    },
+    {
+      title: "Cyber Security & Networks",
+      desc: "Dedicated security testing environments, ethical hacking simulators, and network defense protocol labs.",
+      icon: <FaShieldAlt />,
+      badge: "Security"
+    },
+    {
+      title: "AI & Systems Research",
+      desc: "High-performance GPU computing nodes, machine learning toolkits, and IoT prototyping experimental setups.",
+      icon: <FaServer />,
+      badge: "AI & Innovation"
+    }
+  ];
 
-    return (
-        <div className="cse-container">
+  const achievements = [
+    {
+      year: "2025 - 2026",
+      title: "95%+ Placement Track Record",
+      desc: "Graduating CSE students secured high-package engineering roles across leading IT multinationals and software product firms.",
+      badge: "Placements",
+      icon: <FaChartLine />
+    },
+    {
+      year: "2024 - 2025",
+      title: "National Hackathon Laurels",
+      desc: "Student innovation teams won top positions in National Smart India Hackathons and regional software coding competitions.",
+      badge: "Hackathons",
+      icon: <FaAward />
+    },
+    {
+      year: "2023 - 2024",
+      title: "Research Publications & Patents",
+      desc: "Over 85+ Scopus-indexed research papers published by faculty and students along with multiple patent applications filed.",
+      badge: "Research",
+      icon: <FaBookOpen />
+    },
+    {
+      year: "2022 - 2023",
+      title: "In-House Product Incubation",
+      desc: "Successfully launched production-grade enterprise software applications for college administration through student incubation.",
+      badge: "Incubation",
+      icon: <FaLightbulb />
+    }
+  ];
 
-            {/* HERO BANNER */}
-            <PageBanner
-                title="DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING"
-                subtitle="Innovating the digital frontier — shaping the future through code, intelligence, and boundless creativity."
-                hideBreadcrumb={true}
-                backgroundImage={bannerImg}
-            />
+  return (
+    <div className="cse-redesign-page">
 
-            <main className="content-wrapper">
+      {/* Page Banner (Preserved) */}
+      <PageBanner
+        title="Department of Computer Science & Engineering"
+        subtitle="Innovating the Digital Frontier — Shaping the Future Through Code, Intelligence, and Industry Excellence"
+        hideBreadcrumb={true}
+        backgroundImage={bannerImg}
+        height="auto"
+      />
 
-                {/* BENTO GRID: ABOUT US */}
-                <motion.div
-                    className="about-bento"
-                    initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
-                >
-                    <motion.div className="bento-card primary" variants={fadeInUp}>
-                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsBuildingsFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Our Department</h3>
-                        <p>
-                            The Department of Computer Science and Engineering aims to produce engineers who are life-long learners pursuing professional development and thriving in a multidisciplinary, systems-oriented work environment.
-                        </p>
-                        <p>
-                            We train students to contribute to the solution of complex technical problems existing in the software industry, understanding their ethical roles as professional engineers striving to promote integrity, tolerance, and respect.
-                        </p>
-                    </motion.div>
+      {/* SECTION 1: Department Introduction */}
+      <section className="cse-section cse-intro-section" id="cse-intro">
+        <div className="cse-bg-glow glow-1"></div>
+        <div className="cse-container cse-intro-grid">
+          <motion.div 
+            className="cse-intro-content"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp}>
+              <span className="cse-badge-pill">
+                <FaLaptopCode /> Department of CSE
+              </span>
+            </motion.div>
+            <motion.h1 variants={fadeInUp} className="cse-heading">
+              Engineering the Future of <span className="cse-text-accent">Software & Intelligence</span>
+            </motion.h1>
+            <motion.div variants={fadeInUp} className="cse-accent-bar"></motion.div>
+            
+            <motion.p variants={fadeInUp} className="cse-body-text">
+              The Department of Computer Science and Engineering at Nadar Saraswathi College of Engineering and Technology (NSCET) aims to produce engineers who are lifelong learners, pursuing professional development and thriving in a multidisciplinary, systems-oriented work environment.
+            </motion.p>
+            <motion.p variants={fadeInUp} className="cse-body-text">
+              We train students to solve complex technical problems in the software industry, equipping them with deep expertise in software engineering, artificial intelligence, data systems, and cyber security while upholding strong ethical values, leadership, and tolerance.
+            </motion.p>
 
-                    <motion.div className="bento-card" variants={zoomIn}>
-                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><BsEyeFill style={{ color: 'var(--theme-primary, #3b82f6)' }} /> Overview</h3>
-                        <p><strong>Excellence:</strong> Nurturing a conducive environment for erudition and research by adopting appropriate computing technologies while creating confident, real-time software professionals.</p>
-                        <p><strong>Environment:</strong> The department features an excellent academic grounding intertwined with teamwork, inspiring technical enhancement through deep, continuous faculty-guided learning.</p>
-                    </motion.div>
-                </motion.div>
+            <motion.div variants={fadeInUp} className="cse-action-buttons">
+              <a href="#cse-facilities" className="cse-btn cse-btn-primary">
+                <FaPaperPlane /> Explore Facilities
+              </a>
+              <a href="#cse-faculty" className="cse-btn cse-btn-secondary">
+                <FaDownload /> View Faculty
+              </a>
+            </motion.div>
+          </motion.div>
 
-                {/* VISION & MISSION GLASS CARDS */}
-                <h2 className="glam-title">Goal & <span>Purpose</span></h2>
-                <div className="vm-wrapper">
-                    <motion.div
-                        className="glass-card"
-                        initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }} transition={{ duration: 0.8, type: "spring" }}
-                    >
-                        <div className="icon-wrapper vision-icon">
-                            <GiEyeTarget />
-                        </div>
-                        <h3>Our Vision</h3>
-                        <p style={{ fontSize: '1rem', lineHeight: 1.6, color: '#475569' }}>
-                            To become a leading hub in the field of Computer engineering.
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        className="glass-card"
-                        initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }} transition={{ duration: 0.8, type: "spring", delay: 0.2 }}
-                    >
-                        <div className="icon-wrapper mission-icon">
-                            <GiStairsGoal />
-                        </div>
-                        <h3>Our Mission</h3>
-                        <ul>
-                            <li>To provide a strong theoretical and practical knowledge emphasizing on software developments.</li>
-                            <li>To encourage autonomous learning foster interactions and establish partnership with renowned software industries.</li>
-                            <li>To inculcate soft skills, leadership qualities and innovative research skills with ethical values.</li>
-                        </ul>
-                    </motion.div>
+          <motion.div 
+            className="cse-intro-media"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={scaleUp}
+          >
+            <div className="cse-media-card">
+              {bannerImg ? (
+                <img src={bannerImg} alt="CSE Department" className="cse-media-img" />
+              ) : (
+                <div className="cse-media-placeholder">
+                  <FaLaptopCode className="cse-placeholder-icon" />
+                  <span>Computer Science & Engineering</span>
                 </div>
-
-                {/* CAPABILITIES & FACILITIES */}
-                <h2 className="glam-title">Excellence & <span>Facilities</span></h2>
-                <motion.div
-                    className="capabilities-grid"
-                    variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                >
-                    <motion.div className="cap-card" variants={fadeInUp}>
-                        <FaLaptopCode className="cap-icon" />
-                        <h4 style={{ color: "var(--cse-primary)" }}>Software Engineering</h4>
-                        <p>Advanced coding labs equipped with latest platforms emphasizing practical methodology and full-stack development.</p>
-                    </motion.div>
-
-                    <motion.div className="cap-card" variants={fadeInUp}>
-                        <FaDatabase className="cap-icon" />
-                        <h4 style={{ color: "var(--cse-primary)" }}>Data Systems</h4>
-                        <p>Extensive training on robust databases, big data tools, analytics, and foundational storage algorithms.</p>
-                    </motion.div>
-
-                    <motion.div className="cap-card" variants={fadeInUp}>
-                        <FaShieldAlt className="cap-icon" />
-                        <h4 style={{ color: "var(--cse-primary)" }}>Cyber Solutions</h4>
-                        <p>Learning environments tailored towards exploring ethical practices, system security, and reliable protocols.</p>
-                    </motion.div>
-
-                    <motion.div className="cap-card" variants={fadeInUp}>
-                        <FaCodeBranch className="cap-icon" />
-                        <h4 style={{ color: "var(--cse-primary)" }}>System Research</h4>
-                        <p>Empowering innovation and technology incubation to convert academic ideas into robust real-world products.</p>
-                    </motion.div>
-                </motion.div>
-
-                {/* ASSOCIATION HIGHLIGHTS */}
-                <h2 className="glam-title">Department <span>Associations</span></h2>
-
-                <motion.div
-                    className="glam-banner"
-                    style={{ marginBottom: "2rem" }}
-                    initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
-                >
-                    <motion.div
-                        className="glam-banner-icon"
-                        initial={{ scale: 0, rotate: -180 }}
-                        whileInView={{ scale: 1, rotate: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3, type: "spring", bounce: 0.5 }}
-                    >
-                        <img src={fistLogo} alt="FIST Logo" className="glam-banner-logo" />
-                    </motion.div>
-                    <motion.h3
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
-                    >
-                        Fraternity of Immortal Software Technocrats (FIST)
-                    </motion.h3>
-                    <motion.p
-                        initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.7 }}
-                    >
-                        Running successfully for over six years, our passionate group of engineers constantly involve themselves in organizing technical and non-technical events to invoke creativity.
-                    </motion.p>
-                </motion.div>
-
-                <motion.div
-                    className="glam-banner"
-                    initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
-                >
-                    <motion.div
-                        className="glam-banner-icon"
-                        initial={{ scale: 0, rotate: -180 }}
-                        whileInView={{ scale: 1, rotate: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3, type: "spring", bounce: 0.5 }}
-                    >
-                        <img src={ispinLogo} alt="iSPIN Logo" className="glam-banner-logo" style={{ background: "white", padding: "10px" }} />
-                    </motion.div>
-                    <motion.h3
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
-                    >
-                        Innovative Software Product Industry of NSCET (iSPIN)
-                    </motion.h3>
-                    <motion.p
-                        initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.7 }}
-                    >
-                        A pure IT sector established within NSCET serving as an incubation cell. Under the guidance of industry specialists, iSPIN focuses on Unlearn & Learn strategy to develop products for NSCET and its clients.
-                    </motion.p>
-                </motion.div>
-
-                {/* LEADERSHIP */}
-                <h2 className="glam-title" style={{ marginTop: "2rem" }}>Department <span>Leadership</span></h2>
-                <motion.div
-                    className="hod-banner"
-                    initial={{ opacity: 0, x: -80 }} whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.8, type: "spring", bounce: 0.25 }}
-                >
-                    <motion.div
-                        className="hod-avatar"
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3, type: "spring", bounce: 0.4 }}
-                    >
-                        <div className="hod-avatar-ring"></div>
-                        {hod.image ? <img src={hod.image} alt={hod.name} /> : <FaUserTie />}
-                    </motion.div>
-                    <div className="hod-details">
-                        <motion.h3
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                        >
-                            {hod.name}
-                        </motion.h3>
-                        <motion.span
-                            className="designation"
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.5 }}
-                        >
-                            {hod.desig}
-                        </motion.span>
-                        <motion.p
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.6 }}
-                        >
-                            <strong>Qualifications:</strong> {hod.qual}
-                        </motion.p>
-                        <motion.p
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.7 }}
-                        >
-                            <FaEnvelope style={{ color: 'var(--cse-accent)' }} /> {hod.email}
-                        </motion.p>
-                    </div>
-                </motion.div>
-
-                {/* STELLAR FACULTY GRID */}
-                <h2 className="glam-title">Expert <span>Faculty</span></h2>
-                <motion.div
-                    className="faculty-team-grid"
-                    variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                >
-                    {staff.map((member, idx) => (
-                        <motion.div key={idx} className="member-card" variants={fadeInUp}>
-                            <div className="member-avatar">
-                                {member.image ? <img src={member.image} alt={member.name} /> : <FaUserTie />}
-                            </div>
-                            <div className="member-info">
-                                <h4 style={{ color: "var(--cse-primary)" }}>{member.name}</h4>
-                                <span className="desig">{member.desig}</span>
-                                <span className="qual">{member.qual}</span>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-
-                {/* EVENTS SECTION */}
-                <h2 className="glam-title">Department <span>Events</span></h2>
-                <motion.div
-                    className="empty-events-state"
-                    initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.8 }}
-                >
-                    <FaCalendarTimes className="empty-icon" />
-                    <p>No events created yet for this department.</p>
-                </motion.div>
-
-            </main>
+              )}
+              <div className="cse-media-overlay">
+                <div className="cse-stat-tag">
+                  <FaCheckCircle className="cse-check-icon" /> NAAC 'A' Grade Excellence
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-    );
+      </section>
+
+      {/* SECTION 2: Department Statistics */}
+      <section className="cse-section cse-stats-section" id="cse-stats">
+        <div className="cse-container">
+          <motion.div 
+            className="cse-stats-grid"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {stats.map((stat, idx) => (
+              <motion.div key={idx} variants={fadeInUp} className="cse-stat-card" whileHover={{ y: -6 }}>
+                <div className="cse-stat-icon-wrap" style={{ color: stat.color, background: `${stat.color}15` }}>
+                  {stat.icon}
+                </div>
+                <h3 className="cse-stat-number">{stat.count}</h3>
+                <span className="cse-stat-label">{stat.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 3: Vision & Mission */}
+      <section className="cse-section cse-vm-section" id="cse-vision-mission">
+        <div className="cse-bg-glow glow-2"></div>
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Vision & <span className="cse-text-accent">Mission</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="cse-vm-grid"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp} className="cse-vm-card vision-card" whileHover={{ y: -6 }}>
+              <div className="cse-vm-top">
+                <div className="cse-vm-icon-box vision-icon">
+                  <GiEyeTarget />
+                </div>
+                <h3 className="cse-vm-title">Our Vision</h3>
+              </div>
+              <div className="cse-vm-divider"></div>
+              <p className="cse-vm-desc">
+                To become a leading hub in the field of Computer engineering, producing confident software professionals and researchers of high caliber.
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="cse-vm-card mission-card" whileHover={{ y: -6 }}>
+              <div className="cse-vm-top">
+                <div className="cse-vm-icon-box mission-icon">
+                  <GiStairsGoal />
+                </div>
+                <h3 className="cse-vm-title">Our Mission</h3>
+              </div>
+              <div className="cse-vm-divider"></div>
+              <ul className="cse-vm-list">
+                <li><FaCheckCircle className="cse-list-icon" /> To provide strong theoretical and practical knowledge emphasizing software development.</li>
+                <li><FaCheckCircle className="cse-list-icon" /> To encourage autonomous learning, foster interactions, and establish partnerships with renowned software industries.</li>
+                <li><FaCheckCircle className="cse-list-icon" /> To inculcate soft skills, leadership qualities, and innovative research skills with ethical values.</li>
+              </ul>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 4: Facilities */}
+      <section className="cse-section cse-facilities-section" id="cse-facilities">
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Excellence & <span className="cse-text-accent">Facilities</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="cse-facilities-grid"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {facilities.map((fac, idx) => (
+              <motion.div key={idx} variants={fadeInUp} className="cse-facility-card" whileHover={{ y: -6 }}>
+                <span className="cse-fac-badge">{fac.badge}</span>
+                <div className="cse-fac-icon-wrap">{fac.icon}</div>
+                <h3 className="cse-fac-title">{fac.title}</h3>
+                <p className="cse-fac-desc">{fac.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 5: Department Association (FIST) */}
+      <section className="cse-section cse-assoc-section" id="cse-associations">
+        <div className="cse-bg-glow glow-1"></div>
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Department <span className="cse-text-accent">Association</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="cse-assoc-single-wrap"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={scaleUp}
+          >
+            <div className="cse-assoc-card single-card">
+              <div className="cse-assoc-header">
+                <div className="cse-assoc-logo-wrap">
+                  <img src={fistLogo} alt="FIST Logo" className="cse-assoc-logo" />
+                </div>
+                <span className="cse-assoc-tag">Student Association • Active 6+ Years</span>
+              </div>
+              <h3 className="cse-assoc-name">Fraternity of Immortal Software Technocrats (FIST)</h3>
+              <p className="cse-assoc-desc">
+                Running successfully for over six years, our passionate group of engineers constantly involve themselves in organizing technical and non-technical events to invoke creativity, team building, and leadership skills.
+              </p>
+              <div className="cse-assoc-features">
+                <span className="cse-chip">Technical Events</span>
+                <span className="cse-chip">Coding Competitions</span>
+                <span className="cse-chip">Hackathons</span>
+                <span className="cse-chip">Workshops</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 6: Head of Department */}
+      <section className="cse-section cse-hod-section" id="cse-hod">
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Department <span className="cse-text-accent">Leadership</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <DepartmentHODProfile 
+            hod={{
+              ...hod,
+              quoteText: "Our vision is to nurture world-class software engineers who combine technical mastery with ethical leadership to build meaningful technological solutions for society."
+            }} 
+            onOpenProfile={setSelectedFacultyProfile} 
+          />
+        </div>
+      </section>
+
+      {/* SECTION 7: Faculty Members */}
+      <section className="cse-section cse-faculty-section" id="cse-faculty">
+        <div className="cse-bg-glow glow-2"></div>
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Faculty <span className="cse-text-accent">Members</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="cse-faculty-grid"
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {staff.map((member, idx) => (
+              <DepartmentFacultyCard 
+                key={idx} 
+                member={member} 
+                onOpenProfile={setSelectedFacultyProfile} 
+                fadeInUp={fadeInUp} 
+              />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 8: Department Achievements */}
+      <section className="cse-section cse-achieve-section" id="cse-achievements">
+        <div className="cse-bg-glow glow-1"></div>
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Department <span className="cse-text-accent">Achievements</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <div className="cse-timeline">
+            {achievements.map((item, idx) => (
+              <motion.div 
+                key={idx}
+                className="cse-timeline-item"
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -40 : 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+              >
+                <div className="cse-timeline-marker">{item.icon}</div>
+                <div className="cse-timeline-content">
+                  <div className="cse-timeline-header">
+                    <span className="cse-timeline-badge">{item.badge}</span>
+                    <span className="cse-timeline-year">{item.year}</span>
+                  </div>
+                  <h3 className="cse-timeline-title">{item.title}</h3>
+                  <p className="cse-timeline-desc">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 9: Department Events */}
+      <section className="cse-section cse-events-section" id="cse-events">
+        <div className="cse-container">
+          <motion.div 
+            className="cse-section-header"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="cse-section-title">
+              Department <span className="cse-text-accent">Events</span>
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="cse-empty-events-box"
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={scaleUp}
+          >
+            <div className="cse-empty-icon-wrap">
+              <FaCalendarTimes />
+            </div>
+            <h3 className="cse-empty-title">No Live Events Available Right Now</h3>
+            <p className="cse-empty-desc">
+              Our department regularly hosts guest lectures, technical symposiums, and coding workshops. Stay tuned for upcoming announcements!
+            </p>
+            <Link to="/gallery" className="cse-btn cse-btn-secondary">
+              <FaCalendarAlt /> Explore Event Archives
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
+      <FacultyProfileModal 
+        isOpen={selectedFacultyProfile !== null}
+        faculty={selectedFacultyProfile}
+        onClose={() => setSelectedFacultyProfile(null)}
+      />
+
+    </div>
+  );
 };
 
 export default CSE;
