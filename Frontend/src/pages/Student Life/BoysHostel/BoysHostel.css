@@ -310,3 +310,41 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Dark Mode Overrides */
+body.dark-mode .boyshostel-page {
+  background: var(--bg-primary);
+}
+
+body.dark-mode .college-header-info,
+body.dark-mode .warden-card,
+body.dark-mode .facility-card,
+body.dark-mode .stat-card:not(.highlight),
+body.dark-mode .event-box,
+body.dark-mode .rules-list li,
+body.dark-mode .about-hostel p {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .college-header-info h2,
+body.dark-mode .section-header h3,
+body.dark-mode .warden-card h4,
+body.dark-mode .event-details h4 {
+  color: var(--text-primary);
+}
+
+body.dark-mode .college-header-info h5,
+body.dark-mode .college-header-info .approvals,
+body.dark-mode .facility-card p,
+body.dark-mode .stat-label,
+body.dark-mode .event-details p,
+body.dark-mode .rules-list li span {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .event-icon-wrap {
+  background: rgba(245, 158, 11, 0.1);
+}
