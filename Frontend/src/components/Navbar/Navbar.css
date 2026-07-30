@@ -816,7 +816,6 @@ body.dark-mode .navbar:hover {
 /* Ensure NAAC logo 'A' is white without a full white background box */
 body.dark-mode .naac-logo {
     background: radial-gradient(circle at 50% 45%, #ffffff 0%, #ffffff 30%, transparent 35%);
-    border-radius: 50%;
     /* Optional: helps constrain background if needed */
     padding: 0;
 }

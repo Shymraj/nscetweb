@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./Hero.css";
 import heroImage from "../../assets/hero.png";
 import logo from "../../assets/Img/nscet-logo.webp";
@@ -11,10 +13,40 @@ import {
 } from "react-icons/fa";
 
 const Hero = () => {
+  const [heroes, setHeroes] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchHeroes = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/admin/home/hero");
+        if (response.data && response.data.data) {
+          setHeroes(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching hero data:", error);
+      }
+    };
+    fetchHeroes();
+  }, []);
+
+  useEffect(() => {
+    if (heroes.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % heroes.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [heroes.length]);
+
+  const currentHeroImg = heroes.length > 0 && heroes[currentIndex].photo_url 
+    ? `http://localhost:5000${heroes[currentIndex].photo_url}` 
+    : heroImage;
+
   return (
     <section
       className="hero"
-      style={{ backgroundImage: `url(${heroImage})` }}
+      style={{ backgroundImage: `url(${currentHeroImg})`, transition: "background-image 1s ease-in-out" }}
     >
       {/* Premium Overlay */}
       <div className="hero-overlay"></div>
@@ -29,40 +61,78 @@ const Hero = () => {
             </div>
           </div>
 
-          <h1 className="hero-college-name">
-            NADAR SARASWATHI
-            <br />
-            <span className="accent-text">
-              COLLEGE OF
-              <br />
-              ENGINEERING &
-              <br />
-              TECHNOLOGY
-            </span>
-          </h1>
+          {heroes.length > 0 ? (
+            <>
+              <h1 className="hero-college-name">
+                {heroes[currentIndex].heading}
+              </h1>
 
-          <div className="premium-line"></div>
+              <div className="premium-line"></div>
 
-          <p className="college-tagline">Empowering Minds, Shaping the Future</p>
+              <p className="college-tagline">{heroes[currentIndex].sub_heading}</p>
 
-          <p className="left-description">
-            Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai
-Accredited by NAAC with 'A' Grade <br />Recognized under 2(f) of the UGC Act, 1956 <br />
-An ISO 9001:2015 Certified Institution <br />
-Vadapudupatti, Annanji (PO), Theni - 625531.
-          </p>
+              <p className="left-description">
+                {heroes[currentIndex].paragraph}
+              </p>
 
-          <div className="hero-buttons">
-            <button className="btn-primary">
-              Apply Now
-              <FaArrowRight />
-            </button>
+              <div className="hero-buttons">
+                {heroes[currentIndex].button_name && (
+                  <button 
+                    className="btn-primary" 
+                    onClick={() => {
+                      if (heroes[currentIndex].url) {
+                        window.open(heroes[currentIndex].url, '_blank');
+                      }
+                    }}
+                  >
+                    {heroes[currentIndex].button_name}
+                    <FaArrowRight />
+                  </button>
+                )}
+                <button className="btn-secondary">
+                  Explore Campus
+                  <FaArrowRight />
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <h1 className="hero-college-name">
+                NADAR SARASWATHI
+                <br />
+                <span className="accent-text">
+                  COLLEGE OF
+                  <br />
+                  ENGINEERING &
+                  <br />
+                  TECHNOLOGY
+                </span>
+              </h1>
 
-            <button className="btn-secondary">
-              Explore Campus
-              <FaArrowRight />
-            </button>
-          </div>
+              <div className="premium-line"></div>
+
+              <p className="college-tagline">Empowering Minds, Shaping the Future</p>
+
+              <p className="left-description">
+                Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai
+    Accredited by NAAC with 'A' Grade <br />Recognized under 2(f) of the UGC Act, 1956 <br />
+    An ISO 9001:2015 Certified Institution <br />
+    Vadapudupatti, Annanji (PO), Theni - 625531.
+              </p>
+
+              <div className="hero-buttons">
+                <button className="btn-primary">
+                  Apply Now
+                  <FaArrowRight />
+                </button>
+
+                <button className="btn-secondary">
+                  Explore Campus
+                  <FaArrowRight />
+                </button>
+              </div>
+            </>
+          )}
         </div>
 
         {/* RIGHT FLOATING CARDS PANEL */}
