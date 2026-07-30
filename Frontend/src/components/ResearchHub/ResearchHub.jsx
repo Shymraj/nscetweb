@@ -3,16 +3,25 @@ import "./ResearchHub.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBookOpen, FaRunning, FaBed, FaUsers, FaCoffee, FaArrowRight } from "react-icons/fa";
 
-// Imports for videos and images
+// Existing Imports
 import ispin from "../../assets/ispin.mp4"; 
 import drone1 from "../../assets/Drone.jpg";
 import drone2 from "../../assets/Drone1.jpg";
 import drone3 from "../../assets/Drone2.jpg";
+import printingImg from "../../assets/Printing.jpeg";
+
+// =========================================================================
+// 👉 STEP 1: FUTURE IMAGES IMPORT PANNURA EDAM 👈
+// Images ready aanadhum, keela iruka lines-a uncomment panni correct path kudunga:
+// =========================================================================
+// import printingImg from "../../assets/Printing.jpg";
+// import iqarenaImg from "../../assets/Iqarena.jpg";
+// import cafeteriaImg from "../../assets/Cafeteria.jpg";
 
 const campusData = [
   {
     id: "library",
-    title: "ISPIN",
+    title: "ISPIN (CSE,IT,AIDS)",
     icon: <FaBookOpen />,
     video: ispin, 
     description: "Innovative Software Product at NSCET",
@@ -22,32 +31,37 @@ const campusData = [
     id: "sports",
     title: "Drone Technology",
     icon: <FaRunning />,
-    // INGA DHAAN CHANGES PANNIRUKOM: Single image-ku badhila array of 3 images
     images: [drone1, drone2, drone3], 
     description: "State-of-the-art facilities for assembling, testing, and flying customized drones. Students get hands-on experience in modern aerial robotics.",
     highlight: "Advanced Robotics"
   },
   {
-    id: "hostel",
-    title: "3D-Printing",
+    id: "printing",
+    title: "3D - Printing",
     icon: <FaBed />,
-    image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    // 👇 STEP 2 (PRINTING): INGA IMAGE ADD PANNANUM 👇
+    // Future code: image: printingImg,
+    image: printingImg,
     description: "Safe, secure, and comfortable AC/Non-AC hostels with high-speed Wi-Fi, hygienic mess facilities, and recreation rooms offering a home away from home.",
     highlight: "Modern Amenities"
   },
   {
     id: "clubs",
-    title: "IQARENA",
+    title: "Electrical Vehicle (EEE)",
     icon: <FaUsers />,
-    image: "https://images.unsplash.com/photo-1523580494112-071d324be806?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    // 👇 STEP 2 (IQARENA): INGA IMAGE ADD PANNANUM 👇
+    // Future code: image: iqarenaImg,
+    image: "https://via.placeholder.com/1000x800/f8fafc/f97316?text=IQARENA+Image+Coming+Soon",
     description: "From Robotics and Coding to Drama and Music, join over 30+ active student clubs to pursue your passion, build leadership skills, and network.",
     highlight: "30+ Active Clubs"
   },
   {
     id: "cafeteria",
-    title: "Cafeteria & Hangouts",
+    title: "WG Tech (ECE)",
     icon: <FaCoffee />,
-    image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    // 👇 STEP 2 (CAFETERIA): INGA IMAGE ADD PANNANUM 👇
+    // Future code: image: cafeteriaImg,
+    image: "https://via.placeholder.com/1000x800/f8fafc/f97316?text=Cafeteria+Image+Coming+Soon",
     description: "Spacious multi-cuisine cafeterias and lush green campus hangout spots where ideas are brewed over coffee and lifelong friendships are made.",
     highlight: "Hygienic Multi-Cuisine"
   }
@@ -82,7 +96,7 @@ function CampusLife() {
         <div className="campus-header">
           <div className="header-left">
             <p className="campus-subtitle">BEYOND THE CLASSROOM</p>
-            <h2 className="campus-title">Research and Development</h2>
+            <h2 className="campus-title"> Centre Of Excellence</h2>
           </div>
           <p className="campus-header-desc">
             Our vibrant green campus offers a perfect blend of academics, 
@@ -150,7 +164,7 @@ function CampusLife() {
                       />
                     </AnimatePresence>
                   ) : (
-                    // Default Single Image render
+                    // Default Single Image render (Uses placeholder till you update it)
                     <img 
                       src={activeTab.image} 
                       alt={activeTab.title} 

@@ -17,7 +17,7 @@ const events = [
     title: "Hackathon 2025–26",
     description:
       "National-level 48-hour coding marathon open to all engineering students with exciting prizes.",
-    button: "Register Now"
+    button: "View More"
   },
   {
     category: "Cultural Fest",
@@ -27,7 +27,7 @@ const events = [
     title: "Waves'25",
     description:
       "NSCET's flagship cultural festival celebrating music, dance, drama, fine arts and technology.",
-    button: "Know More"
+    button: "View More"
   },
   {
     category: "Conference",
@@ -37,7 +37,7 @@ const events = [
     title: "Pongal 2026",
     description:
       "International Conference on Recent Trends in Technology with keynote speakers and paper presentations.",
-    button: "Submit Paper"
+    button: "View More"
   },
   {
     category: "Sports",
@@ -47,7 +47,7 @@ const events = [
     title: "Annual Sports Meet",
     description:
       "Indoor and outdoor sports competitions encouraging teamwork, discipline and sportsmanship.",
-    button: "View Details"
+    button: "View More"
   },
 
 ];
