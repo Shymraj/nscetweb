@@ -24,7 +24,6 @@
 
 /* --- HERO SECTION --- */
 .hostel-hero {
-  /* 🔥 Blue and Orange Gradient Blend */
   background: url('/hostel.jpg') no-repeat center center/cover;
   width: 100%;
   aspect-ratio: 8 / 3;
@@ -62,25 +61,29 @@
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-/* Default subtle lift */
 .hostel-section:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(249, 115, 22, 0.12); /* Orange Shadow */
-  border-color: #fdba74; /* Light Orange */
+  box-shadow: 0 12px 30px rgba(249, 115, 22, 0.12);
+  border-color: #fdba74;
 }
 
-/* 🔥 NEW: About Container Zoom Hover Effect 🔥 */
-.about-section:hover,
-.events-section:hover,
+/* 🔥 About Section Zoom on Hover */
+.about-section:hover {
+  transform: scale(1.04) translateY(-6px);
+  box-shadow: 0 18px 40px rgba(249, 115, 22, 0.15);
+}
+
+.culture-facilities-section:hover,
 .nearby-section:hover {
   transform: scale(1.02) translateY(-4px);
-  box-shadow: 0 15px 35px rgba(249, 115, 22, 0.15); /* Orange Shadow */
+  box-shadow: 0 15px 35px rgba(249, 115, 22, 0.15);
 }
 
+/* 🔥 Headings in Black Color */
 .section-title {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #1e3a8a; /* Deep Blue */
+  color: #000000;
   margin-bottom: 20px;
   display: block;
 }
@@ -92,15 +95,14 @@
 .about-text p { line-height: 1.8; color: #555; font-size: 1rem; }
 .about-highlights { flex: 1; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 
-/* 🔥 Blue & Orange Chips Zoom Effect */
 .highlight-chip { 
-  background: #fff7ed; /* Light Orange bg */
-  color: #000000; /* Vibrant Orange text */
+  background: #fff7ed; 
+  color: #000000; 
   padding: 8px 15px; 
   border-radius: 30px; 
   font-size: 0.85rem; 
   font-weight: 600; 
-  border: 1px solid #fed7aa; /* Orange Border */
+  border: 1px solid #fed7aa; 
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -112,39 +114,144 @@
 }
 
 /* --- ADMIN SECTION --- */
-.admin-section { padding: 25px; } 
-.admin-cards-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.admin-section { padding: 20px 25px; } 
+.admin-cards-container { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .admin-card {
   text-align: center; background: #fcfcfc; border: 1px solid #eee;
-  padding: 15px; border-radius: 12px; transition: transform 0.3s ease; width: 100%;
+  padding: 10px 15px; border-radius: 10px; transition: transform 0.3s ease; width: 100%;
 }
-.admin-card:hover { transform: translateY(-3px); border-color: #1e3a8a; } /* Blue border on hover */
-.chief { max-width: 350px; background: #eff6ff; border: 1px solid #dbeafe; } /* Light Blue bg */
-.deputy-cards { display: flex; gap: 15px; justify-content: center; width: 100%; flex-wrap: wrap; }
-.deputy { flex: 1; min-width: 200px; max-width: 300px; }
+.admin-card:hover { transform: translateY(-2px); border-color: #1e3a8a; }
+.chief { max-width: 320px; background: #eff6ff; border: 1px solid #dbeafe; }
+.deputy-cards { display: flex; gap: 12px; justify-content: center; width: 100%; flex-wrap: wrap; }
+.deputy { flex: 1; min-width: 180px; max-width: 260px; }
 .admin-avatar {
-  width: 50px; height: 50px; background: #1e3a8a; /* Deep Blue */ color: white; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; margin: 0 auto 10px; letter-spacing: 1px;
+  width: 40px; height: 40px; background: #1e3a8a; color: white; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 700; margin: 0 auto 6px; letter-spacing: 1px;
 }
-.chief .admin-avatar { width: 60px; height: 60px; font-size: 1.2rem; background: #f97316; } /* Orange Avatar for Chief */
-.admin-card h3 { font-size: 1.05rem; margin-bottom: 2px; color: #333; }
-.admin-role { font-size: 0.8rem; color: #666; font-weight: 600; text-transform: uppercase; }
+.chief .admin-avatar { width: 50px; height: 50px; font-size: 1.1rem; background: #f97316; }
+.admin-card h3 { font-size: 0.95rem; margin-bottom: 1px; color: #333; }
+.admin-role { font-size: 0.75rem; color: #666; font-weight: 600; text-transform: uppercase; }
 
 /* --- INFRASTRUCTURE --- */
 .primary-stats-container { max-width: 800px; margin: 0 auto; }
 .primary-stats {
   display: flex; flex-direction: row; justify-content: space-around;
-  background: #1e3a8a; /* Deep Blue */ color: white; padding: 25px; border-radius: 16px;
+  background: #1e3a8a; color: white; padding: 25px; border-radius: 16px;
 }
 .stat-item { text-align: center; }
-.stat-number { display: block; font-size: 2.2rem; font-weight: 700; margin-bottom: 5px; color: #f97316; } /* Orange Numbers */
+.stat-number { display: block; font-size: 2.2rem; font-weight: 700; margin-bottom: 5px; color: #f97316; }
 .stat-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; }
 .stat-divider { width: 1px; height: 40px; background: rgba(255, 255, 255, 0.2); align-self: center; }
+
+/* --- CULTURE & FACILITIES SPLIT SECTION --- */
+.culture-facilities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+.culture-side, .facilities-side {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hostel Culture Auto Slider Style */
+.culture-image-card {
+  width: 100%; 
+  height: 100%; 
+  min-height: 280px; 
+  border-radius: 14px; 
+  overflow: hidden;
+  position: relative; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+  flex: 1;
+  background: #000;
+}
+.culture-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+}
+.culture-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+.culture-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+.culture-real-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.culture-slide.active:hover .culture-real-image {
+  transform: scale(1.08);
+}
+.culture-overlay { 
+  position: absolute; bottom: 0; left: 0; right: 0; 
+  padding: 20px; background: linear-gradient(transparent, rgba(0, 0, 0, 0.9)); 
+  color: white; z-index: 3;
+}
+.culture-overlay h3 { font-size: 1.3rem; margin-bottom: 2px; color: #1400f4; }
+.culture-overlay p { font-size: 0.9rem; opacity: 0.9; }
+
+/* Facilities Box & List */
+.facilities-box {
+  background: #fdfdfd;
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  padding: 20px;
+  flex: 1;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.facilities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.facilities-list li {
+  font-size: 0.88rem;
+  color: #444;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 18px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  transform-origin: left;
+}
+.facilities-list li:last-child { margin-bottom: 0; }
+.facilities-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  color: #1e3a8a;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+.facilities-list li:hover {
+  transform: scale(1.02);
+  color: #f97316;
+  font-weight: 600;
+}
+.facilities-list li:hover::before { color: #f97316; }
 
 /* --- RULES SECTION --- */
 .rules-two-container { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
 .rules-box { background: #fdfdfd; border: 1px solid #eaeaea; border-radius: 12px; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-.rules-box-title { font-size: 1.15rem; color: #f97316; /* Orange */ margin-bottom: 15px; border-bottom: 2px solid #fff7ed; padding-bottom: 10px; }
+.rules-box-title { font-size: 1.15rem; color: #f97316; margin-bottom: 15px; border-bottom: 2px solid #fff7ed; padding-bottom: 10px; }
 .rules-list { list-style-type: none; padding: 0; margin: 0; }
 .rules-list li { 
   position: relative; padding-left: 25px; margin-bottom: 15px; 
@@ -156,7 +263,7 @@
 .rules-list li:hover { transform: scale(1.03); color: #f97316; font-weight: 600; }
 .rules-list li:hover::before { color: #f97316; }
 
-/* --- PHOTO GALLERY (Slider + Left/Right Buttons) --- */
+/* --- PHOTO GALLERY --- */
 .gallery-slider-container {
   width: 100%; position: relative; border-radius: 16px;
   overflow: hidden; background: #000; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -167,19 +274,28 @@
   opacity: 0; transition: opacity 1s ease-in-out; display: flex; flex-direction: column;
 }
 .slider-slide.active { opacity: 1; z-index: 2; }
-.slider-img-placeholder { width: 100%; height: 100%; background: #e9ecef; display: flex; align-items: center; justify-content: center; color: #adb5bd; }
+
+.slider-real-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.slider-slide.active:hover .slider-real-image {
+  transform: scale(1.08);
+}
+
 .slide-caption {
   position: absolute; bottom: 0; left: 0; right: 0; padding: 20px;
   background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white;
-  font-size: 1.2rem; font-weight: 600; text-align: center;
+  font-size: 1.2rem; font-weight: 600; text-align: center; z-index: 3;
 }
 
-/* 🔥 NEW: Slider Navigation Buttons Style */
 .slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(30, 58, 138, 0.6); /* Blueish transparent */
+  background: rgba(30, 58, 138, 0.6);
   color: white;
   border: none;
   width: 40px;
@@ -193,29 +309,17 @@
   justify-content: center;
   transition: all 0.3s ease;
 }
-.slider-btn:hover { background: #f97316; /* Orange hover */ transform: translateY(-50%) scale(1.1); }
+.slider-btn:hover { background: #f97316; transform: translateY(-50%) scale(1.1); }
 .prev-btn { left: 15px; }
 .next-btn { right: 15px; }
 
 .slider-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 5; }
 .dot { width: 12px; height: 12px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; transition: background 0.3s ease; }
-.dot.active { background: #f97316; width: 25px; border-radius: 10px; } /* Orange active dot */
+.dot.active { background: #f97316; width: 25px; border-radius: 10px; }
 
-/* --- HOSTEL CULTURE --- */
-.culture-image-card {
-  width: 100%; height: 350px; border-radius: 16px; overflow: hidden;
-  position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.5s ease;
-}
-.culture-image-card:hover { transform: scale(1.03); }
-.culture-img-placeholder { width: 100%; height: 100%; background: #1e3a8a; display: flex; align-items: flex-end; }
-.culture-overlay { width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0, 0, 0, 0.9)); color: white; }
-.culture-overlay h3 { font-size: 1.8rem; margin-bottom: 5px; color: #f97316; } /* Orange title */
-.culture-overlay p { font-size: 1.05rem; opacity: 0.9; }
-
-/* --- NEARBY ESSENTIALS (Map Zoom Setup) --- */
+/* --- NEARBY ESSENTIALS --- */
 .nearby-layout { display: flex; gap: 25px; }
 
-/* 🔥 NEW: Map Box structure setup for image zoom */
 .map-integration-box { 
   flex: 1; 
   background: #e9ecef; 
@@ -223,10 +327,9 @@
   position: relative;
   min-height: 250px; 
   border: 2px dashed #ced4da;
-  overflow: hidden; /* Important for keeping zoom inside */
+  overflow: hidden;
 }
 
-/* 🔥 NEW: Map Image styling & Zoom Effect */
 .map-zoom-image {
   width: 100%;
   height: 100%;
@@ -234,7 +337,6 @@
   transition: transform 0.5s ease;
 }
 
-/* Map hover pandrappo zoom aagum */
 .map-integration-box:hover .map-zoom-image {
   transform: scale(1.1);
 }
@@ -245,7 +347,7 @@
   background: rgba(255, 255, 255, 0.85);
   padding: 10px 20px;
   border-radius: 8px;
-  pointer-events: none; /* Mouse hover-a thadukkama irukka */
+  pointer-events: none;
 }
 
 .map-text { color: #1e3a8a; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; }
@@ -259,12 +361,13 @@
 .locations-list li:hover { transform: scale(1.03); }
 .locations-list li:last-child { border-bottom: none; }
 .loc-name { font-weight: 600; color: #333; transition: color 0.3s ease; }
-.locations-list li:hover .loc-name { color: #f97316; } /* Orange */
-.loc-distance { color: #f97316; font-weight: 700; } /* Orange */
+.locations-list li:hover .loc-name { color: #f97316; }
+.loc-distance { color: #f97316; font-weight: 700; }
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 900px) {
   .about-section { flex-direction: column; text-align: center; }
+  .culture-facilities-grid { grid-template-columns: 1fr; }
   .rules-two-container { grid-template-columns: 1fr; }
   .nearby-layout { flex-direction: column; }
 }
@@ -272,44 +375,12 @@
   .primary-stats { flex-direction: column; gap: 15px; }
   .stat-divider { width: 100%; height: 1px; }
   .slider-images-wrapper { height: 250px; }
-  .culture-image-card { height: 250px; }
+  .culture-image-card { min-height: 220px; }
 }
-
-
-/* Dark Mode Overrides */
-body.dark-mode .boyshostel-page {
-  background: var(--bg-primary);
-}
-
-body.dark-mode .college-header-info,
-body.dark-mode .warden-card,
-body.dark-mode .facility-card,
-body.dark-mode .stat-card:not(.highlight),
-body.dark-mode .event-box,
-body.dark-mode .rules-list li,
-body.dark-mode .about-hostel p {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-body.dark-mode .college-header-info h2,
-body.dark-mode .section-header h3,
-body.dark-mode .warden-card h4,
-body.dark-mode .event-details h4 {
-  color: var(--text-primary);
-}
-
-body.dark-mode .college-header-info h5,
-body.dark-mode .college-header-info .approvals,
-body.dark-mode .facility-card p,
-body.dark-mode .stat-label,
-body.dark-mode .event-details p,
-body.dark-mode .rules-list li span {
-  color: var(--text-secondary);
-}
-
-body.dark-mode .event-icon-wrap {
-  background: rgba(245, 158, 11, 0.1);
+/* 🔥 Ella Main & Box Headings-um Black Color-ku mautha */
+.section-title,
+.rules-box-title,
+.admin-card h3,
+.culture-overlay h3 {
+  color: #000000 !important;
 }

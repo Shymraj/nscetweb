@@ -11,13 +11,23 @@ const BoysHostel = () => {
     ],
     strength: { rooms: 28, blocks: 2, totalStudents: 22 },
     gallery: [
-      { id: 1, title: "Main Gate" },
-      { id: 2, title: "Mess Hall" },
-      { id: 3, title: "Playground" },
-      { id: 4, title: "Study Hall" }
+        { id: 1, imgUrl: "/hostel1.JPG" },
+        { id: 2, imgUrl: "/hostel2.JPG" },
+      { id: 3, imgUrl: "/hostel3.JPG" },
+      { id: 4, imgUrl: "/hostel.jpg" }
     ],
-    events: [
-      { id: 1, title: "Annual Hostel Day" }
+    culture: [
+      { id: 1,  imgUrl: "/hc1.JPG" },
+      { id: 2,  imgUrl: "/hc2.JPG" },
+      { id: 3,  imgUrl: "/hc3.JPG" },
+      { id: 4,  imgUrl: "/hc4.JPG" }
+    ],
+    facilities: [
+      { title: "Gym", desc: "Well-equipped gym with modern exercise machines and weights." },
+      { title: "Common Room", desc: "Common room with a TV, comfortable seating, and entertainment options." },
+      { title: "Study Area", desc: "Study area with quiet spaces, desks, and high-speed internet." },
+      { title: "Mess", desc: "Mess with a variety of nutritious meals served at convenient timings." },
+      { title: "Security", desc: "Security with CCTV cameras and a hostel warden available 24/7." }
     ],
     nearby: [
       { place: "NSCET Campus", distance: "0.5 Km" },
@@ -28,13 +38,23 @@ const BoysHostel = () => {
   };
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentCultureSlide, setCurrentCultureSlide] = useState(0);
 
+  // Gallery 3 Seconds Timer
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev === hostelData.gallery.length - 1 ? 0 : prev + 1));
     }, 3000);
     return () => clearInterval(timer);
   }, [hostelData.gallery.length]);
+
+  // Hostel Culture 3 Seconds Timer
+  useEffect(() => {
+    const cultureTimer = setInterval(() => {
+      setCurrentCultureSlide((prev) => (prev === hostelData.culture.length - 1 ? 0 : prev + 1));
+    }, 3000);
+    return () => clearInterval(cultureTimer);
+  }, [hostelData.culture.length]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === hostelData.gallery.length - 1 ? 0 : prev + 1));
@@ -50,7 +70,7 @@ const BoysHostel = () => {
       <section className="hostel-hero">
         <div className="hero-content">
           <h1 className="animate-slide-down">NSCET BOYS HOSTEL</h1>
-          <p className="animate-fade-in">A Second Home Fostering Academic Excellence</p>
+        
         </div>
       </section>
 
@@ -111,7 +131,53 @@ const BoysHostel = () => {
           </div>
         </section>
 
-        <section className="hostel-section rules-section animate-slide-up-delay-3">
+        {/* --- CULTURE & FACILITIES SPLIT SECTION --- */}
+        <section className="hostel-section culture-facilities-section animate-slide-up-delay-3">
+          <div className="culture-facilities-grid">
+            
+            {/* Left Side: Hostel Culture Auto Slider */}
+            <div className="culture-side">
+              <h2 className="section-title">Hostel Culture</h2>
+              <div className="culture-image-card">
+                <div className="culture-slider-wrapper">
+                  {hostelData.culture.map((item, index) => (
+                    <div 
+                      key={item.id} 
+                      className={`culture-slide ${index === currentCultureSlide ? 'active' : ''}`}
+                    >
+                      <img 
+                        src={item.imgUrl} 
+                        alt={item.title} 
+                        className="culture-real-image" 
+                      />
+                      <div className="culture-overlay">
+                        <h3>{item.title}</h3>
+                        <p>Celebrating unity, talents, and memories.</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side: Facilities */}
+            <div className="facilities-side">
+              <h2 className="section-title">Facilities</h2>
+              <div className="facilities-box">
+                <ul className="facilities-list">
+                  {hostelData.facilities.map((fac, idx) => (
+                    <li key={idx}>
+                      <strong>{fac.title}:</strong> {fac.desc}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section className="hostel-section rules-section animate-slide-up-delay-4">
           <h2 className="section-title">Rules & Regulations</h2>
           <div className="rules-two-container">
             <div className="rules-box">
@@ -137,19 +203,21 @@ const BoysHostel = () => {
           </div>
         </section>
 
-        <section className="hostel-section gallery-section animate-slide-up-delay-4">
+        <section className="hostel-section gallery-section animate-slide-up-delay-5">
           <h2 className="section-title">Photo Gallery</h2>
           <div className="gallery-slider-container">
             <div className="slider-images-wrapper">
-              {hostelData.gallery.map((img, index) => (
+              {hostelData.gallery.map((item, index) => (
                 <div 
-                  key={img.id} 
+                  key={item.id} 
                   className={`slider-slide ${index === currentSlide ? 'active' : ''}`}
                 >
-                  <div className="slider-img-placeholder">
-                    <h2>{img.title} Image</h2> 
-                  </div>
-                  <div className="slide-caption">{img.title}</div>
+                  <img 
+                    src={item.imgUrl} 
+                    alt={item.title} 
+                    className="slider-real-image" 
+                  />
+                  <div className="slide-caption">{item.title}</div>
                 </div>
               ))}
             </div>
@@ -163,18 +231,6 @@ const BoysHostel = () => {
                   onClick={() => setCurrentSlide(idx)}
                 ></span>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="hostel-section events-section animate-slide-up-delay-5">
-          <h2 className="section-title">Hostel Culture</h2>
-          <div className="culture-image-card">
-            <div className="culture-img-placeholder">
-              <div className="culture-overlay">
-                <h3>{hostelData.events[0].title}</h3>
-                <p>Celebrating unity, talents, and memories.</p>
-              </div>
             </div>
           </div>
         </section>
