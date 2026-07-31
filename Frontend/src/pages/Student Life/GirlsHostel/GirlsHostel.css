@@ -1,350 +1,416 @@
-/* Typography guidelines from AGENTS.md */
-.girlshostel-page {
-  font-family: var(--font-body);
-  background: #f8fafc;
-  min-height: 100vh;
+.modern-girls-hostel-page {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8fafc; 
+  color: #334155;
+  padding-bottom: 70px;
+  overflow-x: hidden;
 }
 
-.hostel-container {
-  max-width: 1200px;
+/* --- ANIMATIONS --- */
+@keyframes ghSlideDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes ghSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes ghFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.gh-animate-slide-down { animation: ghSlideDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.gh-animate-fade-in { animation: ghFadeIn 1.2s ease forwards; animation-delay: 0.3s; opacity: 0; }
+.gh-animate-slide-up { animation: ghSlideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.gh-animate-slide-up-delay-1 { animation: ghSlideUp 0.8s ease forwards; animation-delay: 0.15s; opacity: 0; }
+.gh-animate-slide-up-delay-2 { animation: ghSlideUp 0.8s ease forwards; animation-delay: 0.3s; opacity: 0; }
+.gh-animate-slide-up-delay-3 { animation: ghSlideUp 0.8s ease forwards; animation-delay: 0.45s; opacity: 0; }
+.gh-animate-slide-up-delay-4 { animation: ghSlideUp 0.8s ease forwards; animation-delay: 0.6s; opacity: 0; }
+
+/* --- HERO SECTION --- */
+.modern-girls-hostel-page .gh-hero {
+  background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), url('/ghostel_banner.jpg') no-repeat center center/cover;
+  width: 100%;
+  min-height: 400px;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.modern-girls-hostel-page .gh-hero-content { width: 100%; padding: 20px; }
+.modern-girls-hostel-page .gh-hero h1 { 
+  font-size: clamp(2.2rem, 5vw, 4rem); 
+  font-weight: 700; 
+  letter-spacing: 2px; 
+  margin-bottom: 15px; 
+  color: #ffffff !important; 
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.modern-girls-hostel-page .gh-hero p { 
+  font-size: clamp(1rem, 1.5vw, 1.4rem); 
+  font-weight: 300; 
+  opacity: 0.95; 
+}
+
+/* --- MAIN CONTAINER & COMMON SECTION --- */
+.modern-girls-hostel-page .gh-main-container {
+  max-width: 100%; 
+  margin: -50px 0 0 0;
+  padding: 0; 
+  position: relative;
+  z-index: 10;
+}
+
+.modern-girls-hostel-page .gh-section {
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Full Width Sections */
+.modern-girls-hostel-page .gh-about-section, 
+.modern-girls-hostel-page .gh-admin-infra-section,
+.modern-girls-hostel-page .gh-events-rules-section {
+  border-radius: 24px !important; 
+  margin: 0 3% 30px 3%; 
+  width: 94%;
+  padding: 45px 6%; 
+}
+
+.modern-girls-hostel-page .gh-section:not(.gh-facilities-section):hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(30, 58, 138, 0.08); 
+}
+
+/* --- ABOUT SECTION --- */
+.modern-girls-hostel-page .gh-about-section { 
+  text-align: center;
+  padding: 50px 8%; 
+}
+.modern-girls-hostel-page .gh-about-text p { 
+  line-height: 1.9; 
+  color: #475569; 
+  font-size: 1.05rem; 
+  max-width: 900px;
   margin: 0 auto;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
+}
+/* 🔥 Added specific hover zoom for About Section */
+.modern-girls-hostel-page .gh-about-section:hover {
+  transform: scale(1.02) !important; 
+  box-shadow: 0 15px 35px rgba(30, 58, 138, 0.08) !important;
 }
 
-/* College Header Info */
-.college-header-info {
-  text-align: center;
-  background: white;
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border-top: 5px solid var(--nscet-accent, #0284C7);
+/* --- ADMIN & STRENGTH SPLIT --- */
+.modern-girls-hostel-page .gh-admin-infra-split {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 40px; 
+  width: 100%; 
 }
 
-.college-header-info h5 {
-  font-family: var(--font-subtopic);
-  color: #64748b;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.modern-girls-hostel-page .gh-admin-cards-container { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 15px; 
+  margin-top: 35px; /* 🔥 Increased from 20px to move cards down & center */
 }
-
-.college-header-info h2 {
-  font-family: var(--font-heading);
-  color: #0f172a;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  font-weight: 800;
-}
-
-.college-header-info .approvals {
-  font-family: var(--font-body);
-  color: #475569;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-
-.college-header-info .address {
-  font-family: var(--font-body);
-  color: #0284C7;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-/* Section Common Styles */
-.section-header {
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.section-header h3 {
-  font-family: var(--font-section);
-  font-size: 2rem;
-  color: #0f172a;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.header-line {
-  height: 4px;
-  width: 60px;
-  background: var(--nscet-accent, #f59e0b);
-  border-radius: 2px;
-}
-
-/* About Section */
-.about-hostel p {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: #475569;
-  line-height: 1.8;
-  background: white;
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  border-left: 4px solid var(--theme-primary-dark, #0284C7);
-}
-
-/* Wardens Section */
-.warden-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.warden-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease;
-}
-
-.warden-card:hover {
-  transform: translateY(-5px);
-}
-
-.warden-card h4 {
-  font-family: var(--font-subtopic);
-  font-size: 1.3rem;
-  color: #0f172a;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.warden-card p {
-  font-family: var(--font-body);
-  color: var(--nscet-accent, #0284C7);
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.warden-card.principal {
-  border-top: 4px solid #f59e0b;
-}
-
-.warden-card.deputy {
-  border-top: 4px solid #0284C7;
-}
-
-/* Facilities Section */
-.facilities-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.facility-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+.modern-girls-hostel-page .gh-admin-card {
+  background: #f8fafc; 
+  border-left: 4px solid #1e3a8a;
+  padding: 20px 25px; 
+  border-radius: 8px; 
   transition: all 0.3s ease;
 }
-
-.facility-card:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transform: translateY(-3px);
+.modern-girls-hostel-page .gh-admin-card:hover { 
+  background: #eff6ff;
+  transform: translateX(5px);
 }
-
-.facility-icon {
-  font-size: 2rem;
-  color: var(--nscet-accent, #0284C7);
-  flex-shrink: 0;
-  padding: 12px;
-  background: #f0f9ff;
-  border-radius: 12px;
+.modern-girls-hostel-page .gh-admin-role { 
+  display: block;
+  font-size: 0.8rem; 
+  color: #1e3a8a; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  margin-bottom: 5px;
+  letter-spacing: 1px;
 }
-
-.facility-card p {
-  font-family: var(--font-body);
-  color: #475569;
-  line-height: 1.6;
+.modern-girls-hostel-page .gh-admin-card h3 {
   margin: 0;
+  font-size: 1.2rem;
+  color: #0f172a !important; 
 }
 
-/* Strength Section (Stats Grid) */
-.stats-grid {
+.modern-girls-hostel-page .gh-strength-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px; 
+  margin-top: 20px;
 }
-
-.stat-card {
-  background: white;
-  padding: 2rem 1rem;
-  border-radius: 15px;
+.modern-girls-hostel-page .gh-stat-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px 15px; 
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
-
-.stat-card:hover {
-  transform: scale(1.05);
+.modern-girls-hostel-page .gh-stat-box:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 4px 12px rgba(147, 197, 253, 0.2);
 }
-
-.stat-number {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--theme-primary-dark, #0284C7);
+.modern-girls-hostel-page .gh-stat-value {
+  display: block;
+  font-size: 1.8rem; 
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 5px;
 }
-
-.stat-label {
-  font-family: var(--font-subtopic);
-  font-size: 1rem;
+.modern-girls-hostel-page .gh-stat-label {
+  font-size: 0.85rem;
+  font-weight: 500;
   color: #64748b;
-  font-weight: 700;
-  text-transform: uppercase;
+  line-height: 1.3;
+  display: block;
 }
 
-.stat-card.highlight {
-  background: linear-gradient(135deg, var(--theme-primary-dark, #0284C7), #1e3a8a);
-}
-.stat-card.highlight .stat-number,
-.stat-card.highlight .stat-label {
-  color: white;
-}
-
-/* Events Section */
-.event-box {
-  background: white;
-  border-radius: 15px;
-  padding: 2.5rem;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+/* --- FACILITIES (Full Width) --- */
+.modern-girls-hostel-page .gh-facilities-section {
+  background: transparent; 
+  box-shadow: none;
+  padding: 0;
+  margin-bottom: 30px;
 }
 
-.event-icon-wrap {
-  font-size: 3rem;
-  color: #f59e0b;
-  background: #fffbeb;
-  padding: 1.5rem;
-  border-radius: 50%;
-  flex-shrink: 0;
+.modern-girls-hostel-page .gh-facilities-container {
+  background: #fdfdfd;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 35px 5%;
+  width: 94%; 
+  margin: 0 3%; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  transition: transform 0.4s ease, box-shadow 0.4s ease; 
 }
-
-.event-details h4 {
-  font-family: var(--font-subtopic);
-  font-size: 1.5rem;
-  color: #0f172a;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
+.modern-girls-hostel-page .gh-facilities-container:hover {
+  transform: scale(1.01); 
+  box-shadow: 0 15px 35px rgba(30, 58, 138, 0.08);
 }
-
-.event-details p {
-  font-family: var(--font-body);
-  color: #475569;
-  line-height: 1.7;
-  font-size: 1.05rem;
-}
-
-/* Rules Section */
-.rules-list {
+.modern-girls-hostel-page .gh-facilities-list {
   list-style: none;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1.5rem;
+  margin: 0 auto; /* 🔥 Centers the block horizontally */
+  width: fit-content; /* 🔥 Ensures the block doesn't stretch, keeping points aligned */
 }
 
-.rules-list li {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
+/* 🔥 POINTS ANIMATION & SPACING */
+.modern-girls-hostel-page .gh-facilities-list-item {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 25px; 
+  font-size: 1.05rem; 
+  color: #475569;
+  line-height: 1.7;
+  transition: transform 0.3s ease, color 0.3s ease; 
+  transform-origin: left center; 
+}
+.modern-girls-hostel-page .gh-facilities-list-item:last-child {
+  margin-bottom: 0;
+}
+.modern-girls-hostel-page .gh-facilities-list-item::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #1e3a8a;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+.modern-girls-hostel-page .gh-facilities-list-item:hover {
+  transform: translateX(12px) scale(1.03); 
+  color: #0f172a;
+  font-weight: 500;
+}
+.modern-girls-hostel-page .gh-facilities-list-item strong {
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+/* --- EVENTS & RULES SPLIT --- */
+.modern-girls-hostel-page .gh-events-rules-split {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 40px; 
+  align-items: center; 
+}
+
+/* Events Card with Photo */
+.modern-girls-hostel-page .gh-events-card {
+  background: #fffbeb; 
+  border: 1px solid #fde68a;
+  border-radius: 16px;
+  padding: 25px;
+  margin-top: 20px;
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-  font-family: var(--font-body);
-  color: #334155;
-  line-height: 1.6;
+  flex-direction: column;
+  gap: 15px;
+}
+.modern-girls-hostel-page .gh-event-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.modern-girls-hostel-page .gh-event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.modern-girls-hostel-page .gh-events-card:hover .gh-event-image {
+  transform: scale(1.08); 
+}
+.modern-girls-hostel-page .gh-event-title {
+  font-size: 1.25rem;
+  color: #b45309 !important; 
+  margin-bottom: 10px;
+  border-bottom: 2px dashed #fcd34d;
+  padding-bottom: 8px;
+}
+.modern-girls-hostel-page .gh-event-desc {
+  font-size: 0.95rem;
+  color: #78350f;
+  line-height: 1.8;
+  text-align: justify;
 }
 
-.rule-icon {
-  color: #ef4444;
-  font-size: 1.2rem;
-  margin-top: 4px;
-  flex-shrink: 0;
+/* Rules Card */
+.modern-girls-hostel-page .gh-rules-card {
+  background: #fdfdfd;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px;
+  margin-top: 20px;
+  height: fit-content;
+}
+.modern-girls-hostel-page .gh-rules-list { 
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
+}
+.modern-girls-hostel-page .gh-rules-list li { 
+  position: relative; 
+  padding-left: 28px; 
+  margin-bottom: 18px; 
+  font-size: 0.95rem; 
+  color: #475569; 
+  line-height: 1.6; 
+  transition: transform 0.2s ease;
+}
+.modern-girls-hostel-page .gh-rules-list li:last-child { margin-bottom: 0; }
+.modern-girls-hostel-page .gh-rules-list li::before { 
+  content: "✦"; 
+  position: absolute; 
+  left: 0; 
+  top: 0px; 
+  color: #1e3a8a; 
+  font-size: 1.2rem; 
+}
+.modern-girls-hostel-page .gh-rules-list li:hover { 
+  transform: translateX(5px); 
+  color: #0f172a; 
 }
 
-/* Responsive */
+/* --- PHOTO GALLERY --- */
+.modern-girls-hostel-page .gh-gallery-slider-container {
+  width: 94%; 
+  margin: 25px 3% 0 3%;
+  position: relative; 
+  border-radius: 20px; 
+  overflow: hidden; 
+  background: #000; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.modern-girls-hostel-page .gh-slider-images-wrapper { position: relative; width: 100%; height: 500px; }
+.modern-girls-hostel-page .gh-slider-slide {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+  opacity: 0; transition: opacity 1s ease-in-out; 
+}
+.modern-girls-hostel-page .gh-slider-slide.active { opacity: 1; z-index: 2; }
+.modern-girls-hostel-page .gh-slider-real-image { 
+  width: 100%; height: 100%; object-fit: cover; 
+  transition: transform 0.8s ease; 
+}
+.modern-girls-hostel-page .gh-slider-slide.active:hover .gh-slider-real-image { 
+  transform: scale(1.05); 
+}
+.modern-girls-hostel-page .gh-slider-btn {
+  position: absolute; top: 50%; transform: translateY(-50%); 
+  background: rgba(255, 255, 255, 0.8);
+  color: #1e3a8a; border: none; width: 45px; height: 45px; border-radius: 50%; 
+  font-size: 1.2rem; cursor: pointer; z-index: 10; 
+  display: flex; align-items: center; justify-content: center; 
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.modern-girls-hostel-page .gh-slider-btn:hover { 
+  background: #1e3a8a; 
+  color: white;
+  transform: translateY(-50%) scale(1.1); 
+}
+.modern-girls-hostel-page .prev-btn { left: 20px; } 
+.modern-girls-hostel-page .next-btn { right: 20px; }
+
+.modern-girls-hostel-page .gh-slider-dots-outside {
+  display: flex; justify-content: center; gap: 12px; margin-top: 25px; 
+}
+.modern-girls-hostel-page .gh-dot {
+  width: 12px; height: 12px; background: #cbd5e1; border-radius: 50%; 
+  cursor: pointer; transition: all 0.3s ease;
+}
+.modern-girls-hostel-page .gh-dot.active {
+  background: #1e3a8a; width: 30px; border-radius: 10px;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 992px) {
+  .modern-girls-hostel-page .gh-admin-infra-split,
+  .modern-girls-hostel-page .gh-events-rules-split { 
+    grid-template-columns: 1fr; 
+  }
+}
+
 @media (max-width: 768px) {
-  .hostel-container {
-    padding: 2rem 1rem;
-    gap: 3rem;
+  .modern-girls-hostel-page .gh-about-section, 
+  .modern-girls-hostel-page .gh-admin-infra-section,
+  .modern-girls-hostel-page .gh-events-rules-section,
+  .modern-girls-hostel-page .gh-facilities-container,
+  .modern-girls-hostel-page .gh-gallery-slider-container { 
+    width: 100% !important; margin: 0 0 25px 0 !important; border-radius: 0 !important; 
   }
-  
-  .event-box {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
-  }
-  
-  .college-header-info {
-    padding: 2rem 1.5rem;
-  }
-  
-  .college-header-info h2 {
-    font-size: 1.4rem;
-  }
-  
-  .rules-list {
-    grid-template-columns: 1fr;
-  }
+  .modern-girls-hostel-page .gh-slider-images-wrapper { height: 300px; }
+  .modern-girls-hostel-page .gh-strength-grid { grid-template-columns: 1fr; }
+  .modern-girls-hostel-page .gh-facilities-container { padding: 25px 20px; }
 }
 
-/* Dark Mode Overrides */
-body.dark-mode .girlshostel-page {
-  background: var(--bg-primary);
+/* 🔥 NIGHT BLUE HEADINGS FIX (#1e3a8a) */
+.modern-girls-hostel-page .gh-section-title,
+.modern-girls-hostel-page .gh-section-title.center,
+.modern-girls-hostel-page h2 {
+  color: #1e3a8a !important; 
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.modern-girls-hostel-page .gh-section-title.center {
+  text-align: center;
 }
 
-body.dark-mode .college-header-info,
-body.dark-mode .warden-card,
-body.dark-mode .facility-card,
-body.dark-mode .stat-card:not(.highlight),
-body.dark-mode .event-box,
-body.dark-mode .rules-list li,
-body.dark-mode .about-hostel p {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+/* Subheadings also blue */
+.modern-girls-hostel-page h3:not(.gh-event-title) {
+  color: #1e3a8a !important;
 }
 
-body.dark-mode .college-header-info h2,
-body.dark-mode .section-header h3,
-body.dark-mode .warden-card h4,
-body.dark-mode .event-details h4 {
-  color: var(--text-primary);
-}
-
-body.dark-mode .college-header-info h5,
-body.dark-mode .college-header-info .approvals,
-body.dark-mode .facility-card p,
-body.dark-mode .stat-label,
-body.dark-mode .event-details p,
-body.dark-mode .rules-list li span {
-  color: var(--text-secondary);
-}
-
-body.dark-mode .event-icon-wrap {
-  background: rgba(245, 158, 11, 0.1);
+/* Remove default pseudo-element lines globally to prevent clashes */
+.modern-girls-hostel-page .gh-section-title::before,
+.modern-girls-hostel-page .gh-section-title::after,
+.modern-girls-hostel-page h2::before,
+.modern-girls-hostel-page h2::after {
+  display: none !important;
+  content: none !important;
 }

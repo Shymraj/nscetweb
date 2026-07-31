@@ -86,11 +86,30 @@ const BoysHostel = () => {
           </div>
         </section>
 
-        {/* COMPACT & SPLIT CONTAINER: Left (Strength), Right (Admin) */}
+        {/* COMPACT & SPLIT CONTAINER: Left (Admin), Right (Strength) */}
         <section className="hostel-section admin-infra-combined-section animate-slide-up-delay-1">
           <div className="admin-infra-split">
             
-            {/* Left Side: Strength & Infrastructure */}
+            {/* Left Side: Hostel Administration */}
+            <div className="admin-side">
+              <h2 className="section-title">Hostel Administration</h2>
+              <div className="admin-cards-container">
+                <div className="admin-card chief">
+                  <h3>{hostelData.chiefWarden.name}</h3>
+                  <span className="admin-role">{hostelData.chiefWarden.role}</span>
+                </div>
+                <div className="deputy-cards">
+                  {hostelData.deputyWardens.map((warden, idx) => (
+                    <div key={idx} className="admin-card deputy">
+                      <h3>{warden.name}</h3>
+                      <span className="admin-role">{warden.role}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side: Strength & Infrastructure */}
             <div className="infra-side">
               <h2 className="section-title">Strength & Infrastructure</h2>
               <div className="primary-stats">
@@ -107,25 +126,6 @@ const BoysHostel = () => {
                 <div className="stat-item">
                   <span className="stat-number">{hostelData.strength.blocks}</span>
                   <span className="stat-label">Blocks</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side: Hostel Administration */}
-            <div className="admin-side">
-              <h2 className="section-title">Hostel Administration</h2>
-              <div className="admin-cards-container">
-                <div className="admin-card chief">
-                  <h3>{hostelData.chiefWarden.name}</h3>
-                  <span className="admin-role">{hostelData.chiefWarden.role}</span>
-                </div>
-                <div className="deputy-cards">
-                  {hostelData.deputyWardens.map((warden, idx) => (
-                    <div key={idx} className="admin-card deputy">
-                      <h3>{warden.name}</h3>
-                      <span className="admin-role">{warden.role}</span>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>

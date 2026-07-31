@@ -1,158 +1,197 @@
-import React from 'react';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
-import { FaDumbbell, FaTv, FaBook, FaUtensils, FaShieldAlt, FaCalendarCheck, FaExclamationCircle } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
 import './GirlsHostel.css';
 
 const GirlsHostel = () => {
+  const hostelData = {
+    about: "The Girls Hostel at our college provides a comfortable and secure environment for students. Equipped with modern facilities and 24/7 supervision, the hostel ensures a home-like atmosphere where students can focus on their academics while enjoying their stay. Spacious rooms, hygienic dining, and recreational areas make it an ideal place for holistic growth and development.",
+    administration: [
+      { name: "Mrs. R. Uma (Ph.D)", role: "Warden" },
+      { name: "J. Preetha (M.Sc., M.Phil., M.Ed.,)", role: "Incharge" }
+    ],
+    strength: [
+      { label: "Total Rooms", value: "30" },
+      { label: "Number of Students in a Room", value: "03" },
+      { label: "Toilets in Hostel", value: "40" },
+      { label: "Bathrooms in Hostel", value: "40" },
+      { label: "Study Room", value: "02" },
+      { label: "Total Number of Students", value: "29" }
+    ],
+    facilities: [
+      { title: "Gym", desc: "Well-equipped gym with modern exercise machines and weights." },
+      { title: "Common Room", desc: "Common room with a TV, comfortable seating, and entertainment options." },
+      { title: "Study Area", desc: "Study area with quiet spaces, desks, and high-speed internet." },
+      { title: "Mess", desc: "Mess with a variety of nutritious meals served at convenient timings." },
+      { title: "Security", desc: "Security with CCTV cameras and a hostel warden available 24/7." }
+    ],
+    events: {
+      title: "Onam Celebration in College Hostel",
+      desc: `The Onam Celebration in the college hostel is a vibrant and joyous occasion, marking the traditional harvest festival of Kerala. It brings together students from diverse backgrounds to partake in the cultural richness and festive spirit. The day typically begins with the creation of intricate floral carpets, known as "Pookalam," in the hostel courtyard, followed by traditional music, dance performances like "Thiruvathira," and a grand, multi-course vegetarian feast called "Sadya" served on banana leaves. The celebration not only honors heritage but also fosters a strong sense of community and camaraderie among the residents.`,
+      imgUrl: "/gh_event.jpg"
+    },
+    rules: [
+      "Students must maintain discipline and decorum at all times.",
+      "The hostel gate closes at 10:00 PM.",
+      "Visitors are not allowed inside the hostel rooms.",
+      "Students must adhere to the mess timings.",
+      "Smoking, drinking, and the use of illegal substances are strictly prohibited.",
+      "Keep your rooms and the hostel environment clean."
+    ],
+    gallery: [
+      { id: 1, imgUrl: "/ghostel1.jpg" },
+      { id: 2, imgUrl: "/ghostel2.jpg" },
+      { id: 3, imgUrl: "/ghostel3.jpg" },
+      { id: 4, imgUrl: "/ghostel4.jpg" }
+    ]
+  };
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === hostelData.gallery.length - 1 ? 0 : prev + 1));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [hostelData.gallery.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === hostelData.gallery.length - 1 ? 0 : prev + 1));
+  };
+  
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? hostelData.gallery.length - 1 : prev - 1));
+  };
+
   return (
-    <div className="girlshostel-page">
-      <PageBanner
-        title="Girls Hostel"
-        subtitle="Home Away From Home"
-        hideBreadcrumb={false}
-      />
+    <div className="modern-girls-hostel-page">
       
-      <div className="hostel-container">
-        {/* Header / College Info */}
-        <section className="college-header-info">
-          <h5>Managing Body: Theni Melapettai Hindu Nadargal Uravinmurai</h5>
-          <h2>NADAR SARASWATHI COLLEGE OF ENGINEERING & TECHNOLOGY</h2>
-          <p className="approvals">Approved by AICTE, New Delhi | Affiliated to Anna University, Chennai | Accredited by NAAC with 'A' Grade<br/>Recognized under 2(f) of the UGC Act, 1956 | An ISO 9001:2015 Certified Institution</p>
-          <p className="address">Address: Vadapudupatti, Annanji (PO), Theni - 625531.</p>
-        </section>
+      <section className="gh-hero">
+        <div className="gh-hero-content">
+          <h1 className="gh-animate-slide-down">NSCET GIRLS HOSTEL</h1>
+          <p className="gh-animate-fade-in">A Secure, Comfortable, and Home-like Environment</p>
+        </div>
+      </section>
 
+      <div className="gh-main-container">
+        
         {/* About Section */}
-        <section className="about-hostel">
-          <div className="section-header">
-            <h3>About Hostel</h3>
-            <div className="header-line"></div>
+        <section className="gh-section gh-about-section gh-animate-slide-up">
+          <div className="gh-about-text">
+            <h2 className="gh-section-title">About Hostel</h2>
+            <p>{hostelData.about}</p>
           </div>
-          <p>
-            The Girls Hostel at our college provides a comfortable and secure environment for students. Equipped with modern facilities and 24/7 supervision, the hostel ensures a home-like atmosphere where students can focus on their academics while enjoying their stay. Spacious rooms, hygienic dining, and recreational areas make it an ideal place for holistic growth and development.
-          </p>
         </section>
 
-        {/* Wardens Section */}
-        <section className="warden-section">
-           <div className="section-header">
-            <h3>Warden & Incharge</h3>
-            <div className="header-line"></div>
-          </div>
-          <div className="warden-cards">
-            <div className="warden-card principal">
-              <h4>Mrs. R. Uma (Ph.D)</h4>
-              <p>Warden</p>
+        {/* Admin & Strength Split Section - SWAPPED ORDER */}
+        <section className="gh-section gh-admin-infra-section gh-animate-slide-up-delay-1">
+          <div className="gh-admin-infra-split">
+            
+            {/* Left: Hostel Administration (Moved to Left) */}
+            <div className="gh-admin-side">
+              <h2 className="gh-section-title">Hostel Administration</h2>
+              <div className="gh-admin-cards-container">
+                {hostelData.administration.map((admin, idx) => (
+                  <div key={idx} className={`gh-admin-card ${idx === 0 ? 'gh-chief' : 'gh-deputy'}`}>
+                    <span className="gh-admin-role">{admin.role}</span>
+                    <h3>{admin.name}</h3>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="warden-card deputy">
-              <h4>J. Preetha</h4>
-              <p>Incharge (M.Sc., M.Phil., M.Ed., PGDCA)</p>
+
+            {/* Right: Strength (Moved to Right) */}
+            <div className="gh-infra-side">
+              <h2 className="gh-section-title">Strength</h2>
+              <div className="gh-strength-grid">
+                {hostelData.strength.map((stat, idx) => (
+                  <div key={idx} className="gh-stat-box">
+                    <span className="gh-stat-value">{stat.value}</span>
+                    <span className="gh-stat-label">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
+
           </div>
         </section>
 
         {/* Facilities Section */}
-        <section className="facilities-section">
-           <div className="section-header">
-            <h3>Facilities</h3>
-            <div className="header-line"></div>
-          </div>
-          <div className="facilities-grid">
-            <div className="facility-card">
-              <FaDumbbell className="facility-icon" />
-              <p>Well-equipped gym with modern exercise machines and weights.</p>
-            </div>
-            <div className="facility-card">
-              <FaTv className="facility-icon" />
-              <p>Common room with a TV, comfortable seating, and entertainment options.</p>
-            </div>
-            <div className="facility-card">
-              <FaBook className="facility-icon" />
-              <p>Study area with quiet spaces, desks, and high-speed internet.</p>
-            </div>
-            <div className="facility-card">
-              <FaUtensils className="facility-icon" />
-              <p>Mess with a variety of nutritious meals served at convenient timings.</p>
-            </div>
-            <div className="facility-card">
-              <FaShieldAlt className="facility-icon" />
-              <p>Security with CCTV cameras and a hostel warden available 24/7.</p>
-            </div>
+        <section className="gh-section gh-facilities-section gh-animate-slide-up-delay-2">
+          <h2 className="gh-section-title center">Facilities</h2>
+          <div className="gh-facilities-container">
+            <ul className="gh-facilities-list">
+              {hostelData.facilities.map((fac, idx) => (
+                <li key={idx} className="gh-facilities-list-item">
+                  <strong>{fac.title}:</strong> {fac.desc}
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
-        {/* Strength Section */}
-        <section className="strength-section">
-           <div className="section-header">
-            <h3>Hostel Strength</h3>
-            <div className="header-line"></div>
-          </div>
-          <div className="stats-grid">
-            <div className="stat-card">
-              <span className="stat-number">30</span>
-              <span className="stat-label">Total Rooms</span>
+        {/* Events & Rules Split Section */}
+        <section className="gh-section gh-events-rules-section gh-animate-slide-up-delay-3">
+          <div className="gh-events-rules-split">
+            
+            {/* Left: Events */}
+            <div className="gh-events-side">
+              <h2 className="gh-section-title">Hostel Events</h2>
+              <div className="gh-events-card">
+                <div className="gh-event-image-wrapper">
+                  <img src={hostelData.events.imgUrl} alt="Hostel Event" className="gh-event-image" />
+                </div>
+                <div className="gh-event-content">
+                  <h3 className="gh-event-title">{hostelData.events.title}</h3>
+                  <p className="gh-event-desc">{hostelData.events.desc}</p>
+                </div>
+              </div>
             </div>
-            <div className="stat-card">
-              <span className="stat-number">01</span>
-              <span className="stat-label">Blocks</span>
+
+            {/* Right: Rules & Regulations */}
+            <div className="gh-rules-side">
+              <h2 className="gh-section-title">Hostel Rules and Regulations</h2>
+              <div className="gh-rules-card">
+                <ul className="gh-rules-list">
+                  {hostelData.rules.map((rule, idx) => (
+                    <li key={idx}>{rule}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className="stat-card">
-              <span className="stat-number">03</span>
-              <span className="stat-label">Students / Room</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">01</span>
-              <span className="stat-label">Sick Rooms</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">40</span>
-              <span className="stat-label">Toilets</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">40</span>
-              <span className="stat-label">Bathrooms</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">02</span>
-              <span className="stat-label">Study Room</span>
-            </div>
-            <div className="stat-card highlight">
-              <span className="stat-number">29</span>
-              <span className="stat-label">Total Students</span>
-            </div>
+
           </div>
         </section>
 
-        {/* Events Section */}
-        <section className="events-section">
-           <div className="section-header">
-            <h3>Hostel Events</h3>
-            <div className="header-line"></div>
-          </div>
-          <div className="event-box">
-            <div className="event-icon-wrap">
-              <FaCalendarCheck />
+        {/* Photo Gallery */}
+        <section className="gh-section gh-gallery-section gh-animate-slide-up-delay-4">
+          <h2 className="gh-section-title center">Photo Gallery</h2>
+          <div className="gh-gallery-slider-container">
+            <div className="gh-slider-images-wrapper">
+              {hostelData.gallery.map((item, index) => (
+                <div 
+                  key={item.id} 
+                  className={`gh-slider-slide ${index === currentSlide ? 'active' : ''}`}
+                >
+                  <img 
+                    src={item.imgUrl} 
+                    alt={`Girls Hostel Gallery ${index + 1}`} 
+                    className="gh-slider-real-image" 
+                  />
+                </div>
+              ))}
             </div>
-            <div className="event-details">
-              <h4>Onam Celebration in College Hostel</h4>
-              <p>The Onam Celebration in the college hostel is a vibrant and joyful event that showcases traditional games, cultural performances, and a festive feast. The celebration brings students and staff together in a spirit of unity and excitement, fostering bonding and camaraderie while embracing the rich cultural heritage of Onam.</p>
-            </div>
+            <button className="gh-slider-btn prev-btn" onClick={prevSlide}>&#10094;</button>
+            <button className="gh-slider-btn next-btn" onClick={nextSlide}>&#10095;</button>
           </div>
-        </section>
-
-        {/* Rules Section */}
-        <section className="rules-section">
-           <div className="section-header">
-            <h3>Rules and Regulations</h3>
-            <div className="header-line"></div>
+          
+          <div className="gh-slider-dots-outside">
+            {hostelData.gallery.map((_, idx) => (
+              <span 
+                key={idx} 
+                className={`gh-dot ${idx === currentSlide ? 'active' : ''}`} 
+                onClick={() => setCurrentSlide(idx)}
+              ></span>
+            ))}
           </div>
-          <ul className="rules-list">
-            <li><FaExclamationCircle className="rule-icon"/> <span>Students must maintain discipline within the hostel premises.</span></li>
-            <li><FaExclamationCircle className="rule-icon"/> <span>Late-night entry is strictly prohibited; the hostel gate closes at 10:00 PM.</span></li>
-            <li><FaExclamationCircle className="rule-icon"/> <span>Visitors are not allowed in the hostel rooms without prior permission from the hostel warden.</span></li>
-            <li><FaExclamationCircle className="rule-icon"/> <span>Hostellers are expected to adhere to the mess timings and not waste food.</span></li>
-            <li><FaExclamationCircle className="rule-icon"/> <span>No smoking, drinking, or gambling is allowed inside the hostel premises.</span></li>
-            <li><FaExclamationCircle className="rule-icon"/> <span>Keep the hostel environment clean and use dustbins properly.</span></li>
-          </ul>
         </section>
 
       </div>
