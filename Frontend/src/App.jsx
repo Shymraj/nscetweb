@@ -13,6 +13,7 @@ import IT from "./pages/Departments/cse/it/IT";
 import AIDS from "./pages/Departments/cse/aids/AIDS";
 import MECSE from "./pages/Departments/cse/MECSE";
 import Civil from "./pages/Departments/civil/Civil";
+import SharedFacultyPortfolio from "./components/FacultyPortfolio/FacultyPortfolio";
 import MEStructural from "./pages/Departments/civil/MEStructural";
 import Mechanical from "./pages/Departments/mechanical/Mechanical";
 import MEManufacturing from "./pages/Departments/mechanical/MEManufacturing";
@@ -80,12 +81,14 @@ import ScrollToTop from "./components/ScrollToTop";
 const AppContent = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin-");
+  const isStandalonePortfolio = /^\/departments\/[^/]+\/faculty\//.test(location.pathname);
+  const hideGlobalNavAndFooter = isAdminRoute || isStandalonePortfolio;
 
   return (
     <>
       <PageTransition />
       <ScrollToTop />
-      {!isAdminRoute && <Navbar />}
+      {!hideGlobalNavAndFooter && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -106,6 +109,7 @@ const AppContent = () => {
         <Route path="/departments/aids" element={<AIDS />} />
         <Route path="/departments/me-cse" element={<MECSE />} />
         <Route path="/departments/civil" element={<Civil />} />
+        <Route path="/departments/:deptId/faculty/:facultyId" element={<SharedFacultyPortfolio />} />
         <Route path="/departments/me-structural" element={<MEStructural />} />
         <Route path="/departments/mechanical" element={<Mechanical />} />
         <Route path="/departments/me-manufacturing" element={<MEManufacturing />} />
@@ -161,7 +165,7 @@ const AppContent = () => {
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
       
-      {!isAdminRoute && <Footer />}
+      {!hideGlobalNavAndFooter && <Footer />}
     </>
   );
 };

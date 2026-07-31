@@ -31,6 +31,7 @@ import imgManojPrabakar from "./images/Manoj_prabakar.jpg";
 import eycaLogo from "./images/eyca-logo.png";
 
 import "../cse/CSE.css";
+import { civilFacultyData } from "./facultyData";
 
 const Civil = () => {
   const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
@@ -53,17 +54,16 @@ const Civil = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = [
-    { name: "Mr. N. Nagarathinam", desig: "Head of Department [I/C]", qual: "M.E., M.I.S.T.E., (Ph.D)", email: "nagarathinam@nscet.org", image: imgNagarathinam, spec: "Structural Engineering & Concrete Tech", objectPosition: "center 10%" },
-    { name: "Mrs. S. Gayathri", desig: "Assistant Professor", qual: "M.E., M.I.S.T.E.", email: "gayathri@nscet.org", image: imgGayathri, spec: "Geotechnical & Soil Mechanics", objectPosition: "center 10%" },
-    { name: "Mr. R. Shanmugapriyan", desig: "Assistant Professor", qual: "M.E.", email: "shanmugapriyan@nscet.org", image: imgShanmugapriyan, spec: "Transportation & Surveying", objectPosition: "center 10%" },
-    { name: "Mrs. B. Sowmiya", desig: "Assistant Professor", qual: "M.E.", email: "sowmiya@nscet.org", image: imgSowmiya, spec: "Environmental Engineering", objectPosition: "center 10%" },
-    { name: "Mrs. M. Kanimozhi", desig: "Assistant Professor", qual: "M.E.", email: "kanimozhi@nscet.org", image: imgKanimozhi, spec: "Structural Analysis & RCC", objectPosition: "center 10%" },
-    { name: "Mr. P. Arul Jebaraj", desig: "Assistant Professor", qual: "M.Tech", email: "aruljebaraj@nscet.org", image: imgAruljebaraj, spec: "Water Resources & Hydraulics", objectPosition: "center 10%" },
-    { name: "Mrs. R. Nathirun Sabinash", desig: "Assistant Professor", qual: "M.E.", email: "nathirunsabinash@nscet.org", image: imgNathirunSabinash, spec: "Construction Management & GIS", objectPosition: "center 10%" },
-    { name: "Mr. T. Hariprasath", desig: "Assistant Professor", qual: "M.E.", email: "mailtohari16@gmail.com", image: imgHariprasath, spec: "Structural Dynamics & CAD", objectPosition: "center 10%" },
-    { name: "Mr. R. Manoj Prabakar", desig: "Assistant Professor", qual: "M.E.", email: "manojprabakar@nscet.org", image: imgManojPrabakar, spec: "Steel Structures & Surveying", objectPosition: "center 10%" }
-  ];
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || "hod";
+    window.open(
+      `/departments/civil/faculty/${facultyId}`,
+      "_blank"
+    );
+  };
+
+  const faculties = civilFacultyData;
 
   const hod = faculties[0];
   const staff = faculties.slice(1);
@@ -363,7 +363,7 @@ const Civil = () => {
               ...hod,
               quoteText: "Civil Engineering is the backbone of societal growth. We train our engineers to construct safe, sustainable, and aesthetically brilliant structures for future generations."
             }} 
-            onOpenProfile={setSelectedFacultyProfile} 
+            onOpenProfile={handleOpenProfile} 
           />
         </div>
       </section>
@@ -392,7 +392,7 @@ const Civil = () => {
               <DepartmentFacultyCard 
                 key={idx} 
                 member={member} 
-                onOpenProfile={setSelectedFacultyProfile} 
+                onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 
               />
             ))}
@@ -472,13 +472,6 @@ const Civil = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
-      <FacultyProfileModal 
-        isOpen={selectedFacultyProfile !== null}
-        faculty={selectedFacultyProfile}
-        onClose={() => setSelectedFacultyProfile(null)}
-      />
 
     </div>
   );

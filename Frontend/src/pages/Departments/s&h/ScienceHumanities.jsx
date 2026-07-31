@@ -8,6 +8,7 @@ import {
   FaSquareRootAlt, FaGlobe, FaAtom
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import { shFacultyData } from "./facultyData";
 
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
@@ -58,7 +59,11 @@ import imgRamKumar from "./images/ramkumar.jpeg";
 import "../cse/CSE.css";
 
 const ScienceHumanities = () => {
-  const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || member.slug || "hod";
+    window.open(`/departments/science-humanities/faculty/${facultyId}`, "_blank");
+  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -78,41 +83,7 @@ const ScienceHumanities = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = [
-    { name: "Dr. A. Vembathurajesh", desig: "Assistant Professor & Head [I/C]", qual: "M.E., Ph.D, MISTE.", email: "vembathurajesh@nscet.org", image: imgVembathuRajesh, spec: "General Engineering & Materials", objectPosition: "center 10%" },
-    { name: "Dr. C. Chithra", desig: "Professor & Co-Ordinator", qual: "M.Sc., M.Phil., B.Ed., P.G.D.C.A., Ph.D.", email: "chithra.c@nscet.org", image: imgChithra, spec: "Mathematics & Statistics", objectPosition: "center 10%" },
-    { name: "Dr. N. David Mathan", desig: "Professor", qual: "M.Sc., Ph.D.", email: "davidmathan@nscet.org", image: imgDavidMathan, spec: "Organic Chemistry & Polymers", objectPosition: "center 10%" },
-    { name: "Mr. R.C. Richard Britto", desig: "Assistant Professor", qual: "M.A., M.Phil.", email: "richardbritto@nscet.org", image: imgRichardBritto, spec: "English & Technical Communication", objectPosition: "center 10%" },
-    { name: "Mrs. T. Subathamani", desig: "Assistant Professor", qual: "M.A., M.Phil., B.Ed.", email: "subathamani@gmail.com", image: imgSubathamani, spec: "English Literature & Soft Skills", objectPosition: "center 10%" },
-    { name: "Dr. B. Mallaiyasamy", desig: "Associate Professor", qual: "M.Sc., M.Phil., M.Ed., PGDCA, Ph.D., MIST", email: "mallaiyasamy@nscet.org", image: imgMallaiyasamy, spec: "Applied Mathematics & Calculus", objectPosition: "center 10%" },
-    { name: "Mrs. R. Karunyah", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "mkaruniya@gmail.com", image: imgKarunyah, spec: "Mathematics & Algebra", objectPosition: "center 10%" },
-    { name: "Mrs. M. Arulvizhi", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "arulvizhimaths@gmail.com", image: imgArulvizhi, spec: "Mathematics & Differential Equations", objectPosition: "center 10%" },
-    { name: "Mr. R. Dhandayuthapani", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "rdpani2000@gmail.com", image: imgDhandayuthapani, spec: "Mathematics & Numerical Methods", objectPosition: "center 10%" },
-    { name: "Mr. K. Rajaguru", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "rajaguru@nscet.org", image: imgRajaguru, spec: "Mathematics & Operations Research", objectPosition: "center 10%" },
-    { name: "Dr. S.R. Krishnamoorthi", desig: "Associate Professor", qual: "M.Sc., M.Phil., Ph.D., MISTE", email: "krishnamoorthi@nscet.org", image: imgKrishnamoorthi, spec: "Engineering Physics & Optics", objectPosition: "center 10%" },
-    { name: "Mr. G. Arun Kumar", desig: "Assistant Professor", qual: "M.E.", email: "arunkumar1603@gmail.com", image: imgArunKumar, spec: "General Engineering & Mechanics", objectPosition: "center 10%" },
-    { name: "Dr. S. Selvapriya", desig: "Assistant Professor", qual: "M.A., M.Phil., Ph.D.", email: "selvapriyashailesh@gmail.com", image: imgSelvapriya, spec: "English Communication Skills", objectPosition: "center 10%" },
-    { name: "Mrs. S. Reka", desig: "Assistant Professor", qual: "M.A., M.Phil.", email: "subhalakshmireka@gmail.com", image: imgReka, spec: "English Literature", objectPosition: "center 10%" },
-    { name: "Dr. P. Buvaneshwari", desig: "Assistant Professor (Physics)", qual: "B.Sc., M.Sc., Ph.D.", email: "buvaneshjeyam5@gmail.com", image: imgBuvaneshwari, spec: "Applied Physics & Photonics", objectPosition: "center 10%" },
-    { name: "Dr. S. Devimeenakshmi", desig: "Assistant Professor (Chemistry)", qual: "M.Sc., Ph.D.", email: "devimeenakshi84@gmail.com", image: imgDeviMeenakshi, spec: "Physical Chemistry & Electrochemistry", objectPosition: "center 10%" },
-    { name: "Dr. P. Malarvizhi", desig: "Assistant Professor", qual: "M.A., M.Phil., Ph.D.", email: "malarvizhi@nscet.org", image: imgMalarvizhi, spec: "English Technical Writing", objectPosition: "center 10%" },
-    { name: "Dr. R. Valarmathi", desig: "Assistant Professor", qual: "Ph.D.", email: "valarmathi@nscet.org", image: imgValarmathi, spec: "Applied Physics & Nanomaterials", objectPosition: "center 10%" },
-    { name: "Mrs. S. Mufeena", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "mufeena@nscet.org", image: imgMufeena, spec: "Engineering Mathematics", objectPosition: "center 10%" },
-    { name: "Dr. R. Saravanakumar", desig: "Assistant Professor", qual: "M.Sc., Ph.D.", email: "saravanakumar@nscet.org", image: imgSaravanakumar, spec: "Environmental Chemistry", objectPosition: "center 10%" },
-    { name: "Dr. Sumathra M", desig: "Assistant Professor", qual: "M.Sc., Ph.D - Chemistry", email: "sumathravms@gmail.com", image: imgSumathra, spec: "Inorganic & Polymer Chemistry", objectPosition: "center 10%" },
-    { name: "Sangeetha V", desig: "Assistant Professor", qual: "M.A. English", email: "vijayansangeetha281985@gmail.com", image: imgSangeetha, spec: "English Phonetics & Grammar", objectPosition: "center 10%" },
-    { name: "Murugan M", desig: "Assistant Professor", qual: "M.Sc – Maths", email: "muruganmaths92@gmail.com", image: imgMurugan, spec: "Engineering Mathematics & Matrices", objectPosition: "center 10%" },
-    { name: "Dr. Diana P", desig: "Assistant Professor", qual: "M.Sc., Ph.D - Physics", email: "13diana83@gmail.com", image: imgDiana, spec: "Solid State Physics", objectPosition: "center 10%" },
-    { name: "Dr. Easwari M", desig: "Assistant Professor", qual: "M.Sc., Ph.D - Physics", email: "easwariphy@gmail.com", image: imgEaswari, spec: "Nuclear & Modern Physics", objectPosition: "center 10%" },
-    { name: "Ms. A. Iniya", desig: "Assistant Professor", qual: "M.E (CSE)", email: "iniyakames777@gmail.com", image: imgIniya, spec: "General Engineering & Programming", objectPosition: "center 10%" },
-    { name: "Ms. Jenifer K.", desig: "Assistant Professor", qual: "B.Tech(IT)., M.E(CSE)", email: "jenifer.k@cietcbe.edu.in", image: imgJenifer, spec: "Computer Practice & IT", objectPosition: "center 10%" },
-    { name: "Ms. Nandhini M.", desig: "Assistant Professor", qual: "M.E (CSE)", email: "benandhu10@gmail.com", image: imgNandhini, spec: "Problem Solving & Python", objectPosition: "center 10%" },
-    { name: "Dr. Premkumar S.", desig: "Assistant Professor", qual: "M.E., Ph.D (Civil)", email: "spremmagu@gmail.com", image: imgPremkumar, spec: "Engineering Graphics & Mechanics", objectPosition: "center 10%" },
-    { name: "Dr. Srinithi S", desig: "Assistant Professor", qual: "M.Sc., Ph.D (Chemistry)", email: "srinithi@nscet.org", image: imgSrinithi, spec: "Organic & Physical Chemistry", objectPosition: "center 10%" },
-    { name: "Mrs. S. Rajeshshree", desig: "Assistant Professor", qual: "B.E., M.E.", email: "rajeshshree@nscet.org", image: imgRajeshshree, spec: "Engineering Graphics & Design", objectPosition: "center 10%" },
-    { name: "Mrs. N. Thisha", desig: "Assistant Professor (Tamil)", qual: "B.A., M.A., NET.", email: "thisha@nscet.org", image: imgThisha, spec: "Tamil Literature & Heritage", objectPosition: "center 10%" },
-    { name: "Mr. Ram Kumar K", desig: "Assistant Professor", qual: "B.E - EEE., M.B.A", email: "ramkumar@nscet.org", image: imgRamKumar, spec: "General Engineering & Management", objectPosition: "center 10%" }
-  ];
+  const faculties = shFacultyData;
 
   const hod = faculties[0];
   const staff = faculties.slice(1);
@@ -416,7 +387,7 @@ const ScienceHumanities = () => {
               ...hod,
               quoteText: "Science & Humanities provides the bedrock for all engineering wisdom. We guide incoming students to build solid mathematical, scientific, and communication foundations."
             }} 
-            onOpenProfile={setSelectedFacultyProfile} 
+            onOpenProfile={handleOpenProfile} 
           />
         </div>
       </section>
@@ -445,7 +416,7 @@ const ScienceHumanities = () => {
               <DepartmentFacultyCard 
                 key={idx} 
                 member={member} 
-                onOpenProfile={setSelectedFacultyProfile} 
+                onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 
               />
             ))}
@@ -526,12 +497,7 @@ const ScienceHumanities = () => {
         </div>
       </section>
 
-      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
-      <FacultyProfileModal 
-        isOpen={selectedFacultyProfile !== null}
-        faculty={selectedFacultyProfile}
-        onClose={() => setSelectedFacultyProfile(null)}
-      />
+      
 
     </div>
   );

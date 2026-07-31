@@ -8,6 +8,7 @@ import {
   FaRobot, FaTools
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import { memanufacturingFacultyData } from "./memanufacturing/facultyData";
 
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
@@ -24,7 +25,11 @@ import imgVennimalaiRajan from "./images/Vennimalairajan.jpg";
 import "../cse/CSE.css";
 
 const MEManufacturing = () => {
-  const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || member.slug || "hod";
+    window.open(`/departments/me-manufacturing/faculty/${facultyId}`, "_blank");
+  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -44,10 +49,7 @@ const MEManufacturing = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = [
-    { name: "Dr. C. Mathalai Sundaram", desig: "Principal & Professor", qual: "M.E., M.B.A., Ph.D., MISTE", email: "principal@nscet.org", image: imgMathalaiSundaram, spec: "Advanced Manufacturing & Additive Production", objectPosition: "center 10%" },
-    { name: "Dr. A. Vennimalai Rajan", desig: "Assistant Professor", qual: "M.E., Ph.D, MISTE.", email: "vennimalairajan@nscet.org", image: imgVennimalaiRajan, spec: "Precision Machining & Optimization", objectPosition: "center 10%" }
-  ];
+  const faculties = memanufacturingFacultyData;
 
   const hod = faculties[0];
   const staff = faculties.slice(1);
@@ -296,7 +298,7 @@ const MEManufacturing = () => {
               ...hod,
               quoteText: "Manufacturing is the wealth generator of nations. Our goal is to cultivate leaders who transform raw materials into precision-engineered smart products."
             }} 
-            onOpenProfile={setSelectedFacultyProfile} 
+            onOpenProfile={handleOpenProfile} 
           />
         </div>
       </section>
@@ -325,7 +327,7 @@ const MEManufacturing = () => {
               <DepartmentFacultyCard 
                 key={idx} 
                 member={member} 
-                onOpenProfile={setSelectedFacultyProfile} 
+                onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 
               />
             ))}
@@ -406,12 +408,7 @@ const MEManufacturing = () => {
         </div>
       </section>
 
-      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
-      <FacultyProfileModal 
-        isOpen={selectedFacultyProfile !== null}
-        faculty={selectedFacultyProfile}
-        onClose={() => setSelectedFacultyProfile(null)}
-      />
+      
 
     </div>
   );

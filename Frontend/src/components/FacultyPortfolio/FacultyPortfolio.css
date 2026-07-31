@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   CIVIL FACULTY PORTFOLIO (STANDALONE GLASSMORPHISM MICROSITE)
+   ========================================================= */
+
+/* Scoped Shadcn Theme Variables */
+.shadcn-theme {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+  --radius: 0.5rem;
+}
+
+body:not(.dark-mode) .shadcn-theme {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+}
+.faculty-portfolio-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0b1120;
+  color: #f8fafc;
+  position: relative;
+  overflow-x: clip;
+  overflow-y: visible;
+  font-family: var(--font-body), sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode background adaptation if dark-mode class is absent */
+body:not(.dark-mode) .faculty-portfolio-page {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Ambient glow spots */
+.portfolio-ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.portfolio-glow-1 {
+  top: -100px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.portfolio-glow-2 {
+  bottom: -150px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* Minimal Floating Header */
+.portfolio-header {
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 3rem);
+  max-w-6xl: 72rem;
+  max-width: 72rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+body:not(.dark-mode) .portfolio-header {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.portfolio-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.portfolio-header-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.portfolio-header-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-header-title {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.portfolio-header-tag {
+  font-family: var(--font-subtopic), sans-serif;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--theme-primary, #0ea5e9);
+}
+
+.portfolio-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.portfolio-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 9999px;
+  font-family: var(--font-body), sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+body:not(.dark-mode) .portfolio-back-btn {
+  border-color: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.portfolio-back-btn:hover {
+  background: var(--theme-primary, #0ea5e9);
+  color: #ffffff;
+  border-color: var(--theme-primary, #0ea5e9);
+  transform: translateY(-1px);
+}
+
+.portfolio-theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+body:not(.dark-mode) .portfolio-theme-btn {
+  border-color: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.portfolio-theme-btn:hover {
+  background: var(--theme-primary, #0ea5e9);
+  color: #ffffff;
+  border-color: var(--theme-primary, #0ea5e9);
+  transform: translateY(-1px);
+}
+
+/* Glassmorphism Card & Typography Overrides */
+.faculty-heading {
+  font-family: var(--font-heading), sans-serif !important;
+  font-weight: 800 !important;
+}
+
+.faculty-name {
+  font-family: var(--font-heading), sans-serif !important;
+  font-weight: 800 !important;
+}
+
+.faculty-role,
+.faculty-role-title {
+  font-family: var(--font-subtopic), sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.highlight-title {
+  font-family: var(--font-subtopic), sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.highlight-desc,
+.faculty-subtext,
+.faculty-bio,
+.social-label,
+.social-handle {
+  font-family: var(--font-body), sans-serif !important;
+}
+
+/* Glass card overrides for theme support */
+body:not(.dark-mode) .glass-portfolio-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(226, 232, 240, 0.8);
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.08);
+}
+
+body:not(.dark-mode) .highlight-card,
+body:not(.dark-mode) .profile-side-card,
+body:not(.dark-mode) .social-link-item {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(226, 232, 240, 0.9);
+}
+
+/* Minimal Footer */
+.portfolio-minimal-footer {
+  text-align: center;
+  padding: 2rem 1.5rem 3rem 1.5rem;
+  font-size: 0.75rem;
+  color: rgba(148, 163, 184, 0.7);
+  font-family: var(--font-body), sans-serif;
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 10;
+}
+
+body:not(.dark-mode) .portfolio-minimal-footer {
+  color: rgba(100, 116, 139, 0.8);
+}
