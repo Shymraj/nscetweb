@@ -51,7 +51,7 @@ const TeachingFaculty = () => {
     // --- B.E. - Computer Science Engineering (Total: 8) ---
     { id: 16, name: "Dr. J. Mathalai Raj", qualifications: ["M.E (CSE), Ph.D"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor & Head [I/C]", email: "hodcse@nscet.org", photo: "/mathalairaj.jpg", isHOD: true },
     { id: 17, name: "Mr. K. Velkumar", qualifications: ["M.E,(Ph.D)"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "velkumar@nscet.org", photo: "/velkumar.jpg", isHOD: false },
-    { id: 18, name: "Mrs. R. Archana", qualifications: ["M.E., (Ph.D)"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "archana@nscet.org", photo: "/archana.jpg", isHOD: false },
+    { id: 18, name: "Mrs. R. Archana", qualifications: ["M.E., (Ph.D)"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "archana@nscet.org", photo: "/profile.jpeg", isHOD: false },
     { id: 19, name: "Ms. S. Abirami Kayathiri", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "abiramikayathiri@nscet.org", photo: "/abirami.jpeg", isHOD: false },
     { id: 20, name: "Mrs. M. Venkata Lakshmi", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "venkatalakshmi@nscet.org", photo: "/venkatalakshmi.JPG", isHOD: false },
     { id: 21, name: " Anusuya V", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "anusuya@nscet.org", photo: "/anusuya.jpeg", isHOD: false },
