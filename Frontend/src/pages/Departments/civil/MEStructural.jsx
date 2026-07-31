@@ -8,6 +8,7 @@ import {
   FaFlask
 } from "react-icons/fa";
 import { BsBuildingsFill } from "react-icons/bs";
+import { mestructuralFacultyData } from "./mestructural/facultyData";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
@@ -26,7 +27,11 @@ import imgBenita from "./images/Benita Photo.jpg";
 import "../cse/CSE.css";
 
 const MEStructural = () => {
-  const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || member.slug || "hod";
+    window.open(`/departments/me-structural/faculty/${facultyId}`, "_blank");
+  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -46,11 +51,7 @@ const MEStructural = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = [
-    { name: "Dr. E. Anantha Krishnan", desig: "Professor & M.E. Program Head", qual: "M.E., Ph.D.", email: "ananthakrishnan@nscet.org", image: imgAnanthaKrishnan, spec: "Earthquake Engineering & High-Rise Structures", objectPosition: "center 10%" },
-    { name: "Mrs. M. Sindhu", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "sindhu@nscet.org", image: imgSindhu, spec: "Advanced Concrete Dynamics & FEM", objectPosition: "center 10%" },
-    { name: "Mrs. K. Benita Merlin Isabella", desig: "Assistant Professor", qual: "M.E", email: "benitamerlin22@gmail.com", image: imgBenita, spec: "Prestressed Concrete & Bridge Engineering", objectPosition: "center 10%" }
-  ];
+  const faculties = mestructuralFacultyData;
 
   const hod = faculties[0];
   const staff = faculties.slice(1);
@@ -297,7 +298,7 @@ const MEStructural = () => {
               ...hod,
               quoteText: "Structural Engineering requires absolute precision. We empower our postgraduate scholars to design resilient high-rise structures that withstand seismic forces."
             }} 
-            onOpenProfile={setSelectedFacultyProfile} 
+            onOpenProfile={handleOpenProfile} 
           />
         </div>
       </section>
@@ -326,7 +327,7 @@ const MEStructural = () => {
               <DepartmentFacultyCard 
                 key={idx} 
                 member={member} 
-                onOpenProfile={setSelectedFacultyProfile} 
+                onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 
               />
             ))}
@@ -407,12 +408,7 @@ const MEStructural = () => {
         </div>
       </section>
 
-      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
-      <FacultyProfileModal 
-        isOpen={selectedFacultyProfile !== null}
-        faculty={selectedFacultyProfile}
-        onClose={() => setSelectedFacultyProfile(null)}
-      />
+      
 
     </div>
   );

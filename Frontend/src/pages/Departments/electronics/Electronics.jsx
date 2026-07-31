@@ -8,6 +8,7 @@ import {
   FaSatelliteDish, FaRobot, FaLaptopCode
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import { electronicsFacultyData } from "./facultyData";
 
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
@@ -33,7 +34,11 @@ import imgBharathiKannan from "./images/bharathikannan.jpg";
 import "../cse/CSE.css";
 
 const Electronics = () => {
-  const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || member.slug || "hod";
+    window.open(`/departments/electronics/faculty/${facultyId}`, "_blank");
+  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -53,17 +58,7 @@ const Electronics = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = [
-    { name: "Dr. T. Venishkumar", desig: "Associate Professor & Head [I/C]", qual: "M.E., Ph.D", email: "venishkumar@nscet.org", image: imgVenishkumar, spec: "VLSI Design & Embedded Systems", objectPosition: "center 10%" },
-    { name: "Dr. N. Mathavan", desig: "Assistant Professor", qual: "B.Tech., M.E., Ph.D", email: "memadhavan@gmail.com", image: imgMathavan, spec: "Wireless Communications & Antenna Design", objectPosition: "center 10%" },
-    { name: "Mr. M. Idhayachandran", desig: "Assistant Professor", qual: "M.E.", email: "idhayachandran@nscet.org", image: imgIdhayachandran, spec: "Digital Signal Processing & Image Processing", objectPosition: "center 10%" },
-    { name: "Mr. S. Prathap", desig: "Assistant Professor", qual: "M.E (PhD)", email: "prathaps@nscet.org", image: imgPrathap, spec: "Embedded Systems & IoT Hardware", objectPosition: "center 10%" },
-    { name: "Mr. R. Pradeep Kumar", desig: "Assistant Professor", qual: "M.E (PhD)", email: "pradeepkumar@nscet.org", image: imgPradeepKumar, spec: "Optical Communications & RF Systems", objectPosition: "center 10%" },
-    { name: "Mrs. T. Tamil Selvi", desig: "Assistant Professor", qual: "M.Tech., (Ph.D.)", email: "tamilselvi@nscet.org", image: imgTamilSelvi, spec: "Nanoelectronics & Semiconductor Devices", objectPosition: "center 10%" },
-    { name: "Mrs. P. Shantha Devi", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "shanthadevi@nscet.org", image: imgShanthaDevi, spec: "Biomedical Signal Processing & Sensor Networks", objectPosition: "center 10%" },
-    { name: "Mrs. P. Gowthami", desig: "Assistant Professor", qual: "M.E.", email: "gowthami@nscet.org", image: imgGowthami, spec: "Communication Networks & Microcontrollers", objectPosition: "center 10%" },
-    { name: "Mr. K. Bharathi Kannan", desig: "Assistant Professor", qual: "M.E.", email: "bharathikannan@nscet.org", image: imgBharathiKannan, spec: "Linear Integrated Circuits & Control", objectPosition: "center 10%" }
-  ];
+  const faculties = electronicsFacultyData;
 
   const hod = faculties[0];
   const staff = faculties.slice(1);
@@ -367,7 +362,7 @@ const Electronics = () => {
               ...hod,
               quoteText: "Electronics & Communication lies at the core of the global digital era. We empower our students to design cutting-edge silicon chips and high-speed wireless networks."
             }} 
-            onOpenProfile={setSelectedFacultyProfile} 
+            onOpenProfile={handleOpenProfile} 
           />
         </div>
       </section>
@@ -396,7 +391,7 @@ const Electronics = () => {
               <DepartmentFacultyCard 
                 key={idx} 
                 member={member} 
-                onOpenProfile={setSelectedFacultyProfile} 
+                onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 
               />
             ))}
@@ -477,12 +472,7 @@ const Electronics = () => {
         </div>
       </section>
 
-      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
-      <FacultyProfileModal 
-        isOpen={selectedFacultyProfile !== null}
-        faculty={selectedFacultyProfile}
-        onClose={() => setSelectedFacultyProfile(null)}
-      />
+      
 
     </div>
   );

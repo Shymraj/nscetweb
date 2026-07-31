@@ -8,6 +8,7 @@ import {
   FaRobot, FaDatabase, FaProjectDiagram
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import { aidsFacultyData } from "./facultyData";
 
 import PageBanner from "../../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../../components/common/FacultyProfileModal/FacultyProfileModal";
@@ -33,7 +34,11 @@ import imgKodeeswaran from "./images/1778918812_ADS - Kodeeswaran.jpeg";
 import "../../cse/CSE.css";
 
 const AIDS = () => {
-  const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || member.slug || "hod";
+    window.open(`/departments/aids/faculty/${facultyId}`, "_blank");
+  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -53,16 +58,7 @@ const AIDS = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = [
-    { name: "Mr. L.S. Vignesh", desig: "Assistant Professor & Head [I/C]", qual: "M.E., (Ph.D)", email: "hodai_ds@nscet.org", image: imgVignesh, spec: "Artificial Intelligence & Deep Learning", objectPosition: "center 10%" },
-    { name: "Mr. J. Vinoth Kumar", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "vinothkumar@nscet.org", image: imgVinothKumar, spec: "Machine Learning & Neural Networks", objectPosition: "center 10%" },
-    { name: "J. Kanimoli", desig: "Assistant Professor", qual: "M.E.", email: "kanimoli@nscet.org", image: imgKanimoli, spec: "Data Engineering & Analytics", objectPosition: "center 10%" },
-    { name: "Mrs. G. Geerthiga", desig: "Assistant Professor", qual: "M.E.", email: "geerthiga@nscet.org", image: imgGeerthiga, spec: "Computer Vision & Pattern Recognition", objectPosition: "center 10%" },
-    { name: "Mrs. M. Pavithra", desig: "Assistant Professor", qual: "M.E.", email: "pavithra@nscet.org", image: imgPavithra, spec: "Natural Language Processing & AI", objectPosition: "center 10%" },
-    { name: "Ms. P. Nagajothi", desig: "Assistant Professor", qual: "M.E.", email: "nagajothi@nscet.org", image: imgNagajothi, spec: "Predictive Modeling & Big Data", objectPosition: "center 10%" },
-    { name: "Sunitha S", desig: "Assistant Professor", qual: "M.E.", email: "sunitha.sagee@gmail.com", image: imgSunitha, spec: "Data Mining & Python Systems", objectPosition: "center 12%" },
-    { name: "Kodeeswaran S", desig: "Assistant Professor", qual: "M.Tech.", email: "mail2kodees@gmail.com", image: imgKodeeswaran, spec: "AI Algorithms & Intelligent Robotics", objectPosition: "center 12%" }
-  ];
+  const faculties = aidsFacultyData;
 
   const hod = faculties[0];
   const staff = faculties.slice(1);
@@ -366,7 +362,7 @@ const AIDS = () => {
               ...hod,
               quoteText: "Artificial Intelligence is transforming every human endeavor. Our goal is to cultivate engineers who lead this revolution with analytical precision and strong ethical values."
             }} 
-            onOpenProfile={setSelectedFacultyProfile} 
+            onOpenProfile={handleOpenProfile} 
           />
         </div>
       </section>
@@ -395,7 +391,7 @@ const AIDS = () => {
               <DepartmentFacultyCard 
                 key={idx} 
                 member={member} 
-                onOpenProfile={setSelectedFacultyProfile} 
+                onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 
               />
             ))}
@@ -476,12 +472,7 @@ const AIDS = () => {
         </div>
       </section>
 
-      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
-      <FacultyProfileModal 
-        isOpen={selectedFacultyProfile !== null}
-        faculty={selectedFacultyProfile}
-        onClose={() => setSelectedFacultyProfile(null)}
-      />
+      
 
     </div>
   );
