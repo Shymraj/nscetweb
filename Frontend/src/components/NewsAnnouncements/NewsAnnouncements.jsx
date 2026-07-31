@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./NewsAnnouncements.css";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaRegCalendarAlt, FaFilePdf, FaLink, FaBullhorn } from "react-icons/fa";
@@ -6,7 +7,7 @@ import { FaArrowRight, FaRegCalendarAlt, FaFilePdf, FaLink, FaBullhorn } from "r
 // Placeholder image (Replace with your actual college event image)
 const featuredImage = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
 
-const announcements = [
+const defaultAnnouncements = [
   {
     id: 1,
     title: "Revised Schedule for Even Semester Internal Examinations 2026",
@@ -46,6 +47,34 @@ const announcements = [
 ];
 
 function NewsAnnouncements() {
+  const [announcements, setAnnouncements] = useState(defaultAnnouncements);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/admin/home/news");
+        if (res.data && res.data.data && res.data.data.length > 0) {
+          // Format the DB records to match the component's expected format
+          const formattedNews = res.data.data.map((item, index) => {
+            const dateObj = new Date(item.date);
+            const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            return {
+              id: item.id,
+              title: item.title,
+              date: formattedDate !== "Invalid Date" ? formattedDate : item.date,
+              // Make the most recent item 'new' so it gets the badge just like the static design
+              type: index === 0 ? "new" : "standard",
+              content: item.content
+            };
+          });
+          setAnnouncements(formattedNews);
+        }
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
+    };
+    fetchNews();
+  }, []);
   return (
     <section className="news-section">
       <div className="news-container">
@@ -113,10 +142,10 @@ function NewsAnnouncements() {
               <div className="notice-scroll-area">
                 <ul className="notice-list">
                   {announcements.map((item) => (
-                    <li className="notice-item" key={item.id}>
+                    <li className={`notice-item ${item.type === 'new' ? 'is-new' : ''}`} key={item.id}>
                       <div className="notice-meta">
-                        <span className="notice-date">{item.date}</span>
                         {item.type === "new" && <span className="badge badge-new">NEW</span>}
+                        <span className="notice-date">{item.date}</span>
                         {item.type === "pdf" && <span className="badge badge-pdf"><FaFilePdf /> PDF</span>}
                         {item.type === "link" && <span className="badge badge-link"><FaLink /> LINK</span>}
                       </div>

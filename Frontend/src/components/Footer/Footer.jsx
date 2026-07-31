@@ -32,10 +32,12 @@ const Footer = () => {
         {/* Main Footer Links */}
         <div className="footer-grid">
           <div className="footer-col">
-            <div className="footer-logo">
-              <img src={nscetLogo} alt="NSCET Logo" />
-              <h3>NSCET</h3>
-            </div>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <div className="footer-logo">
+                <img src={nscetLogo} alt="NSCET Logo" />
+                <h3>NSCET</h3>
+              </div>
+            </Link>
             <p className="footer-about">
               Nadar Saraswathi College of Engineering and Technology is a premier institution dedicated to empowering young minds through innovation, technical excellence, and holistic development.
             </p>

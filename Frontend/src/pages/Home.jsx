@@ -1,5 +1,6 @@
 import MarqueeBanner from "../components/MarqueeBanner/MarqueeBanner";
 import Hero from "../components/Hero/Hero";
+import TimerBanner from "../components/TimerBanner/TimerBanner";
 import Stats from "../components/Stats/Stats";
 import VisionMission from "../components/VisionMission/VisionMission";
 import NewsAnnouncements from "../components/NewsAnnouncements/NewsAnnouncements";
@@ -17,6 +18,7 @@ function Home() {
     <>
       <MarqueeBanner />
       <Hero />
+      <TimerBanner />
       <Stats />
       <VisionMission />
       <NewsAnnouncements />

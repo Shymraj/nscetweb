@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { 
   FaEnvelope, 
   FaPhoneAlt, 
@@ -8,10 +9,26 @@ import {
   FaBookOpen,
   FaChevronRight
 } from 'react-icons/fa';
-import principalImg from '../../../assets/administration/images/prinicipal.jpg';
+import defaultPrincipalImg from '../../../assets/administration/images/prinicipal.jpg';
 import './Principal.css';
 
 function Principal() {
+  const [principalData, setPrincipalData] = useState(null);
+
+  useEffect(() => {
+    const fetchPrincipal = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/admin/home/principal');
+        if (response.data && response.data.data && response.data.data.length > 0) {
+          setPrincipalData(response.data.data[0]);
+        }
+      } catch (error) {
+        console.error("Error fetching principal data:", error);
+      }
+    };
+    fetchPrincipal();
+  }, []);
+
   return (
     <div className="principal-page">
       <div className="pr-container">
@@ -33,8 +50,8 @@ function Principal() {
           <div className="pr-hero-left">
             <div className="pr-image-frame">
               <img 
-                src={principalImg} 
-                alt="Dr. C. Mathalai Sundaram - Principal" 
+                src={principalData?.photo_url ? `http://localhost:5000${principalData.photo_url}` : defaultPrincipalImg} 
+                alt={principalData?.name || "Dr. C. Mathalai Sundaram - Principal"} 
                 className="pr-portrait-img"
               />
             </div>
@@ -42,18 +59,24 @@ function Principal() {
 
           {/* RIGHT SIDE: Name, Title & Welcome Paragraphs */}
           <div className="pr-hero-right">
-            <h2 className="pr-principal-name">Dr. C. Mathalai Sundaram</h2>
+            <h2 className="pr-principal-name">{principalData?.name || "Dr. C. Mathalai Sundaram"}</h2>
             <h3 className="pr-principal-subtitle">
               Principal, Nadar Saraswathi College of Engineering and Technology
             </h3>
 
             <div className="pr-hero-text-block">
-              <p className="pr-paragraph">
-                As a 21st century organization, NSCET desires to set an approach to learning that incorporates inquiry, research, analytical thinking and an ethical approach that becomes a lifetime habit. I strongly believe that education is a collaborative effort that involves professional administrators, committed teachers and motivated students.
-              </p>
-              <p className="pr-paragraph">
-                We dedicate ourselves as professional administrators in creating a dynamic education programme empowering the students in a global perspective. Learning at NSCET is a wholesome package of attitude, challenge, and opportunity.
-              </p>
+              {principalData?.message ? (
+                <p className="pr-paragraph">{principalData.message}</p>
+              ) : (
+                <>
+                  <p className="pr-paragraph">
+                    As a 21st century organization, NSCET desires to set an approach to learning that incorporates inquiry, research, analytical thinking and an ethical approach that becomes a lifetime habit. I strongly believe that education is a collaborative effort that involves professional administrators, committed teachers and motivated students.
+                  </p>
+                  <p className="pr-paragraph">
+                    We dedicate ourselves as professional administrators in creating a dynamic education programme empowering the students in a global perspective. Learning at NSCET is a wholesome package of attitude, challenge, and opportunity.
+                  </p>
+                </>
+              )}
             </div>
           </div>
 
