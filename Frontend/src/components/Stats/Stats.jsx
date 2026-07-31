@@ -36,7 +36,7 @@ const { ref, inView } = useInView({
           </div>
 
           <h2>
-<Counter end={160} suffix="+" start={inView} />          </h2>
+<Counter end={150} suffix="+" start={inView} />          </h2>
 
           <p>Faculty Members</p>
         </div>
@@ -47,7 +47,7 @@ const { ref, inView } = useInView({
           </div>
 
           <h2>
-<Counter end={15} suffix="+" start={inView} />          </h2>
+<Counter end={10} suffix="+" start={inView} />          </h2>
 
           <p>Departments</p>
         </div>

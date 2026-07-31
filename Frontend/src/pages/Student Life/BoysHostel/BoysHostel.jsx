@@ -1,164 +1,256 @@
-import React from 'react';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
-import bannerImg from './banner/boyshostel.png';
-import { FaDumbbell, FaTv, FaBook, FaUtensils, FaShieldAlt, FaCalendarCheck, FaExclamationCircle } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
 import './BoysHostel.css';
 
 const BoysHostel = () => {
+  const hostelData = {
+    about: "The Boys Hostel at our college provides a comfortable and secure environment for students. Equipped with modern facilities and 24/7 supervision, the hostel ensures a home-like atmosphere where students can focus on their academics while enjoying their stay. Spacious rooms, hygienic dining, and recreational areas make it an ideal place for holistic growth and development.",
+    chiefWarden: { name: "Dr. C. Mathalai Sundaram", role: "Principal & Chief Warden" },
+    deputyWardens: [
+      { name: "Dr. J. Mathalai Raj", role: "Deputy Warden" },
+      { name: "Mr. R. Santhaseelan", role: "Deputy Warden" }
+    ],
+    strength: { rooms: 28, blocks: 2, totalStudents: 22 },
+    gallery: [
+      { id: 1, imgUrl: "/hostel1.JPG" },
+      { id: 2, imgUrl: "/hostel2.JPG" },
+      { id: 3, imgUrl: "/hostel3.JPG" },
+      { id: 4, imgUrl: "/hostel5.JPG" }
+    ],
+    culture: [
+      { id: 1, imgUrl: "/hc3.JPG" },
+      { id: 2,  imgUrl: "/hc2.JPG" },
+      { id: 3, imgUrl: "/hc4.JPG" }
+    ],
+    facilities: [
+      { title: "Gym", desc: "Well-equipped gym with modern exercise machines and weights." },
+      { title: "Common Room", desc: "Common room with a TV, comfortable seating, and entertainment options." },
+      { title: "Study Area", desc: "Study area with quiet spaces, desks, and high-speed internet." },
+      { title: "Mess", desc: "Mess with a variety of nutritious meals served at convenient timings." },
+      { title: "Security", desc: "Security with CCTV cameras and a hostel warden available 24/7." }
+    ],
+    nearby: [
+      { place: "NSCET Campus", distance: "0.5 Km" },
+      { place: "Nearest Hospital", distance: "2.0 Km" },
+      { place: "Main Bus Stand", distance: "1.5 Km" },
+      { place: "ATM & Supermarkets", distance: "1.0 Km" }
+    ]
+  };
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentCultureSlide, setCurrentCultureSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === hostelData.gallery.length - 1 ? 0 : prev + 1));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [hostelData.gallery.length]);
+
+  useEffect(() => {
+    const cultureTimer = setInterval(() => {
+      setCurrentCultureSlide((prev) => (prev === hostelData.culture.length - 1 ? 0 : prev + 1));
+    }, 3000);
+    return () => clearInterval(cultureTimer);
+  }, [hostelData.culture.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === hostelData.gallery.length - 1 ? 0 : prev + 1));
+  };
+  
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? hostelData.gallery.length - 1 : prev - 1));
+  };
+
   return (
-    <div className="boyshostel-page">
-      <PageBanner
-        backgroundImage={bannerImg}
-        hideBreadcrumb={true}
-        showOverlay={false}
-        showText={false}
-      />
+    <div className="modern-hostel-page">
       
-      <div className="hostel-container">
-        {/* Header / College Info */}
-        <section className="college-header-info">
-          <h5>Managing Body: Theni Melapettai Hindu Nadargal Uravinmurai</h5>
-          <h2>NADAR SARASWATHI COLLEGE OF ENGINEERING & TECHNOLOGY</h2>
-          <p className="approvals">Approved by AICTE, New Delhi | Affiliated to Anna University, Chennai | Accredited by NAAC with 'A' Grade<br/>Recognized under 2(f) of the UGC Act, 1956 | An ISO 9001:2015 Certified Institution</p>
-          <p className="address">Address: Vadapudupatti, Annanji (PO), Theni - 625531.</p>
-        </section>
+      <section className="hostel-hero">
+        <div className="hero-content">
+          <h1 className="animate-slide-down">NSCET BOYS HOSTEL</h1>
+        </div>
+      </section>
 
+      <div className="hostel-main-container">
+        
         {/* About Section */}
-        <section className="about-hostel">
-          <div className="section-header">
-            <h3>About Hostel</h3>
-            <div className="header-line"></div>
+        <section className="hostel-section about-section animate-slide-up">
+          <div className="about-text">
+            <h2 className="section-title">About the Hostel</h2>
+            <p>{hostelData.about}</p>
           </div>
-          <p>
-            The Boys Hostel at our college provides a comfortable and secure environment for students. Equipped with modern facilities and 24/7 supervision, the hostel ensures a home-like atmosphere where students can focus on their academics while enjoying their stay. Spacious rooms, hygienic dining, and recreational areas make it an ideal place for holistic growth and development.
-          </p>
-        </section>
-
-        {/* Wardens Section */}
-        <section className="warden-section">
-           <div className="section-header">
-            <h3>Wardens</h3>
-            <div className="header-line"></div>
-          </div>
-          <div className="warden-cards">
-            <div className="warden-card principal">
-              <h4>Dr. C. Mathalai Sundaram</h4>
-              <p>Principal / Warden</p>
-            </div>
-            <div className="warden-card deputy">
-              <h4>Dr. J. Mathalai Raj</h4>
-              <p>Deputy Warden</p>
-            </div>
-            <div className="warden-card deputy">
-              <h4>Mr. R. Santhaseelan</h4>
-              <p>Deputy Warden</p>
-            </div>
+          <div className="about-highlights">
+            <div className="highlight-chip">24/7 Security</div>
+            <div className="highlight-chip">100% Power Backup</div>
+            <div className="highlight-chip">RO Purified Water</div>
+            <div className="highlight-chip">Peaceful Environment</div>
           </div>
         </section>
 
-        {/* Facilities Section */}
-        <section className="facilities-section">
-           <div className="section-header">
-            <h3>Facilities</h3>
-            <div className="header-line"></div>
+        {/* COMPACT & SPLIT CONTAINER: Left (Strength), Right (Admin) */}
+        <section className="hostel-section admin-infra-combined-section animate-slide-up-delay-1">
+          <div className="admin-infra-split">
+            
+            {/* Left Side: Strength & Infrastructure */}
+            <div className="infra-side">
+              <h2 className="section-title">Strength & Infrastructure</h2>
+              <div className="primary-stats">
+                <div className="stat-item">
+                  <span className="stat-number">{hostelData.strength.totalStudents}</span>
+                  <span className="stat-label">Total Students</span>
+                </div>
+                <div className="stat-divider"></div>
+                <div className="stat-item">
+                  <span className="stat-number">{hostelData.strength.rooms}</span>
+                  <span className="stat-label">Total Rooms</span>
+                </div>
+                <div className="stat-divider"></div>
+                <div className="stat-item">
+                  <span className="stat-number">{hostelData.strength.blocks}</span>
+                  <span className="stat-label">Blocks</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side: Hostel Administration */}
+            <div className="admin-side">
+              <h2 className="section-title">Hostel Administration</h2>
+              <div className="admin-cards-container">
+                <div className="admin-card chief">
+                  <h3>{hostelData.chiefWarden.name}</h3>
+                  <span className="admin-role">{hostelData.chiefWarden.role}</span>
+                </div>
+                <div className="deputy-cards">
+                  {hostelData.deputyWardens.map((warden, idx) => (
+                    <div key={idx} className="admin-card deputy">
+                      <h3>{warden.name}</h3>
+                      <span className="admin-role">{warden.role}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div className="facilities-grid">
-            <div className="facility-card">
-              <FaDumbbell className="facility-icon" />
-              <p>Well-equipped gym with modern exercise machines and weights.</p>
+        </section>
+
+        <section className="hostel-section culture-facilities-section animate-slide-up-delay-3">
+          <div className="culture-facilities-grid">
+            
+            <div className="culture-side">
+              <h2 className="section-title">Hostel Culture</h2>
+              <div className="culture-image-card">
+                <div className="culture-slider-wrapper">
+                  {hostelData.culture.map((item, index) => (
+                    <div 
+                      key={item.id} 
+                      className={`culture-slide ${index === currentCultureSlide ? 'active' : ''}`}
+                    >
+                      <img 
+                        src={item.imgUrl} 
+                        alt={item.title} 
+                        className="culture-real-image" 
+                      />
+                      <div className="culture-overlay">
+                        <h3>{item.title}</h3>
+                        <p>Celebrating unity, talents, and memories.</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="facility-card">
-              <FaTv className="facility-icon" />
-              <p>Common room with a TV, comfortable seating, and entertainment options.</p>
+
+            <div className="facilities-side">
+              <h2 className="section-title">Facilities</h2>
+              <div className="facilities-box">
+                <ul className="facilities-list">
+                  {hostelData.facilities.map((fac, idx) => (
+                    <li key={idx}>
+                      <strong>{fac.title}:</strong> {fac.desc}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className="facility-card">
-              <FaBook className="facility-icon" />
-              <p>Study area with quiet spaces, desks, and high-speed internet.</p>
+
+          </div>
+        </section>
+
+        <section className="hostel-section rules-section animate-slide-up-delay-4">
+          <h2 className="section-title">Rules & Regulations</h2>
+          <div className="rules-two-container">
+            <div className="rules-box">
+              <h3 className="rules-box-title">Study Hours & General Rules</h3>
+              <ul className="rules-list">
+                <li>Strict study hours are enforced every evening from 8:30 PM to 10:30 PM.</li>
+                <li>Attendance will be taken daily at 8:15 PM by the respective block wardens.</li>
+                <li>Students are responsible for the safe keeping of their personal valuables.</li>
+                <li>Usage of heavy electrical appliances (heaters, iron boxes) inside rooms is strictly prohibited.</li>
+                <li>Silence must be maintained in the corridors and rooms during study hours and after 10:30 PM.</li>
+              </ul>
             </div>
-            <div className="facility-card">
-              <FaUtensils className="facility-icon" />
-              <p>Mess with a variety of nutritious meals served at convenient timings.</p>
-            </div>
-            <div className="facility-card">
-              <FaShieldAlt className="facility-icon" />
-              <p>Security with CCTV cameras and a hostel warden available 24/7.</p>
+            <div className="rules-box">
+              <h3 className="rules-box-title">Leave, Outing & Gate Pass</h3>
+              <ul className="rules-list">
+                <li>Students must obtain prior digital or physical permission from the warden for weekend outings.</li>
+                <li>Gate passes must be signed by the Deputy Warden and submitted at the main security gate.</li>
+                <li>No student is allowed to stay outside the hostel after 6:30 PM without prior intimation.</li>
+                <li>Day scholars or outsiders are strictly not allowed to enter the hostel rooms.</li>
+                <li>Any damage to hostel infrastructure will result in fine and strict disciplinary action.</li>
+              </ul>
             </div>
           </div>
         </section>
 
-        {/* Strength Section */}
-        <section className="strength-section">
-           <div className="section-header">
-            <h3>Hostel Strength</h3>
-            <div className="header-line"></div>
+        <section className="hostel-section gallery-section animate-slide-up-delay-5">
+          <h2 className="section-title">Photo Gallery</h2>
+          <div className="gallery-slider-container">
+            <div className="slider-images-wrapper">
+              {hostelData.gallery.map((item, index) => (
+                <div 
+                  key={item.id} 
+                  className={`slider-slide ${index === currentSlide ? 'active' : ''}`}
+                >
+                  <img 
+                    src={item.imgUrl} 
+                    alt={item.title} 
+                    className="slider-real-image" 
+                  />
+                </div>
+              ))}
+            </div>
+            <button className="slider-btn prev-btn" onClick={prevSlide}>&#10094;</button>
+            <button className="slider-btn next-btn" onClick={nextSlide}>&#10095;</button>
           </div>
-          <div className="stats-grid">
-            <div className="stat-card">
-              <span className="stat-number">28</span>
-              <span className="stat-label">Total Rooms</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">02</span>
-              <span className="stat-label">Blocks</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">03</span>
-              <span className="stat-label">Students / Room</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">01</span>
-              <span className="stat-label">Sick Rooms</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">39</span>
-              <span className="stat-label">Toilets</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">35</span>
-              <span className="stat-label">Bathrooms</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">01</span>
-              <span className="stat-label">Study Room</span>
-            </div>
-            <div className="stat-card highlight">
-              <span className="stat-number">22</span>
-              <span className="stat-label">Total Students</span>
-            </div>
+          
+          <div className="slider-dots-outside">
+            {hostelData.gallery.map((_, idx) => (
+              <span 
+                key={idx} 
+                className={`dot ${idx === currentSlide ? 'active' : ''}`} 
+                onClick={() => setCurrentSlide(idx)}
+              ></span>
+            ))}
           </div>
         </section>
 
-        {/* Events Section */}
-        <section className="events-section">
-           <div className="section-header">
-            <h3>Hostel Events</h3>
-            <div className="header-line"></div>
-          </div>
-          <div className="event-box">
-            <div className="event-icon-wrap">
-              <FaCalendarCheck />
+        <section className="hostel-section nearby-section animate-slide-up-delay-6">
+          <h2 className="section-title">Nearby Essentials</h2>
+          <div className="nearby-layout">
+            <div className="map-integration-box">
+              <img src="/hosteldron.jpg" alt="Google Map" className="map-zoom-image" />
             </div>
-            <div className="event-details">
-              <h4>Annual Hostel Day</h4>
-              <p>The Annual Hostel Day is a celebration of the hostel community, featuring games, cultural performances, and a grand dinner. It brings together students and staff for a fun-filled day, promoting bonding and camaraderie.</p>
+            <div className="locations-box">
+              <ul className="locations-list">
+                {hostelData.nearby.map((loc, idx) => (
+                  <li key={idx}>
+                    <span className="loc-name">{loc.place}</span>
+                    <span className="loc-distance">{loc.distance}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </section>
-
-        {/* Rules Section */}
-        <section className="rules-section">
-           <div className="section-header">
-            <h3>Rules and Regulations</h3>
-            <div className="header-line"></div>
-          </div>
-          <ul className="rules-list">
-            <li><FaExclamationCircle className="rule-icon"/> <span>Students must maintain discipline within the hostel premises.</span></li>
-            <li><FaExclamationCircle className="rule-icon"/> <span>Late-night entry is strictly prohibited; the hostel gate closes at 10:00 PM.</span></li>
-            <li><FaExclamationCircle className="rule-icon"/> <span>Visitors are not allowed in the hostel rooms without prior permission from the hostel warden.</span></li>
-            <li><FaExclamationCircle className="rule-icon"/> <span>Hostellers are expected to adhere to the mess timings and not waste food.</span></li>
-            <li><FaExclamationCircle className="rule-icon"/> <span>No smoking, drinking, or gambling is allowed inside the hostel premises.</span></li>
-            <li><FaExclamationCircle className="rule-icon"/> <span>Keep the hostel environment clean and use dustbins properly.</span></li>
-          </ul>
         </section>
 
       </div>

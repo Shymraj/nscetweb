@@ -1,0 +1,236 @@
+/* ==========================================================================
+   Department HOD Profile Component Styles (Shared Across All Departments)
+   ========================================================================== */
+
+.dept-hod-card {
+  display: flex;
+  gap: 3.5rem;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 32px;
+  padding: 3.5rem 4rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+  margin-top: 2rem;
+  transition: all 0.35s ease;
+}
+
+body.dark-mode .dept-hod-card {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dept-hod-portrait-wrap {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.dept-hod-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+
+body.dark-mode .dept-hod-portrait {
+  border-color: #1e293b;
+  background-color: #1e293b;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dept-hod-portrait-wrap:hover .dept-hod-portrait,
+.dept-hod-portrait:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 6px rgba(30, 136, 229, 0.08), 0 20px 50px rgba(30, 136, 229, 0.18);
+}
+
+.dept-hod-avatar-fallback {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.dept-hod-exp-badge {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0F4C81;
+  color: #ffffff;
+  font-family: var(--font-subtopic);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 99px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(15, 76, 129, 0.25);
+  z-index: 2;
+  letter-spacing: 0.02em;
+}
+
+.dept-hod-details {
+  flex: 1;
+}
+
+.dept-hod-name {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.3rem 0;
+}
+
+body.dark-mode .dept-hod-name {
+  color: #ffffff;
+}
+
+.dept-hod-desig {
+  display: inline-block;
+  font-family: var(--font-subtopic);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 1.5rem;
+}
+
+body.dark-mode .dept-hod-desig {
+  color: #38bdf8;
+}
+
+.dept-hod-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dept-hod-meta-item {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+body.dark-mode .dept-hod-meta-item {
+  color: #cbd5e1;
+}
+
+.dept-hod-meta-item strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+body.dark-mode .dept-hod-meta-item strong {
+  color: #ffffff;
+}
+
+.dept-email-link {
+  color: #2563eb;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+}
+
+body.dark-mode .dept-email-link {
+  color: #38bdf8;
+}
+
+.dept-hod-quote-box {
+  background: #f8fafc;
+  border-left: 4px solid #2563eb;
+  border-radius: 0 16px 16px 0;
+  padding: 1.2rem 1.6rem;
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+body.dark-mode .dept-hod-quote-box {
+  background: rgba(255, 255, 255, 0.04);
+  border-left-color: #38bdf8;
+}
+
+.dept-quote-icon {
+  color: #93c5fd;
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.dept-quote-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #334155;
+  margin: 0;
+  line-height: 1.6;
+}
+
+body.dark-mode .dept-quote-text {
+  color: #e2e8f0;
+}
+
+.dept-hod-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.dept-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 1.6rem;
+  border-radius: 99px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  outline: none;
+}
+
+.dept-btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+.dept-btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+
+@media (max-width: 992px) {
+  .dept-hod-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    gap: 2rem;
+  }
+  .dept-hod-actions {
+    justify-content: center;
+  }
+  .dept-hod-quote-box {
+    border-left: none;
+    border-top: 4px solid #2563eb;
+    border-radius: 0 0 16px 16px;
+  }
+}
