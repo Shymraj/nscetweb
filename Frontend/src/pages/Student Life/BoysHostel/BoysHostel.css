@@ -45,27 +45,24 @@
 /* --- MAIN CONTAINER & SECTION (Full Width) --- */
 .hostel-main-container {
   max-width: 100%; 
-  margin: -40px 0 0 0;
+  margin: 40px auto 0 auto;
   padding: 0; 
   position: relative;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Common Section Design */
 .hostel-section {
   background: white;
-  border-radius: 0; 
+  border-radius: 20px; 
   padding: 35px 5%; 
-  margin-bottom: 25px;
+  margin: 0 0 25px 0;
+  width: 96%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-/* 🔥 About & Admin+Strength Containers */
-.about-section, .admin-infra-combined-section {
-  border-radius: 20px !important; 
-  margin: 0 2% 25px 2%; 
-  width: 96%;
 }
 
 /* 🔥 About Section Zoom Hover Effect */
@@ -236,7 +233,7 @@
   .stat-divider { width: 100%; height: 1px; }
   .slider-images-wrapper { height: 250px; }
   .culture-image-card { min-height: 220px; }
-  .about-section, .admin-infra-combined-section { width: 100%; margin: 0 0 25px 0; border-radius: 0 !important; }
+  .hostel-section { width: 100%; margin: 0 0 25px 0; border-radius: 0 !important; }
 }
 
 /* 🔥 NIGHT BLUE HEADINGS FIX (#1e3a8a) */
@@ -256,4 +253,41 @@ h2, h3 {
 .modern-hostel-page h2::after {
   display: none !important;
   content: none !important;
+}
+
+/* --- DARK MODE --- */
+body.dark-mode .modern-hostel-page {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+body.dark-mode .hostel-section,
+body.dark-mode .admin-card,
+body.dark-mode .facilities-box,
+body.dark-mode .rules-box,
+body.dark-mode .map-integration-box {
+  background: var(--theme-card);
+  border-color: var(--theme-border);
+  color: var(--theme-text);
+}
+body.dark-mode .about-text p,
+body.dark-mode .facilities-list li,
+body.dark-mode .rules-list li,
+body.dark-mode .loc-name,
+body.dark-mode .loc-distance,
+body.dark-mode .admin-role,
+body.dark-mode .stat-label {
+  color: var(--theme-text-light);
+}
+body.dark-mode .stat-number {
+  color: var(--theme-primary-light);
+}
+body.dark-mode .highlight-chip {
+  background: var(--theme-card);
+  color: var(--theme-text);
+  border-color: var(--theme-border);
+}
+body.dark-mode .section-title,
+body.dark-mode .rules-box-title,
+body.dark-mode .admin-card h3 {
+  color: var(--theme-text) !important;
 }

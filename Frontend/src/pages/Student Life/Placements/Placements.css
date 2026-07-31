@@ -505,144 +505,111 @@
 
 /* Dark Mode Support */
 body.dark-mode .placements-page {
-  background-color: #0f172a;
-  color: #f1f5f9;
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
 }
 
-body.dark-mode .pl-section {
-  background: #1e293b;
-  border-color: #334155;
+body.dark-mode .pl-section,
+body.dark-mode .pl-officer-card,
+body.dark-mode .pl-officer-responsibilities,
+body.dark-mode .pl-coordinator-card,
+body.dark-mode .pl-facility-card,
+body.dark-mode .pl-activity-card,
+body.dark-mode .pl-contact-card,
+body.dark-mode .pl-dept-table-wrapper {
+  background: var(--theme-card) !important;
+  border-color: var(--theme-border) !important;
 }
 
 body.dark-mode .pl-section-header {
-  border-bottom-color: #334155;
+  border-bottom-color: var(--theme-border);
 }
 
-body.dark-mode .pl-section-header h2 {
-  color: #f1f5f9;
+body.dark-mode .pl-section-header h2,
+body.dark-mode .pl-officer-info h3,
+body.dark-mode .pl-coordinator-info h4,
+body.dark-mode .pl-officer-responsibilities h3,
+body.dark-mode .pl-focus-section h3,
+body.dark-mode .pl-dept-table th,
+body.dark-mode .pl-contact-card h3 {
+  color: #ffffff !important;
 }
 
 body.dark-mode .pl-header-icon {
-  color: #38bdf8;
+  color: var(--theme-primary-light);
 }
 
 body.dark-mode .pl-about-content p,
 body.dark-mode .pl-training-content p,
-body.dark-mode .pl-iipc-content p {
-  color: #cbd5e1;
+body.dark-mode .pl-iipc-content p,
+body.dark-mode .pl-officer-responsibilities p,
+body.dark-mode .pl-coordinator-info p,
+body.dark-mode .pl-facility-card p,
+body.dark-mode .pl-focus-list li,
+body.dark-mode .pl-activity-card p,
+body.dark-mode .pl-contact-role,
+body.dark-mode .pl-contact-org,
+body.dark-mode .pl-contact-location,
+body.dark-mode .pl-contact-state,
+body.dark-mode .pl-contact-details p,
+body.dark-mode .pl-dept-table td {
+  color: var(--theme-text-light) !important;
 }
 
 body.dark-mode .pl-aim {
-  background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
-  border-left-color: #3b82f6;
+  background: var(--theme-card);
+  border-color: var(--theme-border);
+  border-left-color: var(--theme-primary);
 }
 
 body.dark-mode .pl-aim strong {
-  color: #38bdf8;
-}
-
-body.dark-mode .pl-officer-card {
-  background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
-  border-color: rgba(56, 189, 248, 0.3);
-}
-
-body.dark-mode .pl-officer-responsibilities {
-  background: rgba(30, 41, 59, 0.5);
-  border-color: rgba(59, 130, 246, 0.3);
-}
-
-body.dark-mode .pl-officer-responsibilities h3 {
-  color: #38bdf8;
-}
-
-body.dark-mode .pl-officer-responsibilities p {
-  color: #93c5fd;
-}
-
-body.dark-mode .pl-officer-info h3 {
-  color: #f1f5f9;
+  color: var(--theme-primary-light);
 }
 
 body.dark-mode .pl-officer-designation {
-  color: #38bdf8;
-}
-
-body.dark-mode .pl-coordinator-card {
-  background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
-  border-color: rgba(245, 158, 11, 0.4);
-}
-
-body.dark-mode .pl-coordinator-info h4 {
-  color: #f1f5f9;
-}
-
-body.dark-mode .pl-coordinator-info p {
-  color: #fef3c7;
+  color: var(--theme-primary-light);
 }
 
 body.dark-mode .pl-coordinator-role {
-  color: #38bdf8 !important;
+  color: var(--theme-primary-light) !important;
+}
+
+body.dark-mode .pl-dept-table {
+  background: var(--theme-card) !important;
 }
 
 body.dark-mode .pl-dept-table thead {
-  background: #1e3a5f;
+  background: var(--theme-bg);
 }
 
 body.dark-mode .pl-dept-table tbody tr:hover {
-  background: rgba(56, 189, 248, 0.1);
-}
-
-body.dark-mode .pl-dept-table td {
-  color: #cbd5e1;
-}
-
-body.dark-mode .pl-facility-card {
-  background: linear-gradient(135deg, #14532d 0%, #166534 100%);
-  border-color: rgba(34, 197, 94, 0.4);
-}
-
-body.dark-mode .pl-facility-card p {
-  color: #bbf7d0;
-}
-
-body.dark-mode .pl-focus-section h3 {
-  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 body.dark-mode .pl-focus-list li {
-  background: rgba(56, 189, 248, 0.1);
-  border-left-color: #3b82f6;
-  color: #cbd5e1;
+  background: var(--theme-bg);
+  border-left-color: var(--theme-primary);
 }
 
-body.dark-mode .pl-activity-card {
-  background: linear-gradient(135deg, #831843 0%, #9d174d 100%);
-  border-color: rgba(236, 72, 153, 0.4);
-}
-
-body.dark-mode .pl-activity-card p {
-  color: #fbcfe8;
-}
-
-body.dark-mode .pl-contact-card {
-  background: rgba(30, 41, 59, 0.5);
-  border-color: rgba(56, 189, 248, 0.3);
+body.dark-mode .pl-activity-number {
+  background: var(--theme-primary) !important;
+  color: #ffffff !important;
 }
 
 body.dark-mode .pl-slider-image {
-  background: #1e293b;
+  background: var(--theme-card);
 }
 
 body.dark-mode .pl-slider-dot {
-  background: #475569;
+  background: var(--theme-border);
 }
 
 body.dark-mode .pl-slider-dot:hover {
-  background: #64748b;
+  background: var(--theme-text-light);
 }
 
 body.dark-mode .pl-slider-dot.active {
-  background: #38bdf8;
+  background: var(--theme-primary);
 }
 
 /* Responsive Design */
