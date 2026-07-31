@@ -1,4 +1,357 @@
-/* HealthMedicalFacilities.css */
+/* HealthMedicalFacilities Page Styles */
 .healthmedicalfacilities-page {
-  /* Add your styles here */
+  width: 100%;
+  font-family: var(--font-body);
+  background-color: #f8fafc;
+  color: #1f2937;
+}
+
+.hmf-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+/* Section Styles */
+.hmf-section {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.hmf-section-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.hmf-section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* Overview Section */
+.hmf-overview-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #475569;
+  margin: 0;
+}
+
+/* Incharge Section */
+.hmf-incharge-card {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 4px solid #0284c7;
+}
+
+.hmf-incharge-info {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hmf-incharge-image {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hmf-incharge-image img {
+  width: 200px;
+  height: 180px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hmf-incharge-details h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+}
+
+.hmf-incharge-role {
+  font-size: 1.1rem;
+  color: #475569;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Facilities Grid */
+.hmf-facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.hmf-facility-card {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.hmf-facility-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.2);
+}
+
+.hmf-facility-icon {
+  font-size: 2.5rem;
+  color: #16a34a;
+  margin-bottom: 1rem;
+}
+
+.hmf-facility-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1rem 0;
+}
+
+.hmf-facility-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #166534;
+  margin: 0;
+}
+
+/* Gallery Section */
+.hmf-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.hmf-gallery-item {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.hmf-gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hmf-gallery-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark Mode Support */
+body.dark-mode .healthmedicalfacilities-page {
+  background-color: #0f172a;
+}
+
+body.dark-mode .hmf-section {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: #334155;
+}
+
+body.dark-mode .hmf-section-header {
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .hmf-section-header h2 {
+  color: #f1f5f9;
+}
+
+body.dark-mode .hmf-overview-content p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .hmf-incharge-card {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: #334155;
+}
+
+body.dark-mode .hmf-incharge-info h3 {
+  color: #f1f5f9;
+}
+
+body.dark-mode .hmf-incharge-role {
+  color: #cbd5e1;
+}
+
+body.dark-mode .hmf-facility-card {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: #334155;
+}
+
+body.dark-mode .hmf-facility-icon {
+  color: #4ade80;
+}
+
+body.dark-mode .hmf-facility-card h3 {
+  color: #f1f5f9;
+}
+
+body.dark-mode .hmf-facility-card p {
+  color: #86efac;
+}
+
+/* Responsive Design */
+@media (max-width: 960px) {
+  .hmf-container {
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .hmf-facilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hmf-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hmf-container {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .hmf-section {
+    padding: 1.5rem;
+  }
+
+  .hmf-section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .hmf-gallery-item img {
+    height: 250px;
+  }
+
+  .hmf-incharge-info {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hmf-incharge-image {
+    justify-content: center;
+    order: -1;
+  }
+}
+
+/* Appointment Order Section */
+.hmf-appointment-content {
+  background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%);
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 4px solid #eab308;
+}
+
+.hmf-appointment-header {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.hmf-appointment-header p {
+  margin: 0.25rem 0;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.hmf-appointment-to {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.hmf-appointment-to p {
+  margin: 0.25rem 0;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.hmf-appointment-body {
+  margin: 1.5rem 0;
+}
+
+.hmf-appointment-subject {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.hmf-appointment-refs {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.hmf-appointment-refs p {
+  margin: 0.25rem 0;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.hmf-appointment-text {
+  margin: 1rem 0;
+  line-height: 1.8;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.hmf-appointment-signature {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  text-align: right;
+}
+
+.hmf-appointment-signature p {
+  margin: 0.25rem 0;
+  color: #1f2937;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Dark Mode for Appointment Section */
+body.dark-mode .hmf-appointment-content {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: #334155;
+}
+
+body.dark-mode .hmf-appointment-header,
+body.dark-mode .hmf-appointment-to,
+body.dark-mode .hmf-appointment-subject,
+body.dark-mode .hmf-appointment-refs {
+  background: rgba(51, 65, 85, 0.3);
+}
+
+body.dark-mode .hmf-appointment-header p,
+body.dark-mode .hmf-appointment-to p,
+body.dark-mode .hmf-appointment-subject,
+body.dark-mode .hmf-appointment-refs p,
+body.dark-mode .hmf-appointment-text,
+body.dark-mode .hmf-appointment-signature p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .hmf-appointment-signature {
+  border-top-color: #334155;
 }

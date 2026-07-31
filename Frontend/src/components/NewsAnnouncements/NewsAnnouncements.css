@@ -275,17 +275,17 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.5px;
 }
 
 .badge-new {
-  background-color: #fef08a; /* Yellow */
-  color: #b45309; /* Dark orange/brown text */
-  animation: pulse 2s infinite;
+  background-color: #374151; /* Dark gray to match image */
+  color: #ffffff; /* White text */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 .badge-pdf {
@@ -296,6 +296,83 @@
 .badge-link {
   background-color: #e0f2fe;
   color: #0284c7;
+}
+
+.notice-title {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  text-decoration: none;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+/* Orange text for the new item title */
+.notice-item.is-new .notice-title {
+  color: #ea580c; /* Orange color matching image */
+}
+
+/* ===========================================================
+   DARK MODE OVERRIDES
+=========================================================== */
+body.dark-mode .news-section {
+  background-color: var(--theme-bg);
+}
+
+body.dark-mode .news-main-title {
+  color: var(--theme-text);
+}
+
+body.dark-mode .featured-card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .featured-title {
+  color: var(--theme-text);
+}
+
+body.dark-mode .featured-description {
+  color: var(--text-muted);
+}
+
+body.dark-mode .notice-board-wrapper {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .notice-board-header {
+  background-color: rgba(255,255,255,0.05);
+  border-bottom-color: var(--border-color);
+}
+
+body.dark-mode .notice-board-header h3 {
+  color: var(--theme-text);
+}
+
+body.dark-mode .notice-item {
+  background-color: rgba(255,255,255,0.03);
+  border-left-color: #f97316;
+  box-shadow: none;
+}
+
+body.dark-mode .notice-title {
+  color: var(--theme-text);
+}
+
+body.dark-mode .notice-item.is-new .notice-title {
+  color: #f97316;
+}
+
+body.dark-mode .notice-date {
+  color: var(--text-muted);
+}
+
+body.dark-mode .badge-new {
+  background-color: #f97316;
+  color: #fff;
 }
 
 @keyframes pulse {

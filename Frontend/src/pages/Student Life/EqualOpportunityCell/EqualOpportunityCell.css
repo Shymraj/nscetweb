@@ -94,6 +94,14 @@
   margin-bottom: 1.5rem;
 }
 
+.download-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.view-btn,
 .download-btn {
   display: inline-flex;
   align-items: center;
@@ -107,6 +115,7 @@
   transition: all 0.3s ease;
 }
 
+.view-btn:hover,
 .download-btn:hover {
   background: #0369a1;
   transform: translateY(-2px);
@@ -316,6 +325,271 @@ body.dark-mode .role-card p,
 body.dark-mode .objectives-list li span,
 body.dark-mode .members-table td {
   color: var(--text-secondary);
+}
+
+/* Circular Section */
+.circular-section,
+.minutes-section,
+.action-report-section {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border-left: 4px solid var(--theme-primary-dark, #0284C7);
+  margin-bottom: 1.5rem;
+}
+
+.circular-content,
+.minutes-content,
+.action-report-content {
+  color: #475569;
+  line-height: 1.8;
+}
+
+.circular-header,
+.minutes-header,
+.report-header {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--theme-primary-dark, #0284C7);
+}
+
+.circular-header h4,
+.minutes-header h4 {
+  color: #0f172a;
+  font-size: 1.3rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: 700;
+}
+
+.circular-header p,
+.minutes-header p,
+.report-header p {
+  margin: 0.25rem 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.circular-text,
+.minutes-content p,
+.action-report-content p {
+  margin-bottom: 1rem;
+}
+
+.meeting-details {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+
+.meeting-details p {
+  margin: 0.5rem 0;
+  color: #475569;
+}
+
+.agenda-section,
+.members-present,
+.agenda-discussed {
+  margin: 1.5rem 0;
+}
+
+.agenda-section h5,
+.members-present h5,
+.agenda-discussed h5 {
+  color: #0f172a;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.agenda-section ul,
+.members-present ul,
+.agenda-discussed ul {
+  list-style: none;
+  padding: 0;
+}
+
+.agenda-section ul li,
+.members-present ul li {
+  padding: 0.5rem 0;
+  color: #475569;
+}
+
+.agenda-section ul ul {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.agenda-section ul ul li {
+  padding: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.agenda-item {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.agenda-item h6 {
+  color: #0f172a;
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.agenda-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+.agenda-item ul li {
+  padding: 0.25rem 0;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.circular-footer {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fef3c7;
+  border-radius: 8px;
+  color: #78350f;
+  font-weight: 500;
+}
+
+.circular-signatures,
+.minutes-signature {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.circular-signatures p,
+.minutes-signature p {
+  margin: 0.25rem 0;
+  color: #475569;
+  font-weight: 500;
+}
+
+/* Action Table */
+.action-table-wrapper {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.action-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.action-table thead {
+  background: linear-gradient(135deg, #0284C7 0%, #0369a1 100%);
+  color: white;
+}
+
+.action-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.action-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 0.9rem;
+  vertical-align: top;
+}
+
+.action-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.action-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Dark Mode for New Sections */
+body.dark-mode .circular-section,
+body.dark-mode .minutes-section,
+body.dark-mode .action-report-section {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .circular-content,
+body.dark-mode .minutes-content,
+body.dark-mode .action-report-content {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .circular-header,
+body.dark-mode .minutes-header,
+body.dark-mode .report-header {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .circular-header h4,
+body.dark-mode .minutes-header h4 {
+  color: var(--text-primary);
+}
+
+body.dark-mode .circular-header p,
+body.dark-mode .minutes-header p,
+body.dark-mode .report-header p {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .meeting-details,
+body.dark-mode .agenda-item {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+body.dark-mode .meeting-details p,
+body.dark-mode .agenda-section h5,
+body.dark-mode .members-present h5,
+body.dark-mode .agenda-discussed h5,
+body.dark-mode .agenda-item h6 {
+  color: var(--text-primary);
+}
+
+body.dark-mode .agenda-section ul li,
+body.dark-mode .members-present ul li,
+body.dark-mode .agenda-item ul li,
+body.dark-mode .agenda-item p {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .circular-footer {
+  background: rgba(30, 41, 59, 0.5);
+  color: var(--text-secondary);
+}
+
+body.dark-mode .circular-signatures p,
+body.dark-mode .minutes-signature p {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .action-table {
+  background: var(--bg-secondary);
+}
+
+body.dark-mode .action-table td {
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .action-table tbody tr:hover {
+  background: rgba(51, 65, 85, 0.5);
 }
 
 body.dark-mode .members-table th {

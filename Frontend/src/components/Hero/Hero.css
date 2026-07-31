@@ -177,7 +177,8 @@ body.dark-mode .hero .college-tagline {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 22px;
   font-weight: 700;
-  color: #f59e0b;
+  color: #f59e0b !important;
+  -webkit-text-fill-color: #f59e0b !important;
   margin-bottom: 12px;
   letter-spacing: 0.2px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -363,7 +364,8 @@ body.dark-mode .hero .btn-secondary:hover {
 }
 
 .card-info h3 {
-  color: #ffffff;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -371,7 +373,8 @@ body.dark-mode .hero .btn-secondary:hover {
 }
 
 .card-info p {
-  color: #cbd5e1;
+  color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 13px;
   font-weight: 400;

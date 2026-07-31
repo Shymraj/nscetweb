@@ -244,14 +244,25 @@ const TimerManager = () => {
   const handleEdit = (item) => {
     setEditId(item.id);
     setEventName(item.event_name || '');
-    setTargetDate(item.target_date ? new Date(item.target_date).toISOString().slice(0, 16) : '');
+    if (item.target_date) {
+      const d = new Date(item.target_date);
+      const tzoffset = (new Date()).getTimezoneOffset() * 60000;
+      setTargetDate((new Date(d - tzoffset)).toISOString().slice(0, 16));
+    } else {
+      setTargetDate('');
+    }
   };
   const cancelEdit = () => {
     setEventName(''); setTargetDate(''); setEditId(null);
   };
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/admin/home/timer/${id}`);
-    fetchItems();
+    try {
+      await axios.delete(`http://localhost:5000/api/admin/home/timer/${id}`);
+      fetchItems();
+    } catch (error) {
+      console.error("Delete failed:", error);
+      alert("Failed to delete timer. Please try again or check server connection.");
+    }
   };
 
   return (

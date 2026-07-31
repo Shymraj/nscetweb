@@ -189,7 +189,8 @@
 }
 
 .footer-logo h3 {
-  color: white;
+  color: white !important;
+  -webkit-text-fill-color: white !important;
   font-size: 1.5rem;
   font-weight: 800;
 }

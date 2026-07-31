@@ -172,3 +172,35 @@
     gap: 20px;
   }
 }
+
+/* ===========================================================
+   DARK MODE OVERRIDES
+=========================================================== */
+body.dark-mode .campus-sticky-section {
+  background-color: var(--theme-bg);
+}
+
+body.dark-mode .campus-title {
+  color: var(--theme-text);
+}
+
+body.dark-mode .campus-description {
+  color: var(--text-muted);
+}
+
+body.dark-mode .grid-card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .grid-card:hover {
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .card-title {
+  color: var(--theme-text);
+}
+
+body.dark-mode .card-description {
+  color: var(--text-muted);
+}

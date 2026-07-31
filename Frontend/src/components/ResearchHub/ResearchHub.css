@@ -293,3 +293,48 @@
     font-size: 24px;
   }
 }
+
+/* ===========================================================
+   DARK MODE OVERRIDES
+=========================================================== */
+body.dark-mode .campus-section {
+  background-color: var(--theme-bg);
+}
+
+body.dark-mode .campus-title {
+  color: var(--theme-text);
+}
+
+body.dark-mode .campus-header-desc {
+  color: var(--text-muted);
+}
+
+body.dark-mode .tab-btn:hover {
+  background-color: rgba(255,255,255,0.05);
+}
+
+body.dark-mode .tab-text {
+  color: var(--theme-text);
+}
+
+body.dark-mode .active-indicator {
+  background-color: rgba(255,255,255,0.1);
+}
+
+body.dark-mode .campus-display {
+  background-color: var(--card-bg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .display-info-card {
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+body.dark-mode .display-info-card h3 {
+  color: var(--theme-text);
+}
+
+body.dark-mode .display-info-card p {
+  color: var(--text-muted);
+}
