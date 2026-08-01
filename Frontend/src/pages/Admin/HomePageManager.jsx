@@ -12,7 +12,7 @@ const HomePageManager = () => {
         <HeroManager />
         <TimerManager />
         <NewsManager />
-        <VideoManager />
+        <AnnouncementManager />
         <ImageManager />
         <PrincipalManager />
         <CourseManager type="ug_course" />
@@ -378,57 +378,45 @@ const NewsManager = () => {
   );
 };
 
-const VideoManager = () => {
+const AnnouncementManager = () => {
   const [items, setItems] = useState([]);
-  const [editId, setEditId] = useState(null);
-  const [title, setTitle] = useState('');
-  const [videoUrl, setVideoUrl] = useState('');
+  const [photo, setPhoto] = useState(null);
 
   const fetchItems = async () => {
-    const res = await axios.get('http://localhost:5000/api/admin/home/video');
+    const res = await axios.get('http://localhost:5000/api/admin/home/announcement');
     setItems(res.data.data);
   };
   useEffect(() => { fetchItems(); }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    if(photo) formData.append('photo', photo);
     try {
-      if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/home/video/${editId}`, { title, video_url: videoUrl });
-      } else {
-        await axios.post(`http://localhost:5000/api/admin/home/video`, { title, video_url: videoUrl });
-      }
-      setTitle(''); setVideoUrl(''); setEditId(null);
+      await axios.post(`http://localhost:5000/api/admin/home/announcement`, formData);
+      setPhoto(null);
       fetchItems();
     } catch (error) {
       console.error(error);
       alert("Failed to save.");
     }
   };
-  const handleEdit = (item) => {
-    setEditId(item.id);
-    setTitle(item.title || '');
-    setVideoUrl(item.video_url || '');
-  };
-  const cancelEdit = () => {
-    setTitle(''); setVideoUrl(''); setEditId(null);
-  };
+
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/admin/home/video/${id}`);
+    await axios.delete(`http://localhost:5000/api/admin/home/announcement/${id}`);
     fetchItems();
   };
 
   return (
     <div>
-      <h3 style={sectionTitleStyle}>5. Video Section</h3>
+      <h3 style={sectionTitleStyle}>5. Announcement Popup Section</h3>
       <table className="admin-table">
-        <thead><tr><th>Video Link</th><th>Action</th></tr></thead>
+        <thead><tr><th>Image</th><th>Action</th></tr></thead>
         <tbody>
           {items.map(item => (
             <tr key={item.id}>
-              <td>{item.video_url}</td>
+              <td>{item.photo_url && <img src={`http://localhost:5000${item.photo_url}`} alt="announcement" style={{width: '120px', borderRadius: '4px'}} />}</td>
               <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
-                <button style={{...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleEdit(item)}>Edit</button>
                 <button style={{...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box'}} onClick={() => handleDelete(item.id)}>Delete</button>
               </td>
             </tr>
@@ -436,17 +424,15 @@ const VideoManager = () => {
         </tbody>
       </table>
 
-      <div style={addTitleStyle}>{editId ? "Edit Video Section" : "Add Video Section"}</div>
+      <div style={addTitleStyle}>Add Announcement</div>
       <form onSubmit={handleSubmit}>
         <div style={formRowStyle}>
-          <div style={labelStyle}>Video Section :</div>
+          <div style={labelStyle}>Poster Image :</div>
           <div style={inputGroupStyle}>
-            <input type="text" style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }} placeholder="Title" value={title} onChange={e=>setTitle(e.target.value)} />
-            <input type="text" style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }} placeholder="Url" value={videoUrl} onChange={e=>setVideoUrl(e.target.value)} required />
+            <input type="file" style={{ flex: 1, padding: '5px', border: '1px solid #ccc', borderRadius: '4px' }} onChange={e=>setPhoto(e.target.files[0])} required />
           </div>
         </div>
-        <button type="submit" style={addBtnStyle}>{editId ? "Update" : "Add"}</button>
-        {editId && <button type="button" onClick={cancelEdit} style={{...delBtnStyle, marginLeft: '10px', padding: '8px 25px'}}>Cancel</button>}
+        <button type="submit" style={addBtnStyle}>Add</button>
       </form>
     </div>
   );

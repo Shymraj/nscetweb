@@ -191,16 +191,7 @@
   box-shadow: var(--tmhnu-shadow-lg);
 }
 
-.tmhnu-about-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5px;
-  height: 100%;
-  background: var(--tmhnu-gradient-1);
-  border-radius: 5px 0 0 5px;
-}
+
 
 .tmhnu-section-badge {
   display: inline-flex;

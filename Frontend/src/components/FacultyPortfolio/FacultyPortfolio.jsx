@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import GlassmorphismPortfolio from "./GlassmorphismPortfolio";
 import { getFacultyData, getDepartmentName } from "../../pages/Departments/facultyRegistry";
-import nscetLogo from "../../assets/Img/nscet-logo.webp";
+import nscetLogo from "../../assets/Img/nscet-logo.png";
 import { ArrowLeft, Moon, Sun, ChevronLeft } from "lucide-react";
 import "./FacultyPortfolio.css";
 

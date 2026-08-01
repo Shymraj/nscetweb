@@ -2,6 +2,8 @@ import React from 'react';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaBus, FaMobileAlt, FaUserShield, FaDownload, FaMapMarkedAlt, FaMapMarkerAlt, FaClock, FaShieldAlt, FaUsers, FaArrowLeft, FaCar, FaWalking, FaLocationArrow } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import nagarajaImg from './images/nagaraja.jpg';
+import harikishoreImg from './images/harikishore.jpg';
 import './TransportFacilities.css';
 
 const TransportFacilities = () => {
@@ -27,7 +29,6 @@ const TransportFacilities = () => {
       />
 
       <div className="transport-container">
-        
         {/* Stats Section */}
         <motion.section 
           className="transport-stats-section"
@@ -57,6 +58,45 @@ const TransportFacilities = () => {
               <p>Daily Commuters</p>
             </div>
           </motion.div>
+        </motion.section>
+
+        {/* Transport Incharges Section */}
+        <motion.section 
+          className="transport-incharge-section"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={containerVariants}
+        >
+          <div className="transport-section-header text-center">
+            <FaUserShield className="transport-header-icon" />
+            <h3>Transport Incharges</h3>
+            <div className="transport-header-line"></div>
+          </div>
+          
+          <div className="incharge-cards-container">
+            <motion.div className="incharge-card" variants={fadeInUp}>
+              <div className="incharge-img-wrapper">
+                <img src={nagarajaImg} alt="Mr. Nagaraja" className="incharge-img" />
+                <div className="incharge-role-badge primary">Incharge</div>
+              </div>
+              <div className="incharge-info">
+                <h4>Mr. Nagaraja</h4>
+                <p>Transport Coordinator</p>
+              </div>
+            </motion.div>
+
+            <motion.div className="incharge-card" variants={fadeInUp}>
+              <div className="incharge-img-wrapper">
+                <img src={harikishoreImg} alt="Mr. Harikishore" className="incharge-img" />
+                <div className="incharge-role-badge secondary">Assistant Incharge</div>
+              </div>
+              <div className="incharge-info">
+                <h4>Mr. Harikishore</h4>
+                <p>Transport Coordinator</p>
+              </div>
+            </motion.div>
+          </div>
         </motion.section>
 
         {/* About Section */}
@@ -226,7 +266,6 @@ const TransportFacilities = () => {
             </div>
           </div>
         </section>
-
       </div>
     </div>
   );

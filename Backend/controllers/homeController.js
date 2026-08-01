@@ -130,29 +130,34 @@ exports.updateNews = (req, res) => {
 };
 exports.deleteNews = deleteRecord('home_news');
 
-// Video
-exports.getVideos = getRecords('home_video');
-exports.addVideo = (req, res) => {
-  const { title, video_url } = req.body;
-  db.query("INSERT INTO home_video (title, video_url) VALUES (?, ?)", [title, video_url], (err, result) => {
+// Announcement
+exports.getAnnouncements = getRecords('home_announcement');
+exports.addAnnouncement = (req, res) => {
+  const photo_url = req.file ? `/uploads/home/${req.file.filename}` : null;
+  if (!photo_url) return res.status(400).json({ success: false, message: "Image is required" });
+  db.query("INSERT INTO home_announcement (photo_url) VALUES (?)", [photo_url], (err, result) => {
     if (err) return res.status(500).json({ success: false, message: err.message });
     res.json({ success: true, message: "Added successfully", id: result.insertId });
   });
 };
 
-exports.updateVideo = (req, res) => {
+exports.updateAnnouncement = (req, res) => {
   const { id } = req.params;
-  const { title, video_url } = req.body;
-  db.query(
-    "UPDATE home_video SET title=?, video_url=? WHERE id=?",
-    [title, video_url, id],
-    (err) => {
-      if (err) return res.status(500).json({ success: false, message: err.message });
-      res.json({ success: true, message: "Updated successfully" });
-    }
-  );
+  if (req.file) {
+    const photo_url = `/uploads/home/${req.file.filename}`;
+    db.query(
+      "UPDATE home_announcement SET photo_url=? WHERE id=?",
+      [photo_url, id],
+      (err) => {
+        if (err) return res.status(500).json({ success: false, message: err.message });
+        res.json({ success: true, message: "Updated successfully" });
+      }
+    );
+  } else {
+    res.json({ success: true, message: "No image provided for update" });
+  }
 };
-exports.deleteVideo = deleteRecord('home_video');
+exports.deleteAnnouncement = deleteRecord('home_announcement');
 
 // Image
 exports.getImages = getRecords('home_image');

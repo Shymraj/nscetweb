@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import nscetLogo from "../../assets/Img/nscet-logo.webp";
+import nscetLogo from "../../assets/Img/nscet-logo.png";
 import mandatoryDisclosurePdf from "./pdf's/NSCET - Mandatory Disclosure-2026-27.pdf";
 import aictePdf from "./pdf's/aicte.pdf";
 import auPdf from "./pdf's/AU 2024-25.pdf";
@@ -32,11 +32,9 @@ const Footer = () => {
         {/* Main Footer Links */}
         <div className="footer-grid">
           <div className="footer-col">
-            <Link to="/" style={{ textDecoration: 'none' }}>
-              <div className="footer-logo">
-                <img src={nscetLogo} alt="NSCET Logo" />
-                <h3>NSCET</h3>
-              </div>
+            <Link to="/" className="footer-logo" style={{ textDecoration: 'none' }}>
+              <img src={nscetLogo} alt="NSCET Logo" />
+              <h3>NSCET</h3>
             </Link>
             <p className="footer-about">
               Nadar Saraswathi College of Engineering and Technology is a premier institution dedicated to empowering young minds through innovation, technical excellence, and holistic development.
@@ -89,7 +87,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="map-btn">
+            <a href="https://www.google.com/maps/search/Nadar+Saraswathi+College+of+Engineering+and+Technology,+Theni" target="_blank" rel="noopener noreferrer" className="map-btn">
               <FaMapMarkerAlt /> View on Google Maps
             </a>
           </div>

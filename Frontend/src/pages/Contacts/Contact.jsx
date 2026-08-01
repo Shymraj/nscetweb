@@ -98,7 +98,6 @@ const Contact = () => {
           <motion.div
             className="contact-card primary"
             variants={zoomIn}
-            whileHover={{ y: -8, scale: 1.02 }}
           >
             <div className="contact-icon-wrapper">
               <FaMapMarkerAlt className="contact-icon" />

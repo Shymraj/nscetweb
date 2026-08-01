@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Hero.css";
 import heroImage from "../../assets/hero.png";
-import logo from "../../assets/Img/nscet-logo.webp";
+import logo from "../../assets/Img/nscet-logo.png";
 
 import {
   FaAward,
@@ -35,7 +35,6 @@ const Hero = () => {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % heroes.length);
       }, 5000);
-      return () => clearInterval(interval);
     }
   }, [heroes.length]);
 

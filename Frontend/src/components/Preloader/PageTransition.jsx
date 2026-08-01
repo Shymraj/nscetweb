@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import nscetVideo from '../../page loading/NSCET.webm';
 import './Preloader.css';
 
 const PageTransition = () => {
@@ -46,22 +47,15 @@ const PageTransition = () => {
 
     return (
         <div className={`page-transition-overlay ${isExiting ? 'exit' : 'active'}`}>
-            <div className="transition-n-container">
-                {/* Ambient glow */}
-                <div className="transition-n-glow" />
-
-                {/* Google-G-style multi-color spinning circle */}
-                <div className="transition-google-circle">
-                    <svg viewBox="0 0 100 100">
-                        <circle className="g-arc-blue" cx="50" cy="50" r="42" />
-                        <circle className="g-arc-gold" cx="50" cy="50" r="42" />
-                        <circle className="g-arc-light" cx="50" cy="50" r="42" />
-                        <circle className="g-arc-accent" cx="50" cy="50" r="42" />
-                    </svg>
-                </div>
-
-                {/* "N" letter in center with shimmer */}
-                <div className="transition-n-letter">N</div>
+            <div className="transition-n-container" style={{ width: '250px', height: '250px', clipPath: 'inset(0 0 25% 0)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <video 
+                  src={nscetVideo}
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                />
             </div>
         </div>
     );

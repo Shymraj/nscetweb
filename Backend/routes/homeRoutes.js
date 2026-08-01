@@ -21,24 +21,24 @@ router.post('/timer', homeController.addTimer);
 router.put('/timer/:id', homeController.updateTimer);
 router.delete('/timer/:id', homeController.deleteTimer);
 
+
 // News
 router.get('/news', homeController.getNews);
 router.post('/news', homeController.addNews);
 router.put('/news/:id', homeController.updateNews);
 router.delete('/news/:id', homeController.deleteNews);
 
-// Video
-router.get('/video', homeController.getVideos);
-router.post('/video', homeController.addVideo);
-router.put('/video/:id', homeController.updateVideo);
-router.delete('/video/:id', homeController.deleteVideo);
+// Announcement
+router.get('/announcement', homeController.getAnnouncements);
+router.post('/announcement', upload.single('photo'), homeController.addAnnouncement);
+router.put('/announcement/:id', upload.single('photo'), homeController.updateAnnouncement);
+router.delete('/announcement/:id', homeController.deleteAnnouncement);
 
 // Image
 router.get('/image', homeController.getImages);
 router.post('/image', upload.single('photo'), homeController.addImage);
 router.put('/image/:id', upload.single('photo'), homeController.updateImage);
 router.delete('/image/:id', homeController.deleteImage);
-
 // Principal
 router.get('/principal', homeController.getPrincipals);
 router.post('/principal', upload.single('photo'), homeController.addPrincipal);
