@@ -1,18 +1,17 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logo from "../../assets/Img/nscet-logo.webp";
+import logo from "../../assets/Img/nscet-logo.png";
 import { FaMoon, FaSun, FaSearch, FaTimes, FaBars, FaLinkedin, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import annualAccountsPdf from "../../pages/Aboutus/AnnualAccounts/assets/documents/annual-accounts.pdf";
+import annualAccountsPdf from "../../pages/AboutUs/AnnualAccounts/assets/documents/annual-accounts.pdf";
 import governingPdf from "../../pages/Administration/GoverningCouncil/governing.pdf";
 
 const searchData = [
   { name: "Home", path: "/" },
-  { name: "Overview", path: "/about/overview" },
+  { name: "About Us", path: "/about" },
   { name: "Act and Statutes", path: "/about/actstatutes" },
   { name: "Institutional Development Plan", path: "/about/development-plan" },
   { name: "Affiliation & Accreditation", path: "/about/affiliation" },
-  { name: "Annual Reports", path: "/about/annual-reports" },
   { name: "Annual Accounts", path: "/about/annual-accounts" },
   { name: "TMHNU Trust", path: "/administration/tmhnutrust" },
   { name: "Principal", path: "/administration/principal" },
@@ -120,7 +119,7 @@ function Navbar() {
 
   const handleSearchResultClick = (result) => {
     if (result.isPdf) {
-      window.open(result.path, "_blank");
+      window.open(result.path + '#toolbar=0', "_blank");
     } else {
       navigate(result.path);
     }
@@ -173,22 +172,19 @@ function Navbar() {
 
 
           <li className="dropdown">
-            <Link to="#" onClick={(e) => e.preventDefault()}>About Us</Link>
+            <Link to="/about">About Us</Link>
             <ul className="dropdown-menu">
-              <li><Link to="/about/overview">Overview</Link></li>
               <li><Link to="/about/actstatutes">Act and Statutes</Link></li>
               <li><Link to="/about/development-plan">Institutional Development Plan</Link></li>
               <li><Link to="/about/affiliation">Affiliation & Accreditation</Link></li>
-              <li><Link to="/about/annual-reports">Annual Reports</Link></li>
               <li><Link to="/about/annual-accounts">Annual Accounts</Link></li>
             </ul>
           </li>
 
 
           <li className="dropdown">
-            <Link to="#" onClick={(e) => e.preventDefault()}>Administration</Link>
+            <Link to="/administration/tmhnutrust">Administration</Link>
             <ul className="dropdown-menu">
-              <li><Link to="/administration/tmhnutrust">TMHNU Trust</Link></li>
               <li><Link to="/administration/principal">Principal</Link></li>
               <li><Link to="/administration/finance-officer">Finance Officer</Link></li>
               <li><Link to="/administration/controller-examination">Controller of Examination</Link></li>
@@ -198,7 +194,7 @@ function Navbar() {
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    window.open(governingPdf, "_blank");
+                    window.open(governingPdf + '#toolbar=0', "_blank");
                   }}
                 >
                   Governing Council
@@ -209,9 +205,8 @@ function Navbar() {
             </ul>
           </li>
           <li className="dropdown">
-            <Link to="#" onClick={(e) => e.preventDefault()}>Academics</Link>
+            <Link to="/academics/details-of-academic-programs">Academics</Link>
             <ul className="dropdown-menu">
-              <li><Link to="/academics/details-of-academic-programs">Details of Academic Programs</Link></li>
               <li><Link to="/academics/academic-calendar">Academic Calendar</Link></li>
               <li><Link to="/academics/statutes-ordinances-pertaining">Statutes/Ordinances Pertaining</Link></li>
               <li><Link to="/academics/teaching-faculty">Teaching Faculty</Link></li>

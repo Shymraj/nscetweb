@@ -48,7 +48,6 @@ import imgMurugan from "./images/1778919261_Maths - Murugan.jpeg";
 import imgDiana from "./images/Physics - Diana.jpg";
 import imgEaswari from "./images/1778919497_Physics - Easwari.jpeg";
 import imgIniya from "./images/General Engg - Iniya.jpeg";
-import imgJenifer from "./images/General Engg - Jenifer.jpeg";
 import imgNandhini from "./images/General Engg - Nandini.jpeg";
 import imgPremkumar from "./images/General Engg - Premkumar.jpg";
 import imgSrinithi from "./images/Chemistry - Srinithi.jpeg";

@@ -4,7 +4,7 @@ import pdfFile from "../assets/documents/policies.pdf";
 
 const PolicyDocument = () => {
   const handleOpenPdf = () => {
-    window.open(pdfFile, "_blank");
+    window.open(pdfFile + '#toolbar=0', "_blank");
   };
 
   return (

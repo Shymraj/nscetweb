@@ -5,7 +5,7 @@ import reportPdf from '../assets/documents/annual-report.pdf';
 
 const ReportDocument = () => {
   const handleView = () => {
-    window.open(reportPdf, '_blank');
+    window.open(reportPdf + '#toolbar=0', '_blank');
   };
 
   return (

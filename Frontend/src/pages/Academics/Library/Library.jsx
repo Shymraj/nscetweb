@@ -152,16 +152,7 @@ const Library = () => {
                 Our Central Library functions as a modern Learning Resource Centre, housing an expansive collection of print volumes, Indian and foreign periodicals, and high-speed digital infrastructure to empower scholarly research across all engineering disciplines.
               </p>
             </div>
-            <div className="exec-principal-card">
-              <div className="principal-avatar">
-                <FaUserGraduate />
-              </div>
-              <div className="principal-info">
-                <h4>Dr. S. Sinthan</h4>
-                <p className="p-deg">Chief Librarian</p>
-                <p className="p-role">NSCET Central Library</p>
-              </div>
-            </div>
+
           </div>
         </motion.div>
 

@@ -26,9 +26,9 @@ const AcademicPrograms = () => {
 
       {/* Hero Section */}
       <PageBanner
-        title="Details of Academic Programs"
-        subtitle="Explore our wide range of undergraduate, postgraduate, and doctoral research programs designed to foster excellence and innovation."
         hideBreadcrumb={true}
+        showOverlay={false}
+        showText={false}
         backgroundImage={heroImg}
       />
 
