@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #0c152a; /* NSCET dark navy background to blend with video if black or similar */
+  background-color: transparent; 
   z-index: 99999;
   display: flex;
   justify-content: center;
@@ -28,8 +28,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Temporary clip path to remove bottom text from video */
-  clip-path: inset(0 0 25% 0);
   background-color: transparent;
 }
 
@@ -38,8 +36,6 @@
   height: 100%;
   object-fit: contain;
   background: transparent;
-  /* Blend mode if the video is black background */
-  mix-blend-mode: screen; 
 }
 
 .smart-loader-static {

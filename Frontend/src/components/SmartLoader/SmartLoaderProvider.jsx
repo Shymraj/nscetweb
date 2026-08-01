@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import nscetVideo from '../../page loading/NSCET.mp4';
+import nscetVideo from '../../page loading/NSCET.webm';
 import nscetLogo from '../../assets/Img/nscet-logo.png';
 import './SmartLoader.css';
 
@@ -79,7 +79,7 @@ export const SmartLoaderProvider = ({ children }) => {
               exit={{ scale: 0.95 }}
               transition={{ duration: 0.5, ease: 'easeInOut' }}
             >
-              <div className="smart-loader-media-wrapper">
+              <div className="smart-loader-media-wrapper" style={{ width: '250px', height: '250px' }}>
                 <video 
                   className="smart-loader-video"
                   autoPlay 
@@ -87,6 +87,7 @@ export const SmartLoaderProvider = ({ children }) => {
                   muted 
                   playsInline
                   src={nscetVideo}
+                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                 />
                 <img 
                   className="smart-loader-static" 
