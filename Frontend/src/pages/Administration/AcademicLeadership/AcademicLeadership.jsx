@@ -1,8 +1,8 @@
 import React from 'react';
 import './AcademicLeadership.css';
+import { motion } from 'framer-motion'; // PUTHUSA ADD PANNUNA PACKAGE
 
 const AcademicLeadership = () => {
-  // Department Heads Data - Strictly in Alphabetical Order based on Department Name
   const hodsData = [
     {
       id: 1,
@@ -10,10 +10,7 @@ const AcademicLeadership = () => {
       role: "Assistant Professor & Head [I/C]",
       department: "Artificial Intelligence & Data Science",
       image: "/vignesh.jpg", 
-      qualifications: [
-        "B.Tech - Artificial Intelligence & Data Science",
-        "M.E., Ph.D"
-      ]
+      qualifications: ["M.E., Ph.D"]
     },
     {
       id: 2,
@@ -21,10 +18,7 @@ const AcademicLeadership = () => {
       role: "Assistant Professor & Head [I/C]",
       department: "Civil Engineering",
       image: "/nagarathinam.jpg",
-      qualifications: [
-        "B.E. - Civil Engineering",
-        "M. E., M. I. S. T. E., (Ph. D)"
-      ]
+      qualifications: ["M. E., M. I. S. T. E., (Ph. D)"]
     },
     {
       id: 3,
@@ -32,10 +26,7 @@ const AcademicLeadership = () => {
       role: "Assistant Professor & Head [I/C]",
       department: "Computer Science Engineering",
       image: "/mathalairaj.jpg",
-      qualifications: [
-        "B.E. - Computer Science Engineering",
-        "M.E (CSE), Ph.D"
-      ]
+      qualifications: ["M.E (CSE), Ph.D"]
     },
     {
       id: 4,
@@ -43,21 +34,15 @@ const AcademicLeadership = () => {
       role: "Professor & Head",
       department: "Electrical and Electronics Engineering",
       image: "/ganesh.jpg",
-      qualifications: [
-        "B.E. - Electrical and Electronics Engineering",
-        "M.E., (Ph.D.)"
-      ]
+      qualifications: ["M.E., (Ph.D.)"]
     },
     {
       id: 5,
       name: "Dr. T. Venishkumar",
-      role: "Associate Professor & Head [I/C]",
+      role: " Professor & Head [I/C]",
       department: "Electronics and Communication Engineering",
       image: "/venishkumar.jpg",
-      qualifications: [
-        "B.E. - Electronics and Communication Engineering",
-        "M.E., Ph.D"
-      ]
+      qualifications: ["M.E., Ph.D"]
     },
     {
       id: 6,
@@ -65,10 +50,7 @@ const AcademicLeadership = () => {
       role: "Associate Professor & Head [I/C]",
       department: "Embedded Systems and Technology",
       image: "/athilingam.jpg",
-      qualifications: [
-        "M.E. - Embedded Systems and Technology",
-        "Ph.D, M.E."
-      ]
+      qualifications: ["Ph.D, M.E."]
     },
     {
       id: 7,
@@ -76,10 +58,7 @@ const AcademicLeadership = () => {
       role: "Assistant Professor & Head [I/C]",
       department: "Information Technology",
       image: "/prathap c.jpg",
-      qualifications: [
-        "B.Tech - Information Technology",
-        "M.Tech., Ph.D"
-      ]
+      qualifications: ["M.Tech., Ph.D"]
     },
     {
       id: 8,
@@ -87,21 +66,15 @@ const AcademicLeadership = () => {
       role: "Professor & Head [I/C]",
       department: "Mechanical Engineering",
       image: "/radhakrishnan.jpg",
-      qualifications: [
-        "B.E. - Mechanical Engineering",
-        "M.E., Ph.D., MISTE., MIE."
-      ]
+      qualifications: ["M.E., Ph.D., MISTE., MIE."]
     },
-    {
+   {
       id: 9,
       name: "Dr. A. Vembathurajesh",
       role: "Assistant Professor & Head [I/C]",
-      department: "Science & Humanities",
+      department: "Science & Humanities", 
       image: "/vembathurajesh.png",
-      qualifications: [
-        "Science & Humanities",
-        "M.E., Ph.D, MISTE"
-      ]
+      qualifications: ["M.E., Ph.D, MISTE"]
     },
     {
       id: 10,
@@ -109,22 +82,17 @@ const AcademicLeadership = () => {
       role: "Professor & Head",
       department: "Structural Engineering",
       image: "/ananthakrishnan.jpg",
-      qualifications: [
-        "M.E. - Structural Engineering",
-        "M. E., Ph. D."
-      ]
+      qualifications: ["M.E. - Structural Engineering", "M. E., Ph. D."]
     }
   ];
 
   return (
     <div className="al-page-container">
       
-      {/* 1. Main Hero Banner (8:3 Ratio & Centered) */}
       <div className="al-hero-banner">
         <h1>Academic Leadership</h1>
       </div>
 
-      {/* 2. Separate About Us Banner Container */}
       <div className="al-about-banner">
         <div className="al-about-content">
           <p>
@@ -133,7 +101,6 @@ const AcademicLeadership = () => {
         </div>
       </div>
 
-      {/* 3. TOP MANAGEMENT LEADERSHIP (Secretary & Joint Secretary Split Layout) */}
       <div className="al-section-wrapper">
         <h2 className="al-section-title">Top Management Leadership</h2>
         <div className="al-split-container">
@@ -146,10 +113,11 @@ const AcademicLeadership = () => {
                 </div>
               </div>
             </div>
-            <h2 className="al-name">Er. A.S.S.S. Soma Sundaram</h2>
-            <h3 className="al-role">Secretary, NSCET</h3>
+            <h2 className="al-name">Er. A.S.S.S. Soma Sundaram BE</h2>
+            <p className="al-dept-name">
+              <span className="al-dept-badge"> Secretary</span>
+            </p>
             <ul className="al-points">
-              <li>B.E.</li>
               <li>Guiding the institution towards monumental growth and success.</li>
             </ul>
           </div>
@@ -162,10 +130,11 @@ const AcademicLeadership = () => {
                 </div>
               </div>
             </div>
-            <h2 className="al-name">Mr. T. Subramani</h2>
-            <h3 className="al-role">Joint Secretary, NSCET</h3>
+            <h2 className="al-name">Mr. T. Subramani B.C.A., M.B.A.</h2>
+            <p className="al-dept-name">
+              <span className="al-dept-badge">Joint Secretary</span>
+            </p>
             <ul className="al-points">
-              <li>B.C.A., M.B.A.</li>
               <li>Overseeing institutional policies and strategic developments.</li>
             </ul>
           </div>
@@ -175,7 +144,6 @@ const AcademicLeadership = () => {
 
       <hr className="al-divider" />
 
-      {/* 4. ADMINISTRATIVE LEADERSHIP (Principal & Vice Principal - No ZigZag) */}
       <div className="al-section-wrapper">
         <h2 className="al-section-title">Administrative Leadership</h2>
         <div className="al-admin-stack">
@@ -190,7 +158,10 @@ const AcademicLeadership = () => {
             </div>
             <div className="al-text-content">
               <h2 className="al-name">Dr. C. Mathalai Sundaram</h2>
-              <h3 className="al-role">Principal & Head of Department ME Manufacturing Engineering</h3>
+              <h3 className="al-role">Principal</h3>
+              <p className="al-dept-name">
+                <span className="al-dept-badge">Head of Department : ME Manufacturing Engineering</span>
+              </p>
               <ul className="al-points">
                 <li>M.E., M.B.A., Ph.D., MISTE</li>
                 <li>Leading the institution with a strong vision and overall academic excellence.</li>
@@ -208,7 +179,10 @@ const AcademicLeadership = () => {
             </div>
             <div className="al-text-content">
               <h2 className="al-name">Dr. M. Sathya</h2>
-              <h3 className="al-role">Vice Principal & Head of Department ME CSE</h3>
+              <h3 className="al-role">Vice Principal</h3>
+              <p className="al-dept-name">
+                <span className="al-dept-badge">Head of Department : ME Computer Science and Engineering</span>
+              </p>
               <ul className="al-points">
                 <li>M.Tech., M.B.A., Ph.D</li>
                 <li>Ensuring student discipline, welfare, and coordinating daily academic operations.</li>
@@ -221,14 +195,25 @@ const AcademicLeadership = () => {
 
       <hr className="al-divider" />
 
-      {/* 5. HEADS OF DEPARTMENT (10 Depts - Alphabetical Order Zig-Zag Layout) */}
+      {/* 5. HEADS OF DEPARTMENT (USING FRAMER MOTION FOR SCROLL ANIMATION) */}
       <div className="al-section-wrapper">
         <h2 className="al-section-title">Heads of Department</h2>
         <div className="al-zigzag-container">
           {hodsData.map((hod, index) => (
-            <div 
+            <motion.div 
               key={hod.id} 
               className={`al-card al-zigzag-row ${index % 2 === 0 ? 'al-row-left' : 'al-row-right'}`}
+              
+              /* Ithu thaan magic! Kela irunthu mela bounce aagi varum */
+              initial={{ opacity: 0, scale: 0.6, y: 50 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ 
+                type: "spring", 
+                stiffness: 120, 
+                damping: 12, 
+                delay: index * 0.1 
+              }}
             >
               <div className="al-hex-wrapper">
                 <div className="al-hex-outer">
@@ -240,21 +225,22 @@ const AcademicLeadership = () => {
               <div className="al-text-content">
                 <h2 className="al-name">{hod.name}</h2>
                 <h3 className="al-role">{hod.role}</h3>
-                <p className="al-dept-name"><strong>Department:</strong> {hod.department}</p>
+                <p className="al-dept-name">
+                  <span className="al-dept-badge">{hod.department}</span>
+                </p>
                 <ul className="al-points">
                   {hod.qualifications.map((qual, i) => (
                     <li key={i}>{qual}</li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
 
       <hr className="al-divider" />
 
-      {/* 6. LIBRARY AND PHYSICAL EDUCATION (Split Container Layout) */}
       <div className="al-section-wrapper" style={{ marginBottom: '60px' }}>
         <h2 className="al-section-title">Library and Physical Education</h2>
         <div className="al-split-container">
@@ -268,7 +254,9 @@ const AcademicLeadership = () => {
               </div>
             </div>
             <h2 className="al-name">Dr. S. Sinthan</h2>
-            <h3 className="al-role">ChiefLibrarian</h3>
+            <p className="al-dept-name">
+              <span className="al-dept-badge">Chief Librarian</span>
+            </p>
             <ul className="al-points">
               <li>Managing 21,800+ volumes of engineering textbooks and journals.</li>
               <li>Guiding students with vast digital library and IEEE resources.</li>
@@ -284,7 +272,9 @@ const AcademicLeadership = () => {
               </div>
             </div>
             <h2 className="al-name">Mr. [Name]</h2>
-            <h3 className="al-role">Physical Education Director</h3>
+            <p className="al-dept-name">
+              <span className="al-dept-badge">Physical Education Director</span>
+            </p>
             <ul className="al-points">
               <li>Expert in state-level sports coaching, fitness, and wellness.</li>
               <li>Driving the college sports teams to championship victories.</li>
