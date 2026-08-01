@@ -44,47 +44,158 @@
 }
 
 /* Incharge Section */
+.hmf-incharge-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .hmf-incharge-card {
-  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-  padding: 2rem;
-  border-radius: 15px;
-  border-left: 4px solid #0284c7;
+  background: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.05);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hmf-incharge-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(180deg, #0284c7 0%, #3b82f6 100%);
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+.hmf-incharge-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12), 0 4px 6px rgba(15, 23, 42, 0.05);
 }
 
 .hmf-incharge-info {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
   align-items: center;
+  width: 100%;
 }
 
 .hmf-incharge-image {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hmf-incharge-image::after {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+  z-index: 0;
+  opacity: 0.8;
+  transform: scale(0.9);
+  transition: transform 0.4s ease;
+}
+
+.hmf-incharge-card:hover .hmf-incharge-image::after {
+  transform: scale(1);
 }
 
 .hmf-incharge-image img {
-  width: 200px;
-  height: 180px;
+  width: 170px;
+  height: 170px;
   object-fit: cover;
   object-position: top;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.15);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hmf-incharge-card:hover .hmf-incharge-image img {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.hmf-incharge-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.hmf-incharge-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  background: #f0f9ff;
+  color: #0284c7;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  border: 1px solid #bae6fd;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.05);
+}
+
+.hmf-badge-icon {
+  font-size: 1.1rem;
 }
 
 .hmf-incharge-details h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 0.5rem 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 0.8rem 0;
+  letter-spacing: -0.5px;
+}
+
+.hmf-incharge-credentials {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.hmf-incharge-qualifications {
+  font-size: 1.1rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.hmf-incharge-dot {
+  color: #cbd5e1;
+  font-size: 1.2rem;
 }
 
 .hmf-incharge-role {
   font-size: 1.1rem;
-  color: #475569;
-  margin: 0;
+  color: #64748b;
   font-weight: 500;
+}
+
+.hmf-incharge-desc {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-top: 0.2rem;
 }
 
 /* Facilities Grid */
@@ -177,15 +288,48 @@ body.dark-mode .hmf-overview-content p {
 }
 
 body.dark-mode .hmf-incharge-card {
-  background: rgba(30, 41, 59, 0.5);
+  background: #1e293b;
   border-color: #334155;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-body.dark-mode .hmf-incharge-info h3 {
-  color: #f1f5f9;
+body.dark-mode .hmf-incharge-card::before {
+  background: linear-gradient(180deg, #38bdf8 0%, #3b82f6 100%);
+}
+
+body.dark-mode .hmf-incharge-image::after {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+body.dark-mode .hmf-incharge-image img {
+  border-color: #1e293b;
+}
+
+body.dark-mode .hmf-incharge-details h3 {
+  background: linear-gradient(135deg, #f8fafc 0%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .hmf-incharge-badge {
+  background: rgba(14, 165, 233, 0.1);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+body.dark-mode .hmf-incharge-qualifications {
+  color: #e2e8f0;
 }
 
 body.dark-mode .hmf-incharge-role {
+  color: #94a3b8;
+}
+
+body.dark-mode .hmf-incharge-dot {
+  color: #475569;
+}
+
+body.dark-mode .hmf-incharge-desc {
   color: #cbd5e1;
 }
 
@@ -238,14 +382,26 @@ body.dark-mode .hmf-facility-card p {
     height: 250px;
   }
 
+  .hmf-incharge-card {
+    padding: 2rem 1.5rem;
+  }
+
   .hmf-incharge-info {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 2rem;
     text-align: center;
   }
 
   .hmf-incharge-image {
-    justify-content: center;
     order: -1;
+  }
+
+  .hmf-incharge-details {
+    align-items: center;
+  }
+
+  .hmf-incharge-credentials {
+    justify-content: center;
   }
 }
 
