@@ -1,8 +1,27 @@
+import nssLogo from './assets/nss.png';
+import yrcLogo from './assets/yrc.png';
+import greenEnvLogo from './assets/greenenvironment.jpeg';
+import edcLogo from './assets/Entrepreneurship Development.png';
+import iipcLogo from './assets/Industry Institute Partnership Cell.png';
+import alumniLogo from './assets/Alumni Association.png';
+import rndLogo from './assets/R & D Cell.png';
+import examCellLogo from './assets/Exam Cell.jpg';
+import placementLogo from './assets/Placement Cell.png';
+import womenEmpowermentLogo from './assets/Women Empowerment Cell.jpeg';
+import ptmaLogo from './assets/Parent Teacher Meeting Association.jpeg';
+import antiRaggingSquadLogo from './assets/Anti Ragging Squad.png';
+import governingCouncilLogo from './assets/Governing Council.png';
+import studentCounsellingLogo from './assets/Student Counselling Cell.png';
+import studentDisciplineLogo from './assets/Student Discipline Cell.png';
+import antiRaggingCommitteeLogo from './assets/Anti Ragging Committee.png';
+import grievanceRedressalLogo from './assets/Grievance Redressal Cell.png';
+import iccLogo from './assets/Internal Complaint Committee.png';
+
 export const clubsData = [
   {
     id: 'nss',
     name: 'National Service Scheme',
-    icon: 'nss.png',
+    icon: nssLogo,
     details: {
       coordinator: 'Mr. J. Ayyanarprabu, AP/CSE',
       members: 'Mrs. S. Kalaivani\nMrs. S. Arthy',
@@ -17,7 +36,7 @@ export const clubsData = [
   {
     id: 'yrc',
     name: 'Youth Red Cross',
-    icon: 'yrc.png',
+    icon: yrcLogo,
     details: {
       coordinator: 'Mr. J. Ayyanarprabu, AP/CSE',
       members: 'Mrs. S. Kalaivani, Mrs. S. Arthy',
@@ -31,7 +50,7 @@ export const clubsData = [
   {
     id: 'green-environment',
     name: 'Green Environment',
-    icon: 'green-environment.png',
+    icon: greenEnvLogo,
     details: {
       coordinator: 'Mr. N. Nagarathinam HOD/CIVIL',
       members: 'Mr. R. Shanmugapriyan, AP/Civil\nMrs. B. Sowmiya, AP/Civil\nMr. S. Manimaran, AP/Civil',
@@ -46,7 +65,7 @@ export const clubsData = [
   {
     id: 'entrepreneurship',
     name: 'Entrepreneurship Development',
-    icon: 'entrepreneurship.png',
+    icon: edcLogo,
     details: {
       coordinator: 'Dr. B. Radha Krishnan, HOD/MECH',
       members: 'Mrs. S. Gayathri, AP/Civil\nMr. R. Shanmugapriyan, AP/Civil\nMr. K. Velkumar, AP/IT\nMrs. R. Archana, AP/AI&DS\nDr. T. Venishkumar, Asso.Prof/ECE\nMrs. Kalaivani, AP/ECE\nMr. R. Rajakarthick AP/EEE\nMrs. A. Nishetha Jeflin Nixon, AP/EEE\nMr. P. Surulimani AP/Mech\nMr. K. Rajaguru, AP/Phy',
@@ -65,7 +84,7 @@ export const clubsData = [
   {
     id: 'iipc',
     name: 'Industry Institute Partnership Cell',
-    icon: 'iipc.png',
+    icon: iipcLogo,
     details: {
       coordinator: 'Mrs. B. Sowmiya, AP/ Civil\nMs. A. Nishetha Jeflin Nixon, AP/ EEE',
       members: 'Mrs. Alageswari, AP/EEE\nMrs. J. Priya, AP/CSE\nMr. R. Nagaraja, AP /Mech',
@@ -84,7 +103,7 @@ export const clubsData = [
   {
     id: 'alumni',
     name: 'Alumni Association',
-    icon: 'alumni.png',
+    icon: alumniLogo,
     details: {
       coordinator: 'Mr. A. Vennimalai Rajan, AP/ Mech\nMs. M. Kanimozhi, AP /CIVIL',
       members: 'Mr. R. Shanmugapriyan, AP/ Civil\nMr. R. Raja Karthick, AP/ EEE\nMs. S. Arul Jothi, AP/CSE',
@@ -100,7 +119,7 @@ export const clubsData = [
   {
     id: 'rnd',
     name: 'R & D Cell',
-    icon: 'rnd.png',
+    icon: rndLogo,
     details: {
       coordinator: 'Dr. T. Venishkumar, ASP/ECE\nDr. E. Anantha Krishnan, HOD/Civil',
       members: 'Dr. B. Radha Krishnan, HOD/MECH\nDr. M. Pandi Maharasan, HOD/EEE\nDr. C. Chithra, Prof - Coordinator/S&H\nDr. E. Anantha Krishnan, HOD/Civil\nDr. M. Sathya, VP/HOD/IT\nDr. A. Solai Raj, ASP/CSE\nDr. B. Mallaiyasamy, ASP/MATHS\nDr. N. David Mathan, ASP/CHE\nDr. R. Athilingam, ASP/EEE',
@@ -117,7 +136,7 @@ export const clubsData = [
   {
     id: 'exam-cell',
     name: 'Exam Cell',
-    icon: 'exam-cell.png',
+    icon: examCellLogo,
     details: {
       coordinator: 'Mr. K. Ganesh, AP/EEE\nMr. V. Sivaganesan, AP/Mech',
       members: 'Ms. B. Sowmiya, AP /Civil\nMr.K. Velkumar AP/CSE\nMr. K. Ganesh, AP/ EEE\nMr. K. Bharathi Kannan, AP /ECE\nMr. S. Harikishore, AP /Mech\nMs. J. Kanimoli, AP/ AIDS\nMr. N. Kesavamoorthy, AP/IT\nMr. R. Dhandayuthapani, AP/PHY\nMr. Nagaraja, MFE\nMrs. P. Shanthi, JA/Admin\nMr. M. Santhosh Pandian ,LA/Mech',
@@ -135,7 +154,7 @@ export const clubsData = [
   {
     id: 'placement-cell',
     name: 'Placement Cell',
-    icon: 'placement-cell.png',
+    icon: placementLogo,
     details: {
       coordinator: 'Dr. M. Sathya, VP, Placement Officer\nMr. R. Shanmugapriyan Placement\nMrs. T. Subathamani, Placement\nMs. J. Preetha, Placement\nMs. S. Megha, Placement',
       members: 'Ms. P. Gowthami AP/ECE\nMr. K.Deepiga, AP/CSE\nMs. S. Gayathri, AP/ Civil\nMs. A. Nishetha Jeflin Nixon AP/ EEE\nMr. A. Vennimalai Rajan, AP/MECH\nMs. P.Nagajothi, AP/ AIDS\nMs. B. Sai Suganya AP / IT',
@@ -155,7 +174,7 @@ export const clubsData = [
   {
     id: 'women-empowerment',
     name: 'Women Empowerment Cell',
-    icon: 'women-empowerment.png',
+    icon: womenEmpowermentLogo,
     details: {
       coordinator: 'Dr. M. Sathya, VP, HOD/IT, Coordinator',
       members: 'Ms. M. Mahalakshmi, AP/MAT\nMs. T. Tamil Selvi, AP/ECE\nDr. C. Chithra, AP - Coordinator/S&H\nMs. A. Deepika, AP/CSE\nMrs. S. Gayathri, AP/Civil',
@@ -168,7 +187,7 @@ export const clubsData = [
   {
     id: 'ptma',
     name: 'Parent Teacher Meeting Association',
-    icon: 'ptma.png',
+    icon: ptmaLogo,
     details: {
       coordinator: 'Mr. M. Idhaya Chandran, AP/ECE\nMr. P. Surulimani, AP/Mech',
       members: 'Ms. S. Arul Jothi, AP/CSE\nMrs. Kanimozhi, AP/Civil\nMs. I. Limsha Deborah, AP/EEE\nMr. R. Dhandayuthapani, AP/PHY\nMrs. R. Archana, AP/AI\nMrs. A. Sangeetha, AP/IT',
@@ -181,7 +200,7 @@ export const clubsData = [
   {
     id: 'anti-ragging-squad',
     name: 'Anti Ragging Squad',
-    icon: 'anti-ragging-squad.png',
+    icon: antiRaggingSquadLogo,
     details: {
       coordinator: 'Dr. C. Mathalai Sundaram, Principal\nDr. N. Mathavan, AP/ECE\nDr. M. Sathya, VP, Placement Officer\nDr. S. Sinthan Libraian, Convenor',
       members: 'Dr. B. Radha Krishnan , HOD/MECH\nDr. E. Anandha Krishnan, HOD/CIVIL\nDr. T. Venishkumar, HOD / ECE\nDr. R. Athilingam, HOD /EEE\nDr. J. Mathalai Raj ,HoD/ CSE\nMr. L.S. Vignesh, HOD/AIDS\nMrs. S. Aruljothi HOD/IT',
@@ -194,7 +213,7 @@ export const clubsData = [
   {
     id: 'governing-council',
     name: 'Governing Council',
-    icon: 'governing-council.png',
+    icon: governingCouncilLogo,
     details: {
       coordinator: '-',
       members: 'Mr . A.S.G. Dharmarajan,/President/ Chairman\nDr. C. Mathalai Sundaram, Principal/ Member secretary/ Convenor\nMr. Mr. A.S. Jeevan,/ Vice President/Member\nMr. M.M. Anandhavel/ General Secretary/ Member\nMr. B. Ramachandran, / Treasurer/ Member\nEr. A. S. S. S. Somasundaram/ Secretary / Member\nMr.T.Subramani.,BCA.,MBA.,/JointSecretary/Member',
@@ -209,7 +228,7 @@ export const clubsData = [
   {
     id: 'student-counselling',
     name: 'Student Counselling Cell',
-    icon: 'student-counselling.png',
+    icon: studentCounsellingLogo,
     details: {
       coordinator: 'Dr. M. Sathya, VP\nDr. B. Radha Krishnan , HOD/MECH',
       members: 'Dr. E. Anandha Krishnan, HOD/CIVIL\nDr. T. Venishkumar, HOD / ECEr\nDr. R. Athilingam, HOD /EEE\nDr. J. Mathalai Raj ,HoD/ CSE\nMr. L.S. Vignesh, HOD/AIDS\nMrs. S. Aruljothi HOD/IT\nMr. A. Vembathurajesh, HoD / S&H\nMr. N. Nagarathinam, HoD/ SE\nDr. C. Chithra, Prof - Coordinator/ S&H\nDr. B. Mallaiyasamy AP/S&H\nMr. R. Manoj prabhkar AP/Civil\nMs. S. Abirami Kayathri, AP/CSE\nMs. H.Juriya Banu AP /EEE\nMr. T.Tamilselvi, AP /ECE\nMr. R. Nagaraja AP/Mech\nMs. M.Pavithra, AP / AD\nMs. R. Yogeshwari AP/IT',
@@ -223,7 +242,7 @@ export const clubsData = [
   {
     id: 'student-discipline',
     name: 'Student Discipline Cell',
-    icon: 'student-discipline.png',
+    icon: studentDisciplineLogo,
     details: {
       coordinator: '[Boys]\nDr. N. Mathavan, AP/ECE\nMr. K. Sundarrajan, Phy. Dir\n\n[Girls]\nDr. M. Sathya, VP\nDr. C. Chithra,Prof – Coordinator / S&H',
       members: '[Boys]\nMr. N. Nagarathinam, HOD/SE\nMr. C. Prathap, HOD/SH\nDr. T. Venishkumar, HOD / ECE\nDr. B. Radha Krishnan, HOD/MECH\nDr. E. Anantha Krishnan, HOD/CIVIL\nMr. A. Vembathu Rajesh, HoD/MFE\nDr. J. Mathalai Raj, HoD/CSE\nMr. L.S. Vignesh, HOD/AD\n\n[Girls]\nMs. S. ArulJothi, HOD /IT\nMs. T. TamilSelvi, AP/ECE\nMs. S. Gayathri, AP/ Civil\nMs. R. Chitra, AP /EEE\nMs. J. Kanimoli AP / AD\nMs.P.Niranjana AP/CSE',
@@ -236,7 +255,7 @@ export const clubsData = [
   {
     id: 'anti-ragging-committee',
     name: 'Anti Ragging Committee',
-    icon: 'anti-ragging-committee.png',
+    icon: antiRaggingCommitteeLogo,
     details: {
       coordinator: 'Dr. C. Mathalai Sundaram, Principal\nDr. M. Sathya, VP/Placement Officer\nDr. N. Mathavan, AP/ECE',
       members: 'Ms. S. Satheesh, Thasildhar / Member\nMr. M. Kannan, Police Inspector /Member\nMr. P. Muthupandi, NGO Representative\nMr. N. Vignesh, Local Media Representative\nMr. A. Karuppasamy / Member - Student parent\nMs. Palasai Shanthi, / Member - Student parent\nDr. C. Chithra, Prof - Coordinator/ S&H/ Member\nMr. M. Santhosh Pandian , Non –Teaching / Member\nMr. G. Rajeshwaran , II Yr Student/ Member\nMs. R.Yavanashree, II Yr Student/ Member',
@@ -249,7 +268,7 @@ export const clubsData = [
   {
     id: 'grievance-redressal',
     name: 'Grievance Redressal Cell',
-    icon: 'grievance-redressal.png',
+    icon: grievanceRedressalLogo,
     details: {
       coordinator: '-',
       members: 'Dr. C. Mathalai Sundaram, Principal/ Chairman\nDr. A.Rajadurai, Professor / ombudsperson\nMr. P. Rajesh Kanna, Police Inspector/ Member\nMs. Arjunan, Thasildhar / Member\nDr. N. Mathavan, AP/ECE / Member\nMr. M. Idhayachandran, AP/ECE / Member\nMr. A. Anbu Vasanthan, IInd Yr / Civil/ Student\nMs. B.Trisha , IInd Yr / ECE / Student',
@@ -264,7 +283,7 @@ export const clubsData = [
   {
     id: 'icc',
     name: 'Internal Complaint Committee',
-    icon: 'icc.png',
+    icon: iccLogo,
     details: {
       coordinator: 'Dr. M. Sathya, VP, Academic Convenor\nDr. C. Chithra, Prof - Coordinator/ S&H',
       members: 'Dr.R.Valarmathi AP/English\nMrs. S. Gayathri, AP- Civil / Member\nMs.S.Nandhitha,IVth Yr / CSE / Student\nMs.S.Amutha,IVth Yr / ECE / Student\nMs. M.Dheivashri, IVth Yr /AI&DS / Student\nMr.K.Sidharth IV th Yr/ Civil/ Student',
@@ -280,7 +299,7 @@ export const clubsData = [
   {
     id: 'iqac',
     name: 'Internal Quality Assurance Cell',
-    icon: 'iqac.png',
+    icon: null,
     details: {
       coordinator: 'Mr. R. Udhaya Kumar, AP /CSE/ Convenor\nDr.N.David Mathan, ASP /CHE/Convenor',
       members: 'Dr. C. Mathalai Sundaram, Principal\nDr. N. Mathavan, AP/ECE\nDr. M. Sathya, Placement Officer\nDr. B. Radha Krishnan, HOD/MECH\nDr. E. Anantha Krishnan, AP/CIVIL\nDr. J. Mathalai Raj ,HoD/ CSE\nMr. L.S. Vignesh, HOD/AIDS\nMrs. S. Aruljothi HOD/IT\nDr. R. Athilingam, HOD /EEE\nMr. A. Vembathu Rajesh, HoD / S&H\nDr. T. Venishkumar, HOD/ECE\nMr. N. Nagarathinam, HoD/CIVIL\nDr. C. Chithra, Prof - Coordinator/S&H',

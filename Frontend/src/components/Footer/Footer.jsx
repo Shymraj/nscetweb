@@ -32,11 +32,9 @@ const Footer = () => {
         {/* Main Footer Links */}
         <div className="footer-grid">
           <div className="footer-col">
-            <Link to="/" style={{ textDecoration: 'none' }}>
-              <div className="footer-logo">
-                <img src={nscetLogo} alt="NSCET Logo" />
-                <h3>NSCET</h3>
-              </div>
+            <Link to="/" className="footer-logo" style={{ textDecoration: 'none' }}>
+              <img src={nscetLogo} alt="NSCET Logo" />
+              <h3>NSCET</h3>
             </Link>
             <p className="footer-about">
               Nadar Saraswathi College of Engineering and Technology is a premier institution dedicated to empowering young minds through innovation, technical excellence, and holistic development.
@@ -89,7 +87,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="map-btn">
+            <a href="https://www.google.com/maps/search/Nadar+Saraswathi+College+of+Engineering+and+Technology,+Theni" target="_blank" rel="noopener noreferrer" className="map-btn">
               <FaMapMarkerAlt /> View on Google Maps
             </a>
           </div>

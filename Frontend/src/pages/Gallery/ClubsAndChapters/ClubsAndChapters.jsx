@@ -6,26 +6,8 @@ import { clubsData } from './data';
 import bannerImg from './assets/images/Clubs&Chapters.png';
 import './ClubsAndChapters.css';
 
-// Using import.meta.glob to load all images from assets folder
-const imageGlobs = import.meta.glob('./assets/*.{png,jpg,jpeg,svg,webp}', { eager: true });
-
 const ClubsAndChapters = () => {
-  const [images, setImages] = useState({});
   const [selectedClub, setSelectedClub] = useState(null);
-
-  useEffect(() => {
-    // Process the glob object to a clean map of normalized filename -> url
-    const loadedImages = {};
-    for (const path in imageGlobs) {
-      const fileName = path.split('/').pop(); // e.g. "Alumni Association.png"
-      const nameWithoutExt = fileName.replace(/\.[^/.]+$/, ""); // "Alumni Association"
-      
-      // Create a normalized key: lowercase, remove spaces and special chars
-      const normalizedKey = nameWithoutExt.toLowerCase().replace(/[^a-z0-9]/g, '');
-      loadedImages[normalizedKey] = imageGlobs[path].default;
-    }
-    setImages(loadedImages);
-  }, []);
 
   return (
     <div className="clubs-chapters-page">
@@ -38,13 +20,7 @@ const ClubsAndChapters = () => {
       <div className="clubs-chapters-container">
         <div className="clubs-grid">
           {clubsData.map((club) => {
-            // Generate possible normalized keys to match against the files the user uploaded
-            const keyFromName = club.name.toLowerCase().replace(/[^a-z0-9]/g, '');
-            const keyFromId = club.id.toLowerCase().replace(/[^a-z0-9]/g, '');
-            const keyFromIcon = club.icon.split('.')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
-            
-            // Try to find a match using any of these keys
-            const imageSrc = images[keyFromName] || images[keyFromId] || images[keyFromIcon];
+            const imageSrc = club.icon;
             
             return (
               <motion.div 
