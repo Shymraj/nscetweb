@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import nscetLogo from "../../assets/Img/nscet-logo.webp";
+import nscetLogo from "../../assets/Img/nscet-logo.png";
 import mandatoryDisclosurePdf from "./pdf's/NSCET - Mandatory Disclosure-2026-27.pdf";
 import aictePdf from "./pdf's/aicte.pdf";
 import auPdf from "./pdf's/AU 2024-25.pdf";
