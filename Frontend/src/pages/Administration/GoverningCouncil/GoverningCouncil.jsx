@@ -3,7 +3,7 @@ import governingPdf from "./governing.pdf";
 
 function GoverningCouncil() {
   useEffect(() => {
-    window.open(governingPdf, "_blank");
+    window.open(governingPdf + '#toolbar=0', "_blank");
   }, []);
 
   return (

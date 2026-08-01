@@ -53,12 +53,12 @@ import NIRF from "./pages/Gallery/NIRF/NIRF";
 import RTI from "./pages/Gallery/RTI/RTI";
 import Alumni from "./pages/Alumini/Alumni";
 import Contact from "./pages/Contacts/Contact";
-import Overview from "./pages/Aboutus/Overview/Overview";
-import ActStatus from "./pages/Aboutus/Actstatutes/Actstatutes";
-import DevelopmentPlan from "./pages/Aboutus/Developmentplan/Developmentplan";
-import Affiliation from "./pages/Aboutus/Affiliation/Affiliation";
-import AnnualReports from "./pages/Aboutus/AnnualReports/AnnualReports";
-import AnnualAccounts from "./pages/Aboutus/AnnualAccounts/AnnualAccounts";
+import Overview from "./pages/AboutUs/Overview/Overview";
+import ActStatus from "./pages/AboutUs/Actstatutes/Actstatutes";
+import DevelopmentPlan from "./pages/AboutUs/Developmentplan/Developmentplan";
+import Affiliation from "./pages/AboutUs/Affiliation/Affiliation";
+import AnnualReports from "./pages/AboutUs/AnnualReports/AnnualReports";
+import AnnualAccounts from "./pages/AboutUs/AnnualAccounts/AnnualAccounts";
 
 // Student Life
 import Sports from "./pages/Student Life/Sports/Sports";
@@ -92,7 +92,7 @@ const AppContent = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<Overview />} />
         <Route path="/academics" element={<Academics />} />
         <Route path="/academics/details-of-academic-programs" element={<DetailsOfAcademicPrograms />} />
         <Route path="/academics/academic-calendar" element={<AcademicCalendar />} />
@@ -141,7 +141,6 @@ const AppContent = () => {
         <Route path="/gallery/rti" element={<RTI />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/about/overview" element={<Overview />} />
         <Route path="/about/actstatutes" element={<ActStatus />} />
         <Route path="/about/development-plan" element={<DevelopmentPlan />} />
         <Route path="/about/affiliation" element={<Affiliation />} />

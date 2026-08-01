@@ -10,7 +10,6 @@ import imgArulvizhi from "./images/arulvizhi.jpg";
 import imgDhandayuthapani from "./images/dhandayuthapani.jpg";
 import imgRajaguru from "./images/rajaguru.jpg";
 import imgKrishnamoorthi from "./images/krishnamoorthy.jpg";
-import imgArunKumar from "./images/arunkumar.jpg";
 import imgSelvapriya from "./images/Selvapriya.jpg";
 import imgReka from "./images/Reka.jpg";
 import imgBuvaneshwari from "./images/Buvaneswarih.jpg";
@@ -25,7 +24,6 @@ import imgMurugan from "./images/1778919261_Maths - Murugan.jpeg";
 import imgDiana from "./images/Physics - Diana.jpg";
 import imgEaswari from "./images/1778919497_Physics - Easwari.jpeg";
 import imgIniya from "./images/General Engg - Iniya.jpeg";
-import imgJenifer from "./images/General Engg - Jenifer.jpeg";
 import imgNandhini from "./images/General Engg - Nandini.jpeg";
 import imgPremkumar from "./images/General Engg - Premkumar.jpg";
 import imgSrinithi from "./images/Chemistry - Srinithi.jpeg";
@@ -245,27 +243,6 @@ export const shFacultyData = [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
     {id: "dr-s-r-krishnamoorthi", slug: "dr-s-r-krishnamoorthi",  name: "Dr. S.R. Krishnamoorthi", desig: "Associate Professor", qual: "M.Sc., M.Phil., Ph.D., MISTE", email: "krishnamoorthi@nscet.org", image: imgKrishnamoorthi, spec: "Engineering Physics & Optics", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
-    publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
-    ],
-    projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
-    ],
-    patents: [
-      "Dummy Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
-    experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
-    ]},
-    {id: "mr-g-arun-kumar", slug: "mr-g-arun-kumar",  name: "Mr. G. Arun Kumar", desig: "Assistant Professor", qual: "M.E.", email: "arunkumar1603@gmail.com", image: imgArunKumar, spec: "General Engineering & Mechanics", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
@@ -560,27 +537,6 @@ export const shFacultyData = [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
     {id: "ms-a-iniya", slug: "ms-a-iniya",  name: "Ms. A. Iniya", desig: "Assistant Professor", qual: "M.E (CSE)", email: "iniyakames777@gmail.com", image: imgIniya, spec: "General Engineering & Programming", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
-    publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
-    ],
-    projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
-    ],
-    patents: [
-      "Dummy Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
-    experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
-    ]},
-    {id: "ms-jenifer-k", slug: "ms-jenifer-k",  name: "Ms. Jenifer K.", desig: "Assistant Professor", qual: "B.Tech(IT)., M.E(CSE)", email: "jenifer.k@cietcbe.edu.in", image: imgJenifer, spec: "Computer Practice & IT", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
