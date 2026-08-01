@@ -5,11 +5,7 @@ const BoysHostel = () => {
   const hostelData = {
     about: "The Boys Hostel at our college provides a comfortable and secure environment for students. Equipped with modern facilities and 24/7 supervision, the hostel ensures a home-like atmosphere where students can focus on their academics while enjoying their stay. Spacious rooms, hygienic dining, and recreational areas make it an ideal place for holistic growth and development.",
     chiefWarden: { name: "Dr. C. Mathalai Sundaram", role: "Principal & Chief Warden" },
-    deputyWardens: [
-      { name: "Dr. J. Mathalai Raj", role: "Deputy Warden" },
-      { name: "Mr. R. Santhaseelan", role: "Deputy Warden" }
-    ],
-    strength: { rooms: 28, blocks: 2, totalStudents: 22 },
+    strength: { rooms: 27, blocks: 3, totalStudents: 31 },
     gallery: [
       { id: 1, imgUrl: "/hostel1.JPG" },
       { id: 2, imgUrl: "/hostel2.JPG" },
@@ -27,12 +23,6 @@ const BoysHostel = () => {
       { title: "Study Area", desc: "Study area with quiet spaces, desks, and high-speed internet." },
       { title: "Mess", desc: "Mess with a variety of nutritious meals served at convenient timings." },
       { title: "Security", desc: "Security with CCTV cameras and a hostel warden available 24/7." }
-    ],
-    nearby: [
-      { place: "NSCET Campus", distance: "0.5 Km" },
-      { place: "Nearest Hospital", distance: "2.0 Km" },
-      { place: "Main Bus Stand", distance: "1.5 Km" },
-      { place: "ATM & Supermarkets", distance: "1.0 Km" }
     ]
   };
 
@@ -91,20 +81,12 @@ const BoysHostel = () => {
           <div className="admin-infra-split">
             
             {/* Left Side: Hostel Administration */}
-            <div className="admin-side">
+            <div className="admin-side" style={{ display: 'flex', flexDirection: 'column' }}>
               <h2 className="section-title">Hostel Administration</h2>
-              <div className="admin-cards-container">
-                <div className="admin-card chief">
+              <div className="admin-cards-container" style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <div className="admin-card chief" style={{ width: '100%', textAlign: 'center', padding: '20px 0' }}>
                   <h3>{hostelData.chiefWarden.name}</h3>
                   <span className="admin-role">{hostelData.chiefWarden.role}</span>
-                </div>
-                <div className="deputy-cards">
-                  {hostelData.deputyWardens.map((warden, idx) => (
-                    <div key={idx} className="admin-card deputy">
-                      <h3>{warden.name}</h3>
-                      <span className="admin-role">{warden.role}</span>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>
@@ -231,25 +213,6 @@ const BoysHostel = () => {
                 onClick={() => setCurrentSlide(idx)}
               ></span>
             ))}
-          </div>
-        </section>
-
-        <section className="hostel-section nearby-section animate-slide-up-delay-6">
-          <h2 className="section-title">Nearby Essentials</h2>
-          <div className="nearby-layout">
-            <div className="map-integration-box">
-              <img src="/hosteldron.jpg" alt="Google Map" className="map-zoom-image" />
-            </div>
-            <div className="locations-box">
-              <ul className="locations-list">
-                {hostelData.nearby.map((loc, idx) => (
-                  <li key={idx}>
-                    <span className="loc-name">{loc.place}</span>
-                    <span className="loc-distance">{loc.distance}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </section>
 
