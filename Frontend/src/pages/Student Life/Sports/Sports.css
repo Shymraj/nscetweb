@@ -330,7 +330,7 @@ body.dark-mode .sports-dept-container .sports-bento-card.primary:hover {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    overflow: hidden;
+    overflow: visible;
     flex-shrink: 0;
     position: relative;
     border: 4px solid var(--sports-primary);
@@ -358,6 +358,7 @@ body.dark-mode .sports-dept-container .sports-bento-card.primary:hover {
     object-position: top;
     position: relative;
     z-index: 1;
+    border-radius: 50%;
 }
 
 .sports-dept-container .hod-details h3 {
@@ -459,6 +460,7 @@ body.dark-mode .sports-dept-container .sports-bento-card.primary:hover {
     object-fit: cover;
     object-position: top;
     transition: transform 0.5s ease;
+    border-radius: 50%;
 }
 
 .sports-dept-container .sports-member-card:hover .sports-member-avatar img {

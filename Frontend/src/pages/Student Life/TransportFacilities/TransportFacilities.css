@@ -930,3 +930,105 @@ body.dark-mode .skeleton-card,
 body.dark-mode .skeleton-item {
   background: #334155;
 }
+
+
+/* Transport Incharges Section */
+.transport-incharge-section {
+  padding: 4rem 1rem;
+  background: transparent;
+}
+
+.incharge-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.incharge-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+body.dark-mode .incharge-card {
+  background: rgba(30, 41, 59, 0.7);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border-color: rgba(255,255,255,0.05);
+}
+
+.incharge-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.15);
+}
+
+body.dark-mode .incharge-card:hover {
+  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.2);
+}
+
+.incharge-img-wrapper {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 1.8rem;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, #00d2ff, #0284c7);
+}
+
+.incharge-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+
+body.dark-mode .incharge-img {
+  border-color: #1e293b;
+}
+
+.incharge-role-badge {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+
+.incharge-role-badge.primary {
+  background: var(--theme-primary, #0284c7);
+}
+
+.incharge-role-badge.secondary {
+  background: var(--theme-accent, #ea580c);
+}
+
+.incharge-info h4 {
+  font-family: var(--font-subtopic);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.incharge-info p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin: 0;
+}

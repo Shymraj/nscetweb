@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { SmartLoaderProvider } from "./components/SmartLoader/SmartLoaderProvider";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -171,9 +172,11 @@ const AppContent = () => {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <SmartLoaderProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </SmartLoaderProvider>
   );
 }
 

@@ -5,6 +5,7 @@ import * as THREE from "three";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaImage, FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 import LightboxModal from "../../../../components/common/LightboxModal/LightboxModal";
+import { useSmartLoader } from "../../../../components/SmartLoader/SmartLoaderProvider";
 
 class GalleryErrorBoundary extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class GalleryErrorBoundary extends React.Component {
   }
 }
 
-function ParticleSphere({ images, onSelectImage, isPaused, isFreshersDay }) {
+function ParticleSphere({ images, onSelectImage, isPaused, isFreshersDay, onLoadStart, onLoadEnd }) {
   const PARTICLE_COUNT = 1500;
   const PARTICLE_SIZE_MIN = 0.005;
   const PARTICLE_SIZE_MAX = 0.010;
@@ -49,6 +50,7 @@ function ParticleSphere({ images, onSelectImage, isPaused, isFreshersDay }) {
 
   // Robust texture loader with error fallback for locked/broken image files
   useEffect(() => {
+    onLoadStart?.();
     const loader = new THREE.TextureLoader();
     let isMounted = true;
 
@@ -77,17 +79,21 @@ function ParticleSphere({ images, onSelectImage, isPaused, isFreshersDay }) {
 
       if (isMounted) {
         setTextures(loadedList.filter(Boolean));
+        onLoadEnd?.();
       }
     };
 
     if (images && images.length > 0) {
       loadAllTextures();
+    } else {
+      onLoadEnd?.();
     }
 
     return () => {
       isMounted = false;
+      onLoadEnd?.();
     };
-  }, [images]);
+  }, [images, onLoadStart, onLoadEnd]);
 
   const textureCount = textures.length;
 
@@ -207,6 +213,7 @@ function ParticleSphere({ images, onSelectImage, isPaused, isFreshersDay }) {
 
 export function Event3DGallery({ event, images }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const { startLoading, stopLoading } = useSmartLoader();
 
   const isFreshersDay = (event?.slug || "").includes("fresher");
   const isSmallEvent = isFreshersDay || (images && images.length <= 8);
@@ -290,6 +297,8 @@ export function Event3DGallery({ event, images }) {
                 onSelectImage={(idx) => setSelectedIndex(idx)} 
                 isPaused={isModalOpen}
                 isFreshersDay={isFreshersDay}
+                onLoadStart={startLoading}
+                onLoadEnd={stopLoading}
               />
             </Suspense>
             <OrbitControls

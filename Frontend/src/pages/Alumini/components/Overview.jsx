@@ -27,12 +27,12 @@ const Overview = () => {
       animate="visible"
     >
       <motion.h2 className="glam-title" variants={fadeInUp}>
-        Alumni Association <span>AANSCET</span>
+        Alumni Association
       </motion.h2>
 
       <motion.div className="overview-intro-card" variants={fadeInUp}>
         <p>
-          The AANSCET Alumni Association, founded in 2014 and formally established in 2023, strengthens the bond between the institution and its graduates. It fosters connections, offers career guidance, and provides professional networking opportunities.
+          The Alumni Association, founded in 2014 and formally established in 2023, strengthens the bond between the institution and its graduates. It fosters connections, offers career guidance, and provides professional networking opportunities.
         </p>
       </motion.div>
 

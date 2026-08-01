@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SplashScreen.css";
-import logo from "../../assets/Img/nscet-logo.webp";
+import logo from "../../assets/Img/nscet-logo.png";
 
 const SplashScreen = ({ onFinish }) => {
   const [progress, setProgress] = useState(1);

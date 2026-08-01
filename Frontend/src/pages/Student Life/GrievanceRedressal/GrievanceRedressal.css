@@ -1,4 +1,7 @@
-/* Typography guidelines from AGENTS.md */
+/* ===== Grievance Redressal Page — Premium Animated Styles ===== */
+/* Typography: Uses centralized vars from AGENTS.md */
+
+/* ── Page Base ── */
 .grc-page {
   font-family: var(--font-body);
   background: #f8fafc;
@@ -11,324 +14,584 @@
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 5rem;
 }
 
-/* College Header Info */
-.college-header-info {
-  text-align: center;
-  background: white;
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border-top: 5px solid var(--nscet-accent, #0284C7);
-}
-
-.college-header-info h5 {
-  font-family: var(--font-subtopic);
-  color: #64748b;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.college-header-info h2 {
-  font-family: var(--font-heading);
-  color: #0f172a;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  font-weight: 800;
-}
-
-.college-header-info .approvals {
-  font-family: var(--font-body);
-  color: #475569;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-
-.college-header-info .address {
-  font-family: var(--font-body);
-  color: #0284C7;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-/* Section Common Styles */
-.section-header {
-  margin-bottom: 2rem;
+/* ── Section Header (shared) ── */
+.grc-section-header {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
 }
 
-.section-header h3 {
+.grc-header-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.grc-header-icon-wrap.gradient-1 {
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+}
+.grc-header-icon-wrap.gradient-2 {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+.grc-header-icon-wrap.gradient-3 {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.grc-section-header h3 {
   font-family: var(--font-section);
   font-size: 2rem;
   color: #0f172a;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.3rem 0;
 }
 
-.header-line {
+.grc-header-line {
   height: 4px;
-  width: 60px;
-  background: var(--nscet-accent, #f59e0b);
+  width: 50px;
+  background: linear-gradient(90deg, var(--nscet-accent, #f59e0b), #fbbf24);
   border-radius: 2px;
 }
 
-/* Intro Section */
-.intro-text {
+/* ── Intro Section ── */
+.grc-intro-card {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem 2.5rem 2.5rem 3rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.grc-intro-card:hover {
+  box-shadow: 0 16px 40px rgba(2, 132, 199, 0.12);
+  transform: translateY(-3px);
+}
+
+.grc-intro-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, #0284c7, #7c3aed);
+  border-radius: 20px 0 0 20px;
+}
+
+.grc-intro-text {
   font-family: var(--font-body);
   font-size: 1.1rem;
   color: #475569;
-  line-height: 1.8;
-  background: white;
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  border-left: 4px solid var(--theme-primary-dark, #0284C7);
-  margin-bottom: 1.5rem;
+  line-height: 1.85;
+  margin-bottom: 1.8rem;
+  font-weight: 400;
 }
 
-.download-btn {
+.grc-download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
-  background: var(--theme-primary-dark, #0284C7);
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
+  gap: 0.7rem;
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #fff;
+  padding: 0.85rem 1.8rem;
+  border-radius: 12px;
   text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.25);
+  position: relative;
+  overflow: hidden;
 }
 
-.download-btn:hover {
-  background: #0369a1;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+.grc-download-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s ease;
 }
 
-/* Objective Section */
-.objective-card {
-  background: linear-gradient(135deg, var(--theme-primary-dark, #0284C7), #1e3a8a);
-  border-radius: 20px;
-  padding: 3rem;
+.grc-download-btn:hover::before {
+  left: 100%;
+}
+
+.grc-download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.35);
+}
+
+.grc-btn-icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+/* ── Objective Section ── */
+.grc-objective-card {
+  position: relative;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0284c7 100%);
+  border-radius: 24px;
+  padding: 3.5rem;
   display: flex;
   align-items: flex-start;
   gap: 2rem;
-  color: white;
-  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.2);
+  color: #fff;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.3);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.objective-icon {
-  font-size: 3rem;
+.grc-objective-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.4);
+}
+
+.grc-objective-bg-pattern {
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  animation: grcPulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes grcPulseGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.grc-objective-icon-wrap {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
   color: #f59e0b;
-  flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.3s ease;
 }
 
-.objective-content h3 {
+.grc-objective-card:hover .grc-objective-icon-wrap {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.grc-objective-content h3 {
   font-family: var(--font-section);
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem 0;
   font-weight: 700;
+  position: relative;
 }
 
-.objective-content p {
+.grc-objective-content p {
   font-family: var(--font-body);
   font-size: 1.1rem;
-  line-height: 1.7;
-  opacity: 0.95;
+  line-height: 1.75;
+  opacity: 0.92;
   margin: 0;
+  font-weight: 400;
 }
 
-/* Members Table Section */
-.members-table-wrapper {
-  background: white;
-  border-radius: 15px;
+.grc-objective-glow {
+  position: absolute;
+  bottom: -30px;
+  left: 30%;
+  width: 200px;
+  height: 80px;
+  background: rgba(2, 132, 199, 0.3);
+  filter: blur(50px);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: grcGlowFloat 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes grcGlowFloat {
+  0% { transform: translateX(0); opacity: 0.4; }
+  100% { transform: translateX(40px); opacity: 0.8; }
+}
+
+/* ── Members Table ── */
+.grc-members-table-wrapper {
+  background: #fff;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
   width: 100%;
+  transition: box-shadow 0.35s ease;
 }
 
-.members-table {
+.grc-members-table-wrapper:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.grc-members-table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
 }
 
-.members-table th {
-  background: var(--theme-primary-dark, #0284C7);
-  color: white;
-  font-family: var(--font-body);
-  font-weight: 600;
-  padding: 1.2rem;
-  font-size: 1.1rem;
+.grc-members-table thead {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
 }
 
-.members-table td {
-  padding: 1.2rem;
-  border-bottom: 1px solid #e2e8f0;
+.grc-members-table th {
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 1.3rem 1.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.grc-members-table td {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
   font-family: var(--font-body);
   color: #334155;
   line-height: 1.6;
+  font-weight: 400;
+  transition: background 0.25s ease;
 }
 
-.members-table tr:last-child td {
+.grc-members-table tr:last-child td {
   border-bottom: none;
 }
 
-.members-table tbody tr:hover {
-  background: #f8fafc;
+.grc-members-table tbody tr {
+  transition: all 0.25s ease;
 }
 
-.highlight-row {
+.grc-members-table tbody tr:hover {
   background: #f0f9ff;
+  transform: scale(1.005);
 }
 
-.highlight-row td {
+.grc-highlight-row {
+  background: linear-gradient(90deg, #eff6ff, #f0f9ff);
+}
+
+.grc-highlight-row td {
   color: #0369a1;
 }
 
-/* Important Sections/Links */
+/* Role Badges */
+.grc-role-badge {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-subtopic);
+  letter-spacing: 0.3px;
+}
+
+.grc-role-badge.chairperson {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
+}
+
+.grc-role-badge.secretary {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e40af;
+}
+
+.grc-role-badge.member {
+  background: linear-gradient(135deg, #f0fdf4, #bbf7d0);
+  color: #166534;
+}
+
+.grc-role-badge.ombuds {
+  background: linear-gradient(135deg, #fae8ff, #e9d5ff);
+  color: #7e22ce;
+}
+
+.grc-role-badge.invitee {
+  background: linear-gradient(135deg, #fff7ed, #fed7aa);
+  color: #c2410c;
+}
+
+/* ── Action Cards Grid ── */
 .grc-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: 1.8rem;
 }
 
 .grc-action-card {
-  background: white;
-  padding: 2.5rem 2rem;
-  border-radius: 15px;
+  position: relative;
+  background: #fff;
+  padding: 2.5rem 2rem 2rem;
+  border-radius: 20px;
   text-decoration: none;
   color: #0f172a;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border-bottom: 4px solid #cbd5e1;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.grc-action-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e2e8f0, #cbd5e1);
+  transition: background 0.4s ease;
 }
 
 .grc-action-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  border-color: var(--nscet-accent, #f59e0b);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
 }
 
-.action-icon {
-  font-size: 2.5rem;
-  color: var(--theme-primary-dark, #0284C7);
+.grc-action-card:hover::before {
+  background: linear-gradient(90deg, #0284c7, #7c3aed);
+}
+
+.grc-action-card.contact-card:hover::before {
+  background: linear-gradient(90deg, #ef4444, #f97316);
+}
+
+.grc-card-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #fff;
   margin-bottom: 1.5rem;
+  transition: transform 0.35s ease;
+}
+
+.grc-action-card:hover .grc-card-icon-wrap {
+  transform: scale(1.12) rotate(-5deg);
+}
+
+.card-gradient-1 {
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3);
+}
+
+.card-gradient-2 {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+}
+
+.card-gradient-3 {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
 }
 
 .grc-action-card h4 {
   font-family: var(--font-subtopic);
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.8rem;
   font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.grc-action-card:hover h4 {
+  color: #0284c7;
+}
+
+.grc-action-card.contact-card:hover h4 {
+  color: #ef4444;
 }
 
 .grc-action-card p {
   font-family: var(--font-body);
   color: #64748b;
-  line-height: 1.6;
-  margin: 0;
+  line-height: 1.65;
+  margin: 0 0 1.2rem 0;
+  font-weight: 400;
+  font-size: 0.95rem;
 }
 
-.contact-card:hover {
-  border-color: #ef4444;
+.grc-card-arrow {
+  font-size: 1.4rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  transition: all 0.35s ease;
+  margin-top: auto;
 }
-.contact-card .action-icon {
+
+.grc-action-card:hover .grc-card-arrow {
+  color: #0284c7;
+  transform: translateX(6px);
+}
+
+.grc-action-card.contact-card:hover .grc-card-arrow {
   color: #ef4444;
 }
 
-/* Responsive */
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .grc-container {
     padding: 2rem 1rem;
-    gap: 3rem;
-  }
-  
-  .college-header-info {
-    padding: 2rem 1.5rem;
-  }
-  
-  .college-header-info h2 {
-    font-size: 1.4rem;
+    gap: 3.5rem;
   }
 
-  .objective-card {
+  .grc-section-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .grc-objective-card {
     flex-direction: column;
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     gap: 1.5rem;
     text-align: center;
   }
-  
-  .objective-icon {
+
+  .grc-objective-icon-wrap {
     margin: 0 auto;
   }
 
-  .members-table-wrapper {
+  .grc-objective-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .grc-members-table-wrapper {
     overflow-x: auto;
+  }
+
+  .grc-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grc-intro-card {
+    padding: 2rem 2rem 2rem 2.5rem;
   }
 }
 
-/* Dark Mode Overrides */
+/* ── Dark Mode Overrides ── */
 body.dark-mode .grc-page {
   background: var(--bg-primary);
 }
 
-body.dark-mode .college-header-info,
-body.dark-mode .intro-text,
-body.dark-mode .members-table-wrapper,
+body.dark-mode .grc-intro-card,
+body.dark-mode .grc-members-table-wrapper,
 body.dark-mode .grc-action-card {
   background: var(--bg-secondary);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-body.dark-mode .college-header-info h2,
-body.dark-mode .section-header h3,
-body.dark-mode .members-table th,
+body.dark-mode .grc-section-header h3,
 body.dark-mode .grc-action-card h4 {
   color: var(--text-primary);
 }
 
-body.dark-mode .college-header-info h5,
-body.dark-mode .college-header-info .approvals,
-body.dark-mode .members-table td,
-body.dark-mode .grc-action-card p {
+body.dark-mode .grc-intro-text,
+body.dark-mode .grc-action-card p,
+body.dark-mode .grc-members-table td {
   color: var(--text-secondary);
 }
 
-body.dark-mode .members-table th {
-  background: var(--theme-primary-dark, #0284C7);
+body.dark-mode .grc-members-table thead {
+  background: linear-gradient(135deg, #1e293b, #334155);
 }
 
-body.dark-mode .members-table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.05);
+body.dark-mode .grc-members-table th {
+  color: var(--text-primary);
 }
 
-body.dark-mode .highlight-row {
-  background: rgba(2, 132, 199, 0.1);
+body.dark-mode .grc-members-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
 }
 
-body.dark-mode .highlight-row td {
+body.dark-mode .grc-highlight-row {
+  background: rgba(2, 132, 199, 0.08);
+}
+
+body.dark-mode .grc-highlight-row td {
   color: #38bdf8;
 }
 
-body.dark-mode .objective-card {
-  background: linear-gradient(135deg, #1e3a8a, var(--bg-secondary));
+body.dark-mode .grc-objective-card {
+  background: linear-gradient(135deg, #1e293b 0%, #1e3a8a 50%, #0f172a 100%);
   border: 1px solid var(--border-color);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .grc-action-card::before {
+  background: linear-gradient(90deg, var(--border-color), var(--border-color));
+}
+
+body.dark-mode .grc-action-card:hover::before {
+  background: linear-gradient(90deg, #0284c7, #7c3aed);
+}
+
+body.dark-mode .grc-card-arrow {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .grc-action-card:hover h4 {
+  color: #38bdf8;
+}
+
+body.dark-mode .grc-action-card.contact-card:hover h4 {
+  color: #fca5a5;
+}
+
+body.dark-mode .grc-role-badge.chairperson {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+body.dark-mode .grc-role-badge.secretary {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+}
+
+body.dark-mode .grc-role-badge.member {
+  background: rgba(34, 197, 94, 0.15);
+  color: #86efac;
+}
+
+body.dark-mode .grc-role-badge.ombuds {
+  background: rgba(168, 85, 247, 0.15);
+  color: #d8b4fe;
+}
+
+body.dark-mode .grc-role-badge.invitee {
+  background: rgba(249, 115, 22, 0.15);
+  color: #fdba74;
+}
+
+body.dark-mode .grc-intro-accent {
+  background: linear-gradient(180deg, #38bdf8, #a78bfa);
 }

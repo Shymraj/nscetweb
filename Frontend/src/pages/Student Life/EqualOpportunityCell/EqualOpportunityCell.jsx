@@ -13,13 +13,6 @@ const EqualOpportunityCell = () => {
       />
       
       <div className="eoc-container">
-        {/* Header / College Info */}
-        <section className="college-header-info">
-          <h5>Managing Body: Theni Melapettai Hindu Nadargal Uravinmurai</h5>
-          <h2>NADAR SARASWATHI COLLEGE OF ENGINEERING & TECHNOLOGY</h2>
-          <p className="approvals">Approved by AICTE, New Delhi | Affiliated to Anna University, Chennai | Accredited by NAAC with 'A' Grade<br/>Recognized under 2(f) of the UGC Act, 1956 | An ISO 9001:2015 Certified Institution</p>
-          <p className="address">Address: Vadapudupatti, Annanji (PO), Theni - 625531.</p>
-        </section>
 
         {/* Introduction Section */}
         <section className="intro-section">
