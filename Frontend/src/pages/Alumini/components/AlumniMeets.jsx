@@ -37,7 +37,7 @@ const AlumniMeets = () => {
       <div className="meets-bento-grid">
 
         {/* LATEST MEET: 2025 (Featured Large Card) */}
-        <motion.div className="meet-card featured-meet" variants={popIn}>
+        <motion.div className="meet-card standard-meet expanded-meet" variants={popIn}>
           <div className="meet-year-badge">Upcoming Event</div>
           <div className="meet-content-inner">
             <h3 className="meet-event-title">Alumni Meet 2K25</h3>
