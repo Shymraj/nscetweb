@@ -1,5 +1,5 @@
 .marquee-container {
-  background-color: #1e3a8a; /* A nice deep blue matching typical college themes */
+  background-color: #e1cf26; /* A distinct dark orange/gold that suits the theme */
   color: white;
   padding: 4px 0; /* Reduced padding to decrease height */
   overflow: hidden;
@@ -7,7 +7,7 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
-  position: fixed; /* Changed from absolute to fixed to stick on scroll */
+  position: fixed; /* Restore fixed to stick on scroll */
   top: 110px; /* Offset for the fixed Navbar (34px topbar + 76px navbar) */
   left: 0;
   width: 100%;

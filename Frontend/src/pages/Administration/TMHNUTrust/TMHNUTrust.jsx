@@ -133,9 +133,7 @@ function TMHNUTrust() {
                   Heritage
                 </div>
                 <h2 className="tmhnu-section-title">About TMHNU</h2>
-                <p className="tmhnu-section-tagline">
-                  "Genesis of Theni Melapettai Hindu Nadargal Uravinmurai Since 1898"
-                </p>
+
                 <p className="tmhnu-about-text">
                   Theni Melapettai Hindu Nadargal Uravinmurai (TMHNU) proclaims to society its tremendous service in providing quality education. The pioneers of TMHNU (1898) started the primary school in 1919, named Nadar Saraswathi Vidhyasala, with 38 students and 2 teachers. Now, that small seed has flourished into a large tree. With the blessings of Annai Sri Bathrakaliamman, 17 educational institutions now function under this bower, providing quality education. Over 22,000 students study here, with more than 1,000 teaching and 1,000 supportive staff members.
                 </p>
@@ -164,9 +162,7 @@ function TMHNUTrust() {
                   Our Journey
                 </div>
                 <h2 className="tmhnu-section-title">About Our Journey</h2>
-                <p className="tmhnu-section-tagline">
-                  Nurturing Excellence on a 21-Acre Eco-Friendly Campus
-                </p>
+
                 <p className="tmhnu-about-text">
                   Nadar Saraswathi College of Engineering and Technology was established in 2010 to uplift rural students and nurture them with excellence. Located on a 21-acre eco-friendly campus near Theni, the institution focuses on molding outstanding engineers as responsible citizens and professionals.
                 </p>

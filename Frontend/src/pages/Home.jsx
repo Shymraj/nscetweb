@@ -1,4 +1,5 @@
 import MarqueeBanner from "../components/MarqueeBanner/MarqueeBanner";
+import AnnouncementPopup from "../components/AnnouncementPopup/AnnouncementPopup";
 import Hero from "../components/Hero/Hero";
 import TimerBanner from "../components/TimerBanner/TimerBanner";
 import Stats from "../components/Stats/Stats";
@@ -16,6 +17,7 @@ import Placement from "../components/Placement/Placement";
 function Home() {
   return (
     <>
+      <AnnouncementPopup />
       <MarqueeBanner />
       <Hero />
       <TimerBanner />
@@ -27,8 +29,8 @@ function Home() {
       <Campuslife />
       <ResearchHub />
       <Events />
-<WhyChoose />
-<Contact />
+      <WhyChoose />
+      <Contact />
       <Placement />
     </>
   );

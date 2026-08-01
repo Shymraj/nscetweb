@@ -45,10 +45,9 @@ connection.connect((err) => {
       content TEXT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )`,
-    `CREATE TABLE IF NOT EXISTS home_video (
+    `CREATE TABLE IF NOT EXISTS home_announcement (
       id INT AUTO_INCREMENT PRIMARY KEY,
-      title VARCHAR(255),
-      video_url VARCHAR(500) NOT NULL,
+      photo_url VARCHAR(500) NOT NULL,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )`,
     `CREATE TABLE IF NOT EXISTS home_image (

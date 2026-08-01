@@ -35,7 +35,6 @@ const Hero = () => {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % heroes.length);
       }, 5000);
-      return () => clearInterval(interval);
     }
   }, [heroes.length]);
 
