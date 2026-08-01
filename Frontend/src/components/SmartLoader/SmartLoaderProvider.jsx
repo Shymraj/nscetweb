@@ -19,8 +19,8 @@ export const SmartLoaderProvider = ({ children }) => {
   const minDurationTimer = useRef(null);
   const loaderShownAt = useRef(0);
 
-  const startLoading = () => setActiveRequests(prev => prev + 1);
-  const stopLoading = () => setActiveRequests(prev => Math.max(0, prev - 1));
+  const startLoading = React.useCallback(() => setActiveRequests(prev => prev + 1), []);
+  const stopLoading = React.useCallback(() => setActiveRequests(prev => Math.max(0, prev - 1)), []);
 
   useEffect(() => {
     if (activeRequests > 0) {
