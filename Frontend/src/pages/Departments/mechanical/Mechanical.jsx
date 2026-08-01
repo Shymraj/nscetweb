@@ -8,6 +8,7 @@ import {
   FaFlask, FaRobot, FaTools
 } from "react-icons/fa";
 import { GiGears, GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import { mechanicalFacultyData } from "./facultyData";
 
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
@@ -34,7 +35,11 @@ import imgVembathurajesh from "./images/vembathurajesh.png";
 import "../cse/CSE.css";
 
 const Mechanical = () => {
-  const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || member.slug || "hod";
+    window.open(`/departments/mechanical/faculty/${facultyId}`, "_blank");
+  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -54,17 +59,7 @@ const Mechanical = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = [
-    { name: "Dr. B. Radha Krishnan", desig: "Professor & Head [I/C]", qual: "M.E., Ph.D., MISTE., MIE.", email: "hodmech@nscet.org", image: imgRadhaKrishnan, spec: "Thermal Engineering & Energy Systems", objectPosition: "center 10%" },
-    { name: "Mr. R. Santhaseelan", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "santhaseelan@nscet.org", image: imgSanthaseelan, spec: "Manufacturing Tech & CAD/CAM", objectPosition: "center 10%" },
-    { name: "Mr. V. Sivaganesan", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "sivaganesan@nscet.org", image: imgSivaganesan, spec: "Design of Machine Elements & Automation", objectPosition: "center 10%" },
-    { name: "Dr. B. Nagarajan", desig: "Assistant Professor", qual: "M.E., Ph.D, MISTE.", email: "nagarajan@nscet.org", image: imgNagarajan, spec: "Materials Engineering & Tribology", objectPosition: "center 10%" },
-    { name: "Mr. P. Surulimani", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "surulimanip@gmail.com", image: imgSurulimani, spec: "Fluid Mechanics & Turbo Machinery", objectPosition: "center 10%" },
-    { name: "Mr. S. Harikishore", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "harikishore@nscet.org", image: imgHarikishore, spec: "Mechatronics & Robotics", objectPosition: "center 10%" },
-    { name: "Mr. J. Chakaravarthy Samy Durai", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "chakravarthysamydurai@nscet.org", image: imgChakravarthySamy, spec: "Industrial Engineering & Operations", objectPosition: "center 10%" },
-    { name: "Mr. R. Nagaraja", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "nagaraja@nscet.org", image: imgNagaraja, spec: "Refrigeration & Air Conditioning", objectPosition: "center 10%" },
-    { name: "Dr. A. Vembathurajesh", desig: "Assistant Professor", qual: "M.E., Ph.D, MISTE.", email: "vembathurajesh@nscet.org", image: imgVembathurajesh, spec: "Advanced Composite Materials", objectPosition: "center 10%" }
-  ];
+  const faculties = mechanicalFacultyData;
 
   const hod = faculties[0];
   const staff = faculties.slice(1);
@@ -368,7 +363,7 @@ const Mechanical = () => {
               ...hod,
               quoteText: "Mechanical Engineering drives physical innovation. We mold our engineers to master smart manufacturing, robotics, and sustainable thermal design."
             }} 
-            onOpenProfile={setSelectedFacultyProfile} 
+            onOpenProfile={handleOpenProfile} 
           />
         </div>
       </section>
@@ -397,7 +392,7 @@ const Mechanical = () => {
               <DepartmentFacultyCard 
                 key={idx} 
                 member={member} 
-                onOpenProfile={setSelectedFacultyProfile} 
+                onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 
               />
             ))}
@@ -478,12 +473,7 @@ const Mechanical = () => {
         </div>
       </section>
 
-      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
-      <FacultyProfileModal 
-        isOpen={selectedFacultyProfile !== null}
-        faculty={selectedFacultyProfile}
-        onClose={() => setSelectedFacultyProfile(null)}
-      />
+      
 
     </div>
   );

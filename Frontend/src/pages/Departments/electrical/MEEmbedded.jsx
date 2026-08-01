@@ -8,6 +8,7 @@ import {
   FaRobot, FaBroadcastTower
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import { meembeddedFacultyData } from "./meembedded/facultyData";
 
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
@@ -24,7 +25,11 @@ import imgAthilingam from "./images/Dr_athilingam.jpg";
 import "../cse/CSE.css";
 
 const MEEmbedded = () => {
-  const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || member.slug || "hod";
+    window.open(`/departments/me-embedded/faculty/${facultyId}`, "_blank");
+  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -44,10 +49,7 @@ const MEEmbedded = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = [
-    { name: "Dr. R. Athilingam", desig: "Associate Professor & Head [I/C]", qual: "M.E., Ph.D", email: "athilingam@nscet.org", image: imgAthilingam, spec: "Embedded Systems Architecture & Smart Grids", objectPosition: "center 10%" },
-    { name: "Mrs. S. Kalaivani", desig: "Assistant Professor", qual: "M.Tech.", email: "kalaivani@nscet.org", image: imgKalaivani, spec: "Microcontrollers & RTOS Systems", objectPosition: "center 10%" }
-  ];
+  const faculties = meembeddedFacultyData;
 
   const hod = faculties[0];
   const staff = faculties.slice(1);
@@ -296,7 +298,7 @@ const MEEmbedded = () => {
               ...hod,
               quoteText: "Embedded intelligence powers every modern electronic device. We train our scholars to build robust microcontrollers and real-time computing systems."
             }} 
-            onOpenProfile={setSelectedFacultyProfile} 
+            onOpenProfile={handleOpenProfile} 
           />
         </div>
       </section>
@@ -325,7 +327,7 @@ const MEEmbedded = () => {
               <DepartmentFacultyCard 
                 key={idx} 
                 member={member} 
-                onOpenProfile={setSelectedFacultyProfile} 
+                onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 
               />
             ))}
@@ -406,12 +408,7 @@ const MEEmbedded = () => {
         </div>
       </section>
 
-      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
-      <FacultyProfileModal 
-        isOpen={selectedFacultyProfile !== null}
-        faculty={selectedFacultyProfile}
-        onClose={() => setSelectedFacultyProfile(null)}
-      />
+      
 
     </div>
   );

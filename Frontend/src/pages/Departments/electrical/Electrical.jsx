@@ -8,6 +8,7 @@ import {
   FaSolarPanel, FaIndustry, FaBroadcastTower
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import { electricalFacultyData } from "./facultyData";
 
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
@@ -33,7 +34,11 @@ import imgPandiSelvi from "./images/pandiselvi.jpeg";
 import "../cse/CSE.css";
 
 const Electrical = () => {
-  const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || member.slug || "hod";
+    window.open(`/departments/electrical/faculty/${facultyId}`, "_blank");
+  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -53,17 +58,7 @@ const Electrical = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = [
-    { name: "Mr. K. Ganesh", desig: "Assistant Professor & Head [I/C]", qual: "M.E., (Ph.D.)", email: "ganesh@nscet.org", image: imgGanesh, spec: "Power Systems & Renewable Energy", objectPosition: "center 10%" },
-    { name: "Mr. R. Raja Karthick", desig: "Assistant Professor", qual: "M.E.", email: "rajakarthick@nscet.org", image: imgRajaKarthick, spec: "Power Electronics & Electric Drives", objectPosition: "center 10%" },
-    { name: "Mrs. A. Nishetha Jeflin Nixon", desig: "Assistant Professor", qual: "M.E.", email: "nishethajeflinnixon@nscet.org", image: imgNishetha, spec: "Control Systems & Embedded Microcontrollers", objectPosition: "center 10%" },
-    { name: "Mrs. M. Vijayalakshmi", desig: "Assistant Professor", qual: "M.E.", email: "vijayalakshmi@nscet.org", image: imgVijayalakshmi, spec: "High Voltage Engineering & Protection", objectPosition: "center 10%" },
-    { name: "Mr. C. Shiva", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "shiva@nscet.org", image: imgShiva, spec: "Smart Grids & EV Charging Infrastructure", objectPosition: "center 10%" },
-    { name: "Mrs. N. Abirami", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "abiramin@nscet.org", image: imgAbirami, spec: "Electrical Machines & Special Drives", objectPosition: "center 10%" },
-    { name: "Mrs. R. Chitra", desig: "Associate Professor", qual: "M.E.", email: "chitrar@nscet.org", image: imgChitra, spec: "Power Quality & Solar Microgrids", objectPosition: "center 10%" },
-    { name: "Mrs. H. Juriya Banu", desig: "Assistant Professor", qual: "M.E.", email: "juriyabanu@nscet.org", image: imgJuriyaBanu, spec: "Signals Systems & DSP", objectPosition: "center 10%" },
-    { name: "Dr. N. Pandi Selvi", desig: "Assistant Professor", qual: "B.E., M.E., Ph.D.", email: "pandiselvi@nscet.org", image: imgPandiSelvi, spec: "Renewable Energy Integration", objectPosition: "center 10%" }
-  ];
+  const faculties = electricalFacultyData;
 
   const hod = faculties[0];
   const staff = faculties.slice(1);
@@ -367,7 +362,7 @@ const Electrical = () => {
               ...hod,
               quoteText: "Electrical Engineering powers modern civilization. We empower our students to master smart grids, renewable energy, and electric drives to shape a sustainable future."
             }} 
-            onOpenProfile={setSelectedFacultyProfile} 
+            onOpenProfile={handleOpenProfile} 
           />
         </div>
       </section>
@@ -396,7 +391,7 @@ const Electrical = () => {
               <DepartmentFacultyCard 
                 key={idx} 
                 member={member} 
-                onOpenProfile={setSelectedFacultyProfile} 
+                onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 
               />
             ))}
@@ -477,12 +472,7 @@ const Electrical = () => {
         </div>
       </section>
 
-      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
-      <FacultyProfileModal 
-        isOpen={selectedFacultyProfile !== null}
-        faculty={selectedFacultyProfile}
-        onClose={() => setSelectedFacultyProfile(null)}
-      />
+      
 
     </div>
   );

@@ -8,6 +8,7 @@ import {
   FaShieldAlt
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
+import { mecseFacultyData } from "./mecse/facultyData";
 
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
@@ -24,7 +25,11 @@ import imgKarthick from "./images/karthick.jpeg";
 import "./CSE.css";
 
 const MECSE = () => {
-  const [selectedFacultyProfile, setSelectedFacultyProfile] = useState(null);
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || member.slug || "hod";
+    window.open(`/departments/me-cse/faculty/${facultyId}`, "_blank");
+  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -44,10 +49,7 @@ const MECSE = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = [
-    { name: "Dr. M. SATHYA", desig: "Professor & M.E. Program Head", qual: "M.Tech., MBA., Ph.D", email: "hodit@nscet.org", image: imgSathya, spec: "Advanced Operating Systems & Cloud Computing", objectPosition: "center 10%" },
-    { name: "Naveenkarthick G R", desig: "Assistant Professor", qual: "M.E.", email: "grnaveenkarthick@gmail.com", image: imgKarthick, spec: "Distributed Systems & Algorithms", objectPosition: "center 10%" }
-  ];
+  const faculties = mecseFacultyData;
 
   const hod = faculties[0];
   const staff = faculties.slice(1);
@@ -296,7 +298,7 @@ const MECSE = () => {
               ...hod,
               quoteText: "Postgraduate education is about pushing boundaries. We empower our scholars to conduct meaningful research that transforms computing theory into industrial innovation."
             }} 
-            onOpenProfile={setSelectedFacultyProfile} 
+            onOpenProfile={handleOpenProfile} 
           />
         </div>
       </section>
@@ -325,7 +327,7 @@ const MECSE = () => {
               <DepartmentFacultyCard 
                 key={idx} 
                 member={member} 
-                onOpenProfile={setSelectedFacultyProfile} 
+                onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 
               />
             ))}
@@ -406,12 +408,7 @@ const MECSE = () => {
         </div>
       </section>
 
-      {/* Reusable Faculty Academic Profile Fullscreen Modal */}
-      <FacultyProfileModal 
-        isOpen={selectedFacultyProfile !== null}
-        faculty={selectedFacultyProfile}
-        onClose={() => setSelectedFacultyProfile(null)}
-      />
+      
 
     </div>
   );
