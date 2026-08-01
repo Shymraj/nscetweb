@@ -64,18 +64,29 @@ const HealthMedicalFacilities = () => {
         {/* Incharge Section */}
         <section className="hmf-section hmf-incharge">
           <div className="hmf-section-header">
-            <h2>Incharge</h2>
+            <h2>Medical Incharge</h2>
           </div>
-          <div className="hmf-incharge-card">
-            <div className="hmf-incharge-info">
-              <div className="hmf-incharge-image">
-                <img src={inchargeImage} alt="Mr.M.Vayalsamy" />
-              </div>
-              <div className="hmf-incharge-details">
-                <h3>Mr.M.Vayalsamy</h3>
-                <p className="hmf-incharge-role">B.Sc.,M.P.Ed.,
-                <br />
-                Physical Directress, Health Incharge</p>
+          <div className="hmf-incharge-wrapper">
+            <div className="hmf-incharge-card">
+              <div className="hmf-incharge-info">
+                <div className="hmf-incharge-image">
+                  <img src={inchargeImage} alt="Mr. M. Vayalsamy" />
+                </div>
+                <div className="hmf-incharge-details">
+                  <div className="hmf-incharge-badge">
+                    <FaUserMd className="hmf-badge-icon" />
+                    <span>Health Incharge</span>
+                  </div>
+                  <h3>Mr. M. Vayalsamy</h3>
+                  <div className="hmf-incharge-credentials">
+                    <span className="hmf-incharge-qualifications">B.Sc., M.P.Ed.</span>
+                    <span className="hmf-incharge-dot">•</span>
+                    <span className="hmf-incharge-role">Physical Director</span>
+                  </div>
+                  <div className="hmf-incharge-desc">
+                    Dedicated to ensuring the health and well-being of our students and staff through proactive medical care and fitness programs.
+                  </div>
+                </div>
               </div>
             </div>
           </div>

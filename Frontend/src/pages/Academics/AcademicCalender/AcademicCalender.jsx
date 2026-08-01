@@ -5,13 +5,9 @@ import calendarIcon from './banner/calendar-icon.svg';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaCalendarAlt, FaDownload, FaInfoCircle, FaStar, FaGift, FaClock, FaEye } from 'react-icons/fa';
 
-import cal1 from './images/Academic Calendar 23.pdf';
-import cal2 from './images/Aca Calendar 2022-2023 Full.pdf';
-import cal3 from './images/Aca Calendar 2022-2023 EVEN Sem.pdf';
-import cal4 from './images/Aca Calendar 2022-2023 ODD Sem.pdf';
-import cal5 from './images/Acade Calendar 2021-2022.pdf';
-import cal6 from './images/Aca Calendar 2019-2020 Even Sem.pdf';
-import cal7 from './images/Aca Calendar 2018-2019 Even Sem.pdf';
+import cal1 from './images/REVISED Academic Calendar 2025-26.pdf';
+import cal2 from './images/Academic Calendar 2024 -25.pdf';
+import cal3 from './images/2023-24 EVEN SEM.pdf';
 
 // Auto-load custom banner image from ./banner/ (excluding svg icons)
 const bannerGlobs = import.meta.glob("./banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
@@ -21,12 +17,6 @@ const academicCalendars = [
   { title: 'Academic Calendar 2025-2026 Even Sem', latest: true, revised: true, file: cal1 },
   { title: 'Academic Calendar 2024-2025', latest: false, revised: false, file: cal2 },
   { title: 'Academic Calendar 2023-2024 Even Sem', latest: false, revised: false, file: cal3 },
-  { title: 'Academic Calendar 2023-2024 Odd Sem', latest: false, revised: false, file: cal4 },
-  { title: 'Academic Calendar 2023', latest: false, revised: false, file: cal5 },
-  { title: 'Academic Calendar 2022-2023 (Full / Even / Odd)', latest: false, revised: false, file: cal2 },
-  { title: 'Academic Calendar 2021-2022 (Full / Odd)', latest: false, revised: false, file: cal5 },
-  { title: 'Academic Calendar 2019-2020 (Even / Odd)', latest: false, revised: false, file: cal6 },
-  { title: 'Academic Calendar 2018-2019 Even Sem', latest: false, revised: false, file: cal7 },
 ];
 
 const importantDates = [
@@ -151,10 +141,6 @@ const AcademicCalendar = () => {
                   <a href={calendar.file} target="_blank" rel="noopener noreferrer" className="ac-view-btn">
                     <FaEye className="ac-view-icon" />
                     View
-                  </a>
-                  <a href={calendar.file} download={`${calendar.title}.pdf`} className="ac-download-btn">
-                    <FaDownload className="ac-download-icon" />
-                    Download
                   </a>
                 </div>
               </div>
