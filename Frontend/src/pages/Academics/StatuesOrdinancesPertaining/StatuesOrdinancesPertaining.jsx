@@ -271,58 +271,7 @@ const StatutesLayout = () => {
 
       </div>
 
-      {/* Footer bar */}
-      <footer className="statutes-footer">
-        <div className="statutes-footer-item blue">
-          <div className="statutes-footer-icon-wrapper">
-            <FaCheckCircle />
-          </div>
-          <div className="statutes-footer-text">
-            <h4>Updated & Verified</h4>
-            <p>All documents are regularly updated and verified.</p>
-          </div>
-        </div>
 
-        <div className="statutes-footer-item green">
-          <div className="statutes-footer-icon-wrapper">
-            <FaDownload />
-          </div>
-          <div className="statutes-footer-text">
-            <h4>Easy Access</h4>
-            <p>Download or view documents with a single click.</p>
-          </div>
-        </div>
-
-        <div className="statutes-footer-item purple">
-          <div className="statutes-footer-icon-wrapper">
-            <FaSearch />
-          </div>
-          <div className="statutes-footer-text">
-            <h4>Transparency</h4>
-            <p>Ensuring clarity in academic policies and procedures.</p>
-          </div>
-        </div>
-
-        <div className="statutes-footer-item orange">
-          <div className="statutes-footer-icon-wrapper">
-            <FaHeadset />
-          </div>
-          <div className="statutes-footer-text">
-            <h4>Support</h4>
-            <p>For any queries, contact the academic office.</p>
-          </div>
-        </div>
-
-        <div className="statutes-footer-item teal">
-          <div className="statutes-footer-icon-wrapper">
-            <FaRegFileAlt />
-          </div>
-          <div className="statutes-footer-text">
-            <h4>Official & Reliable</h4>
-            <p>Trusted source for all statutes and ordinances of NSCET.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

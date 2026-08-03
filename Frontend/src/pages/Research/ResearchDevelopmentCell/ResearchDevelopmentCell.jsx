@@ -56,7 +56,6 @@ const ResearchDevelopmentCell = () => {
     { name: "Dr. T. Venish Kumar A", desig: "Professor & Head", dept: "Department of Electronics and Communication Engineering" },
     { name: "Dr. M. Sathya", desig: "Associate Professor", dept: "Department of Computer Science and Engineering" },
     { name: "Dr. N. David Mathan", desig: "Professor", dept: "Department of Chemistry" },
-    { name: "Dr. Ananthakrishnan", desig: "Professor & Head", dept: "Department of Civil Engineering" },
     { name: "Dr. N. Mathavan", desig: "Assistant Professor", dept: "Department of Electronics and Communication Engineering" },
     { name: "Dr. Mathalai Raj", desig: "Assistant Professor", dept: "Department of Computer Science and Engineering" }
   ];
