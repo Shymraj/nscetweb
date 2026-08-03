@@ -50,24 +50,22 @@ const TeachingFaculty = () => {
 
     // --- B.E. - Computer Science Engineering (Total: 8) ---
     { id: 16, name: "Dr. J. Mathalai Raj", qualifications: ["M.E (CSE), Ph.D"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor & Head [I/C]", email: "hodcse@nscet.org", photo: "/mathalairaj.jpg", isHOD: true },
-    { id: 17, name: "Mr. K. Velkumar", qualifications: ["M.E,(Ph.D)"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "velkumar@nscet.org", photo: "/velkumar.jpg", isHOD: false },
+    { id: 17, name: "Dr. K. Velkumar", qualifications: ["M.E,Ph.D"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "velkumar@nscet.org", photo: "/velkumar.jpg", isHOD: false },
     { id: 18, name: "Mrs. R. Archana", qualifications: ["M.E., (Ph.D)"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "archana@nscet.org", photo: "/profile.jpeg", isHOD: false },
-    { id: 19, name: "Ms. S. Abirami Kayathiri", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "abiramikayathiri@nscet.org", photo: "/abirami.jpeg", isHOD: false },
+    { id: 19, name: "Mrs. S. Abirami Kayathiri", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "abiramikayathiri@nscet.org", photo: "/abirami.jpeg", isHOD: false },
     { id: 20, name: "Mrs. M. Venkata Lakshmi", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "venkatalakshmi@nscet.org", photo: "/venkatalakshmi.JPG", isHOD: false },
-    { id: 21, name: " Anusuya V", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "anusuya@nscet.org", photo: "/anusuya.jpeg", isHOD: false },
-    { id: 22, name: " Vinothini V", qualifications: ["M.E - Software"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "vinoramesh2703@gmail.com", photo: "/Vinothini.jpeg", isHOD: false },
-    { id: 23, name: "Snega Priyanka J S", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "snegapriyanka20@gmail.com", photo: "/Snega Priyanka.png", isHOD: false },
+    { id: 21, name: "Mrs. Anusuya V", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "anusuya@nscet.org", photo: "/anusuya.jpeg", isHOD: false },
+    { id: 22, name: "Mrs. Vinothini V", qualifications: ["M.E - Software"], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "vinoramesh2703@gmail.com", photo: "/Vinothini.jpeg", isHOD: false },
+    { id: 23, name: "Mrs. Snega Priyanka J S", qualifications: ["M.E."], department: "B.E. - Computer Science Engineering", position: "Assistant Professor", email: "snegapriyanka20@gmail.com", photo: "/Snega Priyanka.png", isHOD: false },
 
-    // --- B.E. - Civil Engineering (Total: 9) ---
+    // --- B.E. - Civil Engineering (Total: 8) ---
     { id: 24, name: "Mr. N. Nagarathinam", qualifications: ["M. E., M. I. S. T. E., (Ph. D)"], department: "B.E. - Civil Engineering", position: "Assistant Professor & Head [I/C]", email: "nagarathinam@nscet.org", photo: "/nagarathinam.jpg", isHOD: true },
     { id: 25, name: "Mrs. S. Gayathri", qualifications: ["M. E., M. I. S. T. E."], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "gayathri@nscet.org", photo: "/gayathri.jpg", isHOD: false },
     { id: 26, name: "Mr. R. Shanmugapriyan", qualifications: ["M.E."], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "shanmugapriyan@nscet.org", photo: "/shanmugapriyan.jpg", isHOD: false },
-    { id: 27, name: "Mrs. B. Sowmiya", qualifications: ["M.E."], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "sowmiya@nscet.org",  photo: "/sowmiya.jpg", isHOD: false },
     { id: 28, name: " Mrs. M. Kanimozhi", qualifications: ["M.E."], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "kanimozhi@nscet.org", photo: "/kanimozhi.jpg", isHOD: false },
     { id: 29, name: "Mr. P. Arul Jebaraj", qualifications: ["M Tech"], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "aruljebaraj@nscet.org", photo: "/aruljebaraj.jpg", isHOD: false },
     { id: 30, name: "Mrs. R. Nathirun Sabinash", qualifications: ["M.E."], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "nathirunsabinash@nscet.org", photo: "/nathirunsabinash.jpg", isHOD: false },
     { id: 74, name: "Mr. T. Hariprasath", qualifications: ["M.E."], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "hariprasath@nscet.org", photo: "/hariprasath.jpg", isHOD: false },
-    { id: 90, name: "Mr. R. Manoj Prabakar", qualifications: ["M.E."], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "manojprabakar@nscet.org", photo: "/vinothkumar.jpg", isHOD: false },
   
     // --- B.E. - Mechanical Engineering (Total: 11) ---
     { id: 31, name: "Dr. B. Radha Krishnan", qualifications: ["M.E., Ph.D., MISTE., MIE."], department: "B.E. - Mechanical Engineering", position: "Professor & Head [I/C]", email: "hodmech@nscet.org", photo: "/radhakrishnan.jpg", isHOD: true },
@@ -77,9 +75,8 @@ const TeachingFaculty = () => {
     { id: 35, name: "Mr. V. Sivaganesan", qualifications: [" M.E., MISTE"], department: "B.E. - Mechanical Engineering", position: "Assistant Professor", email: "sivaganesan@nscet.org", photo: "/sivaganesan.jpg", isHOD: false },
     { id: 36, name: "Dr. B. Nagarajan", qualifications: ["M.E., Ph.D,MISTE."], department: "B.E. - Mechanical Engineering", position: "Assistant Professor", email: "nagarajan@nscet.org", photo: "/nagarajan.jpg", isHOD: false },
     { id: 37, name: "Mr. P. Surulimani", qualifications: [" M.E., MISTE"], department: "B.E. - Mechanical Engineering", position: "Assistant Professor", email: "surulimanip@gmail.com", photo: "/Surulimani.jpg", isHOD: false },
-    { id: 38, name: "Staff 7", qualifications: ["M.E."], department: "B.E. - Mechanical Engineering", position: "Assistant Professor", email: "staff@nscet.org", photo: "/faculty/default.jpg", isHOD: false },
-    { id: 39, name: "Staff 8", qualifications: ["M.E."], department: "B.E. - Mechanical Engineering", position: "Assistant Professor", email: "staff@nscet.org", photo: "/faculty/default.jpg", isHOD: false },
-    { id: 40, name: "Staff 9", qualifications: ["M.E."], department: "B.E. - Mechanical Engineering", position: "Assistant Professor", email: "staff@nscet.org", photo: "/faculty/default.jpg", isHOD: false },
+    { id: 85, name: " Mr. G. Arun Kumar", qualifications: ["ME"], department: "M.E. - Mechanical Engineering", position: "Assistant Professor", email: "arunkumar1603@gmail.com", photo: "/arunkumar.jpg", isHOD: false },
+
 
     // --- B.E. - Electronics and Communication Engineering (Total: 9) ---
     { id: 41, name: "Dr. T. Venishkumar", qualifications: ["M.E., Ph.D"], department: "B.E. - Electronics and Communication Engineering", position: "Associate Professor & Head [I/C]", email: "venishkumar@nscet.org", photo: "/venishkumar.jpg", isHOD: true },
@@ -108,7 +105,7 @@ const TeachingFaculty = () => {
     { id: 50, name: "Mr. G. R. Naveenkarthick", qualifications: ["M.E."], department: "M.E. - Computer Science Engineering", position: "Assistant Professor", email: "grnaveenkarthick@gmail.com", photo: "/karthick.jpeg", isHOD: false },
 
     // --- M.E. - Structural Engineering (Total: 2) -JPG   
-    { id: 51, name: "Dr. E. Anantha Krishnan", qualifications: ["M. E.", "Ph. D."], department: "M.E. - Structural Engineering", position: "Professor & Head", email: "ananthakrishnan@nscet.org", photo: "/ananthakrishnan.jpg", isHOD: true },
+    { id: 24, name: "Mr. N. Nagarathinam", qualifications: ["M. E., M. I. S. T. E., (Ph. D)"], department: "B.E. - Civil Engineering", position: "Assistant Professor & Head [I/C]", email: "nagarathinam@nscet.org", photo: "/nagarathinam.jpg", isHOD: true },
     { id: 52, name: "Mrs. M. Sindhu", qualifications: ["M.E."], department: "M.E. - Structural Engineering", position: "Assistant Professor", email: "sindhu@nscet.org", photo: "/sindhu.jpg", isHOD: false },
     { id: 94, name: "Mrs. K. Benita Merlin Isabella", qualifications: ["M.E."], department: "M.E. - Structural Engineering", position: "Assistant Professor", email: "benitamerlin22@gmail.com", photo: "/Benita.jpg", isHOD: false },
 

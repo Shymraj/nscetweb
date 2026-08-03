@@ -7,7 +7,7 @@ const AcademicLeadership = () => {
     {
       id: 1,
       name: "Mr. L.S. Vignesh",
-      role: "Assistant Professor & Head [I/C]",
+      role: "Assistant Professor & Head Of The Department",
       department: "Artificial Intelligence & Data Science",
       image: "/vignesh.jpg", 
       qualifications: ["M.E., Ph.D"]
@@ -15,7 +15,7 @@ const AcademicLeadership = () => {
     {
       id: 2,
       name: "Mr. N. Nagarathinam",
-      role: "Assistant Professor & Head [I/C]",
+      role: "Assistant Professor & Head Of The Department",
       department: "Civil Engineering",
       image: "/nagarathinam.jpg",
       qualifications: ["M. E., M. I. S. T. E., (Ph. D)"]
@@ -23,7 +23,7 @@ const AcademicLeadership = () => {
     {
       id: 3,
       name: "Dr. J. Mathalai Raj",
-      role: "Assistant Professor & Head [I/C]",
+      role: "Assistant Professor & Head Of The Department",
       department: "Computer Science Engineering",
       image: "/mathalairaj.jpg",
       qualifications: ["M.E (CSE), Ph.D"]
@@ -31,7 +31,7 @@ const AcademicLeadership = () => {
     {
       id: 4,
       name: "Mr. K. Ganesh",
-      role: "Professor & Head",
+      role: "Professor & Head Of The Department",
       department: "Electrical and Electronics Engineering",
       image: "/ganesh.jpg",
       qualifications: ["M.E., (Ph.D.)"]
@@ -39,7 +39,7 @@ const AcademicLeadership = () => {
     {
       id: 5,
       name: "Dr. T. Venishkumar",
-      role: " Professor & Head [I/C]",
+      role: " Professor & Head Of The Department",
       department: "Electronics and Communication Engineering",
       image: "/venishkumar.jpg",
       qualifications: ["M.E., Ph.D"]
@@ -47,7 +47,7 @@ const AcademicLeadership = () => {
     {
       id: 6,
       name: "Dr. R. Athilingam",
-      role: "Associate Professor & Head [I/C]",
+      role: "Associate Professor & Head Of The department",
       department: "Embedded Systems and Technology",
       image: "/athilingam.jpg",
       qualifications: ["Ph.D, M.E."]
@@ -55,7 +55,7 @@ const AcademicLeadership = () => {
     {
       id: 7,
       name: "Mr. C. Prathap",
-      role: "Assistant Professor & Head [I/C]",
+      role: "Assistant Professor & Head Of The Department",
       department: "Information Technology",
       image: "/prathap c.jpg",
       qualifications: ["M.Tech., Ph.D"]
@@ -63,7 +63,7 @@ const AcademicLeadership = () => {
     {
       id: 8,
       name: "Dr. B. Radha Krishnan",
-      role: "Professor & Head [I/C]",
+      role: "Professor & Head Of The Department",
       department: "Mechanical Engineering",
       image: "/radhakrishnan.jpg",
       qualifications: ["M.E., Ph.D., MISTE., MIE."]
@@ -71,7 +71,7 @@ const AcademicLeadership = () => {
    {
       id: 9,
       name: "Dr. A. Vembathurajesh",
-      role: "Assistant Professor & Head [I/C]",
+      role: "Assistant Professor & Head Of The Department",
       department: "Science & Humanities", 
       image: "/vembathurajesh.png",
       qualifications: ["M.E., Ph.D, MISTE"]
@@ -79,7 +79,7 @@ const AcademicLeadership = () => {
     {
       id: 10,
       name: "Dr. E. Anantha Krishnan",
-      role: "Professor & Head",
+      role: "Professor & Head Of The Department",
       department: "Structural Engineering",
       image: "/ananthakrishnan.jpg",
       qualifications: ["M.E. - Structural Engineering", "M. E., Ph. D."]

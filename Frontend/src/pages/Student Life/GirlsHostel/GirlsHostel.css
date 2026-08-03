@@ -118,7 +118,7 @@
   transition: all 0.3s ease;
 }
 .modern-girls-hostel-page .gh-admin-card:hover { 
-  background: #eff6ff;
+  background: #78a6e2;
   transform: translateX(5px);
 }
 .modern-girls-hostel-page .gh-admin-role { 
@@ -204,7 +204,7 @@
   padding-left: 35px;
   margin-bottom: 25px; 
   font-size: 1.05rem; 
-  color: #475569;
+  color: #071e3c;
   line-height: 1.7;
   transition: transform 0.3s ease, color 0.3s ease; 
   transform-origin: left center; 
@@ -413,6 +413,15 @@
 .modern-girls-hostel-page h2::after {
   display: none !important;
   content: none !important;
+}
+/* Custom Hover Zoom Effect for List Items */
+.gh-zoom-hover {
+  transition: transform 0.3s ease;
+  transform-origin: left center;
+}
+
+.gh-zoom-hover:hover {
+  transform: scale(1.02);
 }
 /* Custom Hover Zoom Effect for List Items */
 .gh-zoom-hover {
