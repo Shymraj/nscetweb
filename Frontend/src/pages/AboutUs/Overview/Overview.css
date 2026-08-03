@@ -27,7 +27,7 @@
    HERO SECTION REDESIGN
    ================================================== */
 .hero-section {
-  padding: 11rem 3% 6rem; /* 11rem top padding to safely clear the floating Navbar when starting at y=0 */
+  padding: 4rem 3% 6rem; /* Further reduced top padding for tighter balance */
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   position: relative;
   /* Removed min-height: 90vh and overflow: hidden to fix scroll layout bugs */
@@ -139,7 +139,7 @@
   box-shadow: 0 8px 25px rgba(11, 37, 89, 0.1);
 }
 
-.info-year, .info-highlight {
+.info-year, .hero-info-val {
   font-family: var(--font-subtopic);
   font-size: 1.2rem;
   font-weight: 700;
@@ -148,7 +148,7 @@
   margin-bottom: 0.2rem;
 }
 
-.info-highlight.grade-a {
+.hero-info-val.grade-a {
   color: var(--nscet-accent);
 }
 
@@ -920,13 +920,13 @@ body.dark-mode .hero-quote-card p {
 }
 
 body.dark-mode .info-year, 
-body.dark-mode .info-highlight {
+body.dark-mode .hero-info-val {
   font-weight: 700;
   font-family: var(--font-subtopic);
   color: #60a5fa;
 }
 
-body.dark-mode .info-highlight.grade-a {
+body.dark-mode .hero-info-val.grade-a {
   color: #eab308;
 }
 
