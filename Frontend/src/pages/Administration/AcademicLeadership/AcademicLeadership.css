@@ -29,7 +29,7 @@
 .al-about-banner {
   background-color: #ffffff;
   max-width: 1200px;
-  margin: 0 auto 50px auto;
+  margin: 40px auto 50px auto;
   padding: 40px 20px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
@@ -273,4 +273,68 @@
 .al-card-animate {
   opacity: 0; 
   animation: reactBitsSpring 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* ---------- Dark Mode ---------- */
+body.dark-mode .al-page-container {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+body.dark-mode .al-about-banner,
+body.dark-mode .al-card {
+  background-color: #1e293b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .al-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .al-about-banner p,
+body.dark-mode .al-points {
+  color: #cbd5e1;
+}
+
+body.dark-mode .al-about-banner strong,
+body.dark-mode .al-name {
+  color: #f1f5f9;
+}
+
+body.dark-mode .al-section-title {
+  color: #60a5fa;
+}
+
+body.dark-mode .al-role {
+  color: #fb923c;
+}
+
+body.dark-mode .al-dept-name {
+  color: #93c5fd;
+}
+
+body.dark-mode .al-hex-outer {
+  background: #334155;
+}
+
+body.dark-mode .al-hex-inner {
+  background-color: #1e293b;
+}
+
+body.dark-mode .al-divider {
+  background: linear-gradient(to right, transparent, #334155, transparent);
+}
+
+body.dark-mode .al-dept-label {
+  color: #94a3b8;
+}
+
+body.dark-mode .al-dept-badge {
+  background-color: #1e3a8a;
+  color: #e0e7ff;
+}
+
+body.dark-mode .al-dept-badge:hover {
+  background-color: #3b82f6;
+  color: #ffffff;
 }
