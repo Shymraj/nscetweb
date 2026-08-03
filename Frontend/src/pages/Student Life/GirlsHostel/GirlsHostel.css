@@ -414,3 +414,12 @@
   display: none !important;
   content: none !important;
 }
+/* Custom Hover Zoom Effect for List Items */
+.gh-zoom-hover {
+  transition: transform 0.3s ease;
+  transform-origin: left center;
+}
+
+.gh-zoom-hover:hover {
+  transform: scale(1.02);
+}
