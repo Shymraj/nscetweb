@@ -13,7 +13,7 @@ const EdcIicGrid = () => {
     { name: "Mr. K. Rajaguru", role: "Member", dept: "AP/Phy",photo: "/rajaguru.jpg" },
    ];
 
-  const archives = ["2023-24", "2022-23", "2021-22", "2020-21", "2019-20", "2018-19"];
+
 
   return (
     <div className="edc-grid-wrapper">
@@ -21,7 +21,7 @@ const EdcIicGrid = () => {
       {/* Header & About Section */}
       <section className="edc-intro-section">
         <h1 className="edc-page-title">ENTREPRENEURSHIP DEVELOPMENT CELL (EDC) & IIC</h1>
-        <div className="edc-about-box">
+        <div className="edc-about-box premium-card">
           <h2>About EDC & IIC</h2>
           <p>At Nadar Saraswathi College of Engineering and Technology (NSCET), the Entrepreneurship Development Cell (EDC) and the Institution's Innovation Council (IIC) function collaboratively to promote innovation, creativity, and entrepreneurial thinking among students and faculty.</p>
           <p>These initiatives are aligned with the Government of India's national missions such as Startup India, Make in India, Digital India, and Atal Innovation Mission. Together, they aim to build a robust ecosystem that encourages ideation, product development, business planning, and startup incubation within the institution.</p>
@@ -59,7 +59,7 @@ const EdcIicGrid = () => {
             </ul>
           </div>
 
-          <div className="split-card obj-card">
+          <div className="split-card obj-card premium-card">
             <div className="card-header">
               <span className="card-icon">🚀</span>
               <h3>Objectives</h3>
@@ -76,16 +76,7 @@ const EdcIicGrid = () => {
         </div>
       </section>
 
-      {/* Document Archives Section */}
-      <section className="edc-archives-section">
-        <h2 className="section-heading">Document Archives</h2>
-        <p className="archives-subtext">Click on a year below to view the corresponding IIC Ranking document:</p>
-        <div className="archives-flex">
-          {archives.map((year, index) => (
-            <button key={index} className="archive-pill">{year}</button>
-          ))}
-        </div>
-      </section>
+
 
       {/* Team Section */}
       <section className="edc-team-section">
