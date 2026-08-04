@@ -3,7 +3,7 @@ import imgVelkumar from "./images/69143b078344d_velkumar.JPG";
 import imgDeepiga from "./images/deepika.jpg";
 import imgArchana from "./images/archana.jpg";
 import imgAbirami from "./images/1774499419_abirami mam.jpeg";
-import imgVenkataLakshmi from "./images/69143b5a4fe7e_venkatalakshmi.JPG";
+import imgVenkataLakshmi from "./images/Venkata Lakshmi M.jpg";
 import imgAnusuya from "./images/1774870992_anusuya.jpeg";
 import imgVinothini from "./images/1778918321_CSE - Vinothini.jpeg";
 import imgSnega from "./images/1778918481_CSE - Snega Priyanka.png";
@@ -172,65 +172,49 @@ export const cseFacultyData = [
   {
     id: "venkatalakshmi",
     slug: "venkatalakshmi",
-    name: "Mrs. M. Venkata Lakshmi",
+    name: "Venkata Lakshmi M",
     desig: "Assistant Professor",
     qual: "M.E.",
-    email: "venkatalakshmi@nscet.org",
+    email: "venkatalakshmims@gmail.com",
     image: imgVenkataLakshmi,
-    spec: "Data Analytics & Python Programming",
-    objectPosition: "center 5%",
-    linkedin: "https://www.linkedin.com/in/venkatalakshmi-nscet",
-    about: "Mrs. M. Venkata Lakshmi is an expert in Data Analytics and advanced Python Programming. She is dedicated to teaching foundational and advanced programming paradigms, enabling students to build robust data pipelines and perform comprehensive exploratory data analysis.",
+    spec: "Data Structures, Cyber Security, Front-End Development",
+    objectPosition: "center 35%",
+    linkedin: "https://www.linkedin.com/in/vinothini-vasuthevan-61827b32a/",
+    about: "Venkata Lakshmi M is a faculty member in the Department of Computer Science and Engineering with a specialization in Software Engineering, Data Structures, Cyber Security, and Front-End Development. She is passionate about helping students build strong programming fundamentals and practical development skills through interactive and application-oriented learning.",
     publications: [
-      "Exploratory Data Analysis on Urban Traffic Patterns — Data Analytics Review, 2023",
-      "Optimizing Python Scripts for Big Data Processing — PyCon Proceedings, 2022"
+      "3"
     ],
     projects: [
-      "Development of Interactive Data Dashboards for College Administration",
-      "Predictive Maintenance Modeling using Python"
+      "2"
     ],
     patents: [
-      "Automated Data Cleaning Framework for Unstructured Text (Filed - 2024)"
+      "1"
     ],
     awards: [
-      "Best Programming Instructor - 2023",
-      "Academic Excellence in Data Science - 2021"
+      "1"
     ],
     experience: [
-      "Assistant Professor, CSE, NSCET (2019 - Present)",
-      "Data Analyst, Insight Solutions (2016 - 2019)"
+      "1 Year"
     ]
   },
   {
     id: "anusuya",
     slug: "anusuya",
-    name: "Anusuya V",
-    desig: "Assistant Professor",
-    qual: "M.E.",
-    email: "anusuya@nscet.org",
+    name: "Anusuya Vairamuthu",
+    desig: "",
+    qual: "",
+    email: "anuzyabe91@gmail.com",
     image: imgAnusuya,
-    spec: "Data Structures & Core Java",
+    spec: "",
     objectPosition: "center 5%",
-    linkedin: "https://www.linkedin.com/in/anusuya-nscet",
-    about: "Ms. V. Anusuya focuses on the core foundations of computer science: Data Structures and Algorithms, paired with Core Java programming. Her rigorous teaching methodology ensures students have the algorithmic problem-solving skills required to crack top-tier technical interviews.",
-    publications: [
-      "Algorithmic Efficiency in Real-Time Graph Processing — Journal of Computational Science, 2024",
-      "Teaching Methodologies for Advanced Data Structures — Engineering Education Conference, 2023"
-    ],
-    projects: [
-      "Development of Visual Algorithm Simulation Tools for Students",
-      "Java-based Cryptographic File System Prototype"
-    ],
-    patents: [
-      "Memory-Efficient Data Structure for Spatial Indexing (Published - 2023)"
-    ],
-    awards: [
-      "Excellence in Algorithmic Teaching - 2024",
-      "Best Student Mentor for Coding Competitions - 2022"
-    ],
+    linkedin: "https://www.linkedin.com/in/anusuya-vairamuthu-61837a3b6",
+    about: "",
+    publications: [],
+    projects: [],
+    patents: [],
+    awards: [],
     experience: [
-      "Assistant Professor, CSE, NSCET (2020 - Present)",
-      "Java Developer, CoreSystems LLP (2018 - 2020)"
+      "2 Years"
     ]
   },
   {
@@ -239,30 +223,20 @@ export const cseFacultyData = [
     name: "Vinothini V",
     desig: "Assistant Professor",
     qual: "M.E - Software",
-    email: "vinoramesh2703@gmail.com",
+    email: "Vinothini@nscet.org",
     image: imgVinothini,
-    spec: "Software Architecture & Agile Tech",
+    spec: "Software Engineering",
     objectPosition: "center 15%",
-    linkedin: "https://www.linkedin.com/in/vinothini-nscet",
-    about: "Ms. V. Vinothini is a specialist in Software Architecture and Agile Development Technologies. She brings enterprise-level design patterns and microservices architecture into the curriculum, bridging the gap between academic projects and industry-standard software products.",
+    linkedin: "https://www.linkedin.com/in/vinothini-vasuthevan-61827b32a/",
+    about: "Vinothini V is a dedicated faculty member with 3 years of teaching experience in the Department of Computer Science and Engineering. Her area of specialization is Software Engineering, and she is committed to helping students build strong programming fundamentals and practical software development skills through effective teaching.",
     publications: [
-      "Microservices Architecture Patterns for E-Commerce Platforms — Software Design Journal, 2023",
-      "Implementing Agile Frameworks in Academic Projects — Global Tech Education Summit, 2022"
+      "1"
     ],
-    projects: [
-      "Architectural Design for Decentralized College Management System",
-      "Agile Implementation Strategy for Student Capstone Projects"
-    ],
-    patents: [
-      "Automated Continuous Integration Workflow Generator (Filed - 2024)"
-    ],
-    awards: [
-      "Innovator in Software Architecture Education - 2023",
-      "Outstanding Performance in Academic Research - 2021"
-    ],
+    projects: [],
+    patents: [],
+    awards: [],
     experience: [
-      "Assistant Professor, CSE, NSCET (2019 - Present)",
-      "Software Architect, AgileTech Solutions (2015 - 2019)"
+      "3 Years"
     ]
   },
   {

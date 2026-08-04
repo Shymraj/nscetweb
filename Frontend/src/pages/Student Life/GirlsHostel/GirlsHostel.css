@@ -21,7 +21,7 @@
 
 /* --- HERO SECTION --- */
 .modern-girls-hostel-page .gh-hero {
-  background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), url('/ghostel_banner.jpg') no-repeat center center/cover;
+  background: url('./banner/GIRLS HOSTEL.png') no-repeat center center/cover;
   width: 100%;
   min-height: 400px;
   max-height: 600px;

@@ -124,7 +124,7 @@ export function GlassmorphismPortfolio({ faculty }) {
               <div className="flex flex-col gap-3 relative z-10">
                 <Button
                   size="lg"
-                  onClick={() => window.location.href = `mailto:${email}`}
+                  onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank')}
                   className="w-full gap-3 rounded-xl h-12 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground border border-primary/20 transition-all duration-300 shadow-sm"
                 >
                   <Mail className="h-4 w-4" />

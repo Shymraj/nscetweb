@@ -26,7 +26,7 @@ import imgVelkumar from "./images/69143b078344d_velkumar.JPG";
 import imgDeepiga from "./images/deepika.jpg";
 import imgArchana from "./images/archana.jpg";
 import imgAbirami from "./images/1774499419_abirami mam.jpeg";
-import imgVenkataLakshmi from "./images/69143b5a4fe7e_venkatalakshmi.JPG";
+import imgVenkataLakshmi from "./images/Venkata Lakshmi M.jpg";
 import imgAnusuya from "./images/1774870992_anusuya.jpeg";
 import imgVinothini from "./images/1778918321_CSE - Vinothini.jpeg";
 import imgSnega from "./images/1778918481_CSE - Snega Priyanka.png";

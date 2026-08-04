@@ -23,7 +23,7 @@ import logo7thSense from "./images/seventh.png";
 
 // Faculty Imports
 import imgVembathuRajesh from "./images/vembathurajesh.png";
-import imgChithra from "./images/drchitra.jpg";
+import imgChithra from "./images/Dr.C.CHITHRA.jpg";
 import imgDavidMathan from "./images/davidmathan.jpg";
 import imgRichardBritto from "./images/richard britto.jpg";
 import imgSubathamani from "./images/Subathamani.png";
@@ -49,7 +49,6 @@ import imgDiana from "./images/Physics - Diana.jpg";
 import imgEaswari from "./images/1778919497_Physics - Easwari.jpeg";
 import imgIniya from "./images/General Engg - Iniya.jpeg";
 import imgNandhini from "./images/General Engg - Nandini.jpeg";
-import imgPremkumar from "./images/General Engg - Premkumar.jpg";
 import imgSrinithi from "./images/Chemistry - Srinithi.jpeg";
 import imgRajeshshree from "./images/Rajeshshree.jpeg";
 import imgThisha from "./images/thisha.jpeg";

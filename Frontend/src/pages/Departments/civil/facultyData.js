@@ -7,6 +7,7 @@ import imgAruljebaraj from "./images/aruljebaraj.jpg";
 import imgNathirunSabinash from "./images/nathirunsabinash.jpg";
 import imgHariprasath from "./images/hariprasath.jpg";
 import imgManojPrabakar from "./images/Manoj_prabakar.jpg";
+import imgPremkumar from "./images/General Engg - Premkumar.jpg";
 
 export const civilFacultyData = [
   {
@@ -292,47 +293,35 @@ export const civilFacultyData = [
   {
     id: "nathirunsabinash",
     slug: "nathirunsabinash",
-    name: "Mrs. R. Nathirun Sabinash",
+    name: "Nathirun Sabinash R",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "nathirunsabinash@nscet.org",
     image: imgNathirunSabinash,
-    spec: "Construction Management & GIS",
+    spec: "Environmental Engineering",
     objectPosition: "center 10%",
     highlights: [
       {
         title: "Academic Qualification",
-        description: "M.E. specializing in Construction Management and GIS Mapping.",
+        description: "M.E. specializing in Environmental Engineering.",
       },
       {
-        title: "Project Management Lead",
-        description: "Building information modeling (BIM), project scheduling, and spatial planning.",
+        title: "Sustainable Practices",
+        description: "Fostering sustainable engineering and practical environmental solutions.",
       },
       {
         title: "Contact",
         description: "Email: nathirunsabinash@nscet.org · NSCET Civil Department.",
       },
     ],
-    linkedin: "https://www.linkedin.com/in/nathirunsabinash-nscet",
-    about: "Mrs. R. Nathirun Sabinash brings expertise in Construction Management and Geographic Information Systems (GIS) to the department. She focuses on integrating modern technologies like Building Information Modeling (BIM) and spatial analysis into traditional construction practices. Her guidance helps students master project scheduling, cost estimation, and advanced mapping techniques essential for large-scale infrastructure projects.",
-    publications: [
-      "Integration of BIM and GIS for Smart City Infrastructure Management — Automation in Construction Journal, 2024",
-      "Cost and Time Overrun Analysis in Mega Construction Projects — Construction Management Review, 2023"
-    ],
-    projects: [
-      "Spatial Mapping of Urban Heat Islands using GIS",
-      "BIM Implementation for Resource Optimization in High-Rise Construction"
-    ],
-    patents: [
-      "IoT-based Tracking System for Construction Materials (Filed - 2024)"
-    ],
-    awards: [
-      "Excellence in Construction Management Education - 2023",
-      "Best Researcher in GIS Applications - 2022"
-    ],
+    linkedin: "https://www.linkedin.com/in/nathirun-sabinash-809b58198/",
+    about: "Nathirun Sabinash R is a faculty member in the Department of Civil Engineering with a specialization in Environmental Engineering. He is dedicated to fostering sustainable engineering practices and helping students develop practical knowledge to address environmental challenges.",
+    publications: [],
+    projects: [],
+    patents: [],
+    awards: [],
     experience: [
-      "Assistant Professor, Civil Engineering, NSCET (2019 - Present)",
-      "Project Manager, Urban Infrastructure Developers (2015 - 2019)"
+      "2.2 Years"
     ]
   },
   {
@@ -425,6 +414,38 @@ export const civilFacultyData = [
     experience: [
       "Assistant Professor, Civil Engineering, NSCET (2018 - Present)",
       "Steel Detailer and Design Engineer, PEB Solutions (2015 - 2018)"
+    ]
+  },
+  {
+    id: "dr-premkumar-s",
+    slug: "dr-premkumar-s",
+    name: "Dr. S. Premkumar",
+    desig: "Assistant Professor",
+    qual: "M.E., Ph.D (Civil)",
+    email: "spremmagu@gmail.com",
+    image: imgPremkumar,
+    spec: "Water Resources",
+    objectPosition: "center 10%",
+    highlights: [
+      {
+        title: "Academic Focus",
+        description: "Specializing in Water Resources.",
+      },
+      {
+        title: "Contact",
+        description: "Email: spremmagu@gmail.com",
+      }
+    ],
+    linkedin: "https://www.linkedin.com/in/dr-premkumar-s-06a70640",
+    about: "Dr. S. Premkumar is a dedicated faculty member with over 12 years of teaching and research experience in the Department of Civil Engineering. His area of specialization is Water Resources, and he is committed to advancing engineering education through academic excellence, research, and student mentorship.",
+    publications: [
+      "5"
+    ],
+    projects: [],
+    patents: [],
+    awards: [],
+    experience: [
+      "12.7 Years"
     ]
   }
 ];

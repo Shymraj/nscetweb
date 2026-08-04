@@ -3,32 +3,28 @@ import imgPrathap from "./images/prathap.jpg";
 import imgUdhayakumar from "./images/udhayakumar.jpg";
 import imgKesavamoorthy from "./images/kesavamoorthy.jpg";
 import imgSaiSuganya from "./images/68060d94a3a65_sai suganya.jpg";
-import imgBhavani from "./images/681edc339e8a7_bhavani photos.jpg";
+import imgBhavani from "./images/Bhavani.jpg";
 import imgMahalakshmi from "./images/Mahalakshmi.jpg";
 import imgJasmineJose from "./images/jasminejose.jpg";
 import imgArulJothi from "./images/aruljothi.jpg";
+import imgMareeswari from "./images/Mareeswari M.jpg";
 
 export const itFacultyData = [
-    {id: "mr-c-prathap", slug: "mr-c-prathap",  name: "Mr. C. Prathap", desig: "Assistant Professor & Head [I/C]", qual: "M.Tech., (Ph.D)", email: "prathapc@nscet.org", image: imgPrathap, spec: "Cloud Computing & Distributed Systems", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mr-c-prathap", slug: "mr-c-prathap",  name: "Prathap C", desig: "Head of the Department (HOD)", qual: "M.Tech., (Ph.D)", email: "prathapc@nscet.org", image: imgPrathap, spec: "IoT and Image Processing", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/prathap-c-9302283b7/",
+    about: "Prathap C serves as the Head of the Department of Information Technology with over 16 years of teaching and research experience. His areas of expertise include IoT and Image Processing. With significant contributions in research, patents, and academic projects, he is committed to fostering innovation, industry-oriented learning, and academic excellence.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "8"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "5"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "4"
     ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
+    awards: [],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "16 Years"
     ]},
     {id: "mr-r-udhaya-kumar", slug: "mr-r-udhaya-kumar",  name: "Mr. R. Udhaya Kumar", desig: "Assistant Professor", qual: "M.E (CSE), MBA (ITM), (Ph.D)", email: "udhayakumar@nscet.org", image: imgUdhayakumar, spec: "Information Security & Web Tech", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
@@ -93,26 +89,19 @@ export const itFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mrs-m-bhavani", slug: "mrs-m-bhavani",  name: "Mrs. M Bhavani", desig: "Assistant Professor", qual: "B.Tech.", email: "gmbhavani1990@gmail.com", image: imgBhavani, spec: "Software Engineering & Web Apps", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mrs-m-bhavani", slug: "mrs-m-bhavani",  name: "Bhavani M", desig: "", qual: "", email: "bhavani@nscet.org", image: imgBhavani, spec: "", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/bhavani-m-54332471",
+    about: "",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "3"
     ],
-    projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
-    ],
+    projects: [],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
+    awards: [],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "10 Years"
     ]},
     {id: "mrs-s-mahalakshmi", slug: "mrs-s-mahalakshmi",  name: "Mrs. S. Mahalakshmi", desig: "Assistant Professor", qual: "M.E.", email: "mahalakshmi@nscet.org", image: imgMahalakshmi, spec: "Python Systems & Analytics", objectPosition: "center 5%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
@@ -176,5 +165,17 @@ export const itFacultyData = [
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
+    ]},
+    {id: "ms-mareeswari-m", slug: "ms-mareeswari-m",  name: "Mareeswari M", desig: "Assistant Professor", qual: "", email: "mareeswarim@nscet.org", image: imgMareeswari, spec: "Image Processing", objectPosition: "center 10%" ,
+    linkedin: "http://www.linkedin.com/in/mareeswari-m-a08767426",
+    about: "Mareeswari M is a faculty member in the Department of Information Technology specializing in Image Processing.",
+    publications: [
+      "6"
+    ],
+    projects: [],
+    patents: [],
+    awards: [],
+    experience: [
+      "1 year"
     ]}
   ];
