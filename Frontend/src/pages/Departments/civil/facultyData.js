@@ -109,12 +109,12 @@ export const civilFacultyData = [
   {
     id: "shanmugapriyan",
     slug: "shanmugapriyan",
-    name: "Mr. R. Shanmugapriyan",
+    name: "R. Shanmugapriyan",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "shanmugapriyan@nscet.org",
     image: imgShanmugapriyan,
-    spec: "Transportation & Surveying",
+    spec: "Structural Engineering",
     objectPosition: "center 10%",
     highlights: [
       {
@@ -130,26 +130,22 @@ export const civilFacultyData = [
         description: "Email: shanmugapriyan@nscet.org · NSCET Civil Department.",
       },
     ],
-    linkedin: "https://www.linkedin.com/in/shanmugapriyan-nscet",
-    about: "Mr. R. Shanmugapriyan is an expert in Transportation Engineering and Advanced Land Surveying. He brings extensive field experience into the classroom, specializing in modern surveying techniques using Total Station and DGPS. His work emphasizes intelligent transportation systems, pavement design, and traffic flow optimization, equipping students with the crucial skills needed for modern infrastructure development.",
+    linkedin: "https://www.linkedin.com/in/shanmugapriyan-r-civil-6434bb399/",
+    about: "R. Shanmugapriyan is a dedicated faculty member with 8 years of teaching experience in the Department of Civil Engineering. His specialization is Structural Engineering, and he is passionate about structural analysis, innovative engineering practices, and helping students develop strong technical and practical skills for the construction industry.",
     publications: [
-      "Optimization of Traffic Signal Design in Urban Intersections — Journal of Traffic Engineering, 2024",
-      "Performance Evaluation of Flexible Pavements using Reclaimed Asphalt — National Symposium on Transportation, 2022"
+      "1"
     ],
     projects: [
-      "Traffic Impact Assessment for Proposed Commercial Hubs",
-      "Topographical Survey and Contour Mapping for Campus Expansion"
+      "1"
     ],
     patents: [
-      "Smart Sensor System for Real-time Pavement Distress Detection (Published - 2023)"
+      "2"
     ],
     awards: [
-      "Outstanding Field Educator Award - 2024",
-      "Best Paper Award at National Transportation Conference - 2022"
+      "1"
     ],
     experience: [
-      "Assistant Professor, Civil Engineering, NSCET (2019 - Present)",
-      "Highway Design Engineer, InfraRoads Consultants (2016 - 2019)"
+      "8 Years"
     ]
   },
   {

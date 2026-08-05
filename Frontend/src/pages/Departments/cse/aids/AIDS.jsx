@@ -30,7 +30,7 @@ import imgPavithra from "./images/Pavithra.jpg";
 import imgNagajothi from "./images/Nagajothi.jpg";
 import imgSunitha from "./images/Sunitha.jfif";
 import imgKodeeswaran from "./images/1778918812_ADS - Kodeeswaran.jpeg";
-import imgNithyapriya from "./images/Nithyapriya.jpg";
+import imgNithyapriya from "./images/Nithyapriya.png";
 
 import "../../cse/CSE.css";
 

@@ -365,26 +365,17 @@ export const shFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "dr-r-saravanakumar", slug: "dr-r-saravanakumar",  name: "Dr. R. Saravanakumar", desig: "Assistant Professor", qual: "M.Sc., Ph.D.", email: "saravanakumar@nscet.org", image: imgSaravanakumar, spec: "Environmental Chemistry", objectPosition: "center 10%" ,
+    {id: "dr-r-saravanakumar", slug: "dr-r-saravanakumar",  name: "Dr. R. Saravana Kumar", desig: "Assistant Professor", qual: "M.Sc., Ph.D.", email: "saravanakumar@nscet.org", image: imgSaravanakumar, spec: "Chemistry", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    about: "Dr. R. Saravana Kumar is a dedicated faculty member with over 22 years of teaching and research experience in the Department of Science and Humanities. His specialization is Chemistry, and he is passionate about delivering quality education, advancing scientific research, and inspiring students through innovative teaching and academic excellence.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "12"
     ],
-    projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
-    ],
-    patents: [
-      "Dummy Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
+    projects: [],
+    patents: [],
+    awards: [],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "22.1 Years"
     ]},
     {id: "dr-sumathra-m", slug: "dr-sumathra-m",  name: "Dr. Sumathra M", desig: "Assistant Professor", qual: "M.Sc., Ph.D - Chemistry", email: "sumathravms@gmail.com", image: imgSumathra, spec: "Inorganic & Polymer Chemistry", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",

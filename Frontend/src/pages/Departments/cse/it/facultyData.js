@@ -68,26 +68,23 @@ export const itFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "b-sai-suganya", slug: "b-sai-suganya",  name: "B. SAI SUGANYA", desig: "Assistant Professor", qual: "M.Tech.", email: "saisuganya@nscet.org", image: imgSaiSuganya, spec: "Mobile Networks & IoT", objectPosition: "center 12%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "b-sai-suganya", slug: "b-sai-suganya",  name: "B. Sai Suganya", desig: "Assistant Professor", qual: "M.Tech.", email: "saisuganya@nscet.org", image: imgSaiSuganya, spec: "Cloud Computing", objectPosition: "center 12%" ,
+    linkedin: "https://www.linkedin.com/in/sai-suganya-b-it-3b46a53a3",
+    about: "B. Sai Suganya is a faculty member in the Department of Information Technology with a specialization in Cloud Computing. She is passionate about emerging cloud technologies, practical learning, and helping students build a strong foundation in modern computing through research and innovation.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "1"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "1"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "1"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "1.6 Years"
     ]},
     {id: "mrs-m-bhavani", slug: "mrs-m-bhavani",  name: "Bhavani M", desig: "", qual: "", email: "bhavani@nscet.org", image: imgBhavani, spec: "", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/bhavani-m-54332471",
@@ -124,26 +121,21 @@ export const itFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mrs-p-jasmine-jose", slug: "mrs-p-jasmine-jose",  name: "Mrs. P. Jasmine Jose", desig: "Assistant Professor", qual: "M.E.", email: "jasminejose@nscet.org", image: imgJasmineJose, spec: "Cyber Security & Computer Networks", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mrs-p-jasmine-jose", slug: "mrs-p-jasmine-jose",  name: "P. Jasmine Jose", desig: "Assistant Professor", qual: "M.E.", email: "jasminepercy16@gmail.com", image: imgJasmineJose, spec: "Data Science", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/jasmine-jose-p",
+    about: "P. Jasmine Jose is a dedicated faculty member with 5 years of teaching experience in the Department of Information Technology. Her specialization is Data Science, and she is passionate about research, data-driven technologies, and helping students develop analytical and problem-solving skills through practical learning.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "1"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "1"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
+    awards: [],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "5 Years"
     ]},
     {id: "mrs-s-arul-jothi", slug: "mrs-s-arul-jothi",  name: "Mrs. S. Arul Jothi", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "aruljothi@nscet.org", image: imgArulJothi, spec: "Data Science & AI Systems", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",

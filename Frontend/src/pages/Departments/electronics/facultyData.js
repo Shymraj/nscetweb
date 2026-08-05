@@ -10,47 +10,39 @@ import imgGowthami from "./images/gowthami.jpg";
 import imgBharathiKannan from "./images/bharathikannan.jpg";
 
 export const electronicsFacultyData = [
-    {id: "dr-t-venishkumar", slug: "dr-t-venishkumar",  name: "Dr. T. Venishkumar", desig: "Associate Professor & Head [I/C]", qual: "M.E., Ph.D", email: "venishkumar@nscet.org", image: imgVenishkumar, spec: "VLSI Design & Embedded Systems", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "dr-t-venishkumar", slug: "dr-t-venishkumar",  name: "Dr. T. Venish Kumar", desig: "Head of the Department (HOD)", qual: "M.E., Ph.D", email: "tvenishkumar@gmail.com", image: imgVenishkumar, spec: "Digital VLSI, Device Modeling, Analog VLSI", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/dr-t-venish-kumar-thangaraj-me-ph-d-59533218",
+    about: "Dr. T. Venish Kumar serves as the Head of the Department of Electronics and Communication Engineering with 15 years of teaching and research experience. His areas of specialization include Digital VLSI, Device Modeling, and Analog VLSI. With extensive contributions in research, patents, and funded projects, he is committed to academic excellence, innovation, and preparing students for the evolving semiconductor and electronics industry.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "20"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "3"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "4"
     ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
+    awards: [],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "15 Years"
     ]},
-    {id: "dr-n-mathavan", slug: "dr-n-mathavan",  name: "Dr. N. Mathavan", desig: "Assistant Professor", qual: "B.Tech., M.E., Ph.D", email: "memadhavan@gmail.com", image: imgMathavan, spec: "Wireless Communications & Antenna Design", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "dr-n-mathavan", slug: "dr-n-mathavan",  name: "Dr. N. Mathavan", desig: "Assistant Professor", qual: "B.Tech., M.E., Ph.D", email: "memathavan@gmail.com", image: imgMathavan, spec: "IoT, Sensors, PLC", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/dr-mathavan-nagaraj-045a06a8",
+    about: "Dr. N. Mathavan is a dedicated faculty member with 13 years of teaching and research experience in the Department of Electronics and Communication Engineering. His areas of specialization include IoT, Sensors, and PLC. He is committed to fostering innovation through research, industry-oriented learning, and mentoring students in emerging electronics and automation technologies.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "12"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "1"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "2"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "2"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "13 Years"
     ]},
     {id: "mr-m-idhayachandran", slug: "mr-m-idhayachandran",  name: "Mr. M. Idhayachandran", desig: "Assistant Professor", qual: "M.E.", email: "idhayachandran@nscet.org", image: imgIdhayachandran, spec: "Digital Signal Processing & Image Processing", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
@@ -115,26 +107,23 @@ export const electronicsFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mrs-t-tamil-selvi", slug: "mrs-t-tamil-selvi",  name: "Mrs. T. Tamil Selvi", desig: "Assistant Professor", qual: "M.Tech., (Ph.D.)", email: "tamilselvi@nscet.org", image: imgTamilSelvi, spec: "Nanoelectronics & Semiconductor Devices", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mrs-t-tamil-selvi", slug: "mrs-t-tamil-selvi",  name: "T. Tamilselvi", desig: "Assistant Professor", qual: "M.Tech., (Ph.D.)", email: "tamilselvi@nscet.org", image: imgTamilSelvi, spec: "VLSI Design, Embedded Systems and IoT", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/tamilselvi-thangamani-10212756/",
+    about: "T. Tamilselvi is a dedicated faculty member with over 12.8 years of teaching experience in the Department of Electronics and Communication Engineering. Her areas of specialization include VLSI Design, Embedded Systems, and IoT. She is passionate about research, innovation, and mentoring students through practical and industry-oriented learning.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "4"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "10"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "3"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "12.8 Years"
     ]},
     {id: "mrs-p-shantha-devi", slug: "mrs-p-shantha-devi",  name: "Mrs. P. Shantha Devi", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "shanthadevi@nscet.org", image: imgShanthaDevi, spec: "Biomedical Signal Processing & Sensor Networks", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",

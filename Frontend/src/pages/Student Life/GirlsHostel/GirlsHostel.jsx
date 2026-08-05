@@ -34,7 +34,7 @@ const GirlsHostel = () => {
       "Keep your rooms and the hostel environment clean."
     ],
     gallery: [
-      { id: 1, imgUrl: "/ghostel1.jpg" },
+      { id: 1, imgUrl: "/GH.jpg" },
       { id: 2, imgUrl: "/ghostel2.jpg" },
       { id: 3, imgUrl: "/ghostel3.jpg" },
       { id: 4, imgUrl: "/ghostel4.jpg" }
