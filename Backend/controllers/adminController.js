@@ -54,6 +54,7 @@ const getEvents = (req, res) => {
         return {
           ...event,
           images: photos.filter(p => p.event_id === event.id).map(p => p.photo_url),
+          photosList: photos.filter(p => p.event_id === event.id).map(p => ({ id: p.id, url: p.photo_url })),
           coverImage: event.image_url || photos.find(p => p.event_id === event.id)?.photo_url || null
         };
       });
@@ -136,6 +137,21 @@ const deleteEvent = (req, res) => {
   });
 };
 
+const deleteEventPhoto = (req, res) => {
+  const { id } = req.params;
+  db.query("SELECT photo_url FROM event_photos WHERE id = ?", [id], (err, results) => {
+    if (err) return res.status(500).json({ success: false, message: "Database Error" });
+    if (results && results.length > 0 && results[0].photo_url) {
+      const filePath = path.join(__dirname, "..", results[0].photo_url);
+      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+    }
+    db.query("DELETE FROM event_photos WHERE id = ?", [id], (err) => {
+      if (err) return res.status(500).json({ success: false, message: err.message });
+      res.json({ success: true, message: "Photo deleted" });
+    });
+  });
+};
+
 // --- DEPARTMENTS ---
 const getDepartments = (req, res) => {
   db.query("SELECT * FROM departments", (err, results) => {
@@ -171,6 +187,6 @@ const deleteDepartment = (req, res) => {
 module.exports = { 
   loginAdmin, 
   getStaff, addStaff, deleteStaff,
-  getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent,
+  getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent, deleteEventPhoto,
   getDepartments, addDepartment, deleteDepartment
 };

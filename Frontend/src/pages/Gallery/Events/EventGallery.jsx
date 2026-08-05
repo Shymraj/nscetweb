@@ -13,11 +13,12 @@ const EventGallery = () => {
     e.slug.replace(/-2025|-25$/, '') === eventSlug.replace(/-2025|-25$/, '')
   );
   const [selectedEvent, setSelectedEvent] = useState(initialStaticEvent || null);
+  const [loading, setLoading] = useState(!initialStaticEvent); // Only load if not in static data
 
   useEffect(() => {
     const fetchEventFromBackend = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/admin/events", { timeout: 1500 });
+        const res = await axios.get("http://localhost:5000/api/admin/events", { timeout: 2000 });
         const allEvents = res.data?.data || [];
         const backendEvent = allEvents.find((e) => e.slug === eventSlug);
         
@@ -26,12 +27,18 @@ const EventGallery = () => {
           setSelectedEvent(backendEvent);
         }
       } catch (err) {
-        // Backend offline or timeout; static event is already displayed instantly
+        console.error("Backend fetch failed", err);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchEventFromBackend();
   }, [eventSlug]);
+
+  if (loading) {
+    return <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading Event...</div>;
+  }
 
   if (!selectedEvent) return <Navigate to="/gallery/events" replace />;
 

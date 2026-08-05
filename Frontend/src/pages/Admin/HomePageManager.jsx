@@ -15,8 +15,8 @@ const HomePageManager = () => {
         <AnnouncementManager />
         <ImageManager />
         <PrincipalManager />
-        <CourseManager type="ug_course" />
-        <CourseManager type="pg_course" />
+        {/* <CourseManager type="ug_course" /> */}
+        {/* <CourseManager type="pg_course" /> */}
         <CounterManager />
         <RecruiterManager />
       </div>
@@ -736,7 +736,7 @@ const CounterManager = () => {
 
   return (
     <div>
-      <h3 style={sectionTitleStyle}>10. Counter Section</h3>
+      <h3 style={sectionTitleStyle}>8. Counter Section</h3>
       <table className="admin-table">
         <thead><tr><th>Name</th><th>Count</th><th>Action</th></tr></thead>
         <tbody>
@@ -814,7 +814,7 @@ const RecruiterManager = () => {
 
   return (
     <div>
-      <h3 style={sectionTitleStyle}>11. Recruiter Section</h3>
+      <h3 style={sectionTitleStyle}>9. Recruiter Section</h3>
       <table className="admin-table">
         <thead><tr><th>Company Name</th><th>Logo</th><th>Action</th></tr></thead>
         <tbody>

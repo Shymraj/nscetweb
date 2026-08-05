@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import HomePageManager from './HomePageManager';
-import { FaChevronUp, FaHome, FaUsers, FaBriefcase, FaCalendarCheck, FaImages, FaCalendarAlt, FaCog, FaSignOutAlt, FaUserPlus, FaUserTie, FaGraduationCap, FaEnvelope, FaBook, FaBuilding, FaImage, FaCheck, FaTimes, FaUpload, FaRedo } from "react-icons/fa";
+import { FaChevronUp, FaHome, FaUsers, FaBriefcase, FaCalendarCheck, FaImages, FaCalendarAlt, FaCog, FaSignOutAlt, FaUserPlus, FaUserTie, FaGraduationCap, FaEnvelope, FaBook, FaBuilding, FaImage, FaCheck, FaTimes, FaUpload, FaRedo, FaEye, FaTrash, FaArrowLeft } from "react-icons/fa";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -96,7 +96,9 @@ const EventsManager = () => {
   const fetchEvents = async () => {
     try {
       const res = await axios.get('http://localhost:5000/api/admin/events');
-      setEvents(res.data.data || []);
+      // Filter out Gallery events as they are managed in the Gallery section
+      const departmentEvents = (res.data.data || []).filter(ev => ev.department !== 'Gallery');
+      setEvents(departmentEvents);
     } catch (error) {
       console.error(error);
       setEvents([]);
@@ -216,7 +218,7 @@ const EventsManager = () => {
               <div style={{backgroundColor: '#f9fafb', padding: '10px 14px', borderRight: '1px solid #d1d5db', color: '#4b5563', fontSize: '13px', whiteSpace: 'nowrap', fontWeight: '500'}}>Choose file</div>
               <input type="file" onChange={e=>setImage(e.target.files[0])} accept="image/*" style={{padding: '7px 10px', width: '100%', border: 'none', background: 'transparent', fontSize: '13px'}} required />
             </div>
-            <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>Max 5MB. Formats: JPG, PNG, GIF, WEBP {editingId && "(Leave blank to keep existing)"}</div>
+            <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>Max 50MB. Formats: JPG, PNG, GIF, WEBP {editingId && "(Leave blank to keep existing)"}</div>
           </div>
           
           <div style={{display: 'flex', gap: '10px'}}>
@@ -401,7 +403,7 @@ const StaffManager = () => {
               <input type="file" onChange={handleFileChange} accept="image/*" />
               <FaImage className="upload-icon" />
               <div>Click to select or drag & drop an image</div>
-              <div style={{fontSize: '12px', color: '#999', marginTop: '5px'}}>(JPG, PNG, WEBP - Max 5MB)</div>
+              <div style={{fontSize: '12px', color: '#999', marginTop: '5px'}}>(JPG, PNG, WEBP - Max 50MB)</div>
               {photo && <div style={{marginTop: '10px', color: '#28a745', fontWeight: 'bold'}}><FaCheck /> {photo.name}</div>}
             </div>
           </div>
@@ -504,7 +506,7 @@ const PlacementsManager = () => {
               <input type="file" onChange={handleFileChange} accept="image/*" />
               <FaImage className="upload-icon" style={{fontSize: '36px', color: '#3b82f6'}} />
               <div style={{marginTop: '12px', fontWeight: '500', color: '#4b5563'}}>Click to select or drag & drop image</div>
-              <div style={{fontSize: '12px', color: '#9ca3af', marginTop: '6px'}}>(JPG, PNG, WEBP - Max 5MB)</div>
+              <div style={{fontSize: '12px', color: '#9ca3af', marginTop: '6px'}}>(JPG, PNG, WEBP - Max 50MB)</div>
               {photo && <div style={{marginTop: '12px', color: '#059669', fontWeight: '600'}}><FaCheck /> {photo.name}</div>}
             </div>
           </div>
@@ -542,12 +544,21 @@ const GalleryManager = () => {
   const [thumbnail, setThumbnail] = useState(null);
   const [selectedEventId, setSelectedEventId] = useState('');
   const [eventImages, setEventImages] = useState(null);
+  const [viewingEvent, setViewingEvent] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
 
   const fetchEvents = async () => {
     try {
-      // const res = await axios.get('http://localhost:5000/api/admin/events');
-      // setEvents(res.data.data || []);
-      setEvents([]); // Placeholder
+      const res = await axios.get('http://localhost:5000/api/admin/events');
+      // Filter only Gallery events
+      const galleryEvents = (res.data.data || []).filter(ev => ev.department === 'Gallery');
+      setEvents(galleryEvents);
+      
+      // Update viewingEvent if it's currently active so new photos show immediately
+      if (viewingEvent) {
+        const updatedEvent = galleryEvents.find(e => e.id === viewingEvent.id);
+        if (updatedEvent) setViewingEvent(updatedEvent);
+      }
     } catch (e) {
       console.error(e);
       setEvents([]);
@@ -555,48 +566,74 @@ const GalleryManager = () => {
   };
 
   useEffect(() => { fetchEvents(); }, []);
-
+  // ... omitting unchanged fetch logic up to the render ...
   const handleCreateEvent = async (e) => {
     e.preventDefault();
-    if (!eventName) return;
+    if (!eventName || !thumbnail) return alert("Please provide event name and thumbnail");
+    
     const formData = new FormData();
     formData.append('title', eventName);
-    formData.append('slug', eventName.toLowerCase().replace(/ /g, '-'));
-    if (thumbnail) formData.append('thumbnail', thumbnail);
+    formData.append('description', 'Gallery Event');
+    formData.append('department', 'Gallery');
+    formData.append('date', new Date().getFullYear().toString());
+    formData.append('image', thumbnail); // 'image' is the field name in multer
 
     try {
-      // await axios.post('http://localhost:5000/api/admin/events', formData);
-      setEventName(''); setThumbnail(null);
+      await axios.post('http://localhost:5000/api/admin/events', formData);
+      setEventName(''); 
+      setThumbnail(null);
       fetchEvents();
-      alert('Event creation connected to backend (placeholder).');
+      alert('Event created successfully.');
     } catch (error) {
       console.error(error);
+      alert('Failed to create event');
     }
   };
 
   const handleUploadImages = async (e) => {
     e.preventDefault();
-    if (!selectedEventId || !eventImages) return alert("Select event and images");
-    const formData = new FormData();
-    for (let i = 0; i < eventImages.length; i++) {
-      formData.append('photos', eventImages[i]);
-    }
+    if (!selectedEventId || !eventImages || eventImages.length === 0) return alert("Select event and images");
+    
     try {
-      // await axios.post(`http://localhost:5000/api/admin/events/${selectedEventId}/photos`, formData);
+      // Upload each photo to the event
+      for (let i = 0; i < eventImages.length; i++) {
+        const formData = new FormData();
+        formData.append('photo', eventImages[i]);
+        await axios.post(`http://localhost:5000/api/admin/events/${selectedEventId}/photo`, formData);
+      }
       setEventImages(null);
+      const fileInput = document.getElementById('galleryImagesInput');
+      if (fileInput) fileInput.value = '';
       fetchEvents();
-      alert('Images upload connected to backend (placeholder).');
+      alert('Images uploaded successfully.');
     } catch (error) {
       console.error(error);
+      alert('Failed to upload some images');
     }
   };
 
   const handleDeleteEvent = async (id) => {
-    if (window.confirm("Are you sure?")) {
+    if (window.confirm("Are you sure you want to delete this event and all its photos?")) {
       try {
-        // await axios.delete(`http://localhost:5000/api/admin/events/${id}`);
+        await axios.delete(`http://localhost:5000/api/admin/events/${id}`);
+        if (viewingEvent && viewingEvent.id === id) setViewingEvent(null);
         fetchEvents();
-      } catch (e) { console.error(e); }
+      } catch (e) { 
+        console.error(e);
+        alert('Failed to delete event');
+      }
+    }
+  };
+
+  const handleDeletePhoto = async (photoId) => {
+    if (window.confirm("Are you sure you want to delete this photo?")) {
+      try {
+        await axios.delete(`http://localhost:5000/api/admin/events/photo/${photoId}`);
+        fetchEvents();
+      } catch (e) {
+        console.error(e);
+        alert('Failed to delete photo');
+      }
     }
   };
 
@@ -630,7 +667,7 @@ const GalleryManager = () => {
                 <div style={{backgroundColor: '#f9fafb', padding: '10px 14px', borderRight: '1px solid #d1d5db', color: '#4b5563', fontSize: '13px', whiteSpace: 'nowrap', fontWeight: '500'}}>Choose file</div>
                 <input type="file" onChange={e=>setThumbnail(e.target.files[0])} accept="image/*" style={{padding: '7px 10px', width: '100%', border: 'none', background: 'transparent', fontSize: '13px'}} required />
               </div>
-              <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>Max 5MB. Formats: JPG, PNG, GIF, WEBP</div>
+              <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>Max 50MB. Formats: JPG, PNG, GIF, WEBP</div>
             </div>
           </div>
           <button type="submit" className="btn-primary" style={{marginTop: '24px', backgroundColor: '#3b82f6', borderRadius: '6px', padding: '10px 20px', fontSize: '14px', display: 'flex', alignItems: 'center', fontWeight: '500', border: 'none', cursor: 'pointer', color: 'white'}}>
@@ -659,7 +696,7 @@ const GalleryManager = () => {
               <label style={{fontWeight: '500', color: '#4b5563', fontSize: '13px', marginBottom: '8px'}}>Select Images <span style={{color: '#ef4444'}}>*</span> (Multiple)</label>
               <div style={{display: 'flex', border: '1px solid #d1d5db', borderRadius: '6px', overflow: 'hidden', alignItems: 'center', backgroundColor: '#ffffff'}}>
                 <div style={{backgroundColor: '#f9fafb', padding: '10px 14px', borderRight: '1px solid #d1d5db', color: '#4b5563', fontSize: '13px', whiteSpace: 'nowrap', fontWeight: '500'}}>Choose files</div>
-                <input type="file" multiple onChange={e=>setEventImages(e.target.files)} accept="image/*" style={{padding: '7px 10px', width: '100%', border: 'none', background: 'transparent', fontSize: '13px'}} required />
+                <input type="file" id="galleryImagesInput" multiple onChange={e=>setEventImages(e.target.files)} accept="image/*" style={{padding: '7px 10px', width: '100%', border: 'none', background: 'transparent', fontSize: '13px'}} required />
               </div>
               <div style={{fontSize: '11px', color: '#9ca3af', marginTop: '6px'}}>You can select multiple images at once</div>
             </div>
@@ -670,39 +707,145 @@ const GalleryManager = () => {
         </form>
       </div>
 
-      {/* Manage Events List */}
+      {/* Manage Events List / View Event Photos */}
       <div className="staff-card-form" style={{border: '1px solid #e5e7eb', borderRadius: '8px', padding: '24px', backgroundColor: '#ffffff', boxShadow: '0 1px 3px rgba(0,0,0,0.05)'}}>
-        <div className="staff-form-header" style={{color: '#374151', fontSize: '16px', fontWeight: '600', display: 'flex', alignItems: 'center', marginBottom: '20px'}}>
-          <FaBook style={{marginRight: '10px', color: '#6b7280'}}/> Manage Events ({events.length})
-        </div>
-        
-        <div style={{overflowX: 'auto', borderRadius: '6px', border: '1px solid #e5e7eb'}}>
-          <table className="admin-table" style={{width: '100%', borderCollapse: 'collapse', margin: 0}}>
-            <thead>
-              <tr style={{backgroundColor: '#f9fafb', borderBottom: '1px solid #e5e7eb'}}>
-                <th style={{padding: '12px 16px', textAlign: 'left', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Event Name</th>
-                <th style={{padding: '12px 16px', textAlign: 'left', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Photos Count</th>
-                <th style={{padding: '12px 16px', textAlign: 'right', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {events.length === 0 ? (
-                <tr><td colSpan="3" style={{padding: '30px', textAlign: 'center', color: '#6b7280', fontSize: '14px'}}>No events found.</td></tr>
-              ) : (
-                events.map(ev => (
-                  <tr key={ev.id} style={{borderBottom: '1px solid #e5e7eb'}}>
-                    <td style={{padding: '12px 16px', fontSize: '14px', color: '#111827', fontWeight: '500'}}>{ev.title}</td>
-                    <td style={{padding: '12px 16px', fontSize: '14px', color: '#4b5563'}}>{ev.images?.length || 0}</td>
-                    <td style={{padding: '12px 16px', textAlign: 'right'}}>
-                      <button onClick={() => handleDeleteEvent(ev.id)} style={{backgroundColor: '#fee2e2', color: '#dc2626', border: 'none', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', transition: 'background-color 0.2s'}}>Delete</button>
-                    </td>
+        {!viewingEvent ? (
+          <>
+            <div className="staff-form-header" style={{color: '#374151', fontSize: '16px', fontWeight: '600', display: 'flex', alignItems: 'center', marginBottom: '20px'}}>
+              <FaBook style={{marginRight: '10px', color: '#6b7280'}}/> Manage Events ({events.length})
+            </div>
+            
+            <div style={{overflowX: 'auto', borderRadius: '6px', border: '1px solid #e5e7eb'}}>
+              <table className="admin-table" style={{width: '100%', borderCollapse: 'collapse', margin: 0}}>
+                <thead>
+                  <tr style={{backgroundColor: '#f9fafb', borderBottom: '1px solid #e5e7eb'}}>
+                    <th style={{padding: '12px 16px', textAlign: 'left', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Event Name</th>
+                    <th style={{padding: '12px 16px', textAlign: 'left', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Photos Count</th>
+                    <th style={{padding: '12px 16px', textAlign: 'right', fontSize: '13px', color: '#4b5563', fontWeight: '600'}}>Action</th>
                   </tr>
+                </thead>
+                <tbody>
+                  {events.length === 0 ? (
+                    <tr><td colSpan="3" style={{padding: '30px', textAlign: 'center', color: '#6b7280', fontSize: '14px'}}>No events found.</td></tr>
+                  ) : (
+                    events.map(ev => (
+                      <tr key={ev.id} style={{borderBottom: '1px solid #e5e7eb'}}>
+                        <td style={{padding: '12px 16px', fontSize: '14px', color: '#111827', fontWeight: '500'}}>{ev.title}</td>
+                        <td style={{padding: '12px 16px', fontSize: '14px', color: '#4b5563'}}>{ev.images?.length || 0}</td>
+                        <td style={{padding: '12px 16px', textAlign: 'right', display: 'flex', gap: '8px', justifyContent: 'flex-end'}}>
+                          <button onClick={() => setViewingEvent(ev)} style={{backgroundColor: '#e0f2fe', color: '#0369a1', border: 'none', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', transition: 'background-color 0.2s'}}>View Photos</button>
+                          {/* Keeping delete as an option for admins just in case, but styled less prominently if requested. I'll include both since they might need to delete events later. */}
+                          <button onClick={() => handleDeleteEvent(ev.id)} style={{backgroundColor: '#fee2e2', color: '#dc2626', border: 'none', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', transition: 'background-color 0.2s'}}>Delete</button>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </>
+        ) : (
+          <>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid #f3f4f6', paddingBottom: '12px'}}>
+              <div className="staff-form-header" style={{color: '#374151', fontSize: '18px', fontWeight: '600', display: 'flex', alignItems: 'center', margin: 0}}>
+                <FaImages style={{marginRight: '10px', color: '#3b82f6'}}/> {viewingEvent.title} - Photos
+              </div>
+              <button 
+                onClick={() => setViewingEvent(null)} 
+                style={{backgroundColor: '#2563eb', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 4px rgba(37, 99, 235, 0.2)', transition: 'background-color 0.2s'}}
+                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#1d4ed8'}
+                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#2563eb'}
+              >
+                <FaArrowLeft /> Back to Events
+              </button>
+            </div>
+            
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '20px'}}>
+              <style>
+                {`
+                  .photo-card {
+                    position: relative;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    border: 1px solid #e5e7eb;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+                    background-color: #f9fafb;
+                    aspect-ratio: 1;
+                    transition: transform 0.2s, box-shadow 0.2s;
+                  }
+                  .photo-card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+                  }
+                  .photo-card-overlay {
+                    position: absolute;
+                    bottom: -60px;
+                    left: 0;
+                    right: 0;
+                    background: rgba(0,0,0,0.75);
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 12px;
+                    transition: bottom 0.3s ease;
+                    backdrop-filter: blur(4px);
+                  }
+                  .photo-card:hover .photo-card-overlay {
+                    bottom: 0;
+                  }
+                  .photo-action-btn {
+                    color: white;
+                    background: transparent;
+                    border: none;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    font-size: 13px;
+                    font-weight: 500;
+                    padding: 6px 12px;
+                    border-radius: 6px;
+                    transition: background 0.2s;
+                  }
+                  .photo-action-btn:hover {
+                    background: rgba(255,255,255,0.2);
+                  }
+                `}
+              </style>
+              {(!viewingEvent.photosList || viewingEvent.photosList.length === 0) ? (
+                <div style={{gridColumn: '1 / -1', padding: '40px', textAlign: 'center', color: '#6b7280', backgroundColor: '#f9fafb', borderRadius: '8px', border: '1px dashed #d1d5db'}}>
+                  No photos uploaded for this event yet. Use the upload section above.
+                </div>
+              ) : (
+                viewingEvent.photosList.map((photo, i) => (
+                  <div key={i} className="photo-card">
+                    <img src={`http://localhost:5000${photo.url}`} alt={`${viewingEvent.title} - ${i}`} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                    <div className="photo-card-overlay">
+                      <button className="photo-action-btn" onClick={() => setPreviewImage(`http://localhost:5000${photo.url}`)}>
+                        <FaEye /> View
+                      </button>
+                      <button className="photo-action-btn" onClick={() => handleDeletePhoto(photo.id)} style={{color: '#fca5a5'}}>
+                        <FaTrash /> Delete
+                      </button>
+                    </div>
+                  </div>
                 ))
               )}
-            </tbody>
-          </table>
-        </div>
+            </div>
+          </>
+        )}
       </div>
+
+      {/* Full Screen Image Preview Modal */}
+      {previewImage && (
+        <div style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.85)', zIndex: 9999, display: 'flex', justifyContent: 'center', alignItems: 'center'}} onClick={() => setPreviewImage(null)}>
+          <img src={previewImage} style={{maxWidth: '90%', maxHeight: '90%', objectFit: 'contain', borderRadius: '8px', boxShadow: '0 4px 20px rgba(0,0,0,0.3)'}} onClick={e => e.stopPropagation()} />
+          <button onClick={() => setPreviewImage(null)} style={{position: 'absolute', top: '24px', right: '32px', background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '50%', width: '44px', height: '44px', fontSize: '20px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s', backdropFilter: 'blur(4px)'}}
+          onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)' }}
+          onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)' }}>
+            <FaTimes />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
