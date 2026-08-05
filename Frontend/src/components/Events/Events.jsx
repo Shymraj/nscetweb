@@ -2,12 +2,14 @@ import React from "react";
 import "./Events.css";
 import { motion } from "framer-motion";
 import { FaCalendarAlt, FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // 👉 1. Import useNavigate
 
 import waves from "../../assets/hackathon.png";
 import sports from "../../assets/waves.jpeg";
 import pongal from "../../assets/pongal.jpg";
 import ps1 from "../../assets/annual.jpg";
 
+// 👉 2. Added 'link' property to each event object
 const events = [
   {
     category: "Hackathon",
@@ -17,7 +19,8 @@ const events = [
     title: "Hackathon 2025–26",
     description:
       "National-level 48-hour coding marathon open to all engineering students with exciting prizes.",
-    button: "View More"
+    button: "View More",
+    link: "/gallery/events" // Default link for 1st card
   },
   {
     category: "Cultural Fest",
@@ -27,7 +30,8 @@ const events = [
     title: "Waves'25",
     description:
       "NSCET's flagship cultural festival celebrating music, dance, drama, fine arts and technology.",
-    button: "View More"
+    button: "View More",
+    link: "/gallery/waves25" // 👉 Link for Waves'25
   },
   {
     category: "Conference",
@@ -37,7 +41,8 @@ const events = [
     title: "Pongal 2026",
     description:
       "International Conference on Recent Trends in Technology with keynote speakers and paper presentations.",
-    button: "View More"
+    button: "View More",
+    link: "/gallery/events" // 👉 Link for Pongal
   },
   {
     category: "Sports",
@@ -47,12 +52,14 @@ const events = [
     title: "Annual Sports Meet",
     description:
       "Indoor and outdoor sports competitions encouraging teamwork, discipline and sportsmanship.",
-    button: "View More"
+    button: "View More",
+    link: "/gallery/events" // 👉 Link for Sports Meet
   },
-
 ];
 
 const Events = () => {
+  const navigate = useNavigate(); // 👉 3. Initialize navigate function
+
   return (
     <section className="events">
       <div className="events-header">
@@ -80,7 +87,6 @@ const Events = () => {
           >
             <div className="event-image">
               <img src={event.image} alt={event.title} />
-
             </div>
 
             <div className="event-content">
@@ -93,7 +99,11 @@ const Events = () => {
 
               <p>{event.description}</p>
 
-              <button className="event-btn">
+              {/* 👉 4. Added onClick with dynamic link */}
+              <button 
+                className="event-btn" 
+                onClick={() => navigate(event.link)}
+              >
                 <span>{event.button}</span>
                 <FaArrowRight />
               </button>

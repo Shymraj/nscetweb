@@ -409,6 +409,7 @@ line-height:1.6;
   font-weight: 800;
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .stats-card p {

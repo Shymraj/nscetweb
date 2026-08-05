@@ -1,6 +1,6 @@
 import "./Placement.css";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom"; // 👉 1. Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 import {
   FaUserGraduate,
   FaBuilding,
@@ -9,67 +9,85 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
-/* ================= Recruiter Logos ================= */
-// Make sure these paths and extensions perfectly match your project folder!
-import tcs from "../../assets/recruiters/tcs.webp";
-import infosys from "../../assets/recruiters/infosys.webp";
-import accenture from "../../assets/recruiters/accenture.png";
-import cognizant from "../../assets/recruiters/cognizant.png";
-import hcl from "../../assets/recruiters/hcl.png";
-import zoho from "../../assets/recruiters/zoho.png";
-import capgemini from "../../assets/recruiters/capgemini.jpeg";
-import amazon from "../../assets/recruiters/amazon.webp";
-import deloitte from "../../assets/recruiters/deloitte.jpeg";
-import techm from "../../assets/recruiters/techm.jpg";
+/* ================= EXACT RECRUITER LOGOS ================= */
+// Folder paths unified to lowercase "recruiters" for safety
+import tcs1 from "../../assets/recruiters/tcs.png";
+import schneider from "../../assets/recruiters/schneider.jpeg";
+import webberax from "../../assets/recruiters/webberax.png";
+import rds from "../../assets/recruiters/rds.jpeg";
+import wgtech from "../../assets/recruiters/wgtech.png";
+import alpha from "../../assets/recruiters/alpha.png";
+import mssoftware from "../../assets/recruiters/M&S software.png";
+import spark from "../../assets/recruiters/spark.png";
+import tesla1 from "../../assets/recruiters/tesla.png";
+import logoOg from "../../assets/recruiters/logo-og.png";
+
+// Set 2 (New 5 Logos)
+import ftl from "../../assets/recruiters/company.png";
+import hcl from "../../assets/recruiters/HCL.png";
+import infosys from "../../assets/recruiters/Infosys_logo.svg.png";
+import tcs2 from "../../assets/recruiters/tcs.png";
+
+/* 
+  🛑 ERROR FIX: 
+  'tesla-electronic-vclogo_2.jpg' file folder la illadha kaaranathala error varudhu. 
+  App crash aagama iruka, temporary ah pazhaya 'tesla1' image-ye assign panniruken.
+*/
+const tesla2 = tesla1; 
 
 /* ================= Placement Stats ================= */
 const stats = [
   {
     icon: <FaUserGraduate />,
-    number: "95%",
+    number: "90%",
     title: "Placement Rate",
     desc: "Consistent placement record with leading multinational companies.",
     color: "blue",
   },
   {
     icon: <FaMoneyBillWave />,
-    number: "₹18 LPA",
+    number: "₹28 LPA",
     title: "Highest Package",
     desc: "Highest salary package offered through campus recruitment.",
     color: "orange",
   },
   {
     icon: <FaChartLine />,
-    number: "₹5.2 LPA",
+    number: "₹5 LPA",
     title: "Average Package",
     desc: "Competitive salary packages offered every academic year.",
     color: "green",
   },
   {
     icon: <FaBuilding />,
-    number: "250+",
+    number: "20+",
     title: "Recruiters",
     desc: "Top national & international companies visit our campus.",
     color: "purple",
   },
 ];
 
-/* ================= Recruiters ================= */
+/* ================= Recruiters Array (Total 15) ================= */
 const recruiters = [
-  { name: "TCS", logo: tcs },
-  { name: "Infosys", logo: infosys },
-  { name: "Zoho", logo: zoho },
+  { name: "TCS", logo: tcs1 },
+  { name: "Schneider Electric", logo: schneider },
+  { name: "Webberax Solutions", logo: webberax },
+  { name: "Ramesh Design Studio", logo: rds },
+  { name: "WGTECH", logo: wgtech },
+  { name: "Alpha Hospital Solutions", logo: alpha },
+  { name: "M&S Software", logo: mssoftware },
+  { name: "Spark Minda", logo: spark },
+  { name: "Tesla Electric", logo: tesla1 },
+  { name: "Indo Shell", logo: logoOg },
+  { name: "FTL Maldives", logo: ftl },
   { name: "HCL", logo: hcl },
-  { name: "Accenture", logo: accenture },
-  { name: "Amazon", logo: amazon },
-  { name: "Deloitte", logo: deloitte },
-  { name: "Cognizant", logo: cognizant },
-  { name: "Capgemini", logo: capgemini },
-  { name: "Tech Mahindra", logo: techm },
+  { name: "Infosys", logo: infosys },
+  { name: "Tata Consultancy Services", logo: tcs2 },
+  { name: "Tesla Electronic", logo: tesla2 },
 ];
 
 function Placement() {
-  const navigate = useNavigate(); // 👉 2. Initialize navigate function
+  const navigate = useNavigate(); 
 
   return (
     <section className="placement">
@@ -169,7 +187,6 @@ function Placement() {
             and campus recruitment, we prepare every student for a successful
             future.
           </p>
-          {/* 👉 3. onClick function added to Button */}
           <button 
             className="placement-btn" 
             onClick={() => navigate('/placements')}
@@ -179,15 +196,15 @@ function Placement() {
         </div>
         <div className="banner-stats">
           <div className="banner-box">
-            <h3>250+</h3>
+            <h3>20+</h3>
             <span>Recruiters</span>
           </div>
           <div className="banner-box">
-            <h3>95%</h3>
+            <h3>90%</h3>
             <span>Placement Rate</span>
           </div>
           <div className="banner-box">
-            <h3>₹18 LPA</h3>
+            <h3>₹28 LPA</h3>
             <span>Highest Package</span>
           </div>
           <div className="banner-box">

@@ -8,6 +8,7 @@ import imgNathirunSabinash from "./images/nathirunsabinash.jpg";
 import imgHariprasath from "./images/hariprasath.jpg";
 import imgManojPrabakar from "./images/Manoj_prabakar.jpg";
 import imgPremkumar from "./images/General Engg - Premkumar.jpg";
+import imgAadhitya from "./images/P. Aadhitya.jpg";
 
 export const civilFacultyData = [
   {
@@ -442,6 +443,36 @@ export const civilFacultyData = [
     awards: [],
     experience: [
       "12.7 Years"
+    ]
+  },
+  {
+    id: "aadhitya",
+    slug: "aadhitya",
+    name: "P. Aadhitya",
+    desig: "Assistant Professor",
+    qual: "",
+    email: "aadhitya@nscet.org",
+    image: imgAadhitya,
+    spec: "Structural",
+    objectPosition: "center 10%",
+    highlights: [
+      {
+        title: "Academic Focus",
+        description: "Specializing in Structural Engineering.",
+      },
+      {
+        title: "Contact",
+        description: "Email: aadhitya@nscet.org",
+      }
+    ],
+    linkedin: "http://www.linkedin.com/in/aadhi-jaina-3b23aa170",
+    about: "P. Aadhitya is a dedicated faculty member in the Department of Civil Engineering with a specialization in Structural Engineering.",
+    publications: [],
+    projects: [],
+    patents: [],
+    awards: [],
+    experience: [
+      "2 Months"
     ]
   }
 ];
