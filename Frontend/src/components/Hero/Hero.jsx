@@ -35,12 +35,21 @@ const Hero = () => {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % heroes.length);
       }, 5000);
+      return () => clearInterval(interval); // Added cleanup to prevent memory leaks
     }
   }, [heroes.length]);
 
   const currentHeroImg = heroes.length > 0 && heroes[currentIndex].photo_url 
     ? `http://localhost:5000${heroes[currentIndex].photo_url}` 
     : heroImage;
+
+  // 👉 SCROLL FUNCTION ADD PANNIYACHU
+  const scrollToEnquiry = () => {
+    const formSection = document.getElementById("enquiry-form");
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section
@@ -81,6 +90,9 @@ const Hero = () => {
                     onClick={() => {
                       if (heroes[currentIndex].url) {
                         window.open(heroes[currentIndex].url, '_blank');
+                      } else {
+                        // 👉 URL illana automatic ah form kku scroll aagum
+                        scrollToEnquiry();
                       }
                     }}
                   >
@@ -113,14 +125,15 @@ const Hero = () => {
               <p className="college-tagline">Empowering Minds, Shaping the Future</p>
 
               <p className="left-description">
-                Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai
-    Accredited by NAAC with 'A' Grade <br />Recognized under 2(f) of the UGC Act, 1956 <br />
-    An ISO 9001:2015 Certified Institution <br />
-    Vadapudupatti, Annanji (PO), Theni - 625531.
+                Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai<br/>
+                Accredited by NAAC with 'A' Grade <br />Recognized under 2(f) of the UGC Act, 1956 <br />
+                An ISO 9001:2015 Certified Institution <br />
+                Vadapudupatti, Annanji (PO), Theni - 625531.
               </p>
 
               <div className="hero-buttons">
-                <button className="btn-primary">
+                {/* 👉 INGA onClick ADD PANNIYACHU */}
+                <button className="btn-primary" onClick={scrollToEnquiry}>
                   Apply Now
                   <FaArrowRight />
                 </button>
@@ -171,4 +184,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;  
+export default Hero;

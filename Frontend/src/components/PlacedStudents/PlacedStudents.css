@@ -1,0 +1,206 @@
+/* Import Premium Font matching your website */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* =====================================================
+   PLACEMENT SECTION BASE
+===================================================== */
+.placement-section {
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  padding: 80px 20px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+
+.placement-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* =====================================================
+   PREMIUM TITLE (Clean & Professional)
+===================================================== */
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 60px;
+  
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #0f172a; /* Professional Dark Slate for Light Mode */
+  line-height: 1.2;
+  transition: color 0.4s ease;
+}
+
+/* 2025-26 Highlight */
+.section-title span {
+  color: #f59e0b; /* Premium Golden Orange */
+  font-weight: 800;
+  margin-right: 8px;
+}
+
+/* Premium underline matching other sections */
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -15px;
+  width: 80px;
+  height: 4px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #2563eb, #ff7a00);
+}
+
+/* =====================================================
+   MARQUEE SCROLL
+===================================================== */
+.marquee-wrapper {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+.marquee-track {
+  display: flex;
+  gap: 30px; 
+  padding: 20px 0;
+  width: max-content;
+  animation: scrollLeft 45s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* =====================================================
+   POSTER CARD (Professional Size)
+===================================================== */
+.poster-card {
+  width: 280px; 
+  height: 385px; 
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 8px; 
+  border: 1px solid rgba(15, 23, 42, 0.08); /* Clean thin border */
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.poster-card:hover {
+  transform: translateY(-8px);
+  border-color: #ff7a00;
+  box-shadow: 0 20px 40px rgba(255, 122, 0, 0.12);
+}
+
+.poster-img-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.4s ease;
+}
+
+.poster-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.poster-card:hover img {
+  transform: scale(1.03); 
+}
+
+/* =====================================================
+   DARK MODE COMPATIBILITY
+===================================================== */
+body.dark-mode .placement-section {
+  background: #0f172a; /* Deep Slate Background */
+}
+
+body.dark-mode .section-title {
+  color: #ffffff; /* White text for dark mode */
+}
+
+body.dark-mode .section-title span {
+  color: #f59e0b; /* Keeping orange highlight */
+}
+
+body.dark-mode .poster-card {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .poster-card:hover {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: #ff7a00;
+  box-shadow: 0 20px 40px rgba(255, 122, 0, 0.15);
+}
+
+body.dark-mode .poster-img-container {
+  background: #1e293b; /* Dark inner container */
+}
+
+body.dark-mode .poster-img-container img {
+  filter: brightness(0.95); /* Slight tuning for dark mode */
+}
+
+/* =====================================================
+   MOBILE RESPONSIVENESS
+===================================================== */
+@media (max-width: 768px) {
+  .placement-section {
+      padding: 60px 15px;
+  }
+
+  .section-title {
+      font-size: 26px;
+      margin-bottom: 50px;
+  }
+
+  .section-title::after {
+      width: 60px;
+  }
+
+  .poster-card {
+      width: 230px; 
+      height: 320px; 
+  }
+}
