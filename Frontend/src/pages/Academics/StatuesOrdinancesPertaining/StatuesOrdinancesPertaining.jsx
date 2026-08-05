@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './StatuesOrdinancesPertaining.css';
 import {
   FaBalanceScale,
@@ -71,7 +72,7 @@ const StatutesLayout = () => {
           </div>
           <p className="statutes-card-desc">Access and download academic regulations for undergraduate and postgraduate programs.</p>
           <div className="statutes-card-actions">
-            <button className="statutes-btn-translucent">
+            <a href="./IMAGE/ACADEMIC REGULATIONS 2025).pdf" target="_blank" className="statutes-btn-translucent">
               <span className="statutes-btn-left">
                 <span className="statutes-btn-circle">
                   <FaGraduationCap />
@@ -79,8 +80,8 @@ const StatutesLayout = () => {
                 UNDERGRADUATE REGULATIONS
               </span>
               <FaChevronRight className="statutes-btn-arrow" />
-            </button>
-            <button className="statutes-btn-translucent">
+            </a>
+            <a href="./IMAGE/PG Regulations 2025.pdf" target="_blank" className="statutes-btn-translucent">
               <span className="statutes-btn-left">
                 <span className="statutes-btn-circle">
                   <FaGraduationCap />
@@ -88,7 +89,7 @@ const StatutesLayout = () => {
                 POSTGRADUATE REGULATIONS
               </span>
               <FaChevronRight className="statutes-btn-arrow" />
-            </button>
+            </a>
           </div>
         </div>
 
@@ -127,34 +128,34 @@ const StatutesLayout = () => {
           </div>
           <p className="statutes-card-desc">Explore the undergraduate programs offered by NSCET.</p>
           <div className="statutes-course-grid">
-            <div className="statutes-course-capsule">
+            <Link to="/departments/aids" className="statutes-course-capsule">
               <span className="statutes-course-icon"><FaBrain /></span>
               <span>AI & DS</span>
-            </div>
-            <div className="statutes-course-capsule">
+            </Link>
+            <Link to="/departments/cse" className="statutes-course-capsule">
               <span className="statutes-course-icon"><FaCode /></span>
               <span>CSE</span>
-            </div>
-            <div className="statutes-course-capsule">
+            </Link>
+            <Link to="/departments/electronics" className="statutes-course-capsule">
               <span className="statutes-course-icon"><FaMicrochip /></span>
               <span>ECE</span>
-            </div>
-            <div className="statutes-course-capsule">
+            </Link>
+            <Link to="/departments/electrical" className="statutes-course-capsule">
               <span className="statutes-course-icon"><FaBolt /></span>
               <span>EEE</span>
-            </div>
-            <div className="statutes-course-capsule">
+            </Link>
+            <Link to="/departments/civil" className="statutes-course-capsule">
               <span className="statutes-course-icon"><FaBuilding /></span>
               <span>CIVIL</span>
-            </div>
-            <div className="statutes-course-capsule">
+            </Link>
+            <Link to="/departments/it" className="statutes-course-capsule">
               <span className="statutes-course-icon"><FaLaptopCode /></span>
               <span>IT</span>
-            </div>
-            <div className="statutes-course-capsule">
+            </Link>
+            <Link to="/departments/mechanical" className="statutes-course-capsule">
               <span className="statutes-course-icon"><FaCog /></span>
               <span>MECH</span>
-            </div>
+            </Link>
           </div>
         </div>
 
@@ -195,7 +196,7 @@ const StatutesLayout = () => {
           </div>
           <p className="statutes-card-desc">Access postgraduate and Ph.D. regulations and guidelines.</p>
           <div className="statutes-card-actions">
-            <button className="statutes-btn-translucent">
+            <a href="./IMAGE/PG Regulations 2025.pdf" target="_blank" className="statutes-btn-translucent">
               <span className="statutes-btn-left">
                 <span className="statutes-btn-circle">
                   <FaRegFileAlt />
@@ -203,8 +204,8 @@ const StatutesLayout = () => {
                 POSTGRADUATE REGULATIONS
               </span>
               <FaChevronRight className="statutes-btn-arrow" />
-            </button>
-            <button className="statutes-btn-translucent">
+            </a>
+            <a href="./IMAGE/Ph.D-Regulation-2025.pdf" target="_blank" className="statutes-btn-translucent">
               <span className="statutes-btn-left">
                 <span className="statutes-btn-circle">
                   <FaRegFileAlt />
@@ -212,7 +213,7 @@ const StatutesLayout = () => {
                 PHD REGULATIONS
               </span>
               <FaChevronRight className="statutes-btn-arrow" />
-            </button>
+            </a>
           </div>
         </div>
 
@@ -248,7 +249,7 @@ const StatutesLayout = () => {
           </div>
           <p className="statutes-card-desc">Discover postgraduate programs offered by NSCET.</p>
           <div className="statutes-card-actions">
-            <button className="statutes-btn-solid">
+            <Link to="/departments/me-structural" className="statutes-btn-solid">
               <span className="statutes-btn-left">
                 <span className="statutes-btn-circle">
                   <FaBuilding />
@@ -256,8 +257,8 @@ const StatutesLayout = () => {
                 STRUCTURAL ENGINEERING
               </span>
               <FaChevronRight className="statutes-btn-arrow" />
-            </button>
-            <button className="statutes-btn-solid">
+            </Link>
+            <Link to="/departments/me-manufacturing" className="statutes-btn-solid">
               <span className="statutes-btn-left">
                 <span className="statutes-btn-circle">
                   <FaCog />
@@ -265,7 +266,7 @@ const StatutesLayout = () => {
                 MANUFACTURING ENGINEERING
               </span>
               <FaChevronRight className="statutes-btn-arrow" />
-            </button>
+            </Link>
           </div>
         </div>
 
