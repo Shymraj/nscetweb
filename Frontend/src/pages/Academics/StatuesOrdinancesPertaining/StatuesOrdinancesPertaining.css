@@ -307,6 +307,8 @@
     font-size: 0.88rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .statutes-course-capsule:hover {
@@ -337,6 +339,7 @@
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
 }
 
 .statutes-btn-solid:hover {
