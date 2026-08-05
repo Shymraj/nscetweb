@@ -34,10 +34,10 @@ const GirlsHostel = () => {
       "Keep your rooms and the hostel environment clean."
     ],
     gallery: [
-      { id: 1, imgUrl: "/GH.jpg" },
-      { id: 2, imgUrl: "/ghostel2.jpg" },
-      { id: 3, imgUrl: "/ghostel3.jpg" },
-      { id: 4, imgUrl: "/ghostel4.jpg" }
+      { id: 1, imgUrl: "/GH/GH.jpg" },
+      { id: 2, imgUrl: "/GH/GH2.jpg" },
+      { id: 3, imgUrl: "/GH/GH3.jpg" },
+      { id: 4, imgUrl: "/GH/GH1.jpg" }
     ]
   };
 
@@ -63,7 +63,7 @@ const GirlsHostel = () => {
       
       <section className="gh-hero" style={{ aspectRatio: '8 / 3', width: '100%' }}>
         <div className="gh-hero-content">
-          <h1 className="gh-animate-slide-down">NSCET GIRLS HOSTEL</h1>
+          
         </div>
       </section>
 

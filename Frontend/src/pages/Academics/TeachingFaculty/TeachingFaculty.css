@@ -43,6 +43,7 @@
 .tf-pill-nav-container {
   position: relative;
   display: flex;
+  align-items: center; /* 🔥 ADDED FIX: Ithu thaan mela keela erangama theliva center pannum */
   background-color: #e5e7eb;
   border-radius: 999px;
   padding: 6px;
@@ -57,7 +58,7 @@
   top: 6px;
   bottom: 6px;
   left: 6px;
-  width: calc(20% - 2.4px); 
+  width: calc(25% - 3px); /* 🔥 ADDED FIX: Ph.D remove pannathala 20% la irunthu 25% aakiyachu (4 tabs) */
   background-color:rgb(21, 27, 84);
   border-radius: 999px;
   transition: transform 0.4s cubic-bezier(0.25, 1.2, 0.5, 1);
@@ -74,6 +75,7 @@
   font-size: 0.95rem;
   font-weight: 700;
   padding: 12px 10px;
+  margin: 0; /* 🔥 ADDED FIX: Default margins block panna */
   cursor: pointer;
   text-align: center;
   transition: color 0.3s ease;

@@ -9,7 +9,7 @@ const AcademicLeadership = () => {
       name: "Mr. L.S. Vignesh",
       role: "Assistant Professor & Head Of The Department",
       department: "Artificial Intelligence & Data Science",
-      image: "/vignesh.jpg", 
+      image: "/AIDS/vignesh.jpg", 
       qualifications: ["M.E., Ph.D"]
     },
     {
@@ -17,7 +17,7 @@ const AcademicLeadership = () => {
       name: "Mr. N. Nagarathinam",
       role: "Assistant Professor & Head Of The Department",
       department: "Civil Engineering",
-      image: "/nagarathinam.jpg",
+      image: "/CIVIL/nagarathinam.jpg",
       qualifications: ["M. E., M. I. S. T. E., (Ph. D)"]
     },
     {
@@ -25,7 +25,7 @@ const AcademicLeadership = () => {
       name: "Dr. J. Mathalai Raj",
       role: "Assistant Professor & Head Of The Department",
       department: "Computer Science Engineering",
-      image: "/mathalairaj.jpg",
+      image: "/CSE/mathalairaj.jpg",
       qualifications: ["M.E (CSE), Ph.D"]
     },
     {
@@ -41,7 +41,7 @@ const AcademicLeadership = () => {
       name: "Dr. T. Venishkumar",
       role: " Professor & Head Of The Department",
       department: "Electronics and Communication Engineering",
-      image: "/venishkumar.jpg",
+      image: "/ECE/venishkumar.jpg",
       qualifications: ["M.E., Ph.D"]
     },
     {
@@ -49,7 +49,7 @@ const AcademicLeadership = () => {
       name: "Dr. R. Athilingam",
       role: "Associate Professor & Head Of The department",
       department: "Embedded Systems and Technology",
-      image: "/athilingam.jpg",
+      image: "/EEE/athilingam.jpg",
       qualifications: ["Ph.D, M.E."]
     },
     {
@@ -57,7 +57,7 @@ const AcademicLeadership = () => {
       name: "Mr. C. Prathap",
       role: "Assistant Professor & Head Of The Department",
       department: "Information Technology",
-      image: "/prathap c.jpg",
+      image: "/IT/prathap c.jpg",
       qualifications: ["M.Tech., Ph.D"]
     },
     {
@@ -65,7 +65,7 @@ const AcademicLeadership = () => {
       name: "Dr. B. Radha Krishnan",
       role: "Professor & Head Of The Department",
       department: "Mechanical Engineering",
-      image: "/radhakrishnan.jpg",
+      image: "/MECH/radhakrishnan.jpg",
       qualifications: ["M.E., Ph.D., MISTE., MIE."]
     },
    {
@@ -73,7 +73,7 @@ const AcademicLeadership = () => {
       name: "Dr. A. Vembathurajesh",
       role: "Assistant Professor & Head Of The Department",
       department: "Science & Humanities", 
-      image: "/vembathurajesh.png",
+      image: "/S&H/vembathurajesh.png",
       qualifications: ["M.E., Ph.D, MISTE"]
     },
     {
@@ -81,7 +81,7 @@ const AcademicLeadership = () => {
       name: "Dr. E. Anantha Krishnan",
       role: "Professor & Head Of The Department",
       department: "Structural Engineering",
-      image: "/ananthakrishnan.jpg",
+      image: "/CIVIL/.jpg",
       qualifications: ["M.E. - Structural Engineering", "M. E., Ph. D."]
     }
   ];
@@ -109,7 +109,7 @@ const AcademicLeadership = () => {
             <div className="al-hex-wrapper">
               <div className="al-hex-outer">
                 <div className="al-hex-inner">
-                  <img src="/somasundaram.jpg" alt="Secretary" />
+                  <img src="/HEADS/somasundaram.jpg" alt="Secretary" />
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@ const AcademicLeadership = () => {
             <div className="al-hex-wrapper">
               <div className="al-hex-outer">
                 <div className="al-hex-inner">
-                  <img src="/subramani.jpg" alt="Joint Secretary" />
+                  <img src="/HEADS/subramani.jpg" alt="Joint Secretary" />
                 </div>
               </div>
             </div>
@@ -152,7 +152,7 @@ const AcademicLeadership = () => {
             <div className="al-hex-wrapper">
               <div className="al-hex-outer">
                 <div className="al-hex-inner">
-                  <img src="/principle.png" alt="Principal" />
+                  <img src="/ME MANUFACTURING/principle.png" alt="Principal" />
                 </div>
               </div>
             </div>
@@ -173,7 +173,7 @@ const AcademicLeadership = () => {
             <div className="al-hex-wrapper">
               <div className="al-hex-outer">
                 <div className="al-hex-inner">
-                  <img src="/sathya.jpeg" alt="Vice Principal" />
+                  <img src="/ME CSE/sathya.jpeg" alt="Vice Principal" />
                 </div>
               </div>
             </div>
@@ -249,7 +249,7 @@ const AcademicLeadership = () => {
             <div className="al-hex-wrapper">
               <div className="al-hex-outer">
                 <div className="al-hex-inner">
-                  <img src="/Sinthan.jpg" alt="Librarian" />
+                  <img src="/library/Sinthan.jpg" alt="Librarian" />
                 </div>
               </div>
             </div>
