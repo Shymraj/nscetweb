@@ -3,7 +3,9 @@ import "./ResearchHub.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBookOpen, FaRunning, FaBed, FaUsers, FaCoffee, FaArrowRight } from "react-icons/fa";
 
-// Existing Imports
+// =========================================================================
+// EXISTING IMPORTS (Keeping them exactly as they were)
+// =========================================================================
 import ispin from "../../assets/ispin.mp4"; 
 import drone1 from "../../assets/Drone.jpg";
 import drone2 from "../../assets/Drone1.jpg";
@@ -11,12 +13,15 @@ import drone3 from "../../assets/Drone2.jpg";
 import printingImg from "../../assets/Printing.jpeg";
 
 // =========================================================================
-// 👉 STEP 1: FUTURE IMAGES IMPORT PANNURA EDAM 👈
-// Images ready aanadhum, keela iruka lines-a uncomment panni correct path kudunga:
+// NEW COE IMPORTS (From your requested folder: src/assets/coe)
 // =========================================================================
-// import printingImg from "../../assets/Printing.jpg";
-// import iqarenaImg from "../../assets/Iqarena.jpg";
-// import cafeteriaImg from "../../assets/Cafeteria.jpg";
+import coeDrone3 from "../../assets/coe/drone3.jpg";
+import coeDrone4 from "../../assets/coe/drone4.jpg";
+import coePrinting1 from "../../assets/coe/printing.jpg";
+import coePrintingCopy from "../../assets/coe/Printing - Copy.jpeg";
+import vehicle1 from "../../assets/coe/vehicle1.jpg";
+import vehicle2 from "../../assets/coe/vehicle2.jpg";
+
 
 const campusData = [
   {
@@ -31,7 +36,8 @@ const campusData = [
     id: "sports",
     title: "Drone Technology",
     icon: <FaRunning />,
-    images: [drone1, drone2, drone3], 
+    // 👉 Added new drone images along with the old ones
+    images: [drone1, drone2, drone3, coeDrone3, coeDrone4], 
     description: "State-of-the-art facilities for assembling, testing, and flying customized drones. Students get hands-on experience in modern aerial robotics.",
     highlight: "Advanced Robotics"
   },
@@ -39,9 +45,8 @@ const campusData = [
     id: "printing",
     title: "3D - Printing",
     icon: <FaBed />,
-    // 👇 STEP 2 (PRINTING): INGA IMAGE ADD PANNANUM 👇
-    // Future code: image: printingImg,
-    image: printingImg,
+    // 👉 Changed 'image' to 'images' array to enable slideshow with old + new images
+    images: [printingImg, coePrinting1, coePrintingCopy],
     description: "Safe, secure, and comfortable AC/Non-AC hostels with high-speed Wi-Fi, hygienic mess facilities, and recreation rooms offering a home away from home.",
     highlight: "Modern Amenities"
   },
@@ -49,9 +54,8 @@ const campusData = [
     id: "clubs",
     title: "Electrical Vehicle (EEE)",
     icon: <FaUsers />,
-    // 👇 STEP 2 (IQARENA): INGA IMAGE ADD PANNANUM 👇
-    // Future code: image: iqarenaImg,
-    image: "https://via.placeholder.com/1000x800/f8fafc/f97316?text=IQARENA+Image+Coming+Soon",
+    // 👉 Removed placeholder and added the new vehicle images as a slider
+    images: [vehicle1, vehicle2],
     description: "From Robotics and Coding to Drama and Music, join over 30+ active student clubs to pursue your passion, build leadership skills, and network.",
     highlight: "30+ Active Clubs"
   },
@@ -59,8 +63,6 @@ const campusData = [
     id: "cafeteria",
     title: "WG Tech (ECE)",
     icon: <FaCoffee />,
-    // 👇 STEP 2 (CAFETERIA): INGA IMAGE ADD PANNANUM 👇
-    // Future code: image: cafeteriaImg,
     image: "https://via.placeholder.com/1000x800/f8fafc/f97316?text=Cafeteria+Image+Coming+Soon",
     description: "Spacious multi-cuisine cafeterias and lush green campus hangout spots where ideas are brewed over coffee and lifelong friendships are made.",
     highlight: "Hygienic Multi-Cuisine"
