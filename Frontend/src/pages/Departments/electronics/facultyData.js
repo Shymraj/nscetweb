@@ -125,26 +125,23 @@ export const electronicsFacultyData = [
     experience: [
       "12.8 Years"
     ]},
-    {id: "mrs-p-shantha-devi", slug: "mrs-p-shantha-devi",  name: "Mrs. P. Shantha Devi", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "shanthadevi@nscet.org", image: imgShanthaDevi, spec: "Biomedical Signal Processing & Sensor Networks", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mrs-p-shantha-devi", slug: "mrs-p-shantha-devi",  name: "Ms. P. Shantha Devi", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "shanthadevi@nscet.org", image: imgShanthaDevi, spec: "VLSI Design, Digital Electronics, Embedded Systems", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/shantha-devi-p-820644126",
+    about: "Ms. P. Shantha Devi is a dedicated faculty member with over 8 years of teaching and research experience in the Department of Electronics and Communication Engineering. Her areas of specialization include VLSI Design, Digital Electronics, and Embedded Systems. She is passionate about innovation, research, and helping students build strong technical skills through practical and industry-oriented learning.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "2"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "10"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "1"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "8.6 Years"
     ]},
     {id: "mrs-p-gowthami", slug: "mrs-p-gowthami",  name: "Mrs. P. Gowthami", desig: "Assistant Professor", qual: "M.E.", email: "gowthami@nscet.org", image: imgGowthami, spec: "Communication Networks & Microcontrollers", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
