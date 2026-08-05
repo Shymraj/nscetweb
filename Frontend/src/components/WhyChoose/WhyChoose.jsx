@@ -1,8 +1,11 @@
 import React from 'react';
 import './WhyChoose.css';
+import { useNavigate } from 'react-router-dom'; // 👉 1. Import useNavigate
 import { FaLaptopCode, FaUserTie, FaHandshake, FaChartLine, FaArrowRight, FaAward } from 'react-icons/fa';
 
 const WhyChoose = () => {
+  const navigate = useNavigate(); // 👉 2. Initialize navigate function
+
   return (
     <section className="whychoose">
       <div className="why-header">
@@ -27,14 +30,18 @@ const WhyChoose = () => {
           </button>
         </div>
 
-        {/* Card 2 */}
+        {/* Card 2 - Expert Faculty */}
         <div className="why-card">
           <div className="why-icon">
             <FaUserTie />
           </div>
           <h3>Expert Faculty</h3>
           <p>Learn from experienced professors, researchers and industry mentors dedicated to academic excellence and student success.</p>
-          <button className="learn-more-btn">
+          {/* 👉 3. onClick function added for Expert Faculty */}
+          <button 
+            className="learn-more-btn" 
+            onClick={() => navigate('/academics/teaching-faculty')}
+          >
             Learn More <FaArrowRight className="btn-arrow" />
           </button>
         </div>
@@ -51,14 +58,18 @@ const WhyChoose = () => {
           </button>
         </div>
 
-        {/* Card 4 */}
+        {/* Card 4 - Career & Placements */}
         <div className="why-card">
           <div className="why-icon">
             <FaChartLine />
           </div>
           <h3>Career & Placements</h3>
           <p>Excellent placement training with top recruiters, career guidance and entrepreneurship support for every student.</p>
-          <button className="learn-more-btn">
+          {/* 👉 4. onClick function added for Placements */}
+          <button 
+            className="learn-more-btn" 
+            onClick={() => navigate('/student-life/placements')}
+          >
             Learn More <FaArrowRight className="btn-arrow" />
           </button>
         </div>
