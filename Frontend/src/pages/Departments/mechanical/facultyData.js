@@ -11,26 +11,23 @@ import imgVembathurajesh from "./images/vembathurajesh.png";
 import imgArunKumar from "./images/arunkumar.jpg";
 
 export const mechanicalFacultyData = [
-    {id: "dr-b-radha-krishnan", slug: "dr-b-radha-krishnan",  name: "Dr. B. Radha Krishnan", desig: "Professor & Head [I/C]", qual: "M.E., Ph.D., MISTE., MIE.", email: "hodmech@nscet.org", image: imgRadhaKrishnan, spec: "Thermal Engineering & Energy Systems", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "dr-b-radha-krishnan", slug: "dr-b-radha-krishnan",  name: "Dr. B. Radha Krishnan", desig: "Head of the Department (HOD)", qual: "M.E., Ph.D., MISTE., MIE.", email: "hodmech@nscet.org", image: imgRadhaKrishnan, spec: "Mechanical Engineering", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/dr-b-radha-krishnan-8a592759",
+    about: "Dr. B. Radha Krishnan serves as the Head of the Department of Mechanical Engineering with over 12 years of teaching and research experience. His specialization is Mechanical Engineering, and he has made significant contributions through research publications, patents, and academic projects. He is committed to fostering innovation, excellence in engineering education, and preparing students to meet industry and research challenges.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "65"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "5"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "4"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "12.5 Years"
     ]},
     {id: "mr-r-santhaseelan", slug: "mr-r-santhaseelan",  name: "Mr. R. Santhaseelan", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "santhaseelan@nscet.org", image: imgSanthaseelan, spec: "Manufacturing Tech & CAD/CAM", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
@@ -53,68 +50,55 @@ export const mechanicalFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mr-v-sivaganesan", slug: "mr-v-sivaganesan",  name: "Mr. V. Sivaganesan", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "sivaganesan@nscet.org", image: imgSivaganesan, spec: "Design of Machine Elements & Automation", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mr-v-sivaganesan", slug: "mr-v-sivaganesan",  name: "Sivaganesan V", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "sivaganesan@nscet.org", image: imgSivaganesan, spec: "Engineering Design, Materials", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/sivaganesan73/",
+    about: "Sivaganesan V is a dedicated faculty member with 12 years of teaching and research experience in the Department of Mechanical Engineering. His areas of specialization include Engineering Design and Materials. He is passionate about innovative engineering practices, research, and helping students develop strong technical knowledge through practical and industry-oriented learning.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "11"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "8"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "1"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "12 Years"
     ]},
-    {id: "dr-b-nagarajan", slug: "dr-b-nagarajan",  name: "Dr. B. Nagarajan", desig: "Assistant Professor", qual: "M.E., Ph.D, MISTE.", email: "nagarajan@nscet.org", image: imgNagarajan, spec: "Materials Engineering & Tribology", objectPosition: "center 10%" ,
+    {id: "dr-b-nagarajan", slug: "dr-b-nagarajan",  name: "Dr. B. Nagarajan", desig: "Assistant Professor", qual: "M.E., Ph.D, MISTE.", email: "nagarajan@nscet.org", image: imgNagarajan, spec: "Manufacturing, Coating", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    about: "Dr. B. Nagarajan is a dedicated faculty member with 13 years of teaching and research experience in the Department of Mechanical Engineering. His areas of specialization include Manufacturing and Coating. He is committed to advancing engineering education through research, innovation, and practical learning while mentoring students to excel in modern manufacturing technologies.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "8"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "15"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "1"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "13 Years"
     ]},
-    {id: "mr-p-surulimani", slug: "mr-p-surulimani",  name: "Mr. P. Surulimani", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "surulimanip@gmail.com", image: imgSurulimani, spec: "Fluid Mechanics & Turbo Machinery", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mr-p-surulimani", slug: "mr-p-surulimani",  name: "Surulimani P", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "surulimani@nscet.org", image: imgSurulimani, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/surulimani-p-mech-79138a34a",
+    about: "Surulimani P is a dedicated faculty member with 15 years of teaching experience in the Department of Mechanical Engineering. His specialization is Manufacturing Engineering, and he is committed to fostering practical learning, research, and innovation while equipping students with industry-relevant technical skills.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "5"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "10"
     ],
-    patents: [
-      "Dummy Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
+    patents: [],
+    awards: [],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "15 Years"
     ]},
     {id: "mr-s-harikishore", slug: "mr-s-harikishore",  name: "Mr. S. Harikishore", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "harikishore@nscet.org", image: imgHarikishore, spec: "Mechatronics & Robotics", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
@@ -200,25 +184,22 @@ export const mechanicalFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mr-g-arun-kumar", slug: "mr-g-arun-kumar",  name: "Mr. G. Arun Kumar", desig: "Assistant Professor", qual: "M.E.", email: "arunkumar1603@gmail.com", image: imgArunKumar, spec: "General Engineering & Mechanics", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mr-g-arun-kumar", slug: "mr-g-arun-kumar",  name: "Arunkumar G", desig: "Assistant Professor", qual: "M.E.", email: "arunkumar@nscet.org", image: imgArunKumar, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/arun-kumar-5433553b4",
+    about: "Arunkumar G is a dedicated faculty member with 9 years of teaching experience in the Department of Mechanical Engineering. His specialization is Manufacturing Engineering, and he is passionate about advancing engineering education through practical learning, research, and innovation. He is committed to equipping students with industry-relevant knowledge and technical skills.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "1"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "4"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "1"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "9 Years"
     ]}
   ];

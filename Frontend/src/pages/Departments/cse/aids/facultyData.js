@@ -8,7 +8,7 @@ import imgNagajothi from "./images/Nagajothi.jpg";
 import imgSunitha from "./images/Sunitha.jfif";
 import imgKodeeswaran from "./images/1778918812_ADS - Kodeeswaran.jpeg";
 import imgJenifer from "./images/Jenifer Daksh.jpg";
-import imgNithyapriya from "./images/Nithyapriya.jpg";
+import imgNithyapriya from "./images/Nithyapriya.png";
 
 export const aidsFacultyData = [
     {id: "mr-l-s-vignesh", slug: "mr-l-s-vignesh",  name: "Mr. L.S. Vignesh", desig: "Assistant Professor & Head [I/C]", qual: "M.E., (Ph.D)", email: "hodai_ds@nscet.org", image: imgVignesh, spec: "Artificial Intelligence & Deep Learning", objectPosition: "center 10%" ,
