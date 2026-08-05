@@ -5,6 +5,43 @@
   padding: 3rem 1.5rem;
   font-family: 'Inter', sans-serif;
   color: #333;
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* To contain the blurred blobs */
+}
+
+/* Background blobs to make glassmorphism visible */
+.edc-grid-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 5%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: #3b82f6; /* Blue blob */
+  filter: blur(120px);
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+.edc-grid-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 40%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: #10b981; /* Green blob */
+  filter: blur(150px);
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.25;
+}
+
+.edc-intro-section, .edc-values-highlight {
+  position: relative;
+  z-index: 2;
 }
 
 /* Page Title */
@@ -21,12 +58,23 @@
 
 /* About Section */
 .edc-about-box {
-  background-color: #f8fafc;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   padding: 2.5rem;
   border-radius: 12px;
-  border-left: 5px solid #2563eb;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-top: 5px solid #f59e0b;
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
   margin-bottom: 4rem;
+  transition: transform 0.3s ease;
+  margin-bottom: 4rem;
+}
+
+.edc-about-box:hover {
+  transform: translateY(-5px);
 }
 
 .edc-about-box h2 {
@@ -120,14 +168,16 @@
 }
 
 .split-card {
-  background: #ffffff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   padding: 2rem;
   border-radius: 16px;
   border-top: 5px solid;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
-  border-left: 1px solid #e2e8f0;
-  border-right: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  border-right: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   transition: transform 0.3s ease;
 }
 
@@ -136,7 +186,7 @@
 }
 
 .mission-card { border-top-color: #f59e0b; } /* Orange */
-.obj-card { border-top-color: #10b981; }    /* Green */
+.obj-card { border-top-color: #f59e0b; }    /* Orange */
 
 .card-header {
   display: flex;

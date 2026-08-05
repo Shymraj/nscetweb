@@ -3,6 +3,7 @@ import React from "react";
 import "./Campuslife.css"; 
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // 👉 1. Import useNavigate
 
 // Unga 5 images import (Paths correct-ah iruka nu check pannikonga)
 import pongalImg from "../../assets/pongal.jpg";
@@ -51,6 +52,8 @@ const eventsData = [
 ];
 
 function CampusLife() {
+  const navigate = useNavigate(); // 👉 2. Initialize navigate function
+
   return (
     <section className="campus-sticky-section">
       <div className="campus-sticky-container">
@@ -71,9 +74,15 @@ function CampusLife() {
               Our vibrant green campus offers a perfect blend of academics, 
               culture, and recreation to ensure holistic development.
             </p>
-            <button className="campus-primary-btn">
+            
+            {/* 👉 3. onClick function added to Button */}
+            <button 
+              className="campus-primary-btn" 
+              onClick={() => navigate('/gallery/events')}
+            >
               Explore Gallery <FaArrowRight style={{marginLeft: "8px"}} />
             </button>
+            
           </motion.div>
         </div>
 

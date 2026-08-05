@@ -212,7 +212,7 @@ const GrievanceRedressal = () => {
               <span className="grc-card-arrow">→</span>
             </motion.div>
             <motion.div 
-              className="grc-action-card contact-card"
+              className="grc-action-card"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}

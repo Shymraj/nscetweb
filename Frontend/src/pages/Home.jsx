@@ -13,6 +13,7 @@ import Events from "../components/Events/Events";
 import WhyChoose from "../components/WhyChoose/WhyChoose";
 import Contact from "../components/Contact/Contact";
 import Placement from "../components/Placement/Placement";
+import PlacedStudents from "../components/PlacedStudents/PlacedStudents";
 
 function Home() {
   return (
@@ -32,6 +33,7 @@ function Home() {
       <WhyChoose />
       <Contact />
       <Placement />
+      <PlacedStudents />
     </>
   );
 }

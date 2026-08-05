@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { 
   FaLightbulb, FaFlask, FaNetworkWired, FaBrain,
   FaChartLine, FaHandshake, FaMoneyBillWave, FaBookOpen, FaFileSignature,
@@ -21,6 +21,35 @@ const staggerContainer = {
 };
 
 const ResearchDevelopmentCell = () => {
+  const x = useMotionValue(0.5);
+  const y = useMotionValue(0.5);
+
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 20 });
+
+  const rotateX = useTransform(mouseYSpring, [0, 1], ["15deg", "-15deg"]);
+  const rotateY = useTransform(mouseXSpring, [0, 1], ["-15deg", "15deg"]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    const xPct = mouseX / width; 
+    const yPct = mouseY / height;
+    
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0.5);
+    y.set(0.5);
+  };
+
   const objectives = [
     {
       icon: <FaChartLine />,
@@ -56,7 +85,6 @@ const ResearchDevelopmentCell = () => {
     { name: "Dr. T. Venish Kumar A", desig: "Professor & Head", dept: "Department of Electronics and Communication Engineering" },
     { name: "Dr. M. Sathya", desig: "Associate Professor", dept: "Department of Computer Science and Engineering" },
     { name: "Dr. N. David Mathan", desig: "Professor", dept: "Department of Chemistry" },
-    { name: "Dr. Ananthakrishnan", desig: "Professor & Head", dept: "Department of Civil Engineering" },
     { name: "Dr. N. Mathavan", desig: "Assistant Professor", dept: "Department of Electronics and Communication Engineering" },
     { name: "Dr. Mathalai Raj", desig: "Assistant Professor", dept: "Department of Computer Science and Engineering" }
   ];
@@ -179,6 +207,14 @@ const ResearchDevelopmentCell = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+              rotateX,
+              rotateY,
+              transformPerspective: 1000,
+              transformStyle: "preserve-3d"
+            }}
           >
             <h2 className="rdc-incharge-title">Cell In-Charge</h2>
             <div className="rdc-incharge-details">

@@ -28,8 +28,9 @@ import imgKanimoli from "./images/kanimoli.jpg";
 import imgGeerthiga from "./images/68060bda58c98_Geerthiga.jpg";
 import imgPavithra from "./images/Pavithra.jpg";
 import imgNagajothi from "./images/Nagajothi.jpg";
-import imgSunitha from "./images/1778918688_ADS - Sunitha.jpeg";
+import imgSunitha from "./images/Sunitha.jfif";
 import imgKodeeswaran from "./images/1778918812_ADS - Kodeeswaran.jpeg";
+import imgNithyapriya from "./images/Nithyapriya.jpg";
 
 import "../../cse/CSE.css";
 

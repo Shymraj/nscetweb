@@ -28,15 +28,15 @@ const HeroSection = () => {
               <span className="info-label">Established</span>
             </div>
             <div className="info-card">
-              <span className="info-highlight">Anna Univ</span>
+              <span className="hero-info-val">Anna Univ</span>
               <span className="info-label">Affiliated</span>
             </div>
             <div className="info-card">
-              <span className="info-highlight">AICTE</span>
+              <span className="hero-info-val">AICTE</span>
               <span className="info-label">Approved</span>
             </div>
             <div className="info-card">
-              <span className="info-highlight grade-a">NAAC 'A'</span>
+              <span className="hero-info-val grade-a">NAAC 'A'</span>
               <span className="info-label">Accredited</span>
             </div>
           </div>

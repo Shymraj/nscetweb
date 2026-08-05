@@ -6,13 +6,10 @@ const GirlsHostel = () => {
     about: "The Girls Hostel at our college provides a comfortable and secure environment for students. Equipped with modern facilities and 24/7 supervision, the hostel ensures a home-like atmosphere where students can focus on their academics while enjoying their stay. Spacious rooms, hygienic dining, and recreational areas make it an ideal place for holistic growth and development.",
     administration: [
       { name: "Mrs. R. Uma (Ph.D)", role: "Warden" },
-      { name: "J. Preetha (M.Sc., M.Phil., M.Ed.,)", role: "Incharge" }
     ],
     strength: [
       { label: "Total Rooms", value: "30" },
       { label: "Number of Students in a Room", value: "03" },
-      { label: "Toilets in Hostel", value: "40" },
-      { label: "Bathrooms in Hostel", value: "40" },
       { label: "Study Room", value: "02" },
       { label: "Total Number of Students", value: "29" }
     ],
@@ -64,16 +61,14 @@ const GirlsHostel = () => {
   return (
     <div className="modern-girls-hostel-page">
       
-      <section className="gh-hero">
+      <section className="gh-hero" style={{ aspectRatio: '8 / 3', width: '100%' }}>
         <div className="gh-hero-content">
           <h1 className="gh-animate-slide-down">NSCET GIRLS HOSTEL</h1>
-          <p className="gh-animate-fade-in">A Secure, Comfortable, and Home-like Environment</p>
         </div>
       </section>
 
       <div className="gh-main-container">
         
-        {/* About Section */}
         <section className="gh-section gh-about-section gh-animate-slide-up">
           <div className="gh-about-text">
             <h2 className="gh-section-title">About Hostel</h2>
@@ -81,16 +76,14 @@ const GirlsHostel = () => {
           </div>
         </section>
 
-        {/* Admin & Strength Split Section - SWAPPED ORDER */}
         <section className="gh-section gh-admin-infra-section gh-animate-slide-up-delay-1">
           <div className="gh-admin-infra-split">
             
-            {/* Left: Hostel Administration (Moved to Left) */}
-            <div className="gh-admin-side">
+            <div className="gh-admin-side" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', paddingTop: '15px' }}>
               <h2 className="gh-section-title">Hostel Administration</h2>
-              <div className="gh-admin-cards-container">
+              <div className="gh-admin-cards-container" style={{ display: 'flex', flex: 1, alignItems: 'flex-start', justifyContent: 'center' }}>
                 {hostelData.administration.map((admin, idx) => (
-                  <div key={idx} className={`gh-admin-card ${idx === 0 ? 'gh-chief' : 'gh-deputy'}`}>
+                  <div key={idx} className={`gh-admin-card ${idx === 0 ? 'gh-chief' : 'gh-deputy'}`} style={{ width: '100%', textAlign: 'center', borderLeft: 'none' }}>
                     <span className="gh-admin-role">{admin.role}</span>
                     <h3>{admin.name}</h3>
                   </div>
@@ -98,7 +91,6 @@ const GirlsHostel = () => {
               </div>
             </div>
 
-            {/* Right: Strength (Moved to Right) */}
             <div className="gh-infra-side">
               <h2 className="gh-section-title">Strength</h2>
               <div className="gh-strength-grid">
@@ -114,13 +106,13 @@ const GirlsHostel = () => {
           </div>
         </section>
 
-        {/* Facilities Section */}
+        {/* Facilities Section - Flex container add panni list-a center panniyachu */}
         <section className="gh-section gh-facilities-section gh-animate-slide-up-delay-2">
           <h2 className="gh-section-title center">Facilities</h2>
-          <div className="gh-facilities-container">
-            <ul className="gh-facilities-list">
+          <div className="gh-facilities-container" style={{ display: 'flex', justifyContent: 'center' }}>
+            <ul style={{ display: 'inline-block', maxWidth: '800px', textAlign: 'left', paddingLeft: '25px', listStyleType: 'disc', lineHeight: '2', color: '#475569' }}>
               {hostelData.facilities.map((fac, idx) => (
-                <li key={idx} className="gh-facilities-list-item">
+                <li key={idx} className="gh-zoom-hover" style={{ marginBottom: '10px' }}>
                   <strong>{fac.title}:</strong> {fac.desc}
                 </li>
               ))}
@@ -128,11 +120,9 @@ const GirlsHostel = () => {
           </div>
         </section>
 
-        {/* Events & Rules Split Section */}
         <section className="gh-section gh-events-rules-section gh-animate-slide-up-delay-3">
           <div className="gh-events-rules-split">
             
-            {/* Left: Events */}
             <div className="gh-events-side">
               <h2 className="gh-section-title">Hostel Events</h2>
               <div className="gh-events-card">
@@ -146,13 +136,12 @@ const GirlsHostel = () => {
               </div>
             </div>
 
-            {/* Right: Rules & Regulations */}
             <div className="gh-rules-side">
               <h2 className="gh-section-title">Hostel Rules and Regulations</h2>
               <div className="gh-rules-card">
-                <ul className="gh-rules-list">
+                <ul style={{ paddingLeft: '25px', listStyleType: 'disc', lineHeight: '2', color: '#475569' }}>
                   {hostelData.rules.map((rule, idx) => (
-                    <li key={idx}>{rule}</li>
+                    <li key={idx} className="gh-zoom-hover" style={{ marginBottom: '10px' }}>{rule}</li>
                   ))}
                 </ul>
               </div>
@@ -161,7 +150,6 @@ const GirlsHostel = () => {
           </div>
         </section>
 
-        {/* Photo Gallery */}
         <section className="gh-section gh-gallery-section gh-animate-slide-up-delay-4">
           <h2 className="gh-section-title center">Photo Gallery</h2>
           <div className="gh-gallery-slider-container">
