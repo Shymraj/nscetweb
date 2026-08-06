@@ -8,6 +8,11 @@
   background-color: var(--bg-color, #f8fafc);
 }
 
+.coe-page .page-banner {
+  width: 100%;
+  max-width: 100%;
+}
+
 .coe-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -85,6 +90,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
+  align-items: stretch;
 }
 
 /* Process Chart Section */
@@ -119,6 +125,10 @@
   border: 1px solid rgba(147, 51, 234, 0.2);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
 }
 
 .coe-section-card:hover {
@@ -171,11 +181,11 @@
 }
 
 .coe-team-image {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #f59e0b;
+  border: 4px solid #f59e0b;
   flex-shrink: 0;
 }
 
@@ -183,6 +193,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .coe-team-info h4 {
