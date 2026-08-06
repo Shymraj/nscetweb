@@ -70,7 +70,7 @@ const NSSGallery = () => {
           </motion.h2>
           <motion.div variants={fadeUp} className="nss-accent-line center"></motion.div>
           <motion.p variants={fadeUp} className="nss-gallery-subtitle">
-            Capturing memorable moments of community service, awareness programs, environmental initiatives, blood donation camps, and student volunteer activities.
+            Capturing memorable moments of community service, awareness programs, environmental initiatives, blood donation camps and student volunteer activities.
           </motion.p>
         </motion.div>
 

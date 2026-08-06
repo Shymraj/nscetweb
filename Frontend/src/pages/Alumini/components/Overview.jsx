@@ -93,15 +93,15 @@ const Overview = () => {
           <div className="incharge-card">
             <img src={vennimalaiImg} alt="Mr. A. Vennimalai Rajan" className="incharge-photo" />
             <div className="incharge-details">
-              <h4>Mr. A. Vennimalai Rajan</h4>
-              <p>Assistant Professor, Mechanical Engineering</p>
+              <h4>Dr. A. Vennimalai Rajan </h4>
+              <p>M.E ,Ph.D ,MISTE.<br />Assistant Professor, Mechanical Engineering</p>
             </div>
           </div>
           <div className="incharge-card">
             <img src={kanimozhiImg} alt="Ms. M. Kanimozhi" className="incharge-photo" />
             <div className="incharge-details">
-              <h4>Ms. M. Kanimozhi</h4>
-              <p>Assistant Professor, Civil Engineering</p>
+              <h4>Mrs. M. Kanimozhi </h4>
+              <p>M.E.<br />Assistant Professor,<br />Civil Engineering</p>
             </div>
           </div>
         </div>

@@ -41,7 +41,7 @@ const AboutNSS = () => {
             Personality Development Through Voluntary Service
           </motion.h3>
           <motion.p variants={fadeUp} className="nss-desc">
-            The National Service Scheme (NSS) is a government-sponsored voluntary program aimed at developing students' personality through community service. It is a platform for students to engage in social welfare activities and contribute to nation-building.
+            The National Service Scheme (NSS) is a government-sponsored voluntary program aimed at developing students personality through community service. It is a platform for students to engage in social welfare activities and contribute to nation-building.
           </motion.p>
           <motion.p variants={fadeUp} className="nss-desc" style={{ marginTop: '1rem' }}>
             Through hands-on community initiatives, NSS volunteers build leadership skills, empathy, and social civic awareness while creating meaningful impact in rural and urban societies alike.

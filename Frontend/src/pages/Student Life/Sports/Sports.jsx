@@ -11,10 +11,7 @@ const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,J
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
 // Staff Images
-import Sundararajan from "./images/Sundararajan.JPG";
 import Vayalsamy from "./images/Vayalsamy.JPG";
-import Gowri from "./images/Gowri.JPG";
-import Malini from "./images/Malini.JPG";
 
 // Sport Images
 import Basketball from "./images/Basketball.png";
@@ -46,10 +43,8 @@ const Sports = () => {
     };
 
     const staffMembers = [
-        { name: "Mr. K. Sundararajan", desig: "HOD & Physical Director", qual: "M.A., M.P.Ed., M.Phil., PG.YED., (Ph.D)", image: Sundararajan },
-        { name: "Mr. M. Vayalsamy", desig: "Assistant Physical Director", qual: "B.Sc., M.P.Ed.", image: Vayalsamy },
-        { name: "Mrs. R. Gowri", desig: "Assistant Physical Director", qual: "B.Sc., M.P.Ed.", image: Gowri },
-        { name: "Mrs. R. Malini", desig: "Physical Directress", qual: "B.P.Ed., M.P.Ed., P.G.D.Y.", image: Malini }
+        { name: "Mr. Ponnaiah", desig: "HOD & Physical Director", qual: "B.Com., M.P.Ed., PG.DY", image: null },
+        { name: "Mr. M. Vayalsamy", desig: "Assistant Physical Director", qual: "B.Sc., M.P.Ed.", image: Vayalsamy }
     ];
 
     const hod = staffMembers[0];
@@ -127,12 +122,12 @@ const Sports = () => {
                         <div className="bento-icon-wrapper">
                             <FaBasketballBall />
                         </div>
-                        <h3>Our Sports</h3>
+                        <h3>Sports</h3>
                         <p>
-                            The College is committed to promote sports activities towards the all-round growth of its students. The campus has 6000 sq.ft. indoor facilities for Chess, Carom, Table Tennis, Volleyball and Badminton and outdoor facilities for Volleyball, Football, Tennis, and Ball Badminton.
+                            The College is committed to promote sports activities towards the all-round growth of its students.Our College has indoor facilities for Chess, Carrom, Table Tennis, Ball Badminton and outdoor facilities for Volleyball, Football, Basket Ball, Hand Ball, Kho Kho.
                         </p>
                         <p>
-                            We have two qualified Physical Education staff to train the students. Students sent for participating in the Inter-Collegiate Sports and games have won many trophies in various events. Our Volleyball team is an unbeaten State Champion and has won many tournaments in national level inter-collegiate matches.
+                            We have qualified Physical Education staffs to train the students. Students sent for participating in the Inter-College Sports and games have won many trophies in various events.
                         </p>
                     </motion.div>
 
@@ -141,9 +136,9 @@ const Sports = () => {
                             <FaTrophy />
                         </div>
                         <h3>Highlights</h3>
-                        <p><strong>Indoor:</strong> Chess, Carom, Table Tennis, Volleyball, Badminton in a 6000 sq.ft. facility.</p>
-                        <p><strong>Outdoor:</strong> Volleyball, Football, Tennis, Ball Badminton grounds.</p>
-                        <p><strong>Pride:</strong> Our Volleyball team is an unbeaten State Champion at national level inter-collegiate matches.</p>
+                        <p><strong>Indoor:</strong> Chess, Carrom, Table Tennis, Ball Badminton.</p>
+                        <p><strong>Outdoor:</strong> Volleyball, Football,Basketball, Handball, Kho Kho grounds.</p>
+                        <p><strong>Pride:</strong> Our Volleyball team is an unbeaten State Champion at national level inter-college matches.</p>
                     </motion.div>
                 </motion.div>
 
