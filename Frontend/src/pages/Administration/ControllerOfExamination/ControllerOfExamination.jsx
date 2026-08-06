@@ -9,7 +9,7 @@ import internalAssessmentPdf from './images/2 Internal Assessment Mechanism.pdf'
 import ieGrievancePdf from './images/3 IE Grievance FC FINAL.pdf';
 import eeGrievancesPdf from './images/4 EE Grievances FC fINAL.pdf';
 import examProcessImg from './images/Exam Cell Process.png';
-import bannerImg from './images/coe-banner.png';
+import bannerImg from './images/EXAM CELL.png';
 import saravanaImg from './images/Saravanakumar.png';
 
 const deputyControllers = [

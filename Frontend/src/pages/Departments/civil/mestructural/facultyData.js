@@ -24,26 +24,19 @@ export const mestructuralFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mrs-m-sindhu", slug: "mrs-m-sindhu",  name: "Mrs. M. Sindhu", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "sindhu@nscet.org", image: imgSindhu, spec: "Advanced Concrete Dynamics & FEM", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mrs-m-sindhu", slug: "mrs-m-sindhu",  name: "Sindhu M", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "sindhu@nscet.org", image: imgSindhu, spec: "Structural Engineering", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/sindhu-m-19b495157",
+    about: "Sindhu M is a dedicated faculty member with 6 years of teaching experience in the Department of Mechanical Engineering (Structural). Her specialization is Structural Engineering, and she is passionate about structural analysis, innovative engineering practices, and helping students develop strong technical and practical skills through effective teaching and research.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "1"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "1"
     ],
-    patents: [
-      "Dummy Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
+    patents: [],
+    awards: [],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "6 Years"
     ]},
     {id: "mrs-k-benita-merlin-isabella", slug: "mrs-k-benita-merlin-isabella",  name: "Benita Merlin Isabella K", desig: "Assistant Professor", qual: "M.E", email: "benitamerlin22@gmail.com", image: imgBenita, spec: "Structural Engineering (Structural Design & Analysis)", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/benita-merlin-005b69242",

@@ -46,7 +46,7 @@ export const cseFacultyData = [
     slug: "velkumar",
     name: "Dr. Velkumar K",
     desig: "Assistant Professor",
-    qual: "M.E, (Ph.D)",
+    qual: "M.E, Ph.D",
     email: "velkumarskc@gmail.com",
     image: imgVelkumar,
     spec: "Recommendation Systems",
@@ -100,33 +100,29 @@ export const cseFacultyData = [
   {
     id: "archana",
     slug: "archana",
-    name: "Mrs. R. Archana",
+    name: "Archana R",
     desig: "Assistant Professor",
     qual: "M.E., (Ph.D)",
     email: "archana@nscet.org",
     image: imgArchana,
-    spec: "Machine Learning & Data Mining",
+    spec: "Data Science, Artificial Intelligence",
     objectPosition: "center 5%",
     linkedin: "https://www.linkedin.com/in/archana-nscet",
-    about: "Mrs. R. Archana is deeply focused on Machine Learning algorithms and Data Mining techniques. She guides students through the complexities of predictive modeling, natural language processing, and big data analytics, fostering a strong culture of AI innovation within the department.",
+    about: "Archana R is a dedicated faculty member with 5 years of teaching experience in the Department of Computer Science and Engineering. Her areas of specialization include Data Science and Artificial Intelligence. She is passionate about emerging technologies, research, and helping students develop strong analytical and problem-solving skills through practical, innovation-driven learning.",
     publications: [
-      "Predictive Modeling for Healthcare using Deep Learning — AI in Medicine Journal, 2024",
-      "Sentiment Analysis using Transformer Models — International Conference on Data Mining, 2023"
+      "5"
     ],
     projects: [
-      "Development of Early Disease Detection Systems using ML",
-      "Real-time Social Media Trend Analysis Engine"
+      "5"
     ],
     patents: [
-      "Novel Ensemble Learning Method for Fraud Detection (Filed - 2024)"
+      "2"
     ],
     awards: [
-      "Best AI Researcher Award - 2023",
-      "Excellence in Data Science Mentorship - 2022"
+      "1"
     ],
     experience: [
-      "Assistant Professor, CSE, NSCET (2017 - Present)",
-      "Data Scientist Intern, Analytica Labs (2016 - 2017)"
+      "5 Years"
     ]
   },
   {
