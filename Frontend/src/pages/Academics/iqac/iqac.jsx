@@ -95,11 +95,11 @@ const committeeSections = [
 ];
 
 const meetingRecords = [
-  { label: '2020–2021', color: 'blue' },
-  { label: '2021–2022', color: 'green' },
-  { label: '2022–2023', color: 'orange' },
-  { label: '2023–2024', color: 'purple' },
-  { label: '2024–2025', color: 'teal' },
+  { label: '2021–2022', color: 'blue' },
+  { label: '2022–2023', color: 'green' },
+  { label: '2023–2024', color: 'orange' },
+  { label: '2024–2025', color: 'purple' },
+  { label: '2025–2026', color: 'teal' },
 ];
 
 const getInitials = (name) => {
