@@ -14,12 +14,12 @@ export const civilFacultyData = [
   {
     id: "hod",
     slug: "hod",
-    name: "Mr. N. Nagarathinam",
-    desig: "Head of Department [I/C]",
+    name: "Nagarathinam N",
+    desig: "Head of the Department (HOD)",
     qual: "M.E., M.I.S.T.E., (Ph.D)",
-    email: "nagarathinam@nscet.org",
+    email: "naguhky@gmail.com",
     image: imgNagarathinam,
-    spec: "Structural Engineering & Concrete Tech",
+    spec: "Structural Engineering, Building Materials",
     objectPosition: "center 10%",
     highlights: [
       {
@@ -32,33 +32,25 @@ export const civilFacultyData = [
       },
       {
         title: "Academic Office",
-        description: "Head of Department Office · Contact: nagarathinam@nscet.org",
+        description: "Head of the Department (HOD) Office · Contact: naguhky@gmail.com",
       },
     ],
-    linkedin: "https://www.linkedin.com/in/nagarathinam-nscet",
-    about: "Mr. N. Nagarathinam is a dedicated academician and structural engineer with over 15 years of experience in teaching and industrial consultancy. He spearheads the Civil Engineering Department at NSCET with a focus on sustainable infrastructure, concrete technology, and bridging the gap between academia and industry. Under his leadership, the department has executed numerous government and private material testing consultancy projects.",
+    linkedin: "https://www.linkedin.com/in/naga-rathinam-02a65474",
+    about: "Nagarathinam N serves as the Head of the Department of Civil Engineering with over 15 years of teaching and research experience. His areas of specialization include Structural Engineering and Building Materials. With valuable contributions in research, patents, academic projects, and engineering education, he is committed to fostering innovation, promoting practical learning, and mentoring students to become skilled civil engineers.",
     publications: [
-      "Experimental Study on High Performance Concrete using Silica Fume and Fly Ash — International Journal of Civil Engineering, 2024",
-      "Seismic Retrofitting of RC Framed Structures using FRP Composites — Journal of Structural Engineering, 2023",
-      "Sustainable Utilization of E-Waste in Concrete Mix Design — National Conference on Green Buildings, 2022"
+      "3"
     ],
     projects: [
-      "Government Material Testing Consultancy for Municipal Corporation",
-      "Design and Analysis of G+5 Commercial Complex in Theni",
-      "Structural Audit and Health Monitoring of Legacy Bridges"
+      "4"
     ],
     patents: [
-      "Eco-Friendly Self-Compacting Concrete Mix using Agricultural Waste (Published - 2023)"
+      "2"
     ],
     awards: [
-      "Best Department Head Award, NSCET - 2024",
-      "Excellence in Structural Consultancy Award - 2023",
-      "Outstanding Academician in Civil Engineering - 2022"
+      "2"
     ],
     experience: [
-      "Head of Department [I/C], Civil Engineering, NSCET (2020 - Present)",
-      "Assistant Professor, Structural Engineering, NSCET (2015 - 2020)",
-      "Structural Design Engineer, L&T Infrastructure (2010 - 2015)"
+      "15 Years"
     ]
   },
   {
@@ -198,12 +190,12 @@ export const civilFacultyData = [
   {
     id: "kanimozhi",
     slug: "kanimozhi",
-    name: "Mrs. M. Kanimozhi",
+    name: "Kanimozhi M",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "kanimozhi@nscet.org",
     image: imgKanimozhi,
-    spec: "Structural Analysis & RCC",
+    spec: "Structural Analysis",
     objectPosition: "center 10%",
     highlights: [
       {
@@ -219,26 +211,14 @@ export const civilFacultyData = [
         description: "Email: kanimozhi@nscet.org · NSCET Civil Department.",
       },
     ],
-    linkedin: "https://www.linkedin.com/in/kanimozhi-nscet",
-    about: "Mrs. M. Kanimozhi is an esteemed faculty member specializing in Structural Analysis and the Design of Reinforced Concrete Structures. Her academic journey is driven by a passion for structural dynamics, earthquake-resistant design, and computational modeling. She excels in teaching complex structural concepts with clarity and actively mentors students in using advanced structural design software like ETABS and SAP2000.",
-    publications: [
-      "Nonlinear Seismic Response of Multi-story RC Frames — Structural Design and Construction Journal, 2024",
-      "Parametric Study on Shear Wall Optimization in High-Rise Buildings — International Structural Conference, 2023"
-    ],
-    projects: [
-      "Structural Health Monitoring of Aging Educational Infrastructure",
-      "Design of Earthquake-Resistant Public Buildings"
-    ],
-    patents: [
-      "Innovative Damping Device for Seismic Resistance in RC Frames (Filed - 2024)"
-    ],
-    awards: [
-      "Best Faculty for Structural Design - 2023",
-      "Academic Excellence in Civil Engineering - 2021"
-    ],
+    linkedin: "https://www.linkedin.com/in/kanimozhi-m-civil-6355a83b7",
+    about: "Kanimozhi M is a dedicated faculty member with 4 years of teaching experience in the Department of Civil Engineering. Her specialization is Structural Analysis, and she is passionate about structural engineering, research, and helping students develop strong analytical and practical skills through innovative and application-oriented learning.",
+    publications: [],
+    projects: [],
+    patents: [],
+    awards: [],
     experience: [
-      "Assistant Professor, Civil Engineering, NSCET (2018 - Present)",
-      "Junior Structural Engineer, BuildTech Designs (2016 - 2018)"
+      "4 Years"
     ]
   },
   {

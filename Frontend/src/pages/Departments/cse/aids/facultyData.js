@@ -32,26 +32,15 @@ export const aidsFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mr-j-vinoth-kumar", slug: "mr-j-vinoth-kumar",  name: "Mr. J. Vinoth Kumar", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "vinothkumar@nscet.org", image: imgVinothKumar, spec: "Machine Learning & Neural Networks", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
-    publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
-    ],
-    projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
-    ],
-    patents: [
-      "Dummy Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
+    {id: "mr-j-vinoth-kumar", slug: "mr-j-vinoth-kumar",  name: "Vinoth Kumar J", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "vinothkumar@nscet.org", image: imgVinothKumar, spec: "Deep Learning", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/vinoth-kumar-19477b197/",
+    about: "Vinoth Kumar J is a dedicated faculty member with 6 years of teaching experience in the Department of Artificial Intelligence and Data Science. His specialization is Deep Learning, and he is passionate about artificial intelligence, research, and helping students build strong analytical and problem-solving skills through practical, innovation-driven learning.",
+    publications: [],
+    projects: [],
+    patents: [],
+    awards: [],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "6 Years"
     ]},
     {id: "j-kanimoli", slug: "j-kanimoli",  name: "J. Kanimoli", desig: "Assistant Professor", qual: "M.E.", email: "kanimoli@nscet.org", image: imgKanimoli, spec: "Data Engineering & Analytics", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",

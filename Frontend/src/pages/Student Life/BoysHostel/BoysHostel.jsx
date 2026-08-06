@@ -7,15 +7,15 @@ const BoysHostel = () => {
     chiefWarden: { name: "Dr. C. Mathalai Sundaram", role: "Principal & Chief Warden" },
     strength: { rooms: 27, blocks: 3, totalStudents: 31 },
     gallery: [
-      { id: 1, imgUrl: "/BOYS HOSTEL/hostel1.JPG" },
-      { id: 2, imgUrl: "/BOYS HOSTEL/hostel2.JPG" },
-      { id: 3, imgUrl: "/BOYS HOSTEL/hostel3.JPG" },
-      { id: 4, imgUrl: "/BOYS HOSTEL/hostel5.JPG" }
+      { id: 1, imgUrl: "/BOYS%20HOSTEL/hostel1.JPG" },
+      { id: 2, imgUrl: "/BOYS%20HOSTEL/hostel2.JPG" },
+      { id: 3, imgUrl: "/BOYS%20HOSTEL/hostel3.JPG" },
+      { id: 4, imgUrl: "/BOYS%20HOSTEL/hostel5.JPG" }
     ],
     culture: [
-      { id: 1, imgUrl: "/BOYS HOSTEL/hc3.JPG" },
-      { id: 2,  imgUrl: "/BOYS HOSTEL/hc2.JPG" },
-      { id: 3, imgUrl: "/BOYS HOSTEL/hc4.JPG" }
+      { id: 1, imgUrl: "/BOYS%20HOSTEL/hc3.JPG" },
+      { id: 2,  imgUrl: "/BOYS%20HOSTEL/hc2.JPG" },
+      { id: 3, imgUrl: "/BOYS%20HOSTEL/hc4.JPG" }
     ],
     facilities: [
       { title: "Gym", desc: "Well-equipped gym with modern exercise machines and weights." },
@@ -46,22 +46,22 @@ const BoysHostel = () => {
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === hostelData.gallery.length - 1 ? 0 : prev + 1));
   };
-  
+
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev === 0 ? hostelData.gallery.length - 1 : prev - 1));
   };
 
   return (
     <div className="modern-hostel-page">
-      
+
       <section className="hostel-hero">
         <div className="hero-content">
-          <h1 className="animate-slide-down">NSCET BOYS HOSTEL</h1>
+          {/* <h1 className="animate-slide-down">NSCET BOYS HOSTEL</h1> */}
         </div>
       </section>
 
       <div className="hostel-main-container">
-        
+
         {/* About Section */}
         <section className="hostel-section about-section animate-slide-up">
           <div className="about-text">
@@ -79,7 +79,7 @@ const BoysHostel = () => {
         {/* COMPACT & SPLIT CONTAINER: Left (Admin), Right (Strength) */}
         <section className="hostel-section admin-infra-combined-section animate-slide-up-delay-1">
           <div className="admin-infra-split">
-            
+
             {/* Left Side: Hostel Administration */}
             <div className="admin-side" style={{ display: 'flex', flexDirection: 'column' }}>
               <h2 className="section-title">Hostel Administration</h2>
@@ -117,20 +117,20 @@ const BoysHostel = () => {
 
         <section className="hostel-section culture-facilities-section animate-slide-up-delay-3">
           <div className="culture-facilities-grid">
-            
+
             <div className="culture-side">
               <h2 className="section-title">Hostel Culture</h2>
               <div className="culture-image-card">
                 <div className="culture-slider-wrapper">
                   {hostelData.culture.map((item, index) => (
-                    <div 
-                      key={item.id} 
+                    <div
+                      key={item.id}
                       className={`culture-slide ${index === currentCultureSlide ? 'active' : ''}`}
                     >
-                      <img 
-                        src={item.imgUrl} 
-                        alt={item.title} 
-                        className="culture-real-image" 
+                      <img
+                        src={item.imgUrl}
+                        alt={item.title}
+                        className="culture-real-image"
                       />
                       <div className="culture-overlay">
                         <h3>{item.title}</h3>
@@ -189,14 +189,14 @@ const BoysHostel = () => {
           <div className="gallery-slider-container">
             <div className="slider-images-wrapper">
               {hostelData.gallery.map((item, index) => (
-                <div 
-                  key={item.id} 
+                <div
+                  key={item.id}
                   className={`slider-slide ${index === currentSlide ? 'active' : ''}`}
                 >
-                  <img 
-                    src={item.imgUrl} 
-                    alt={item.title} 
-                    className="slider-real-image" 
+                  <img
+                    src={item.imgUrl}
+                    alt={item.title}
+                    className="slider-real-image"
                   />
                 </div>
               ))}
@@ -204,12 +204,12 @@ const BoysHostel = () => {
             <button className="slider-btn prev-btn" onClick={prevSlide}>&#10094;</button>
             <button className="slider-btn next-btn" onClick={nextSlide}>&#10095;</button>
           </div>
-          
+
           <div className="slider-dots-outside">
             {hostelData.gallery.map((_, idx) => (
-              <span 
-                key={idx} 
-                className={`dot ${idx === currentSlide ? 'active' : ''}`} 
+              <span
+                key={idx}
+                className={`dot ${idx === currentSlide ? 'active' : ''}`}
                 onClick={() => setCurrentSlide(idx)}
               ></span>
             ))}
