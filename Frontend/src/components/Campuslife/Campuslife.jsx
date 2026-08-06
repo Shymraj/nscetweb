@@ -1,11 +1,10 @@
 import React from "react";
-// CSS file name unga folder-la epdi iruko adhe spelling-la inga import pannunga
 import "./Campuslife.css"; 
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"; // 👉 1. Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 
-// Unga 5 images import (Paths correct-ah iruka nu check pannikonga)
+// Imported Images
 import pongalImg from "../../assets/pongal.jpg";
 import hackathonImg from "../../assets/hackathon.png";
 import sportsImg from "../../assets/sports.jpeg";
@@ -19,40 +18,40 @@ const eventsData = [
     image: pongalImg,
     title: "Pongal Celebration - 2024",
     desc: "A grand traditional fest bringing students together to celebrate our rich cultural heritage.",
-    gridClass: "span-3-cards" // Fits 3 cards in the first row
+    gridClass: "bento-wide" 
   },
   {
     id: 2,
     image: hackathonImg,
     title: "Smart India Hackathon",
     desc: "Students innovating tech solutions and coding non-stop to solve real-world industry challenges.",
-    gridClass: "span-3-cards" // Fits 3 cards in the first row
+    gridClass: "bento-square" 
   },
   {
     id: 3,
     image: sportsImg,
     title: "14th Sports Meet",
     desc: "Fostering athletic spirit and teamwork through intense track and field competitions.",
-    gridClass: "span-3-cards" // Fits 3 cards in the first row
+    gridClass: "bento-square" 
   },
   {
     id: 4,
     image: annualImg,
     title: "NSCET Annual Day - 2024",
     desc: "Spectacular dance performances, cultural events, and award distributions to honor student excellence.",
-    gridClass: "span-2-cards" // Wider card - fits 2 in the second row
+    gridClass: "bento-square" 
   },
   {
     id: 5,
     image: wavesImg,
     title: "Waves Cultural Fest",
     desc: "The ultimate battle of talents, creativity, and inter-departmental cultural showdowns.",
-    gridClass: "span-2-cards" // Wider card - fits 2 in the second row
+    gridClass: "bento-square" 
   }
 ];
 
 function CampusLife() {
-  const navigate = useNavigate(); // 👉 2. Initialize navigate function
+  const navigate = useNavigate(); 
 
   return (
     <section className="campus-sticky-section">
@@ -75,7 +74,6 @@ function CampusLife() {
               culture, and recreation to ensure holistic development.
             </p>
             
-            {/* 👉 3. onClick function added to Button */}
             <button 
               className="campus-primary-btn" 
               onClick={() => navigate('/gallery/events')}
@@ -86,23 +84,23 @@ function CampusLife() {
           </motion.div>
         </div>
 
-        {/* ================= RIGHT: SCROLLABLE GRID CONTENT ================= */}
+        {/* ================= RIGHT: BENTO GRID CONTENT ================= */}
         <div className="scroll-right-panel">
           {eventsData.map((event, index) => (
             <motion.div 
               key={event.id}
               className={`event-card ${event.gridClass}`}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {/* Image Section - No Cropping */}
+              {/* Image Section Fixed */}
               <div className="event-img-wrapper">
                 <img src={event.image} alt={event.title} className="event-img" />
               </div>
 
-              {/* Text Content - Compact Space */}
+              {/* Text Content */}
               <div className="event-content">
                 <h3 className="event-heading">{event.title}</h3>
                 <p className="event-desc">{event.desc}</p>
