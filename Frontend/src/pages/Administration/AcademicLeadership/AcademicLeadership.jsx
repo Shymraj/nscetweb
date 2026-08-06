@@ -30,11 +30,11 @@ const AcademicLeadership = () => {
     },
     {
       id: 4,
-      name: "Mr. K. Ganesh",
+      name: "Dr. R. Athilingam",
       role: "Professor & Head Of The Department",
       department: "Electrical and Electronics Engineering",
-      image: "/ganesh.jpg",
-      qualifications: ["M.E., (Ph.D.)"]
+      image: "/EEE/athilingam.jpg",
+      qualifications: ["M.E., Ph.D."]
     },
     {
       id: 5,
@@ -44,14 +44,7 @@ const AcademicLeadership = () => {
       image: "/ECE/venishkumar.jpg",
       qualifications: ["M.E., Ph.D"]
     },
-    {
-      id: 6,
-      name: "Dr. R. Athilingam",
-      role: "Associate Professor & Head Of The department",
-      department: "Embedded Systems and Technology",
-      image: "/EEE/athilingam.jpg",
-      qualifications: ["Ph.D, M.E."]
-    },
+    
     {
       id: 7,
       name: "Mr. C. Prathap",
@@ -76,14 +69,7 @@ const AcademicLeadership = () => {
       image: "/S&H/vembathurajesh.png",
       qualifications: ["M.E., Ph.D, MISTE"]
     },
-    {
-      id: 10,
-      name: "Dr. E. Anantha Krishnan",
-      role: "Professor & Head Of The Department",
-      department: "Structural Engineering",
-      image: "/CIVIL/.jpg",
-      qualifications: ["M.E. - Structural Engineering", "M. E., Ph. D."]
-    }
+   
   ];
 
   return (
@@ -158,9 +144,8 @@ const AcademicLeadership = () => {
             </div>
             <div className="al-text-content">
               <h2 className="al-name">Dr. C. Mathalai Sundaram</h2>
-              <h3 className="al-role">Principal</h3>
               <p className="al-dept-name">
-                <span className="al-dept-badge">Head of Department : ME Manufacturing Engineering</span>
+                <span className="al-dept-badge">Principal & Professor</span>
               </p>
               <ul className="al-points">
                 <li>M.E., M.B.A., Ph.D., MISTE</li>
@@ -173,15 +158,14 @@ const AcademicLeadership = () => {
             <div className="al-hex-wrapper">
               <div className="al-hex-outer">
                 <div className="al-hex-inner">
-                  <img src="/ME CSE/sathya.jpeg" alt="Vice Principal" />
+                  <img src="/ME CSE/Sathya.jpeg" alt="Vice Principal" />
                 </div>
               </div>
             </div>
             <div className="al-text-content">
               <h2 className="al-name">Dr. M. Sathya</h2>
-              <h3 className="al-role">Vice Principal</h3>
               <p className="al-dept-name">
-                <span className="al-dept-badge">Head of Department : ME Computer Science and Engineering</span>
+                <span className="al-dept-badge">Vice Principal & Professor</span>
               </p>
               <ul className="al-points">
                 <li>M.Tech., M.B.A., Ph.D</li>

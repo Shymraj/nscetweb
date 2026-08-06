@@ -230,8 +230,9 @@
   flex-wrap: wrap;
 }
 
+/* 🔥 ADDED FIX: Exact hex color added instead of invalid text */
 .tf-badge-outline {
-  background: deep navy blue;
+  background: #0b2f9a; 
   color: white;
   font-size: 0.8rem;
   font-weight: 600;
@@ -370,6 +371,7 @@
    ========================================== */
 .tf-staff-card {
   background: var(--tf-white);
+  height: fit-content;
   border-radius: 16px;
   padding: 1.5rem;
   border: 1px solid var(--tf-border);
@@ -381,6 +383,7 @@
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-top 0.3s ease-in-out;
   border-top: 4px solid transparent;
+  padding-bottom: 15px;
 }
 
 .tf-staff-card:hover {
