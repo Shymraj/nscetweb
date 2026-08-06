@@ -296,6 +296,7 @@ const StaffManager = () => {
   const [qualifications, setQualifications] = useState('');
   const [research, setResearch] = useState('');
   const [photo, setPhoto] = useState(null);
+  const [editingStaffId, setEditingStaffId] = useState(null);
 
   const fetchStaff = async () => {
     const res = await axios.get('http://localhost:5000/api/admin/staff');
@@ -305,7 +306,7 @@ const StaffManager = () => {
   useEffect(() => { fetchStaff(); }, []);
 
   const clearForm = () => {
-    setName(''); setDesignation(''); setDepartment(''); setEmail(''); setQualifications(''); setResearch(''); setPhoto(null);
+    setName(''); setDesignation(''); setDepartment(''); setEmail(''); setQualifications(''); setResearch(''); setPhoto(null); setEditingStaffId(null);
   };
 
   const handleAddStaff = async (e) => {
@@ -319,9 +320,27 @@ const StaffManager = () => {
     formData.append('research', research);
     formData.append('is_hod', false); // Optional for now
     if (photo) formData.append('photo', photo);
-    await axios.post('http://localhost:5000/api/admin/staff', formData);
+    
+    if (editingStaffId) {
+      await axios.put(`http://localhost:5000/api/admin/staff/${editingStaffId}`, formData);
+    } else {
+      await axios.post('http://localhost:5000/api/admin/staff', formData);
+    }
+    
     clearForm();
     fetchStaff();
+  };
+
+  const handleEditStaff = (st) => {
+    setEditingStaffId(st.id);
+    setName(st.name || '');
+    setDesignation(st.designation || '');
+    setDepartment(st.department || '');
+    setEmail(st.email || '');
+    setQualifications(st.qualifications || '');
+    setResearch(st.research || '');
+    setPhoto(null);
+    document.querySelector('.admin-content').scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDeleteStaff = async (id) => {
@@ -359,61 +378,63 @@ const StaffManager = () => {
     <div>
       <h2 className="page-title">Faculties</h2>
       
-      <div className="staff-card-form">
-        <div className="staff-form-header">
-          <FaUserPlus /> Add New Staff Member
-        </div>
-        <div className="staff-form-subtitle">Fill in the details below to add a new staff member to the system</div>
-        
-        <form onSubmit={handleAddStaff}>
-          <div className="staff-grid-inputs">
-            <div className="input-group">
-              <label><FaUserTie /> Full Name</label>
-              <input type="text" placeholder="Enter staff name" value={name} onChange={e=>setName(e.target.value)} required />
-            </div>
-            <div className="input-group">
-              <label><FaBriefcase /> Position/Designation</label>
-              <input type="text" placeholder="e.g. Professor, Lecturer" value={designation} onChange={e=>setDesignation(e.target.value)} required />
-            </div>
-            <div className="input-group">
-              <label><FaGraduationCap /> Qualification</label>
-              <input type="text" placeholder="e.g., Ph.D., M.Tech" value={qualifications} onChange={e=>setQualifications(e.target.value)} />
-            </div>
-            <div className="input-group">
-              <label><FaEnvelope /> Email Address</label>
-              <input type="email" placeholder="e.g., staff@example.com" value={email} onChange={e=>setEmail(e.target.value)} />
-            </div>
-            <div className="input-group">
-              <label><FaBook /> Research and publications</label>
-              <input type="text" placeholder="Research areas and publications" value={research} onChange={e=>setResearch(e.target.value)} />
-            </div>
+      {!editingStaffId && (
+        <div className="staff-card-form">
+          <div className="staff-form-header">
+            <FaUserPlus /> Add New Staff Member
           </div>
+          <div className="staff-form-subtitle">Fill in the details below to add a new staff member to the system</div>
           
-          <div className="input-group" style={{maxWidth: '300px', marginBottom: '25px'}}>
-            <label><FaBuilding /> Department</label>
-            <select value={department} onChange={e=>setDepartment(e.target.value)} required>
-              <option value="">-- Select Department --</option>
-              {deptNames.map(d => <option key={d} value={d}>{d}</option>)}
-            </select>
-          </div>
-
-          <div className="input-group">
-            <label><FaImage /> Staff Image</label>
-            <div className="upload-area">
-              <input type="file" onChange={handleFileChange} accept="image/*" />
-              <FaImage className="upload-icon" />
-              <div>Click to select or drag & drop an image</div>
-              <div style={{fontSize: '12px', color: '#999', marginTop: '5px'}}>(JPG, PNG, WEBP - Max 50MB)</div>
-              {photo && <div style={{marginTop: '10px', color: '#28a745', fontWeight: 'bold'}}><FaCheck /> {photo.name}</div>}
+          <form onSubmit={handleAddStaff}>
+            <div className="staff-grid-inputs">
+              <div className="input-group">
+                <label><FaUserTie /> Full Name</label>
+                <input type="text" placeholder="Enter staff name" value={name} onChange={e=>setName(e.target.value)} required />
+              </div>
+              <div className="input-group">
+                <label><FaBriefcase /> Position/Designation</label>
+                <input type="text" placeholder="e.g. Professor, Lecturer" value={designation} onChange={e=>setDesignation(e.target.value)} required />
+              </div>
+              <div className="input-group">
+                <label><FaGraduationCap /> Qualification</label>
+                <input type="text" placeholder="e.g., Ph.D., M.Tech" value={qualifications} onChange={e=>setQualifications(e.target.value)} />
+              </div>
+              <div className="input-group">
+                <label><FaEnvelope /> Email Address</label>
+                <input type="email" placeholder="e.g., staff@example.com" value={email} onChange={e=>setEmail(e.target.value)} />
+              </div>
+              <div className="input-group">
+                <label><FaBook /> Research and publications</label>
+                <input type="text" placeholder="Research areas and publications" value={research} onChange={e=>setResearch(e.target.value)} />
+              </div>
             </div>
-          </div>
+            
+            <div className="input-group" style={{maxWidth: '300px', marginBottom: '25px'}}>
+              <label><FaBuilding /> Department</label>
+              <select value={department} onChange={e=>setDepartment(e.target.value)} required>
+                <option value="">-- Select Department --</option>
+                {deptNames.map(d => <option key={d} value={d}>{d}</option>)}
+              </select>
+            </div>
 
-          <div className="form-actions">
-            <button type="submit" className="btn-primary"><FaCheck /> Add Staff Member</button>
-            <button type="button" className="btn-secondary" onClick={clearForm}><FaTimes /> Clear Form</button>
-          </div>
-        </form>
-      </div>
+            <div className="input-group">
+              <label><FaImage /> Staff Image</label>
+              <div className="upload-area">
+                <input type="file" onChange={handleFileChange} accept="image/*" />
+                <FaImage className="upload-icon" />
+                <div>Click to select or drag & drop an image</div>
+                <div style={{fontSize: '12px', color: '#999', marginTop: '5px'}}>(JPG, PNG, WEBP - Max 50MB)</div>
+                {photo && <div style={{marginTop: '10px', color: '#28a745', fontWeight: 'bold'}}><FaCheck /> {photo.name}</div>}
+              </div>
+            </div>
+
+            <div className="form-actions">
+              <button type="submit" className="btn-primary"><FaCheck /> Add Staff Member</button>
+              <button type="button" className="btn-secondary" onClick={clearForm}><FaTimes /> Clear Form</button>
+            </div>
+          </form>
+        </div>
+      )}
 
       {Object.keys(staffByDept).map(dept => (
         <div key={dept} className="dept-group">
@@ -429,16 +450,98 @@ const StaffManager = () => {
                 ) : (
                   <div style={{height: '200px', background: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>No Image</div>
                 )}
-                <div className="staff-card-info">
-                  <h4 className="staff-card-name">{st.name}</h4>
-                  <p className="staff-card-desig">{st.designation}</p>
-                  <button className="staff-card-delete" onClick={() => handleDeleteStaff(st.id)}>Delete</button>
+                <div className="staff-card-info" style={{padding: '15px'}}>
+                  <h4 className="staff-card-name" style={{color: '#1e3a8a', fontSize: '16px', marginBottom: '4px'}}>{st.name}</h4>
+                  <p className="staff-card-desig" style={{color: '#4b5563', fontSize: '14px', marginBottom: '15px'}}>{st.designation}</p>
+                  
+                  {/* Info List */}
+                  <div style={{display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '15px', borderBottom: '1px solid #e5e7eb', paddingBottom: '15px'}}>
+                    <div style={{display: 'flex', gap: '10px', textAlign: 'left', alignItems: 'flex-start'}}>
+                      <div style={{color: '#3b82f6', marginTop: '2px'}}><FaGraduationCap /></div>
+                      <div>
+                        <div style={{fontSize: '12px', color: '#6b7280', fontWeight: '600'}}>Qualification:</div>
+                        <div style={{fontSize: '13px', color: '#374151'}}>{st.qualifications || 'N/A'}</div>
+                      </div>
+                    </div>
+                    <div style={{display: 'flex', gap: '10px', textAlign: 'left', alignItems: 'flex-start'}}>
+                      <div style={{color: '#3b82f6', marginTop: '2px'}}><FaEnvelope /></div>
+                      <div>
+                        <div style={{fontSize: '12px', color: '#6b7280', fontWeight: '600'}}>Email:</div>
+                        <div style={{fontSize: '13px', color: '#374151', wordBreak: 'break-all'}}>{st.email || 'N/A'}</div>
+                      </div>
+                    </div>
+                    <div style={{display: 'flex', gap: '10px', textAlign: 'left', alignItems: 'flex-start'}}>
+                      <div style={{color: '#3b82f6', marginTop: '2px'}}><FaBook /></div>
+                      <div>
+                        <div style={{fontSize: '12px', color: '#6b7280', fontWeight: '600'}}>Research and publications:</div>
+                        <div style={{fontSize: '13px', color: '#374151'}}>{st.research || 'N/A'}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                    <button onClick={() => {
+                      setEditingStaffId(st.id);
+                      setName(st.name || ''); setDesignation(st.designation || ''); setDepartment(st.department || '');
+                      setEmail(st.email || ''); setQualifications(st.qualifications || ''); setResearch(st.research || '');
+                      setPhoto(null);
+                    }} style={{backgroundColor: '#0056b3', color: 'white', border: 'none', padding: '10px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'}}>
+                      <FaUserTie /> Edit Details
+                    </button>
+                    <button onClick={() => handleDeleteStaff(st.id)} style={{backgroundColor: 'transparent', color: '#ef4444', border: 'none', padding: '5px', cursor: 'pointer', fontSize: '12px', textDecoration: 'underline'}}>Delete</button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
       ))}
+
+      {editingStaffId && (
+        <div style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000}}>
+          <div style={{backgroundColor: 'white', padding: '30px', borderRadius: '10px', width: '90%', maxWidth: '500px', maxHeight: '90vh', overflowY: 'auto'}}>
+            <h3 style={{marginTop: 0, marginBottom: '20px', color: '#1f2937', fontSize: '18px', borderBottom: '1px solid #e5e7eb', paddingBottom: '10px'}}><FaUserTie style={{marginRight: '10px'}} /> Edit Staff Details</h3>
+            <form onSubmit={handleAddStaff}>
+              <div style={{display: 'flex', flexDirection: 'column', gap: '15px'}}>
+                <div>
+                  <label style={{fontSize: '13px', color: '#4b5563', fontWeight: '600', marginBottom: '5px', display: 'block'}}>Full Name <span style={{color: '#ef4444'}}>*</span></label>
+                  <input type="text" value={name} onChange={e=>setName(e.target.value)} required style={{width: '100%', padding: '10px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px'}} />
+                </div>
+                <div>
+                  <label style={{fontSize: '13px', color: '#4b5563', fontWeight: '600', marginBottom: '5px', display: 'block'}}>Designation <span style={{color: '#ef4444'}}>*</span></label>
+                  <input type="text" value={designation} onChange={e=>setDesignation(e.target.value)} required style={{width: '100%', padding: '10px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px'}} />
+                </div>
+                <div>
+                  <label style={{fontSize: '13px', color: '#4b5563', fontWeight: '600', marginBottom: '5px', display: 'block'}}>Qualification</label>
+                  <input type="text" value={qualifications} onChange={e=>setQualifications(e.target.value)} style={{width: '100%', padding: '10px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px'}} />
+                </div>
+                <div>
+                  <label style={{fontSize: '13px', color: '#4b5563', fontWeight: '600', marginBottom: '5px', display: 'block'}}>Email Address</label>
+                  <input type="email" value={email} onChange={e=>setEmail(e.target.value)} style={{width: '100%', padding: '10px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px'}} />
+                </div>
+                <div>
+                  <label style={{fontSize: '13px', color: '#4b5563', fontWeight: '600', marginBottom: '5px', display: 'block'}}>Research and Publications</label>
+                  <input type="text" value={research} onChange={e=>setResearch(e.target.value)} style={{width: '100%', padding: '10px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px'}} />
+                </div>
+                <div>
+                  <label style={{fontSize: '13px', color: '#4b5563', fontWeight: '600', marginBottom: '5px', display: 'block'}}>Department <span style={{color: '#ef4444'}}>*</span></label>
+                  <select value={department} onChange={e=>setDepartment(e.target.value)} required style={{width: '100%', padding: '10px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px'}}>
+                    {deptNames.map(d => <option key={d} value={d}>{d}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label style={{fontSize: '13px', color: '#4b5563', fontWeight: '600', marginBottom: '5px', display: 'block'}}>Update Photo (Optional)</label>
+                  <input type="file" onChange={handleFileChange} accept="image/*" style={{width: '100%', padding: '10px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px'}} />
+                </div>
+                <div style={{display: 'flex', gap: '15px', marginTop: '10px'}}>
+                  <button type="button" onClick={() => setEditingStaffId(null)} style={{flex: 1, backgroundColor: '#f3f4f6', color: '#4b5563', border: '1px solid #d1d5db', padding: '12px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px', fontWeight: '600'}}><FaTimes style={{marginRight: '5px'}}/> Cancel</button>
+                  <button type="submit" style={{flex: 1, backgroundColor: '#3b82f6', color: 'white', border: 'none', padding: '12px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px', fontWeight: '600'}}><FaCheck style={{marginRight: '5px'}}/> Save Changes</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -447,11 +550,12 @@ const StaffManager = () => {
 const PlacementsManager = () => {
   const [images, setImages] = useState([]);
   const [photo, setPhoto] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
 
   const fetchImages = async () => {
     try {
-      // Stub for fetching images
-      setImages([]);
+      const res = await axios.get('http://localhost:5000/api/admin/placements');
+      setImages(res.data.data || []);
     } catch (error) {
       console.error(error);
     }
@@ -465,16 +569,36 @@ const PlacementsManager = () => {
     const formData = new FormData();
     formData.append('photo', photo);
     try {
-      // await axios.post('http://localhost:5000/api/admin/placements', formData);
+      await axios.post('http://localhost:5000/api/admin/placements', formData);
       setPhoto(null);
       fetchImages();
-      alert('Upload functionality to be connected to backend.');
+      alert('Upload successful.');
+      // Reset file input
+      const fileInput = document.querySelector('input[type="file"][accept="image/*"]');
+      if (fileInput) fileInput.value = '';
     } catch (error) {
       console.error(error);
+      alert('Upload failed.');
     }
   };
 
-  const handleClear = () => setPhoto(null);
+  const handleDeleteImage = async (id) => {
+    if (window.confirm("Are you sure you want to delete this placement image?")) {
+      try {
+        await axios.delete(`http://localhost:5000/api/admin/placements/${id}`);
+        fetchImages();
+      } catch (error) {
+        console.error(error);
+        alert('Failed to delete image');
+      }
+    }
+  };
+
+  const handleClear = () => {
+    setPhoto(null);
+    const fileInput = document.querySelector('input[type="file"][accept="image/*"]');
+    if (fileInput) fileInput.value = '';
+  };
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -513,26 +637,59 @@ const PlacementsManager = () => {
 
           <div className="form-actions" style={{display: 'flex', gap: '12px', marginTop: '24px'}}>
             <button type="submit" className="btn-primary" style={{flex: 1, backgroundColor: '#1d4ed8', fontSize: '14px', padding: '12px', borderRadius: '6px'}}><FaUpload style={{marginRight: '8px'}}/> Upload Image</button>
-            <button type="button" className="btn-secondary" onClick={handleClear} style={{flex: 1, backgroundColor: '#6b7280', color: 'white', border: 'none', fontSize: '14px', padding: '12px', borderRadius: '6px', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><FaRedo style={{marginRight: '8px'}}/> Clear</button>
+            <button type="button" className="clear-btn" onClick={handleClear}><FaRedo style={{marginRight: '8px'}}/> Clear</button>
           </div>
         </form>
       </div>
 
       <div className="dept-group" style={{marginTop: '40px'}}>
         <div className="dept-header" style={{backgroundColor: '#15803d', borderRadius: '8px 8px 0 0', padding: '16px 24px', display: 'flex', justifyContent: 'space-between', color: 'white', fontWeight: '600', alignItems: 'center'}}>
-          <div style={{display: 'flex', alignItems: 'center'}}><FaBuilding style={{marginRight: '10px'}}/> Placement Images</div>
+          <div style={{display: 'flex', alignItems: 'center'}}><FaBuilding style={{marginRight: '10px'}}/> Placement Photos</div>
           <div className="dept-badge" style={{backgroundColor: 'rgba(255,255,255,0.25)', color: 'white', padding: '4px 12px', borderRadius: '20px', fontSize: '12px'}}>{images.length} Images</div>
         </div>
         <div className="staff-cards-grid" style={{padding: '30px', border: '1px solid #e5e7eb', borderTop: 'none', borderRadius: '0 0 8px 8px', background: 'white'}}>
           {images.length === 0 ? (
             <div style={{textAlign: 'center', color: '#6b7280', width: '100%', gridColumn: '1 / -1'}}>No placement images found.</div>
           ) : (
-            images.map((img, i) => (
-               <div key={i} className="staff-card">Image Placeholder</div>
+            images.map((img) => (
+               <div key={img.id} className="staff-card admin-placement-card">
+                 <img src={`http://localhost:5000${img.image_url}`} alt="Placement" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                 
+                 <div className="placement-overlay">
+                   <div className="placement-actions">
+                     <button 
+                       type="button"
+                       className="admin-photo-btn"
+                       onClick={() => setPreviewImage(`http://localhost:5000${img.image_url}`)}
+                     >
+                       <FaEye /> View
+                     </button>
+                     <button 
+                       type="button"
+                       className="admin-photo-btn admin-photo-delete"
+                       onClick={() => handleDeleteImage(img.id)}
+                     >
+                       <FaTrash /> Delete
+                     </button>
+                   </div>
+                 </div>
+               </div>
             ))
           )}
         </div>
       </div>
+
+      {/* Full Screen Image Preview Modal */}
+      {previewImage && (
+        <div style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.85)', zIndex: 9999, display: 'flex', justifyContent: 'center', alignItems: 'center'}} onClick={() => setPreviewImage(null)}>
+          <img src={previewImage} style={{maxWidth: '90%', maxHeight: '90%', objectFit: 'contain', borderRadius: '8px', boxShadow: '0 4px 20px rgba(0,0,0,0.3)'}} onClick={e => e.stopPropagation()} />
+          <button onClick={() => setPreviewImage(null)} style={{position: 'absolute', top: '24px', right: '32px', background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '50%', width: '44px', height: '44px', fontSize: '20px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s', backdropFilter: 'blur(4px)'}}
+          onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)' }}
+          onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)' }}>
+            <FaTimes />
+          </button>
+        </div>
+      )}
     </div>
   );
 };

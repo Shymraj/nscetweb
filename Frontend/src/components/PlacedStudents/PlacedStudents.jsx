@@ -1,32 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./PlacedStudents.css";
 
-// EXACT RELATIVE PATHS BASED ON YOUR FOLDER STRUCTURE
-// Note: Make sure the file extensions (.jpg or .jpeg) exactly match the files in your folder.
-import poster1 from "../../assets/Placements/Placement1.webp";
-import poster2 from "../../assets/Placements/Placement2.webp";
-import poster3 from "../../assets/Placements/Placement3.webp";
-import poster4 from "../../assets/Placements/Placement4.jpeg"; 
-import poster5 from "../../assets/Placements/Placement5.webp";
-import poster6 from "../../assets/Placements/Placement6.jpeg"; 
-import poster7 from "../../assets/Placements/Placement7.jpg";
-import poster8 from "../../assets/Placements/Placement8.jpg";
-
-// Array holding the imported images
-const placementPosters = [
-  { id: 1, image: poster1, altText: "Placement Poster 1" },
-  { id: 2, image: poster2, altText: "Placement Poster 2" },
-  { id: 3, image: poster3, altText: "Placement Poster 3" },
-  { id: 4, image: poster4, altText: "Placement Poster 4" },
-  { id: 5, image: poster5, altText: "Placement Poster 5" },
-  { id: 6, image: poster6, altText: "Placement Poster 6" },
-  { id: 7, image: poster7, altText: "Placement Poster 7" },
-  { id: 8, image: poster8, altText: "Placement Poster 8" },
-];
-
 const PlacedStudents = () => {
+  const [placementPosters, setPlacementPosters] = useState([]);
+
+  useEffect(() => {
+    const fetchPlacements = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/admin/placements");
+        if (res.data.success && res.data.data.length > 0) {
+          const apiImages = res.data.data.map((item, index) => ({
+            id: item.id,
+            image: `http://localhost:5000${item.image_url}`,
+            altText: `Placement Poster ${index + 1}`
+          }));
+          setPlacementPosters(apiImages);
+        } else {
+          setPlacementPosters([]);
+        }
+      } catch (error) {
+        console.error("Error fetching placements:", error);
+        setPlacementPosters([]);
+      }
+    };
+    fetchPlacements();
+  }, []);
+
   // Duplicating the array to create a seamless infinite scroll loop
-  const marqueeData = [...placementPosters, ...placementPosters];
+  const marqueeData = placementPosters.length > 0 ? [...placementPosters, ...placementPosters] : [];
+
+  if (placementPosters.length === 0) {
+    return null; // or return an empty section if preferred
+  }
 
   return (
     <section className="placement-section">

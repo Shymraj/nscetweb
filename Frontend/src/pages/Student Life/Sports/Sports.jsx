@@ -24,6 +24,7 @@ import Kabaddi from "./images/kabadi.png";
 import TableTennis from "./images/table.png";
 import KhoKho from "./images/khokho.png";
 import Handball from "./images/handball.png";
+import Cycling from "./images/Cycling.jpeg";
 
 const Sports = () => {
     const fadeInUp = {
@@ -61,12 +62,13 @@ const Sports = () => {
         { name: "Kabaddi", image: Kabaddi },
         { name: "Table Tennis", image: TableTennis },
         { name: "Kho Kho", image: KhoKho },
-        { name: "Handball", image: Handball }
+        { name: "Handball", image: Handball },
+        { name: "Cycling", image: Cycling }
     ];
 
     const achievements = [
-        { sno: 1, date: "23.02.2025", students: "O. Dinesh Babu I – AI&DS", event: "OSCAR World Record – “The longest duration of performing silambam multiweapons event one hour”", venue: "Velmurga Veerakalai Koedam", highlight: true },
-        { sno: 2, date: "26.01.2025", students: "G. K. Phiramoth – II CSE", event: "Drug Awareness Cycle Rally 2025 – Participated", venue: "JCI Theni Honey Bee", highlight: false },
+        { sno: 1, date: "26.01.2025", students: "G. K. Phiramoth – II CSE", event: "National Medalist - 2025 (HCL)\n9 times State Champion in cycling\nIndian BOOK of record holder - 580km within 36hrs (pondy to kumari)\nSelected for internationals 2027.\nHe actively represents the Sports Development Authority of Tamil Nadu (SDAT)", venue: "JCI Theni Honey Bee", highlight: false, goldenHighlight: true },
+        { sno: 2, date: "23.02.2025", students: "O. Dinesh Babu I – AI&DS", event: "OSCAR World Record – “The longest duration of performing silambam multiweapons event one hour”", venue: "Velmurga Veerakalai Koedam", highlight: true },
         { sno: 3, date: "27.01.2025 & 28.01.2025", students: "K. Uvasri – IV CSE\nS. Reshma – III EEE\nV. Atchaya Kamali – II ECE\nK. Devadharshini – II ECE\nG. Santhiya – II ECE\nS. Subitchana Sri – II CIVIL\nV. Yuva Priya – II CSE\nS. Devadharshini – I EEE", event: "Anna University Inter Zone Handball Women Tournament – Participated", venue: "PSNA College of Engineering and Technology, Dindigul", highlight: false },
         { sno: 4, date: "07.12.2024 to 10.12.2024", students: "G. K. Phiramoth – II CSE", event: "Tamil Nadu Team – CFI Cycling National Championships – Participated", venue: "Odisha Cycling Association, Odisha", highlight: false },
         { sno: 5, date: "20.12.2024 to 02.01.2025", students: "M. Guru Prasath – II EEE", event: "All India Inter University Boxing Men & Women Tournament – Participated", venue: "Guru Kashi University, Bathinda, Punjab", highlight: false },
@@ -254,7 +256,7 @@ const Sports = () => {
                             </thead>
                             <tbody>
                                 {achievements.map((a) => (
-                                    <tr key={a.sno} className={a.highlight ? "trophy-row" : ""}>
+                                    <tr key={a.sno} className={a.goldenHighlight ? "golden-star-row" : a.highlight ? "trophy-row" : ""}>
                                         <td>{a.sno}</td>
                                         <td>{a.date}</td>
                                         <td>{a.students}</td>
