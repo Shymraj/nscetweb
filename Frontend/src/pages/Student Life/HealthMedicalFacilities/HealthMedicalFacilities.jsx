@@ -43,6 +43,7 @@ const HealthMedicalFacilities = () => {
   return (
     <div className="healthmedicalfacilities-page">
       <PageBanner
+        backgroundImage="/banners/banner_medical.png"
         title="Health and Medical Facilities"
         subtitle="Student Life at NSCET"
         hideBreadcrumb={false}

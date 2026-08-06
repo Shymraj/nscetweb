@@ -112,7 +112,7 @@ const Sports = () => {
                 title="SPORTS AT NSCET"
                 subtitle="Promoting all-round growth — nurturing champions through discipline, teamwork, and athletic excellence."
                 hideBreadcrumb={true}
-                backgroundImage={bannerImg}
+                backgroundImage="/banners/banner_sports.png"
                 height="auto"
             />
 

@@ -23,6 +23,7 @@ const TransportFacilities = () => {
   return (
     <div className="transportfacilities-page">
       <PageBanner
+        backgroundImage="/banners/banner_transport.png"
         title="Transport Facilities"
         subtitle="Safe, Reliable & Punctual Commuting"
         hideBreadcrumb={false}

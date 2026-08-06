@@ -6,6 +6,7 @@ const SEDG = () => {
   return (
     <div className="sedg-page">
       <PageBanner
+        backgroundImage="/banners/banner_sedg.png"
         title="SEDG"
         subtitle="Student Life at NSCET"
         hideBreadcrumb={false}

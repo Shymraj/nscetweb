@@ -24,10 +24,7 @@
 
 /* --- HERO SECTION --- */
 .hostel-hero {
-  background-image: url('./banner/boyshostel.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background: url('/banners/banner_boyshostel.png') no-repeat center center/cover;
   width: 100%;
   aspect-ratio: 8 / 3;
   min-height: 450px;

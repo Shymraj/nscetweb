@@ -7,6 +7,7 @@ const EqualOpportunityCell = () => {
   return (
     <div className="eoc-page">
       <PageBanner
+        backgroundImage="/banners/banner_equalopp.png"
         title="Equal Opportunity Cell"
         subtitle="Promoting Equity and Inclusion at NSCET"
         hideBreadcrumb={false}
