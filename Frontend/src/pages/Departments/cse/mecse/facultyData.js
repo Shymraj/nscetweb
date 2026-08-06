@@ -1,27 +1,24 @@
-import imgSathya from "../images/sathya.jpeg";
+import imgSathya from "../images/Sathya.jpeg";
 import imgKarthick from "../images/karthick.jpeg";
 
 export const mecseFacultyData = [
-    {id: "dr-m-sathya", slug: "dr-m-sathya",  name: "Dr. M. SATHYA", desig: "Professor & M.E. Program Head", qual: "M.Tech., MBA., Ph.D", email: "hodit@nscet.org", image: imgSathya, spec: "Advanced Operating Systems & Cloud Computing", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "dr-m-sathya", slug: "dr-m-sathya",  name: "Dr. M. Sathya", desig: "Vice Principal & Professor", qual: "M.Tech., MBA., Ph.D", email: "msathya15@gmail.com", image: imgSathya, spec: "Computer Networks, Artificial Intelligence (AI), Machine Learning (ML), Internet of Things (IoT), Cloud Computing", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/dr-m-sathya-sathiskumar-0506657b/",
+    about: "Dr. M. Sathya serves as the Vice Principal and Professor with over 16 years of teaching and research experience. Her areas of expertise include Computer Networks, Artificial Intelligence (AI), Machine Learning (ML), Internet of Things (IoT), and Cloud Computing. With significant contributions in research, patents, and academic excellence, she is committed to fostering innovation, promoting industry-oriented learning, and mentoring students to excel in emerging technologies.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "54"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "1"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "11"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "3"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "16 Years"
     ]},
     {id: "naveenkarthick-g-r", slug: "naveenkarthick-g-r",  name: "Naveenkarthick G R", desig: "Assistant Professor", qual: "M.E.", email: "naveenkarthick@nscet.org", image: imgKarthick, spec: "Distributed Systems & Algorithms", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/naveen-karthick-8b713ab1/",

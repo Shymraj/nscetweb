@@ -7,7 +7,7 @@ import imgSurulimani from "./images/Surulimani.jpg";
 import imgHarikishore from "./images/harikishore.jpg";
 import imgChakravarthySamy from "./images/chakravarthysamydurai.jpg";
 import imgNagaraja from "./images/nagaraja.jpg";
-import imgVembathurajesh from "./images/vembathurajesh.png";
+
 import imgArunKumar from "./images/arunkumar.jpg";
 
 export const mechanicalFacultyData = [
@@ -163,27 +163,7 @@ export const mechanicalFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "dr-a-vembathurajesh", slug: "dr-a-vembathurajesh",  name: "Dr. A. Vembathurajesh", desig: "Assistant Professor", qual: "M.E., Ph.D, MISTE.", email: "vembathurajesh@nscet.org", image: imgVembathurajesh, spec: "Advanced Composite Materials", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
-    publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
-    ],
-    projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
-    ],
-    patents: [
-      "Dummy Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
-    experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
-    ]},
+
     {id: "mr-g-arun-kumar", slug: "mr-g-arun-kumar",  name: "Arunkumar G", desig: "Assistant Professor", qual: "M.E.", email: "arunkumar@nscet.org", image: imgArunKumar, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/arun-kumar-5433553b4",
     about: "Arunkumar G is a dedicated faculty member with 9 years of teaching experience in the Department of Mechanical Engineering. His specialization is Manufacturing Engineering, and he is passionate about advancing engineering education through practical learning, research, and innovation. He is committed to equipping students with industry-relevant knowledge and technical skills.",

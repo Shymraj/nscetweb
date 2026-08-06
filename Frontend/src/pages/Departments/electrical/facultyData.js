@@ -28,26 +28,21 @@ export const electricalFacultyData = [
     experience: [
       "13.6 Years"
     ]},
-    {id: "mr-k-ganesh", slug: "mr-k-ganesh",  name: "Mr. K. Ganesh", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "ganesh@nscet.org", image: imgGanesh, spec: "Power Systems & Renewable Energy", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mr-k-ganesh", slug: "mr-k-ganesh",  name: "Ganesh K", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "ganesh@nscet.org", image: imgGanesh, spec: "Grid Technology, Energy Management, Electric Vehicle Systems", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/ganeshk210989",
+    about: "Ganesh K is a dedicated faculty member with over 10 years of teaching and research experience in the Department of Electrical and Electronics Engineering. His areas of specialization include Grid Technology, Energy Management, and Electric Vehicle Systems. He is passionate about sustainable energy technologies, innovation, and helping students develop industry-relevant technical skills through practical learning.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "4"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "3"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
+    awards: [],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "10.1 Years"
     ]},
     {id: "mr-r-raja-karthick", slug: "mr-r-raja-karthick",  name: "Mr. R. Raja Karthick", desig: "Assistant Professor", qual: "M.E.", email: "rajakarthick@nscet.org", image: imgRajaKarthick, spec: "Power Electronics & Electric Drives", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
@@ -151,47 +146,41 @@ export const electricalFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mrs-r-chitra", slug: "mrs-r-chitra",  name: "Mrs. R. Chitra", desig: "Associate Professor", qual: "M.E.", email: "chitrar@nscet.org", image: imgChitra, spec: "Power Quality & Solar Microgrids", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mrs-r-chitra", slug: "mrs-r-chitra",  name: "Chitra R", desig: "Associate Professor", qual: "M.E.", email: "chitrar@nscet.org", image: imgChitra, spec: "Digital Electronics, Smart Grid, Linear Integrated Circuits", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/chitra-rajendran-04a206229",
+    about: "Chitra R is a dedicated faculty member with over 9 years of teaching and research experience in the Department of Electrical and Electronics Engineering. Her areas of specialization include Digital Electronics, Smart Grid, and Linear Integrated Circuits. She is passionate about innovation, practical learning, and mentoring students to build strong technical and analytical skills in modern electrical engineering.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "3"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "6"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "1"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "9.4 Years"
     ]},
-    {id: "mrs-h-juriya-banu", slug: "mrs-h-juriya-banu",  name: "Mrs. H. Juriya Banu", desig: "Assistant Professor", qual: "M.E.", email: "juriyabanu@nscet.org", image: imgJuriyaBanu, spec: "Signals Systems & DSP", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mrs-h-juriya-banu", slug: "mrs-h-juriya-banu",  name: "H. Juriya Banu", desig: "Assistant Professor", qual: "M.E.", email: "juriyabanu@nscet.org", image: imgJuriyaBanu, spec: "Power Systems", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/juriyabanu-habeeb-82925810a",
+    about: "H. Juriya Banu is a dedicated faculty member with 2 years of teaching experience in the Department of Electrical and Electronics Engineering. Her specialization is Power Systems, and she is passionate about electrical engineering, sustainable energy solutions, and helping students build strong technical knowledge through practical and application-oriented learning.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "1"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "1"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "2 Years"
     ]},
     {id: "dr-n-pandi-selvi", slug: "dr-n-pandi-selvi",  name: "Dr. N. Pandi Selvi", desig: "Assistant Professor", qual: "B.E., M.E., Ph.D.", email: "pandiselvi@nscet.org", image: imgPandiSelvi, spec: "Renewable Energy Integration", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",

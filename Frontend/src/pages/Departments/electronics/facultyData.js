@@ -8,6 +8,7 @@ import imgTamilSelvi from "./images/tamilselvi.jpg";
 import imgShanthaDevi from "./images/shanthadevi.jpg";
 import imgGowthami from "./images/gowthami.jpg";
 import imgBharathiKannan from "./images/bharathikannan.jpg";
+import imgRajeshshree from "./images/Rajeshshree.jpeg";
 
 export const electronicsFacultyData = [
     {id: "dr-t-venishkumar", slug: "dr-t-venishkumar",  name: "Dr. T. Venish Kumar", desig: "Head of the Department (HOD)", qual: "M.E., Ph.D", email: "tvenishkumar@gmail.com", image: imgVenishkumar, spec: "Digital VLSI, Device Modeling, Analog VLSI", objectPosition: "center 10%" ,
@@ -143,26 +144,23 @@ export const electronicsFacultyData = [
     experience: [
       "8.6 Years"
     ]},
-    {id: "mrs-p-gowthami", slug: "mrs-p-gowthami",  name: "Mrs. P. Gowthami", desig: "Assistant Professor", qual: "M.E.", email: "gowthami@nscet.org", image: imgGowthami, spec: "Communication Networks & Microcontrollers", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mrs-p-gowthami", slug: "mrs-p-gowthami",  name: "Gowthami P", desig: "Assistant Professor", qual: "M.E.", email: "gowthami@nscet.org", image: imgGowthami, spec: "Communication Systems", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/gowthami-palanisamy-2a036a24a",
+    about: "Gowthami P is a dedicated faculty member with 2 years of teaching experience in the Department of Electronics and Communication Engineering. Her specialization is Communication Systems, and she is passionate about communication technologies, research, and helping students build strong theoretical and practical knowledge through innovative teaching.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "1"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "6"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "1"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "2 Years"
     ]},
     {id: "mr-k-bharathi-kannan", slug: "mr-k-bharathi-kannan",  name: "Mr. K. Bharathi Kannan", desig: "Assistant Professor", qual: "M.E.", email: "bharathikannan@nscet.org", image: imgBharathiKannan, spec: "Linear Integrated Circuits & Control", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
@@ -184,5 +182,23 @@ export const electronicsFacultyData = [
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
+    ]},
+    {id: "mrs-s-rajeshshree", slug: "mrs-s-rajeshshree",  name: "Mrs. S. Rajeshshree", desig: "Assistant Professor", qual: "B.E., M.E.", email: "rajeshshree@nscet.org", image: imgRajeshshree, spec: "Semiconductor Technology, Digital Communication", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/rajeshshree-ece-2aa7503a4",
+    about: "Mrs. S. Rajeshshree is a dedicated faculty member with 2 years of teaching experience in the Department of Electronics and Communication Engineering. Her areas of specialization include Semiconductor Technology and Digital Communication. She is passionate about research, innovation, and helping students build strong technical knowledge through practical and industry-oriented learning.",
+    publications: [
+      "1"
+    ],
+    projects: [
+      "2"
+    ],
+    patents: [
+      "1"
+    ],
+    awards: [
+      "1"
+    ],
+    experience: [
+      "2 Years"
     ]}
   ];

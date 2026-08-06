@@ -90,12 +90,12 @@ export default function FacultyPortfolio() {
 
       {/* Main Standalone Portfolio Component */}
       <main className="relative z-10 pt-20">
-        <GlassmorphismPortfolio faculty={faculty} />
+        <GlassmorphismPortfolio faculty={faculty} departmentName={departmentName} />
       </main>
 
       {/* Minimal Footer */}
       <footer className="portfolio-minimal-footer">
-        <p>© Nadar Saraswathi College of Engineering & Technology · Department of Civil Engineering</p>
+        <p>© Nadar Saraswathi College of Engineering & Technology · {departmentName ? `Department of ${departmentName}` : ""}</p>
       </footer>
     </div>
   );
