@@ -1,10 +1,10 @@
 import imgMathalaiRaj from "./images/67dd26bfce3c4_mathalairaj.jpg";
 import imgVelkumar from "./images/69143b078344d_velkumar.JPG";
 import imgDeepiga from "./images/deepika.jpg";
-import imgArchana from "./images/archana.jpg";
+import imgArchana from "./images/archana.jpeg";
 import imgAbirami from "./images/1774499419_abirami mam.jpeg";
 import imgVenkataLakshmi from "./images/Venkata Lakshmi M.jpg";
-import imgAnusuya from "./images/1774870992_anusuya.jpeg";
+import imgAnusuya from "./images/ANUSUYA VAIRAMUTHU.jpg";
 import imgVinothini from "./images/1778918321_CSE - Vinothini.jpeg";
 import imgSnega from "./images/1778918481_CSE - Snega Priyanka.png";
 
@@ -128,33 +128,23 @@ export const cseFacultyData = [
   {
     id: "abirami",
     slug: "abirami",
-    name: "Ms. S. Abirami Kayathiri",
+    name: "Abirami Kayathiri",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "abiramikayathiri@nscet.org",
     image: imgAbirami,
-    spec: "Cyber Security & Networks",
+    spec: "Vulnerability Detection",
     objectPosition: "center 12%",
-    linkedin: "https://www.linkedin.com/in/abiramikayathiri-nscet",
-    about: "Ms. S. Abirami Kayathiri is a specialist in Cyber Security and Network Protocols. Her expertise lies in ethical hacking, cryptography, and securing modern web infrastructures. She actively organizes capture-the-flag (CTF) events to cultivate practical security skills among students.",
+    linkedin: "https://www.linkedin.com/in/abirami-kayathiri-13528a170/",
+    about: "Abirami Kayathiri is a dedicated faculty member with 2 years of teaching experience in the Department of Computer Science and Engineering. Her area of specialization is Vulnerability Detection, and she is passionate about cybersecurity, secure software development, and helping students build strong analytical and problem-solving skills through research and practical learning.",
     publications: [
-      "Enhancing IoT Security using Blockchain Protocols — IEEE Symposium on Security, 2024",
-      "Vulnerability Assessment Methodologies for Cloud Infrastructures — Cyber Defense Journal, 2023"
+      "5"
     ],
     projects: [
-      "Implementation of Secure Multi-Party Computation Protocols",
-      "Development of Automated Intrusion Detection Systems"
-    ],
-    patents: [
-      "Lightweight Encryption Algorithm for Edge Devices (Published - 2023)"
-    ],
-    awards: [
-      "Cyber Security Educator of the Year - 2024",
-      "Best Technical Event Organizer - 2022"
+      "2"
     ],
     experience: [
-      "Assistant Professor, CSE, NSCET (2020 - Present)",
-      "Information Security Analyst, SecureNet Corp (2018 - 2020)"
+      "2 Years"
     ]
   },
   {
