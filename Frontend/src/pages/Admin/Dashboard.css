@@ -416,7 +416,222 @@ h3 {
 
 .staff-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.staff-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.staff-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.staff-card-info {
+  padding: 16px;
+}
+
+.staff-card-name {
+  color: #0A1A3A;
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0 0 4px 0;
+}
+
+.staff-card-desig {
+  color: #64748b;
+  font-size: 13px;
+  margin: 0 0 12px 0;
+}
+
+.staff-card-delete {
+  background: none;
+  color: #e61919;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.staff-card-delete:hover {
+  text-decoration: underline;
+}
+
+.scroll-to-top-admin {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #0A1A3A;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.upload-area input[type="file"] {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0; cursor: pointer;
+}
+
+.upload-icon {
+  display: none; /* Hide for simpler look matching design */
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-primary, .form-section button[type="submit"] {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.btn-primary:hover, .form-section button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.btn-secondary:hover {
+  background-color: #f1f5f9;
+}
+
+.clear-btn {
+  flex: 1;
+  background-color: #6b7280;
+  color: white;
+  border: none;
+  font-size: 14px;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+  background-color: #4b5563; /* Darker grey for hover difference */
+}
+
+/* Tables */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.admin-table th, .admin-table td {
+  padding: 16px;
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: #f4f7fa;
+  color: #0A1A3A;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-table td {
+  border-bottom: 1px solid #f1f5f9;
+  color: #333333;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: #0044cc;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0;
+}
+.delete-btn:hover {
+  text-decoration: underline;
+}
+
+/* Other specific elements */
+.list-section {
+  margin-bottom: 40px;
+}
+
+.dept-group {
+  margin-bottom: 40px;
+}
+
+.dept-header {
+  color: #0A1A3A;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dept-badge {
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.staff-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
@@ -480,4 +695,60 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.admin-placement-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background-color: #f9fafb;
+  aspect-ratio: 1;
+}
+
+.placement-overlay {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: space-around;
+  padding: 12px;
+  transition: bottom 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.admin-placement-card:hover .placement-overlay {
+  bottom: 0;
+}
+
+.placement-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.admin-photo-btn {
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.admin-photo-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.admin-photo-delete {
+  color: #ff8a8a; /* Soft red/pink */
 }

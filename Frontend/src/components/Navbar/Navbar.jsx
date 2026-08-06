@@ -16,7 +16,7 @@ const searchData = [
   { name: "TMHNU Trust", path: "/administration/tmhnutrust" },
   { name: "Principal", path: "/administration/principal" },
   { name: "Finance Officer", path: "/administration/finance-officer" },
-  { name: "Controller of Examination", path: "/administration/controller-examination" },
+  { name: "Exam Cell", path: "/administration/controller-examination" },
   { name: "Ombudsperson", path: "/administration/ombudsperson" },
   { name: "Governing Council", path: governingPdf, isPdf: true },
   { name: "Internal Complaints Committee", path: "/administration/internal-complaints-committee" },
@@ -49,7 +49,6 @@ const searchData = [
   { name: "CLUBS & CHAPTERS", path: "/gallery/clubs-chapters" },
   { name: "NIRF", path: "/gallery/nirf" },
   { name: "RTI", path: "/gallery/rti" },
-  { name: "IQARENA", path: "/gallery/iqarena" },
   { name: "Events", path: "/gallery/events" },
   { name: "Sports", path: "/student-life/sports" },
   { name: "NSS", path: "/student-life/nss" },
@@ -187,7 +186,7 @@ function Navbar() {
             <ul className="dropdown-menu">
               <li><Link to="/administration/principal">Principal</Link></li>
               <li><Link to="/administration/finance-officer">Finance Officer</Link></li>
-              <li><Link to="/administration/controller-examination">Controller of Examination</Link></li>
+              <li><Link to="/administration/controller-examination">Exam Cell</Link></li>
               <li><Link to="/administration/ombudsperson">Ombudsperson</Link></li>
               <li>
                 <a
@@ -276,7 +275,6 @@ function Navbar() {
               <li><Link to="/gallery/clubs-chapters">CLUBS & CHAPTERS</Link></li>
               <li><Link to="/gallery/nirf">NIRF</Link></li>
               <li><Link to="/gallery/rti">RTI</Link></li>
-              <li><Link to="/gallery/iqarena">IQARENA</Link></li>
               <li><Link to="/gallery/events">Events</Link></li>
             </ul>
           </li>

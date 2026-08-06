@@ -48,7 +48,8 @@ export function getFacultyData(deptId, facultyId) {
   if (!facultyId) return deptData[0];
   
   const cleanedId = facultyId.toLowerCase().trim();
-  return deptData.find(f => f.id === cleanedId || f.slug === cleanedId) || deptData[0];
+  const found = deptData.find(f => f.id === cleanedId || f.slug === cleanedId);
+  return found || null;
 }
 
 export function getDepartmentName(deptId) {

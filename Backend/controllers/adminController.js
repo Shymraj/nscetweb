@@ -14,7 +14,14 @@ const loginAdmin = (req, res) => {
 
 // --- STAFF ---
 const getStaff = (req, res) => {
-  db.query("SELECT * FROM staff", (err, results) => {
+  const query = `
+    SELECT * FROM staff 
+    ORDER BY 
+      is_hod DESC,
+      CASE WHEN name LIKE '%Mathalai%' THEN 2 WHEN name LIKE '%Velkumar%' THEN 1 ELSE 0 END DESC,
+      name ASC
+  `;
+  db.query(query, (err, results) => {
     if (err) return res.status(500).json({ success: false, message: "Database Error" });
     res.json({ success: true, data: results });
   });
@@ -27,6 +34,25 @@ const addStaff = (req, res) => {
   db.query(sql, [name, designation, department, photo_url, email, qualifications, research, is_hod === 'true' || is_hod === true], (err, result) => {
     if (err) return res.status(500).json({ success: false, message: err.message });
     res.json({ success: true, message: "Staff added", id: result.insertId });
+  });
+};
+
+const updateStaff = (req, res) => {
+  const { id } = req.params;
+  const { name, designation, department, email, qualifications, research, is_hod } = req.body;
+  const photo_url = req.file ? `/uploads/staff/${req.file.filename}` : null;
+  
+  let sql = "UPDATE staff SET name=?, designation=?, department=?, email=?, qualifications=?, research=?, is_hod=? WHERE id=?";
+  let params = [name, designation, department, email, qualifications, research, is_hod === 'true' || is_hod === true, id];
+
+  if (photo_url) {
+    sql = "UPDATE staff SET name=?, designation=?, department=?, photo_url=?, email=?, qualifications=?, research=?, is_hod=? WHERE id=?";
+    params = [name, designation, department, photo_url, email, qualifications, research, is_hod === 'true' || is_hod === true, id];
+  }
+
+  db.query(sql, params, (err, result) => {
+    if (err) return res.status(500).json({ success: false, message: err.message });
+    res.json({ success: true, message: "Staff updated" });
   });
 };
 
@@ -184,9 +210,45 @@ const deleteDepartment = (req, res) => {
   });
 };
 
+// --- PLACEMENTS ---
+const getPlacements = (req, res) => {
+  const dirPath = path.join(__dirname, '..', 'uploads', 'placements');
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+  }
+  
+  fs.readdir(dirPath, (err, files) => {
+    if (err) return res.status(500).json({ success: false, message: "Server Error" });
+    const results = files.map(file => ({
+      id: file,
+      image_url: `/uploads/placements/${file}`
+    }));
+    res.json({ success: true, data: results });
+  });
+};
+
+const addPlacement = (req, res) => {
+  const photo_url = req.file ? `/uploads/placements/${req.file.filename}` : null;
+  if (!photo_url) return res.status(400).json({ success: false, message: "Image is required" });
+  
+  res.json({ success: true, message: "Placement image added", id: req.file.filename });
+};
+
+const deletePlacement = (req, res) => {
+  const { id } = req.params;
+  const filePath = path.join(__dirname, "..", "uploads", "placements", id);
+  if (fs.existsSync(filePath)) {
+    fs.unlinkSync(filePath);
+    res.json({ success: true, message: "Placement image deleted" });
+  } else {
+    res.status(404).json({ success: false, message: "Image not found" });
+  }
+};
+
 module.exports = { 
   loginAdmin, 
-  getStaff, addStaff, deleteStaff,
+  getStaff, addStaff, updateStaff, deleteStaff,
   getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent, deleteEventPhoto,
-  getDepartments, addDepartment, deleteDepartment
+  getDepartments, addDepartment, deleteDepartment,
+  getPlacements, addPlacement, deletePlacement
 };

@@ -15,6 +15,8 @@ const storage = multer.diskStorage({
       destFolder += "departments/";
     } else if (req.originalUrl.includes("/home")) {
       destFolder += "home/";
+    } else if (req.originalUrl.includes("/placements")) {
+      destFolder += "placements/";
     }
 
     // Ensure the folder exists, though we created them manually
