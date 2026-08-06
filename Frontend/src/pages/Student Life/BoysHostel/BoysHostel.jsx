@@ -7,15 +7,15 @@ const BoysHostel = () => {
     chiefWarden: { name: "Dr. C. Mathalai Sundaram", role: "Principal & Chief Warden" },
     strength: { rooms: 27, blocks: 3, totalStudents: 31 },
     gallery: [
-      { id: 1, imgUrl: "/hostel1.JPG" },
-      { id: 2, imgUrl: "/hostel2.JPG" },
-      { id: 3, imgUrl: "/hostel3.JPG" },
-      { id: 4, imgUrl: "/hostel5.JPG" }
+      { id: 1, imgUrl: "/BOYS HOSTEL/hostel1.JPG" },
+      { id: 2, imgUrl: "/BOYS HOSTEL/hostel2.JPG" },
+      { id: 3, imgUrl: "/BOYS HOSTEL/hostel3.JPG" },
+      { id: 4, imgUrl: "/BOYS HOSTEL/hostel5.JPG" }
     ],
     culture: [
-      { id: 1, imgUrl: "/hc3.JPG" },
-      { id: 2,  imgUrl: "/hc2.JPG" },
-      { id: 3, imgUrl: "/hc4.JPG" }
+      { id: 1, imgUrl: "/BOYS HOSTEL/hc3.JPG" },
+      { id: 2,  imgUrl: "/BOYS HOSTEL/hc2.JPG" },
+      { id: 3, imgUrl: "/BOYS HOSTEL/hc4.JPG" }
     ],
     facilities: [
       { title: "Gym", desc: "Well-equipped gym with modern exercise machines and weights." },
