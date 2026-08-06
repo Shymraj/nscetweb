@@ -10,22 +10,31 @@ import ieGrievancePdf from './images/3 IE Grievance FC FINAL.pdf';
 import eeGrievancesPdf from './images/4 EE Grievances FC fINAL.pdf';
 import examProcessImg from './images/Exam Cell Process.png';
 import bannerImg from './images/coe-banner.png';
+import saravanaImg from './images/Saravanakumar.png';
 
 const deputyControllers = [
   {
     id: 1,
     name: "Mr. K. Ganesh",
-    qualification: "M.E (Ph.D.)",
-    role: "Deputy Controller of Examinations",
+    qualification: "M.Tech,(Ph.D)., Asst.Prof of EEE",
+    role: "Deputy exam cell",
     image: ganeshImg
   },
   {
     id: 2,
     name: "Mr. V. Sivaganesan",
-    qualification: "M.E., MISTE.",
-    role: "Deputy Controller of Examinations",
+    qualification: "M.E.(Ph.D)., Asst.Prof of MECH",
+    role: "Deputy exam cell",
     image: sivaganesanImg
+  },
+  {
+    id: 3,
+    name: "Dr.R.Saravana Kumar",
+    qualification: "M.Sc., M.Phil, Ph.D., MISTE., Asst.Prof of S&H",
+    role: "Deputy exam cell",
+    image: saravanaImg
   }
+
 ];
 
 const verificationSteps = [
@@ -48,15 +57,15 @@ function ControllerOfExamination() {
       />
 
       <div className='coe-container'>
-        {/* Controller of Examinations */}
+        {/* Exam Cell Introduction */}
         <section className='coe-section coe-intro'>
           <div className='coe-header'>
             <FaUserTie className='coe-header-icon' />
-            <h2>Controller Of Examinations</h2>
+            <h2>Exam Cell</h2>
           </div>
           <div className='coe-content coe-featured'>
             <p>
-              <strong>Mr. C. Prathap, HoD/S&H</strong> is the Controller of Examination of the Autonomous College.
+              <strong>Dr.C.Mathalai Sundaram ,ME,MBA.,PHD.,</strong> is the Chief Superintendent of the College.
               The Exam Cell ensures smooth conduct of examinations, fair evaluation processes, and timely declaration of results.
             </p>
           </div>
@@ -66,7 +75,7 @@ function ControllerOfExamination() {
         <section className='coe-section coe-sections'>
           <div className='coe-header'>
             <FaFileAlt className='coe-header-icon' />
-            <h2>Page Sections</h2>
+            <h2>Work Flow</h2>
           </div>
           <div className='coe-sections-grid'>
             <div className='coe-section-card'>
@@ -114,10 +123,10 @@ function ControllerOfExamination() {
         <section className='coe-section coe-team'>
           <div className='coe-header'>
             <FaUserTie className='coe-header-icon' />
-            <h2>Controller of Examinations Team</h2>
+            <h2>Co-ordinaters of Exam Cell</h2>
           </div>
           <div className='coe-content'>
-            <h3>Deputy Controllers of Examinations</h3>
+            <h3>Co-ordinaters</h3>
             <div className='coe-team-grid'>
               {deputyControllers.map((member) => (
                 <div key={member.id} className='coe-team-card'>
