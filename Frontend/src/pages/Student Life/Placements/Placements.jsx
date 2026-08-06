@@ -89,7 +89,7 @@ const Placements = () => {
         title="Placements"
         subtitle="Training & Placement Cell"
         hideBreadcrumb={true}
-        backgroundImage="/banners/banner_placements.png"
+        backgroundImage={bannerImg}
         height="auto"
       />
 

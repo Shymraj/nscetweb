@@ -16,7 +16,7 @@ const NSS = () => {
       <PageBanner
         title="National Service Scheme"
         subtitle="Empowering Students Through Community Service, Leadership, and Nation Building"
-        backgroundImage="/banners/banner_nss.png"
+        backgroundImage={nssBanner}
         hideBreadcrumb={false}
         breadcrumb={[
           { label: 'Student Life', link: '#' },

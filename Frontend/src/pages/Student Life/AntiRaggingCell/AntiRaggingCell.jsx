@@ -48,7 +48,6 @@ const AntiRaggingCell = () => {
   return (
     <div className="antiraggingcell-page">
       <PageBanner
-        backgroundImage="/banners/banner_antiragging.png"
         title="Anti-Ragging Cell"
         subtitle="Ensuring a Safe & Ragging-Free Campus"
         hideBreadcrumb={false}

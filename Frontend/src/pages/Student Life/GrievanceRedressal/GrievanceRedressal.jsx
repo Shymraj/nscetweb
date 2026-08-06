@@ -32,7 +32,6 @@ const GrievanceRedressal = () => {
   return (
     <div className="grc-page">
       <PageBanner
-        backgroundImage="/banners/banner_grievance.png"
         title="Grievance Redressal Committee"
         subtitle="Ensuring a Fair and Transparent Campus"
         hideBreadcrumb={false}
