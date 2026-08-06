@@ -44,33 +44,25 @@ export const cseFacultyData = [
   {
     id: "velkumar",
     slug: "velkumar",
-    name: "Mr. K. Velkumar",
+    name: "Dr. Velkumar K",
     desig: "Assistant Professor",
     qual: "M.E, (Ph.D)",
-    email: "velkumar@nscet.org",
+    email: "velkumarskc@gmail.com",
     image: imgVelkumar,
-    spec: "Cloud Computing & Web Tech",
+    spec: "Recommendation Systems",
     objectPosition: "center 10%",
-    linkedin: "https://www.linkedin.com/in/velkumar-nscet",
-    about: "Mr. K. Velkumar is an expert in Cloud Computing architectures and Web Technologies. He is passionate about full-stack development and guides students in building scalable, production-ready web applications. His practical approach to teaching makes complex cloud concepts highly accessible.",
+    linkedin: "https://www.linkedin.com/in/dr-velkumar-k-16679724",
+    about: "Dr. Velkumar K is a distinguished faculty member with over 20 years of teaching and research experience in the Department of Computer Science and Engineering. His area of specialization is Recommendation Systems. With significant contributions in research, patents, and academic excellence, he is committed to advancing intelligent computing technologies and mentoring students through innovation-driven learning.",
     publications: [
-      "Serverless Architectures for Web Application Deployment — International Conference on Cloud Tech, 2023",
-      "Comparative Analysis of Microservices vs Monoliths — Software Engineering Review, 2022"
+      "10"
     ],
-    projects: [
-      "Development of E-Learning Platform for Remote Engineering Students",
-      "AWS Cloud Migration Strategy for Local Enterprises"
-    ],
+    projects: [],
     patents: [
-      "Optimized Data Caching Mechanism for Edge Computing (Filed - 2024)"
+      "5"
     ],
-    awards: [
-      "Outstanding Educator in Web Technologies - 2023",
-      "Best Mentor for Student Startups - 2022"
-    ],
+    awards: [],
     experience: [
-      "Assistant Professor, CSE, NSCET (2018 - Present)",
-      "Full Stack Developer, TechSolutions Inc. (2015 - 2018)"
+      "20 Years"
     ]
   },
   {

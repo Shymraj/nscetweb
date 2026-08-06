@@ -26,7 +26,7 @@ import imgEaswari from "./images/1778919497_Physics - Easwari.jpeg";
 import imgIniya from "./images/General Engg - Iniya.jpeg";
 import imgNandhini from "./images/General Engg - Nandini.jpeg";
 import imgSrinithi from "./images/Chemistry - Srinithi.jpeg";
-import imgRajeshshree from "./images/Rajeshshree.jpeg";
+
 import imgThisha from "./images/thisha.jpeg";
 import imgRamKumar from "./images/ramkumar.jpeg";
 
@@ -459,27 +459,6 @@ export const shFacultyData = [
     awards: [],
     experience: [
       "4 Months"
-    ]},
-    {id: "mrs-s-rajeshshree", slug: "mrs-s-rajeshshree",  name: "Mrs. S. Rajeshshree", desig: "Assistant Professor", qual: "B.E., M.E.", email: "rajeshshree@nscet.org", image: imgRajeshshree, spec: "Engineering Graphics & Design", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
-    publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
-    ],
-    projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
-    ],
-    patents: [
-      "Dummy Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
-    experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
     ]},
     {id: "mrs-n-thisha", slug: "mrs-n-thisha",  name: "N. Thisha", desig: "Assistant Professor (Tamil)", qual: "B.A., M.A., NET.", email: "thishaprabi4@gmail.com", image: imgThisha, spec: "Literature and Novel", objectPosition: "center 10%" ,
     linkedin: "https://in.linkedin.com/in/n-thisha-2794873ba",

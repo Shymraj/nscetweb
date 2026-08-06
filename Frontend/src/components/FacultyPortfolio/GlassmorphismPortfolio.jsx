@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 
-export function GlassmorphismPortfolio({ faculty }) {
+export function GlassmorphismPortfolio({ faculty, departmentName }) {
   // Fallbacks for baseline safety
   const name = faculty?.name || "Faculty Member";
   const desig = faculty?.desig || "Assistant Professor";
@@ -27,7 +27,7 @@ export function GlassmorphismPortfolio({ faculty }) {
   const image = faculty?.image || "";
   const spec = faculty?.spec || "Civil Engineering";
   const linkedin = faculty?.linkedin || "";
-  const department = "Department of Civil Engineering";
+  const department = departmentName ? `Department of ${departmentName}` : "";
 
   const listVariants = {
     hidden: { opacity: 0, y: 16 },
@@ -204,7 +204,7 @@ export function GlassmorphismPortfolio({ faculty }) {
                   </h3>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  {spec.split('&').map((domain, idx) => (
+                  {spec.split(/[,&]/).map((domain, idx) => (
                     <Badge
                       key={idx}
                       variant="outline"
