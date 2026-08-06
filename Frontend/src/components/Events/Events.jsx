@@ -20,7 +20,7 @@ const events = [
     description:
       "National-level 48-hour coding marathon open to all engineering students with exciting prizes.",
     button: "View More",
-    link: "/gallery/events" // Default link for 1st card
+    link: "/gallery/events/hackathon-25-1785918540218"
   },
   {
     category: "Cultural Fest",

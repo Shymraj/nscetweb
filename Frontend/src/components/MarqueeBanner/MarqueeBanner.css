@@ -1,19 +1,27 @@
 .marquee-container {
-  background-color: #e1cf26; /* A distinct dark orange/gold that suits the theme */
-  color: white;
-  padding: 4px 0; /* Reduced padding to decrease height */
+  background: linear-gradient(90deg, #061938 0%, #0d3b8e 50%, #061938 100%);
+  color: #ffffff;
+  padding: 6px 0;
   overflow: hidden;
   white-space: nowrap;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(13, 59, 142, 0.25);
   display: flex;
   align-items: center;
-  position: fixed; /* Restore fixed to stick on scroll */
-  top: 110px; /* Offset for the fixed Navbar (34px topbar + 76px navbar) */
+  position: fixed;
+  top: 110px;
   left: 0;
   width: 100%;
   z-index: 999;
-  border-top: 1.5px solid rgba(212, 175, 55, 0.85); /* Matches Navbar border */
-  transition: transform 0.3s ease;
+  border-top: 1.5px solid rgba(212, 175, 55, 0.7);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+body.dark-mode .marquee-container {
+  background: linear-gradient(90deg, #090e17 0%, #152238 50%, #090e17 100%);
+  border-top: 1.5px solid rgba(212, 175, 55, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .marquee-container.scrolled {
@@ -30,14 +38,18 @@
 }
 
 .marquee-item {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
   padding: 0 20px;
+  color: #f8fafc;
 }
 
 .marquee-separator {
   margin: 0 15px;
-  color: #fbbf24; /* A nice yellow accent for separator */
+  color: #fcd34d;
+  font-size: 16px;
+  vertical-align: middle;
 }
 
 @keyframes marquee {
@@ -48,3 +60,4 @@
     transform: translateX(-100%);
   }
 }
+

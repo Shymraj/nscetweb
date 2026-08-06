@@ -25,6 +25,9 @@ const TeachingFaculty = () => {
   // ============================================================================
   // DIRECT FACULTY DATA
   // All departments filled. Existing structures strictly untouched.
+  // ============================================================================
+  // DIRECT FACULTY DATA
+  // All departments filled. Existing structures strictly untouched.
   // Science & Humanities strictly adjusted to 34 UNIQUE cards.
   // ============================================================================
   const facultyData = [
@@ -152,8 +155,69 @@ const TeachingFaculty = () => {
     { id: 89, name: "Ms .S.Rajeshshree", qualifications: ["M.E"], department: "Science & Humanities", position: "Assistant Professor", email: "rajeshshree@nscet.org", photo: "/ECE/Rajeshshree.jpeg", isHOD: false }
   ];
 
-// Filtering data for the selected department
-  const currentFaculty = facultyData.filter(staff => staff.department === activeDept);
+  const [facultiesState, setFacultiesState] = useState(facultyData);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/admin/staff")
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          const apiStaff = data.data;
+          let updatedData = [...facultyData];
+
+          apiStaff.forEach(staff => {
+            let mappedDept = staff.department;
+            
+            if (staff.department) {
+              const deptLower = staff.department.toLowerCase();
+              if (deptLower.includes('computer science') && deptLower.includes('m.e')) mappedDept = 'M.E. - Computer Science Engineering';
+              else if (deptLower.includes('computer science') || deptLower.includes('cse')) mappedDept = 'B.E. - Computer Science Engineering';
+              else if (deptLower.includes('information tech')) mappedDept = 'B.Tech - Information Technology';
+              else if (deptLower.includes('artificial intelligence') || deptLower.includes('ai & ds')) mappedDept = 'B.Tech - Artificial Intelligence & Data Science';
+              else if (deptLower.includes('civil') && deptLower.includes('structural')) mappedDept = 'M.E. - Structural Engineering';
+              else if (deptLower.includes('civil')) mappedDept = 'B.E. - Civil Engineering';
+              else if (deptLower.includes('mechanical') && deptLower.includes('manufacturing')) mappedDept = 'M.E. - Manufacturing Engineering';
+              else if (deptLower.includes('mechanical')) mappedDept = 'B.E. - Mechanical Engineering';
+              else if (deptLower.includes('electronics and communication')) mappedDept = 'B.E. - Electronics and Communication Engineering';
+              else if (deptLower.includes('electrical') && deptLower.includes('embedded')) mappedDept = 'M.E. - Embedded Systems and Technology';
+              else if (deptLower.includes('electrical')) mappedDept = 'B.E. - Electrical and Electronics Engineering';
+              else if (deptLower.includes('science') && deptLower.includes('humanities')) mappedDept = 'Science & Humanities';
+            }
+
+            const normalizeName = (name) => name.replace(/dr\.|mr\.|mrs\.|ms\./gi, '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+            const staffNorm = normalizeName(staff.name);
+            
+            const existingIndex = updatedData.findIndex(localStaff => {
+              const localNorm = normalizeName(localStaff.name);
+              return localNorm.includes(staffNorm) || staffNorm.includes(localNorm);
+            });
+
+            const newStaffEntry = {
+              id: existingIndex !== -1 ? updatedData[existingIndex].id : staff.id.toString() + 'api',
+              name: staff.name,
+              qualifications: staff.qualifications ? staff.qualifications.split(',') : (existingIndex !== -1 ? updatedData[existingIndex].qualifications : []),
+              department: mappedDept,
+              position: staff.designation || (existingIndex !== -1 ? updatedData[existingIndex].position : "Assistant Professor"),
+              email: staff.email || (existingIndex !== -1 ? updatedData[existingIndex].email : ""),
+              photo: staff.photo_url ? `http://localhost:5000${staff.photo_url}` : (existingIndex !== -1 ? updatedData[existingIndex].photo : "https://via.placeholder.com/150"),
+              isHOD: staff.is_hod === 1 || staff.is_hod === true || staff.is_hod === '1' || staff.is_hod === 'true'
+            };
+
+            if (existingIndex !== -1) {
+              updatedData[existingIndex] = newStaffEntry;
+            } else {
+              updatedData.push(newStaffEntry);
+            }
+          });
+
+          setFacultiesState(updatedData);
+        }
+      })
+      .catch(err => console.error("Error fetching staff:", err));
+  }, []);
+
+  // Filtering data for the selected department
+  const currentFaculty = facultiesState.filter(staff => staff.department === activeDept);
   const hod = currentFaculty.find(staff => staff.isHOD);
   const regularStaffs = currentFaculty.filter(staff => !staff.isHOD);
 
