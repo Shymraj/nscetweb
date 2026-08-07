@@ -1,0 +1,285 @@
+/* ==========================================================
+   INFRASTRUCTURE SECTION (Orange & White Theme)
+========================================================== */
+.infra-section {
+  width: 100%;
+  padding: 100px 5%;
+  background-color: #ffffff; /* Premium White Background */
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow: hidden;
+}
+
+.infra-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ================= HEADER ================= */
+.infra-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 60px;
+}
+
+.infra-subtitle {
+  display: inline-block;
+  color: #ea580c; /* Premium Dark Orange */
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: rgba(234, 88, 12, 0.1);
+  padding: 8px 20px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+.infra-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.infra-desc {
+  color: #64748b;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ================= ACCORDION MECHANICS ================= */
+.accordion-container {
+  display: flex;
+  gap: 15px;
+  height: 550px; /* Adjust height based on preference */
+  width: 100%;
+}
+
+.accordion-panel {
+  position: relative;
+  flex: 1; /* Inactive width */
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+  transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.accordion-panel.active {
+  flex: 5; /* Active Expanded Width */
+  cursor: default;
+  box-shadow: 0 20px 40px rgba(234, 88, 12, 0.2);
+}
+
+/* Orange to Dark Premium Gradient Overlay */
+.panel-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    to top, 
+    rgba(234, 88, 12, 0.95) 0%, 
+    rgba(15, 23, 42, 0.4) 50%, 
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.accordion-panel:not(.active) .panel-overlay {
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.4));
+}
+
+.accordion-panel:not(.active):hover .panel-overlay {
+  background: linear-gradient(to top, rgba(234, 88, 12, 0.8), rgba(15, 23, 42, 0.4));
+}
+
+/* ================= VERTICAL TEXT (Collapsed State) ================= */
+.vertical-title-box {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  width: 100%;
+}
+
+.vertical-icon {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.vertical-text {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  writing-mode: vertical-rl; /* Makes text vertical */
+  transform: rotate(180deg); /* Reads bottom to top */
+  margin: 0;
+  white-space: nowrap;
+}
+
+.hide-vertical {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+  pointer-events: none;
+}
+
+/* ================= EXPANDED CONTENT ================= */
+.panel-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 25px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s; /* Delayed fade in */
+  pointer-events: none;
+}
+
+.show-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.content-icon-wrapper {
+  width: 65px;
+  height: 65px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.content-text-box h3 {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.content-text-box p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 500px;
+  margin-bottom: 25px;
+}
+
+/* ================= EXPLORE BUTTON ================= */
+.infra-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #ea580c;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.infra-explore-btn:hover {
+  background: #0f172a;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.infra-explore-btn:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+/* ================= DARK MODE ADAPTATION ================= */
+body.dark-mode .infra-section {
+  background-color: #0f172a;
+}
+
+body.dark-mode .infra-title {
+  color: #ffffff;
+}
+
+body.dark-mode .infra-desc {
+  color: #cbd5e1;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .accordion-container {
+    height: 500px;
+  }
+  .content-text-box h3 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .infra-section {
+    padding: 80px 5%;
+  }
+  .infra-title {
+    font-size: 32px;
+  }
+  
+  /* Convert horizontal accordion to vertical accordion for mobile */
+  .accordion-container {
+    flex-direction: column;
+    height: 800px; /* Taller to fit all cards vertically */
+  }
+
+  .vertical-title-box {
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    flex-direction: row; /* Horizontal icon & text when collapsed vertically */
+  }
+
+  .vertical-text {
+    writing-mode: horizontal-tb; /* Reset text to normal reading mode */
+    transform: none;
+  }
+
+  .hide-vertical {
+    transform: translate(-50%, 50%) scale(0.8);
+  }
+
+  .panel-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+    gap: 15px;
+  }
+
+  .content-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
