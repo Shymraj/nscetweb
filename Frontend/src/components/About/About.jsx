@@ -1,5 +1,5 @@
 import "./About.css";
-import aboutImage from "../../assets/about.png";
+import aboutImage from "../../assets/about/about.png";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom"; // 👉 1. Import useNavigate
 

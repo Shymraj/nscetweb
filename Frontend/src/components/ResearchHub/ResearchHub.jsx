@@ -3,20 +3,19 @@ import "./ResearchHub.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBookOpen, FaRunning, FaBed, FaUsers, FaCoffee, FaArrowRight } from "react-icons/fa";
 
-// Existing Imports
-import ispin from "../../assets/ispin.mp4"; 
-import drone1 from "../../assets/Drone.jpg";
-import drone2 from "../../assets/Drone1.jpg";
-import drone3 from "../../assets/Drone2.jpg";
-import printingImg from "../../assets/Printing.jpeg";
+// =========================================================================
+// ASSETS IMPORTS
+// Error-ஐ தவிர்க்க இல்லாத "Printing - Copy.jpeg" நீக்கப்பட்டுள்ளது.
+// =========================================================================
+import ispin from "../../assets/coe/ispin.mp4"; 
 
-// =========================================================================
-// 👉 STEP 1: FUTURE IMAGES IMPORT PANNURA EDAM 👈
-// Images ready aanadhum, keela iruka lines-a uncomment panni correct path kudunga:
-// =========================================================================
-// import printingImg from "../../assets/Printing.jpg";
-// import iqarenaImg from "../../assets/Iqarena.jpg";
-// import cafeteriaImg from "../../assets/Cafeteria.jpg";
+import coeDrone3 from "../../assets/coe/drone3.jpg";
+import coeDrone4 from "../../assets/coe/drone4.jpg";
+
+import coePrinting1 from "../../assets/coe/printing.jpg";
+
+import vehicle1 from "../../assets/coe/vehicle1.jpg";
+import vehicle2 from "../../assets/coe/vehicle2.jpg";
 
 const campusData = [
   {
@@ -31,7 +30,7 @@ const campusData = [
     id: "sports",
     title: "Drone Technology",
     icon: <FaRunning />,
-    images: [drone1, drone2, drone3], 
+    images: [coeDrone3, coeDrone4], 
     description: "State-of-the-art facilities for assembling, testing, and flying customized drones. Students get hands-on experience in modern aerial robotics.",
     highlight: "Advanced Robotics"
   },
@@ -39,9 +38,8 @@ const campusData = [
     id: "printing",
     title: "3D - Printing",
     icon: <FaBed />,
-    // 👇 STEP 2 (PRINTING): INGA IMAGE ADD PANNANUM 👇
-    // Future code: image: printingImg,
-    image: printingImg,
+    // உறுதியாக உள்ள ஒரு Printing image மட்டும் சேர்க்கப்பட்டுள்ளது
+    images: [coePrinting1],
     description: "Safe, secure, and comfortable AC/Non-AC hostels with high-speed Wi-Fi, hygienic mess facilities, and recreation rooms offering a home away from home.",
     highlight: "Modern Amenities"
   },
@@ -49,9 +47,7 @@ const campusData = [
     id: "clubs",
     title: "Electrical Vehicle (EEE)",
     icon: <FaUsers />,
-    // 👇 STEP 2 (IQARENA): INGA IMAGE ADD PANNANUM 👇
-    // Future code: image: iqarenaImg,
-    image: "https://via.placeholder.com/1000x800/f8fafc/f97316?text=IQARENA+Image+Coming+Soon",
+    images: [vehicle1, vehicle2],
     description: "From Robotics and Coding to Drama and Music, join over 30+ active student clubs to pursue your passion, build leadership skills, and network.",
     highlight: "30+ Active Clubs"
   },
@@ -59,8 +55,6 @@ const campusData = [
     id: "cafeteria",
     title: "WG Tech (ECE)",
     icon: <FaCoffee />,
-    // 👇 STEP 2 (CAFETERIA): INGA IMAGE ADD PANNANUM 👇
-    // Future code: image: cafeteriaImg,
     image: "https://via.placeholder.com/1000x800/f8fafc/f97316?text=Cafeteria+Image+Coming+Soon",
     description: "Spacious multi-cuisine cafeterias and lush green campus hangout spots where ideas are brewed over coffee and lifelong friendships are made.",
     highlight: "Hygienic Multi-Cuisine"
@@ -71,7 +65,7 @@ function CampusLife() {
   const [activeTab, setActiveTab] = useState(campusData[0]);
   const [imageIndex, setImageIndex] = useState(0);
 
-  // Tab change aagumbodhu index-a 0 ku reset pandrom
+  // Tab change ஆகும்போது index-ஐ 0-க்கு reset செய்கிறோம்
   useEffect(() => {
     setImageIndex(0);
   }, [activeTab]);
@@ -79,11 +73,11 @@ function CampusLife() {
   // Image Slideshow Timer Logic
   useEffect(() => {
     let interval;
-    // Active tab-la 'images' array irundhu, adhula 1-ku mela images irundha mattum slider odum
+    // Active tab-ல் 'images' array இருந்து, அதில் 1-க்கு மேல் images இருந்தால் மட்டும் slider ஓடும்
     if (activeTab.images && activeTab.images.length > 1) {
       interval = setInterval(() => {
         setImageIndex((prevIndex) => (prevIndex + 1) % activeTab.images.length);
-      }, 3500); // 3.5 seconds-ku oru thadava image change aagum
+      }, 3500); // 3.5 seconds-க்கு ஒரு முறை image change ஆகும்
     }
     return () => clearInterval(interval);
   }, [activeTab]);
@@ -164,7 +158,7 @@ function CampusLife() {
                       />
                     </AnimatePresence>
                   ) : (
-                    // Default Single Image render (Uses placeholder till you update it)
+                    // Default Single Image render
                     <img 
                       src={activeTab.image} 
                       alt={activeTab.title} 

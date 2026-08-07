@@ -46,14 +46,18 @@ const WhyChoose = () => {
           </button>
         </div>
 
-        {/* Card 3 */}
+        {/* Card 3 - Industry Connect */}
         <div className="why-card">
           <div className="why-icon">
             <FaHandshake />
           </div>
           <h3>Industry Connect</h3>
           <p>Strong collaborations with industries through internships, live projects, industrial visits and professional certifications.</p>
-          <button className="learn-more-btn">
+          {/* 👉 NEW: onClick function added for Industry Connect */}
+          <button 
+            className="learn-more-btn"
+            onClick={() => navigate('/academics/industry-collaboration')}
+          >
             Learn More <FaArrowRight className="btn-arrow" />
           </button>
         </div>

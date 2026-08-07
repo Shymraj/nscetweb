@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Hero.css";
-import heroImage from "../../assets/hero.png";
+import heroImage from "../../assets/hero/hero.png";
 import logo from "../../assets/Img/nscet-logo.png";
 
 import {

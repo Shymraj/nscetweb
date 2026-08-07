@@ -1,6 +1,6 @@
 import "./Departments.css";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -31,10 +31,12 @@ const allDepartments = [
   { id: "me-civil", image: civil, title: "Structural Engineering", category: "M.E", link: "/departments/me-structural" }
 ];
 
-const tabs = ["All Programs", "B.E", "B.Tech", "M.E"];
+// 👉 "All Programs" removed here
+const tabs = ["B.E", "B.Tech", "M.E"];
 
 function Departments() {
-  const [activeTab, setActiveTab] = useState("All Programs");
+  // 👉 Default tab set to "B.E"
+  const [activeTab, setActiveTab] = useState("B.E");
   const [items, setItems] = useState([]);
   
   const [visibleCards, setVisibleCards] = useState(3);
@@ -59,8 +61,6 @@ function Departments() {
 
   // Filter and setup item mapping (Only for Slider categories)
   useEffect(() => {
-    if (activeTab === "All Programs") return; 
-
     const filtered = allDepartments.filter(dept => dept.category === activeTab);
     let safeItems = [...filtered];
 
@@ -81,7 +81,7 @@ function Departments() {
   }, [activeTab, visibleCards]);
 
   const nextSlide = useCallback(() => {
-    if (activeTab === "All Programs" || activeTab === "B.Tech" || activeTab === "M.E") return;
+    if (activeTab === "B.Tech" || activeTab === "M.E") return;
     if (isAnimating.current || items.length === 0) return;
     isAnimating.current = true;
 
@@ -101,7 +101,7 @@ function Departments() {
   }, [items.length, activeTab]);
 
   const prevSlide = useCallback(() => {
-    if (activeTab === "All Programs" || activeTab === "B.Tech" || activeTab === "M.E") return;
+    if (activeTab === "B.Tech" || activeTab === "M.E") return;
     if (isAnimating.current || items.length === 0) return;
     isAnimating.current = true;
 
@@ -125,7 +125,7 @@ function Departments() {
 
   useEffect(() => {
     if (isHovered || items.length === 0) return;
-    if (activeTab === "All Programs" || activeTab === "B.Tech" || activeTab === "M.E") return; 
+    if (activeTab === "B.Tech" || activeTab === "M.E") return; 
     
     const interval = setInterval(() => {
       nextSlide();
@@ -161,7 +161,7 @@ function Departments() {
     <section className="wide-courses-section">
       <div className="wide-courses-container">
         
-        {/* ================= HEADER CONTROLS (CENTERED & REMOVED BUTTON) ================= */}
+        {/* ================= HEADER CONTROLS ================= */}
         <div className="wide-courses-header">
           <span className="w-subtitle">ACADEMIC DEPARTMENTS</span>
           <h2 className="w-title">Explore Our Popular Programs</h2>
@@ -188,67 +188,50 @@ function Departments() {
         </div>
 
         {/* ================= DYNAMIC LAYOUT AREA ================= */}
-        {activeTab === "All Programs" ? (
-          <div className="all-programs-grid">
-            <AnimatePresence>
-              {allDepartments.map((dept, index) => (
-                <motion.div
-                  key={dept.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
+        <motion.div 
+          className="wide-slider-master-wrapper"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {!shouldCenterTrack && (
+            <button className="side-arrow left-arrow" onClick={prevSlide}>
+              <FaChevronLeft />
+            </button>
+          )}
+
+          <div className="wide-slider-viewport">
+            <div 
+              className={`wide-slider-track ${shouldCenterTrack ? "center-aligned-track" : ""}`}
+              style={{
+                transform: shouldCenterTrack ? "none" : `translateX(calc(${offset} * (100% / ${visibleCards})))`,
+                transition: `transform ${transitionDuration} ease-in-out`
+              }}
+            >
+              {items.map((dept) => (
+                <div 
+                  className="wide-card-column"
+                  key={dept.uniqueId}
+                  style={{ 
+                    flex: shouldCenterTrack ? "0 1 33.33%" : `0 0 calc(100% / ${visibleCards})`, 
+                    width: shouldCenterTrack ? "33.33%" : `calc(100% / ${visibleCards})`,
+                    maxWidth: "440px"
+                  }}
                 >
                   {renderCard(dept)}
-                </motion.div>
+                </div>
               ))}
-            </AnimatePresence>
-          </div>
-        ) : (
-          <motion.div 
-            className="wide-slider-master-wrapper"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            {!shouldCenterTrack && (
-              <button className="side-arrow left-arrow" onClick={prevSlide}>
-                <FaChevronLeft />
-              </button>
-            )}
-
-            <div className="wide-slider-viewport">
-              <div 
-                className={`wide-slider-track ${shouldCenterTrack ? "center-aligned-track" : ""}`}
-                style={{
-                  transform: shouldCenterTrack ? "none" : `translateX(calc(${offset} * (100% / ${visibleCards})))`,
-                  transition: `transform ${transitionDuration} ease-in-out`
-                }}
-              >
-                {items.map((dept) => (
-                  <div 
-                    className="wide-card-column"
-                    key={dept.uniqueId}
-                    style={{ 
-                      flex: shouldCenterTrack ? "0 1 33.33%" : `0 0 calc(100% / ${visibleCards})`, 
-                      width: shouldCenterTrack ? "33.33%" : `calc(100% / ${visibleCards})`,
-                      maxWidth: "440px"
-                    }}
-                  >
-                    {renderCard(dept)}
-                  </div>
-                ))}
-              </div>
             </div>
+          </div>
 
-            {!shouldCenterTrack && (
-              <button className="side-arrow right-arrow" onClick={nextSlide}>
-                <FaChevronRight />
-              </button>
-            )}
-          </motion.div>
-        )}
+          {!shouldCenterTrack && (
+            <button className="side-arrow right-arrow" onClick={nextSlide}>
+              <FaChevronRight />
+            </button>
+          )}
+        </motion.div>
 
       </div>
     </section>

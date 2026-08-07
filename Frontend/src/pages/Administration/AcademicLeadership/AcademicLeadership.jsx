@@ -1,7 +1,7 @@
 import React from 'react';
 import './AcademicLeadership.css';
 import { motion } from 'framer-motion'; // PUTHUSA ADD PANNUNA PACKAGE
-
+import bannerImage from './Banner/AcademicLeadership.png';
 const AcademicLeadership = () => {
   const hodsData = [
     {
@@ -75,8 +75,8 @@ const AcademicLeadership = () => {
   return (
     <div className="al-page-container">
       
-      <div className="al-hero-banner">
-        <h1>Academic Leadership</h1>
+      <div className="al-hero-banner" style={{ backgroundImage: `url(${bannerImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        {/* <h1>Academic Leadership</h1> */}
       </div>
 
       <div className="al-about-banner">

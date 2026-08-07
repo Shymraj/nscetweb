@@ -567,6 +567,16 @@ body.dark-mode .sports-dept-container .sports-bento-card.primary:hover {
     font-weight: 500;
 }
 
+.golden-star-row {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), rgba(255, 223, 0, 0.4)) !important;
+    border-left: 4px solid #FFD700 !important;
+}
+
+.golden-star-row td {
+    color: #997A00 !important;
+    font-weight: 700;
+}
+
 .medal-icon {
     color: var(--sports-accent);
     margin-right: 4px;
@@ -619,6 +629,15 @@ body.dark-mode .trophy-row {
 
 body.dark-mode .trophy-row td {
     color: var(--theme-primary-light) !important;
+}
+
+body.dark-mode .golden-star-row {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.15), rgba(255, 223, 0, 0.25)) !important;
+    border-left: 4px solid #FFD700 !important;
+}
+
+body.dark-mode .golden-star-row td {
+    color: #FFD700 !important;
 }
 
 /* ================= RESPONSIVE ================= */
