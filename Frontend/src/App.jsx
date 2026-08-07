@@ -47,6 +47,7 @@ import NonTeachingFaculty from "./pages/Academics/NonTeachingFaculty/NonTeaching
 import IQAC from "./pages/Academics/iqac/iqac";
 import Library from "./pages/Academics/Library/Library";
 import AcademicsIndustryCollaboration from "./pages/Academics/IndustryCollaboration/IndustryCollaboration";
+import Labs from "./pages/Academics/Labs/Labs";
 import Gallery from "./pages/Gallery";
 import ClubsAndChapters from "./pages/Gallery/ClubsAndChapters/ClubsAndChapters";
 import Events from "./pages/Gallery/Events/Events";
@@ -104,6 +105,7 @@ const AppContent = () => {
         <Route path="/academics/iqac" element={<IQAC />} />
         <Route path="/academics/library" element={<Library />} />
         <Route path="/academics/industry-collaboration" element={<AcademicsIndustryCollaboration />} />
+        <Route path="/academics/labs" element={<Labs />} />
         <Route path="/departments" element={<Departments />} />
 
         <Route path="/departments/cse" element={<CSE />} />

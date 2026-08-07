@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Infrastructure.css";
 import { motion } from "framer-motion";
 import { FaLaptopCode, FaBookReader, FaRunning, FaBuilding, FaBus, FaArrowRight } from "react-icons/fa";
@@ -20,7 +21,8 @@ const infraData = [
     icon: <FaLaptopCode />,
     // Future code: image: labsImg,
     image: "https://via.placeholder.com/1000x800/ea580c/ffffff?text=Labs+Image",
-    desc: "Equipped with the latest hardware and software, our smart labs provide hands-on experience in cutting-edge technologies."
+    desc: "Equipped with the latest hardware and software, our smart labs provide hands-on experience in cutting-edge technologies.",
+    link: "/academics/labs"
   },
   {
     id: 2,
@@ -29,7 +31,8 @@ const infraData = [
     icon: <FaBookReader />,
     // Future code: image: libraryImg,
     image: "https://via.placeholder.com/1000x800/f97316/ffffff?text=Library+Image",
-    desc: "A massive repository of 1 Lakh+ books, digital IEEE journals, and quiet A/C reading halls for focused learning."
+    desc: "A massive repository of 1 Lakh+ books, digital IEEE journals, and quiet A/C reading halls for focused learning.",
+    link: "/academics/library"
   },
   {
     id: 3,
@@ -56,13 +59,14 @@ const infraData = [
     icon: <FaBus />,
     // Future code: image: transportImg,
     image: "https://via.placeholder.com/1000x800/ea580c/ffffff?text=Transport+Image",
-    desc: "A fleet of 50+ modern buses covering a 100km radius, ensuring safe and punctual commute for all students."
+    desc: "A fleet of 50+ modern buses covering a 100km radius, ensuring safe and punctual commute for all students.",
+    link: "/campus/transport"
   }
 ];
 
 const Infrastructure = () => {
-  // Default ah "Library" (index 1) expand aagi irukum
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const navigate = useNavigate();
 
   return (
     <section className="infra-section">
@@ -120,7 +124,13 @@ const Infrastructure = () => {
                   <div className="content-text-box">
                     <h3>{item.title}</h3>
                     <p>{item.desc}</p>
-                    <button className="infra-explore-btn">
+                    <button 
+                      className="infra-explore-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (item.link) navigate(item.link);
+                      }}
+                    >
                       Explore Facility <FaArrowRight className="arrow-icon" />
                     </button>
                   </div>
