@@ -89,7 +89,7 @@ export default function FacultyPortfolio() {
       </header>
 
       {/* Main Standalone Portfolio Component */}
-      <main className="relative z-10 pt-20">
+      <main className="relative z-10 pt-20 flex-1">
         <GlassmorphismPortfolio faculty={faculty} departmentName={departmentName} />
       </main>
 

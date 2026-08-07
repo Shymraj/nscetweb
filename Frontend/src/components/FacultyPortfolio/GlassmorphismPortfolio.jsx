@@ -76,7 +76,7 @@ export function GlassmorphismPortfolio({ faculty, departmentName }) {
   };
 
   return (
-    <section className="relative min-h-screen overflow-visible px-6 py-12 lg:py-20">
+    <section className="relative overflow-visible px-6 py-12 lg:py-20">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           
