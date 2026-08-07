@@ -178,24 +178,6 @@ const TransportFacilities = () => {
                     </a>
                   </div>
                 </motion.div>
-
-                <motion.div className="transport-link-card" variants={fadeInUp}>
-                  <div className="link-card-icon-wrapper admin-icon">
-                    <FaUserShield className="link-card-icon" />
-                  </div>
-                  <div className="link-card-info">
-                    <h4>Admin Portal</h4>
-                    <p>Manage transport operations</p>
-                    <a 
-                      href="https://nscet.org/bus_attendance/bus_attendance_admin/dashboard.html" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="transport-btn-secondary"
-                    >
-                      <FaUserShield /> Admin Panel
-                    </a>
-                  </div>
-                </motion.div>
               </motion.div>
             </div>
 

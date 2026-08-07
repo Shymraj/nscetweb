@@ -42,25 +42,25 @@ const NIRF = () => {
   const reports = [
     {
       id: 1,
-      title: "Download IR-B-C-56319",
+      title: "View IR-B-C-56319",
       subtitle: "SUSTAINABLE ENERGY Report",
       link: pdfSustainable
     },
     {
       id: 2,
-      title: "Download IR-E-C-56319",
+      title: "View IR-E-C-56319",
       subtitle: "ENGG 25 Report",
       link: pdfEngg
     },
     {
       id: 3,
-      title: "Download IR-I-C-56319",
+      title: "View IR-I-C-56319",
       subtitle: "INNOVATION 25 Report",
       link: pdfInnovation
     },
     {
       id: 4,
-      title: "Download IR-O-C-56319",
+      title: "View IR-O-C-56319",
       subtitle: "OVERALL 25 Report",
       link: pdfOverall
     }
@@ -185,7 +185,7 @@ const NIRF = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="premium-section-title">Download NIRF Reports</h2>
+            <h2 className="premium-section-title">View NIRF Reports</h2>
             <div className="title-accent-line center-line"></div>
           </motion.div>
 
@@ -219,7 +219,7 @@ const NIRF = () => {
                 </div>
                 <div className="tile-action-section">
                   <div className="download-btn-premium">
-                    <span className="btn-text">Download</span>
+                    <span className="btn-text">View</span>
                     <FaDownload className="btn-icon" />
                   </div>
                 </div>

@@ -39,9 +39,9 @@ const departmentCoordinators = [
 ];
 
 const facilities = [
-  { icon: FaBuilding, text: 'State-of-the-art air-conditioned auditorium (seating capacity over 400 students)' },
+  { icon: FaBuilding, text: 'State-of-the-art air-conditioned auditorium (seating capacity over 300 students)' },
   { icon: FaChalkboardTeacher, text: 'Air-conditioned, multimedia-equipped Interaction Hall (around 60 students) for interactions, workshops & seminars' },
-  { icon: FaUsers, text: 'Fully equipped, air-conditioned computer labs for online tests (around 300 students at a time)' },
+  { icon: FaUsers, text: 'Fully equipped, air-conditioned computer labs for online tests (around 60 students at a time)' },
   { icon: FaBriefcase, text: 'Multimedia air-conditioned conference hall for Group Discussions' },
   { icon: FaUserTie, text: 'Well-furnished and fully equipped cabins for personal interviews' },
   { icon: FaWifi, text: 'High-speed Wi-Fi internet' },
@@ -152,7 +152,7 @@ const Placements = () => {
             <div className="pl-coordinator-card">
               <img src={megaImg} alt="Ms. S. Megha" className="pl-coordinator-image" />
               <div className="pl-coordinator-info">
-                <h4>Ms. S. Megha</h4>
+                <h4>Mrs. S. Megha</h4>
                 <p>B.Sc</p>
                 <p className="pl-coordinator-role">Training and Placement Coordinator</p>
               </div>
@@ -243,7 +243,7 @@ const Placements = () => {
         <section className="pl-section">
           <div className="pl-section-header">
             <FaUsers className="pl-header-icon" />
-            <h2>Activities in CSET</h2>
+            <h2>Activities in NSCET</h2>
           </div>
           <div className="pl-activities-grid">
             {csetActivities.map((activity, index) => (
@@ -263,7 +263,7 @@ const Placements = () => {
           </div>
           <div className="pl-iipc-content">
             <p>
-              Established to bridge the skill gap between institute and industry. It identifies industrial expectations and prepares the institution by facilitating R&D projects, seminars, workshops, and industrial training programs.
+              Established to bridge the skill gap between institute and industry. It identifies industrial expectations and prepares the institution by facilitating research and developement projects, seminars, workshops, and industrial training programs.
             </p>
             <p>
               It equips faculty with latest technologies and makes students industry-ready through exposure to current practices. Focus is on interacting with elite industries in India and establishing global partnerships.
@@ -319,7 +319,7 @@ const Placements = () => {
             <h3>Dr. M. Sathya</h3>
             <p className="pl-contact-role">Training & Placement Officer</p>
             <p className="pl-contact-org">Nadar Saraswathi College Of Engineering & Technology</p>
-            <p className="pl-contact-location">Vapudhupatti, Theni-625531</p>
+            <p className="pl-contact-location">Vadapudupatti, Theni-625531</p>
             <p className="pl-contact-state">Tamil Nadu, India</p>
             <div className="pl-contact-details">
               <p><FaPhone className="pl-contact-icon" /> TEL: 04546 – 253900, 901, 902</p>
