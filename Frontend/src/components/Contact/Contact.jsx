@@ -1,123 +1,143 @@
+import React, { useState } from "react";
 import "./Contact.css";
-
-import { motion } from "framer-motion";
-import { FaPaperPlane } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  FaPaperPlane, FaCheckCircle, FaUser, FaEnvelope, 
+  FaPhoneAlt, FaWhatsapp, FaCity, FaBook, 
+  FaMapMarkerAlt, FaCommentAlt 
+} from "react-icons/fa";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    fullName: "", email: "", mobile: "", whatsapp: "", city: "", subject: "", message: ""
+  });
+  const [status, setStatus] = useState("idle");
+
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      // Backend API call simulation (2 seconds delay)
+      await new Promise((resolve) => setTimeout(resolve, 2000)); 
+      setStatus("success");
+      setFormData({ fullName: "", email: "", mobile: "", whatsapp: "", city: "", subject: "", message: "" });
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (error) {
+      setStatus("error");
+    }
+  };
+
   return (
-    // 👉 INGA id="enquiry-form" ADD PANNIYACHU
-    <section id="enquiry-form" className="contact">
+    <section id="enquiry-form" className="premium-contact-section">
+      {/* Background Ambient Glow */}
+      <div className="bg-glow glow-top-left"></div>
+      <div className="bg-glow glow-bottom-right"></div>
 
-      {/* Background Glow */}
-      <div className="contact-glow glow-one"></div>
-      <div className="contact-glow glow-two"></div>
+      <div className="contact-container">
+        {/* Section Header */}
+        <motion.div 
+          className="section-title-wrapper"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <span className="premium-badge">QUICK ENQUIRY</span>
+          <h2 className="premium-title">Send Us a <span>Message</span></h2>
+          <p className="premium-subtitle">Fill out the form below and our team will respond as soon as possible.</p>
+        </motion.div>
 
-      {/* Header */}
-      <motion.div
-        className="contact-header"
+        {/* Centered Premium Form Wrapper */}
+        <motion.div 
+          className="centered-form-wrapper"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <form onSubmit={handleSubmit} className="premium-form">
+            
+            <div className="form-grid">
+              {/* Full Name (Compulsory) */}
+              <div className="premium-input-wrapper">
+                <FaUser className="input-icon" />
+                <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} placeholder="Full Name *" required className="premium-input" />
+              </div>
+              
+              {/* Email (Compulsory) */}
+              <div className="premium-input-wrapper">
+                <FaEnvelope className="input-icon" />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address *" required className="premium-input" />
+              </div>
+
+              {/* Mobile (Compulsory) */}
+              <div className="premium-input-wrapper">
+                <FaPhoneAlt className="input-icon" />
+                <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} placeholder="Mobile Number *" required className="premium-input" />
+              </div>
+
+              {/* WhatsApp (Optional) */}
+              <div className="premium-input-wrapper">
+                <FaWhatsapp className="input-icon whatsapp" />
+                <input type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleChange} placeholder="WhatsApp Number" className="premium-input" />
+              </div>
+
+              {/* City (Optional) */}
+              <div className="premium-input-wrapper">
+                <FaCity className="input-icon" />
+                <input type="text" name="city" value={formData.city} onChange={handleChange} placeholder="City" className="premium-input" />
+              </div>
+
+              {/* Subject (Compulsory) */}
+              <div className="premium-input-wrapper">
+                <FaBook className="input-icon" />
+                <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="Subject *" required className="premium-input" />
+              </div>
+            </div>
+
+            {/* Message (Optional) */}
+            <div className="premium-input-wrapper textarea-wrapper">
+              <FaCommentAlt className="input-icon textarea-icon" />
+              <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Write your message here..." className="premium-input"></textarea>
+            </div>
+
+            {/* Form Footer & Button */}
+            <div className="form-action-footer">
+              <button type="submit" className={`premium-submit-btn ${status === 'loading' ? 'loading' : ''}`} disabled={status === 'loading'}>
+                <span>{status === "loading" ? "Sending Request..." : "Send Message"}</span>
+                <FaPaperPlane />
+              </button>
+
+              {/* Status Messages */}
+              <AnimatePresence>
+                {status === "success" && (
+                  <motion.div className="status-msg success" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}>
+                    <FaCheckCircle /> Request Submitted Successfully!
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+          </form>
+        </motion.div>
+      </div> {/* End of contact-container */}
+
+      {/* FULL WIDTH MAP SECTION (Outside of limited container) */}
+      <motion.div 
+        className="full-width-map-wrapper"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
         viewport={{ once: true }}
       >
-        <span className="contact-tag">
-          GET IN TOUCH
-        </span>
-
-        <h2>
-          Let's Start a Conversation
-        </h2>
-
-        <p>
-          Whether you're looking for admissions, placements,
-          campus facilities or academic information,
-          our team is always ready to assist you.
-        </p>
-
-        <div className="title-line"></div>
-      </motion.div>
-
-      {/* Quick Enquiry Form */}
-      <motion.div
-        className="contact-container"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="contact-form">
-          <div className="form-header">
-            <span>Quick Enquiry</span>
-            <h3>Send Us a Message</h3>
-            <p>
-              Fill out the form below and our team will
-              respond as soon as possible.
-            </p>
-          </div>
-
-          <form>
-            <div className="input-grid">
-              <input
-                type="text"
-                placeholder="Full Name"
-              />
-              <input
-                type="email"
-                placeholder="Email Address"
-              />
-            </div>
-
-            <div className="input-grid">
-              <input
-                type="text"
-                placeholder="Phone Number"
-              />
-              <input
-                type="text"
-                placeholder="Subject"
-              />
-            </div>
-
-            <textarea
-              rows="6"
-              placeholder="Write your message here..."
-            ></textarea>
-
-            <button type="submit">
-              <FaPaperPlane />
-              Send Message
-            </button>
-          </form>
-        </div>
-      </motion.div>
-
-      {/* Google Map */}
-      <motion.div
-        className="map-section"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="map-header">
-          <h3>
-            Visit Our Campus
-          </h3>
-          <p>
-            Experience the vibrant learning environment of
-            Nadar Saraswathi College of Engineering &
-            Technology located in the heart of Theni.
-          </p>
-        </div>
-
-        <div className="map-container">
-          <iframe
-            title="NSCET Location"
-            src="https://www.google.com/maps?q=Nadar%20Saraswathi%20College%20of%20Engineering%20and%20Technology&output=embed"
-            loading="lazy"
-            allowFullScreen
-          ></iframe>
-        </div>
+        <div className="map-badge"><FaMapMarkerAlt /> Find Us on Map</div>
+        <iframe
+          title="NSCET Location"
+          src="https://www.google.com/maps?q=Nadar%20Saraswathi%20College%20of%20Engineering%20and%20Technology&output=embed"
+          loading="lazy"
+          allowFullScreen
+        ></iframe>
       </motion.div>
 
     </section>

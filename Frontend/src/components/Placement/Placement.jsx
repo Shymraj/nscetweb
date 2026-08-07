@@ -166,53 +166,6 @@ function Placement() {
           ))}
         </div>
       </motion.div>
-
-      {/* ================= CTA BANNER ================= */}
-      <motion.div
-        className="placement-banner"
-        initial={{ opacity: 0, y: 70 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="banner-content">
-          <span>START YOUR SUCCESS JOURNEY</span>
-          <h2>
-            Shape Your Career With
-            <br />
-            <strong>NSCET Placement Cell</strong>
-          </h2>
-          <p>
-            From professional training and certification programs to internships
-            and campus recruitment, we prepare every student for a successful
-            future.
-          </p>
-          <button 
-            className="placement-btn" 
-            onClick={() => navigate('/placements')}
-          >
-            View Placement Report <FaArrowRight />
-          </button>
-        </div>
-        <div className="banner-stats">
-          <div className="banner-box">
-            <h3>20+</h3>
-            <span>Recruiters</span>
-          </div>
-          <div className="banner-box">
-            <h3>90%</h3>
-            <span>Placement Rate</span>
-          </div>
-          <div className="banner-box">
-            <h3>₹28 LPA</h3>
-            <span>Highest Package</span>
-          </div>
-          <div className="banner-box">
-            <h3>6000+</h3>
-            <span>Successful Alumni</span>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }

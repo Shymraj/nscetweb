@@ -32,6 +32,7 @@ import EntrepreneurshipDevelopmentCell from "./pages/Research/EntrepreneurshipDe
 import Administration from "./pages/Administration/Administration/Administration";
 import TMHNUTrust from "./pages/Administration/TMHNUTrust/TMHNUTrust";
 import Principal from "./pages/Administration/Principal/Principal";
+import PrincipalProfile from "./pages/Administration/PrincipalProfile/PrincipalProfile";
 import FinanceOfficer from "./pages/Administration/FinanceOfficer/FinanceOfficer";
 import ControllerOfExamination from "./pages/Administration/ControllerOfExamination/ControllerOfExamination";
 import Ombudsperson from "./pages/Administration/Ombudsperson/Ombudsperson";
@@ -82,7 +83,7 @@ import ScrollToTop from "./components/ScrollToTop";
 const AppContent = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin-");
-  const isStandalonePortfolio = /^\/departments\/[^/]+\/faculty\//.test(location.pathname);
+  const isStandalonePortfolio = /^\/departments\/[^/]+\/faculty\//.test(location.pathname) || location.pathname === "/administration/principal/profile";
   const hideGlobalNavAndFooter = isAdminRoute || isStandalonePortfolio;
 
   return (
@@ -128,6 +129,7 @@ const AppContent = () => {
         <Route path="/administration" element={<Administration />} />
         <Route path="/administration/tmhnutrust" element={<TMHNUTrust />} />
         <Route path="/administration/principal" element={<Principal />} />
+        <Route path="/administration/principal/profile" element={<PrincipalProfile />} />
         <Route path="/administration/finance-officer" element={<FinanceOfficer />} />
         <Route path="/administration/controller-examination" element={<ControllerOfExamination />} />
         <Route path="/administration/ombudsperson" element={<Ombudsperson />} />

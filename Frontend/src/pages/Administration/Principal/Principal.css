@@ -14,12 +14,12 @@
 
 /* Base Page Wrapper */
 .principal-page {
+  font-family: var(--font-body), sans-serif;
+  color: var(--neutral-800);
+  background-color: var(--neutral-50);
   min-height: 100vh;
-  background-color: var(--pr-bg-light);
   padding-top: 130px;
   padding-bottom: 90px;
-  font-family: 'Inter', 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  color: var(--pr-text-body);
 }
 
 /* Container */
@@ -176,6 +176,37 @@
   transform: scale(1.08) rotate(-1.5deg);
   filter: contrast(1.05) brightness(1.03);
 }
+
+/* ==========================================================================
+   ACADEMIC PROFILE BUTTON
+   ========================================================================== */
+.pr-academic-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--pr-blue-primary);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 75, 184, 0.2);
+  width: fit-content;
+}
+
+.pr-academic-profile-btn:hover {
+  background-color: var(--pr-blue-sub);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 75, 184, 0.3);
+  color: #fff;
+}
+
+.pr-btn-icon {
+  font-size: 1.2rem;
+}
+
 
 /* ==========================================================================
    DETAILED SECTIONS
