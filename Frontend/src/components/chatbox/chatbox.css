@@ -1,0 +1,179 @@
+/* Container adjusted to stay above the scroll-up arrow */
+.chatbot-container {
+  position: fixed;
+  bottom: 90px; 
+  right: 20px;
+  z-index: 1000; 
+  font-family: Arial, sans-serif;
+}
+
+/* --- Real Robot Button Setup --- */
+.robot-trigger-btn {
+  background-color: transparent !important; 
+  border: none !important;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  box-shadow: none !important;
+  outline: none;
+}
+
+/* Robot Video Style */
+.robot-model {
+  width: 90px; /* Neenga maathina chinna size apdiye vachirukken */
+  height: auto;
+  border-radius: 50%; 
+  animation: floatRobot 3s ease-in-out infinite;
+  filter: drop-shadow(0px 10px 12px rgba(0, 0, 0, 0.4)); 
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.robot-trigger-btn:hover .robot-model {
+  transform: scale(1.05); 
+}
+
+/* Floating Keyframes */
+@keyframes floatRobot {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- "Let's talk!" Bubble --- */
+.lets-talk-bubble {
+  position: absolute;
+  top: 15px; 
+  left: -80px; 
+  background-color: rgba(11, 52, 112, 0.9);
+  color: #00ffff; 
+  padding: 8px 16px;
+  border-radius: 20px;
+  border-bottom-right-radius: 2px;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); 
+  animation: pulseBubble 2s infinite;
+  z-index: 10;
+}
+
+@keyframes pulseBubble {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+/* --- Chat Window Styles --- */
+.chat-window {
+  position: absolute;
+  bottom: 110px; 
+  right: 0;
+  width: 350px;
+  height: 450px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* --- Header --- */
+.chat-header {
+  background-color: #0b3470;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center; /* Ithu text matrum button-a same line-la vaikkum */
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* --- Close Button Updated --- */
+.close-btn {
+  background: transparent !important; 
+  background-color: transparent !important; 
+  border: none !important;
+  color: rgb(11, 10, 10) !important;
+  font-size: 28px !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  margin-left: auto !important; /* Ithu thaan antha 'X'-a exact-a last (right side) varai thallum */
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #f4f7f6;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message-bubble {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.message-bubble.ai {
+  background-color: white;
+  color: #333;
+  align-self: flex-start;
+  border: 1px solid #ddd;
+  border-bottom-left-radius: 2px;
+}
+
+.message-bubble.user {
+  background-color: #0b3470;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+.chat-footer {
+  display: flex;
+  padding: 10px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  margin-right: 10px;
+}
+
+.chat-footer .send-btn {
+  background-color: #0b3470;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
