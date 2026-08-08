@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useDepartmentStaff } from "../../../hooks/useDepartmentStaff";
 import { Link } from "react-router-dom";
 import {
   FaLaptopCode, FaDatabase, FaShieldAlt, FaServer,
@@ -59,57 +60,7 @@ const CSE = () => {
     window.open(`/departments/cse/faculty/${facultyId}`, "_blank");
   };
 
-  const [faculties, setFaculties] = useState(cseFacultyData);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/admin/staff")
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          const apiCSE = data.data.filter(s => s.department && (s.department.toLowerCase().includes('cse') || s.department.toLowerCase().includes('computer science') || s.department.toLowerCase().includes('b.e. - computer science engineering')));
-          if (apiCSE.length > 0) {
-            const formattedApiData = apiCSE.map(staff => {
-              // Normalize names for comparison (remove titles, spaces, make lowercase)
-              const normalizeName = (name) => name.replace(/dr\.|mr\.|mrs\.|ms\./gi, '').replace(/[^a-z0-9]/gi, '').toLowerCase();
-              const staffNorm = normalizeName(staff.name);
-              
-              const localMatch = cseFacultyData.find(localStaff => {
-                const localNorm = normalizeName(localStaff.name);
-                return localNorm.includes(staffNorm) || staffNorm.includes(localNorm);
-              });
-
-              const finalId = localMatch ? localMatch.id : staff.id.toString();
-              const finalSlug = localMatch ? localMatch.slug : staff.id.toString();
-
-              return {
-                id: finalId,
-                slug: finalSlug,
-                name: staff.name,
-                desig: staff.designation || "Assistant Professor",
-                qual: staff.qualifications || "",
-                email: staff.email || "staff@nscet.org",
-                image: staff.photo_url ? `http://localhost:5000${staff.photo_url}` : (localMatch ? localMatch.image : "https://via.placeholder.com/150"),
-                spec: staff.research || (localMatch ? localMatch.spec : ""),
-                objectPosition: localMatch ? localMatch.objectPosition : "center 10%",
-                linkedin: localMatch ? localMatch.linkedin : "",
-                about: localMatch ? localMatch.about : "",
-                publications: localMatch ? localMatch.publications : [],
-                projects: localMatch ? localMatch.projects : [],
-                patents: localMatch ? localMatch.patents : [],
-                awards: localMatch ? localMatch.awards : [],
-                experience: localMatch ? localMatch.experience : [],
-                isHOD: staff.is_hod === 1 || staff.is_hod === true || staff.is_hod === '1' || staff.is_hod === 'true'
-              };
-            });
-            
-            // Sort so HOD is first
-            formattedApiData.sort((a, b) => b.isHOD - a.isHOD);
-            setFaculties(formattedApiData);
-          }
-        }
-      })
-      .catch(err => console.error("Error fetching staff:", err));
-  }, []);
+  const faculties = useDepartmentStaff(['cse', 'computer science'], cseFacultyData);
 
   const hod = faculties[0];
   const staff = faculties.slice(1);

@@ -611,22 +611,56 @@ h3 {
 }
 
 .dept-header {
-  color: #0A1A3A;
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 16px;
+  background: linear-gradient(to right, #f8fafc, #ffffff);
+  border-left: 6px solid #0044cc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  padding: 16px 24px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  border-top: 1px solid #f1f5f9;
+  border-right: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.dept-header > div:first-child {
+  display: flex;
+  align-items: center;
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+}
+
+.dept-header svg {
+  color: #0044cc;
+  font-size: 18px;
+  background-color: #e0f2fe;
+  padding: 10px;
+  border-radius: 10px;
+  width: 40px !important;
+  height: 40px !important;
+  box-sizing: border-box;
+  margin-right: 14px !important;
+  box-shadow: 0 2px 4px rgba(0, 68, 204, 0.1);
 }
 
 .dept-badge {
-  background-color: #f1f5f9;
-  color: #475569;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 600;
+  background: linear-gradient(135deg, #0044cc, #0284c7);
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 68, 204, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.dept-badge:hover {
+  transform: translateY(-2px);
 }
 
 .staff-cards-grid {

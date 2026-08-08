@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useDepartmentStaff } from "../../../hooks/useDepartmentStaff";
 import { Link } from "react-router-dom";
 import {
   FaHardHat, FaDraftingCompass, FaUserTie, FaEnvelope, FaGraduationCap,
@@ -63,7 +64,7 @@ const Civil = () => {
     );
   };
 
-  const faculties = civilFacultyData;
+  const faculties = useDepartmentStaff(['civil'], civilFacultyData);
 
   const hod = faculties[0];
   const staff = faculties.slice(1);
