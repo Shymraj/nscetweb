@@ -28,6 +28,7 @@ const searchData = [
   { name: "Non-Teaching Faculty", path: "/academics/non-teaching-faculty" },
   { name: "IQAC", path: "/academics/iqac" },
   { name: "Library", path: "/academics/library" },
+  { name: "Labs", path: "/academics/labs" },
   { name: "Industry Collaboration", path: "/academics/industry-collaboration" },
   { name: "B.E Computer Science & Engineering", path: "/departments/cse" },
   { name: "M.E Computer Science & Engineering", path: "/departments/me-cse" },
@@ -212,6 +213,7 @@ function Navbar() {
               <li><Link to="/academics/non-teaching-faculty">Non-Teaching Faculty</Link></li>
               <li><Link to="/academics/iqac">IQAC</Link></li>
               <li><Link to="/academics/library">Library</Link></li>
+              <li><Link to="/academics/labs">Labs</Link></li>
               <li><Link to="/academics/industry-collaboration">Industry Collaboration</Link></li>
             </ul>
           </li>

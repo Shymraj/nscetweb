@@ -32,6 +32,7 @@ import EntrepreneurshipDevelopmentCell from "./pages/Research/EntrepreneurshipDe
 import Administration from "./pages/Administration/Administration/Administration";
 import TMHNUTrust from "./pages/Administration/TMHNUTrust/TMHNUTrust";
 import Principal from "./pages/Administration/Principal/Principal";
+import PrincipalProfile from "./pages/Administration/PrincipalProfile/PrincipalProfile";
 import FinanceOfficer from "./pages/Administration/FinanceOfficer/FinanceOfficer";
 import ControllerOfExamination from "./pages/Administration/ControllerOfExamination/ControllerOfExamination";
 import Ombudsperson from "./pages/Administration/Ombudsperson/Ombudsperson";
@@ -46,6 +47,7 @@ import NonTeachingFaculty from "./pages/Academics/NonTeachingFaculty/NonTeaching
 import IQAC from "./pages/Academics/iqac/iqac";
 import Library from "./pages/Academics/Library/Library";
 import AcademicsIndustryCollaboration from "./pages/Academics/IndustryCollaboration/IndustryCollaboration";
+import Labs from "./pages/Academics/Labs/Labs";
 import Gallery from "./pages/Gallery";
 import ClubsAndChapters from "./pages/Gallery/ClubsAndChapters/ClubsAndChapters";
 import Events from "./pages/Gallery/Events/Events";
@@ -78,11 +80,12 @@ import AdminLogin from "./pages/Admin/Login";
 import AdminDashboard from "./pages/Admin/Dashboard";
 import PageTransition from "./components/Preloader/PageTransition";
 import ScrollToTop from "./components/ScrollToTop";
+import ChatBot from "./components/chatbox/chatbox.jsx"; // <-- ChatBot Import add pannirukken
 
 const AppContent = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin-");
-  const isStandalonePortfolio = /^\/departments\/[^/]+\/faculty\//.test(location.pathname);
+  const isStandalonePortfolio = /^\/departments\/[^/]+\/faculty\//.test(location.pathname) || location.pathname === "/administration/principal/profile";
   const hideGlobalNavAndFooter = isAdminRoute || isStandalonePortfolio;
 
   return (
@@ -103,6 +106,7 @@ const AppContent = () => {
         <Route path="/academics/iqac" element={<IQAC />} />
         <Route path="/academics/library" element={<Library />} />
         <Route path="/academics/industry-collaboration" element={<AcademicsIndustryCollaboration />} />
+        <Route path="/academics/labs" element={<Labs />} />
         <Route path="/departments" element={<Departments />} />
 
         <Route path="/departments/cse" element={<CSE />} />
@@ -128,6 +132,7 @@ const AppContent = () => {
         <Route path="/administration" element={<Administration />} />
         <Route path="/administration/tmhnutrust" element={<TMHNUTrust />} />
         <Route path="/administration/principal" element={<Principal />} />
+        <Route path="/administration/principal/profile" element={<PrincipalProfile />} />
         <Route path="/administration/finance-officer" element={<FinanceOfficer />} />
         <Route path="/administration/controller-examination" element={<ControllerOfExamination />} />
         <Route path="/administration/ombudsperson" element={<Ombudsperson />} />
@@ -165,6 +170,7 @@ const AppContent = () => {
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
       
+      <ChatBot /> {/* <-- ChatBot component-a inga add pannirukken */}
       {!hideGlobalNavAndFooter && <Footer />}
     </>
   );

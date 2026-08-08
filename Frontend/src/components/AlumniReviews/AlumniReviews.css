@@ -1,0 +1,299 @@
+/* ==========================================================
+   ALUMNI REVIEWS SECTION (Premium Glassmorphism)
+========================================================== */
+.alumni-section {
+  position: relative;
+  padding: 120px 8%;
+  background: linear-gradient(180deg, #f8fbff, #ffffff);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+
+.alumni-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Ambient Background Glow */
+.alumni-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow-left {
+  background: rgba(37, 99, 235, 0.08);
+  top: -100px;
+  left: -150px;
+}
+
+.glow-right {
+  background: rgba(255, 122, 0, 0.08);
+  bottom: -100px;
+  right: -150px;
+}
+
+/* ================= HEADER ================= */
+.alumni-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 90px;
+}
+
+.alumni-subtitle {
+  display: inline-block;
+  color: #ff7a00;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  background: rgba(255, 122, 0, 0.1);
+  padding: 8px 20px;
+  border-radius: 50px;
+}
+
+.alumni-title {
+  font-size: 46px;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.alumni-desc {
+  color: #64748b;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ================= REVIEWS GRID ================= */
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.review-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 24px;
+  padding: 50px 30px 40px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 40px; /* Space for the floating avatar */
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+  border-color: #ff7a00;
+  box-shadow: 0 30px 60px rgba(255, 122, 0, 0.12);
+}
+
+/* FLOATING AVATAR MECHANICS */
+.review-avatar-wrapper {
+  position: absolute;
+  top: -45px;
+  left: 35px;
+  width: 90px;
+  height: 90px;
+}
+
+.review-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
+  transition: transform 0.4s ease;
+}
+
+/* Fallback Placeholder Styling */
+.placeholder-avatar {
+  background: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: #cbd5e1;
+}
+
+.review-card:hover .review-avatar {
+  transform: scale(1.08);
+}
+
+.quote-badge {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  border: 3px solid #ffffff;
+}
+
+/* CONTENT STYLING */
+.review-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.stars {
+  color: #fbbf24;
+  font-size: 16px;
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.review-text {
+  color: #334155;
+  font-size: 16px;
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 30px;
+  flex-grow: 1;
+}
+
+.alumni-details {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  padding-top: 20px;
+}
+
+.alumni-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.alumni-batch {
+  display: block;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.alumni-company {
+  font-size: 14px;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.06);
+  padding: 8px 15px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.alumni-company strong {
+  color: #1e3a8a;
+  font-weight: 800;
+}
+
+/* ================= DARK MODE ================= */
+body.dark-mode .alumni-section {
+  background: #0f172a;
+}
+
+body.dark-mode .alumni-title {
+  color: #ffffff;
+}
+
+body.dark-mode .alumni-desc {
+  color: #cbd5e1;
+}
+
+body.dark-mode .review-card {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .review-card:hover {
+  border-color: #ff7a00;
+  background: rgba(30, 41, 59, 0.9);
+}
+
+body.dark-mode .review-avatar {
+  border-color: #1e293b;
+}
+
+body.dark-mode .placeholder-avatar {
+  background: #1e293b;
+  color: #475569;
+}
+
+body.dark-mode .quote-badge {
+  border-color: #1e293b;
+}
+
+body.dark-mode .review-text {
+  color: #e2e8f0;
+}
+
+body.dark-mode .alumni-name {
+  color: #ffffff;
+}
+
+body.dark-mode .alumni-details {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .alumni-company {
+  background: rgba(255, 255, 255, 0.05);
+  color: #60a5fa;
+}
+
+body.dark-mode .alumni-company strong {
+  color: #93c5fd;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .alumni-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .alumni-section {
+    padding: 80px 5%;
+  }
+  .alumni-title {
+    font-size: 34px;
+  }
+  .alumni-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .review-avatar-wrapper {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .review-card {
+    text-align: center;
+    padding-top: 60px;
+  }
+  .stars {
+    justify-content: center;
+  }
+  .review-card:hover .review-avatar {
+    transform: scale(1.08) translateX(-45%); 
+  }
+}

@@ -3,16 +3,18 @@ import AnnouncementPopup from "../components/AnnouncementPopup/AnnouncementPopup
 import Hero from "../components/Hero/Hero";
 import TimerBanner from "../components/TimerBanner/TimerBanner";
 import Stats from "../components/Stats/Stats";
-import ChatBot from "../components/chatbox/chatbox.jsx";import VisionMission from "../components/VisionMission/VisionMission";
+import VisionMission from "../components/VisionMission/VisionMission";
 import NewsAnnouncements from "../components/NewsAnnouncements/NewsAnnouncements";
 import About from "../components/About/About";
 import Departments from "../components/Departments/Departments";
-import ResearchHub from "../components/ResearchHub/ResearchHub";
+import Infrastructure from "../components/Infrastructure/Infrastructure";
+// ResearchHub use pannathathala antha import-a remove panniyachu
 import Events from "../components/Events/Events";
 import WhyChoose from "../components/WhyChoose/WhyChoose";
 import Contact from "../components/Contact/Contact";
 import Placement from "../components/Placement/Placement";
 import PlacedStudents from "../components/PlacedStudents/PlacedStudents";
+import AlumniReviews from "../components/AlumniReviews/AlumniReviews";
 
 function Home() {
   return (
@@ -22,17 +24,18 @@ function Home() {
       <Hero />
       <TimerBanner />
       <Stats />
-      <ChatBot />
+      {/* ChatBot-a App.jsx-la add pannathala inga irunthu remove panniyachu */}
       <VisionMission />
       <NewsAnnouncements />
       <About />
       <Departments />
-      <ResearchHub />
+      <Infrastructure />
       <Events />
       <WhyChoose />
       <Contact />
       <Placement />
       <PlacedStudents />
+      <AlumniReviews />
     </>
   );
 }

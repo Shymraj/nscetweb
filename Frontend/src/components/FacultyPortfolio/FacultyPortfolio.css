@@ -53,12 +53,13 @@ body:not(.dark-mode) .shadcn-theme {
 }
 .faculty-portfolio-page {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   background-color: #0b1120;
   color: #f8fafc;
   position: relative;
-  overflow-x: clip;
-  overflow-y: visible;
+  overflow: hidden;
   font-family: var(--font-body), sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }

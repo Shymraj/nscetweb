@@ -1,29 +1,29 @@
 import React from 'react';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
-import { FaShieldAlt, FaBullhorn, FaUsers, FaGavel, FaPhone, FaExclamationTriangle, FaCheckCircle, FaFileAlt, FaExternalLinkAlt, FaHandPaper, FaDownload, FaEye } from 'react-icons/fa';
+import { FaShieldAlt, FaBullhorn, FaUsers, FaGavel, FaPhone, FaExclamationTriangle, FaCheckCircle, FaFileAlt, FaExternalLinkAlt, FaHandPaper, FaEye } from 'react-icons/fa';
 import './AntiRaggingCell.css';
 import minutesPdf from './images/Anti Ragging Committee.pdf';
 
 const committeeMembers = [
   { sno: 1, name: 'Dr. C. Mathalai Sundaram', designation: 'Principal', position: 'Chair Person' },
   { sno: 2, name: 'Dr. M. Sathya', designation: 'Vice Principal / Placement Officer', position: 'Member' },
-  { sno: 3, name: 'Mr. N. Mathavan', designation: 'AP / ECE', position: 'Member / Convener' },
+  { sno: 3, name: 'Dr. N. Mathavan', designation: 'Prof / ECE', position: 'Member / Convener' },
   { sno: 4, name: 'Mr. M. Kannan', designation: 'Police Inspector', position: 'Member' },
-  { sno: 5, name: 'Ms. S. Satheesh', designation: 'Tahsildar', position: 'Member' },
+  { sno: 5, name: 'Mr. S. Satheesh', designation: 'Tahsildar', position: 'Member' },
   { sno: 6, name: 'Mr. P. Muthupandi', designation: 'NGO Representative', position: 'Member' },
   { sno: 7, name: 'Mr. N. Vignesh', designation: 'Local Media Representative', position: 'Member' },
   { sno: 8, name: 'Mr. A. Karuppasamy', designation: 'Student Parent', position: 'Member' },
-  { sno: 9, name: 'Ms. Palasai Shanthi', designation: 'Student Parent', position: 'Member' },
+  { sno: 9, name: 'Mrs. Palasai Shanthi', designation: 'Student Parent', position: 'Member' },
   { sno: 10, name: 'Dr. C. Chithra', designation: 'Prof-Coordinator / S&H', position: 'Member' },
   { sno: 11, name: 'Mr. M. Santhosh Pandian', designation: 'Non-Teaching', position: 'Member' },
-  { sno: 12, name: 'Mr. G. Rajeshwaran', designation: 'II Year Student', position: 'Member' },
-  { sno: 13, name: 'Ms. R. Yavanashree', designation: 'II Year Student', position: 'Member' },
+  { sno: 12, name: 'Mr. G. Rajeshwaran', designation: 'III Year Student', position: 'Member' },
+  { sno: 13, name: 'Mrs. R. Yavanashree', designation: 'III Year Student', position: 'Member' },
 ];
 
 const objectives = [
   'Create awareness among students about the importance of a "Ragging Free Campus"',
   'Prohibit any conduct that teases, treats, or handles freshers or any student with rudeness, causing annoyance, hardship, or psychological harm',
-  'Take action against those found guilty of ragging or abetting ragging (actively or passively)',
+  'Take action against those found guilty of ragging or abetting ragging',
 ];
 
 const mechanisms = [
@@ -68,9 +68,6 @@ const AntiRaggingCell = () => {
             <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <a href={minutesPdf} target="_blank" rel="noopener noreferrer" className="arc-btn-primary" style={{ display: 'inline-flex', padding: '0.8rem 1.8rem', fontSize: '1rem', background: '#3b82f6' }}>
                 <FaEye /> View Minutes of Meeting
-              </a>
-              <a href={minutesPdf} download="Anti-Ragging-Committee-Minutes.pdf" className="arc-btn-primary" style={{ display: 'inline-flex', padding: '0.8rem 1.8rem', fontSize: '1rem' }}>
-                <FaDownload /> Download PDF
               </a>
             </div>
           </div>

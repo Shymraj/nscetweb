@@ -30,7 +30,7 @@ const ContactCard = () => {
           </div>
 
           <p className="nss-motto-desc">
-            The National Service Scheme inspires students to place community welfare above self-interest. Through selfless service, teamwork, and leadership, NSS shapes responsible citizens committed to building a stronger, more compassionate, and socially responsible nation.
+            The National Service Scheme inspires students to place community welfare above self-interest. Through selfless service, teamwork, and leadership, NSS shapes responsible citizens committed to building a stronger, more compassionate and socially responsible nation.
           </p>
 
           <div className="nss-motto-pillars">

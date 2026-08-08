@@ -46,7 +46,7 @@ const Objectives = () => {
     {
       icon: <FaGlobeAsia />,
       title: "National Integration",
-      desc: "Promote national integration, communal harmony, and social equality."
+      desc: "Promote national integration, communal harmony and social equality."
     }
   ];
 

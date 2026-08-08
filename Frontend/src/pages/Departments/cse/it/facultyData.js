@@ -47,26 +47,15 @@ export const itFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mr-n-kesavamoorthy", slug: "mr-n-kesavamoorthy",  name: "Mr. N. Kesavamoorthy", desig: "Assistant Professor", qual: "M.E (CSE)", email: "kesavamoorthy@nscet.org", image: imgKesavamoorthy, spec: "Database Systems & Data Mining", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
-    publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
-    ],
-    projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
-    ],
-    patents: [
-      "Dummy Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
+    {id: "mr-n-kesavamoorthy", slug: "mr-n-kesavamoorthy",  name: "Mr. N. Kesavamoorthy", desig: "Assistant Professor", qual: "M.E (CSE)", email: "kesavamoorthy@nscet.org", image: imgKesavamoorthy, spec: "Computer Networks, Web Technologies (HTML5, CSS3, JavaScript, Bootstrap), UI Scripting, Front-End Development, Python Programming", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/kesavamoorthy-n-1032462a6",
+    about: "Mr. N. Kesavamoorthy is a dedicated faculty member with 2 years of teaching experience in the Department of Information Technology. His areas of specialization include Computer Networks, Web Technologies, Front-End Development, and Python Programming. He is passionate about modern web development, networking technologies, and helping students build strong technical and programming skills through practical, industry-oriented learning.",
+    publications: [],
+    projects: [],
+    patents: [],
+    awards: [],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "2 Years"
     ]},
     {id: "b-sai-suganya", slug: "b-sai-suganya",  name: "B. Sai Suganya", desig: "Assistant Professor", qual: "M.Tech.", email: "saisuganya@nscet.org", image: imgSaiSuganya, spec: "Cloud Computing", objectPosition: "center 12%" ,
     linkedin: "https://www.linkedin.com/in/sai-suganya-b-it-3b46a53a3",

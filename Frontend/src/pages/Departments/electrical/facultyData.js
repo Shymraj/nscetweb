@@ -86,26 +86,23 @@ export const electricalFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mrs-m-vijayalakshmi", slug: "mrs-m-vijayalakshmi",  name: "Mrs. M. Vijayalakshmi", desig: "Assistant Professor", qual: "M.E.", email: "vijayalakshmi@nscet.org", image: imgVijayalakshmi, spec: "High Voltage Engineering & Protection", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mrs-m-vijayalakshmi", slug: "mrs-m-vijayalakshmi",  name: "Vijayalakshmi M", desig: "Assistant Professor", qual: "M.E.", email: "vijayalakshmi@nscet.org", image: imgVijayalakshmi, spec: "Power Systems, Electrical Machines, Internet of Things (IoT), Electric Vehicles, Renewable Energy Systems, Power Market Restructuring", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/vijayalakshmi-paranthaman-b527263b8",
+    about: "Vijayalakshmi M is a dedicated faculty member with 2.5 years of teaching experience in the Department of Electrical and Electronics Engineering. Her areas of specialization include Power Systems, Electrical Machines, Internet of Things (IoT), Electric Vehicles, Renewable Energy Systems, and Power Market Restructuring. She is passionate about sustainable energy technologies, smart power systems, and mentoring students through practical, research-oriented learning.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "1"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "1"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "1"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "2.5 Years"
     ]},
     {id: "mr-c-shiva", slug: "mr-c-shiva",  name: "Shiva C", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "shiva@nscet.org", image: imgShiva, spec: "Renewable Energy Systems, Power Electronics, Solar Cell Technology", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/shiva-c-536421109/",

@@ -1,18 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
-import nscetLogo from './assets/logos/nscet-logo.png';
+import nscetLogo from './assets/logos/5865 (2).png';
 import naacLogo from './assets/logos/naac-logo.png';
+import imgAICTE from './assets/logos/AICTE.png';
+import imgAISHE from './assets/logos/AISHE.png';
+import imgAnnaUniv from './assets/logos/anna-university.png';
+import imgUGC from './assets/logos/UGC.png';
 import bannerImg from './assets/banner.png';
 import './Affiliation.css';
 
 const certifications = [
-  { name: 'AICTE', delay: 0.1 },
-  { name: 'AISHE', delay: 0.2 },
-  { name: 'Anna University', delay: 0.3 },
-  { name: "NAAC 'A'", delay: 0.4 },
-  { name: 'ISO 9001:2015', delay: 0.5 },
-  { name: 'UGC 2(f)', delay: 0.6 },
+  { name: 'AICTE', img: imgAICTE, delay: 0.1 },
+  { name: 'AISHE', img: imgAISHE, delay: 0.2 },
+  { name: 'Anna University', img: imgAnnaUniv, delay: 0.3 },
+  { name: "NAAC 'A'", img: naacLogo, delay: 0.4 },
+  { name: 'ISO 9001:2015', img: null, delay: 0.5 },
+  { name: 'UGC 2(f)', img: imgUGC, delay: 0.6 },
 ];
 
 const Affiliation = () => {
@@ -60,36 +64,7 @@ const Affiliation = () => {
               />
 
               <div className="premium-logos-container">
-                {/* Animated Connecting Line - SVG overlay */}
-                <svg className="connecting-line-svg" width="100%" height="100%" viewBox="0 0 400 400">
-                  <defs>
-                    <linearGradient id="lineGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="rgba(59, 130, 246, 0.1)" />
-                      <stop offset="50%" stopColor="rgba(59, 130, 246, 0.8)" />
-                      <stop offset="100%" stopColor="rgba(59, 130, 246, 0.1)" />
-                    </linearGradient>
-                  </defs>
-                  
-                  {/* Base Line */}
-                  <path 
-                    d="M 200,200 Q 240,150 280,140" 
-                    fill="none" 
-                    stroke="rgba(59, 130, 246, 0.2)" 
-                    strokeWidth="3" 
-                  />
-                  
-                  {/* Animated Light Flow Line */}
-                  <motion.path 
-                    d="M 200,200 Q 240,150 280,140" 
-                    fill="none" 
-                    stroke="url(#lineGlow)" 
-                    strokeWidth="3"
-                    strokeDasharray="200"
-                    initial={{ strokeDashoffset: 200 }}
-                    animate={{ strokeDashoffset: -200 }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  />
-                </svg>
+                {/* SVG removed for grid layout */}
 
                 {/* NSCET Logo (Center) */}
                 <motion.div 
@@ -112,6 +87,54 @@ const Affiliation = () => {
                 >
                   <div className="glass-logo-card naac-card">
                     <img src={naacLogo} alt="NAAC 'A' Grade Logo" className="visual-logo naac-img" />
+                  </div>
+                </motion.div>
+
+                {/* AICTE Logo (Top Left) */}
+                <motion.div 
+                  className="aicte-logo-wrapper"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="glass-logo-card small-logo-card">
+                    <img src={imgAICTE} alt="AICTE Logo" className="visual-logo aicte-img" />
+                  </div>
+                </motion.div>
+
+                {/* Anna University Logo (Bottom Left) */}
+                <motion.div 
+                  className="anna-logo-wrapper"
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="glass-logo-card medium-logo-card">
+                    <img src={imgAnnaUniv} alt="Anna University Logo" className="visual-logo anna-img" />
+                  </div>
+                </motion.div>
+
+                {/* AISHE Logo (Bottom Right) */}
+                <motion.div 
+                  className="aishe-logo-wrapper"
+                  animate={{ y: [0, -8, 0], x: [0, -5, 0] }}
+                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="glass-logo-card small-logo-card">
+                    <img src={imgAISHE} alt="AISHE Logo" className="visual-logo" />
+                  </div>
+                </motion.div>
+
+                {/* UGC Logo (Far Right Middle) */}
+                <motion.div 
+                  className="ugc-logo-wrapper"
+                  animate={{ y: [0, 12, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="glass-logo-card small-logo-card">
+                    <img src={imgUGC} alt="UGC Logo" className="visual-logo" />
                   </div>
                 </motion.div>
               </div>
@@ -156,7 +179,8 @@ const Affiliation = () => {
                       transition={{ duration: 0.4, delay: 0.5 + (index * 0.1) }}
                       whileHover={{ y: -5, scale: 1.05 }}
                     >
-                      {cert.name}
+                      {cert.img && <img src={cert.img} alt={cert.name} className="cert-chip-img" />}
+                      <span>{cert.name}</span>
                     </motion.div>
                   ))}
                 </div>

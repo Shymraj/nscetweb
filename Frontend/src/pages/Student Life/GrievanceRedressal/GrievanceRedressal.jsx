@@ -63,7 +63,7 @@ const GrievanceRedressal = () => {
             </p>
             <a href={PolicyPDF} target="_blank" rel="noopener noreferrer" className="grc-download-btn">
               <span className="grc-btn-icon"><FaFilePdf /></span>
-              <span>Download Minutes of Meeting / Policy PDF</span>
+              <span>View Meeting / Policy PDF</span>
             </a>
           </motion.div>
         </motion.section>
@@ -132,19 +132,19 @@ const GrievanceRedressal = () => {
                 <tr>
                   <td>3</td>
                   <td><strong>Dr. M. Sathya</strong></td>
-                  <td>VP / ASP / CSE<br/>Senior Faculty (Female)</td>
+                  <td>VP / Prof / CSE<br/>Senior Faculty</td>
                   <td><span className="grc-role-badge member">Member</span></td>
                 </tr>
                 <tr>
                   <td>4</td>
                   <td><strong>Dr. N. Pandiselvi</strong></td>
-                  <td>AP / EEE<br/>Faculty Member</td>
+                  <td>Prof / EEE<br/>Faculty Member</td>
                   <td><span className="grc-role-badge member">Member</span></td>
                 </tr>
                 <tr>
                   <td>5</td>
                   <td><strong>Dr. B. Radhakrishnan</strong></td>
-                  <td>HoD / Mech<br/>Professor / HoD</td>
+                  <td>HoD / Mech<br/>Faculty Member</td>
                   <td><span className="grc-role-badge member">Member</span></td>
                 </tr>
                 <tr>
@@ -194,7 +194,7 @@ const GrievanceRedressal = () => {
                 <FaFilePdf />
               </div>
               <h4>Grievance Redressal Policy</h4>
-              <p>Click to view or download the complete policy document and guidelines.</p>
+              <p>Click to view the complete policy document and guidelines.</p>
               <span className="grc-card-arrow">→</span>
             </motion.a>
             <motion.div 

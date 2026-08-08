@@ -20,7 +20,7 @@ const BoysHostel = () => {
     facilities: [
       { title: "Gym", desc: "Well-equipped gym with modern exercise machines and weights." },
       { title: "Common Room", desc: "Common room with a TV, comfortable seating, and entertainment options." },
-      { title: "Study Area", desc: "Study area with quiet spaces, desks, and high-speed internet." },
+      { title: "Study Area", desc: "Study area with quiet spaces, desks." },
       { title: "Mess", desc: "Mess with a variety of nutritious meals served at convenient timings." },
       { title: "Security", desc: "Security with CCTV cameras and a hostel warden available 24/7." }
     ]
@@ -167,7 +167,8 @@ const BoysHostel = () => {
                 <li>Strict study hours are enforced every evening from 8:30 PM to 10:30 PM.</li>
                 <li>Attendance will be taken daily at 8:15 PM by the respective block wardens.</li>
                 <li>Students are responsible for the safe keeping of their personal valuables.</li>
-                <li>Usage of heavy electrical appliances (heaters, iron boxes) inside rooms is strictly prohibited.</li>
+                <li>Keep the hostel environment clean and use dustbins properly.</li>
+                <li>No smoking, drinking, or gambling is allowed inside the hostel premises.</li>
                 <li>Silence must be maintained in the corridors and rooms during study hours and after 10:30 PM.</li>
               </ul>
             </div>

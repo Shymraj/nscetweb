@@ -21,7 +21,7 @@ const EqualOpportunityCell = () => {
             <div className="header-line"></div>
           </div>
           <p className="intro-text">
-            The Equal Opportunity Cell (EOC) at Nadar Saraswathi College of Engineering & Technology (NSCET) has been established to ensure that all students, regardless of caste, gender, religion, region, language, disability, or socio-economic background, have equal access to academic, co-curricular, and support opportunities. The cell proactively works towards creating an inclusive, safe, and motivating environment that nurtures student potential and promotes equity across all aspects of campus life.
+            The Equal Opportunity Cell (EOC) at Nadar Saraswathi College of Engineering & Technology (NSCET) has been established to ensure that all students, regardless of caste, gender, religion, region, language, disability, or social-economic background, have equal access to academic, co-curricular, and support opportunities. The cell proactively works towards creating an inclusive, safe, and motivating environment that nurtures student potential and promotes equity across all aspects of campus life.
           </p>
         </section>
 
@@ -261,7 +261,7 @@ const EqualOpportunityCell = () => {
             </div>
             <div className="role-card">
               <h4>Government Schemes</h4>
-              <p>Inform and assist eligible students to avail central/state welfare schemes.</p>
+              <p>Inform and assist eligible students to available central/state welfare schemes.</p>
             </div>
             <div className="role-card">
               <h4>Annual Reporting</h4>

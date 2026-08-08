@@ -87,26 +87,23 @@ export const electronicsFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mr-r-pradeep-kumar", slug: "mr-r-pradeep-kumar",  name: "Mr. R. Pradeep Kumar", desig: "Assistant Professor", qual: "M.E (PhD)", email: "pradeepkumar@nscet.org", image: imgPradeepKumar, spec: "Optical Communications & RF Systems", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mr-r-pradeep-kumar", slug: "mr-r-pradeep-kumar",  name: "Pradeep Kumar R", desig: "Assistant Professor", qual: "M.E (PhD)", email: "pradeepkumar@nscet.org", image: imgPradeepKumar, spec: "Digital System Design", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/pradeep-kumar-ramaraj-93716778",
+    about: "Pradeep Kumar R is a dedicated faculty member with 18 years of teaching and research experience in the Department of Electronics and Communication Engineering. His specialization is Digital System Design. With significant contributions in academic projects, research, and innovation, he is committed to mentoring students and fostering excellence in digital electronics and embedded system technologies.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "1"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "18"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "3"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "18 Years"
     ]},
     {id: "mrs-t-tamil-selvi", slug: "mrs-t-tamil-selvi",  name: "T. Tamilselvi", desig: "Assistant Professor", qual: "M.Tech., (Ph.D.)", email: "tamilselvi@nscet.org", image: imgTamilSelvi, spec: "VLSI Design, Embedded Systems and IoT", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/tamilselvi-thangamani-10212756/",

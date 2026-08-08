@@ -304,12 +304,12 @@ export const civilFacultyData = [
   {
     id: "hariprasath",
     slug: "hariprasath",
-    name: "Mr. T. Hariprasath",
+    name: "Hariprasath T",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "mailtohari16@gmail.com",
     image: imgHariprasath,
-    spec: "Structural Dynamics & CAD",
+    spec: "Construction and Management",
     objectPosition: "center 10%",
     highlights: [
       {
@@ -325,26 +325,22 @@ export const civilFacultyData = [
         description: "Email: mailtohari16@gmail.com · NSCET Civil Department.",
       },
     ],
-    linkedin: "https://www.linkedin.com/in/hariprasath-nscet",
-    about: "Mr. T. Hariprasath specializes in Structural Dynamics and Computer-Aided Design (CAD). He is deeply involved in teaching advanced software applications including STAAD.Pro, AutoCAD, and Revit. His research revolves around the dynamic behavior of structures under wind and seismic loads. He plays a pivotal role in bridging the gap between theoretical mechanics and software-driven structural design for students.",
+    linkedin: "https://www.linkedin.com/in/hariprasath/",
+    about: "Hariprasath T is a dedicated faculty member with 7 years of teaching and research experience in the Department of Civil Engineering. His specialization is Construction and Management. He is passionate about modern construction practices, project management, and mentoring students through practical, industry-oriented learning to build strong engineering competencies.",
     publications: [
-      "Wind Load Analysis of Tall Buildings using Computational Fluid Dynamics — Journal of Wind Engineering, 2024",
-      "Comparative Study of Seismic Analysis Methods using STAAD.Pro — National Conference on Structural Dynamics, 2022"
+      "1"
     ],
     projects: [
-      "Dynamic Analysis and Retrofitting of Industrial Chimneys",
-      "Development of Automated CAD Plugins for Structural Detailing"
+      "1"
     ],
     patents: [
-      "Modular Precast Concrete Joint for Rapid Assembly (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Best Mentor in CAD Applications - 2024",
-      "Innovator Award for Structural Design Software Solutions - 2022"
+      "1"
     ],
     experience: [
-      "Assistant Professor, Civil Engineering, NSCET (2020 - Present)",
-      "Structural CAD Engineer, Design Matrix Consultants (2017 - 2020)"
+      "7 Years"
     ]
   },
   {

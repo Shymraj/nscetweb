@@ -7,8 +7,10 @@ import {
   FaBriefcase, 
   FaLightbulb, 
   FaBookOpen,
-  FaChevronRight
+  FaChevronRight,
+  FaUserCircle
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import defaultPrincipalImg from '../../../assets/administration/images/prinicipal.jpg';
 import './Principal.css';
 
@@ -77,6 +79,13 @@ function Principal() {
                   </p>
                 </>
               )}
+              
+              <div style={{ marginTop: '20px' }}>
+                <Link to="/administration/principal/profile" className="pr-academic-profile-btn">
+                  <FaUserCircle className="pr-btn-icon" />
+                  View Academic Profile
+                </Link>
+              </div>
             </div>
           </div>
 
