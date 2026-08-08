@@ -40,11 +40,11 @@ const Footer = () => {
               Nadar Saraswathi College of Engineering and Technology is a premier institution dedicated to empowering young minds through innovation, technical excellence, and holistic development.
             </p>
             <div className="social-links">
-              <a href="https://www.facebook.com/nscetofficial/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook"><FaFacebookF /></a>
-              <a href="https://x.com/NscetT" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="X (Twitter)"><FaXTwitter /></a>
-              <a href="https://www.instagram.com/nscettmhnu/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram"><FaInstagram /></a>
-              <a href="https://in.linkedin.com/company/nscet" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn"><FaLinkedinIn /></a>
-              <a href="https://www.youtube.com/@NSCETeConnect" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube"><FaYoutube /></a>
+              <a href="https://www.facebook.com/nscetofficial/" target="_blank" rel="noopener noreferrer" className="social-icon facebook" aria-label="Facebook"><FaFacebookF /></a>
+              <a href="https://x.com/NscetT" target="_blank" rel="noopener noreferrer" className="social-icon twitter" aria-label="X (Twitter)"><FaXTwitter /></a>
+              <a href="https://www.instagram.com/nscettmhnu/" target="_blank" rel="noopener noreferrer" className="social-icon instagram" aria-label="Instagram"><FaInstagram /></a>
+              <a href="https://in.linkedin.com/company/nscet" target="_blank" rel="noopener noreferrer" className="social-icon linkedin" aria-label="LinkedIn"><FaLinkedinIn /></a>
+              <a href="https://www.youtube.com/@NSCETeConnect" target="_blank" rel="noopener noreferrer" className="social-icon youtube" aria-label="YouTube"><FaYoutube /></a>
             </div>
           </div>
 

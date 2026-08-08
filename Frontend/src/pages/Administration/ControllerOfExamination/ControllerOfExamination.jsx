@@ -16,7 +16,7 @@ const deputyControllers = [
   {
     id: 1,
     name: "Mr. K. Ganesh",
-    qualification: "M.Tech,(Ph.D)., Asst.Prof of EEE",
+    qualification: "M.Tech,(Ph.D).,   Asst.Prof of EEE",
     role: "Deputy exam cell",
     image: ganeshImg
   },
@@ -65,8 +65,8 @@ function ControllerOfExamination() {
           </div>
           <div className='coe-content coe-featured'>
             <p>
-              <strong>Dr.C.Mathalai Sundaram ,ME,MBA.,PHD.,</strong> is the Chief Superintendent of the College.
-              The Exam Cell ensures smooth conduct of examinations, fair evaluation processes, and timely declaration of results.
+              <strong>Dr.C.Mathalai Sundaram ,M.E.,M.B.A.,Ph.D.,MISTE</strong> is the Chief Superintendent of the College.
+              The Exam Cell ensures smooth conduct of examinations, fair evaluation processes and timely declaration of results.
             </p>
           </div>
         </section>
@@ -191,7 +191,7 @@ function ControllerOfExamination() {
                 <strong>Academic Calendars:</strong> Internal Examinations schedules are mentioned in academic calendars (e.g., Internal I for UG/PG).
               </li>
               <li>
-                <strong>Process Documentation:</strong> Detailed process flow, committee members, and grievance redressal steps are documented in official charts and PDFs.
+                <strong>Process Documentation:</strong> Detailed process flow, committee members and grievance redressal steps are documented in official charts and PDFs.
               </li>
             </ul>
           </div>

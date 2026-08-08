@@ -2,7 +2,7 @@
    CONTACT PAGE STYLES - ORDERLY & ELEGANT UI
    ========================================================================== */
 
-.contact-container {
+.contacts-page-wrapper {
   display: block !important;
   width: 100% !important;
   min-height: 100vh;
@@ -12,7 +12,7 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.dark-mode .contact-container {
+body.dark-mode .contacts-page-wrapper {
   --text-color: #f1f5f9;
   --bg-color: #0f172a;
   --card-bg: #1e293b;
@@ -20,14 +20,14 @@ body.dark-mode .contact-container {
   --primary-blue: #38bdf8;
 }
 
-.contact-container {
+.contacts-page-wrapper {
   --card-bg: #ffffff;
   --border-color: #e2e8f0;
   --primary-blue: #0d3b8e;
 }
 
 /* Ensure content wrapper sits cleanly below page banner */
-.contact-container .page-banner + * {
+.contacts-page-wrapper .page-banner + * {
   margin-top: 0 !important;
 }
 

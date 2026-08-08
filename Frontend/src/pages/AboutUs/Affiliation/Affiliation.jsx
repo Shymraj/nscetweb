@@ -155,13 +155,13 @@ const Affiliation = () => {
 
                 <div className="affiliation-description">
                   <p>
-                    Nadar Saraswathi College of Engineering and Technology, established in 2010, is a renowned institution approved by AICTE, New Delhi, and affiliated with Anna University, Chennai.
+                    Nadar Saraswathi College of Engineering and Technology, established in 2010, is a renowned institution approved by AICTE, New Delhi and affiliated with Anna University, Chennai.
                   </p>
                   <p>
                     Since its inception, the college has maintained a strong commitment to quality education and academic excellence.
                   </p>
                   <p>
-                    It has been awarded ISO 9001:2015 certification for its robust quality management system and accredited by NAAC with 'A' Grade, reflecting excellence in academics, infrastructure, and student outcomes.
+                    It has been awarded ISO 9001:2015 certification for its robust quality management system and accredited by NAAC with 'A' Grade, reflecting excellence in academics, infrastructure and student outcomes.
                   </p>
                   <p>
                     Recognized under Section 2(f) of the UGC Act and registered with AISHE, NSCET continues to uphold high educational standards while nurturing innovation, research and holistic student development.

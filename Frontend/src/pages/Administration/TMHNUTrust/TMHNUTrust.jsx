@@ -167,10 +167,10 @@ function TMHNUTrust() {
                   Nadar Saraswathi College of Engineering and Technology was established in 2010 to uplift rural students and nurture them with excellence. Located on a 21-acre eco-friendly campus near Theni, the institution focuses on molding outstanding engineers as responsible citizens and professionals.
                 </p>
                 <p className="tmhnu-about-text" style={{ marginTop: "14px" }}>
-                  In today's world, there is a genuine need for an institute that provides quality academic and career education in a personalized atmosphere. NSCET offers programs that prepare students for successful employment through quality teaching, learning, and research. Our goal is to equip students with lifelong knowledge, skills, and credentials for professional advancement at any point in their careers.
+                  In today's world, there is a genuine need for an institute that provides quality academic and career education in a personalized atmosphere. NSCET offers programs that prepare students for successful employment through quality teaching, learning and research. Our goal is to equip students with lifelong knowledge, skills and credentials for professional advancement at any point in their careers.
                 </p>
                 <p className="tmhnu-about-text" style={{ marginTop: "14px" }}>
-                  Excellence in teaching remains our most important criterion for faculty recruitment. Our faculty are also engaged in continuous research, scholarly work, and service to the region and state. The college offers comprehensive support services to ensure student success.
+                  Excellence in teaching remains our most important criterion for faculty recruitment. Our faculty are also engaged in continuous research, scholarly work and service to the region and state. The college offers comprehensive support services to ensure student success.
                 </p>
               </div>
             </AnimatedSection>

@@ -5,9 +5,9 @@ import { FaShieldAlt, FaUsers, FaGavel, FaUserTie, FaFileAlt, FaCalendarAlt, FaP
 import bannerImg from './images/icc-banner.jpg';
 
 const committeeMembers = [
-  { id: 1, name: "Dr. M. Sathya", designation: "Associate Professor / CSE", position: "Academic Convenor", contact: "9884854043", email: "vp_academic@nscet.org" },
+  { id: 1, name: "Dr. M. Sathya", designation: "Vice Principal & Professor / CSE", position: "Academic Convenor", contact: "9884854043", email: "vp_academic@nscet.org" },
   { id: 2, name: "Dr. C. Chithra", designation: "Prof-Coordinator / S&H", position: "Member", contact: "9790148325", email: "chithra.c@nscet.org" },
-  { id: 3, name: "Dr. R. Valarmathi", designation: "Assistant Professor / English", position: "Member", contact: "-", email: "-" },
+  { id: 3, name: "Dr. R. Valarmathi", designation: "Professor / English", position: "Member", contact: "-", email: "-" },
   { id: 4, name: "Mrs. S. Gayathri", designation: "Assistant Professor / Civil", position: "Member", contact: "8220467759", email: "gayathri@nscet.org" },
   { id: 5, name: "Ms. S. Nanthidha", designation: "Student, IV Yr. / CSE", position: "Student Member", contact: "8015869545", email: "nanthidha_cse@nscet.org" },
   { id: 6, name: "Ms. S. Amutha", designation: "Student, IV Yr. / ECE", position: "Student Member", contact: "9384453946", email: "amuthas_ece@nscet.org" },
@@ -19,7 +19,7 @@ const objectives = [
   { icon: FaShieldAlt, text: "Prevent sexual harassment through awareness and sensitization" },
   { icon: FaHandHoldingHeart, text: "Protect the rights and dignity of students and employees (especially women)" },
   { icon: FaBalanceScale, text: "Redress grievances in a timely and confidential manner" },
-  { icon: FaUsers, text: "Foster equality, mutual respect, and non-discrimination" },
+  { icon: FaUsers, text: "Foster equality, mutual respect and non-discrimination" },
   { icon: FaUniversity, text: "Ensure compliance with UGC and Government of India guidelines" },
 ];
 
@@ -86,7 +86,7 @@ function InternalComplaintsCommittee() {
               The Internal Complaints Committee (ICC) is constituted as per the UGC (Prevention, Prohibition and Redressal of Sexual Harassment of Women Employees and Students in Higher Educational Institutions) Regulations, 2015 and the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 (POSH Act).
             </p>
             <p>
-              It aims to create a safe, inclusive, and respectful campus for everyone. The ICC handles complaints of sexual harassment with fairness, confidentiality, and sensitivity, and also conducts gender sensitization programs.
+              It aims to create a safe, inclusive and respectful campus for everyone. The ICC handles complaints of sexual harassment with fairness, confidentiality, sensitivity and also conducts gender sensitization programs.
             </p>
           </div>
         </section>

@@ -75,7 +75,7 @@ function Principal() {
                     As a 21st century organization, NSCET desires to set an approach to learning that incorporates inquiry, research, analytical thinking and an ethical approach that becomes a lifetime habit. I strongly believe that education is a collaborative effort that involves professional administrators, committed teachers and motivated students.
                   </p>
                   <p className="pr-paragraph">
-                    We dedicate ourselves as professional administrators in creating a dynamic education programme empowering the students in a global perspective. Learning at NSCET is a wholesome package of attitude, challenge, and opportunity.
+                    We dedicate ourselves as professional administrators in creating a dynamic education programme empowering the students in a global perspective. Learning at NSCET is a wholesome package of attitude, challenge and opportunity.
                   </p>
                 </>
               )}

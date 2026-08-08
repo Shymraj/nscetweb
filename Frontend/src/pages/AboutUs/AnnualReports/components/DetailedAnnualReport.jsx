@@ -28,14 +28,14 @@ const sectionsData = [
     title: 'Curricular Aspects',
     icon: <FaBookOpen className="sec-icon" />,
     color: '#1e40af',
-    summary: 'Undergraduate & Postgraduate academic programs, Value Added Courses, and 4-tier stakeholder feedback system.',
+    summary: 'Undergraduate & Postgraduate academic programs, Value Added Courses and 4-tier stakeholder feedback system.',
     details: [
       {
         title: 'Courses Offered',
         type: 'grid',
         items: [
           { label: 'Undergraduate Programmes (UG)', value: '07' },
-          { label: 'Postgraduate Programmes (PG)', value: '02' }
+          { label: 'Postgraduate Programmes (PG)', value: '04' }
         ]
       },
       {
@@ -54,7 +54,7 @@ const sectionsData = [
       {
         title: 'Stakeholder Feedback System',
         type: 'list',
-        content: 'Feedback was systematically collected from Students, Teachers, Parents, and Employers. The collected feedback was analyzed and appropriate actions were implemented.'
+        content: 'Feedback was systematically collected from Students, Teachers, Parents and Employers. The collected feedback was analyzed and appropriate actions were implemented.'
       }
     ]
   },
@@ -64,7 +64,7 @@ const sectionsData = [
     title: 'Teaching, Learning and Evaluation',
     icon: <FaChalkboardTeacher className="sec-icon" />,
     color: '#0284c7',
-    summary: 'Sanctioned strength, admissions, outcome-based education (OBE), and end-semester pass percentage of 94.79%.',
+    summary: 'Sanctioned strength, admissions, outcome-based education (OBE) and end-semester pass percentage of 94.79%.',
     details: [
       {
         title: 'Admissions Overview',
@@ -102,7 +102,7 @@ const sectionsData = [
       {
         title: 'Outcome-Based Education (OBE)',
         type: 'text',
-        content: 'Course Outcomes (CO), Programme Outcomes (PO), and Programme Specific Outcomes (PSO) were rigorously assessed during the academic year.'
+        content: 'Course Outcomes (CO), Programme Outcomes (PO) and Programme Specific Outcomes (PSO) were rigorously assessed during the academic year.'
       }
     ]
   },
@@ -112,7 +112,7 @@ const sectionsData = [
     title: 'Research, Innovations and Extension',
     icon: <FaFlask className="sec-icon" />,
     color: '#7c3aed',
-    summary: 'Research grants, journal publications, books published, NSS extension activities, and active MoUs.',
+    summary: 'Research grants, journal publications, books published, NSS extension activities and active MoUs.',
     details: [
       {
         title: 'Research Projects',
@@ -155,7 +155,7 @@ const sectionsData = [
     title: 'Infrastructure and Learning Resources',
     icon: <FaBuilding className="sec-icon" />,
     color: '#059669',
-    summary: 'Infrastructure expenditure, library investments, 1 GB internet bandwidth, and 418 computer facilities.',
+    summary: 'Infrastructure expenditure, library investments, 1 GB internet bandwidth and 418 computer facilities.',
     details: [
       {
         title: 'Classroom Facilities',
@@ -188,7 +188,7 @@ const sectionsData = [
     title: 'Student Support and Progression',
     icon: <FaUserGraduate className="sec-icon" />,
     color: '#d97706',
-    summary: 'Government & institutional scholarships totaling ₹2.46+ Crores, sports events, and cultural awards.',
+    summary: 'Government & institutional scholarships totaling ₹2.46+ Crores, sports events and cultural awards.',
     details: [
       {
         title: 'Scholarship Disbursal',
@@ -218,7 +218,7 @@ const sectionsData = [
     title: 'Governance, Leadership and Management',
     icon: <FaShieldAlt className="sec-icon" />,
     color: '#4f46e5',
-    summary: 'Statutory committees, ERP e-governance, faculty financial assistance, and IQAC governing meetings.',
+    summary: 'Statutory committees, ERP e-governance, faculty financial assistance and IQAC governing meetings.',
     details: [
       {
         title: 'Institutional Committees',
@@ -263,7 +263,7 @@ const sectionsData = [
     title: 'Institutional Values and Best Practices',
     icon: <FaLeaf className="sec-icon" />,
     color: '#16a34a',
-    summary: '9 Environmental activities, ISO 9001 certification, Green/Energy audits, and Principal’s message.',
+    summary: '9 Environmental activities, ISO 9001 certification, Green/Energy audits and Principal’s message.',
     details: [
       {
         title: 'Environmental Initiatives',
@@ -305,7 +305,7 @@ const DetailedAnnualReport = () => {
           <h2 className="ar-section-title">Annual Report (Academic Year 2023–24)</h2>
           <div className="ar-underline"></div>
           <p className="ar-report-lead">
-            Explore the detailed institutional report outlining academic achievements, research output, student progression, infrastructure investments, and governance quality standards.
+            Explore the detailed institutional report outlining academic achievements, research output, student progression, infrastructure investments and governance quality standards.
           </p>
         </motion.div>
 
@@ -336,7 +336,7 @@ const DetailedAnnualReport = () => {
               </div>
               <div className="principal-info">
                 <h4>Dr. C. Mathalai Sundaram</h4>
-                <p className="p-deg">M.E., M.B.A., Ph.D.</p>
+                <p className="p-deg">M.E., M.B.A., Ph.D., MISTE</p>
                 <p className="p-role">Principal, NSCET</p>
                 <p className="p-loc">Vadapudupatti, Theni – 625531</p>
               </div>

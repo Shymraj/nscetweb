@@ -77,7 +77,7 @@ function Ombudsperson() {
 
               <div className="omb-content-body">
                 <p className="omb-paragraph">
-                  The Ombudsperson serves as an impartial and independent resource for students, faculty, and staff at the institution. This role is dedicated to addressing concerns, grievances, and disputes in a fair and confidential manner. The Ombudsperson listens to all parties involved, provides guidance on institutional policies, and facilitates resolutions to promote a harmonious and equitable campus environment. By upholding principles of fairness and transparency, the Ombudsperson ensures that all members of the college community are heard and supported.
+                  The Ombudsperson serves as an impartial and independent resource for students, faculties and staffs at the institution. This role is dedicated to addressing concerns, grievances and disputes in a fair and confidential manner. The Ombudsperson listens to all parties involved, provides guidance on institutional policies and facilitates resolutions to promote a harmonious and equitable campus environment. By upholding principles of fairness and transparency, the Ombudsperson ensures that all members of the college community are heard and supported.
                 </p>
               </div>
 

@@ -80,7 +80,7 @@ const Contact = () => {
   });
 
   return (
-    <div className="contact-container">
+    <div className="contacts-page-wrapper">
       <PageBanner
         title=""
         subtitle=""
@@ -93,7 +93,7 @@ const Contact = () => {
         {/* BENTO GRID: CONTACT INFO */}
         <motion.div
           className="contact-bento"
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          initial="hidden" animate="visible" variants={staggerContainer}
         >
           <motion.div
             className="contact-card primary"
@@ -140,9 +140,8 @@ const Contact = () => {
         {/* INTERCOM DIRECTORY SECTION */}
         <motion.div
           className="intercom-section"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <div className="directory-header">
@@ -229,9 +228,8 @@ const Contact = () => {
         {/* CAMPUS MAP SECTION */}
         <motion.div
           className="map-section"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <h2 className="glam-title">Find Us on <span>Google Maps</span></h2>

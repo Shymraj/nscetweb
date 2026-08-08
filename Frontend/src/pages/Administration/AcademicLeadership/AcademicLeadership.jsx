@@ -6,8 +6,8 @@ const AcademicLeadership = () => {
   const hodsData = [
     {
       id: 1,
-      name: "Mr. L.S. Vignesh",
-      role: "Assistant Professor & Head Of The Department",
+      name: "Dr. L.S. Vignesh",
+      role: "Professor & Head Of The Department",
       department: "Artificial Intelligence & Data Science",
       image: "/AIDS/vignesh.jpg", 
       qualifications: ["M.E., Ph.D"]
@@ -18,15 +18,15 @@ const AcademicLeadership = () => {
       role: "Assistant Professor & Head Of The Department",
       department: "Civil Engineering",
       image: "/CIVIL/nagarathinam.jpg",
-      qualifications: ["M. E., M. I. S. T. E., (Ph. D)"]
+      qualifications: ["M.E., MISTE (Ph. D)"]
     },
     {
       id: 3,
       name: "Dr. J. Mathalai Raj",
-      role: "Assistant Professor & Head Of The Department",
+      role: "Professor & Head Of The Department",
       department: "Computer Science Engineering",
       image: "/CSE/mathalairaj.jpg",
-      qualifications: ["M.E (CSE), Ph.D"]
+      qualifications: ["M.E., Ph.D"]
     },
     {
       id: 4,
@@ -47,8 +47,8 @@ const AcademicLeadership = () => {
     
     {
       id: 7,
-      name: "Mr. C. Prathap",
-      role: "Assistant Professor & Head Of The Department",
+      name: "Dr. C. Prathap",
+      role: "Professor & Head Of The Department",
       department: "Information Technology",
       image: "/IT/prathap c.jpg",
       qualifications: ["M.Tech., Ph.D"]
@@ -64,7 +64,7 @@ const AcademicLeadership = () => {
    {
       id: 9,
       name: "Dr. A. Vembathurajesh",
-      role: "Assistant Professor & Head Of The Department",
+      role: "Professor & Head Of The Department",
       department: "Science & Humanities", 
       image: "/S&H/vembathurajesh.png",
       qualifications: ["M.E., Ph.D, MISTE"]
@@ -82,7 +82,7 @@ const AcademicLeadership = () => {
       <div className="al-about-banner">
         <div className="al-about-content">
           <p>
-            <strong>About Our Leadership:</strong> At NSCET, our academic leadership team comprises experienced educators and administrators dedicated to shaping the future of technical education. Led by our Principal, Vice Principals, and Training and Placement Officer, the team ensures a holistic educational experience. Our Heads of Departments and specialized coordinators bring expertise to their respective fields, guiding students toward academic and professional success.
+            <strong>About Our Leadership:</strong> At NSCET, our academic leadership team comprises experienced educators and administrators dedicated to shaping the future of technical education. Led by our Principal, Vice Principals and Training and Placement Officer, the team ensures a holistic educational experience. Our Heads of Departments and specialized coordinators bring expertise to their respective fields, guiding students toward academic and professional success.
           </p>
         </div>
       </div>
@@ -99,12 +99,12 @@ const AcademicLeadership = () => {
                 </div>
               </div>
             </div>
-            <h2 className="al-name">Er. A.S.S.S. Soma Sundaram BE</h2>
+            <h2 className="al-name">Er. A.S.S.S. Soma Sundaram B.E.</h2>
             <p className="al-dept-name">
               <span className="al-dept-badge"> Secretary</span>
             </p>
             <ul className="al-points">
-              <li>Guiding the institution towards monumental growth and success.</li>
+              <li>Guiding the institution towards momental growth and success.</li>
             </ul>
           </div>
 
@@ -169,7 +169,7 @@ const AcademicLeadership = () => {
               </p>
               <ul className="al-points">
                 <li>M.Tech., M.B.A., Ph.D</li>
-                <li>Ensuring student discipline, welfare, and coordinating daily academic operations.</li>
+                <li>Ensuring student discipline, welfare and coordinating daily academic operations.</li>
               </ul>
             </div>
           </div>
@@ -255,12 +255,12 @@ const AcademicLeadership = () => {
                 </div>
               </div>
             </div>
-            <h2 className="al-name">Mr. [Name]</h2>
+            <h2 className="al-name">Mr.  Ponnaiah</h2>
             <p className="al-dept-name">
               <span className="al-dept-badge">Physical Education Director</span>
             </p>
             <ul className="al-points">
-              <li>Expert in state-level sports coaching, fitness, and wellness.</li>
+              <li>Expert in state-level sports coaching, fitness and wellness.</li>
               <li>Driving the college sports teams to championship victories.</li>
             </ul>
           </div>

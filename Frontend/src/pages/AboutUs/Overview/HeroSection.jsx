@@ -43,10 +43,10 @@ const HeroSection = () => {
 
           <div className="hero-text-content">
             <p className="hero-description">
-              Nadar Saraswathi College of Engineering and Technology (NSCET), established in 2010 at Vadapudupatti, Theni, is one of the leading engineering institutions affiliated with Anna University, Chennai. Approved by AICTE and accredited with NAAC 'A' Grade, the institution is dedicated to delivering quality technical education through innovation, research, and industry-oriented learning.
+              Nadar Saraswathi College of Engineering and Technology (NSCET), established in 2010 at Vadapudupatti, Theni, is one of the leading engineering institutions affiliated with Anna University, Chennai. Approved by AICTE and accredited with NAAC 'A' Grade, the institution is dedicated to delivering quality technical education through innovation, research and industry-oriented learning.
             </p>
             <p className="hero-description">
-              The campus provides a vibrant academic environment supported by highly qualified faculty members, modern laboratories, advanced research facilities, smart classrooms, digital libraries, and excellent infrastructure.
+              The campus provides a vibrant academic environment supported by highly qualified faculty members, modern laboratories, advanced research facilities, smart classrooms, digital libraries and excellent infrastructure.
             </p>
           </div>
 

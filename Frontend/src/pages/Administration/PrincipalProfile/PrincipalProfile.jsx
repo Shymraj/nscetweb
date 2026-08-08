@@ -11,7 +11,7 @@ export default function PrincipalProfile() {
   const departmentName = "Administration";
   const [isDarkMode, setIsDarkMode] = useState(() => document.body.classList.contains("dark-mode"));
 
-  const defaultMessage = `As a 21st century organization, NSCET desires to set an approach to learning that incorporates inquiry, research, analytical thinking and an ethical approach that becomes a lifetime habit. I strongly believe that education is a collaborative effort that involves professional administrators, committed teachers and motivated students.\n\nWe dedicate ourselves as professional administrators in creating a dynamic education programme empowering the students in a global perspective. Learning at NSCET is a wholesome package of attitude, challenge, and opportunity.\n\n**Education:**\n• Ph.D. in Mechanical Engineering (Composite Tool Materials), Anna University (2011-2017)\n• M.E. in Manufacturing Engineering, Anna University of Technology, Trichy (2008-2010)\n• M.B.A in Production Engineering, Madurai Kamaraj University (2002-2004)`;
+  const defaultMessage = "As a 21st century organization, NSCET desires to set an approach to learning that incorporates inquiry, research, analytical thinking and an ethical approach that becomes a lifetime habit. I strongly believe that education is a collaborative effort that involves professional administrators, committed teachers and motivated students.We dedicate ourselves as professional administrators in creating a dynamic education programme empowering the students in a global perspective. Learning at NSCET is a wholesome package of attitude, challenge and opportunity.";
 
   const principalData = {
     id: "principal",
