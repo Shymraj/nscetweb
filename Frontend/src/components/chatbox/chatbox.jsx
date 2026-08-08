@@ -56,7 +56,7 @@ const ChatBot = () => {
         <div className="chat-window">
           <div className="chat-header">
             <div className="header-title">
-              <span className="ai-icon">🤖</span> NSCET AI Assistant
+              <span className="ai-icon"></span> NSCET AI Assistant
             </div>
             <button className="close-btn" onClick={toggleChat}>&times;</button>
           </div>
