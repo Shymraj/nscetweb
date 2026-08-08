@@ -1,4 +1,4 @@
-import imgKalaivani from "../images/kalaivani.jpg";
+import imgKalaivani from "../images/Kalaivani S.png";
 import imgAthilingam from "../images/Dr_athilingam.jpg";
 
 export const meembeddedFacultyData = [

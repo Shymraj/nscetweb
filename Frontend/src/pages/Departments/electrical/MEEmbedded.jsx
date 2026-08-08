@@ -20,8 +20,7 @@ import DepartmentHODProfile from "../../../components/common/DepartmentHODProfil
 const bannerGlobs = import.meta.glob("./images/embbeded_banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
-import imgKalaivani from "./images/kalaivani.jpg";
-import imgAthilingam from "./images/Dr_athilingam.jpg";
+
 
 import "../cse/CSE.css";
 
