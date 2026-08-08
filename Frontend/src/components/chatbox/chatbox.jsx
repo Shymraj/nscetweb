@@ -85,7 +85,7 @@ const ChatBot = () => {
       {/* Floating Robot Video Button */}
       <button className="robot-trigger-btn" onClick={toggleChat}>
         {!isOpen && (
-          <div className="lets-talk-bubble">Let's talk!</div>
+          <div className="lets-talk-bubble">ProBot Here!</div>
         )}
         {/* Image-ku bathila Video use panrom */}
         <video 

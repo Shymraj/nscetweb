@@ -45,7 +45,7 @@
 /* --- "Let's talk!" Bubble --- */
 .lets-talk-bubble {
   position: absolute;
-  top: 15px; 
+  top: 20px; 
   left: -80px; 
   background-color: rgba(11, 52, 112, 0.9);
   color: #00ffff; 
