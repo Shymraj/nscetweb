@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useDepartmentStaff } from "../../../../hooks/useDepartmentStaff";
 import { Link } from "react-router-dom";
 import {
   FaLaptopCode, FaServer, FaUserTie, FaEnvelope, FaGraduationCap,
@@ -58,7 +59,7 @@ const IT = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = itFacultyData;
+  const faculties = useDepartmentStaff(['it', 'information technology'], itFacultyData);
 
   const hod = faculties[0];
   const staff = faculties.slice(1);

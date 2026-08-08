@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { FaBullhorn } from 'react-icons/fa';
 import './MarqueeBanner.css';
 
 const MarqueeBanner = () => {
@@ -38,17 +39,29 @@ const MarqueeBanner = () => {
 
   if (marquees.length === 0) return null;
 
+  // Duplicate marquees array to guarantee continuous seamless scrolling
+  const displayMarquees = [...marquees, ...marquees, ...marquees, ...marquees];
+
   return (
     <div className={`marquee-container ${isScrolled ? "scrolled" : ""}`}>
-      <div className="marquee-content">
-        {marquees.map((mq, index) => (
-          <span key={mq.id} className="marquee-item">
-            {mq.content} {index < marquees.length - 1 && <span className="marquee-separator">•</span>}
-          </span>
-        ))}
+      <div className="marquee-badge">
+        <FaBullhorn className="marquee-badge-icon" />
+        <span>UPDATES</span>
+      </div>
+
+      <div className="marquee-track-wrapper">
+        <div className="marquee-content">
+          {displayMarquees.map((mq, index) => (
+            <span key={`${mq.id}-${index}`} className="marquee-item">
+              {mq.content}
+              <span className="marquee-separator">✦</span>
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
 export default MarqueeBanner;
+

@@ -75,7 +75,7 @@ export const itFacultyData = [
     experience: [
       "1.6 Years"
     ]},
-    {id: "mrs-m-bhavani", slug: "mrs-m-bhavani",  name: "Bhavani M", desig: "", qual: "", email: "bhavani@nscet.org", image: imgBhavani, spec: "", objectPosition: "center 10%" ,
+    {id: "mrs-m-bhavani", slug: "mrs-m-bhavani",  name: "Bhavani M", desig: "Assistant Professor", qual: "M.E.", email: "bhavani@nscet.org", image: imgBhavani, spec: "UI/UX", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/bhavani-m-54332471",
     about: "",
     publications: [
@@ -147,7 +147,7 @@ export const itFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "ms-mareeswari-m", slug: "ms-mareeswari-m",  name: "Mareeswari M", desig: "Assistant Professor", qual: "", email: "mareeswarim@nscet.org", image: imgMareeswari, spec: "Image Processing", objectPosition: "center 10%" ,
+    {id: "ms-mareeswari-m", slug: "ms-mareeswari-m",  name: "Mareeswari M", desig: "Assistant Professor", qual: "M.E.", email: "mareeswarim@nscet.org", image: imgMareeswari, spec: "Image Processing", objectPosition: "center 10%" ,
     linkedin: "http://www.linkedin.com/in/mareeswari-m-a08767426",
     about: "Mareeswari M is a faculty member in the Department of Information Technology specializing in Image Processing.",
     publications: [

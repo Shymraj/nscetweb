@@ -41,7 +41,8 @@ const infraData = [
     icon: <FaRunning />,
     // Future code: image: sportsImg,
     image: "https://via.placeholder.com/1000x800/ea580c/ffffff?text=Sports+Image",
-    desc: "Sprawling playgrounds, indoor courts, and modern gym facilities to build physical fitness and team spirit."
+    desc: "Sprawling playgrounds, indoor courts, and modern gym facilities to build physical fitness and team spirit.",
+    link: "/student-life/sports" // Added Route
   },
   {
     id: 4,
@@ -50,7 +51,8 @@ const infraData = [
     icon: <FaBuilding />,
     // Future code: image: hostelImg,
     image: "https://via.placeholder.com/1000x800/f97316/ffffff?text=Hostel+Image",
-    desc: "Safe, secure, and comfortable AC/Non-AC hostels with high-speed Wi-Fi and hygienic multi-cuisine mess."
+    desc: "Safe, secure, and comfortable AC/Non-AC hostels with high-speed Wi-Fi and hygienic multi-cuisine mess.",
+    link: "/student-life/boys-hostel" // Added Route
   },
   {
     id: 5,
@@ -60,7 +62,7 @@ const infraData = [
     // Future code: image: transportImg,
     image: "https://via.placeholder.com/1000x800/ea580c/ffffff?text=Transport+Image",
     desc: "A fleet of 50+ modern buses covering a 100km radius, ensuring safe and punctual commute for all students.",
-    link: "/campus/transport"
+    link: "/student-life/transport-facilities" // Updated Route
   }
 ];
 
@@ -124,6 +126,7 @@ const Infrastructure = () => {
                   <div className="content-text-box">
                     <h3>{item.title}</h3>
                     <p>{item.desc}</p>
+                    {/* The navigate logic is already perfectly handling the item.link */}
                     <button 
                       className="infra-explore-btn"
                       onClick={(e) => {

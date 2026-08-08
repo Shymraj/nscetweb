@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { SmartLoaderProvider } from "./components/SmartLoader/SmartLoaderProvider";
 
@@ -87,6 +88,14 @@ const AppContent = () => {
   const isAdminRoute = location.pathname.startsWith("/admin-");
   const isStandalonePortfolio = /^\/departments\/[^/]+\/faculty\//.test(location.pathname) || location.pathname === "/administration/principal/profile";
   const hideGlobalNavAndFooter = isAdminRoute || isStandalonePortfolio;
+
+  useEffect(() => {
+    if (isAdminRoute) {
+      document.title = "NSCET | Admin";
+    } else {
+      document.title = "NSCET | Home";
+    }
+  }, [isAdminRoute]);
 
   return (
     <>

@@ -160,12 +160,12 @@ const EventsManager = () => {
 
   const deptNames = [
     'Computer Science and Engineering',
-    'Electronics and Communication Engineering',
-    'Mechanical Engineering',
-    'Electrical and Electronics Engineering',
-    'Civil Engineering',
-    'Artificial Intelligence & Data Science',
     'Information Technology',
+    'Artificial Intelligence & Data Science',
+    'Electronics and Communication Engineering',
+    'Electrical and Electronics Engineering',
+    'Mechanical Engineering',
+    'Civil Engineering',
     'Science and Humanities'
   ];
 
@@ -323,8 +323,10 @@ const StaffManager = () => {
     
     if (editingStaffId) {
       await axios.put(`http://localhost:5000/api/admin/staff/${editingStaffId}`, formData);
+      alert('Staff details updated successfully!');
     } else {
       await axios.post('http://localhost:5000/api/admin/staff', formData);
+      alert('Staff added successfully!');
     }
     
     clearForm();
@@ -346,6 +348,7 @@ const StaffManager = () => {
   const handleDeleteStaff = async (id) => {
     if (window.confirm("Are you sure?")) {
       await axios.delete(`http://localhost:5000/api/admin/staff/${id}`);
+      alert('Staff deleted successfully!');
       fetchStaff();
     }
   };
@@ -365,12 +368,12 @@ const StaffManager = () => {
 
   const deptNames = [
     'Computer Science and Engineering',
-    'Electronics and Communication Engineering',
-    'Mechanical Engineering',
-    'Electrical and Electronics Engineering',
-    'Civil Engineering',
-    'Artificial Intelligence & Data Science',
     'Information Technology',
+    'Artificial Intelligence & Data Science',
+    'Electronics and Communication Engineering',
+    'Electrical and Electronics Engineering',
+    'Mechanical Engineering',
+    'Civil Engineering',
     'Science and Humanities'
   ];
 
@@ -436,14 +439,14 @@ const StaffManager = () => {
         </div>
       )}
 
-      {Object.keys(staffByDept).map(dept => (
+      {[...new Set([...deptNames, ...Object.keys(staffByDept)])].filter(dept => staffByDept[dept] && staffByDept[dept].length > 0).map(dept => (
         <div key={dept} className="dept-group">
           <div className="dept-header">
             <div><FaBuilding style={{marginRight: '10px'}}/> {dept}</div>
             <div className="dept-badge">{staffByDept[dept].length} Staff</div>
           </div>
           <div className="staff-cards-grid">
-            {staffByDept[dept].map(st => (
+            {staffByDept[dept].sort((a, b) => b.is_hod - a.is_hod).map(st => (
               <div className="staff-card" key={st.id}>
                 {st.photo_url ? (
                   <img src={`http://localhost:5000${st.photo_url}`} alt={st.name} />

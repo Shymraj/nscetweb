@@ -134,7 +134,8 @@ const Contact = () => {
         <div className="map-badge"><FaMapMarkerAlt /> Find Us on Map</div>
         <iframe
           title="NSCET Location"
-          src="https://www.google.com/maps?q=Nadar%20Saraswathi%20College%20of%20Engineering%20and%20Technology&output=embed"
+          /* 👉 INGA '&t=k' ADD PANNI SATELLITE (EARTH) MAP AH MATHIYACHU */
+          src="https://www.google.com/maps?q=Nadar%20Saraswathi%20College%20of%20Engineering%20and%20Technology&t=k&z=17&output=embed"
           loading="lazy"
           allowFullScreen
         ></iframe>

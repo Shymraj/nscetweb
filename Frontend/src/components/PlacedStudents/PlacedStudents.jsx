@@ -4,6 +4,7 @@ import "./PlacedStudents.css";
 
 const PlacedStudents = () => {
   const [placementPosters, setPlacementPosters] = useState([]);
+  const [loading, setLoading] = useState(true); // Added loading state
 
   useEffect(() => {
     const fetchPlacements = async () => {
@@ -22,6 +23,8 @@ const PlacedStudents = () => {
       } catch (error) {
         console.error("Error fetching placements:", error);
         setPlacementPosters([]);
+      } finally {
+        setLoading(false); // Stop loading after API call finishes (success or fail)
       }
     };
     fetchPlacements();
@@ -30,10 +33,6 @@ const PlacedStudents = () => {
   // Duplicating the array to create a seamless infinite scroll loop
   const marqueeData = placementPosters.length > 0 ? [...placementPosters, ...placementPosters] : [];
 
-  if (placementPosters.length === 0) {
-    return null; // or return an empty section if preferred
-  }
-
   return (
     <section className="placement-section">
       <div className="placement-container">
@@ -41,23 +40,25 @@ const PlacedStudents = () => {
           2025-26 <span>PLACED STUDENTS</span>
         </h2>
 
-        {/* MARQUEE WRAPPER - Handles the Fade Mask and hides overflow */}
-        <div className="marquee-wrapper">
-          
-          {/* MARQUEE TRACK - The continuously moving container */}
-          <div className="marquee-track">
-            {marqueeData.map((poster, index) => (
-              
-              // INDIVIDUAL POSTER CARD
-              <div className="poster-card" key={index}>
-                <div className="poster-img-container">
-                  <img src={poster.image} alt={poster.altText} />
+        {/* Show Loading, Empty Message, or Marquee based on state */}
+        {loading ? (
+          <p className="status-message">Loading placement records...</p>
+        ) : placementPosters.length > 0 ? (
+          <div className="marquee-wrapper">
+            <div className="marquee-track">
+              {marqueeData.map((poster, index) => (
+                <div className="poster-card" key={index}>
+                  <div className="poster-img-container">
+                    <img src={poster.image} alt={poster.altText} />
+                  </div>
                 </div>
-              </div>
-
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <p className="status-message">New placement records will be updated soon!</p>
+        )}
+        
       </div>
     </section>
   );

@@ -30,7 +30,7 @@
 }
 
 .campus-subtitle {
-  color: #f97316; /* Theme Orange */
+  color: #f97316; 
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -89,7 +89,7 @@
 }
 
 .tab-btn:hover {
-  background-color: #fff7ed; /* Very light orange on hover */
+  background-color: #fff7ed; 
 }
 
 .tab-icon {
@@ -114,7 +114,7 @@
 
 .tab-btn.active .tab-icon,
 .tab-btn.active .tab-text {
-  color: #f97316; /* Highlights orange when active */
+  color: #f97316; 
 }
 
 /* Framer Motion Animated Indicator */
@@ -150,7 +150,6 @@
   top: 0; left: 0; right: 0; bottom: 0;
 }
 
-/* Targets <img> and <video> tags */
 .display-media {
   width: 100%;
   height: 100%;
@@ -158,81 +157,94 @@
   display: block;
 }
 
-/* Specific class for slideshow images to overlap smoothly */
 .sliding-media {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-/* Gentle overlay */
+/* Gentle overlay so the glass card text remains readable */
 .media-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to top, rgba(17, 24, 39, 0.7) 0%, rgba(17, 24, 39, 0.1) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(17, 24, 39, 0.4) 0%, transparent 40%);
   pointer-events: none; 
 }
 
-/* --- Floating Info Card (Glassmorphism) --- */
+/* ===========================================================
+   FLOATING INFO CARD (PREMIUM GLASSMORPHISM & REDUCED SIZE)
+=========================================================== */
 .display-info-card {
   position: absolute;
-  bottom: 40px; 
-  left: 40px;  
-  max-width: 450px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 35px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.5);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  bottom: 25px; /* Reduced from 40px */
+  left: 25px;   /* Reduced from 40px */
+  max-width: 360px; /* Highly reduced from 450px */
+  background: rgba(255, 255, 255, 0.65); /* More transparent to show video */
+  backdrop-filter: blur(20px); /* Heavy blur for premium frosted glass */
+  -webkit-backdrop-filter: blur(20px);
+  padding: 22px 24px; /* Reduced padding from 35px */
+  border-radius: 16px; /* Slightly sharper, modern radius */
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   z-index: 10;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.display-info-card:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(-5px);
 }
 
 .info-highlight {
   display: inline-block;
   background-color: #f97316;
   color: #ffffff;
-  padding: 6px 14px;
+  padding: 4px 10px; /* Smaller padding */
   border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 10px; /* Reduced font */
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 16px;
+  margin-bottom: 12px; /* Tighter margin */
 }
 
 .display-info-card h3 {
-  font-size: 28px;
+  font-size: 22px; /* Reduced from 28px */
   font-weight: 800;
   color: #111827;
-  margin-bottom: 12px;
+  margin-bottom: 8px; /* Tighter margin */
+  line-height: 1.2;
 }
 
 .display-info-card p {
-  font-size: 15px;
-  color: #4b5563;
-  line-height: 1.7;
-  margin-bottom: 24px;
+  font-size: 13.5px; /* Reduced from 15px */
+  color: #374151; /* Darkened for better contrast on glass */
+  line-height: 1.6;
+  margin-bottom: 16px;
+  /* Optional: Truncate text if it gets too long */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .explore-facility-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: transparent;
   border: none;
-  color: #f97316;
-  font-size: 15px;
-  font-weight: 700;
+  color: #ea580c; /* Darker orange for better visibility */
+  font-size: 14px;
+  font-weight: 800;
   padding: 0;
   cursor: pointer;
-  transition: gap 0.3s ease;
+  transition: gap 0.3s ease, color 0.3s ease;
 }
 
 .explore-facility-btn:hover {
-  gap: 14px;
-  color: #ea580c;
+  gap: 12px;
+  color: #c2410c;
 }
 
 /* ===========================================================
@@ -286,11 +298,11 @@
     left: 20px;
     right: 20px;
     max-width: none;
-    padding: 24px;
+    padding: 20px;
   }
 
   .display-info-card h3 {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
@@ -326,15 +338,24 @@ body.dark-mode .campus-display {
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
+/* Dark Mode Card Styles */
 body.dark-mode .display-info-card {
-  background: rgba(30, 41, 59, 0.95);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(15, 23, 42, 0.65); /* Dark transparent glass */
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+body.dark-mode .display-info-card:hover {
+  background: rgba(30, 41, 59, 0.85);
 }
 
 body.dark-mode .display-info-card h3 {
-  color: var(--theme-text);
+  color: #ffffff;
 }
 
 body.dark-mode .display-info-card p {
-  color: var(--text-muted);
+  color: #cbd5e1;
+}
+
+body.dark-mode .explore-facility-btn {
+  color: #f97316;
 }

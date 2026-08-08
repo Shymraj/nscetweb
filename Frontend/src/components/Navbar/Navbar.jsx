@@ -134,12 +134,12 @@ function Navbar() {
         <div className="topbar-left">
           <span className="topbar-contact phone-contact" aria-label="Phone">
             <span className="contact-btn" aria-hidden="true"><FaPhoneAlt className="contact-icon" /></span>
-            <span className="contact-text">+91 4567 890 123</span>
+            <span className="contact-text">04546-263900, 901, 902</span>
           </span>
 
           <span className="topbar-contact" aria-label="Email">
             <span className="contact-btn" aria-hidden="true"><FaEnvelope className="contact-icon" /></span>
-            <span className="contact-text">info@nscet.org</span>
+            <a href="mailto:info@nscet.org" className="contact-text" style={{ textDecoration: 'none', color: 'inherit' }}>info@nscet.org</a>
           </span>
 
           <span className="topbar-contact topbar-address" aria-label="Address">
@@ -148,10 +148,20 @@ function Navbar() {
           </span>
         </div>
         <div className="topbar-right">
-          <span className="follow-text">Follow Us:</span>
-          <a className="social-btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
-          <a className="social-btn" href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
-          <a className="social-btn" href="https://www.youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube /></a>
+          <div className="follow-us-box">
+            <span className="follow-text">Follow Us</span>
+            <div className="social-links">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="social-btn linkedin" aria-label="LinkedIn">
+                <FaLinkedin />
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="social-btn instagram" aria-label="Instagram">
+                <FaInstagram />
+              </a>
+              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="social-btn youtube" aria-label="YouTube">
+                <FaYoutube />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -163,7 +173,7 @@ function Navbar() {
           </div>
 
           <div className="college-name">
-            <h2 className="nscet-text" style={{ color: darkMode ? '#ffffff' : '#0d3b8e', fontSize: '21px', fontWeight: 800 }}>NSCET</h2>
+            <h2 className="nscet-text">NSCET</h2>
           </div>
         </Link>
 
@@ -186,7 +196,7 @@ function Navbar() {
             <Link to="/administration/tmhnutrust">Administration</Link>
             <ul className="dropdown-menu">
               <li><Link to="/administration/principal">Principal</Link></li>
-              <li><Link to="/administration/finance-officer">Finance Officer</Link></li>
+             {/* <li><Link to="/administration/finance-officer">Finance Officer</Link></li>*/}
               <li><Link to="/administration/controller-examination">Exam Cell</Link></li>
               <li><Link to="/administration/ombudsperson">Ombudsperson</Link></li>
               <li>

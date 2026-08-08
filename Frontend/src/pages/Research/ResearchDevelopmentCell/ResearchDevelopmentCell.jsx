@@ -81,12 +81,12 @@ const ResearchDevelopmentCell = () => {
   const members = [
     { name: "Dr. B. Radha Krishnan", desig: "Professor & Head", dept: "Department of Mechanical Engineering" },
     { name: "Dr. C. Mathalai Sundaram", desig: "Principal & Professor", dept: "Department of Mechanical Engineering" },
-    { name: "Dr. Athilingam R", desig: "Associate Professor", dept: "Department of Electrical and Electronics Engineering" },
+    { name: "Dr. Athilingam R", desig: "Professor & Head", dept: "Department of Electrical and Electronics Engineering" },
     { name: "Dr. T. Venish Kumar A", desig: "Professor & Head", dept: "Department of Electronics and Communication Engineering" },
-    { name: "Dr. M. Sathya", desig: "Associate Professor", dept: "Department of Computer Science and Engineering" },
+    { name: "Dr. M. Sathya", desig: "Vice principal & Professor", dept: "Department of Computer Science and Engineering" },
     { name: "Dr. N. David Mathan", desig: "Professor", dept: "Department of Chemistry" },
-    { name: "Dr. N. Mathavan", desig: "Assistant Professor", dept: "Department of Electronics and Communication Engineering" },
-    { name: "Dr. Mathalai Raj", desig: "Assistant Professor", dept: "Department of Computer Science and Engineering" }
+    { name: "Dr. N. Mathavan", desig: "Professor", dept: "Department of Electronics and Communication Engineering" },
+    { name: "Dr. Mathalai Raj", desig: "Professor & Head", dept: "Department of Computer Science and Engineering" }
   ];
 
   return (

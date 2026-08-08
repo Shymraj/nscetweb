@@ -4,7 +4,7 @@ import './Entrepreneurship Development Cell.css';
 const EdcIicGrid = () => {
   const teamMembers = [
     { name: "Mr. P. Surulimani", role: "Coordinator", dept: "AP/Mech" ,  photo: "/Surulimani.jpg"},
-    { name: "Dr. S. R. Krishnamoorthi", role: "Coordinator", dept: "ASP/Phy" , photo:"/krishnamoorthy.jpg"},
+    { name: "Dr. S. R. Krishnamoorthi", role: "Coordinator", dept: "Prof/Phy" , photo:"/krishnamoorthy.jpg"},
     { name: "Mr. V. Sivaganesan", role: "Coordinator", dept: "AP/Mech" , photo:"/sivaganesan.jpg" },
     { name: "Mrs. K. Benita Merlin Isabella", role: "Member", dept: "AP/CIVIL" , photo: "/Benita.jpg" },
     { name: "Mr. C. Shiva", role: "Member", dept: "AP/EEE",  photo: "/shiva.jpg"},
@@ -38,7 +38,7 @@ const EdcIicGrid = () => {
           <div className="banner-icon">◆</div>
           <div className="banner-content">
             <h3>Our Vision</h3>
-            <p>To build a sustainable and inclusive ecosystem of innovation and entrepreneurship by nurturing future-ready innovators, leaders, and job creators through ethical and impactful practices.</p>
+            <p>To build a sustainable and inclusive ecosystem of innovation and entrepreneurship by nurturing future-ready innovators, leaders and job creators through ethical and impactful practices.</p>
           </div>
         </div>
 
@@ -53,8 +53,8 @@ const EdcIicGrid = () => {
             <ul className="custom-list">
               <li>To foster a culture of innovation, entrepreneurship, and creativity across all disciplines.</li>
               <li>To enable hands-on learning and experiential projects that address real-world challenges.</li>
-              <li>To provide mentorship, technical support, and infrastructure for idea validation and startup growth.</li>
-              <li>To facilitate collaboration with industry, academia, and government bodies to support entrepreneurial initiatives.</li>
+              <li>To provide mentorship, technical support and infrastructure for idea validation and startup growth.</li>
+              <li>To facilitate collaboration with industry, academia and government bodies to support entrepreneurial initiatives.</li>
               <li>To empower all sections of society, including women and rural youth, through inclusive programs.</li>
             </ul>
           </div>
@@ -65,10 +65,10 @@ const EdcIicGrid = () => {
               <h3>Objectives</h3>
             </div>
             <ul className="custom-list">
-              <li>Build an entrepreneurial mindset among students through training, events, and experiential learning.</li>
-              <li>Promote startup development by supporting ideation, prototype building, and business model creation.</li>
-              <li>Conduct regular activities such as innovation challenges, bootcamps, guest lectures, and My Story sessions.</li>
-              <li>Facilitate access to funding, incubation, and government startup schemes (e.g., DST, MSME, NIDHI, YUKTI).</li>
+              <li>Build an entrepreneurial mindset among students through training, events and experiential learning.</li>
+              <li>Promote startup development by supporting ideation, prototype building and business model creation.</li>
+              <li>Conduct regular activities such as innovation challenges, bootcamps, guest lectures and My Story sessions.</li>
+              <li>Facilitate access to funding, incubation and government startup schemes (e.g., DST, MSME, NIDHI, YUKTI).</li>
               <li>Encourage students and faculty to file Intellectual Property Rights (IPR) such as patents and trademarks.</li>
             </ul>
           </div>
