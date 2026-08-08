@@ -8,7 +8,6 @@ import imgHarikishore from "./images/harikishore.jpg";
 import imgChakravarthySamy from "./images/chakravarthysamydurai.jpg";
 import imgNagaraja from "./images/nagaraja.jpg";
 
-import imgArunKumar from "./images/arunkumar.jpg";
 
 export const mechanicalFacultyData = [
     {id: "dr-b-radha-krishnan", slug: "dr-b-radha-krishnan",  name: "Dr. B. Radha Krishnan", desig: "Head of the Department (HOD)", qual: "M.E., Ph.D., MISTE., MIE.", email: "hodmech@nscet.org", image: imgRadhaKrishnan, spec: "Mechanical Engineering", objectPosition: "center 10%" ,
@@ -100,26 +99,23 @@ export const mechanicalFacultyData = [
     experience: [
       "15 Years"
     ]},
-    {id: "mr-s-harikishore", slug: "mr-s-harikishore",  name: "Mr. S. Harikishore", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "harikishore@nscet.org", image: imgHarikishore, spec: "Mechatronics & Robotics", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mr-s-harikishore", slug: "mr-s-harikishore",  name: "S. Harikishore", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "harikishoreidea@gmail.com", image: imgHarikishore, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/harikishore-s-8036501ab",
+    about: "S. Harikishore is a dedicated faculty member with 11 years of teaching and research experience in the Department of Mechanical Engineering. His specialization is Manufacturing Engineering, with a strong focus on practical and industry-oriented learning. He is committed to supporting students in developing technical skills while contributing to research and innovation in modern manufacturing practices.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "5"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "15"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "1"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "11 Years"
     ]},
     {id: "mr-j-chakaravarthy-samy-durai", slug: "mr-j-chakaravarthy-samy-durai",  name: "Mr. J. Chakaravarthy Samy Durai", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "chakravarthysamydurai@nscet.org", image: imgChakravarthySamy, spec: "Industrial Engineering & Operations", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
@@ -142,36 +138,14 @@ export const mechanicalFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mr-r-nagaraja", slug: "mr-r-nagaraja",  name: "Mr. R. Nagaraja", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "nagaraja@nscet.org", image: imgNagaraja, spec: "Refrigeration & Air Conditioning", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mr-r-nagaraja", slug: "mr-r-nagaraja",  name: "Nagaraja R", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "nagaraja@nscet.org", image: imgNagaraja, spec: "Engineering Design", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/nagaraja-rajamanickam-431148126/",
+    about: "Nagaraja R is a dedicated faculty member with 13 years of teaching and research experience in the Department of Mechanical Engineering. His area of specialization is Engineering Design, and he is committed to developing students' design and problem-solving skills through practical, industry-oriented learning while contributing to research and innovation in mechanical engineering.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "5"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
-    ],
-    patents: [
-      "Dummy Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
-    experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
-    ]},
-
-    {id: "mr-g-arun-kumar", slug: "mr-g-arun-kumar",  name: "Arunkumar G", desig: "Assistant Professor", qual: "M.E.", email: "arunkumar@nscet.org", image: imgArunKumar, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/arun-kumar-5433553b4",
-    about: "Arunkumar G is a dedicated faculty member with 9 years of teaching experience in the Department of Mechanical Engineering. His specialization is Manufacturing Engineering, and he is passionate about advancing engineering education through practical learning, research, and innovation. He is committed to equipping students with industry-relevant knowledge and technical skills.",
-    publications: [
-      "1"
-    ],
-    projects: [
-      "4"
+      "12"
     ],
     patents: [
       "1"
@@ -180,6 +154,6 @@ export const mechanicalFacultyData = [
       "1"
     ],
     experience: [
-      "9 Years"
+      "13 Years"
     ]}
   ];

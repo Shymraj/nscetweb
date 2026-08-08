@@ -7,7 +7,6 @@ import imgAruljebaraj from "./images/aruljebaraj.jpg";
 import imgNathirunSabinash from "./images/nathirunsabinash.jpg";
 import imgHariprasath from "./images/hariprasath.jpg";
 import imgManojPrabakar from "./images/Manoj_prabakar.jpg";
-import imgPremkumar from "./images/General Engg - Premkumar.jpg";
 import imgAadhitya from "./images/P. Aadhitya.jpg";
 
 export const civilFacultyData = [
@@ -224,12 +223,12 @@ export const civilFacultyData = [
   {
     id: "aruljebaraj",
     slug: "aruljebaraj",
-    name: "Mr. P. Arul Jebaraj",
+    name: "Arul Jebaraj",
     desig: "Assistant Professor",
     qual: "M.Tech",
     email: "aruljebaraj@nscet.org",
     image: imgAruljebaraj,
-    spec: "Water Resources & Hydraulics",
+    spec: "Structural Engineering",
     objectPosition: "center 10%",
     highlights: [
       {
@@ -245,26 +244,16 @@ export const civilFacultyData = [
         description: "Email: aruljebaraj@nscet.org · NSCET Civil Department.",
       },
     ],
-    linkedin: "https://www.linkedin.com/in/aruljebaraj-nscet",
-    about: "Mr. P. Arul Jebaraj is a specialist in Water Resources Engineering and Hydraulics. His research focuses on fluid mechanics, hydraulic structures, and sustainable watershed management. With a practical approach to teaching, he guides students through complex hydrological modeling and open channel flow dynamics. His vision is to equip the next generation of engineers with the skills to address global water scarcity challenges.",
-    publications: [
-      "Hydrological Modeling of River Basins using HEC-HMS — Journal of Hydrologic Engineering, 2024",
-      "Optimization of Spillway Design for Medium Dams — National Conference on Water Resources, 2022"
-    ],
-    projects: [
-      "Flood Inundation Mapping and Mitigation Strategies for Coastal Regions",
-      "Design of Rainwater Harvesting Systems for Large Campuses"
-    ],
-    patents: [
-      "Automated Sluice Gate Control System for Irrigation Canals (Published - 2023)"
-    ],
+    linkedin: "https://www.linkedin.com/in/arul-jebaraj-12208498",
+    about: "Arul Jebaraj is a dedicated faculty member with 7.8 years of teaching experience in the Department of Civil Engineering. His specialization is Structural Engineering, and he is committed to helping students develop strong technical and practical skills through effective teaching, structural analysis, and industry-oriented learning.",
+    publications: [],
+    projects: [],
+    patents: [],
     awards: [
-      "Innovative Research Award in Water Resources - 2024",
-      "Best Presenter at International Hydrology Symposium - 2022"
+      "2"
     ],
     experience: [
-      "Assistant Professor, Civil Engineering, NSCET (2020 - Present)",
-      "Hydraulic Engineer, WaterTech Solutions (2017 - 2020)"
+      "7.8 Years"
     ]
   },
   {
@@ -387,38 +376,6 @@ export const civilFacultyData = [
     experience: [
       "Assistant Professor, Civil Engineering, NSCET (2018 - Present)",
       "Steel Detailer and Design Engineer, PEB Solutions (2015 - 2018)"
-    ]
-  },
-  {
-    id: "dr-premkumar-s",
-    slug: "dr-premkumar-s",
-    name: "Dr. S. Premkumar",
-    desig: "Assistant Professor",
-    qual: "M.E., Ph.D (Civil)",
-    email: "spremmagu@gmail.com",
-    image: imgPremkumar,
-    spec: "Water Resources",
-    objectPosition: "center 10%",
-    highlights: [
-      {
-        title: "Academic Focus",
-        description: "Specializing in Water Resources.",
-      },
-      {
-        title: "Contact",
-        description: "Email: spremmagu@gmail.com",
-      }
-    ],
-    linkedin: "https://www.linkedin.com/in/dr-premkumar-s-06a70640",
-    about: "Dr. S. Premkumar is a dedicated faculty member with over 12 years of teaching and research experience in the Department of Civil Engineering. His area of specialization is Water Resources, and he is committed to advancing engineering education through academic excellence, research, and student mentorship.",
-    publications: [
-      "5"
-    ],
-    projects: [],
-    patents: [],
-    awards: [],
-    experience: [
-      "12.7 Years"
     ]
   },
   {

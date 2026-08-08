@@ -8,27 +8,8 @@ import imgAbirami from "./images/Abirami.jpg";
 import imgChitra from "./images/chitra.jpg";
 import imgJuriyaBanu from "./images/juriyabanu.jpg";
 import imgPandiSelvi from "./images/pandiselvi.jpeg";
-import imgAthilingam from "./images/Dr_athilingam.jpg";
 export const electricalFacultyData = [
-    {id: "dr-r-athilingam", slug: "dr-r-athilingam",  name: "Dr. R. Athilingam", desig: "Head of the Department (HOD)", qual: "M.E., Ph.D", email: "athilingam@nscet.org", image: imgAthilingam, spec: "Image Processing, Internet of Things (IoT)", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dr-athilingam-r-750b31146",
-    about: "Dr. R. Athilingam serves as the Head of the Department with over 13 years of teaching and research experience. His areas of specialization include Image Processing and the Internet of Things (IoT). With significant contributions in research, patents, funded projects, and academic excellence, he is committed to fostering innovation, promoting industry-oriented learning, and mentoring students to excel in emerging technologies.",
-    publications: [
-      "22"
-    ],
-    projects: [
-      "10"
-    ],
-    patents: [
-      "6"
-    ],
-    awards: [
-      "4"
-    ],
-    experience: [
-      "13.6 Years"
-    ]},
-    {id: "mr-k-ganesh", slug: "mr-k-ganesh",  name: "Ganesh K", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "ganesh@nscet.org", image: imgGanesh, spec: "Grid Technology, Energy Management, Electric Vehicle Systems", objectPosition: "center 10%" ,
+    {id: "mr-k-ganesh", slug: "mr-k-ganesh",  name: "Ganesh K", desig: "Head of the Department (HOD)", qual: "M.E., (Ph.D.)", email: "ganesh@nscet.org", image: imgGanesh, spec: "Grid Technology, Energy Management, Electric Vehicle Systems", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/ganeshk210989",
     about: "Ganesh K is a dedicated faculty member with over 10 years of teaching and research experience in the Department of Electrical and Electronics Engineering. His areas of specialization include Grid Technology, Energy Management, and Electric Vehicle Systems. He is passionate about sustainable energy technologies, innovation, and helping students develop industry-relevant technical skills through practical learning.",
     publications: [

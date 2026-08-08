@@ -29,6 +29,10 @@ import imgSrinithi from "./images/Chemistry - Srinithi.jpeg";
 
 import imgThisha from "./images/thisha.jpeg";
 import imgRamKumar from "./images/ramkumar.jpeg";
+import imgRajeshshree from "./images/Rajeshshree.jpeg";
+import imgArunKumar from "./images/arunkumar.jpg";
+import imgPremkumar from "./images/General Engg - Premkumar.jpg";
+import imgJenifer from "./images/Jenifer Daksh.jpg";
 
 export const shFacultyData = [
     {id: "dr-a-vembathurajesh", slug: "dr-a-vembathurajesh",  name: "Dr. A. Vembathurajesh", desig: "Head of the Department (HOD)", qual: "M.E., Ph.D, MISTE.", email: "vembathurajesh@nscet.org", image: imgVembathuRajesh, spec: "Materials, Thermal, Composites", objectPosition: "center 10%" ,
@@ -492,5 +496,79 @@ export const shFacultyData = [
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
+    ]},
+    {id: "mrs-s-rajeshshree", slug: "mrs-s-rajeshshree",  name: "Mrs. S. Rajeshshree", desig: "Assistant Professor", qual: "B.E., M.E.", email: "rajeshshree@nscet.org", image: imgRajeshshree, spec: "Semiconductor Technology, Digital Communication", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/rajeshshree-ece-2aa7503a4",
+    about: "Mrs. S. Rajeshshree is a dedicated faculty member with 2 years of teaching experience. Her areas of specialization include Semiconductor Technology and Digital Communication. She is passionate about research, innovation, and helping students build strong technical knowledge through practical and industry-oriented learning.",
+    publications: [
+      "1"
+    ],
+    projects: [
+      "2"
+    ],
+    patents: [
+      "1"
+    ],
+    awards: [
+      "1"
+    ],
+    experience: [
+      "2 Years"
+    ]},
+    {id: "mr-g-arun-kumar", slug: "mr-g-arun-kumar",  name: "Arunkumar G", desig: "Assistant Professor", qual: "M.E.", email: "arunkumar@nscet.org", image: imgArunKumar, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/arun-kumar-5433553b4",
+    about: "Arunkumar G is a dedicated faculty member with 9 years of teaching experience. His specialization is Manufacturing Engineering, and he is passionate about advancing engineering education through practical learning, research, and innovation. He is committed to equipping students with industry-relevant knowledge and technical skills.",
+    publications: [
+      "1"
+    ],
+    projects: [
+      "4"
+    ],
+    patents: [
+      "1"
+    ],
+    awards: [
+      "1"
+    ],
+    experience: [
+      "9 Years"
+    ]},
+    {
+      id: "dr-premkumar-s",
+      slug: "dr-premkumar-s",
+      name: "Dr. S. Premkumar",
+      desig: "Assistant Professor",
+      qual: "M.E., Ph.D (Civil)",
+      email: "spremmagu@gmail.com",
+      image: imgPremkumar,
+      spec: "Water Resources",
+      objectPosition: "center 10%",
+      linkedin: "https://www.linkedin.com/in/dr-premkumar-s-06a70640",
+      about: "Dr. S. Premkumar is a dedicated faculty member with over 12 years of teaching and research experience. His area of specialization is Water Resources, and he is committed to advancing engineering education through academic excellence, research, and student mentorship.",
+      publications: [
+        "5"
+      ],
+      projects: [],
+      patents: [],
+      awards: [],
+      experience: [
+        "12.7 Years"
+      ]
+    },
+    {id: "ms-jenifer-k", slug: "ms-jenifer-k",  name: "Jenifer K", desig: "Assistant Professor", qual: "B.Tech(IT)., M.E(CSE)", email: "jenifer@nscet.org", image: imgJenifer, spec: "Data Mining", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/jenifer-k-6238312a4",
+    about: "Jenifer K is a dedicated faculty member with 5 years of teaching experience. Her specialization is Data Mining, and she is passionate about research, innovation, and guiding students in emerging AI and data-driven technologies.",
+    publications: [
+      "3"
+    ],
+    projects: [
+      "15"
+    ],
+    patents: [],
+    awards: [
+      "1"
+    ],
+    experience: [
+      "5 Years"
     ]}
   ];

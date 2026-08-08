@@ -7,7 +7,6 @@ import imgPavithra from "./images/Pavithra.jpg";
 import imgNagajothi from "./images/Nagajothi.jpg";
 import imgSunitha from "./images/Sunitha.jfif";
 import imgKodeeswaran from "./images/1778918812_ADS - Kodeeswaran.jpeg";
-import imgJenifer from "./images/Jenifer Daksh.jpg";
 import imgNithyapriya from "./images/Nithyapriya.png";
 
 export const aidsFacultyData = [
@@ -145,23 +144,6 @@ export const aidsFacultyData = [
     patents: [],
     awards: [],
     experience: [
-      "2 Months"
-    ]},
-    {id: "ms-jenifer-k", slug: "ms-jenifer-k",  name: "Jenifer K", desig: "Assistant Professor", qual: "B.Tech(IT)., M.E(CSE)", email: "jenifer@nscet.org", image: imgJenifer, spec: "Data Mining", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/jenifer-k-6238312a4",
-    about: "Jenifer K is a dedicated faculty member with 5 years of teaching experience in the Department of Artificial Intelligence and Data Science. Her specialization is Data Mining, and she is passionate about research, innovation, and guiding students in emerging AI and data-driven technologies.",
-    publications: [
-      "3"
-    ],
-    projects: [
-      "15"
-    ],
-    patents: [],
-    awards: [
-      "1"
-    ],
-    experience: [
-      "5 Years"
     ]},
     {id: "v-nithyapriya", slug: "v-nithyapriya",  name: "V.Nithyapriya", desig: "Assistant Professor", qual: "", email: "nithyapriya@nscet.org", image: imgNithyapriya, spec: "Operating System", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/nithya-preethi-b7a090409?utm_source=share_via&utm_content=profile&utm_medium=member_android",

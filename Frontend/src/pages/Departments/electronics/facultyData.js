@@ -8,7 +8,6 @@ import imgTamilSelvi from "./images/tamilselvi.jpg";
 import imgShanthaDevi from "./images/shanthadevi.jpg";
 import imgGowthami from "./images/gowthami.jpg";
 import imgBharathiKannan from "./images/bharathikannan.jpg";
-import imgRajeshshree from "./images/Rajeshshree.jpeg";
 
 export const electronicsFacultyData = [
     {id: "dr-t-venishkumar", slug: "dr-t-venishkumar",  name: "Dr. T. Venish Kumar", desig: "Head of the Department (HOD)", qual: "M.E., Ph.D", email: "tvenishkumar@gmail.com", image: imgVenishkumar, spec: "Digital VLSI, Device Modeling, Analog VLSI", objectPosition: "center 10%" ,
@@ -45,26 +44,19 @@ export const electronicsFacultyData = [
     experience: [
       "13 Years"
     ]},
-    {id: "mr-m-idhayachandran", slug: "mr-m-idhayachandran",  name: "Mr. M. Idhayachandran", desig: "Assistant Professor", qual: "M.E.", email: "idhayachandran@nscet.org", image: imgIdhayachandran, spec: "Digital Signal Processing & Image Processing", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mr-m-idhayachandran", slug: "mr-m-idhayachandran",  name: "Idhaya Chandran M", desig: "Assistant Professor", qual: "M.E.", email: "idhayachandran@nscet.org", image: imgIdhayachandran, spec: "VLSI Design", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/idhayachandran-ece-a325562a3",
+    about: "Idhaya Chandran M is a dedicated faculty member with 15 years of teaching and research experience in the Department of Electronics and Communication Engineering. His specialization is VLSI Design, and he is committed to helping students develop strong technical knowledge through practical learning while contributing to research and innovation in semiconductor and digital electronics technologies.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "4"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "10"
     ],
-    patents: [
-      "Dummy Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
-    ],
+    patents: [],
+    awards: [],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "15 Years"
     ]},
     {id: "mr-s-prathap", slug: "mr-s-prathap",  name: "Mr. S. Prathap", desig: "Assistant Professor", qual: "M.E (PhD)", email: "prathaps@nscet.org", image: imgPrathap, spec: "Embedded Systems & IoT Hardware", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
@@ -179,23 +171,5 @@ export const electronicsFacultyData = [
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
-    ]},
-    {id: "mrs-s-rajeshshree", slug: "mrs-s-rajeshshree",  name: "Mrs. S. Rajeshshree", desig: "Assistant Professor", qual: "B.E., M.E.", email: "rajeshshree@nscet.org", image: imgRajeshshree, spec: "Semiconductor Technology, Digital Communication", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/rajeshshree-ece-2aa7503a4",
-    about: "Mrs. S. Rajeshshree is a dedicated faculty member with 2 years of teaching experience in the Department of Electronics and Communication Engineering. Her areas of specialization include Semiconductor Technology and Digital Communication. She is passionate about research, innovation, and helping students build strong technical knowledge through practical and industry-oriented learning.",
-    publications: [
-      "1"
-    ],
-    projects: [
-      "2"
-    ],
-    patents: [
-      "1"
-    ],
-    awards: [
-      "1"
-    ],
-    experience: [
-      "2 Years"
     ]}
   ];
