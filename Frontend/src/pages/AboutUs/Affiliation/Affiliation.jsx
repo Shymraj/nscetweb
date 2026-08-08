@@ -7,6 +7,7 @@ import imgAICTE from './assets/logos/AICTE.png';
 import imgAISHE from './assets/logos/AISHE.png';
 import imgAnnaUniv from './assets/logos/anna-university.png';
 import imgUGC from './assets/logos/UGC.png';
+import imgISO from './assets/logos/ISO.png';
 import bannerImg from './assets/banner.png';
 import './Affiliation.css';
 
@@ -15,7 +16,7 @@ const certifications = [
   { name: 'AISHE', img: imgAISHE, delay: 0.2 },
   { name: 'Anna University', img: imgAnnaUniv, delay: 0.3 },
   { name: "NAAC 'A'", img: naacLogo, delay: 0.4 },
-  { name: 'ISO 9001:2015', img: null, delay: 0.5 },
+  { name: 'ISO 9001:2015', img: imgISO, delay: 0.5 },
   { name: 'UGC 2(f)', img: imgUGC, delay: 0.6 },
 ];
 
@@ -135,6 +136,19 @@ const Affiliation = () => {
                 >
                   <div className="glass-logo-card small-logo-card">
                     <img src={imgUGC} alt="UGC Logo" className="visual-logo" />
+                  </div>
+                </motion.div>
+
+                {/* ISO Logo (Bottom Center) */}
+                <motion.div 
+                  className="iso-logo-wrapper"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                  whileHover={{ scale: 1.05 }}
+                  style={{ gridColumn: "1 / -1", display: "flex", justifyContent: "center" }}
+                >
+                  <div className="glass-logo-card small-logo-card">
+                    <img src={imgISO} alt="ISO 9001:2015 Logo" className="visual-logo" style={{ transform: "scale(1.5)" }} />
                   </div>
                 </motion.div>
               </div>
