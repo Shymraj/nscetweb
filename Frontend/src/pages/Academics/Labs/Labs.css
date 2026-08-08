@@ -11,7 +11,9 @@ body.dark-mode .labs-page-container {
   background-color: #0b1120;
 }
 
-/* Hero Section */
+/* =========================================
+   HERO SECTION (UNTOUCHED)
+   ========================================= */
 .labs-hero {
   position: relative;
   width: 100%;
@@ -67,105 +69,280 @@ body.dark-mode .labs-hero {
   line-height: 1.6;
 }
 
-/* Grid Section */
-.labs-grid-section {
-  padding: 5rem 2rem;
+/* =========================================
+   NEW DYNAMIC SHOWCASE SECTION
+   ========================================= */
+.labs-showcase-section {
+  padding: 4rem 2rem 8rem;
   background-color: transparent;
 }
 
-.labs-grid-wrapper {
-  max-width: 1280px;
+.labs-showcase-wrapper {
+  max-width: 1100px;
   margin: 0 auto;
-}
-
-.labs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-}
-
-/* Lab Card */
-.lab-card {
-  background: #ffffff;
-  border-radius: 1.5rem;
-  padding: 2.5rem;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
 }
 
-body.dark-mode .lab-card {
+/* Tabs Navigation */
+.tabs-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  background: #ffffff;
+  padding: 0.5rem;
+  border-radius: 100px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  margin-bottom: 3rem;
+  overflow-x: auto;
+  max-width: 100%;
+  /* Hide scrollbar for clean look */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tabs-container::-webkit-scrollbar {
+  display: none;
+}
+
+body.dark-mode .tabs-container {
   background: #1e293b;
   border-color: rgba(51, 65, 85, 0.5);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-.lab-card:hover {
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-  border-color: rgba(59, 130, 246, 0.3);
-}
-
-body.dark-mode .lab-card:hover {
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
-  border-color: rgba(59, 130, 246, 0.5);
-}
-
-.lab-card-icon {
-  width: 65px;
-  height: 65px;
-  border-radius: 1.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-}
-
-.lab-card-content h3 {
-  font-family: var(--font-subtopic), sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 0.5rem;
-}
-
-body.dark-mode .lab-card-content h3 {
-  color: #f1f5f9;
-}
-
-.lab-dept {
-  display: inline-block;
-  font-size: 0.85rem;
+.tab-button {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 100px;
   font-weight: 600;
+  font-size: 0.9rem;
   color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 1.25rem;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  outline: none;
 }
 
-body.dark-mode .lab-dept {
+body.dark-mode .tab-button {
   color: #94a3b8;
 }
 
-.lab-card-content p {
-  color: #475569;
-  line-height: 1.6;
-  font-size: 0.95rem;
-  margin: 0;
+.tab-button.active {
+  color: #ffffff;
 }
 
-body.dark-mode .lab-card-content p {
+.active-tab-indicator {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  border-radius: 100px;
+  z-index: 0;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.tab-label {
+  position: relative;
+  z-index: 1;
+}
+
+/* Showcase Display Area */
+.showcase-display-area {
+  width: 100%;
+  min-height: 400px;
+}
+
+.showcase-card {
+  background: #ffffff;
+  border-radius: 2rem;
+  padding: 4rem;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-mode .showcase-card {
+  background: #1e293b;
+  border-color: rgba(51, 65, 85, 0.5);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6);
+}
+
+.showcase-icon-large {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .showcase-icon-large {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.showcase-content {
+  flex-grow: 1;
+}
+
+.showcase-dept {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.showcase-content h2 {
+  font-family: var(--font-subtopic), sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+body.dark-mode .showcase-content h2 {
+  color: #f1f5f9;
+}
+
+.showcase-content p {
+  color: #475569;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+body.dark-mode .showcase-content p {
   color: #cbd5e1;
 }
 
-@media (max-width: 768px) {
-  .labs-hero {
-    padding: 6rem 1.5rem 4rem;
+/* Action Buttons */
+.showcase-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.primary-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+}
+
+.primary-btn:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(15, 23, 42, 0.5);
+}
+
+body.dark-mode .primary-btn {
+  background: #3b82f6;
+}
+
+body.dark-mode .primary-btn:hover {
+  background: #2563eb;
+  box-shadow: 0 10px 20px -10px rgba(59, 130, 246, 0.5);
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+}
+
+.secondary-btn:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+body.dark-mode .secondary-btn {
+  color: #f8fafc;
+  border-color: #475569;
+}
+
+body.dark-mode .secondary-btn:hover {
+  background: #334155;
+  border-color: #64748b;
+}
+
+.btn-icon {
+  transition: transform 0.2s ease;
+}
+
+.primary-btn:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 968px) {
+  .showcase-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+    gap: 2rem;
   }
-  .labs-grid-section {
-    padding: 4rem 1.5rem;
+
+  .showcase-content h2 {
+    font-size: 2rem;
+  }
+  
+  .showcase-content p {
+    margin: 0 auto 2rem;
+  }
+
+  .showcase-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .tabs-container {
+    justify-content: flex-start;
+    border-radius: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .tab-button {
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .active-tab-indicator {
+    border-radius: 0.8rem;
+  }
+
+  .showcase-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primary-btn, .secondary-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

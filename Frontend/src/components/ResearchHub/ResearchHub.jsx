@@ -5,15 +5,11 @@ import { FaBookOpen, FaRunning, FaBed, FaUsers, FaCoffee, FaArrowRight } from "r
 
 // =========================================================================
 // ASSETS IMPORTS
-// Error-ஐ தவிர்க்க இல்லாத "Printing - Copy.jpeg" நீக்கப்பட்டுள்ளது.
 // =========================================================================
 import ispin from "../../assets/coe/ispin.mp4"; 
-
 import coeDrone3 from "../../assets/coe/drone3.jpg";
 import coeDrone4 from "../../assets/coe/drone4.jpg";
-
 import coePrinting1 from "../../assets/coe/printing.jpg";
-
 import vehicle1 from "../../assets/coe/vehicle1.jpg";
 import vehicle2 from "../../assets/coe/vehicle2.jpg";
 
@@ -31,14 +27,13 @@ const campusData = [
     title: "Drone Technology",
     icon: <FaRunning />,
     images: [coeDrone3, coeDrone4], 
-    description: "State-of-the-art facilities for assembling, testing, and flying customized drones. Students get hands-on experience in modern aerial robotics.",
+    description: "State-of-the-art facilities for assembling, testing, and flying customized drones.",
     highlight: "Advanced Robotics"
   },
   {
     id: "printing",
     title: "3D - Printing",
     icon: <FaBed />,
-    // உறுதியாக உள்ள ஒரு Printing image மட்டும் சேர்க்கப்பட்டுள்ளது
     images: [coePrinting1],
     description: "Safe, secure, and comfortable AC/Non-AC hostels with high-speed Wi-Fi, hygienic mess facilities, and recreation rooms offering a home away from home.",
     highlight: "Modern Amenities"
@@ -65,19 +60,16 @@ function CampusLife() {
   const [activeTab, setActiveTab] = useState(campusData[0]);
   const [imageIndex, setImageIndex] = useState(0);
 
-  // Tab change ஆகும்போது index-ஐ 0-க்கு reset செய்கிறோம்
   useEffect(() => {
     setImageIndex(0);
   }, [activeTab]);
 
-  // Image Slideshow Timer Logic
   useEffect(() => {
     let interval;
-    // Active tab-ல் 'images' array இருந்து, அதில் 1-க்கு மேல் images இருந்தால் மட்டும் slider ஓடும்
     if (activeTab.images && activeTab.images.length > 1) {
       interval = setInterval(() => {
         setImageIndex((prevIndex) => (prevIndex + 1) % activeTab.images.length);
-      }, 3500); // 3.5 seconds-க்கு ஒரு முறை image change ஆகும்
+      }, 3500);
     }
     return () => clearInterval(interval);
   }, [activeTab]);
@@ -130,11 +122,9 @@ function CampusLife() {
                 transition={{ duration: 0.4, ease: "easeOut" }}
               >
                 
-                {/* BACKGROUND MEDIA (Video, Slideshow, or Single Image) */}
+                {/* BACKGROUND MEDIA */}
                 <div className="display-media-container">
-                  
                   {activeTab.video ? (
-                    // Video render
                     <video 
                       src={activeTab.video} 
                       className="display-media" 
@@ -144,7 +134,6 @@ function CampusLife() {
                       playsInline 
                     />
                   ) : activeTab.images ? (
-                    // Crossfade Blur Slideshow render
                     <AnimatePresence mode="popLayout">
                       <motion.img 
                         key={imageIndex}
@@ -158,15 +147,12 @@ function CampusLife() {
                       />
                     </AnimatePresence>
                   ) : (
-                    // Default Single Image render
                     <img 
                       src={activeTab.image} 
                       alt={activeTab.title} 
                       className="display-media" 
                     />
                   )}
-                  
-                  {/* Gentle gradient overlay */}
                   <div className="media-overlay"></div>
                 </div>
 
