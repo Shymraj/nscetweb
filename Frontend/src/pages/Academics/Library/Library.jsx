@@ -22,8 +22,8 @@ const AnimatedNumber = ({ value }) => {
     const end = parseInt(value, 10);
     if (start === end) return;
 
-    let totalMilSecDur = 2500; 
-    let steps = 100; 
+    let totalMilSecDur = 5000; 
+    let steps = 200; 
     let incrementTime = totalMilSecDur / steps; 
 
     const timer = setInterval(() => {
@@ -45,7 +45,7 @@ const AnimatedNumber = ({ value }) => {
 const Library = () => {
   const [activeTab, setActiveTab] = useState('objectives');
 
-  const heroImages = ["/1.jpeg", "/2.jpeg", "/3.jpeg", "/4.jpeg"];
+  const heroImages = ["/library/1.jpeg", "/library/2.jpeg", "/library/3.jpeg", "/library/4.jpeg"];
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
   useEffect(() => {
@@ -92,8 +92,8 @@ const Library = () => {
   ];
   
   const galleryImages = [
-    "/1.jpeg", "/2.jpeg", "/3.jpeg", "/4.jpeg",
-    "/5.jpeg", "/6.jpeg", "/7.jpeg", "/background.jpeg"
+    "/library/1.jpeg", "/library/2.jpeg", "/library/3.jpeg", "/library/4.jpeg",
+    "/library/5.jpeg", "/library/6.jpeg", "/library/7.jpeg", "/library/background.jpeg"
   ];
 
   const handleMouseMove = (e) => {
@@ -321,7 +321,7 @@ const Library = () => {
           <div className="m1-info-card">
             <h3 className="m1-info-title"><FaUserGraduate /> Chief Librarian</h3>
             <div className="m1-lib-profile">
-              <img src="/Sinthan.jpg" alt="Dr. S. Sinthan" className="m1-lib-img" />
+              <img src="/library/Sinthan.jpg" alt="Dr. S. Sinthan" className="m1-lib-img" />
               <div className="m1-lib-details">
                 <h4>Dr. S. Sinthan</h4>
                 <span>Chief Librarian</span>
