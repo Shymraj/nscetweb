@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { SmartLoaderProvider } from "./components/SmartLoader/SmartLoaderProvider";
 
@@ -81,21 +80,13 @@ import AdminLogin from "./pages/Admin/Login";
 import AdminDashboard from "./pages/Admin/Dashboard";
 import PageTransition from "./components/Preloader/PageTransition";
 import ScrollToTop from "./components/ScrollToTop";
-import ChatBot from "./components/chatbox/chatbox.jsx"; // <-- ChatBot Import add pannirukken
+import ChatBot from "./components/chatbox/chatbox.jsx"; 
 
 const AppContent = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin-");
   const isStandalonePortfolio = /^\/departments\/[^/]+\/faculty\//.test(location.pathname) || location.pathname === "/administration/principal/profile";
   const hideGlobalNavAndFooter = isAdminRoute || isStandalonePortfolio;
-
-  useEffect(() => {
-    if (isAdminRoute) {
-      document.title = "NSCET | Admin";
-    } else {
-      document.title = "NSCET | Home";
-    }
-  }, [isAdminRoute]);
 
   return (
     <>
@@ -179,7 +170,9 @@ const AppContent = () => {
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
       
-      <ChatBot /> {/* <-- ChatBot component-a inga add pannirukken */}
+      {/* Admin route illana mattum thaan ChatBot varum */}
+      {!isAdminRoute && <ChatBot />} 
+      
       {!hideGlobalNavAndFooter && <Footer />}
     </>
   );

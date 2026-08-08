@@ -87,10 +87,11 @@
   color: white;
   padding: 15px;
   display: flex;
-  align-items: center; /* Ithu text matrum button-a same line-la vaikkum */
+  align-items: center; 
   width: 100%;
   box-sizing: border-box;
   font-weight: bold;
+  position: relative; /* Button-a ulla lock panna ithu add pannirukken */
 }
 
 .header-title {
@@ -104,13 +105,15 @@
   background: transparent !important; 
   background-color: transparent !important; 
   border: none !important;
-  color: rgb(11, 10, 10) !important;
+  color: white !important; 
   font-size: 28px !important;
   cursor: pointer !important;
   line-height: 1 !important;
   padding: 0 !important;
   margin: 0 !important;
-  margin-left: auto !important; /* Ithu thaan antha 'X'-a exact-a last (right side) varai thallum */
+  position: absolute !important; 
+  right: 15px !important; 
+  top: 4px !important; /* <-- Inga 15px la irunthu 8px ku maathiyirukken */
   box-shadow: none !important;
   outline: none !important;
 }
