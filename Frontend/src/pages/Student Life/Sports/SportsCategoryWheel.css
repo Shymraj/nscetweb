@@ -1,0 +1,483 @@
+/* SportsCategoryWheel.css */
+
+.sports-wheel-section {
+  position: relative;
+  background-color: #050a15; /* Deep Navy / Black */
+  color: #f8fafc;
+  padding: 80px 40px;
+  overflow: hidden;
+  font-family: var(--font-body);
+}
+
+/* Background Atmospheric Stadium Lighting */
+.sports-wheel-section::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.sports-wheel-section::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.sports-wheel-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Header */
+.sports-wheel-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-label {
+  display: inline-block;
+  color: #38bdf8;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.sports-wheel-header h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  font-family: var(--font-section);
+  background: linear-gradient(to right, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sports-wheel-header p {
+  color: #94a3b8;
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Layout Grid */
+.sports-wheel-layout {
+  display: grid;
+  grid-template-columns: minmax(350px, 420px) 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* LEFT SIDE - Wheel */
+.wheel-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.wheel-center {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 2px solid rgba(56, 189, 248, 0.3);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.wheel-center .trophy-icon {
+  font-size: 2.5rem;
+  color: #fbbf24;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.5));
+}
+
+.wheel-center span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 1.5px;
+}
+
+/* Segments */
+.wheel-segments {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  animation: spinSlow 60s linear infinite;
+}
+
+.wheel-segments:hover {
+  animation-play-state: paused;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.wheel-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110px;
+  height: 110px;
+  margin-top: -55px;
+  margin-left: -55px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  transform-origin: center center;
+}
+
+/* Because the parent is rotating, we need to counter-rotate the items to keep text upright */
+.wheel-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  animation: spinSlowReverse 60s linear infinite;
+  pointer-events: none; /* Let the parent handle clicks */
+}
+
+.wheel-segments:hover .wheel-item-content {
+  animation-play-state: paused;
+}
+
+@keyframes spinSlowReverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.wheel-item:hover {
+  transform: scale(1.1);
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+}
+
+.wheel-item.active {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+  transform: scale(1.15);
+  z-index: 15;
+}
+
+.wheel-item-icon {
+  font-size: 1.8rem;
+  color: #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+.wheel-item.active .wheel-item-icon,
+.wheel-item:hover .wheel-item-icon {
+  color: #38bdf8;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+}
+
+.wheel-item-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  letter-spacing: 1px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.wheel-item.active .wheel-item-name {
+  color: #ffffff;
+}
+
+/* RIGHT SIDE - Achiever Grid */
+.achiever-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.achiever-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.achiever-title {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-subtopic);
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.achiever-subtitle {
+  color: #94a3b8;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.achiever-count {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.achiever-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: max-content;
+  align-content: start;
+  gap: 20px;
+  max-height: 650px;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+/* Custom Scrollbar for Grid */
+.achiever-grid::-webkit-scrollbar {
+  width: 6px;
+}
+.achiever-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+}
+.achiever-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.achiever-grid::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.achiever-card {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 160px;
+  height: auto;
+  gap: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.achiever-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #38bdf8;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.achiever-card:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.achiever-card:hover::before {
+  opacity: 1;
+}
+
+.achiever-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.achiever-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.achiever-card:hover .achiever-avatar {
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.achiever-info h4 {
+  color: #f1f5f9;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.achiever-info span {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.achiever-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.achievement-text {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.venue-text {
+  color: #64748b;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* Empty State */
+.no-achievers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: #64748b;
+  text-align: center;
+  background: rgba(30, 41, 59, 0.2);
+  border-radius: 16px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.no-achievers svg {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .sports-wheel-layout {
+    grid-template-columns: 350px 1fr;
+    gap: 40px;
+  }
+  .wheel-container {
+    width: 350px;
+    height: 350px;
+  }
+  .wheel-center {
+    width: 100px;
+    height: 100px;
+  }
+  .wheel-center .trophy-icon {
+    font-size: 2rem;
+  }
+  .wheel-item {
+    width: 90px;
+    height: 90px;
+    margin-top: -45px;
+    margin-left: -45px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sports-wheel-layout {
+    grid-template-columns: 1fr;
+  }
+  .wheel-container {
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+  .achiever-grid {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 576px) {
+  .sports-wheel-section {
+    padding: 60px 20px;
+  }
+  .wheel-container {
+    width: 300px;
+    height: 300px;
+  }
+  .wheel-item {
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: -40px;
+  }
+  .wheel-item-icon {
+    font-size: 1.5rem;
+  }
+  .wheel-item-name {
+    font-size: 0.65rem;
+  }
+}
