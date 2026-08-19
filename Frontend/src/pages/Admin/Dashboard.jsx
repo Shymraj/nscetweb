@@ -3,19 +3,36 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import HomePageManager from './HomePageManager';
-import { FaChevronUp, FaHome, FaUsers, FaBriefcase, FaCalendarCheck, FaImages, FaCalendarAlt, FaCog, FaSignOutAlt, FaUserPlus, FaUserTie, FaGraduationCap, FaEnvelope, FaBook, FaBuilding, FaImage, FaCheck, FaTimes, FaUpload, FaRedo, FaEye, FaTrash, FaArrowLeft } from "react-icons/fa";
+import { FaChevronUp, FaHome, FaUsers, FaBriefcase, FaCalendarCheck, FaImages, FaCalendarAlt, FaCog, FaSignOutAlt, FaUserPlus, FaUserTie, FaGraduationCap, FaEnvelope, FaBook, FaBuilding, FaImage, FaCheck, FaTimes, FaUpload, FaRedo, FaEye, FaTrash, FaArrowLeft, FaBars, FaSearch, FaBell, FaChevronDown, FaCheckCircle, FaPhoneAlt, FaWhatsapp, FaCity, FaCommentAlt, FaUser } from "react-icons/fa";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('home');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [unreadEnquiries, setUnreadEnquiries] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     const isAdmin = localStorage.getItem('isAdmin');
     if (!isAdmin) {
       navigate('/admin-login');
+    } else {
+      fetchUnreadEnquiries();
+      const interval = setInterval(fetchUnreadEnquiries, 10000); // Poll every 10 seconds
+      return () => clearInterval(interval);
     }
   }, [navigate]);
+
+  const fetchUnreadEnquiries = async () => {
+    try {
+      const res = await axios.get('http://localhost:5000/api/admin/enquiries');
+      if (res.data.success) {
+        const count = res.data.data.filter(eq => !eq.is_read).length;
+        setUnreadEnquiries(count);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('isAdmin');
@@ -34,6 +51,22 @@ const AdminDashboard = () => {
     document.querySelector('.admin-content').scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const getPageTitle = (tab) => {
+    switch (tab) {
+      case 'home': return { title: 'Home Page', subtitle: 'Manage main landing page content' };
+      case 'staff': return { title: 'Faculties Section', subtitle: 'Manage staff and faculty details' };
+      case 'placements': return { title: 'Placements', subtitle: 'Manage placement records and images' };
+      case 'updates': return { title: 'Daily Updates', subtitle: 'Manage daily college updates' };
+      case 'gallery': return { title: 'Gallery', subtitle: 'Manage college gallery photos' };
+      case 'events': return { title: 'Events', subtitle: 'Manage department events' };
+      case 'departments': return { title: 'Departments', subtitle: 'Manage departments' };
+      case 'enquiries': return { title: 'Form Enquiries', subtitle: 'Manage contact form submissions' };
+      default: return { title: 'Dashboard', subtitle: 'Manage system settings' };
+    }
+  };
+
+  const currentPageInfo = getPageTitle(activeTab);
+
   return (
     <div className="admin-layout">
       {/* Sidebar */}
@@ -44,6 +77,10 @@ const AdminDashboard = () => {
         
         <ul className="sidebar-menu">
           <li className={activeTab === 'home' ? 'active' : ''} onClick={() => setActiveTab('home')}><FaHome className="sidebar-icon" /> Home Page</li>
+          <li className={activeTab === 'enquiries' ? 'active' : ''} onClick={() => setActiveTab('enquiries')} style={{ display: 'flex', alignItems: 'center' }}>
+            <FaEnvelope className="sidebar-icon" /> Form Enquiries
+            {unreadEnquiries > 0 && <span style={{ backgroundColor: '#ef4444', color: 'white', borderRadius: '50%', padding: '2px 6px', fontSize: '10px', fontWeight: 'bold', marginLeft: 'auto' }}>{unreadEnquiries}</span>}
+          </li>
           <li className={activeTab === 'staff' ? 'active' : ''} onClick={() => setActiveTab('staff')}><FaUsers className="sidebar-icon" /> Faculties</li>
           <li className={activeTab === 'placements' ? 'active' : ''} onClick={() => setActiveTab('placements')}><FaBriefcase className="sidebar-icon" /> Placements</li>
           <li className={activeTab === 'updates' ? 'active' : ''} onClick={() => setActiveTab('updates')}><FaCalendarCheck className="sidebar-icon" /> Daily Updates</li>
@@ -61,10 +98,42 @@ const AdminDashboard = () => {
       {/* Main Content Area */}
       <div className="admin-main">
 
+        {/* Top Navbar */}
+        <div className="admin-topbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 30px', borderBottom: '1px solid #e2e8f0', backgroundColor: '#fff', flexShrink: 0 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+            <FaBars style={{ color: '#0044cc', fontSize: '20px', cursor: 'pointer' }} />
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <h3 style={{ margin: 0, color: '#0A1A3A', fontSize: '18px', fontWeight: '700' }}>{currentPageInfo.title}</h3>
+              <p style={{ margin: 0, color: '#64748b', fontSize: '12px' }}>{currentPageInfo.subtitle}</p>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '25px' }}>
+            <div style={{ position: 'relative', cursor: 'pointer' }}>
+              <FaBell style={{ fontSize: '20px', color: '#475569' }} />
+              {unreadEnquiries > 0 && (
+                <span style={{ position: 'absolute', top: '-5px', right: '-5px', backgroundColor: '#ef4444', color: 'white', fontSize: '10px', fontWeight: 'bold', width: '16px', height: '16px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {unreadEnquiries}
+                </span>
+              )}
+            </div>
+
+            <div className="admin-profile" style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
+              <div className="profile-avatar" style={{ backgroundColor: '#0044cc', color: 'white', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '16px' }}>
+                A
+              </div>
+              <div className="profile-info" style={{ display: 'flex', flexDirection: 'column' }}>
+                <span className="profile-name" style={{ color: '#0A1A3A', fontWeight: '700', fontSize: '14px', lineHeight: '1.2' }}>Admin</span>
+                <span className="profile-role" style={{ color: '#64748b', fontSize: '12px', fontWeight: '500' }}>Administrator</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Scrollable Content */}
         <div className="admin-content" onScroll={handleScroll}>
           {activeTab === 'home' && <HomePageManager />}
+          {activeTab === 'enquiries' && <EnquiriesManager updateUnreadCount={fetchUnreadEnquiries} />}
           {activeTab === 'staff' && <StaffManager />}
           {activeTab === 'placements' && <PlacementsManager />}
           {activeTab === 'updates' && <div><h2 className="page-title">Daily Updates</h2><p>Coming Soon...</p></div>}
@@ -79,6 +148,319 @@ const AdminDashboard = () => {
           )}
         </div>
       </div>
+    </div>
+  );
+};
+
+// --- ENQUIRIES MANAGER ---
+const timeAgo = (dateString) => {
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffInSeconds = Math.floor((now - date) / 1000);
+
+  if (diffInSeconds < 60) return `Just now`;
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  if (diffInMinutes < 60) return `${diffInMinutes} min ago`;
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  if (diffInHours < 24) return `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
+  const diffInDays = Math.floor(diffInHours / 24);
+  if (diffInDays === 1) return `Yesterday`;
+  if (diffInDays < 7) return `${diffInDays} days ago`;
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+};
+
+const EnquiriesManager = ({ updateUnreadCount }) => {
+  const [enquiries, setEnquiries] = useState([]);
+  const [selectedEnquiry, setSelectedEnquiry] = useState(null);
+  const [filter, setFilter] = useState('Newest First');
+
+  const fetchEnquiries = async () => {
+    try {
+      const res = await axios.get('http://localhost:5000/api/admin/enquiries');
+      if (res.data.success) {
+        setEnquiries(res.data.data);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchEnquiries();
+  }, []);
+
+  const handleMarkRead = async (id, e) => {
+    if (e) e.stopPropagation();
+    try {
+      await axios.put(`http://localhost:5000/api/admin/enquiries/${id}/read`);
+      await fetchEnquiries(); // Refresh the list from backend
+      if (updateUnreadCount) updateUnreadCount();
+      if (selectedEnquiry && selectedEnquiry.id === id) {
+        setSelectedEnquiry(prev => ({...prev, is_read: 1}));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleDelete = async (id, e) => {
+    if (e) e.stopPropagation();
+    if (window.confirm("Are you sure you want to delete this enquiry?")) {
+      try {
+        await axios.delete(`http://localhost:5000/api/admin/enquiries/${id}`);
+        fetchEnquiries();
+        if (updateUnreadCount) updateUnreadCount();
+        if (selectedEnquiry && selectedEnquiry.id === id) {
+          setSelectedEnquiry(null);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
+  // Stats calculation
+  const totalMessages = enquiries.length;
+  const unreadMessages = enquiries.filter(eq => !eq.is_read).length;
+  const resolvedMessages = totalMessages - unreadMessages;
+  const todayMessages = enquiries.filter(eq => new Date(eq.created_at).toDateString() === new Date().toDateString()).length;
+
+  // Filter and sort for the list
+  let displayedEnquiries = [...enquiries];
+  if (filter === 'Unread Only') {
+    displayedEnquiries = displayedEnquiries.filter(e => !e.is_read);
+  }
+  
+  if (filter === 'Oldest First') {
+    displayedEnquiries.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+  } else {
+    // Default: Newest First
+    displayedEnquiries.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  }
+
+  return (
+    <div style={{ backgroundColor: '#f8fafc', minHeight: '100%', padding: '20px' }}>
+      
+      {/* Stats Cards Section */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: '20px' }}>
+        <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '20px', display: 'flex', alignItems: 'center', boxShadow: '0 1px 3px rgba(0,0,0,0.05)', border: '1px solid #f1f5f9' }}>
+          <div style={{ backgroundColor: '#e0e7ff', color: '#4f46e5', width: '50px', height: '50px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginRight: '15px' }}>
+            <FaEnvelope />
+          </div>
+          <div>
+            <div style={{ color: '#64748b', fontSize: '13px', fontWeight: '600' }}>Total Messages</div>
+            <div style={{ color: '#0f172a', fontSize: '24px', fontWeight: '700' }}>{totalMessages}</div>
+            <div style={{ color: '#94a3b8', fontSize: '11px', marginTop: '4px' }}>All time</div>
+          </div>
+        </div>
+        
+        <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '20px', display: 'flex', alignItems: 'center', boxShadow: '0 1px 3px rgba(0,0,0,0.05)', border: '1px solid #f1f5f9' }}>
+          <div style={{ backgroundColor: '#fef3c7', color: '#d97706', width: '50px', height: '50px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginRight: '15px' }}>
+            <FaEnvelope />
+          </div>
+          <div>
+            <div style={{ color: '#64748b', fontSize: '13px', fontWeight: '600' }}>Unread Messages</div>
+            <div style={{ color: '#0f172a', fontSize: '24px', fontWeight: '700' }}>{unreadMessages}</div>
+            <div style={{ color: '#f59e0b', fontSize: '11px', marginTop: '4px', display: 'flex', alignItems: 'center' }}><span style={{width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#f59e0b', display: 'inline-block', marginRight: '4px'}}></span> Need attention</div>
+          </div>
+        </div>
+
+        <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '20px', display: 'flex', alignItems: 'center', boxShadow: '0 1px 3px rgba(0,0,0,0.05)', border: '1px solid #f1f5f9' }}>
+          <div style={{ backgroundColor: '#dcfce7', color: '#16a34a', width: '50px', height: '50px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginRight: '15px' }}>
+            <FaCheckCircle />
+          </div>
+          <div>
+            <div style={{ color: '#64748b', fontSize: '13px', fontWeight: '600' }}>Resolved</div>
+            <div style={{ color: '#0f172a', fontSize: '24px', fontWeight: '700' }}>{resolvedMessages}</div>
+            <div style={{ color: '#10b981', fontSize: '11px', marginTop: '4px', display: 'flex', alignItems: 'center' }}><FaCheck style={{marginRight: '4px'}}/> Marked as read</div>
+          </div>
+        </div>
+
+        <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '20px', display: 'flex', alignItems: 'center', boxShadow: '0 1px 3px rgba(0,0,0,0.05)', border: '1px solid #f1f5f9' }}>
+          <div style={{ backgroundColor: '#f3e8ff', color: '#9333ea', width: '50px', height: '50px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginRight: '15px' }}>
+            <FaCalendarAlt />
+          </div>
+          <div>
+            <div style={{ color: '#64748b', fontSize: '13px', fontWeight: '600' }}>Today's Messages</div>
+            <div style={{ color: '#0f172a', fontSize: '24px', fontWeight: '700' }}>{todayMessages}</div>
+            <div style={{ color: '#94a3b8', fontSize: '11px', marginTop: '4px' }}>{new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Split Pane Layout */}
+      <div style={{ display: 'grid', gridTemplateColumns: '400px 1fr', gap: '20px' }}>
+        
+        {/* Left Column: All Messages */}
+        <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '20px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)', border: '1px solid #f1f5f9', display: 'flex', flexDirection: 'column', height: 'calc(100vh - 200px)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+            <h3 style={{ margin: 0, fontSize: '16px', color: '#0f172a', fontWeight: '700' }}>All Messages ({totalMessages})</h3>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <select value={filter} onChange={(e) => setFilter(e.target.value)} style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid #e2e8f0', fontSize: '12px', color: '#475569', outline: 'none' }}>
+                <option value="Newest First">Newest First</option>
+                <option value="Oldest First">Oldest First</option>
+                <option value="Unread Only">Unread Only</option>
+              </select>
+            </div>
+          </div>
+
+          <div style={{ flex: 1, overflowY: 'auto', paddingRight: '5px' }}>
+            {displayedEnquiries.length === 0 ? (
+              <div style={{ textAlign: 'center', color: '#9ca3af', marginTop: '50px' }}>No messages found.</div>
+            ) : (
+              displayedEnquiries.map((enq) => {
+                const isSelected = selectedEnquiry && selectedEnquiry.id === enq.id;
+                const avatarChar = enq.fullName ? enq.fullName.charAt(0).toUpperCase() : '?';
+                const avatarColors = ['#e0e7ff', '#fef3c7', '#dcfce7', '#f3e8ff', '#ffe4e6', '#e0f2fe'];
+                const textColors = ['#4f46e5', '#d97706', '#16a34a', '#9333ea', '#e11d48', '#0284c7'];
+                const colorIndex = (enq.fullName ? enq.fullName.charCodeAt(0) : 0) % avatarColors.length;
+
+                return (
+                  <div 
+                    key={enq.id} 
+                    onClick={() => {
+                      setSelectedEnquiry(enq);
+                      if (!enq.is_read) handleMarkRead(enq.id); // auto mark read on click
+                    }}
+                    style={{ 
+                      padding: '15px', 
+                      borderRadius: '8px', 
+                      marginBottom: '10px', 
+                      cursor: 'pointer',
+                      border: isSelected ? '1px solid #3b82f6' : '1px solid #f1f5f9',
+                      backgroundColor: isSelected ? '#eff6ff' : '#fff',
+                      transition: 'all 0.2s',
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '12px'
+                    }}
+                  >
+                    <div style={{ position: 'relative' }}>
+                      <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: avatarColors[colorIndex], color: textColors[colorIndex], display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '16px' }}>
+                        {avatarChar}
+                      </div>
+                      {!enq.is_read && <div style={{ position: 'absolute', top: 0, left: 0, width: '10px', height: '10px', backgroundColor: '#3b82f6', borderRadius: '50%', border: '2px solid white' }}></div>}
+                    </div>
+                    
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '4px' }}>
+                        <div style={{ fontSize: '14px', fontWeight: enq.is_read ? '600' : '700', color: '#0f172a', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{enq.fullName}</div>
+                        <div style={{ fontSize: '11px', color: '#64748b', whiteSpace: 'nowrap' }}>{timeAgo(enq.created_at)}</div>
+                      </div>
+                      <div style={{ fontSize: '12px', fontWeight: enq.is_read ? '500' : '600', color: '#334155', marginBottom: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{enq.subject}</div>
+                      <div style={{ fontSize: '12px', color: '#64748b', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{enq.message}</div>
+                    </div>
+
+                    {!enq.is_read && (
+                      <div style={{ fontSize: '10px', color: '#ef4444', backgroundColor: '#fee2e2', padding: '2px 6px', borderRadius: '10px', fontWeight: 'bold', alignSelf: 'center', marginLeft: '5px' }}>
+                        New
+                      </div>
+                    )}
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </div>
+
+        {/* Right Column: Message Detail */}
+        {selectedEnquiry ? (
+          <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '30px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)', border: '1px solid #f1f5f9', display: 'flex', flexDirection: 'column', height: 'calc(100vh - 200px)', overflowY: 'auto' }}>
+            
+            {/* Header Actions */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
+              <div style={{ color: '#3b82f6', fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', fontWeight: '500' }} onClick={() => setSelectedEnquiry(null)}>
+                <FaArrowLeft style={{ marginRight: '6px' }} /> Back to Messages
+              </div>
+              <div style={{ display: 'flex', gap: '10px' }}>
+                {!selectedEnquiry.is_read && (
+                  <button onClick={(e) => handleMarkRead(selectedEnquiry.id, e)} style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid #22c55e', color: '#16a34a', backgroundColor: '#f0fdf4', cursor: 'pointer', fontSize: '12px', fontWeight: '600', display: 'flex', alignItems: 'center' }}>
+                    <FaCheck style={{ marginRight: '6px' }}/> Mark as Read
+                  </button>
+                )}
+                <button onClick={(e) => handleDelete(selectedEnquiry.id, e)} style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid #fca5a5', color: '#ef4444', backgroundColor: '#fef2f2', cursor: 'pointer', fontSize: '12px', fontWeight: '600', display: 'flex', alignItems: 'center' }}>
+                  <FaTrash style={{ marginRight: '6px' }}/> Delete
+                </button>
+              </div>
+            </div>
+
+            {/* Profile Info */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '30px' }}>
+              <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: '#e0e7ff', color: '#4f46e5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '20px' }}>
+                {selectedEnquiry.fullName ? selectedEnquiry.fullName.charAt(0).toUpperCase() : '?'}
+              </div>
+              <div>
+                <div style={{ fontSize: '18px', fontWeight: '700', color: '#0f172a' }}>{selectedEnquiry.fullName}</div>
+                <div style={{ fontSize: '14px', color: '#3b82f6', fontWeight: '600', marginTop: '2px' }}>{selectedEnquiry.subject}</div>
+                <div style={{ fontSize: '12px', color: '#64748b', marginTop: '4px', display: 'flex', alignItems: 'center' }}><FaCalendarAlt style={{ marginRight: '6px' }}/> {new Date(selectedEnquiry.created_at).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}</div>
+              </div>
+            </div>
+
+            {/* Info Table */}
+            <div style={{ border: '1px solid #f1f5f9', borderRadius: '8px', padding: '20px', marginBottom: '30px' }}>
+              <div style={{ display: 'flex', marginBottom: '15px', borderBottom: '1px solid #f1f5f9', paddingBottom: '15px' }}>
+                <div style={{ width: '150px', color: '#64748b', fontSize: '13px', display: 'flex', alignItems: 'center', fontWeight: '600' }}><FaUser style={{ marginRight: '8px', color: '#3b82f6' }}/> Full Name</div>
+                <div style={{ color: '#1e293b', fontSize: '14px', fontWeight: '500' }}>{selectedEnquiry.fullName}</div>
+              </div>
+              <div style={{ display: 'flex', marginBottom: '15px', borderBottom: '1px solid #f1f5f9', paddingBottom: '15px' }}>
+                <div style={{ width: '150px', color: '#64748b', fontSize: '13px', display: 'flex', alignItems: 'center', fontWeight: '600' }}><FaEnvelope style={{ marginRight: '8px', color: '#3b82f6' }}/> Email Address</div>
+                <div style={{ color: '#1e293b', fontSize: '14px', fontWeight: '500' }}>{selectedEnquiry.email}</div>
+              </div>
+              <div style={{ display: 'flex', marginBottom: '15px', borderBottom: '1px solid #f1f5f9', paddingBottom: '15px' }}>
+                <div style={{ width: '150px', color: '#64748b', fontSize: '13px', display: 'flex', alignItems: 'center', fontWeight: '600' }}><FaPhoneAlt style={{ marginRight: '8px', color: '#3b82f6' }}/> Mobile Number</div>
+                <div style={{ color: '#1e293b', fontSize: '14px', fontWeight: '500' }}>{selectedEnquiry.mobile}</div>
+              </div>
+              <div style={{ display: 'flex', marginBottom: '15px', borderBottom: '1px solid #f1f5f9', paddingBottom: '15px' }}>
+                <div style={{ width: '150px', color: '#64748b', fontSize: '13px', display: 'flex', alignItems: 'center', fontWeight: '600' }}><FaWhatsapp style={{ marginRight: '8px', color: '#3b82f6' }}/> WhatsApp Number</div>
+                <div style={{ color: '#1e293b', fontSize: '14px', fontWeight: '500' }}>{selectedEnquiry.whatsapp || '-'}</div>
+              </div>
+              <div style={{ display: 'flex', marginBottom: '15px', borderBottom: '1px solid #f1f5f9', paddingBottom: '15px' }}>
+                <div style={{ width: '150px', color: '#64748b', fontSize: '13px', display: 'flex', alignItems: 'center', fontWeight: '600' }}><FaCity style={{ marginRight: '8px', color: '#3b82f6' }}/> City/District</div>
+                <div style={{ color: '#1e293b', fontSize: '14px', fontWeight: '500' }}>{selectedEnquiry.city || '-'}</div>
+              </div>
+              <div style={{ display: 'flex' }}>
+                <div style={{ width: '150px', color: '#64748b', fontSize: '13px', display: 'flex', alignItems: 'center', fontWeight: '600' }}><FaBook style={{ marginRight: '8px', color: '#3b82f6' }}/> Subject</div>
+                <div style={{ color: '#1e293b', fontSize: '14px', fontWeight: '500' }}>{selectedEnquiry.subject}</div>
+              </div>
+            </div>
+
+            {/* Message Block */}
+            <div style={{ marginBottom: '30px' }}>
+              <div style={{ color: '#0f172a', fontSize: '15px', fontWeight: '700', display: 'flex', alignItems: 'center', marginBottom: '10px' }}><FaCommentAlt style={{ marginRight: '8px', color: '#3b82f6' }}/> Message</div>
+              <div style={{ backgroundColor: '#f8fafc', padding: '20px', borderRadius: '8px', color: '#334155', fontSize: '14px', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}>
+                {selectedEnquiry.message || 'No message provided.'}
+              </div>
+            </div>
+
+            {/* Reply Actions */}
+            <div style={{ display: 'flex', gap: '15px', marginTop: 'auto', justifyContent: 'flex-end' }}>
+              <a 
+                href={`mailto:${selectedEnquiry.email}?subject=Re: ${selectedEnquiry.subject}`} 
+                style={{ padding: '10px 20px', borderRadius: '6px', backgroundColor: '#6366f1', color: 'white', textDecoration: 'none', display: 'flex', alignItems: 'center', fontSize: '13px', fontWeight: '600' }}
+              >
+                <FaEnvelope style={{ marginRight: '8px' }}/> Reply via Email
+              </a>
+              {selectedEnquiry.whatsapp && (
+                <a 
+                  href={`https://wa.me/${selectedEnquiry.whatsapp.replace(/\D/g, '')}?text=Hello ${selectedEnquiry.fullName}, regarding your enquiry: "${selectedEnquiry.subject}"`}
+                  target="_blank" rel="noreferrer"
+                  style={{ padding: '10px 20px', borderRadius: '6px', backgroundColor: '#22c55e', color: 'white', textDecoration: 'none', display: 'flex', alignItems: 'center', fontSize: '13px', fontWeight: '600' }}
+                >
+                  <FaWhatsapp style={{ marginRight: '8px' }}/> Reply on WhatsApp
+                </a>
+              )}
+            </div>
+
+          </div>
+        ) : (
+          <div style={{ backgroundColor: '#fff', borderRadius: '12px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', border: '1px dashed #cbd5e1', color: '#94a3b8', height: 'calc(100vh - 200px)' }}>
+            <FaEnvelope style={{ fontSize: '48px', marginBottom: '15px', color: '#cbd5e1' }} />
+            <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '600', color: '#64748b' }}>Select a message</h3>
+            <p style={{ margin: '5px 0 0', fontSize: '13px' }}>Click on any message from the left to view details</p>
+          </div>
+        )}
+      </div>
+
     </div>
   );
 };

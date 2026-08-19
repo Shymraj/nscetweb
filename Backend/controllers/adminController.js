@@ -245,10 +245,35 @@ const deletePlacement = (req, res) => {
   }
 };
 
+// --- FORM ENQUIRIES ---
+const getEnquiries = (req, res) => {
+  db.query("SELECT * FROM form_enquiries ORDER BY created_at DESC", (err, results) => {
+    if (err) return res.status(500).json({ success: false, message: "Database Error" });
+    res.json({ success: true, data: results });
+  });
+};
+
+const markEnquiryRead = (req, res) => {
+  const { id } = req.params;
+  db.query("UPDATE form_enquiries SET is_read = TRUE WHERE id = ?", [id], (err) => {
+    if (err) return res.status(500).json({ success: false, message: err.message });
+    res.json({ success: true, message: "Marked as read" });
+  });
+};
+
+const deleteEnquiry = (req, res) => {
+  const { id } = req.params;
+  db.query("DELETE FROM form_enquiries WHERE id = ?", [id], (err) => {
+    if (err) return res.status(500).json({ success: false, message: err.message });
+    res.json({ success: true, message: "Enquiry deleted" });
+  });
+};
+
 module.exports = { 
   loginAdmin, 
   getStaff, addStaff, updateStaff, deleteStaff,
   getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent, deleteEventPhoto,
   getDepartments, addDepartment, deleteDepartment,
-  getPlacements, addPlacement, deletePlacement
+  getPlacements, addPlacement, deletePlacement,
+  getEnquiries, markEnquiryRead, deleteEnquiry
 };

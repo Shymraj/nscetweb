@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./Contact.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -19,12 +20,12 @@ const Contact = () => {
     e.preventDefault();
     setStatus("loading");
     try {
-      // Backend API call simulation (2 seconds delay)
-      await new Promise((resolve) => setTimeout(resolve, 2000)); 
+      await axios.post('http://localhost:5000/api/admin/home/enquiry', formData);
       setStatus("success");
       setFormData({ fullName: "", email: "", mobile: "", whatsapp: "", city: "", subject: "", message: "" });
       setTimeout(() => setStatus("idle"), 5000);
     } catch (error) {
+      console.error(error);
       setStatus("error");
     }
   };
@@ -86,7 +87,7 @@ const Contact = () => {
               {/* City (Optional) */}
               <div className="premium-input-wrapper">
                 <FaCity className="input-icon" />
-                <input type="text" name="city" value={formData.city} onChange={handleChange} placeholder="City" className="premium-input" />
+                <input type="text" name="city" value={formData.city} onChange={handleChange} placeholder="District" className="premium-input" />
               </div>
 
               {/* Subject (Compulsory) */}
@@ -114,6 +115,11 @@ const Contact = () => {
                 {status === "success" && (
                   <motion.div className="status-msg success" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}>
                     <FaCheckCircle /> Request Submitted Successfully!
+                  </motion.div>
+                )}
+                {status === "error" && (
+                  <motion.div className="status-msg error" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} style={{ backgroundColor: '#fee2e2', color: '#dc2626', border: '1px solid #fecaca' }}>
+                    Request Failed. Please try again.
                   </motion.div>
                 )}
               </AnimatePresence>

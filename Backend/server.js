@@ -36,6 +36,12 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 app.post('/api/chat', async (req, res) => {
   try {
     const userMessage = req.body.message;
+
+    // Hardcoded response for 'college name' as requested for now
+    if (userMessage && userMessage.toLowerCase().trim() === 'college name') {
+      return res.json({ reply: 'The name of our institution is Nadar Saraswathi College of Engineering and Technology. How else can I assist you today?' });
+    }
+
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     // Inga thaan unga text file-a AI padikkuthu

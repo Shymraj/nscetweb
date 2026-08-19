@@ -15,7 +15,7 @@ export default function ScrollToTop() {
   // Track scroll position to display floating up-arrow button after hero section (>450px)
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 450) {
+      if (pathname !== "/" && window.scrollY > 450) {
         setShowScrollTop(true);
       } else {
         setShowScrollTop(false);
@@ -24,7 +24,7 @@ export default function ScrollToTop() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const scrollToTop = () => {
     window.scrollTo({

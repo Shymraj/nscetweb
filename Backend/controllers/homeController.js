@@ -17,6 +17,19 @@ const deleteRecord = (table) => (req, res) => {
   });
 };
 
+// Form Enquiries
+exports.addEnquiry = (req, res) => {
+  const { fullName, email, mobile, whatsapp, city, subject, message } = req.body;
+  db.query(
+    "INSERT INTO form_enquiries (fullName, email, mobile, whatsapp, city, subject, message) VALUES (?, ?, ?, ?, ?, ?, ?)",
+    [fullName, email, mobile, whatsapp, city, subject, message],
+    (err, result) => {
+      if (err) return res.status(500).json({ success: false, message: err.message });
+      res.json({ success: true, message: "Enquiry submitted successfully", id: result.insertId });
+    }
+  );
+};
+
 // Marquee
 exports.getMarquees = getRecords('home_marquee');
 exports.addMarquee = (req, res) => {

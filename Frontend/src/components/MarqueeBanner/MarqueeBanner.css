@@ -67,7 +67,7 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  animation: marquee-scroll 40s linear infinite;
+  animation: marquee-scroll 8s linear infinite;
   will-change: transform;
 }
 

@@ -10,6 +10,13 @@ const ChatBot = () => {
   const [inputText, setInputText] = useState('');
 
   const toggleChat = () => {
+    if (isOpen) {
+      // Reset state when closing
+      setMessages([
+        { sender: 'ai', text: 'Hello! Welcome to NSCET. How can I help you today?' }
+      ]);
+      setInputText('');
+    }
     setIsOpen(!isOpen);
   };
 

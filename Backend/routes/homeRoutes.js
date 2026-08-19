@@ -3,6 +3,9 @@ const router = express.Router();
 const homeController = require('../controllers/homeController');
 const upload = require('../middleware/upload'); // we can reuse the upload middleware or modify it for "home"
 
+// Form Enquiries
+router.post('/enquiry', homeController.addEnquiry);
+
 // Marquee
 router.get('/marquee', homeController.getMarquees);
 router.post('/marquee', homeController.addMarquee);

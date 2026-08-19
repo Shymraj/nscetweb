@@ -46,6 +46,7 @@ const searchData = [
   { name: "Research Statistics", path: "/research/statistics" },
   { name: "Research Centre", path: "/research/centre" },
   { name: "Entrepreneurship Development Cell", path: "/research/entrepreneurship-cell" },
+  { name: "ISPIN", path: "/ispin" },
   { name: "WAVES'25", path: "/gallery/waves25" },
   { name: "CLUBS & CHAPTERS", path: "/gallery/clubs-chapters" },
   { name: "NIRF", path: "/gallery/nirf" },
@@ -280,6 +281,7 @@ function Navbar() {
               <li><Link to="/research/entrepreneurship-cell">Entrepreneurship Development Cell</Link></li>
             </ul>
           </li>
+          <li><Link to="/ispin">ISPIN</Link></li>
           <li className="dropdown">
             <Link to="#" onClick={(e) => e.preventDefault()}>Gallery</Link>
             <ul className="dropdown-menu">
@@ -374,6 +376,10 @@ function Navbar() {
           </button>
         </div>
 
+        <div className="tnea-badge-hanging">
+          <span className="tnea-badge-title">TNEA CODE</span>
+          <span className="tnea-badge-number">5865</span>
+        </div>
       </nav>
     </header>
   );
