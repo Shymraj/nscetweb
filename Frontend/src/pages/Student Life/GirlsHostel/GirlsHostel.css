@@ -64,7 +64,6 @@
 
 /* Full Width Sections */
 .modern-girls-hostel-page .gh-about-section, 
-.modern-girls-hostel-page .gh-admin-infra-section,
 .modern-girls-hostel-page .gh-events-rules-section {
   border-radius: 24px !important; 
   margin: 0 3% 30px 3%; 
@@ -81,6 +80,7 @@
 .modern-girls-hostel-page .gh-about-section { 
   text-align: center;
   padding: 50px 8%; 
+  background-color: #dfe5ee;
 }
 .modern-girls-hostel-page .gh-about-text p { 
   line-height: 1.9; 
@@ -89,83 +89,80 @@
   max-width: 900px;
   margin: 0 auto;
 }
-/* 🔥 Added specific hover zoom for About Section */
 .modern-girls-hostel-page .gh-about-section:hover {
-  transform: scale(1.02) !important; 
   box-shadow: 0 15px 35px rgba(30, 58, 138, 0.08) !important;
 }
 
-/* --- ADMIN & STRENGTH SPLIT --- */
-.modern-girls-hostel-page .gh-admin-infra-split {
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 40px; 
-  width: 100%; 
+/* --- CENTERED ADMIN SECTION (Strength Removed & Animation Added) --- */
+.modern-girls-hostel-page .gh-admin-section {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
-.modern-girls-hostel-page .gh-admin-cards-container { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 15px; 
-  margin-top: 35px; /* 🔥 Increased from 20px to move cards down & center */
+.modern-girls-hostel-page .gh-hostel-admin-title {
+  margin-bottom: 25px;
 }
-.modern-girls-hostel-page .gh-admin-card {
-  background: #f8fafc; 
-  border-left: 4px solid #1e3a8a;
-  padding: 20px 25px; 
-  border-radius: 8px; 
-  transition: all 0.3s ease;
+
+.modern-girls-hostel-page .gh-admin-animated-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  background: transparent;
 }
-.modern-girls-hostel-page .gh-admin-card:hover { 
-  background: #78a6e2;
-  transform: translateX(5px);
+
+.modern-girls-hostel-page .gh-admin-card-content {
+  background-color: #fcfcfc;
+  border: 1px solid #e2e8f0;
+  padding: 30px 20px;
+  position: relative;
+  z-index: 2;
+  border-radius: 12px;
 }
-.modern-girls-hostel-page .gh-admin-role { 
-  display: block;
-  font-size: 0.8rem; 
-  color: #1e3a8a; 
-  font-weight: 700; 
-  text-transform: uppercase; 
-  margin-bottom: 5px;
+
+.modern-girls-hostel-page .gh-admin-card-content p {
+  margin: 5px 0 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
-.modern-girls-hostel-page .gh-admin-card h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #0f172a !important; 
+
+.modern-girls-hostel-page .gh-admin-animated-card::before,
+.modern-girls-hostel-page .gh-admin-animated-card::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  z-index: 1;
+  border-radius: 12px;
 }
 
-.modern-girls-hostel-page .gh-strength-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px; 
-  margin-top: 20px;
+.modern-girls-hostel-page .gh-admin-animated-card::before { top: -2px; left: -2px; }
+.modern-girls-hostel-page .gh-admin-animated-card::after { bottom: -2px; right: -2px; }
+
+.modern-girls-hostel-page .gh-admin-animated-card:hover::before {
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-top-color: #1e3a8a;
+  border-right-color: #1e3a8a;
+  transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
 }
-.modern-girls-hostel-page .gh-stat-box {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 20px 15px; 
-  text-align: center;
-  transition: all 0.3s ease;
-}
-.modern-girls-hostel-page .gh-stat-box:hover {
-  border-color: #93c5fd;
-  box-shadow: 0 4px 12px rgba(147, 197, 253, 0.2);
-}
-.modern-girls-hostel-page .gh-stat-value {
-  display: block;
-  font-size: 1.8rem; 
-  font-weight: 700;
-  color: #1e3a8a;
-  margin-bottom: 5px;
-}
-.modern-girls-hostel-page .gh-stat-label {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #64748b;
-  line-height: 1.3;
-  display: block;
+
+.modern-girls-hostel-page .gh-admin-animated-card:hover::after {
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-bottom-color: #1e3a8a;
+  border-left-color: #1e3a8a;
+  transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
 }
 
 /* --- FACILITIES (Full Width) --- */
@@ -193,11 +190,11 @@
 .modern-girls-hostel-page .gh-facilities-list {
   list-style: none;
   padding: 0;
-  margin: 0 auto; /* 🔥 Centers the block horizontally */
-  width: fit-content; /* 🔥 Ensures the block doesn't stretch, keeping points aligned */
+  margin: 0 auto; 
+  width: fit-content; 
 }
 
-/* 🔥 POINTS ANIMATION & SPACING */
+/* POINTS ANIMATION & SPACING */
 .modern-girls-hostel-page .gh-facilities-list-item {
   position: relative;
   padding-left: 35px;
@@ -249,19 +246,31 @@
   flex-direction: column;
   gap: 15px;
 }
+
+/* 🔥 CHANGED HERE: Added position relative for slider */
 .modern-girls-hostel-page .gh-event-image-wrapper {
+  position: relative; 
   width: 100%;
   height: 200px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  align-items: center;
+  display: flex;
+  justify-content: center
 }
+
+/* 🔥 CHANGED HERE: Added absolute positioning and combined transitions */
 .modern-girls-hostel-page .gh-event-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: opacity 1s ease-in-out, transform 0.5s ease;
 }
+
 .modern-girls-hostel-page .gh-events-card:hover .gh-event-image {
   transform: scale(1.08); 
 }
@@ -335,7 +344,7 @@
 .modern-girls-hostel-page .gh-slider-real-image { 
   width: 100%; height: 100%; object-fit: cover; 
   transition: transform 0.8s ease; 
-  
+  filter: contrast(1.5) brightness(1.05) saturate(1.0);
 }
 .modern-girls-hostel-page .gh-slider-slide.active:hover .gh-slider-real-image { 
   transform: scale(1.05); 
@@ -370,7 +379,6 @@
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 992px) {
-  .modern-girls-hostel-page .gh-admin-infra-split,
   .modern-girls-hostel-page .gh-events-rules-split { 
     grid-template-columns: 1fr; 
   }
@@ -378,14 +386,12 @@
 
 @media (max-width: 768px) {
   .modern-girls-hostel-page .gh-about-section, 
-  .modern-girls-hostel-page .gh-admin-infra-section,
   .modern-girls-hostel-page .gh-events-rules-section,
   .modern-girls-hostel-page .gh-facilities-container,
   .modern-girls-hostel-page .gh-gallery-slider-container { 
     width: 100% !important; margin: 0 0 25px 0 !important; border-radius: 0 !important; 
   }
   .modern-girls-hostel-page .gh-slider-images-wrapper { height: 300px; }
-  .modern-girls-hostel-page .gh-strength-grid { grid-template-columns: 1fr; }
   .modern-girls-hostel-page .gh-facilities-container { padding: 25px 20px; }
 }
 
@@ -414,15 +420,7 @@
   display: none !important;
   content: none !important;
 }
-/* Custom Hover Zoom Effect for List Items */
-.gh-zoom-hover {
-  transition: transform 0.3s ease;
-  transform-origin: left center;
-}
 
-.gh-zoom-hover:hover {
-  transform: scale(1.02);
-}
 /* Custom Hover Zoom Effect for List Items */
 .gh-zoom-hover {
   transition: transform 0.3s ease;

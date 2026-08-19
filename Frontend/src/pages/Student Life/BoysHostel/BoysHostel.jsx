@@ -5,12 +5,12 @@ const BoysHostel = () => {
   const hostelData = {
     about: "The Boys Hostel at our college provides a comfortable and secure environment for students. Equipped with modern facilities and 24/7 supervision, the hostel ensures a home-like atmosphere where students can focus on their academics while enjoying their stay. Spacious rooms, hygienic dining, and recreational areas make it an ideal place for holistic growth and development.",
     chiefWarden: { name: "Dr. C. Mathalai Sundaram", role: "Principal & Chief Warden" },
-    strength: { rooms: 27, blocks: 3, totalStudents: 31 },
+    strength: { rooms: 27, blocks: 3, totalStudents: 31 }, // Itha data-la irunthu remove pannala, UI-la mattum thookirukken
     gallery: [
-      { id: 1, imgUrl: "/BOYS%20HOSTEL/hostel1.JPG" },
-      { id: 2, imgUrl: "/BOYS%20HOSTEL/hostel2.JPG" },
-      { id: 3, imgUrl: "/BOYS%20HOSTEL/hostel3.JPG" },
-      { id: 4, imgUrl: "/BOYS%20HOSTEL/hostel5.JPG" }
+      { id: 1, imgUrl: "/BOYS%20HOSTEL/hostel1.png" },
+      { id: 2, imgUrl: "/BOYS%20HOSTEL/hostel2.png" },
+      { id: 3, imgUrl: "/BOYS%20HOSTEL/hostel3.png" },
+      { id: 4, imgUrl: "/BOYS%20HOSTEL/hostel5.png" }
     ],
     culture: [
       { id: 1, imgUrl: "/BOYS%20HOSTEL/hc3.JPG" },
@@ -76,39 +76,16 @@ const BoysHostel = () => {
           </div>
         </section>
 
-        {/* COMPACT & SPLIT CONTAINER: Left (Admin), Right (Strength) */}
-        <section className="hostel-section admin-infra-combined-section animate-slide-up-delay-1">
-          <div className="admin-infra-split">
-
-            {/* Left Side: Hostel Administration */}
-            <div className="admin-side" style={{ display: 'flex', flexDirection: 'column' }}>
-              <h2 className="section-title">Hostel Administration</h2>
-              <div className="admin-cards-container" style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <div className="admin-card chief" style={{ width: '100%', textAlign: 'center', padding: '20px 0' }}>
-                  <h3>{hostelData.chiefWarden.name}</h3>
-                  <span className="admin-role">{hostelData.chiefWarden.role}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side: Strength & Infrastructure */}
-            <div className="infra-side">
-              <h2 className="section-title">Strength & Infrastructure</h2>
-              <div className="primary-stats">
-                <div className="stat-item">
-                  <span className="stat-number">{hostelData.strength.totalStudents}</span>
-                  <span className="stat-label">Total Students</span>
-                </div>
-                <div className="stat-divider"></div>
-                <div className="stat-item">
-                  <span className="stat-number">{hostelData.strength.rooms}</span>
-                  <span className="stat-label">Total Rooms</span>
-                </div>
-                <div className="stat-divider"></div>
-                <div className="stat-item">
-                  <span className="stat-number">{hostelData.strength.blocks}</span>
-                  <span className="stat-label">Blocks</span>
-                </div>
+        {/* UPDATED: Centered Administration Section with Hover Effect (Strength & Infra removed) */}
+        <section className="hostel-section animate-slide-up-delay-1">
+          <div className="admin-section">
+            <h2 className="section-title hostel-admin-title">Hostel Administration</h2>
+            
+            {/* Hover effect irukka card */}
+            <div className="admin-animated-card">
+              <div className="admin-card-content">
+                <h3>{hostelData.chiefWarden.name}</h3>
+                <p>{hostelData.chiefWarden.role}</p>
               </div>
             </div>
 
@@ -119,7 +96,7 @@ const BoysHostel = () => {
           <div className="culture-facilities-grid">
 
             <div className="culture-side">
-              <h2 className="section-title">Hostel Culture</h2>
+              <h2 className="section-title">Cultural Activities</h2>
               <div className="culture-image-card">
                 <div className="culture-slider-wrapper">
                   {hostelData.culture.map((item, index) => (

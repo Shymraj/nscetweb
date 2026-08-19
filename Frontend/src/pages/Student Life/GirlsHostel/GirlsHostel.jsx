@@ -7,12 +7,7 @@ const GirlsHostel = () => {
     administration: [
       { name: "Mrs. R. Uma (Ph.D)", role: "Warden" },
     ],
-    strength: [
-      { label: "Total Rooms", value: "30" },
-      { label: "Number of Students in a Room", value: "03" },
-      { label: "Study Room", value: "02" },
-      { label: "Total Number of Students", value: "29" }
-    ],
+   
     facilities: [
       { title: "Gym", desc: "Well-equipped gym with modern exercise machines and weights." },
       { title: "Common Room", desc: "Common room with a TV, comfortable seating, and entertainment options." },
@@ -23,7 +18,13 @@ const GirlsHostel = () => {
     events: {
       title: "Onam Celebration in College Hostel",
       desc: `The Onam Celebration in the college hostel is a vibrant and joyous occasion, marking the traditional harvest festival of Kerala. It brings together students from diverse backgrounds to partake in the cultural richness and festive spirit. The day typically begins with the creation of intricate floral carpets, known as "Pookalam," in the hostel courtyard, followed by traditional music, dance performances like "Thiruvathira," and a grand, multi-course vegetarian feast called "Sadya" served on banana leaves. The celebration not only honors heritage but also fosters a strong sense of community and camaraderie among the residents.`,
-      imgUrl: "/gh_event.jpg"
+      // UPDATED: Single imgUrl badhila array of images add pannirukken
+      images: [
+        "/GH/ghc.jpg",
+        "/GH/ghc1.JPG",  // Unga extra images inga add pannikalam
+        "/GH/ghc2.JPG",
+        "/GH/ghc3.JPG"
+      ]
     },
     rules: [
       "Students must maintain discipline and decorum at all times.",
@@ -42,13 +43,23 @@ const GirlsHostel = () => {
   };
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentEventSlide, setCurrentEventSlide] = useState(0); // NEW: Event slide-kaga state
 
+  // Existing Gallery Timer
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev === hostelData.gallery.length - 1 ? 0 : prev + 1));
     }, 3000);
     return () => clearInterval(timer);
   }, [hostelData.gallery.length]);
+
+  // NEW: Events Image Timer (3 seconds once)
+  useEffect(() => {
+    const eventTimer = setInterval(() => {
+      setCurrentEventSlide((prev) => (prev === hostelData.events.images.length - 1 ? 0 : prev + 1));
+    }, 3000);
+    return () => clearInterval(eventTimer);
+  }, [hostelData.events.images.length]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === hostelData.gallery.length - 1 ? 0 : prev + 1));
@@ -76,39 +87,26 @@ const GirlsHostel = () => {
           </div>
         </section>
 
-        <section className="gh-section gh-admin-infra-section gh-animate-slide-up-delay-1">
-          <div className="gh-admin-infra-split">
+        {/* UPDATED: Centered Administration Section with Hover Effect (Strength removed) */}
+        <section className="gh-section gh-animate-slide-up-delay-1">
+          <div className="gh-admin-section">
+            <h2 className="gh-section-title gh-hostel-admin-title" style={{ textAlign: 'center' }}>Hostel Administration</h2>
             
-            <div className="gh-admin-side" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', paddingTop: '15px' }}>
-              <h2 className="gh-section-title">Hostel Administration</h2>
-              <div className="gh-admin-cards-container" style={{ display: 'flex', flex: 1, alignItems: 'flex-start', justifyContent: 'center' }}>
-                {hostelData.administration.map((admin, idx) => (
-                  <div key={idx} className={`gh-admin-card ${idx === 0 ? 'gh-chief' : 'gh-deputy'}`} style={{ width: '100%', textAlign: 'center', borderLeft: 'none' }}>
-                    <span className="gh-admin-role">{admin.role}</span>
-                    <h3>{admin.name}</h3>
-                  </div>
-                ))}
+            {hostelData.administration.map((admin, idx) => (
+              <div key={idx} className="gh-admin-animated-card">
+                <div className="gh-admin-card-content">
+                  <h3 style={{ color: '#1e3a8a', marginBottom: '5px' }}>{admin.name}</h3>
+                  <p>{admin.role}</p>
+                </div>
               </div>
-            </div>
-
-            <div className="gh-infra-side">
-              <h2 className="gh-section-title">Strength</h2>
-              <div className="gh-strength-grid">
-                {hostelData.strength.map((stat, idx) => (
-                  <div key={idx} className="gh-stat-box">
-                    <span className="gh-stat-value">{stat.value}</span>
-                    <span className="gh-stat-label">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
 
           </div>
         </section>
 
         {/* Facilities Section - Flex container add panni list-a center panniyachu */}
         <section className="gh-section gh-facilities-section gh-animate-slide-up-delay-2">
-          <h2 className="gh-section-title center">Facilities</h2>
+          <h2 className="gh-section-title center" style={{ textAlign: 'center' }}>Facilities</h2>
           <div className="gh-facilities-container" style={{ display: 'flex', justifyContent: 'center' }}>
             <ul style={{ display: 'inline-block', maxWidth: '800px', textAlign: 'left', paddingLeft: '25px', listStyleType: 'disc', lineHeight: '2', color: '#475569' }}>
               {hostelData.facilities.map((fac, idx) => (
@@ -124,11 +122,31 @@ const GirlsHostel = () => {
           <div className="gh-events-rules-split">
             
             <div className="gh-events-side">
-              <h2 className="gh-section-title">Hostel Events</h2>
+              <h2 className="gh-section-title">Cultural Activities</h2>
               <div className="gh-events-card">
-                <div className="gh-event-image-wrapper">
-                  <img src={hostelData.events.imgUrl} alt="Hostel Event" className="gh-event-image" />
+                
+                {/* UPDATED: Event Image Slider */}
+                <div className="gh-event-image-wrapper" style={{ position: 'relative' }}>
+                  {hostelData.events.images.map((img, idx) => (
+                    <img 
+                      key={idx}
+                      src={img} 
+                      alt={`Hostel Event ${idx + 1}`} 
+                      className="gh-event-image" 
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        opacity: idx === currentEventSlide ? 1 : 0,
+                        transition: 'opacity 1s ease-in-out',
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      }}
+                    />
+                  ))}
                 </div>
+
                 <div className="gh-event-content">
                   <h3 className="gh-event-title">{hostelData.events.title}</h3>
                   <p className="gh-event-desc">{hostelData.events.desc}</p>
@@ -151,7 +169,7 @@ const GirlsHostel = () => {
         </section>
 
         <section className="gh-section gh-gallery-section gh-animate-slide-up-delay-4">
-          <h2 className="gh-section-title center">Photo Gallery</h2>
+          <h2 className="gh-section-title center" style={{ textAlign: 'center' }}>Photo Gallery</h2>
           <div className="gh-gallery-slider-container">
             <div className="gh-slider-images-wrapper">
               {hostelData.gallery.map((item, index) => (

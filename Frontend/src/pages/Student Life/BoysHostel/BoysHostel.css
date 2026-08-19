@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 .modern-hostel-page {
   font-family: 'Poppins', sans-serif;
@@ -121,6 +120,78 @@
 .deputy-cards { display: flex; gap: 10px; justify-content: space-between; width: 100%; }
 .deputy { flex: 1; }
 .admin-role { font-size: 0.75rem; color: #666; font-weight: 600; text-transform: uppercase; }
+
+/* --- NEW CENTERED ADMIN CARD HOVER ANIMATION --- */
+.admin-section {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hostel-admin-title {
+  margin-bottom: 25px;
+}
+
+.admin-animated-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+.admin-card-content {
+  background-color: #dfe3f0;
+  border: 1px solid #e9e0e0;
+  padding: 30px 20px;
+  position: relative;
+  z-index: 2;
+  border-radius: 12px;
+}
+
+.admin-card-content p {
+  margin: 5px 0 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.admin-animated-card::before,
+.admin-animated-card::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  z-index: 1;
+  border-radius: 12px;
+}
+
+.admin-animated-card::before { top: -2px; left: -2px; }
+.admin-animated-card::after { bottom: -2px; right: -2px; }
+
+.admin-animated-card:hover::before {
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-top-color: #1e3a8a;
+  border-right-color: #091433;
+  transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+
+.admin-animated-card:hover::after {
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-bottom-color: #1e3a8a;
+  border-left-color: #1e3a8a;
+  transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+/* ----------------------------------------------- */
 
 /* Strength Layout */
 .primary-stats {
@@ -265,6 +336,7 @@ body.dark-mode .modern-hostel-page {
 }
 body.dark-mode .hostel-section,
 body.dark-mode .admin-card,
+body.dark-mode .admin-card-content, /* New added line here */
 body.dark-mode .facilities-box,
 body.dark-mode .rules-box,
 body.dark-mode .map-integration-box {
@@ -278,6 +350,7 @@ body.dark-mode .rules-list li,
 body.dark-mode .loc-name,
 body.dark-mode .loc-distance,
 body.dark-mode .admin-role,
+body.dark-mode .admin-card-content p, /* New added line here */
 body.dark-mode .stat-label {
   color: var(--theme-text-light);
 }
