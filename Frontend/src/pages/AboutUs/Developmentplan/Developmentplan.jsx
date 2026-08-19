@@ -1,9 +1,8 @@
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import ExecutiveSummary from "./components/ExecutiveSummary";
 import InstitutionalProfile from "./components/InstitutionalProfile";
-import InstitutionalStrength from "./components/InstitutionalStrength";
 import VisionMission from "./components/VisionMission";
-import KeyEnablers from "./components/KeyEnablers";
+import SWOT from "./components/SWOT";
 import DepartmentAccordion from "./components/DepartmentAccordion";
 import SummaryTable from "./components/SummaryTable";
 import DevelopmentImage from "./components/DevelopmentImage";
@@ -22,9 +21,8 @@ const Developmentplan = () => {
       />
       <ExecutiveSummary />
       <InstitutionalProfile />
-      <InstitutionalStrength />
       <VisionMission />
-      <KeyEnablers />
+      <SWOT />
       <DepartmentAccordion />
       <SummaryTable />
       <DevelopmentImage />

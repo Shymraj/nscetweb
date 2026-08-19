@@ -327,7 +327,7 @@ function Navbar() {
               {darkMode ? <FaSun /> : <FaMoon />}
             </button>
 
-            <img src="/images/naac.png" alt="NAAC Logo" className="naac-logo" />
+            <img src="/images/naac.png?v=3" alt="NAAC Logo" className="naac-logo" />
           </div>
 
           {showSearch && (
