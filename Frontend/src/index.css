@@ -294,19 +294,21 @@ body.dark-mode .m1-lib-quote {
 
 /* Additional Dark Mode Overrides for About Us */
 body.dark-mode .affiliation-premium-card,
-body.dark-mode .glass-logo-card,
 body.dark-mode .cert-chip,
 body.dark-mode .ar-card,
 body.dark-mode .highlight-card,
 body.dark-mode .value-card,
 body.dark-mode .stats-card,
 body.dark-mode .report-doc-card,
-body.dark-mode .pdf-thumbnail,
-body.dark-mode .nscet-card,
-body.dark-mode .naac-card {
+body.dark-mode .pdf-thumbnail {
   background: var(--theme-card) !important;
   color: var(--theme-text) !important;
   border-color: var(--theme-border) !important;
+}
+
+body.dark-mode .affiliation-visual-col {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-right-color: rgba(255, 255, 255, 0.05) !important;
 }
 
 body.dark-mode .affiliation-heading,

@@ -180,7 +180,7 @@
 }
 
 .glass-logo-card {
-  background: var(--premium-card-bg);
+  background: #ffffff !important;
   backdrop-filter: blur(12px);
   border: var(--premium-card-border);
   border-radius: 50%;
