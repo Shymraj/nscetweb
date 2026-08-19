@@ -4,6 +4,7 @@ import {
     FaUserTie, FaTrophy, FaMedal, FaBasketballBall
 } from "react-icons/fa";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
+import SportsCategoryWheel from "./SportsCategoryWheel";
 import "./Sports.css";
 
 // Auto-load banner image inside ./images/banner/
@@ -142,28 +143,8 @@ const Sports = () => {
                     </motion.div>
                 </motion.div>
 
-                {/* SPORTS SHOWCASE — Large Photo Gallery */}
-                <h2 className="glam-title">Sports in <span>Our College</span></h2>
-                <motion.div
-                    className="sports-photo-gallery"
-                    variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                >
-                    {sportsOffered.map((sport, idx) => (
-                        <motion.div
-                            className="sport-photo-card"
-                            key={idx}
-                            variants={fadeInUp}
-                        >
-                            <h4 className="sport-photo-title">{sport.name}</h4>
-                            <div className="sport-photo-wrapper">
-                                <img src={sport.image} alt={sport.name} />
-                                <div className="sport-photo-overlay">
-                                    <span>{sport.name}</span>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                {/* SPORTS CATEGORY WHEEL */}
+                <SportsCategoryWheel achievementsData={achievements} />
 
                 {/* LEADERSHIP */}
                 <h2 className="glam-title" style={{ marginTop: "2rem" }}>Sports <span>Leadership</span></h2>
@@ -232,7 +213,7 @@ const Sports = () => {
                 </motion.div>
 
                 {/* ACHIEVEMENTS */}
-                <h2 className="glam-title">Student <span>Achievements 2024-2025</span></h2>
+                <h2 className="glam-title">Student <span>Achievements</span></h2>
                 <motion.div
                     className="achievements-wrapper"
                     initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
@@ -265,7 +246,7 @@ const Sports = () => {
                 </motion.div>
 
                 {/* STAFF ACHIEVEMENTS */}
-                <h2 className="glam-title">Staff <span>Achievements 2024-2025</span></h2>
+                <h2 className="glam-title">Staff <span>Achievements</span></h2>
                 <motion.div
                     className="achievements-wrapper"
                     initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}

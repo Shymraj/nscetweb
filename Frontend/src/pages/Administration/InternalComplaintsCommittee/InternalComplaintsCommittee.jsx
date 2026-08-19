@@ -40,7 +40,7 @@ const complaintSteps = [
 ];
 
 const legalFrameworks = [
-  "POSH Act, 2013",
+  "POSHE Act, 2013",
   "UGC Regulations, 2015",
   "IPC Sections 354 & 509",
   "Maternity Benefit Act, 1961",
@@ -54,14 +54,14 @@ const recentMeetings = [
   "12.07.2021 – ICC Meeting",
 ];
 
-const poshActivities = [
+const POSHEActivities = [
   "24×7 Helpline Number Circular (08.05.2025)",
   "Awareness Programs (16.10.2025, 19.08.2025, 22.04.2025)",
   "Drawing Competition (20.05.2025)",
   "Quiz Competition (24.06.2025)",
   "Women's Health Awareness (25.09.2025)",
   "Essay Competition (30.07.2025)",
-  "PoSH Cell Meeting (08.10.2025)",
+  "POSHE Cell Meeting (08.10.2025)",
 ];
 
 function InternalComplaintsCommittee() {
@@ -83,7 +83,7 @@ function InternalComplaintsCommittee() {
           </div>
           <div className='icc-content icc-featured'>
             <p>
-              The Internal Complaints Committee (ICC) is constituted as per the UGC (Prevention, Prohibition and Redressal of Sexual Harassment of Women Employees and Students in Higher Educational Institutions) Regulations, 2015 and the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 (POSH Act).
+              The Internal Complaints Committee (ICC) is constituted as per the UGC (Prevention, Prohibition and Redressal of Sexual Harassment of Women Employees and Students in Higher Educational Institutions) Regulations, 2015 and the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 (POSHE Act).
             </p>
             <p>
               It aims to create a safe, inclusive and respectful campus for everyone. The ICC handles complaints of sexual harassment with fairness, confidentiality, sensitivity and also conducts gender sensitization programs.
@@ -131,7 +131,7 @@ function InternalComplaintsCommittee() {
                 <li>Conduct inquiry within 90 days</li>
                 <li>Recommend actions</li>
                 <li>Organize gender sensitization programs</li>
-                <li>Submit annual report as per POSH Act</li>
+                <li>Submit annual report as per POSHE Act</li>
               </ul>
             </div>
           </div>
@@ -185,7 +185,7 @@ function InternalComplaintsCommittee() {
         <section className='icc-section icc-procedure'>
           <div className='icc-header'>
             <FaGavel className='icc-header-icon' />
-            <h2>Complaint Procedure (as per POSH Act, 2013)</h2>
+            <h2>Complaint Procedure (as per POSHE Act, 2013)</h2>
           </div>
           <div className='icc-content'>
             <div className='icc-steps-timeline'>
@@ -217,7 +217,7 @@ function InternalComplaintsCommittee() {
               </div>
               <div className='icc-policy-card'>
                 <FaFileAlt className='policy-icon' />
-                <h3>Comprehensive POSH Policy</h3>
+                <h3>Comprehensive POSHE Policy</h3>
                 <p>Detailed policy framework for prevention and redressal</p>
               </div>
             </div>
@@ -252,9 +252,9 @@ function InternalComplaintsCommittee() {
                 </ul>
               </div>
               <div className='icc-event-card'>
-                <h3>POSH Activities (2025)</h3>
+                <h3>POSHE Activities (2025)</h3>
                 <ul>
-                  {poshActivities.map((activity, index) => (
+                  {POSHEActivities.map((activity, index) => (
                     <li key={index}>{activity}</li>
                   ))}
                 </ul>

@@ -59,15 +59,7 @@ export const swotData = [
       "Strong Placement Cell."
     ]
   },
-  {
-    title: "Weaknesses",
-    icon: "FaExclamationTriangle",
-    color: "red",
-    points: [
-      "Limited funded research projects.",
-      "Need better integration of emerging technologies into curriculum."
-    ]
-  },
+
   {
     title: "Opportunities",
     icon: "FaLightbulb",
@@ -214,3 +206,81 @@ export const summaryTableData = [
     fishbone: "2024–2026"
   }
 ];
+
+export const keyEnablersData = {
+  title: "Key Enablers",
+  subtitle: "The strategic pillars that will drive our 2029 vision into reality.",
+  enablers: [
+    {
+      id: "digital",
+      title: "Digital Infrastructure",
+      icon: "laptop",
+      color: "from-blue-500 to-cyan-400",
+      description: "Upgrading to Wi-Fi 6, implementing a unified ERP, and establishing AR/VR smart classrooms for immersive learning."
+    },
+    {
+      id: "industry",
+      title: "Industry Integration",
+      icon: "building",
+      color: "from-indigo-500 to-purple-500",
+      description: "Forging strong corporate partnerships to establish Centers of Excellence (CoE) and mandate industry internships."
+    },
+    {
+      id: "faculty",
+      title: "Faculty Empowerment",
+      icon: "users",
+      color: "from-emerald-500 to-teal-400",
+      description: "Providing research grants, international exchange programs, and advanced pedagogical training for our educators."
+    },
+    {
+      id: "alumni",
+      title: "Alumni Network",
+      icon: "globe",
+      color: "from-orange-500 to-amber-400",
+      description: "Leveraging our global alumni for mentorship, startup incubation funding, and expanded placement opportunities."
+    }
+  ]
+};
+
+export const institutionalStrengthData = {
+  title: "Our Core Strengths",
+  subtitle: "The foundational assets that empower NSCET's growth and academic distinction.",
+  points: [
+    {
+      id: "rankings",
+      title: "Consistent Academic Excellence",
+      description: "Ranked 13th at the Tamil Nadu state level and proudly maintaining the 1st position in Theni district for 12 consecutive years.",
+      icon: "award"
+    },
+    {
+      id: "mentorship",
+      title: "Robust Mentorship Ecosystem",
+      description: "Dedicated faculty-student mentorship ratio ensuring highly personalized academic and career guidance.",
+      icon: "users-round"
+    },
+    {
+      id: "rnd",
+      title: "Advanced R&D Facilities",
+      description: "State-of-the-art laboratories and incubation centers supporting student-led innovations and patents.",
+      icon: "flask-conical"
+    },
+    {
+      id: "geography",
+      title: "Strategic Geographic Advantage",
+      description: "Located in a serene, pollution-free environment conducive to focused learning, while maintaining strong connectivity to tech hubs.",
+      icon: "map-pin"
+    },
+    {
+      id: "holistic",
+      title: "Holistic Skill Development",
+      description: "Seamless integration of soft skills, ethical training, and leadership programs into the core engineering curriculum.",
+      icon: "brain-circuit"
+    },
+    {
+      id: "corporate",
+      title: "Strong Corporate Alliances",
+      description: "Direct placement pipelines and active MoUs with top-tier MNCs and core industries for seamless workforce transitions.",
+      icon: "handshake"
+    }
+  ]
+};

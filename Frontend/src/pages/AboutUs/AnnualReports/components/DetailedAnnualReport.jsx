@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  FaBookOpen, 
-  FaChalkboardTeacher, 
-  FaFlask, 
-  FaBuilding, 
-  FaUserGraduate, 
-  FaShieldAlt, 
-  FaLeaf, 
-  FaCheckCircle, 
-  FaUserTie, 
-  FaAward, 
-  FaCalendarAlt, 
-  FaHandshake, 
-  FaBook, 
-  FaDesktop, 
-  FaLaptop, 
-  FaChevronDown, 
+import {
+  FaBookOpen,
+  FaChalkboardTeacher,
+  FaFlask,
+  FaBuilding,
+  FaUserGraduate,
+  FaShieldAlt,
+  FaLeaf,
+  FaCheckCircle,
+  FaUserTie,
+  FaAward,
+  FaCalendarAlt,
+  FaHandshake,
+  FaBook,
+  FaDesktop,
+  FaLaptop,
+  FaChevronDown,
   FaChevronUp,
   FaFileAlt
 } from 'react-icons/fa';
@@ -223,7 +223,7 @@ const sectionsData = [
       {
         title: 'Institutional Committees',
         type: 'pills',
-        pills: ['Anti-Ragging Committee', 'POSH Committee', 'Grievance Redressal Committee']
+        pills: ['Anti-Ragging Committee', 'POSHE Committee', 'Grievance Redressal Committee']
       },
       {
         title: 'ERP / CMS E-Governance Modules',
@@ -292,7 +292,7 @@ const DetailedAnnualReport = () => {
   return (
     <section className="about-section-wrapper bg-light-1" id="detailed-report">
       <div className="about-inner-container ar-section">
-        
+
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -310,7 +310,7 @@ const DetailedAnnualReport = () => {
         </motion.div>
 
         {/* Executive Overview Banner */}
-        <motion.div 
+        <motion.div
           className="ar-exec-card"
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -350,7 +350,7 @@ const DetailedAnnualReport = () => {
             const isOpen = expandedSection === sec.id;
 
             return (
-              <motion.div 
+              <motion.div
                 key={sec.id}
                 className={`ar-sec-accordion-card ${isOpen ? 'open' : ''}`}
                 initial={{ opacity: 0, y: 20 }}
@@ -359,7 +359,7 @@ const DetailedAnnualReport = () => {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 {/* Accordion Header */}
-                <div 
+                <div
                   className="ar-sec-header"
                   onClick={() => toggleSection(sec.id)}
                   style={{ '--sec-color': sec.color }}
