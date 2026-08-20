@@ -281,7 +281,6 @@
   line-height: 1.2;
   margin-bottom: 0.5rem;
   background: linear-gradient(to right, #1e3a8a, var(--theme-primary-light, #38BDF8));
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
