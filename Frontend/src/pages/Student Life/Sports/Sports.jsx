@@ -5,6 +5,8 @@ import {
 } from "react-icons/fa";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import SportsCategoryWheel from "./SportsCategoryWheel";
+import DepartmentHODProfile from "../../../components/common/DepartmentHODProfile/DepartmentHODProfile";
+import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
 import "./Sports.css";
 
 // Auto-load banner image inside ./images/banner/
@@ -143,54 +145,16 @@ const Sports = () => {
                     </motion.div>
                 </motion.div>
 
-                {/* SPORTS CATEGORY WHEEL */}
-                <SportsCategoryWheel achievementsData={achievements} />
-
                 {/* LEADERSHIP */}
                 <h2 className="glam-title" style={{ marginTop: "2rem" }}>Sports <span>Leadership</span></h2>
-                <motion.div
-                    className="hod-banner"
-                    initial={{ opacity: 0, x: -80 }} whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 1.2, type: "spring", bounce: 0.2 }}
-                >
-                    <motion.div
-                        className="hod-avatar"
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.2, delay: 0.4, type: "spring", bounce: 0.2 }}
-                    >
-                        <div className="hod-avatar-ring"></div>
-                        {hod.image ? <img src={hod.image} alt={hod.name} /> : <FaUserTie />}
-                    </motion.div>
-                    <div className="hod-details">
-                        <motion.h3
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
-                        >
-                            {hod.name}
-                        </motion.h3>
-                        <motion.span
-                            className="designation"
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.7 }}
-                        >
-                            {hod.desig}
-                        </motion.span>
-                        <motion.p
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.8 }}
-                        >
-                            <strong>Qualifications:</strong> {hod.qual}
-                        </motion.p>
-                    </div>
-                </motion.div>
+                <DepartmentHODProfile 
+                    hod={{
+                        ...hod,
+                        quoteText: "Nurturing champions through discipline, teamwork, and athletic excellence.",
+                        expBadge: "Physical Director",
+                        hideProfileBtn: true
+                    }} 
+                />
 
                 {/* STAFF GRID */}
                 <h2 className="glam-title">Expert <span>Staff</span></h2>
@@ -199,18 +163,16 @@ const Sports = () => {
                     variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 >
                     {staff.map((member, idx) => (
-                        <motion.div key={idx} className="sports-member-card" variants={fadeInUp}>
-                            <div className="sports-member-avatar">
-                                {member.image ? <img src={member.image} alt={member.name} /> : <FaUserTie />}
-                            </div>
-                            <div className="sports-member-info">
-                                <h4 style={{ color: "var(--theme-primary, #0EA5E9)" }}>{member.name}</h4>
-                                <span className="desig">{member.desig}</span>
-                                <span className="qual">{member.qual}</span>
-                            </div>
-                        </motion.div>
+                        <DepartmentFacultyCard 
+                            key={idx} 
+                            member={member} 
+                            fadeInUp={fadeInUp} 
+                        />
                     ))}
                 </motion.div>
+
+                {/* SPORTS CATEGORY WHEEL */}
+                <SportsCategoryWheel achievementsData={achievements} />
 
                 {/* ACHIEVEMENTS */}
                 <h2 className="glam-title">Student <span>Achievements</span></h2>

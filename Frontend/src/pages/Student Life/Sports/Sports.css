@@ -80,17 +80,15 @@
 }
 
 .sports-dept-container .sports-bento-card {
-    background: linear-gradient(145deg, var(--theme-primary, #0EA5E9) 0%, var(--theme-primary-light, #38BDF8) 100%);
-    background-size: 200% 200%;
-    animation: sportsGradientShift 6s ease infinite;
-    border: 1px solid rgba(201, 168, 76, 0.3);
-    border-radius: var(--sports-radius);
+    background: var(--theme-card);
+    border: 1px solid var(--theme-border);
+    border-radius: 40px;
     padding: 2.5rem;
-    box-shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
-    color: white;
+    color: var(--theme-text);
 }
 
 .sports-dept-container .sports-bento-card::before {
@@ -100,7 +98,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.15) 50%, transparent 60%);
+    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%);
     transition: all 0.6s ease;
     transform: translateX(-100%);
     z-index: 0;
@@ -108,44 +106,71 @@
 
 .sports-dept-container .sports-bento-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(30, 58, 95, 0.35);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
 }
 
 .sports-dept-container .sports-bento-card:hover::before {
     transform: translateX(100%);
 }
 
+/* Primary "Highlights" Card - Professional subtle styling */
 .sports-dept-container .sports-bento-card.primary {
-    background: linear-gradient(135deg, var(--theme-primary-dark, #0369A1) 0%, var(--theme-primary, #0EA5E9) 50%, var(--theme-primary-light, #38BDF8) 100%) !important;
-    background-size: 200% 200%;
-    color: white !important;
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    box-shadow: 0 8px 30px rgba(15, 39, 68, 0.3);
+    background: linear-gradient(145deg, var(--theme-card) 0%, var(--theme-bg) 100%) !important;
+    border: 1px solid var(--theme-primary-light);
+    color: var(--theme-text) !important;
+}
+
+.sports-dept-container .sports-bento-card.primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--theme-primary);
+}
+
+.sports-dept-container .sports-bento-card.primary h3,
+.sports-dept-container .sports-bento-card.primary p {
+    color: var(--theme-text) !important;
 }
 
 @keyframes sportsGradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @keyframes floatingBox {
-    0% { transform: translateY(0); box-shadow: 0 8px 30px rgba(15, 39, 68, 0.3); }
-    50% { transform: translateY(-10px); box-shadow: 0 18px 40px rgba(15, 39, 68, 0.45); }
-    100% { transform: translateY(0); box-shadow: 0 8px 30px rgba(15, 39, 68, 0.3); }
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    50% {
+        transform: translateY(-10px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    }
 }
 
 .sports-dept-container .sports-bento-card.primary:hover {
-    transform: translateY(-10px) scale(1.03) !important;
-    box-shadow: 0 25px 50px rgba(31, 38, 135, 0.25) !important;
-    border: 1px solid rgba(255, 255, 255, 1) !important;
-    animation: sportsGradientShift 3s ease infinite;
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: 0 20px 45px rgba(14, 165, 233, 0.15) !important;
+    border: 1px solid var(--theme-primary) !important;
     z-index: 10;
-}
-
-body.dark-mode .sports-dept-container .sports-bento-card.primary:hover {
-    border: 1px solid rgba(255, 255, 255, 0.5) !important;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7) !important;
 }
 
 /* Glass Sweeping Glare Effect */
@@ -163,8 +188,13 @@ body.dark-mode .sports-dept-container .sports-bento-card.primary:hover {
 }
 
 @keyframes sweepGlareContinuous {
-    0% { left: -150%; }
-    100% { left: 150%; }
+    0% {
+        left: -150%;
+    }
+
+    100% {
+        left: 150%;
+    }
 }
 
 .sports-dept-container .sports-bento-card.primary:hover::after {
@@ -181,9 +211,12 @@ body.dark-mode .sports-dept-container .sports-bento-card.primary:hover {
 }
 
 @keyframes floatOverviewIcon {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-6px);
         filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
@@ -199,7 +232,7 @@ body.dark-mode .sports-dept-container .sports-bento-card.primary:hover {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: white !important;
+    color: var(--sports-text);
     position: relative;
     z-index: 1;
 }
@@ -208,7 +241,7 @@ body.dark-mode .sports-dept-container .sports-bento-card.primary:hover {
     font-size: 0.95rem;
     line-height: 1.8;
     margin-bottom: 0.8rem;
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: var(--sports-text-light);
     position: relative;
     z-index: 1;
 }
@@ -343,12 +376,22 @@ body.dark-mode .sports-dept-container .sports-bento-card.primary:hover {
     border-radius: 50%;
     border: 3px solid var(--sports-accent);
     z-index: 0;
-    animation: ringPulse 6s ease infinite; /* Slower pulse */
+    animation: ringPulse 6s ease infinite;
+    /* Slower pulse */
 }
 
 @keyframes ringPulse {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
 }
 
 .sports-dept-container .hod-avatar img {
@@ -390,14 +433,15 @@ body.dark-mode .sports-dept-container .sports-bento-card.primary:hover {
 
 .sports-dept-container .faculty-team-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 450px));
+    justify-content: center;
     gap: 2rem;
     margin-bottom: 4rem;
 }
 
 @media (max-width: 950px) {
     .sports-dept-container .faculty-team-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
     }
 }
 

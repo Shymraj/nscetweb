@@ -60,14 +60,16 @@ const DepartmentHODProfile = ({ hod, onOpenProfile }) => {
                 <FaEnvelope /> Contact HOD
               </a>
             )}
-            <button 
-              className="dept-profile-btn" 
-              onClick={() => onOpenProfile && onOpenProfile(hod)}
-              type="button"
-              aria-label={`View Academic Profile of ${hod.name}`}
-            >
-              <FaFileAlt /> Academic Profile
-            </button>
+            {!hod.hideProfileBtn && (
+              <button 
+                className="dept-profile-btn" 
+                onClick={() => onOpenProfile && onOpenProfile(hod)}
+                type="button"
+                aria-label={`View Academic Profile of ${hod.name}`}
+              >
+                <FaFileAlt /> Academic Profile
+              </button>
+            )}
           </div>
         </div>
       </div>

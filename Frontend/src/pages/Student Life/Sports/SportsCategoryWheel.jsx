@@ -244,7 +244,7 @@ const SportsCategoryWheel = ({ achievementsData }) => {
                                                 <div className="achievement-text">
                                                     <strong>{student.achievement}</strong>
                                                 </div>
-                                                <div className="venue-text" style={{ color: '#38bdf8', fontWeight: 600 }}>
+                                                <div className="venue-text" style={{ color: 'var(--theme-primary)', fontWeight: 600 }}>
                                                     {student.sport}
                                                 </div>
                                                 {student.venue && (
