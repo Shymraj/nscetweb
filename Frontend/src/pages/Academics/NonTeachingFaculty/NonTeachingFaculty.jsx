@@ -109,37 +109,38 @@ const NonTeachingFaculty = () => {
           </p>
         </motion.div>
 
-        {/* EXECUTIVE SUMMARY CARD (R&D CELL STYLE) */}
+        {/* EXECUTIVE SUMMARY PLAIN */}
         <motion.div 
-          className="ntf-exec-card"
+          className="ntf-exec-plain"
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <div className="exec-badge-wrap">
-            <span className="exec-badge">
-              <FaUsers /> {totalStaffCount} Dedicated Staff Members
-            </span>
-            <span className="exec-badge gold">
-              <FaTools /> 6 Engineering Laboratories & Workshops
-            </span>
-          </div>
-
-          <div className="exec-grid">
-            <div className="exec-main-text">
-              <h3>Technical Backbone of Practical Education</h3>
-              <p>
+          <div className="ntf-exec-plain-grid">
+            <div className="ntf-exec-plain-left">
+              <div className="exec-badge-wrap">
+                <span className="ntf-exec-badge-plain">
+                  <FaUsers /> {totalStaffCount} Dedicated Staff Members
+                </span>
+                <span className="ntf-exec-badge-plain gold">
+                  <FaTools /> 6 Engineering Laboratories & Workshops
+                </span>
+              </div>
+              <h3 className="ntf-exec-plain-heading">Technical Backbone of Practical Education</h3>
+              <p className="ntf-exec-plain-desc">
                 Our non-teaching technical staff play a vital role in providing hands-on laboratory experiences, maintaining advanced testing equipment, ensuring workshop safety compliance, and assisting students during practical sessions.
               </p>
             </div>
-            <div className="exec-principal-card">
-              <div className="principal-avatar">
-                <FaUserCog />
-              </div>
-              <div className="principal-info">
-                <h4>Technical Operations</h4>
-                <p className="p-deg">NSCET Campus</p>
-                <p className="p-role">Vadapudupatti, Theni</p>
+            <div className="ntf-exec-plain-right">
+              <div className="ntf-principal-strip">
+                <div className="ntf-principal-avatar">
+                  <FaUserCog />
+                </div>
+                <div className="ntf-principal-info">
+                  <h4>Technical Operations</h4>
+                  <p className="p-deg">NSCET Campus</p>
+                  <p className="p-role">Vadapudupatti, Theni</p>
+                </div>
               </div>
             </div>
           </div>

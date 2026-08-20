@@ -309,40 +309,45 @@ const DetailedAnnualReport = () => {
           </p>
         </motion.div>
 
-        {/* Executive Overview Banner */}
+        {/* Executive Overview — Two Column Layout */}
         <motion.div
-          className="ar-exec-card"
+          className="ar-exec-plain"
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="exec-badge-wrap">
-            <span className="exec-badge"><FaFileAlt /> OFFICIAL IQAC REPORT</span>
-            <span className="exec-badge gold"><FaAward /> NAAC QUALITY ALIGNED</span>
-          </div>
-
-          <div className="exec-grid">
-            <div className="exec-main-text">
-              <h3>Institutional Quality Overview</h3>
-              <p>
-                The Internal Quality Assurance Cell (IQAC) plays a vital role in improving academic and administrative quality in accordance with NAAC guidelines. This report highlights the major activities and achievements of Nadar Saraswathi College of Engineering & Technology during the Academic Year 2023–24.
+          <div className="exec-plain-grid">
+            {/* Left: Badges + Heading + Description */}
+            <div className="exec-plain-left">
+              <div className="exec-badge-wrap">
+                <span className="exec-badge-plain"><FaFileAlt /> OFFICIAL IQAC REPORT</span>
+                <span className="exec-badge-plain gold"><FaAward /> NAAC QUALITY ALIGNED</span>
+              </div>
+              <h3 className="exec-plain-heading">Institutional Quality Overview</h3>
+              <p className="exec-plain-desc">
+                The Internal Quality Assurance Cell (IQAC) plays a vital role in improving academic and administrative quality in accordance with NAAC guidelines. This report highlights the major activities and achievements of Nadar Saraswathi College of Engineering &amp; Technology during the Academic Year 2023–24.
               </p>
             </div>
 
-            <div className="exec-principal-card">
-              <div className="principal-avatar">
-                <FaUserTie />
-              </div>
-              <div className="principal-info">
-                <h4>Dr. C. Mathalai Sundaram</h4>
-                <p className="p-deg">M.E., M.B.A., Ph.D., MISTE</p>
-                <p className="p-role">Principal, NSCET</p>
-                <p className="p-loc">Vadapudupatti, Theni – 625531</p>
+            {/* Right: Principal Info */}
+            <div className="exec-plain-right">
+              <div className="ar-principal-strip">
+                <div className="principal-avatar">
+                  <FaUserTie />
+                </div>
+                <div className="principal-info">
+                  <h4>Dr. C. Mathalai Sundaram</h4>
+                  <p className="p-deg">M.E., M.B.A., Ph.D., MISTE</p>
+                  <p className="p-role">Principal, NSCET</p>
+                  <p className="p-loc">Vadapudupatti, Theni – 625531</p>
+                </div>
               </div>
             </div>
           </div>
         </motion.div>
+
+
 
         {/* 7 Report Sections Accordion / Grid */}
         <div className="ar-sections-accordion">

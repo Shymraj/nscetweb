@@ -143,37 +143,38 @@ const IQAC = () => {
           </p>
         </motion.div>
 
-        {/* EXECUTIVE SUMMARY CARD (R&D CELL STYLE) */}
+        {/* EXECUTIVE SUMMARY PLAIN */}
         <motion.div 
-          className="iqac-exec-card"
+          className="iqac-exec-plain"
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <div className="exec-badge-wrap">
-            <span className="exec-badge">
-              <FaAward /> NAAC Quality Benchmarks
-            </span>
-            <span className="exec-badge gold">
-              <FaCalendarCheck /> Established 2nd July 2017
-            </span>
-          </div>
-
-          <div className="exec-grid">
-            <div className="exec-main-text">
-              <h3>Catalytic Institutional Enhancement</h3>
-              <p>
+          <div className="iqac-exec-plain-grid">
+            <div className="iqac-exec-plain-left">
+              <div className="exec-badge-wrap">
+                <span className="iqac-exec-badge-plain">
+                  <FaAward /> NAAC Quality Benchmarks
+                </span>
+                <span className="iqac-exec-badge-plain gold">
+                  <FaCalendarCheck /> Established 2nd July 2017
+                </span>
+              </div>
+              <h3 className="iqac-exec-plain-heading">Catalytic Institutional Enhancement</h3>
+              <p className="iqac-exec-plain-desc">
                 The primary objective of IQAC is to promote measures for institutional functioning towards quality enhancement through internalization of quality culture and institutionalization of best academic practices.
               </p>
             </div>
-            <div className="exec-principal-card">
-              <div className="principal-avatar">
-                <FaUserCheck />
-              </div>
-              <div className="principal-info">
-                <h4>Dr. C. Mathalai Sundaram</h4>
-                <p className="p-deg">Principal & IQAC Chairperson</p>
-                <p className="p-role">NSCET, Vadapudupatti, Theni</p>
+            <div className="iqac-exec-plain-right">
+              <div className="iqac-principal-strip">
+                <div className="iqac-principal-avatar">
+                  <FaUserCheck />
+                </div>
+                <div className="iqac-principal-info">
+                  <h4>Dr. C. Mathalai Sundaram</h4>
+                  <p className="p-deg">Principal & IQAC Chairperson</p>
+                  <p className="p-role">NSCET, Vadapudupatti, Theni</p>
+                </div>
               </div>
             </div>
           </div>

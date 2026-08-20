@@ -1,8 +1,8 @@
-
 :root {
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
   --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
 }
+
 /* AnnualReports.css */
 
 .annual-reports-page {
@@ -29,12 +29,20 @@
 }
 
 /* Alternate Backgrounds */
-.bg-white { background-color: #FFFFFF; }
-.bg-light-1 { background-color: #F8FBFF; }
-.bg-light-2 { background-color: #F5F9FF; }
+.bg-white {
+  background-color: #FFFFFF;
+}
+
+.bg-light-1 {
+  background-color: #F8FBFF;
+}
+
+.bg-light-2 {
+  background-color: #F5F9FF;
+}
 
 /* Prevent double padding when overlapping the PageBanner */
-.page-banner + .about-section-wrapper {
+.page-banner+.about-section-wrapper {
   padding: 0 !important;
   margin-top: 0 !important;
   border-radius: 0 !important;
@@ -80,9 +88,17 @@
 }
 
 @keyframes ar-float-blob {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(50px, 30px) scale(1.1); }
-  100% { transform: translate(-30px, 50px) scale(0.9); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(50px, 30px) scale(1.1);
+  }
+
+  100% {
+    transform: translate(-30px, 50px) scale(0.9);
+  }
 }
 
 /* Common Section Styles */
@@ -424,7 +440,7 @@
     text-align: center;
     gap: 1.5rem;
   }
-  
+
   .document-badges {
     justify-content: center;
     margin-bottom: 1.5rem;
@@ -432,26 +448,30 @@
 }
 
 @media (max-width: 1024px) {
-  .about-inner-container { padding: 60px 48px; }
+  .about-inner-container {
+    padding: 60px 48px;
+  }
 }
 
 @media (max-width: 768px) {
-  .about-inner-container { padding: 60px 24px; }
+  .about-inner-container {
+    padding: 60px 24px;
+  }
 
   .ar-section-title {
-  font-weight: 700;
-  font-family: var(--font-section);
+    font-weight: 700;
+    font-family: var(--font-section);
     font-size: 2rem;
   }
-  
+
   .ar-glass-card {
     padding: 2rem 1.5rem;
   }
-  
+
   .highlights-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .stats-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
@@ -464,9 +484,17 @@
    ========================================= */
 
 @keyframes arGradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .ar-glass-card,
@@ -474,17 +502,17 @@
 .stat-card,
 .value-card,
 .document-glass-card {
-    background: rgba(255, 255, 255, 0.6) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.5) !important;
-    border-radius: 20px !important;
-    background-size: 200% 200% !important;
-    animation: arGradientShift 6s ease infinite !important;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: 20px !important;
+  background-size: 200% 200% !important;
+  animation: arGradientShift 6s ease infinite !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
 }
 
 .ar-glass-card::before,
@@ -492,17 +520,17 @@
 .stat-card::before,
 .value-card::before,
 .document-glass-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent) !important;
-    transform: skewX(-20deg) !important;
-    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    pointer-events: none;
-    z-index: 10;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent) !important;
+  transform: skewX(-20deg) !important;
+  transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  pointer-events: none;
+  z-index: 10;
 }
 
 body.dark-mode .ar-glass-card,
@@ -510,10 +538,10 @@ body.dark-mode .highlight-category-card,
 body.dark-mode .stat-card,
 body.dark-mode .value-card,
 body.dark-mode .document-glass-card {
-    background: rgba(30, 41, 59, 0.4) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
-    color: #f1f5f9 !important;
+  background: rgba(30, 41, 59, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  color: #f1f5f9 !important;
 }
 
 body.dark-mode .ar-glass-card::before,
@@ -521,7 +549,7 @@ body.dark-mode .highlight-category-card::before,
 body.dark-mode .stat-card::before,
 body.dark-mode .value-card::before,
 body.dark-mode .document-glass-card::before {
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
 }
 
 .ar-glass-card:hover::before,
@@ -529,7 +557,7 @@ body.dark-mode .document-glass-card::before {
 .stat-card:hover::before,
 .value-card:hover::before,
 .document-glass-card:hover::before {
-    left: 150% !important;
+  left: 150% !important;
 }
 
 .ar-glass-card:hover,
@@ -537,10 +565,10 @@ body.dark-mode .document-glass-card::before {
 .stat-card:hover,
 .value-card:hover,
 .document-glass-card:hover {
-    transform: translateY(-8px) scale(1.02) !important;
-    background: rgba(255, 255, 255, 0.8) !important;
-    border-color: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15) !important;
+  transform: translateY(-8px) scale(1.02) !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15) !important;
 }
 
 body.dark-mode .ar-glass-card:hover,
@@ -548,28 +576,96 @@ body.dark-mode .highlight-category-card:hover,
 body.dark-mode .stat-card:hover,
 body.dark-mode .value-card:hover,
 body.dark-mode .document-glass-card:hover {
-    background: rgba(15, 23, 42, 0.3) !important;
-    border-color: rgba(255, 255, 255, 0.25) !important;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5) !important;
+  background: rgba(15, 23, 42, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* Fix text readability for all cards */
-.ar-glass-card, .highlight-category-card, .stat-card, .value-card, .document-glass-card,
-.ar-glass-card h1, .ar-glass-card h2, .ar-glass-card h3, .ar-glass-card h4, .ar-glass-card p, .ar-glass-card li, .ar-glass-card span,
-.highlight-category-card h1, .highlight-category-card h2, .highlight-category-card h3, .highlight-category-card h4, .highlight-category-card p, .highlight-category-card li, .highlight-category-card span,
-.stat-card h1, .stat-card h2, .stat-card h3, .stat-card h4, .stat-card p, .stat-card li, .stat-card span,
-.value-card h1, .value-card h2, .value-card h3, .value-card h4, .value-card p, .value-card li, .value-card span,
-.document-glass-card h1, .document-glass-card h2, .document-glass-card h3, .document-glass-card h4, .document-glass-card p, .document-glass-card li, .document-glass-card span {
-    color: var(--theme-text) !important;
+.ar-glass-card,
+.highlight-category-card,
+.stat-card,
+.value-card,
+.document-glass-card,
+.ar-glass-card h1,
+.ar-glass-card h2,
+.ar-glass-card h3,
+.ar-glass-card h4,
+.ar-glass-card p,
+.ar-glass-card li,
+.ar-glass-card span,
+.highlight-category-card h1,
+.highlight-category-card h2,
+.highlight-category-card h3,
+.highlight-category-card h4,
+.highlight-category-card p,
+.highlight-category-card li,
+.highlight-category-card span,
+.stat-card h1,
+.stat-card h2,
+.stat-card h3,
+.stat-card h4,
+.stat-card p,
+.stat-card li,
+.stat-card span,
+.value-card h1,
+.value-card h2,
+.value-card h3,
+.value-card h4,
+.value-card p,
+.value-card li,
+.value-card span,
+.document-glass-card h1,
+.document-glass-card h2,
+.document-glass-card h3,
+.document-glass-card h4,
+.document-glass-card p,
+.document-glass-card li,
+.document-glass-card span {
+  color: var(--theme-text) !important;
 }
 
-body.dark-mode .ar-glass-card, body.dark-mode .highlight-category-card, body.dark-mode .stat-card, body.dark-mode .value-card, body.dark-mode .document-glass-card,
-body.dark-mode .ar-glass-card h1, body.dark-mode .ar-glass-card h2, body.dark-mode .ar-glass-card h3, body.dark-mode .ar-glass-card h4, body.dark-mode .ar-glass-card p, body.dark-mode .ar-glass-card li, body.dark-mode .ar-glass-card span,
-body.dark-mode .highlight-category-card h1, body.dark-mode .highlight-category-card h2, body.dark-mode .highlight-category-card h3, body.dark-mode .highlight-category-card h4, body.dark-mode .highlight-category-card p, body.dark-mode .highlight-category-card li, body.dark-mode .highlight-category-card span,
-body.dark-mode .stat-card h1, body.dark-mode .stat-card h2, body.dark-mode .stat-card h3, body.dark-mode .stat-card h4, body.dark-mode .stat-card p, body.dark-mode .stat-card li, body.dark-mode .stat-card span,
-body.dark-mode .value-card h1, body.dark-mode .value-card h2, body.dark-mode .value-card h3, body.dark-mode .value-card h4, body.dark-mode .value-card p, body.dark-mode .value-card li, body.dark-mode .value-card span,
-body.dark-mode .document-glass-card h1, body.dark-mode .document-glass-card h2, body.dark-mode .document-glass-card h3, body.dark-mode .document-glass-card h4, body.dark-mode .document-glass-card p, body.dark-mode .document-glass-card li, body.dark-mode .document-glass-card span {
-    color: #f1f5f9 !important;
+body.dark-mode .ar-glass-card,
+body.dark-mode .highlight-category-card,
+body.dark-mode .stat-card,
+body.dark-mode .value-card,
+body.dark-mode .document-glass-card,
+body.dark-mode .ar-glass-card h1,
+body.dark-mode .ar-glass-card h2,
+body.dark-mode .ar-glass-card h3,
+body.dark-mode .ar-glass-card h4,
+body.dark-mode .ar-glass-card p,
+body.dark-mode .ar-glass-card li,
+body.dark-mode .ar-glass-card span,
+body.dark-mode .highlight-category-card h1,
+body.dark-mode .highlight-category-card h2,
+body.dark-mode .highlight-category-card h3,
+body.dark-mode .highlight-category-card h4,
+body.dark-mode .highlight-category-card p,
+body.dark-mode .highlight-category-card li,
+body.dark-mode .highlight-category-card span,
+body.dark-mode .stat-card h1,
+body.dark-mode .stat-card h2,
+body.dark-mode .stat-card h3,
+body.dark-mode .stat-card h4,
+body.dark-mode .stat-card p,
+body.dark-mode .stat-card li,
+body.dark-mode .stat-card span,
+body.dark-mode .value-card h1,
+body.dark-mode .value-card h2,
+body.dark-mode .value-card h3,
+body.dark-mode .value-card h4,
+body.dark-mode .value-card p,
+body.dark-mode .value-card li,
+body.dark-mode .value-card span,
+body.dark-mode .document-glass-card h1,
+body.dark-mode .document-glass-card h2,
+body.dark-mode .document-glass-card h3,
+body.dark-mode .document-glass-card h4,
+body.dark-mode .document-glass-card p,
+body.dark-mode .document-glass-card li,
+body.dark-mode .document-glass-card span {
+  color: #f1f5f9 !important;
 }
 
 
@@ -579,32 +675,32 @@ body.dark-mode .document-glass-card h1, body.dark-mode .document-glass-card h2, 
 
 .highlight-item,
 .doc-badge {
-    background: rgba(255, 255, 255, 0.5) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    transition: all 0.3s ease !important;
-    color: var(--theme-text) !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  transition: all 0.3s ease !important;
+  color: var(--theme-text) !important;
 }
 
 body.dark-mode .highlight-item,
 body.dark-mode .doc-badge {
-    background: rgba(30, 41, 59, 0.5) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    color: #f1f5f9 !important;
+  background: rgba(30, 41, 59, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #f1f5f9 !important;
 }
 
 .highlight-item:hover,
 .doc-badge:hover {
-    background: rgba(255, 255, 255, 0.8) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 15px rgba(31, 38, 135, 0.1) !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(31, 38, 135, 0.1) !important;
 }
 
 body.dark-mode .highlight-item:hover,
 body.dark-mode .doc-badge:hover {
-    background: rgba(15, 23, 42, 0.6) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  background: rgba(15, 23, 42, 0.6) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 
@@ -612,7 +708,8 @@ body.dark-mode .doc-badge:hover {
    HERO BOX PUSH DOWN FIX
    ========================================= */
 .annual-reports-page {
-    padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
+  padding-top: 140px !important;
+  /* Push below the 110px floating navbar + topbar */
 }
 
 /* =========================================
@@ -643,28 +740,76 @@ body.dark-mode .doc-badge:hover {
   line-height: 1.7;
 }
 
-/* Executive Card */
-.ar-exec-card {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  border-radius: 24px;
-  padding: 3rem;
-  color: #ffffff;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
-  margin-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
+/* Executive Plain — No Box */
+.ar-exec-plain {
+  margin-bottom: 2.5rem;
 }
 
-.ar-exec-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-  pointer-events: none;
+.exec-plain-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
 }
+
+.exec-plain-left {
+  flex: 1;
+}
+
+.exec-plain-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .exec-plain-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .exec-plain-right {
+    justify-content: flex-start;
+  }
+}
+
+.exec-badge-plain {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.exec-badge-plain.gold {
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #b45309;
+}
+
+.exec-plain-heading {
+  font-family: var(--font-section);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 1rem 0 0.75rem;
+}
+
+.exec-plain-desc {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.8;
+  max-width: 800px;
+  margin-bottom: 1.5rem;
+}
+
 
 .exec-badge-wrap {
   display: flex;
@@ -743,27 +888,27 @@ body.dark-mode .doc-badge:hover {
   font-family: var(--font-subtopic);
   font-size: 1.1rem;
   font-weight: 700;
-  color: #ffffff !important;
+  color: #222c67 !important;
   margin: 0 0 2px 0;
 }
 
 .principal-info .p-deg {
   font-size: 0.85rem;
-  color: #38bdf8 !important;
+  color: #0f3849 !important;
   font-weight: 600;
   margin: 0 0 4px 0;
 }
 
 .principal-info .p-role {
   font-size: 0.85rem;
-  color: #e2e8f0 !important;
+  color: #0f386e !important;
   font-weight: 500;
   margin: 0;
 }
 
 .principal-info .p-loc {
   font-size: 0.75rem;
-  color: #94a3b8 !important;
+  color: #082d62 !important;
   margin: 2px 0 0 0;
 }
 
@@ -1009,12 +1154,15 @@ body.dark-mode .doc-badge:hover {
   .ar-sec-header {
     padding: 1.2rem 1rem;
   }
+
   .ar-sec-header-left {
     gap: 0.8rem;
   }
+
   .sec-summary {
     display: none;
   }
+
   .ar-sec-content-wrapper {
     padding: 1rem;
     grid-template-columns: 1fr;
@@ -1136,5 +1284,3 @@ body.dark-mode .timeline-label,
 .dark .timeline-label {
   color: #f1f5f9 !important;
 }
-
-

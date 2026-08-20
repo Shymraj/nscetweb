@@ -53,27 +53,37 @@
   line-height: 1.7;
 }
 
-/* Executive Card (R&D Style) */
-.iqac-exec-card {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  border-radius: 24px;
-  padding: 2.5rem 3rem;
-  color: #ffffff;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
-  margin-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
+/* Executive Plain — No Box */
+.iqac-exec-plain {
+  margin-bottom: 2.5rem;
 }
 
-.iqac-exec-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-  pointer-events: none;
+.iqac-exec-plain-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+
+.iqac-exec-plain-left {
+  flex: 1;
+}
+
+.iqac-exec-plain-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .iqac-exec-plain-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .iqac-exec-plain-right {
+    justify-content: flex-start;
+  }
 }
 
 .exec-badge-wrap {
@@ -83,60 +93,53 @@
   margin-bottom: 1.5rem;
 }
 
-.exec-badge {
+.iqac-exec-badge-plain {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #38bdf8;
-  padding: 0.4rem 1rem;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  padding: 0.35rem 0.9rem;
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-.exec-badge.gold {
-  color: #f59e0b;
-  border-color: rgba(245, 158, 11, 0.3);
-  background: rgba(245, 158, 11, 0.1);
+.iqac-exec-badge-plain.gold {
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #b45309;
 }
 
-.exec-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-.exec-main-text h3 {
+.iqac-exec-plain-heading {
   font-family: var(--font-section);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: #ffffff !important;
-  margin: 0 0 0.8rem 0;
+  color: #0f172a;
+  margin: 1rem 0 0.75rem;
 }
 
-.exec-main-text p {
+.iqac-exec-plain-desc {
   font-size: 1.05rem;
-  color: #94a3b8 !important;
-  line-height: 1.7;
-  margin: 0;
+  color: #475569;
+  line-height: 1.8;
+  max-width: 800px;
+  margin-bottom: 1.5rem;
 }
 
-.exec-principal-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 1.5rem;
+/* Principal Strip — outside the dark card */
+.iqac-principal-strip {
   display: flex;
   align-items: center;
   gap: 1.2rem;
+  margin-bottom: 3rem;
+  padding: 1rem 0;
 }
 
-.principal-avatar {
+.iqac-principal-avatar {
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -150,24 +153,25 @@
   box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
 }
 
-.principal-info h4 {
+.iqac-principal-info h4 {
   font-family: var(--font-subtopic);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #ffffff !important;
+  color: #222c67 !important;
   margin: 0 0 2px 0;
 }
 
-.principal-info .p-deg {
+.iqac-principal-info .p-deg {
   font-size: 0.85rem;
-  color: #38bdf8 !important;
+  color: #0f3849 !important;
   font-weight: 600;
   margin: 0 0 2px 0;
 }
 
-.principal-info .p-role {
+.iqac-principal-info .p-role {
   font-size: 0.8rem;
-  color: #94a3b8 !important;
+  color: #0f386e !important;
+  font-weight: 500;
   margin: 0;
 }
 
@@ -473,9 +477,7 @@
 
 /* Responsive Adjustments */
 @media (max-width: 900px) {
-  .exec-grid {
-    grid-template-columns: 1fr;
-  }
+  /* removed .exec-grid */
 }
 
 @media (max-width: 640px) {
@@ -485,9 +487,7 @@
   .iqac-title {
     font-size: 1.8rem;
   }
-  .iqac-exec-card {
-    padding: 1.8rem 1.5rem;
-  }
+
   .iqac-committee-grid {
     grid-template-columns: 1fr;
   }

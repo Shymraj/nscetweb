@@ -1,559 +1,1118 @@
 /* Controller of Examination Page Styles */
 
+
+
 .coe-page {
+
   width: 100%;
+
   min-height: 100vh;
+
   font-family: var(--font-body, 'Inter', sans-serif);
+
   color: var(--text-color, #1f2937);
+
   background-color: var(--bg-color, #f8fafc);
+
 }
+
+
 
 .coe-page .page-banner {
+
   width: 100%;
+
   max-width: 100%;
+
 }
+
+
 
 .coe-container {
+
   max-width: 1400px;
+
   margin: 0 auto;
+
   padding: 3rem 2rem 5rem;
+
 }
+
+
 
 /* Section Styles */
+
 .coe-section {
+
   margin-bottom: 3rem;
+
   background: var(--card-bg, #ffffff);
+
   border-radius: 20px;
+
   padding: 2.5rem;
+
   border: 1px solid var(--border-color, #e2e8f0);
+
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
 }
+
+
 
 .coe-header {
+
   display: flex;
+
   align-items: center;
+
   gap: 1rem;
+
   margin-bottom: 1.5rem;
+
   padding-bottom: 1rem;
+
   border-bottom: 2px solid var(--border-color, #e2e8f0);
+
 }
+
+
 
 .coe-header-icon {
+
   font-size: 2rem;
+
   color: var(--primary-accent, #0d3b8e);
+
 }
+
+
 
 .coe-header h2 {
+
   font-size: 1.8rem;
+
   font-weight: 700;
+
   color: var(--text-color, #1f2937);
+
   margin: 0;
+
 }
+
+
 
 .coe-content {
+
   line-height: 1.8;
+
   color: var(--text-color, #1f2937);
+
 }
+
+
 
 .coe-content p {
+
   margin-bottom: 1rem;
+
   font-size: 1.05rem;
+
 }
+
+
 
 .coe-content strong {
+
   color: var(--primary-accent, #0d3b8e);
+
   font-weight: 600;
+
 }
+
+
 
 .coe-content h3 {
+
   font-size: 1.4rem;
+
   font-weight: 600;
+
   margin-bottom: 1.5rem;
+
   color: var(--text-color, #1f2937);
+
 }
+
+
 
 /* Intro Section */
+
 .coe-intro {
+
   background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+
   border-left: 5px solid var(--primary-accent, #0d3b8e);
+
 }
+
+
 
 .coe-featured {
+
   background: rgba(255, 255, 255, 0.7);
+
   padding: 1.5rem;
+
   border-radius: 12px;
+
   border: 1px solid rgba(13, 59, 142, 0.2);
+
 }
+
+
 
 /* Page Sections Grid */
+
 .coe-sections-grid {
+
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
   gap: 1.5rem;
+
   align-items: stretch;
+
 }
+
+
 
 /* Process Chart Section */
+
 .coe-process {
+
   background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+
   border-left: 5px solid #f59e0b;
+
 }
+
+
 
 .coe-process .coe-header-icon {
+
   color: #f59e0b;
+
 }
+
+
 
 .coe-process-image-wrapper {
+
   background: rgba(255, 255, 255, 0.9);
+
   padding: 1rem;
+
   border-radius: 12px;
+
   border: 1px solid rgba(245, 158, 11, 0.3);
+
   text-align: center;
+
 }
+
+
 
 .coe-process-image {
+
   max-width: 100%;
+
   height: auto;
+
   border-radius: 8px;
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
 }
+
+
 
 .coe-section-card {
+
   background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+
   padding: 1.5rem;
+
   border-radius: 15px;
+
   border: 1px solid rgba(147, 51, 234, 0.2);
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: flex-start;
+
   height: 100%;
+
 }
+
+
 
 .coe-section-card:hover {
+
   transform: translateY(-5px);
+
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+
 }
+
+
 
 .section-card-icon {
+
   font-size: 2rem;
+
   color: #9333ea;
+
   margin-bottom: 1rem;
+
 }
+
+
 
 .coe-section-card h3 {
+
   font-size: 1.1rem;
+
   font-weight: 600;
+
   margin-bottom: 0.5rem;
+
   color: var(--text-color, #1f2937);
+
 }
+
+
 
 .coe-section-card p {
+
   font-size: 0.9rem;
+
   color: #6b7280;
+
   margin: 0;
+
 }
+
+
 
 /* Team Section */
+
 .coe-team-grid {
+
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
   gap: 2rem;
+
   margin-top: 1.5rem;
+
 }
+
+
 
 .coe-team-card {
+
   background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+
   padding: 1.5rem;
+
   border-radius: 15px;
+
   border: 1px solid rgba(245, 158, 11, 0.3);
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
   display: flex;
+
   align-items: center;
+
   gap: 1.5rem;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
+
+
 
 .coe-team-card:hover {
+
   transform: translateY(-5px);
+
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+
 }
+
+
 
 .coe-team-image {
+
   width: 120px;
+
   height: 120px;
+
   border-radius: 50%;
+
   overflow: hidden;
+
   border: 4px solid #f59e0b;
+
   flex-shrink: 0;
+
 }
+
+
 
 .coe-team-image img {
+
   width: 100%;
+
   height: 100%;
+
   object-fit: cover;
+
   object-position: center top;
+
 }
+
+
 
 .coe-team-info h4 {
+
   font-size: 1.2rem;
+
   font-weight: 700;
+
   margin-bottom: 0.25rem;
+
   color: var(--text-color, #1f2937);
+
 }
+
+
 
 .coe-qualification {
+
   font-size: 0.95rem;
+
   color: #854d0e;
+
   margin-bottom: 0.25rem;
+
   font-weight: 500;
+
 }
+
+
 
 .coe-role {
+
   font-size: 0.9rem;
+
   color: #713f12;
+
   margin: 0;
+
 }
+
+
 
 /* Verification Section */
+
 .coe-verification {
+
   background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+
   border-left: 5px solid #3b82f6;
+
 }
+
+
 
 .coe-verification .coe-header-icon {
+
   color: #3b82f6;
+
 }
+
+
 
 .coe-intro-text {
+
   font-size: 1.1rem;
+
   margin-bottom: 2rem;
+
   padding: 1rem;
+
   background: rgba(255, 255, 255, 0.7);
+
   border-radius: 10px;
+
   border: 1px solid rgba(59, 130, 246, 0.2);
+
 }
+
+
 
 .coe-steps-grid {
+
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 1.5rem;
+
   margin-bottom: 2rem;
+
 }
+
+
 
 .coe-step-card {
+
   background: rgba(255, 255, 255, 0.9);
+
   padding: 1.5rem;
+
   border-radius: 12px;
+
   border: 1px solid rgba(59, 130, 246, 0.3);
+
   text-align: center;
+
   position: relative;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
+
+
 
 .coe-step-card:hover {
+
   transform: translateY(-5px);
+
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+
 }
+
+
 
 .coe-step-card::before {
+
   content: '';
+
   position: absolute;
+
   top: 0;
+
   left: 0;
+
   right: 0;
+
   height: 4px;
+
   background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+
 }
+
+
 
 .coe-step-number {
+
   position: absolute;
+
   top: -10px;
+
   right: -10px;
+
   width: 30px;
+
   height: 30px;
+
   background: #3b82f6;
+
   color: white;
+
   border-radius: 50%;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   font-weight: 700;
+
   font-size: 0.9rem;
+
 }
+
+
 
 .coe-step-icon {
+
   font-size: 2rem;
+
   color: #3b82f6;
+
   margin-bottom: 1rem;
+
 }
+
+
 
 .coe-step-card h4 {
+
   font-size: 1rem;
+
   font-weight: 600;
+
   margin-bottom: 0.5rem;
+
   color: var(--text-color, #1f2937);
+
 }
+
+
 
 .coe-step-card p {
+
   font-size: 0.85rem;
+
   color: #6b7280;
+
   margin: 0;
+
 }
+
+
 
 .coe-fee-info {
+
   background: rgba(255, 255, 255, 0.9);
+
   padding: 1.5rem;
+
   border-radius: 12px;
+
   border: 1px solid rgba(59, 130, 246, 0.3);
+
   display: flex;
+
   align-items: center;
+
   gap: 1rem;
+
 }
+
+
 
 .fee-icon {
+
   font-size: 2rem;
+
   color: #3b82f6;
+
 }
+
+
 
 .coe-fee-info p {
+
   margin: 0;
+
   font-size: 1rem;
+
 }
+
+
 
 /* Notes Section */
+
 .coe-notes-list {
+
   list-style: none;
+
   padding: 0;
+
   margin: 0;
+
 }
+
+
 
 .coe-notes-list li {
+
   padding: 1rem;
+
   margin-bottom: 1rem;
+
   background: rgba(255, 255, 255, 0.7);
+
   border-radius: 10px;
+
   border-left: 4px solid var(--primary-accent, #0d3b8e);
+
   font-size: 1rem;
+
   line-height: 1.6;
+
 }
+
+
 
 .coe-notes-list li:last-child {
+
   margin-bottom: 0;
+
 }
+
+
 
 /* Documents Section */
+
 .coe-doc-card {
+
   background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+
   padding: 1.5rem;
+
   border-radius: 15px;
+
   border: 1px solid rgba(59, 130, 246, 0.3);
+
   display: flex;
+
   align-items: center;
+
   gap: 1.5rem;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
+
+
 
 .coe-doc-card:hover {
+
   transform: translateY(-5px);
+
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+
 }
+
+
 
 .doc-icon {
+
   font-size: 2.5rem;
+
   color: #3b82f6;
+
 }
+
+
 
 .doc-info {
+
   flex: 1;
+
 }
+
+
 
 .doc-info h4 {
+
   font-size: 1.2rem;
+
   font-weight: 600;
+
   margin-bottom: 0.25rem;
+
   color: var(--text-color, #1f2937);
+
 }
+
+
 
 .doc-info p {
+
   font-size: 0.9rem;
+
   color: #1e40af;
+
   margin: 0;
+
 }
+
+
 
 .doc-download-btn {
+
   background: #3b82f6;
+
   color: white;
+
   padding: 0.75rem 1.5rem;
+
   border-radius: 8px;
+
   text-decoration: none;
+
   font-weight: 600;
+
   transition: background 0.3s ease;
+
 }
+
+
 
 .doc-download-btn:hover {
+
   background: #1d4ed8;
+
 }
+
+
 
 /* Dark Mode Support */
+
 body.dark-mode .coe-page {
+
   --text-color: #f1f5f9;
+
   --bg-color: #0f172a;
+
   --card-bg: #1e293b;
+
   --border-color: #334155;
+
   --primary-accent: #38bdf8;
+
 }
+
+
 
 body.dark-mode .coe-section,
+
 body.dark-mode .coe-section-card,
+
 body.dark-mode .coe-team-card,
+
 body.dark-mode .coe-step-card,
+
 body.dark-mode .coe-doc-card {
+
   background: var(--card-bg);
+
   border-color: var(--border-color);
+
 }
+
+
 
 body.dark-mode .coe-intro {
+
   background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+
   border-left-color: var(--primary-accent);
+
 }
+
+
 
 body.dark-mode .coe-featured {
+
   background: rgba(30, 41, 59, 0.7);
+
   border-color: rgba(56, 189, 248, 0.3);
+
 }
+
+
 
 body.dark-mode .coe-section-card {
+
   background: linear-gradient(135deg, #581c87 0%, #6b21a8 100%);
+
   border-color: rgba(168, 85, 247, 0.4);
+
 }
+
+
 
 body.dark-mode .section-card-icon {
+
   color: #c084fc;
+
 }
+
+
 
 body.dark-mode .coe-team-card {
+
   background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+
   border-color: rgba(245, 158, 11, 0.4);
+
 }
+
+
 
 body.dark-mode .coe-team-image {
+
   border-color: #f59e0b;
+
 }
+
+
 
 body.dark-mode .coe-qualification {
+
   color: #fef3c7;
+
 }
+
+
 
 body.dark-mode .coe-role {
+
   color: #fde68a;
+
 }
+
+
 
 body.dark-mode .coe-verification {
+
   background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+
   border-left-color: #3b82f6;
+
 }
+
+
 
 body.dark-mode .coe-verification .coe-header-icon {
+
   color: #3b82f6;
+
 }
+
+
 
 body.dark-mode .coe-intro-text {
+
   background: rgba(30, 41, 59, 0.7);
+
   border-color: rgba(59, 130, 246, 0.3);
+
 }
+
+
 
 body.dark-mode .coe-step-card {
+
   background: rgba(30, 41, 59, 0.9);
+
   border-color: rgba(59, 130, 246, 0.4);
+
 }
+
+
 
 body.dark-mode .coe-step-icon {
+
   color: #3b82f6;
+
 }
+
+
 
 body.dark-mode .coe-step-number {
+
   background: #3b82f6;
+
 }
+
+
 
 body.dark-mode .coe-fee-info {
+
   background: rgba(30, 41, 59, 0.9);
+
   border-color: rgba(59, 130, 246, 0.4);
+
 }
+
+
 
 body.dark-mode .fee-icon {
+
   color: #3b82f6;
+
 }
+
+
 
 body.dark-mode .coe-notes-list li {
+
   background: rgba(30, 41, 59, 0.7);
+
   border-left-color: var(--primary-accent);
+
 }
+
+
 
 body.dark-mode .coe-doc-card {
+
   background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+
   border-color: rgba(59, 130, 246, 0.4);
+
 }
+
+
 
 body.dark-mode .doc-icon {
+
   color: #60a5fa;
+
 }
+
+
 
 body.dark-mode .doc-info h4 {
+
   color: #f1f5f9;
+
 }
+
+
 
 body.dark-mode .doc-info p {
+
   color: #93c5fd;
+
 }
+
+
 
 body.dark-mode .doc-download-btn {
+
   background: #3b82f6;
+
 }
+
+
 
 body.dark-mode .doc-download-btn:hover {
+
   background: #2563eb;
+
 }
+
+
 
 /* Responsive Design */
+
 @media (max-width: 768px) {
+
   .coe-container {
+
     padding: 2rem 1rem 4rem;
+
   }
+
+
 
   .coe-section {
+
     padding: 1.5rem;
+
   }
+
+
 
   .coe-header h2 {
+
     font-size: 1.5rem;
+
   }
+
+
 
   .coe-sections-grid {
+
     grid-template-columns: 1fr;
+
   }
+
+
 
   .coe-team-grid {
+
     grid-template-columns: 1fr;
+
   }
+
+
 
   .coe-team-card {
+
     flex-direction: column;
+
     text-align: center;
+
   }
+
+
 
   .coe-steps-grid {
+
     grid-template-columns: repeat(2, 1fr);
+
   }
+
+
 
   .coe-doc-card {
+
     flex-direction: column;
+
     text-align: center;
+
   }
 
+
+
   .coe-fee-info {
+
     flex-direction: column;
+
     text-align: center;
+
   }
+
 }
+
