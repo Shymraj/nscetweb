@@ -1,7 +1,9 @@
+import React from 'react';
+
 const KeyEnablers = () => {
   return (
-    <section className="key-enablers-section">
-      {/* Content will be added here */}
+    <section className="key-enablers">
+      {/* Placeholder for Key Enablers */}
     </section>
   );
 };
