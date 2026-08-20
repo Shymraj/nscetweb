@@ -277,10 +277,14 @@
 .stat-number {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #0f172a;
   line-height: 1.2;
   margin-bottom: 0.5rem;
+  /* Fallback color */
+  color: #1e3a8a;
+  /* Gradient text effect */
   background: linear-gradient(to right, #1e3a8a, var(--theme-primary-light, #38BDF8));
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
