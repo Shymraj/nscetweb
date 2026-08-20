@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 import defaultPrincipalImg from '../../../assets/administration/images/prinicipal.jpg';
 import './Principal.css';
 
-function Principal() {
+function Principal({ hideBreadcrumb = false }) {
   const [principalData, setPrincipalData] = useState(null);
 
   useEffect(() => {
@@ -36,6 +36,7 @@ function Principal() {
       <div className="pr-container">
         
         {/* Centered Page Title & Breadcrumb Header */}
+        {!hideBreadcrumb && (
         <div className="pr-header-centered">
           <h1 className="pr-page-title">Principal Message</h1>
           <div className="pr-breadcrumb">
@@ -44,6 +45,7 @@ function Principal() {
             <span className="pr-breadcrumb-current">Principal Message</span>
           </div>
         </div>
+        )}
 
         {/* Hero Section: Left Image + Right Text */}
         <div className="pr-hero-grid">
@@ -94,65 +96,6 @@ function Principal() {
         {/* Detailed Sections Block */}
         <div className="pr-details-container">
           
-          {/* 1. Profile Details Card */}
-          <div className="pr-info-card">
-            <div className="pr-card-header">
-              <FaGraduationCap className="pr-card-icon" />
-              <h2>Profile Details</h2>
-            </div>
-            <div className="pr-card-body">
-              <p className="pr-info-row">
-                <strong>Designation:</strong> Professor &amp; Principal
-              </p>
-              <p className="pr-info-row">
-                <strong>Department:</strong> Mechanical Engineering
-              </p>
-              <div className="pr-edu-block">
-                <p className="pr-subheading"><strong>Education:</strong></p>
-                <ul className="pr-bullet-list">
-                  <li>Ph.D. in Mechanical Engineering (Composite Tool Materials), Anna University (2011-2017)</li>
-                  <li>M.E. in Manufacturing Engineering, Anna University of Technology, Trichy (2008-2010)</li>
-                  <li>M.B.A in Production Engineering, Madurai Kamaraj University (2002-2004)</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* 2. Experience Card */}
-          <div className="pr-info-card">
-            <div className="pr-card-header">
-              <FaBriefcase className="pr-card-icon" />
-              <h2>Experience</h2>
-            </div>
-            <div className="pr-card-body">
-              <ul className="pr-bullet-list">
-                <li>Professor &amp; Principal of NSCET since June 2017</li>
-                <li>Professor &amp; Vice Principal at NSCET for 4 years</li>
-                <li>Assistant/Associate Professor at NSCET for 3 years</li>
-                <li>Assistant Professor at Bharath Niketan Engineering College for 2 years</li>
-                <li>Lecturer &amp; Head of Department at multiple polytechnic colleges for over 8 years</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* 3. Publications & Patents Card */}
-          <div className="pr-info-card">
-            <div className="pr-card-header">
-              <FaLightbulb className="pr-card-icon" />
-              <h2>Publications &amp; Patents</h2>
-            </div>
-            <div className="pr-card-body">
-              <p className="pr-info-row">
-                <strong>Total Publications:</strong> 32
-              </p>
-              <p className="pr-subheading"><strong>Patents:</strong></p>
-              <ul className="pr-bullet-list">
-                <li>Automation in Portable Oil Seal Assembly Machine (2017)</li>
-                <li>Flower Garland Making Machine (2022)</li>
-                <li>Movable Staircase and Lifting Setup in Vehicle (2023)</li>
-              </ul>
-            </div>
-          </div>
 
           {/* 4. Contact Information Card */}
           <div className="pr-info-card pr-contact-card">

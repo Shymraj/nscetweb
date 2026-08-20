@@ -56,16 +56,9 @@ const Library = () => {
   }, [heroImages.length]);
 
   const collections = [
-    { label: "VOLUMES", count: 21810, icon: <FaBook /> },
-    { label: "TITLES", count: 5016, icon: <FaLayerGroup /> },
-    { label: "PERIODICALS", count: 124, icon: <FaUniversity /> },
-    { label: "CIVIL", count: 3544, icon: <FaBook /> },
-    { label: "MECH", count: 3820, icon: <FaBook /> },
-    { label: "CSE", count: 3720, icon: <FaBook /> },
-    { label: "ECE", count: 3831, icon: <FaBook /> },
-    { label: "EEE", count: 2471, icon: <FaBook /> },
-    { label: "IT", count: 250, icon: <FaBook /> },
-    { label: "AI&DS", count: 250, icon: <FaBook /> }
+    { label: "VOLUMES", count: 22191, icon: <FaBook /> },
+    { label: "TITLES", count: 5017, icon: <FaLayerGroup /> },
+    { label: "JOURNALS", count: 144, icon: <FaUniversity /> }
   ];
 
   const objectivesList = [

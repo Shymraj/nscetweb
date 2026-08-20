@@ -145,89 +145,83 @@
 }
 
 /* ==========================================
-   HOD Featured Card
+   Combined Layout Wrapper
    ========================================== */
-.tf-hod-card {
-  background: var(--tf-white);
-  border-radius: 20px;
-  padding: 2.5rem;
+.tf-faculty-layout-wrapper {
+  display: flex;
+  position: relative;
+  align-items: stretch; /* So both sides stretch to same height if possible, or align-items: center */
+  overflow: visible;
+  margin-bottom: 4rem;
+  padding: 10px 0;
+}
+
+/* ==========================================
+   HOD Featured Card (Now Vertical on Left)
+   ========================================== */
+.tf-hod-fixed-wrapper {
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 3rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-  border: 1px solid var(--tf-border);
-  margin-bottom: 4rem;
-  border-top: 4px solid transparent;
-  transition: all 0.3s ease-in-out;
+  /* Add shadow to the right so it overlays the scrolling cards */
+  box-shadow: 15px 0 30px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  background: white;
 }
 
-.tf-hod-image-col {
+.tf-hod-special-card {
+  background: linear-gradient(145deg, #fff9e6, #fff) !important; /* Golden theme background */
+  border: 2px solid #d4af37 !important; /* Golden border */
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2) !important;
   position: relative;
-  width: 200px;
-  height: 200px;
-  flex-shrink: 0;
 }
 
-.tf-hod-img-bg {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 100%;
-  height: 100%;
-  background: var(--tf-primary-light);
-  border-radius: 24px;
-  z-index: 1;
-  display: none;
+.tf-hod-special-card:hover {
+  transform: translateY(-8px) !important;
+  border: 4px solid #d4af37 !important;
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3), 0 12px 30px rgba(212, 175, 55, 0.15) !important;
 }
 
-.tf-hod-img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  z-index: 2;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.tf-hod-info-col { flex: 1.2; }
-
-.tf-badge-primary {
-  background:#151B54;
-  color: var(--tf-white);  
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.3rem 0.8rem;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.tf-hod-badge {
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #d4af37, #b8860b);
+  color: white;
+  padding: 4px 14px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
 }
 
-.tf-hod-name {
-  font-size: 1.8rem;
-  margin: 0 0 0.4rem 0;
-  font-weight: 700;
+.tf-hod-img-small {
+  border: 4px solid #d4af37 !important;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3) !important;
 }
 
-.tf-hod-position {
-  color: #151B54;
-  font-weight: 600;
-  font-size: 1.05rem;
-  margin: 0 0 0.3rem 0;
+.tf-hod-pos {
+  color: #b8860b !important;
 }
 
-.tf-hod-dept {
-  color: var(--tf-text-muted);
-  font-size: 0.95rem;
-  margin: 0 0 1.2rem 0;
+.tf-hod-badge-outline {
+  background: #d4af37 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.tf-hod-icon {
+  color: #d4af37 !important;
 }
 
 .tf-qual-badges {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* 🔥 ADDED FIX: Exact hex color added instead of invalid text */
@@ -241,12 +235,13 @@
 }
 
 .tf-hod-contact-col {
-  border-left: 1px solid var(--tf-border);
-  padding-left: 2.5rem;
+  border-top: 1px solid var(--tf-border);
+  padding-top: 1.5rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
-  flex: 0.8;
 }
 
 .tf-contact-item {
@@ -272,6 +267,7 @@
   border-bottom: 2px solid var(--tf-primary);
   padding-bottom: 0.5rem;
   margin-bottom: 2rem;
+  margin-left: 2rem; /* Give some space from the HOD card */
 }
 
 .tf-section-title {
@@ -295,15 +291,25 @@
 }
 
 /* ==========================================
-   Slider Layout (Arrows added)
+   Slider Wrapper and Layout (Arrows added)
    ========================================== */
+.tf-slider-wrapper {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  margin-left: -30px; /* Pull the slider behind the HOD card */
+  padding-left: 50px; /* Ensure content starts visually after the HOD card */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .tf-slider-container {
   position: relative;
   display: flex;
- align-items: center;
+  align-items: center;
   width: 100%;
-  padding: 0 10px;
-  
+  padding: 0;
 }
 
 .tf-slider-btn {
@@ -478,22 +484,23 @@
    Responsive Styles
    ========================================== */
 @media (max-width: 1024px) {
-  .tf-hod-card {
+  .tf-faculty-layout-wrapper {
     flex-direction: column;
-    text-align: center;
-    gap: 2rem;
   }
-  .tf-hod-contact-col {
-    border-left: none;
-    border-top: 1px solid var(--tf-border);
+  .tf-hod-fixed-wrapper {
+    width: 100%;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Normal bottom shadow instead of right */
+  }
+  .tf-slider-wrapper {
+    margin-left: 0;
     padding-left: 0;
-    padding-top: 1.5rem;
-    align-items: center;
+  }
+  .tf-staff-section-header {
+    margin-left: 0;
   }
 }
-.tf-hod-card:hover {
-    border: 4px solid #0b2f9a  !important; 
-}
+
 
 @media (max-width: 768px) {
   .tf-pill-nav-container {

@@ -14,7 +14,6 @@ const searchData = [
   { name: "Affiliation & Accreditation", path: "/about/affiliation" },
   { name: "Annual Accounts", path: "/about/annual-accounts" },
   { name: "TMHNU Trust", path: "/administration/tmhnutrust" },
-  { name: "Principal", path: "/administration/principal" },
   { name: "Finance Officer", path: "/administration/finance-officer" },
   { name: "Exam Cell", path: "/administration/controller-examination" },
   { name: "Ombudsperson", path: "/administration/ombudsperson" },
@@ -196,7 +195,6 @@ function Navbar() {
           <li className="dropdown">
             <Link to="/administration/tmhnutrust">Administration</Link>
             <ul className="dropdown-menu">
-              <li><Link to="/administration/principal">Principal</Link></li>
              {/* <li><Link to="/administration/finance-officer">Finance Officer</Link></li>*/}
               <li><Link to="/administration/controller-examination">Exam Cell</Link></li>
               <li><Link to="/administration/ombudsperson">Ombudsperson</Link></li>

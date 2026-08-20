@@ -15,6 +15,7 @@ import Contact from "../components/Contact/Contact";
 import Placement from "../components/Placement/Placement";
 import PlacedStudents from "../components/PlacedStudents/PlacedStudents";
 import AlumniReviews from "../components/AlumniReviews/AlumniReviews";
+import Principal from "./Administration/Principal/Principal";
 
 function Home() {
   return (
@@ -28,6 +29,7 @@ function Home() {
       <VisionMission />
       <NewsAnnouncements />
       <About />
+      <Principal hideBreadcrumb={true} />
       <Departments />
       <Infrastructure />
       <Events />

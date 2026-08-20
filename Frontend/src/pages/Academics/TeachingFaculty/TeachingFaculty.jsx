@@ -387,57 +387,65 @@ const TeachingFaculty = () => {
           ))}
         </div>
 
-        {hod && (
-          <div className="tf-hod-card fade-in">
-            <div className="tf-hod-image-col">
-              <div className="tf-hod-img-bg"></div>
-              <img src={hod.photo} alt={hod.name} className="tf-hod-img" onError={(e) => e.target.src="https://via.placeholder.com/150"} />
-            </div>
+        {/* Combined Layout: HOD on left, scrolling slider on right */}
+        {(hod || regularStaffs.length > 0) && (
+          <div className="tf-faculty-layout-wrapper">
             
-            <div className="tf-hod-info-col">
-              <span className="tf-badge-primary">HEAD OF DEPARTMENT</span>
-              <h2 className="tf-hod-name">{hod.name}</h2>
-              <p className="tf-hod-position">{hod.position}</p>
-              <p className="tf-hod-dept">{hod.department}</p>
-              <div className="tf-qual-badges">
-                {hod.qualifications.map((qual, index) => (
-                  <span key={index} className="tf-badge-outline">{qual}</span>
-                ))}
-              </div>
-            </div>
+            {hod && (
+              <div className="tf-hod-fixed-wrapper fade-in" style={{ alignSelf: 'flex-end', marginBottom: '30px', marginTop: '16px' }}>
+                <div className="tf-staff-card tf-hod-special-card" style={{ display: 'flex', flexDirection: 'column' }}>
+                  <img src={hod.photo} alt={hod.name} className="tf-staff-img tf-hod-img-small" onError={(e) => e.target.src="https://via.placeholder.com/100"} />
+                  
+                  <div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
+                    <h4 className="tf-staff-name" style={{ minHeight: '48px', display: 'flex', alignItems: 'center', textAlign: 'center', margin: '10px 0 5px' }}>
+                      {hod.name}
+                    </h4>
+                    <div className="tf-hod-badge">HEAD OF DEPARTMENT</div>
+                    <p className="tf-staff-pos tf-hod-pos" style={{ minHeight: '24px', textAlign: 'center', margin: '0 0 10px' }}>
+                      {hod.position}
+                    </p>
+                    
+                    <div className="tf-qual-badges tf-center-badges" style={{ minHeight: '60px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'flex-start', width: '100%' }}>
+                      {hod.qualifications.map((qual, index) => (
+                        <span key={index} className="tf-badge-outline tf-hod-badge-outline" style={{ margin: '2px' }}>{qual}</span>
+                      ))}
+                    </div>
+                  </div>
 
-            <div className="tf-hod-contact-col">
-              <div className="tf-contact-item">
-                <span className="tf-icon">✉️</span> 
-                <a href={`mailto:${hod.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                  {hod.email}
-                </a>
+                  <div className="tf-contact-item-small" style={{ marginTop: '10px', justifyContent: 'center', width: '100%', paddingBottom: '10px' }}>
+                    <span className="tf-icon tf-hod-icon">✉️</span> 
+                    <a href={`mailto:${hod.email.trim()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                      {hod.email}
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
+            )}
+
+            {regularStaffs.length > 0 && (
+              <div className="tf-slider-wrapper">
+                <div className="tf-staff-section-header">
+                  <h3 className="tf-section-title">Faculty Members</h3> 
+                </div>
+
+                {/* Requirement 2: Static Outer Container */}
+                <div className="tf-slider-container">
+                  <button className="tf-slider-btn left" onClick={() => slideCards('left')}>&#10094;</button>
+                  
+                  <div 
+                    className="tf-scroll-track" 
+                    ref={scrollRef}
+                    style={{ overflowX: 'auto' }} 
+                  >
+                    {renderScrollCards()}
+                  </div>
+                  
+                  <button className="tf-slider-btn right" onClick={() => slideCards('right')}>&#10095;</button>
+                </div>
+              </div>
+            )}
+            
           </div>
-        )}
-
-        {regularStaffs.length > 0 && (
-          <>
-            <div className="tf-staff-section-header">
-              <h3 className="tf-section-title">Faculty Members</h3> 
-            </div>
-
-            {/* Requirement 2: Static Outer Container */}
-            <div className="tf-slider-container">
-              <button className="tf-slider-btn left" onClick={() => slideCards('left')}>&#10094;</button>
-              
-              <div 
-                className="tf-scroll-track" 
-                ref={scrollRef}
-                style={{ overflowX: 'auto' }} 
-              >
-                {renderScrollCards()}
-              </div>
-              
-              <button className="tf-slider-btn right" onClick={() => slideCards('right')}>&#10095;</button>
-            </div>
-          </>
         )}
 
       </div>

@@ -355,12 +355,16 @@ body {
 
 /* --- Collections Spotlight Grid --- */
 .m1-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .m1-stat-card {
+  width: 280px;
   background-color: #cbd5e1;
   border-radius: 20px;
   padding: 2px;
@@ -669,7 +673,6 @@ body {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 1024px) {
-  .m1-stats-grid { grid-template-columns: repeat(3, 1fr); }
   .m1-gallery-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
@@ -677,7 +680,6 @@ body {
   .m1-hero-title { font-size: 2.6rem; }
   .exec-grid { grid-template-columns: 1fr; }
   .m1-about-grid { grid-template-columns: 1fr; }
-  .m1-stats-grid { grid-template-columns: repeat(2, 1fr); }
   .m1-gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .m1-bottom-info { grid-template-columns: 1fr; }
 }
