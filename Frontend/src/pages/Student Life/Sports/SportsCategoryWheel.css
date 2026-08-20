@@ -56,28 +56,28 @@
 /* Layout Grid */
 .sports-wheel-layout {
   display: grid;
-  grid-template-columns: minmax(350px, 420px) 1fr;
-  gap: 40px;
+  grid-template-columns: 500px 1fr;
+  gap: 2.5rem;
   align-items: start;
 }
 
 /* LEFT SIDE - Wheel */
 .wheel-container {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 3rem auto 0 auto;
 }
 
 /* Outer background is kept completely clean */
 
 .wheel-center {
   position: absolute;
-  width: 140px;
-  height: 140px;
+  width: 170px;
+  height: 170px;
   background: var(--theme-card);
   border: 3px solid var(--theme-primary);
   border-radius: 50%;
@@ -169,10 +169,10 @@ body.dark-mode .wheel-segments::before {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 110px;
-  height: 110px;
-  margin-top: -55px;
-  margin-left: -55px;
+  width: 130px;
+  height: 130px;
+  margin-top: -65px;
+  margin-left: -65px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -308,13 +308,13 @@ body.dark-mode .wheel-segments::before {
 
 .achiever-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: max-content;
   align-content: start;
   gap: 20px;
   max-height: 650px;
   overflow-y: auto;
-  padding-right: 15px;
+  padding-right: 5px;
 }
 
 /* Custom Scrollbar for Grid */

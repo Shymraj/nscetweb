@@ -130,7 +130,7 @@ const parseAchievements = (achievementsData) => {
 };
 
 const SportsCategoryWheel = ({ achievementsData }) => {
-    const [selectedCategory, setSelectedCategory] = useState('Team Sports');
+    const [selectedCategory, setSelectedCategory] = useState('All Sports');
     
     const allStudents = useMemo(() => parseAchievements(achievementsData), [achievementsData]);
     
@@ -139,8 +139,8 @@ const SportsCategoryWheel = ({ achievementsData }) => {
         return allStudents.filter(s => s.tags.includes(selectedCategory));
     }, [selectedCategory, allStudents]);
 
-    // Calculate rotation for wheel segments
-    const radius = 145; // Pixels from center
+    // Calculate positions for the outer circles
+    const radius = 190; // Pixels from center
     
     return (
         <section className="sports-wheel-section">

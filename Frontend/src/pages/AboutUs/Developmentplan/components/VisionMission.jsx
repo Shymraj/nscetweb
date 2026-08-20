@@ -6,8 +6,14 @@ const VisionMission = () => {
   return (
     <section className="dev-section-wrapper bg-white">
       <div className="dev-inner-container">
-      <div className="vmq-wrapper">
-        <div className="vmq-top-row">
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <h2 className="dev-section-title">Vision, Mission & Quality Policy</h2>
+          <p className="exec-text" style={{ maxWidth: '800px', margin: '0 auto' }}>
+            The guiding principles driving NSCET towards technological excellence and holistic student development.
+          </p>
+        </div>
+        <div className="vmq-wrapper">
+          <div className="vmq-top-row">
           
           {/* Card 1: VISION */}
           <motion.div

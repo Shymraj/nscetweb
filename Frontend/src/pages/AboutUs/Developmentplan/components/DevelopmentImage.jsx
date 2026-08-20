@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes, FaSearchPlus } from "react-icons/fa";
+import devChartImg from "../assets/images/Developement Plan.jpg";
 
 const DevelopmentImage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +53,7 @@ const DevelopmentImage = () => {
         {!imageError ? (
           <div className="image-wrapper">
             <img 
-              src="https://placehold.co/800x600/1e40af/FFFFFF/png?text=Development+Plan" 
+              src={devChartImg} 
               alt="Development Plan Roadmap" 
               className="dev-roadmap-img"
               onError={() => setImageError(true)}
@@ -92,7 +93,7 @@ const DevelopmentImage = () => {
                 className="dev-modal-content"
                 onClick={(e) => e.stopPropagation()}
               >
-                <img src="https://placehold.co/800x600/1e40af/FFFFFF/png?text=Development+Plan" alt="Development Plan Roadmap Fullscreen" className="dev-modal-img" />
+                <img src={devChartImg} alt="Development Plan Roadmap Fullscreen" className="dev-modal-img" />
               </motion.div>
             </motion.div>
           )}

@@ -57,12 +57,12 @@ import NIRF from "./pages/Gallery/NIRF/NIRF";
 import RTI from "./pages/Gallery/RTI/RTI";
 import Alumni from "./pages/Alumini/Alumni";
 import Contact from "./pages/Contacts/Contact";
-import Overview from "./pages/AboutUs/Overview/Overview";
-import ActStatus from "./pages/AboutUs/Actstatutes/Actstatutes";
-import DevelopmentPlan from "./pages/AboutUs/Developmentplan/Developmentplan";
-import Affiliation from "./pages/AboutUs/Affiliation/Affiliation";
-import AnnualReports from "./pages/AboutUs/AnnualReports/AnnualReports";
-import AnnualAccounts from "./pages/AboutUs/AnnualAccounts/AnnualAccounts";
+import Overview from "./pages/Aboutus/Overview/Overview";
+import ActStatus from "./pages/Aboutus/Actstatutes/Actstatutes";
+import DevelopmentPlan from "./pages/Aboutus/Developmentplan/Developmentplan";
+import Affiliation from "./pages/Aboutus/Affiliation/Affiliation";
+import AnnualReports from "./pages/Aboutus/AnnualReports/AnnualReports";
+import AnnualAccounts from "./pages/Aboutus/AnnualAccounts/AnnualAccounts";
 
 // Student Life
 import Sports from "./pages/Student Life/Sports/Sports";
