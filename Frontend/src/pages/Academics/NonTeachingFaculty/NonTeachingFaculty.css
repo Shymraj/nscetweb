@@ -7,7 +7,8 @@
   font-family: var(--font-body);
   background-color: #f8fafc;
   min-height: 100vh;
-  padding-top: 140px !important; /* Push down below the 110px floating navbar + topbar */
+  padding-top: 140px !important;
+  /* Push down below the 110px floating navbar + topbar */
   padding-bottom: 80px;
   box-sizing: border-box;
 }
@@ -81,6 +82,7 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
   .ntf-exec-plain-right {
     justify-content: flex-start;
   }
@@ -134,44 +136,59 @@
 .ntf-principal-strip {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
   margin-bottom: 3rem;
-  padding: 1rem 0;
+  padding: 1.5rem 2rem;
+  background: #f4f9ff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e0f2fe;
+  border-left: 8px solid #0369a1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ntf-principal-strip:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.1);
 }
 
 .ntf-principal-avatar {
-  width: 52px;
-  height: 52px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0284c7, #0369a1);
+  background: #0284c7;
+  border: 3px solid #1e1b4b;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: #ffffff;
   flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
 }
 
 .ntf-principal-info h4 {
   font-family: var(--font-subtopic);
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   color: #222c67 !important;
-  margin: 0 0 2px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 6px 0;
 }
 
 .ntf-principal-info .p-deg {
-  font-size: 0.85rem;
-  color: #0f3849 !important;
-  font-weight: 600;
-  margin: 0 0 2px 0;
+  font-size: 1rem;
+  color: #38bdf8 !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
 }
 
 .ntf-principal-info .p-role {
-  font-size: 0.8rem;
-  color: #0f386e !important;
-  font-weight: 500;
+  font-size: 0.95rem;
+  color: #222c67 !important;
+  font-weight: 600;
   margin: 0;
 }
 
@@ -396,6 +413,7 @@
   .non-teaching-page {
     padding-top: 120px !important;
   }
+
   .ntf-title {
     font-size: 1.8rem;
   }
@@ -486,3 +504,24 @@ body.dark-mode .ntf-no-results h3,
   color: #f8fafc !important;
 }
 
+body.dark-mode .ntf-principal-strip,
+.dark .ntf-principal-strip {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .ntf-principal-info h4,
+.dark .ntf-principal-info h4 {
+  color: #f8fafc !important;
+}
+
+body.dark-mode .ntf-principal-info .p-deg,
+.dark .ntf-principal-info .p-deg {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .ntf-principal-info .p-role,
+.dark .ntf-principal-info .p-role {
+  color: #94a3b8 !important;
+}

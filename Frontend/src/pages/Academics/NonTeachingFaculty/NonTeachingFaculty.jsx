@@ -74,19 +74,14 @@ const getInitials = (name) => {
 
 const NonTeachingFaculty = () => {
   const [activeDept, setActiveDept] = useState("All");
-  const [searchTerm, setSearchTerm] = useState("");
 
-  // Flatten staff list for "All" view or filter by active department & search term
+  // Flatten staff list for "All" view or filter by active department
   const allStaff = Object.entries(departmentData).flatMap(([deptKey, staffList]) => 
     staffList.map(s => ({ ...s, deptKey }))
   );
 
   const filteredStaff = allStaff.filter(staff => {
-    const matchesDept = activeDept === "All" || staff.deptKey === activeDept;
-    const matchesSearch = staff.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          staff.position.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          staff.dept.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesDept && matchesSearch;
+    return activeDept === "All" || staff.deptKey === activeDept;
   });
 
   const totalStaffCount = allStaff.length;
@@ -148,17 +143,7 @@ const NonTeachingFaculty = () => {
 
         {/* INTERACTIVE CONTROLS: SEARCH & DEPARTMENT TABS */}
         <div className="ntf-controls-wrapper">
-          {/* SEARCH BAR */}
-          <div className="ntf-search-wrapper">
-            <FaSearch className="ntf-search-icon" />
-            <input 
-              type="text" 
-              placeholder="Search staff name, designation, or department..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="ntf-search-input"
-            />
-          </div>
+
 
           {/* DEPARTMENT TABS */}
           <div className="ntf-tabs-row">

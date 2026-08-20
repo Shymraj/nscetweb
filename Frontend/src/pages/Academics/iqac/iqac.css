@@ -132,11 +132,34 @@
 
 /* Principal Strip — outside the dark card */
 .iqac-principal-strip {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 1.2rem;
   margin-bottom: 3rem;
-  padding: 1rem 0;
+  padding: 1.2rem 1.8rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.1);
+  border: 1px solid rgba(2, 132, 199, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.iqac-principal-strip:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.15);
+  border-color: rgba(2, 132, 199, 0.3);
+}
+
+.iqac-principal-strip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0284c7, #0369a1);
 }
 
 .iqac-principal-avatar {

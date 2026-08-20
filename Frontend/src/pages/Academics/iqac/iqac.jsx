@@ -112,19 +112,6 @@ const getInitials = (name) => {
 };
 
 const IQAC = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  // Flatten committee members for search
-  const allMembers = committeeSections.flatMap(section => 
-    section.items.map(item => ({ ...item, category: section.title }))
-  );
-
-  const filteredMembers = allMembers.filter(m => 
-    m.label.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    m.detail.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    m.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
     <div className="iqac-page">
       <div className="iqac-container">
@@ -180,39 +167,7 @@ const IQAC = () => {
           </div>
         </motion.div>
 
-        {/* SEARCH CONTROLS */}
-        <div className="iqac-search-wrapper">
-          <FaSearch className="iqac-search-icon" />
-          <input 
-            type="text" 
-            placeholder="Search committee member, designation, or department..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="iqac-search-input"
-          />
-        </div>
-
         {/* COMMITTEE SECTIONS (R&D STYLE SHOWCASE) */}
-        {searchTerm ? (
-          /* SEARCH RESULTS VIEW */
-          <div className="iqac-search-results">
-            <h2 className="iqac-section-title">Search Results ({filteredMembers.length})</h2>
-            <div className="iqac-member-grid">
-              {filteredMembers.map((member, idx) => (
-                <div key={idx} className="iqac-member-card">
-                  <div className="iqac-avatar-circle">{getInitials(member.label)}</div>
-                  <div className="iqac-member-info">
-                    <h4>{member.label}</h4>
-                    <span className="iqac-detail-badge">{member.detail}</span>
-                    <span className="iqac-category-tag">{member.category}</span>
-                  </div>
-                  <FaCheckCircle className="iqac-check-icon" />
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : (
-          /* CATEGORIZED COMMITTEE SECTIONS */
           <div className="iqac-committee-grid">
             {committeeSections.map((section, sIdx) => (
               <motion.div 
@@ -245,7 +200,6 @@ const IQAC = () => {
               </motion.div>
             ))}
           </div>
-        )}
 
         {/* IQAC MEETING RECORDS SECTION */}
         <motion.div 
