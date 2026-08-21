@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 .al-page-container {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: #f8fafc;
   color: #334155;
   width: 100%;
@@ -19,322 +20,693 @@
   text-align: center;
 }
 
-.al-hero-banner h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
+/* ================= ABOUT OUR ACADEMIC LEADERSHIP FEATURED CARD ================= */
+.al-about-card {
+  display: flex;
+  position: relative;
+  background: #ffffff;
+  max-width: 1180px;
+  margin: 40px auto 60px auto;
+  border-radius: 22px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  min-height: 220px;
+  align-items: stretch;
+}
+
+/* Left Section: Deep Navy with Curved Right Edge & Golden Arc Trim */
+.al-about-left-section {
+  position: relative;
+  width: 200px;
+  background: linear-gradient(135deg, #03132e 0%, #0b2e6f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: visible;
+  z-index: 2;
+  border-radius: 22px 0 0 22px;
+}
+
+/* Golden Arc Trim Curve on Right Side of Left Banner */
+.al-about-left-section::after {
+  content: '';
+  position: absolute;
+  top: -15%;
+  right: -55px;
+  width: 150px;
+  height: 130%;
+  background: linear-gradient(135deg, #03132e 0%, #0b2e6f 100%);
+  border-radius: 50%;
+  border-right: 3.5px solid #d97706;
+  box-shadow: 4px 0 15px rgba(217, 119, 6, 0.25);
+  z-index: 1;
+}
+
+/* Circular Icon Badge Overlay */
+.al-about-icon-badge {
+  position: relative;
+  z-index: 5;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -45px;
+}
+
+.al-about-badge-icon {
+  font-size: 3rem;
+  color: #0b2e6f;
+  filter: drop-shadow(0 2px 4px rgba(11, 46, 111, 0.2));
+}
+
+/* Right Section: Crisp Content Area */
+.al-about-right-section {
+  flex: 1;
+  padding: 32px 45px 32px 65px;
+  text-align: left;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* Dot Grid Watermark in Top Right */
+.al-about-dot-grid {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  width: 100px;
+  height: 48px;
+  background-image: radial-gradient(#cbd5e1 1.8px, transparent 1.8px);
+  background-size: 10px 10px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Emblem Watermark in Bottom Right */
+.al-about-emblem-watermark {
+  position: absolute;
+  bottom: -25px;
+  right: 15px;
+  font-size: 10rem;
+  color: #f1f5f9;
+  opacity: 0.6;
+  pointer-events: none;
+  transform: rotate(-10deg);
+  z-index: 1;
+}
+
+.al-about-header-text {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 12px;
+}
+
+.al-about-subtitle {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  color: #d97706;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.al-about-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #051630;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+/* Title Underline Indicator (Line + Dot) */
+.al-about-title-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.al-about-line {
+  width: 42px;
+  height: 3.5px;
+  background-color: #d97706;
+  border-radius: 2px;
+}
+
+.al-about-dot {
+  width: 4.5px;
+  height: 4.5px;
+  background-color: #051630;
+  border-radius: 50%;
+}
+
+/* Paragraph Text */
+.al-about-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #334155;
   margin: 0;
+  position: relative;
+  z-index: 2;
+  max-width: 840px;
 }
 
-.al-about-banner {
-  background-color: #ffffff;
-  max-width: 1200px;
-  margin: 40px auto 50px auto;
-  padding: 40px 20px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  border-radius: 16px;
-}
-
-.al-about-content {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.al-about-banner p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #475569;
-  margin: 0;
-}
-
-.al-about-banner strong {
-  color: #0f172a;
+.al-about-text strong {
+  color: #0d3b8e;
+  font-weight: 700;
 }
 
 .al-section-wrapper {
-  max-width: 1200px;
-  margin: 0 auto 50px auto;
+  max-width: 1240px;
+  margin: 0 auto 60px auto;
   padding: 0 20px;
 }
 
 .al-section-title {
   text-align: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1e3a8a;
-  margin-bottom: 40px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #051630;
+  margin-bottom: 38px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  position: relative;
+  display: block;
 }
 
+/* ================= SPLIT CONTAINER (2 CARDS IN 1 ROW) ================= */
+.al-split-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 24px;
+  justify-content: center;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.al-split-container .al-admin-card {
+  flex: 1;
+  min-width: 0;
+  max-width: 460px;
+}
+
+/* ================= HOD GRID (4 CARDS ROW) ================= */
+.al-hod-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* ================= GENERAL CARD STYLING (REST STATE = IMAGE 1) ================= */
 .al-card {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.al-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-}
-
-.al-hex-wrapper {
-  flex-shrink: 0;
+  border-radius: 20px;
+  border: 1.5px solid transparent;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  position: relative;
+  overflow: hidden;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  box-sizing: border-box;
 }
 
-.al-hex-outer {
-  width: 200px;
-  height: 220px;
-  border-radius: 40px; 
+.al-admin-card {
+  padding: 36px 28px;
+  border: 1.5px solid #3a4b5c;
+}
+
+.al-hod-card {
+  padding: 24px 18px 20px 18px;
+  height: 100%;
+}
+
+/* CARD ON HOVER (DARK BORDER APPEARS = IMAGE 2) */
+.al-card:hover {
+  transform: translateY(-6px);
+  border-color: #3a4b5c;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Thin Top Accent Bar */
+.al-card-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.5px;
+  background-color: #3a4b5c !important;
+  transition: height 0.3s ease;
+}
+
+.al-card:hover .al-card-top-bar {
+  height: 5.5px;
+}
+
+/* Circular Profile Avatar Ring */
+.al-avatar-ring {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
   padding: 3px;
-  background: #cbd5e1;
-}
-
-.al-hex-inner {
-  width: 100%;
-  height: 100%;
-  border-radius: 37px; 
   background-color: #ffffff;
-  overflow: hidden; 
+  border: 1.5px solid #3a4b5c;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  margin: 10px auto 12px auto;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.al-hex-inner img {
+.al-admin-card .al-avatar-ring {
+  width: 130px;
+  height: 130px;
+  margin: 10px auto 16px auto;
+}
+
+.al-card:hover .al-avatar-ring {
+  transform: scale(1.04);
+  border-color: #3a4b5c;
+  box-shadow: 0 6px 18px rgba(58, 75, 92, 0.15);
+}
+
+.al-avatar-ring img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   object-fit: cover;
-  object-position: center top; 
-  border-radius: 37px;
+  object-position: center top;
 }
 
+/* Typography Inside Card */
 .al-name {
-  color: #0f172a;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 5px 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #1d4ed8;
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 2px 0 3px 0;
+  line-height: 1.3;
+}
+
+.al-admin-card .al-name {
+  font-size: 1.35rem;
+  margin: 4px 0 8px 0;
 }
 
 .al-role {
-  color: #ea580c;
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #948473;
+  font-size: 0.66rem;
+  font-weight: 700;
   text-transform: uppercase;
-  margin: 0 0 10px 0;
+  letter-spacing: 0.6px;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  min-height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.al-role-sep {
+  width: 24px;
+  height: 2px;
+  background-color: #e2dad0;
+  margin: 2px auto 10px auto;
+  border-radius: 1px;
+}
+
+/* Department Banner Box */
+.al-dept-banner-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background-color: #f8faff;
+  border: 1px solid #e2e8f0;
+  box-sizing: border-box;
+  min-height: 52px;
+  margin-top: auto;
+  margin-bottom: 0;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.al-card:hover .al-dept-banner-box {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.al-dept-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #3a4b5c !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.al-card:hover .al-dept-icon-box {
+  transform: scale(1.12);
+  background-color: #ffffff !important;
+}
+
+.al-dept-banner-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #051630;
+  line-height: 1.35;
+  flex: 1;
+  text-align: left;
 }
 
 .al-dept-name {
-  color: #1e3a8a;
-  font-size: 0.95rem;
   margin-bottom: 12px;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.al-dept-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f4ff;
+  color: #1d4ed8;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: 20px;
+  border: 1px solid #dbeafe;
+  line-height: 1.35;
+  text-align: center;
+  max-width: 100%;
 }
 
 .al-points {
   text-align: left;
-  padding-left: 20px;
+  padding-left: 18px;
   color: #475569;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.55;
   margin: 0;
+  width: 100%;
 }
 
 .al-points li {
   margin-bottom: 6px;
 }
 
-.al-split-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+/* Qualification Pill Footer */
+.al-qual-footer {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
+  gap: 6px;
+  margin: 4px auto 12px auto;
+  padding: 5px 14px;
+  background-color: #ffffff;
+  border: 1.5px solid #3a4b5c;
+  border-radius: 16px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #3a4b5c;
+  width: fit-content;
+  max-width: 90%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-.al-admin-card {
-  flex: 1;
-  min-width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.al-card:hover .al-qual-footer {
+  border-color: #3a4b5c;
+  background-color: #f8faff;
+  color: #3a4b5c;
+  transform: translateY(-1px);
 }
 
-.al-admin-card .al-hex-wrapper {
-  margin-bottom: 20px;
-}
-
-.al-admin-card .al-points {
-  text-align: left;
-  display: inline-block;
-}
-
-.al-admin-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.al-zigzag-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.al-zigzag-row {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.al-row-left {
-  flex-direction: row;
-}
-
-.al-row-right {
-  flex-direction: row-reverse;
-}
-
-.al-text-content {
-  flex: 1;
+.al-qual-icon {
+  color: #3a4b5c !important;
+  font-size: 0.85rem;
+  flex-shrink: 0;
 }
 
 .al-divider {
-  width: 80%;
+  width: 75%;
   max-width: 800px;
-  margin: 0 auto 50px auto;
+  margin: 0 auto 55px auto;
   border: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+  background: linear-gradient(to right, transparent, #e2e8f0, transparent);
 }
 
-@media (max-width: 900px) {
-  .al-zigzag-row, .al-admin-stack .al-zigzag-row {
-    flex-direction: column;
-    text-align: center;
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .al-hod-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .al-text-content {
-    display: flex;
+}
+
+@media (max-width: 768px) {
+  .al-split-container {
     flex-direction: column;
     align-items: center;
   }
-  .al-points {
-    text-align: left;
+
+  .al-split-container .al-admin-card {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
-.al-dept-label {
-  color: #64748b;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.al-dept-badge {
-  display: inline-block;
-  background-color: #e0e7ff; 
-  color: #1e3a8a; 
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 8px; 
-  margin-top: 6px;
-  font-size: 0.95rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
-  transition: all 0.3s ease;
-}
-
-.al-dept-badge:hover {
-  background-color: #1e3a8a; 
-  color: #ffffff; 
-  transform: translateY(-2px) scale(1.05); 
-  box-shadow: 0 6px 12px rgba(30, 58, 138, 0.2); 
-  cursor: default; 
-}
-
-/* React Bits Style - Animated List Spring Effect */
-@keyframes reactBitsSpring {
-  0% {
-    opacity: 0;
-    transform: scale(0.6) translateY(50px);
-  }
-  70% {
-    opacity: 1;
-    transform: scale(1.02) translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+@media (max-width: 600px) {
+  .al-hod-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-.al-card-animate {
-  opacity: 0; 
-  animation: reactBitsSpring 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-
-/* ---------- Dark Mode ---------- */
-body.dark-mode .al-page-container {
-  background-color: #0f172a;
+/* ================= ULTRA-PROFESSIONAL DARK MODE ================= */
+body.dark-mode .al-page-container,
+[data-theme="dark"] .al-page-container {
+  background-color: #0b1329;
   color: #f1f5f9;
 }
 
-body.dark-mode .al-about-banner,
-body.dark-mode .al-card {
-  background-color: #1e293b;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+body.dark-mode .al-about-card,
+[data-theme="dark"] .al-about-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
 }
 
-body.dark-mode .al-card:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+body.dark-mode .al-about-right-section,
+[data-theme="dark"] .al-about-right-section {
+  background: #1e293b;
 }
 
-body.dark-mode .al-about-banner p,
-body.dark-mode .al-points {
-  color: #cbd5e1;
+body.dark-mode .al-about-icon-badge,
+[data-theme="dark"] .al-about-icon-badge {
+  background: #0f172a;
+  border-color: #1e293b;
 }
 
-body.dark-mode .al-about-banner strong,
-body.dark-mode .al-name {
-  color: #f1f5f9;
-}
-
-body.dark-mode .al-section-title {
+body.dark-mode .al-about-badge-icon,
+[data-theme="dark"] .al-about-badge-icon {
   color: #60a5fa;
 }
 
-body.dark-mode .al-role {
+body.dark-mode .al-about-subtitle,
+[data-theme="dark"] .al-about-subtitle {
   color: #fb923c;
 }
 
-body.dark-mode .al-dept-name {
+body.dark-mode .al-about-title,
+[data-theme="dark"] .al-about-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .al-about-line,
+[data-theme="dark"] .al-about-line {
+  background-color: #fb923c;
+}
+
+body.dark-mode .al-about-dot,
+[data-theme="dark"] .al-about-dot {
+  background-color: #60a5fa;
+}
+
+body.dark-mode .al-about-text,
+[data-theme="dark"] .al-about-text {
+  color: #cbd5e1;
+}
+
+body.dark-mode .al-about-text strong,
+[data-theme="dark"] .al-about-text strong {
   color: #93c5fd;
 }
 
-body.dark-mode .al-hex-outer {
-  background: #334155;
+body.dark-mode .al-about-dot-grid,
+[data-theme="dark"] .al-about-dot-grid {
+  background-image: radial-gradient(#475569 1.8px, transparent 1.8px);
 }
 
-body.dark-mode .al-hex-inner {
-  background-color: #1e293b;
+body.dark-mode .al-about-emblem-watermark,
+[data-theme="dark"] .al-about-emblem-watermark {
+  color: #0f172a;
+  opacity: 0.5;
 }
 
-body.dark-mode .al-divider {
-  background: linear-gradient(to right, transparent, #334155, transparent);
+body.dark-mode .al-section-title,
+[data-theme="dark"] .al-section-title {
+  color: #60a5fa;
+  background: none;
+  -webkit-text-fill-color: initial;
 }
 
-body.dark-mode .al-dept-label {
+/* Dark Mode Cards Styling */
+body.dark-mode .al-card,
+[data-theme="dark"] .al-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .al-admin-card,
+[data-theme="dark"] .al-admin-card {
+  border-color: #475569;
+}
+
+body.dark-mode .al-card:hover,
+[data-theme="dark"] .al-card:hover {
+  border-color: #60a5fa;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px #60a5fa;
+}
+
+body.dark-mode .al-card-top-bar,
+[data-theme="dark"] .al-card-top-bar {
+  background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%) !important;
+}
+
+body.dark-mode .al-avatar-ring,
+[data-theme="dark"] .al-avatar-ring {
+  background-color: #0f172a;
+  border-color: #475569;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .al-card:hover .al-avatar-ring,
+[data-theme="dark"] .al-card:hover .al-avatar-ring {
+  border-color: #60a5fa;
+  box-shadow: 0 6px 20px rgba(96, 165, 250, 0.3);
+}
+
+body.dark-mode .al-name,
+[data-theme="dark"] .al-name {
+  color: #60a5fa;
+}
+
+body.dark-mode .al-role,
+[data-theme="dark"] .al-role {
   color: #94a3b8;
 }
 
-body.dark-mode .al-dept-badge {
-  background-color: #1e3a8a;
-  color: #e0e7ff;
+body.dark-mode .al-role-sep,
+[data-theme="dark"] .al-role-sep {
+  background-color: #334155;
 }
 
-body.dark-mode .al-dept-badge:hover {
-  background-color: #3b82f6;
+body.dark-mode .al-dept-badge,
+[data-theme="dark"] .al-dept-badge {
+  background-color: rgba(30, 58, 138, 0.6);
+  color: #93c5fd;
+  border-color: #1e40af;
+}
+
+body.dark-mode .al-card:hover .al-dept-badge,
+[data-theme="dark"] .al-card:hover .al-dept-badge {
+  background-color: #2563eb;
   color: #ffffff;
+  border-color: #3b82f6;
+}
+
+body.dark-mode .al-dept-banner-box,
+[data-theme="dark"] .al-dept-banner-box {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+
+body.dark-mode .al-dept-icon-box,
+[data-theme="dark"] .al-dept-icon-box,
+body.dark-mode .al-card:hover .al-dept-icon-box,
+[data-theme="dark"] .al-card:hover .al-dept-icon-box {
+  background-color: #1e293b !important;
+  color: #60a5fa !important;
+}
+
+body.dark-mode .al-dept-banner-text,
+[data-theme="dark"] .al-dept-banner-text {
+  color: #f8fafc !important;
+}
+
+body.dark-mode .al-points,
+[data-theme="dark"] .al-points {
+  color: #cbd5e1;
+}
+
+body.dark-mode .al-qual-footer,
+[data-theme="dark"] .al-qual-footer {
+  background-color: #0f172a;
+  border-color: #334155;
+  color: #94a3b8;
+}
+
+body.dark-mode .al-qual-icon,
+[data-theme="dark"] .al-qual-icon {
+  color: #60a5fa !important;
+}
+
+body.dark-mode .al-card:hover .al-qual-footer,
+[data-theme="dark"] .al-card:hover .al-qual-footer {
+  border-color: #60a5fa;
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+body.dark-mode .al-divider,
+[data-theme="dark"] .al-divider {
+  background: linear-gradient(to right, transparent, #334155, transparent);
 }

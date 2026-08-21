@@ -70,12 +70,14 @@ body.dark-mode .ispin-heading {
 .ispin-heading span {
     background: linear-gradient(135deg, #0d3b8e 0%, #ff7a00 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 body.dark-mode .ispin-heading span {
     background: linear-gradient(135deg, #FFD700 0%, #ff7a00 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -89,7 +91,7 @@ body.dark-mode .ispin-heading span {
 body.dark-mode .ispin-desc {
     color: #94a3b8;
 }
-
+ 
 .ispin-highlights {
     display: flex;
     flex-direction: column;

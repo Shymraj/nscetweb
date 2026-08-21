@@ -937,9 +937,11 @@ const PlacementsManager = () => {
   const [photo, setPhoto] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL || `${window.location.protocol}//${window.location.hostname}:5000`;
+
   const fetchImages = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/placements');
+      const res = await axios.get(`${API_BASE_URL}/api/admin/placements`);
       setImages(res.data.data || []);
     } catch (error) {
       console.error(error);
@@ -954,7 +956,7 @@ const PlacementsManager = () => {
     const formData = new FormData();
     formData.append('photo', photo);
     try {
-      await axios.post('http://localhost:5000/api/admin/placements', formData);
+      await axios.post(`${API_BASE_URL}/api/admin/placements`, formData);
       setPhoto(null);
       fetchImages();
       alert('Upload successful.');
@@ -970,7 +972,7 @@ const PlacementsManager = () => {
   const handleDeleteImage = async (id) => {
     if (window.confirm("Are you sure you want to delete this placement image?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/placements/${id}`);
+        await axios.delete(`${API_BASE_URL}/api/admin/placements/${id}`);
         fetchImages();
       } catch (error) {
         console.error(error);
@@ -1038,14 +1040,14 @@ const PlacementsManager = () => {
           ) : (
             images.map((img) => (
                <div key={img.id} className="staff-card admin-placement-card">
-                 <img src={`http://localhost:5000${img.image_url}`} alt="Placement" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                 <img src={`${API_BASE_URL}${img.image_url}`} alt="Placement" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
                  
                  <div className="placement-overlay">
                    <div className="placement-actions">
                      <button 
                        type="button"
                        className="admin-photo-btn"
-                       onClick={() => setPreviewImage(`http://localhost:5000${img.image_url}`)}
+                       onClick={() => setPreviewImage(`${API_BASE_URL}${img.image_url}`)}
                      >
                        <FaEye /> View
                      </button>

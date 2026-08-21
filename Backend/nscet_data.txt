@@ -1,3 +1,52 @@
-College  Name : Nadar Saraswathi College of Engineering and Technology
-Location : Theni
-AI Code : 5865
+College Name: Nadar Saraswathi College of Engineering and Technology (NSCET)
+Location: Vadapudupatti, Annanji (PO), Theni - 625531, Tamil Nadu, India.
+TNEA Counselling Code: 5865
+Affiliation & Approval: Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai. Managed by Theni Melapettai Hindu Nadargal Uravinmurai (TMHNU).
+
+UG Courses (B.E. / B.Tech):
+- B.E. Civil Engineering
+- B.E. Computer Science and Engineering (CSE)
+- B.E. Electrical and Electronics Engineering (EEE)
+- B.E. Electronics and Communication Engineering (ECE)
+- B.E. Mechanical Engineering
+- B.Tech Artificial Intelligence and Data Science (AI & DS)
+- B.Tech Information Technology (IT)
+
+PG Courses (M.E.):
+- M.E. Structural Engineering (Civil)
+- M.E. Computer Science and Engineering (CSE)
+- M.E. VLSI Design (ECE)
+- M.E. Manufacturing Engineering (Mechanical)
+
+Departments:
+- Department of Civil Engineering
+- Department of Computer Science and Engineering
+- Department of Electrical and Electronics Engineering
+- Department of Electronics and Communication Engineering
+- Department of Mechanical Engineering
+- Department of Artificial Intelligence and Data Science
+- Department of Information Technology
+- Department of Science and Humanities
+
+Facilities:
+- Smart Classrooms & Modern Laboratories
+- Central Library with Digital Access
+- High-Speed Campus Wi-Fi
+- Separate Hostels for Boys & Girls with 24/7 Security and Nutritious Food
+- Fleet of College Buses covering Theni and nearby surrounding regions
+- Sports Complex, Gymnasium & Indoor Games
+- Hygienic Cafeteria & Auditorium
+
+Admissions & Enquiries:
+- You can fill out the Admission Enquiry Form directly on our website Home Page for quick callback and assistance!
+- UG Admissions via TNEA Counselling (Code: 5865) and Management Quota based on +2 marks (Physics, Chemistry, Maths).
+- PG Admissions via TANCET / CEETA-PG / GATE scores and Management Quota.
+
+Placements:
+- Dedicated Training & Placement Cell providing aptitude, soft skills, and technical interview training.
+- Strong placement track record with top recruiting companies.
+
+Contact Details:
+- Phone: 04546 - 263900 / 263901 / 263902
+- Email: principal@nscet.org / info@nscet.org
+- Website: www.nscet.org
