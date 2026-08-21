@@ -179,3 +179,61 @@
   justify-content: center;
   align-items: center;
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .chatbot-container {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .chat-window {
+    width: 290px; /* Compressed width */
+    height: 380px; /* Compressed height */
+    bottom: 75px;
+    right: 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  }
+
+  .robot-model {
+    width: 60px; /* Slightly smaller robot on mobile */
+  }
+
+  .lets-talk-bubble {
+    font-size: 12px;
+    left: -70px;
+    padding: 6px 12px;
+  }
+
+  .chat-header {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .close-btn {
+    font-size: 24px !important;
+    right: 10px !important;
+    top: 5px !important;
+  }
+
+  .message-bubble {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .chat-footer {
+    padding: 8px;
+  }
+
+  .chat-footer input {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .chat-footer .send-btn {
+    width: 35px;
+    height: 35px;
+  }
+}

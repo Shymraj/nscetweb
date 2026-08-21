@@ -15,10 +15,12 @@ import {
   FaCheckCircle, 
   FaArrowRight, 
   FaCode, 
-  FaProjectDiagram 
+  FaProjectDiagram,
+  FaTimes,
+  FaExpand 
 } from "react-icons/fa";
 import ispinVideo from "../../assets/coe/ispin.mp4";
-import bannerBg from "../../assets/annual.jpg";
+import bannerBg from "./banner/ISPIN.png";
 import "./Ispin.css";
 
 const fadeUp = {
@@ -36,6 +38,7 @@ const staggerContainer = {
 
 const Ispin = () => {
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isVideoExpanded, setIsVideoExpanded] = useState(false);
   const videoRef = useRef(null);
 
   const togglePlay = () => {
@@ -158,7 +161,7 @@ const Ispin = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="video-card">
+              <div className="video-card" onClick={() => setIsVideoExpanded(true)} style={{ cursor: 'pointer' }}>
                 <video 
                   ref={videoRef}
                   src={ispinVideo}
@@ -168,7 +171,10 @@ const Ispin = () => {
                   playsInline
                   className="ispin-video"
                 />
-                <div className="video-overlay-bar">
+                <div className="video-overlay-expand">
+                  <FaExpand />
+                </div>
+                <div className="video-overlay-bar" onClick={(e) => e.stopPropagation()}>
                   <div className="video-info">
                     <span className="video-dot"></span>
                     <span>ISPIN Showcase Video</span>
@@ -294,6 +300,29 @@ const Ispin = () => {
         </section>
 
       </div>
+      
+      {/* ================= VIDEO MODAL ================= */}
+      {isVideoExpanded && (
+        <div className="ispin-video-modal-overlay" onClick={() => setIsVideoExpanded(false)}>
+          <button className="ispin-video-modal-close" onClick={() => setIsVideoExpanded(false)} aria-label="Close Modal">
+            <FaTimes />
+          </button>
+          <motion.div 
+            className="ispin-video-modal-content" 
+            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <video 
+              src={ispinVideo}
+              autoPlay
+              controls
+              className="ispin-modal-video"
+            />
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };

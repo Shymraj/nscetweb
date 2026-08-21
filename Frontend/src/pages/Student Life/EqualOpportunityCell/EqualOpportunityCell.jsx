@@ -2,6 +2,7 @@ import React from 'react';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaBullseye, FaTasks, FaLightbulb, FaFilePdf, FaCheckCircle, FaUserTie } from 'react-icons/fa';
 import './EqualOpportunityCell.css';
+import bannerImg from './banner/EqualOpportunityCell.png';
 
 const EqualOpportunityCell = () => {
   return (
@@ -10,6 +11,7 @@ const EqualOpportunityCell = () => {
         title="Equal Opportunity Cell"
         subtitle="Promoting Equity and Inclusion at NSCET"
         hideBreadcrumb={false}
+        backgroundImage={bannerImg}
       />
       
       <div className="eoc-container">

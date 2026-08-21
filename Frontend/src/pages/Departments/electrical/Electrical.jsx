@@ -21,6 +21,7 @@ const bannerGlobs = import.meta.glob("./images/be_banner/*.{png,jpg,jpeg,webp,PN
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
 import electroblitzLogo from "./images/Electroblitz.png";
+import rightSideImg from "./Theme Img/EEE.png";
 
 import imgGanesh from "./images/ganesh.jpg";
 import imgRajaKarthick from "./images/raja_karthick.jpg";
@@ -181,8 +182,8 @@ const Electrical = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="Electrical Engineering Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="Electrical Engineering Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <FaBolt className="cse-placeholder-icon" />

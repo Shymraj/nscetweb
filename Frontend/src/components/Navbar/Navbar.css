@@ -1082,7 +1082,7 @@ body.dark-mode .mobile-menu-icon {
     .nav-links {
         position: fixed;
         top: 80px;
-        left: -100%;
+        left: -150%;
         width: 100%;
         height: max-content;
         max-height: 80vh;
@@ -1200,4 +1200,142 @@ body.dark-mode .search-result-item {
 body.dark-mode .search-result-item:hover {
     background: rgba(212, 175, 55, 0.12);
     color: #D4AF37;
+}
+
+/* ==========================================================================
+   MOBILE NAVBAR STRICT LAYOUT FIXES (< 768px)
+   ========================================================================== */
+@media screen and (max-width: 767px) {
+    /* 0. Hide the Top Contact Bar */
+    .topbar {
+        display: none !important;
+    }
+
+    /* 1. Main Navbar Container */
+    .navbar {
+        width: 100% !important;
+        left: 0 !important;
+        border-radius: 0 0 15px 15px !important;
+        padding: 0 12px !important;
+        height: 60px !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-top: none !important;
+    }
+
+    /* 2. Left Side: Logo & Brand */
+    .logo-section {
+        margin-left: 0 !important;
+        gap: 6px !important;
+        flex: 1; /* Allow it to take available space */
+        min-width: 0;
+    }
+    
+    .logo {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    .nscet-text {
+        font-size: 16px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0 !important;
+    }
+    
+    .college-name p {
+        display: none !important; /* Hide full name to save space */
+    }
+
+    /* 3. Right Side: Controls Container */
+    .nav-right {
+        margin-right: 0 !important;
+        gap: 6px !important;
+        flex-shrink: 0;
+    }
+
+    .nav-desktop-elements {
+        gap: 6px !important;
+    }
+
+    /* 4. Scale Down Control Buttons */
+    .search-btn, .theme-btn {
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px !important;
+        min-height: 30px !important;
+        font-size: 14px !important;
+        border-radius: 50% !important;
+    }
+
+    /* 5. Scale Down NAAC Logo */
+    .naac-logo {
+        height: 28px !important;
+        max-width: 70px !important;
+        margin-left: 2px !important;
+        object-fit: contain !important;
+    }
+
+    /* 6. Mobile Menu Icon (More ⋮/Hamburger) */
+    .mobile-menu-icon {
+        margin-left: 4px !important;
+        font-size: 20px !important;
+        padding: 4px !important;
+    }
+
+    /* 7. TNEA Badge Scaling & Positioning */
+    .tnea-badge-hanging {
+        right: 12px !important;
+        width: 80px !important;
+        padding: 8px 4px 10px 4px !important;
+        top: calc(100% - 1.5px) !important;
+    }
+    
+    .tnea-badge-number {
+        font-size: 14px !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .tnea-badge-title {
+        font-size: 8px !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    /* 8. Search Box Overlay Centering on Mobile */
+    .search-box {
+        position: fixed !important;
+        top: 65px !important;
+        left: 10px !important;
+        right: 10px !important;
+        width: calc(100vw - 20px) !important;
+        max-width: none !important;
+        transform: none !important;
+        height: 44px !important;
+    }
+}
+
+/* Extra Small Mobile Devices (< 360px) */
+@media screen and (max-width: 360px) {
+    .search-btn, .theme-btn {
+        width: 26px !important;
+        height: 26px !important;
+        min-width: 26px !important;
+        min-height: 26px !important;
+        font-size: 12px !important;
+    }
+    .naac-logo {
+        height: 22px !important;
+        max-width: 55px !important;
+    }
+    .nscet-text {
+        font-size: 14px !important;
+    }
+    .logo {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    .nav-desktop-elements, .nav-right {
+        gap: 4px !important;
+    }
 }

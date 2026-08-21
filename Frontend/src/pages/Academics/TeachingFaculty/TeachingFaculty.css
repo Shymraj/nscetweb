@@ -69,6 +69,7 @@
   position: relative;
   z-index: 2;
   flex: 1;
+  flex-shrink: 0;
   border: none;
   background: transparent;
   color: var(--tf-text-muted);
@@ -121,6 +122,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  flex-shrink: 0;
 }
 
 .tf-sub-nav-btn:hover {

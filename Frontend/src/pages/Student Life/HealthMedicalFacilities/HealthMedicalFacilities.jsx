@@ -5,6 +5,7 @@ import { FaHeartbeat, FaUserMd, FaClinicMedical, FaAmbulance, FaCalendarCheck, F
 import img1 from './image/img1.png';
 import img2 from './image/img2.png';
 import inchargeImage from './image/Vayalsamy.JPG';
+import bannerImg from './banner/HealthMedicalFacilities.png';
 
 const HealthMedicalFacilities = () => {
   const facilities = [
@@ -46,6 +47,7 @@ const HealthMedicalFacilities = () => {
         title="Health and Medical Facilities"
         subtitle="Student Life at NSCET"
         hideBreadcrumb={false}
+        backgroundImage={bannerImg}
       />
 
       <div className="hmf-container">

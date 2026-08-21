@@ -16,11 +16,10 @@ import FacultyProfileModal from "../../../components/common/FacultyProfileModal/
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
 import DepartmentHODProfile from "../../../components/common/DepartmentHODProfile/DepartmentHODProfile";
 
-// Auto-load civil banner image from ./images/banner/
-const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
-const bannerImg = Object.entries(bannerGlobs).find(([path]) => path.toLowerCase().includes("/civil.") || path.toLowerCase().endsWith("civil.png"))?.[1] || Object.values(bannerGlobs)[0] || null;
+import bannerImg from "./images/banner/civil.png";
 
 import imgNagarathinam from "./images/nagarathinam.jpg";
+import rightSideImg from "./Theme Img/CIVIL.png";
 import imgGayathri from "./images/gayathri.jpg";
 import imgShanmugapriyan from "./images/shanmugapriyan.jpg";
 import imgSowmiya from "./images/sowmiya.jpg";
@@ -182,8 +181,8 @@ const Civil = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="Civil Engineering Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="Civil Engineering Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <BsBuildingsFill className="cse-placeholder-icon" />

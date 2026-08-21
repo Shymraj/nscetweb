@@ -22,6 +22,7 @@ const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,J
 const bannerImg = Object.entries(bannerGlobs).find(([path]) => path.toLowerCase().includes("me_structural") || path.toLowerCase().includes("structural"))?.[1] || Object.values(bannerGlobs)[0] || null;
 
 import imgAnanthaKrishnan from "./images/ananthakrishnan.jpg";
+import rightSideImg from "./mestructural/Theme Img/structural_eng.png";
 import imgSindhu from "./images/sindhu.jpg";
 import imgBenita from "./images/Benita Photo.jpg";
 
@@ -159,8 +160,8 @@ const MEStructural = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="M.E. Structural Engineering Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="M.E. Structural Engineering Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <BsBuildingsFill className="cse-placeholder-icon" />

@@ -21,6 +21,7 @@ const bannerGlobs = import.meta.glob("./images/BE_banner/*.{png,jpg,jpeg,webp,PN
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
 import massLogo from "./images/mass.png";
+import rightSideImg from "./Tmeme Img/MECH.png";
 
 // Faculty images
 import imgRadhaKrishnan from "./images/radhakrishnan.jpg";
@@ -182,8 +183,8 @@ const Mechanical = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="Mechanical Engineering Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="Mechanical Engineering Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <FaCogs className="cse-placeholder-icon" />

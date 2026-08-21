@@ -3,6 +3,7 @@ import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaShieldAlt, FaBullhorn, FaUsers, FaGavel, FaPhone, FaExclamationTriangle, FaCheckCircle, FaFileAlt, FaExternalLinkAlt, FaHandPaper, FaEye } from 'react-icons/fa';
 import './AntiRaggingCell.css';
 import minutesPdf from './images/Anti Ragging Committee.pdf';
+import bannerImg from './banner/ANTIRAG.png';
 
 const committeeMembers = [
   { sno: 1, name: 'Dr. C. Mathalai Sundaram', designation: 'Principal', position: 'Chair Person' },
@@ -51,6 +52,7 @@ const AntiRaggingCell = () => {
         title="Anti-Ragging Cell"
         subtitle="Ensuring a Safe & Ragging-Free Campus"
         hideBreadcrumb={false}
+        backgroundImage={bannerImg}
       />
 
       <div className="arc-container">

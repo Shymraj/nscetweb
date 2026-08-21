@@ -641,3 +641,81 @@ body.dark-mode .features-list li {
         padding: 40px 16px;
     }
 }
+
+/* ================= VIDEO MODAL ================= */
+.ispin-video-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.ispin-video-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10001;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.ispin-video-modal-close:hover {
+    background: #ff7a00;
+    transform: scale(1.1);
+}
+
+.ispin-video-modal-content {
+    width: 100%;
+    max-width: 1000px;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(212, 175, 55, 0.4);
+}
+
+.ispin-modal-video {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    display: block;
+}
+
+.video-overlay-expand {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.video-card:hover .video-overlay-expand {
+    background: #ff7a00;
+}

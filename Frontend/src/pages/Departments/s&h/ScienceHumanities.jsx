@@ -21,6 +21,7 @@ const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,J
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
 import logo7thSense from "./images/seventh.png";
+import rightSideImg from "./Theme Img/S&H.png";
 
 // Faculty Imports
 import imgVembathuRajesh from "./images/vembathurajesh.png";
@@ -204,8 +205,8 @@ const ScienceHumanities = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="Science & Humanities Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="Science & Humanities Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <FaFlask className="cse-placeholder-icon" />

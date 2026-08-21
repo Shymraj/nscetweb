@@ -20,6 +20,7 @@ import DepartmentHODProfile from "../../../components/common/DepartmentHODProfil
 const bannerGlobs = import.meta.glob("./images/embbeded_banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
+import rightSideImg from "./meembedded/Theme Img/EMBEDDED SYSTEMS.png";
 
 
 import "../cse/CSE.css";
@@ -158,8 +159,8 @@ const MEEmbedded = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="M.E. Embedded Systems Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="M.E. Embedded Systems Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <FaMicrochip className="cse-placeholder-icon" />

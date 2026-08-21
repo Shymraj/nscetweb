@@ -25,26 +25,23 @@ export const electricalFacultyData = [
     experience: [
       "10.1 Years"
     ]},
-    {id: "mr-r-raja-karthick", slug: "mr-r-raja-karthick",  name: "Mr. R. Raja Karthick", desig: "Assistant Professor", qual: "M.E.", email: "rajakarthick@nscet.org", image: imgRajaKarthick, spec: "Power Electronics & Electric Drives", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mr-r-raja-karthick", slug: "mr-r-raja-karthick",  name: "R. RAJAKARTHICK", desig: "Assistant Professor", qual: "M.E.", email: "rajakarthick@nscet.org", image: imgRajaKarthick, spec: "Process Control & Industrial Instrumentation", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/rajakarthick-ramaraj-263a6546",
+    about: "R. Rajakarthick is a faculty member specializing in Process Control and Industrial Instrumentation, with 4 years and 4 months of professional experience. His academic interests include industrial process control and instrumentation technologies.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "2"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "1"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "1"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "1"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "4 Years 4 Months"
     ]},
     {id: "mrs-a-nishetha-jeflin-nixon", slug: "mrs-a-nishetha-jeflin-nixon",  name: "Mrs. A. Nishetha Jeflin Nixon", desig: "Assistant Professor", qual: "M.E.", email: "nishethajeflinnixon@nscet.org", image: imgNishetha, spec: "Control Systems & Embedded Microcontrollers", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",

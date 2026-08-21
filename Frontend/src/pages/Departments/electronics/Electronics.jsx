@@ -21,6 +21,7 @@ const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,J
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
 import echelonzLogo from "./images/ECHELONZ.png";
+import rightSideImg from "./Theme Img/ECE.png";
 
 import imgVenishkumar from "./images/venishkumar.jpg";
 import imgMathavan from "./images/Mathavan.jpg";
@@ -181,8 +182,8 @@ const Electronics = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="Electronics Engineering Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="Electronics Engineering Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <FaMicrochip className="cse-placeholder-icon" />

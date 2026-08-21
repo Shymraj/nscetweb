@@ -21,6 +21,7 @@ const bannerGlobs = import.meta.glob("./CSE_banner/*.{png,jpg,jpeg,webp,PNG,JPG,
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
 import fistLogo from "./images/fist.png";
+import rightSideImg from "./Theme Img/CSE.png";
 
 import imgMathalaiRaj from "./images/67dd26bfce3c4_mathalairaj.jpg";
 import imgVelkumar from "./images/69143b078344d_velkumar.JPG";
@@ -185,8 +186,8 @@ const CSE = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="CSE Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="CSE Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <FaLaptopCode className="cse-placeholder-icon" />

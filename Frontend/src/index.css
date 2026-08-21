@@ -1160,7 +1160,353 @@ body.dark-mode .non-teaching-dept-icon {
   color: #60a5fa !important;
 }
 
+body.dark-mode .ic-table th,
+body.dark-mode .ic-table td {
+  border-bottom-color: var(--theme-border) !important;
+}
+body.dark-mode .ic-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+body.dark-mode .ic-badge {
+  background-color: rgba(37, 99, 235, 0.2) !important;
+  color: #93c5fd !important;
+}
+
+/* 5. Entrepreneurship Development Cell */
+body.dark-mode .edc-about-box,
+body.dark-mode .split-card,
+body.dark-mode .edc-archives-section,
+body.dark-mode .team-card {
+  background: var(--theme-card) !important;
+  border-color: var(--theme-border) !important;
+}
+body.dark-mode .split-card.mission-card {
+  border-top-color: #f59e0b !important;
+}
+body.dark-mode .split-card.obj-card {
+  border-top-color: #10b981 !important;
+}
+body.dark-mode .edc-page-title,
+body.dark-mode .section-heading,
+body.dark-mode .edc-about-box h2,
+body.dark-mode .card-header h3,
+body.dark-mode .team-name {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+body.dark-mode .edc-about-box p,
+body.dark-mode .custom-list,
+body.dark-mode .custom-list li,
+body.dark-mode .archives-subtext {
+  color: #d1d5db !important;
+}
+body.dark-mode .team-dept {
+  color: #9ca3af !important;
+}
+body.dark-mode .card-header {
+  border-bottom-color: var(--theme-border) !important;
+}
+body.dark-mode .team-card:hover {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border-color: #3b82f6 !important;
+}
+body.dark-mode .archive-pill {
+  background-color: transparent !important;
+  color: #60a5fa !important;
+  border-color: #3b82f6 !important;
+}
+body.dark-mode .archive-pill:hover {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+body.dark-mode .profile-icon {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+body.dark-mode .role-coord {
+  background-color: rgba(253, 224, 71, 0.2) !important;
+  color: #fde047 !important;
+}
+body.dark-mode .role-member {
+  background-color: rgba(125, 211, 252, 0.2) !important;
+  color: #7dd3fc !important;
+}
+
+
+
+/* 6. Navbar Dropdown Fixes */
+body.dark-mode .dropdown-menu li a,
+body.dark-mode .sub-dropdown-menu li a,
+body.dark-mode .submenu-label {
+  color: #d1d5db !important;
+}
+
+body.dark-mode .dropdown-menu li a:hover,
+body.dark-mode .sub-dropdown-menu li a:hover,
+body.dark-mode .has-submenu:hover > .submenu-label {
+  background-color: rgba(212, 175, 55, 0.12) !important;
+  color: #D4AF37 !important;
+}
+
+/* =========================================
+   DARK MODE OVERRIDES for Teaching Faculty
+   ========================================= */
+body.dark-mode .tf-hod-card, 
+body.dark-mode .tf-staff-card, 
+body.dark-mode .tf-pill-nav-container {
+  background: var(--theme-card) !important;
+  border-color: var(--theme-border) !important;
+}
+
+body.dark-mode .tf-hod-name,
+body.dark-mode .tf-staff-name {
+  color: #ffffff !important;
+}
+
+body.dark-mode .tf-hod-position,
+body.dark-mode .tf-staff-pos {
+  color: #60a5fa !important; /* Lighter blue for dark mode */
+}
+
+body.dark-mode .tf-hod-dept,
+body.dark-mode .tf-staff-dept,
+body.dark-mode .tf-contact-item {
+  color: #9ca3af !important;
+}
+
+body.dark-mode .tf-sub-nav-btn:not(.active) {
+  background: var(--theme-card) !important;
+  color: #d1d5db !important;
+  border-color: var(--theme-border) !important;
+}
+
+body.dark-mode .tf-sub-nav-btn:not(.active):hover {
+  border-color: var(--theme-primary) !important;
+  color: var(--theme-primary) !important;
+}
+
+/* =========================================
+   DARK MODE OVERRIDES for Department Pages
+   ========================================= */
+body.dark-mode .bento-card:not(.primary), 
+body.dark-mode .glass-card, 
+body.dark-mode .course-card, 
+body.dark-mode .faculty-card {
+  background: var(--theme-card) !important;
+  border-color: var(--theme-border) !important;
+  color: var(--theme-text) !important;
+}
+
+body.dark-mode .bento-card.primary {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .glam-title {
+  color: #ffffff !important;
+}
+
+body.dark-mode .bento-card p, 
+body.dark-mode .glass-card p, 
+body.dark-mode .course-desc, 
+body.dark-mode .faculty-desig,
+body.dark-mode .faculty-email {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .bento-card h3,
+body.dark-mode .glass-card h3,
+body.dark-mode .course-title,
+body.dark-mode .faculty-name {
+  color: #ffffff !important;
+}
+
+/* =========================================
+   DARK MODE OVERRIDES for Non-Teaching Faculty
+   ========================================= */
+body.dark-mode .non-teaching-dept-card,
+body.dark-mode .non-teaching-staff-card {
+  background: var(--theme-card) !important;
+  border: 1px solid var(--theme-border) !important;
+  color: var(--theme-text) !important;
+}
+
+body.dark-mode .non-teaching-dept-card.active {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important;
+  border-color: transparent !important;
+}
+
+body.dark-mode .non-teaching-dept-name,
+body.dark-mode .non-teaching-staff-name {
+  color: #ffffff !important;
+}
+
+body.dark-mode .non-teaching-dept-count,
+body.dark-mode .non-teaching-staff-pos {
+  color: #9ca3af !important;
+}
+
+body.dark-mode .non-teaching-dept-card.active .non-teaching-dept-name,
+body.dark-mode .non-teaching-dept-card.active .non-teaching-dept-count,
+body.dark-mode .non-teaching-dept-card.active .non-teaching-dept-icon {
+  color: #ffffff !important;
+}
+
+body.dark-mode .non-teaching-dept-icon {
+  color: #60a5fa !important;
+}
+
 body.dark-mode .non-teaching-avatar {
   background: rgba(59, 130, 246, 0.15) !important;
   color: #60a5fa !important;
+}
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE BANNER RULE
+   Requirement: Hide ALL hero/page banners across the entire project on mobile
+   ========================================================================== */
+@media (max-width: 767px) {
+  .page-banner,
+  .hero {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+  }
+
+  /* Add top offset to the first content section immediately after the hidden banner
+     to compensate for the 60px fixed navbar on mobile */
+  .page-banner + *,
+  .hero + * {
+    margin-top: 60px !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE HOMEPAGE HERO
+   Requirement: Show a dedicated static mobile hero image on the Homepage 
+   instead of the hidden desktop banner.
+   ========================================================================== */
+.mobile-home-hero {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobile-home-hero {
+    display: block !important;
+    width: 100%;
+    position: relative;
+    /* margin-top is handled by .hero + * (60px) to seamlessly attach to navbar */
+  }
+  
+  .mobile-home-hero img {
+    width: 100%;
+    height: 55vh;
+    min-height: 440px; /* Increased slightly to comfortably fit all text */
+    object-fit: cover;
+    display: block;
+    border-radius: 0 0 15px 15px; /* optional aesthetic */
+  }
+  
+  /* Mobile Hero Text Overlay Styles */
+  .mobile-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%);
+    border-radius: 0 0 15px 15px;
+    padding: 20px 15px;
+    text-align: center;
+    z-index: 2;
+  }
+
+  .mobile-hero-content {
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-hero-trust {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #FFD700; /* Gold */
+    margin-bottom: 6px;
+    font-weight: 700;
+    font-family: var(--font-subtopic);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+  }
+
+  .mobile-hero-title {
+    font-size: 22px;
+    font-weight: 700; /* Match desktop Cinzel weight */
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 6px;
+    font-family: "Cinzel", serif; /* Match desktop font */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+  }
+
+  .mobile-hero-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #E0E7FF;
+    margin-bottom: 15px;
+    font-family: var(--font-body);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+  }
+
+  .mobile-hero-approvals {
+    font-size: 9px;
+    line-height: 1.4;
+    color: #e5e7eb;
+    margin-bottom: 18px;
+    font-family: var(--font-body);
+  }
+
+  .mobile-hero-approvals p {
+    margin: 0 0 2px 0;
+    padding: 0;
+  }
+
+  .mobile-hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .mobile-hero-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: 0.3s;
+  }
+
+  .mobile-hero-btn.primary {
+    background: #ff7a00;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 122, 0, 0.3);
+  }
+
+  .mobile-hero-btn.secondary {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+  }
 }

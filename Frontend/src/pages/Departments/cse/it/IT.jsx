@@ -21,6 +21,7 @@ const bannerGlobs = import.meta.glob("./banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
 import nexusLogo from "./images/nexus.jpg";
+import rightSideImg from "./Theme Img/IT.png";
 
 // Faculty Imports
 import imgPrathap from "./images/prathap.jpg";
@@ -177,8 +178,8 @@ const IT = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="IT Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="IT Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <FaLaptopCode className="cse-placeholder-icon" />

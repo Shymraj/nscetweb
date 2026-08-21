@@ -21,6 +21,7 @@ const bannerGlobs = import.meta.glob("./banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
 import aimLogo from "./images/aim.png";
+import rightSideImg from "./Theme Img/AD.png";
 
 // Faculty Imports
 import imgVignesh from "./images/vignesh.jpg";
@@ -182,8 +183,8 @@ const AIDS = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="AI & DS Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="AI & DS Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <FaBrain className="cse-placeholder-icon" />

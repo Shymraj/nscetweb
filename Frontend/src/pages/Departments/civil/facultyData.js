@@ -55,47 +55,35 @@ export const civilFacultyData = [
   {
     id: "gayathri",
     slug: "gayathri",
-    name: "Mrs. S. Gayathri",
+    name: "S. GAYATHRI",
     desig: "Assistant Professor",
     qual: "M.E., M.I.S.T.E.",
     email: "gayathri@nscet.org",
     image: imgGayathri,
-    spec: "Geotechnical & Soil Mechanics",
+    spec: "Hydraulic Engineering",
     objectPosition: "center 10%",
     highlights: [
       {
-        title: "Academic Qualification",
-        description: "M.E., M.I.S.T.E. specialized in Geotechnical Engineering and Soil Mechanics.",
-      },
-      {
-        title: "Laboratory Lead",
-        description: "In-charge of Geotechnical & Soil Mechanics Testing Laboratory.",
+        title: "Specialization",
+        description: "Hydraulic Engineering",
       },
       {
         title: "Contact",
-        description: "Email: gayathri@nscet.org · NSCET Civil Department.",
-      },
+        description: "Email: gayathri@nscet.org",
+      }
     ],
-    linkedin: "https://www.linkedin.com/in/gayathri-nscet",
-    about: "Mrs. S. Gayathri is an accomplished Geotechnical Engineer with a deep passion for soil mechanics and foundation engineering. With a focus on innovative ground improvement techniques and slope stability analysis, she has been instrumental in advancing the geotechnical testing capabilities at NSCET. Her commitment to education is reflected in her hands-on approach to mentoring students in both theoretical concepts and practical laboratory applications.",
+    linkedin: "http://www.linkedin.com/in/gayathri-sermakani-b309a519",
+    about: "S. Gayathri is a faculty member specializing in Hydraulic Engineering, with 9 years of professional experience. Her academic and research interests focus on hydraulic engineering and related areas.",
     publications: [
-      "Evaluation of Soil Stabilization Techniques using Industrial By-products — Geotechnical Engineering Journal, 2023",
-      "Analysis of Slope Stability in Hilly Terrains using Plaxis 2D — International Conference on Civil Engineering, 2022"
+      "1"
     ],
-    projects: [
-      "Geotechnical Investigation for Multi-Story Building Foundations",
-      "Subsoil Profiling and Bearing Capacity Assessment for Industrial Zones"
-    ],
-    patents: [
-      "Apparatus for Real-Time Monitoring of Soil Settlement (Filed - 2024)"
-    ],
+    projects: [],
+    patents: [],
     awards: [
-      "Excellence in Laboratory Instruction - 2023",
-      "Best Researcher in Geotechnical Engineering - 2022"
+      "1"
     ],
     experience: [
-      "Assistant Professor, Civil Engineering, NSCET (2018 - Present)",
-      "Geotechnical Design Engineer, SoilTech Solutions (2015 - 2018)"
+      "9 Years"
     ]
   },
   {

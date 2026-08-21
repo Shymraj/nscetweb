@@ -4,6 +4,7 @@ import { FaBus, FaMobileAlt, FaUserShield, FaDownload, FaMapMarkedAlt, FaMapMark
 import { motion } from 'framer-motion';
 import nagarajaImg from './images/nagaraja.jpg';
 import harikishoreImg from './images/harikishore.jpg';
+import bannerImg from './banner/TransportFacilities.png';
 import './TransportFacilities.css';
 
 const TransportFacilities = () => {
@@ -26,6 +27,7 @@ const TransportFacilities = () => {
         title="Transport Facilities"
         subtitle="Safe, Reliable & Punctual Commuting"
         hideBreadcrumb={false}
+        backgroundImage={bannerImg}
       />
 
       <div className="transport-container">

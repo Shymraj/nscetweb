@@ -1324,3 +1324,49 @@ body.dark-mode .structured-event-card:hover .action-arrow {
     right: 12px;
   }
 }
+
+/* ==========================================================================
+   MOBILE EVENT GALLERY HERO FIXES (< 768px)
+   ========================================================================== */
+@media screen and (max-width: 767px) {
+  .event-3d-header {
+    padding: 80px 20px 30px 20px; /* 80px top padding ensures it clears the 60px navbar */
+    align-items: flex-start; /* Left-align all content naturally */
+    text-align: left;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
+  }
+  
+  .back-to-events-btn {
+    position: relative; /* Change from absolute to relative to naturally stack in flex column */
+    top: 0;
+    left: 0;
+    margin-bottom: 20px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
+
+  .event-3d-header h1 {
+    font-size: 2rem; /* Scaled for mobile */
+    line-height: 1.25;
+    margin-bottom: 10px;
+    width: 100%;
+    word-wrap: break-word;
+    text-align: left;
+  }
+  
+  .event-3d-header p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .gallery-instruction-tip {
+    margin-top: 0;
+    align-self: flex-start; /* Force left alignment */
+    font-size: 0.8rem;
+    white-space: normal; /* Allow wrapping if needed */
+    text-align: left;
+    display: inline-block;
+  }
+}

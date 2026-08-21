@@ -3,6 +3,7 @@ import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaFilePdf, FaGavel, FaListAlt, FaEnvelopeOpenText, FaInfoCircle, FaUsers, FaBullseye, FaLink } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import PolicyPDF from './Grievance_Redressal_Policy.pdf';
+import bannerImg from './banner/GrievanceRedressal.png';
 import './GrievanceRedressal.css';
 
 const GrievanceRedressal = () => {
@@ -35,6 +36,7 @@ const GrievanceRedressal = () => {
         title="Grievance Redressal Committee"
         subtitle="Ensuring a Fair and Transparent Campus"
         hideBreadcrumb={false}
+        backgroundImage={bannerImg}
       />
       
       <div className="grc-container">

@@ -20,6 +20,7 @@ import DepartmentHODProfile from "../../../components/common/DepartmentHODProfil
 const bannerGlobs = import.meta.glob("./meCSE_banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
+import rightSideImg from "./mecse/Theme Img/MECSE.png";
 import imgSathya from "./images/sathya.jpeg";
 import imgKarthick from "./images/karthick.jpeg";
 
@@ -159,8 +160,8 @@ const MECSE = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="M.E. CSE Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="M.E. CSE Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <FaLaptopCode className="cse-placeholder-icon" />

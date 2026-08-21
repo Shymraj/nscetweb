@@ -22,6 +22,7 @@ const bannerImg = Object.values(bannerGlobs)[0] || null;
 
 import imgMathalaiSundaram from "./images/mathalai sundharam.png";
 import imgVennimalaiRajan from "./images/Vennimalairajan.jpg";
+import rightSideImg from "./memanufacturing/Theme Img/MEMECH.png";
 
 import "../cse/CSE.css";
 
@@ -159,8 +160,8 @@ const MEManufacturing = () => {
             variants={scaleUp}
           >
             <div className="cse-media-card">
-              {bannerImg ? (
-                <img src={bannerImg} alt="M.E. Manufacturing Engineering Department" className="cse-media-img" />
+              {rightSideImg ? (
+                <img src={rightSideImg} alt="M.E. Manufacturing Engineering Department" className="cse-media-img" />
               ) : (
                 <div className="cse-media-placeholder">
                   <FaIndustry className="cse-placeholder-icon" />

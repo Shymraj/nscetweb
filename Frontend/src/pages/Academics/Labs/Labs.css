@@ -126,6 +126,7 @@ body.dark-mode .tabs-container {
   transition: color 0.3s ease;
   white-space: nowrap;
   outline: none;
+  flex-shrink: 0;
 }
 
 body.dark-mode .tab-button {
