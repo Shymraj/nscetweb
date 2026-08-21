@@ -208,32 +208,184 @@
 
 
 
-.coe-process-image-wrapper {
+/* -------------------------------------
+   SECTION: Interactive Image and Modal
+------------------------------------- */
 
-  background: rgba(255, 255, 255, 0.9);
-
-  padding: 1rem;
-
-  border-radius: 12px;
-
+.coe-image-container {
+  width: 100%;
+  position: relative;
+  border-radius: 24px;
+  background: var(--card-bg, #ffffff);
   border: 1px solid rgba(245, 158, 11, 0.3);
-
-  text-align: center;
-
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.coe-image-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.5);
+}
 
+.coe-image-glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(252, 211, 77, 0.3));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
 
-.coe-process-image {
+.coe-image-container:hover .coe-image-glow {
+  opacity: 1;
+}
 
-  max-width: 100%;
+.coe-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 23px;
+  overflow: hidden;
+  background-color: #fffbeb;
+}
 
+.coe-roadmap-img {
+  width: 100%;
   height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
 
-  border-radius: 8px;
+.coe-image-container:hover .coe-roadmap-img {
+  transform: scale(1.02);
+}
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+.coe-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
 
+.coe-image-container:hover .coe-hover-overlay {
+  opacity: 1;
+}
+
+.coe-hover-overlay .zoom-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+.coe-hover-overlay span {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.image-placeholder {
+  width: 100%;
+  padding: 8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border-radius: 23px;
+  text-align: center;
+}
+
+.image-placeholder p {
+  font-size: 1.25rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Fullscreen Modal */
+.coe-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.coe-modal-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10001;
+}
+
+.coe-modal-close:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+.coe-modal-content {
+  max-width: 95vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coe-modal-img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile Overrides for Modal */
+@media (max-width: 768px) {
+  .coe-image-container {
+    padding: 0;
+  }
+  .coe-modal-close {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
 }
 
 

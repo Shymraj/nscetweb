@@ -302,7 +302,7 @@ const DetailedAnnualReport = () => {
           className="ar-report-header"
         >
           <span className="ar-report-subtitle">INTERNAL QUALITY ASSURANCE CELL (IQAC)</span>
-          <h2 className="ar-section-title">Annual Report (Academic Year 2023–24)</h2>
+          <h2 className="ar-section-title">Annual Report (Academic Year 2024–25)</h2>
           <div className="ar-underline"></div>
           <p className="ar-report-lead">
             Explore the detailed institutional report outlining academic achievements, research output, student progression, infrastructure investments and governance quality standards.
@@ -326,7 +326,7 @@ const DetailedAnnualReport = () => {
               </div>
               <h3 className="exec-plain-heading">Institutional Quality Overview</h3>
               <p className="exec-plain-desc">
-                The Internal Quality Assurance Cell (IQAC) plays a vital role in improving academic and administrative quality in accordance with NAAC guidelines. This report highlights the major activities and achievements of Nadar Saraswathi College of Engineering &amp; Technology during the Academic Year 2023–24.
+                The Internal Quality Assurance Cell (IQAC) plays a vital role in improving academic and administrative quality in accordance with NAAC guidelines. This report highlights the major activities and achievements of Nadar Saraswathi College of Engineering &amp; Technology during the Academic Year 2024–25.
               </p>
             </div>
 

@@ -32,18 +32,22 @@ function Principal({ hideBreadcrumb = false }) {
   }, []);
 
   return (
-    <div className="principal-page">
+    <div className={`principal-page ${hideBreadcrumb ? 'pr-home-view' : ''}`}>
       <div className="pr-container">
         
         {/* Centered Page Title & Breadcrumb Header */}
-        {!hideBreadcrumb && (
+        {!hideBreadcrumb ? (
         <div className="pr-header-centered">
-          <h1 className="pr-page-title">Principal Message</h1>
+          <h1 className="pr-page-title" style={{ fontFamily: 'var(--font-heading)' }}>Principal Message</h1>
           <div className="pr-breadcrumb">
             <a href="/" className="pr-breadcrumb-link">Home</a>
             <FaChevronRight className="pr-breadcrumb-icon" />
             <span className="pr-breadcrumb-current">Principal Message</span>
           </div>
+        </div>
+        ) : (
+        <div className="pr-home-header">
+          <h2 className="pr-home-title">PRINCIPAL</h2>
         </div>
         )}
 

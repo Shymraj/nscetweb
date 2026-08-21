@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import './ControllerOfExamination.css';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
-import { FaFileAlt, FaClipboardCheck, FaExclamationTriangle, FaUserTie, FaProjectDiagram, FaCertificate, FaUserGraduate, FaRupeeSign } from 'react-icons/fa';
+import { FaFileAlt, FaClipboardCheck, FaExclamationTriangle, FaUserTie, FaProjectDiagram, FaCertificate, FaUserGraduate, FaRupeeSign, FaSearchPlus, FaTimes } from 'react-icons/fa';
 import ganeshImg from './images/ganesh.jpg';
 import sivaganesanImg from './images/sivaganesan.jpg';
 import examCellPdf from './images/1 ExamCell Constitution FC.pdf';
@@ -47,6 +49,32 @@ const verificationSteps = [
 ];
 
 function ControllerOfExamination() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen, handleKeyDown]);
+
   return (
     <div className='coe-page'>
       <PageBanner
@@ -113,9 +141,35 @@ function ControllerOfExamination() {
             <h2>Exam Cell Process Chart</h2>
           </div>
           <div className='coe-content'>
-            <div className='coe-process-image-wrapper'>
-              <img src={examProcessImg} alt="Exam Cell Process Chart" className='coe-process-image' />
-            </div>
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7 }}
+              className="coe-image-container"
+              onClick={!imageError ? openModal : undefined}
+            >
+              <div className="coe-image-glow"></div>
+              
+              {!imageError ? (
+                <div className="coe-image-wrapper">
+                  <img 
+                    src={examProcessImg} 
+                    alt="Exam Cell Process Chart" 
+                    className="coe-roadmap-img"
+                    onError={() => setImageError(true)}
+                  />
+                  <div className="coe-hover-overlay">
+                    <FaSearchPlus className="zoom-icon" />
+                    <span>Click to Enlarge</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="image-placeholder">
+                  <p>Exam Cell Process Chart will be added here.</p>
+                </div>
+              )}
+            </motion.div>
           </div>
         </section>
 
@@ -247,6 +301,37 @@ function ControllerOfExamination() {
           </div>
         </section>
       </div>
+
+      {/* Fullscreen Modal */}
+      {createPortal(
+        <AnimatePresence>
+          {isOpen && !imageError && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="coe-modal-backdrop"
+              onClick={closeModal}
+            >
+              <button className="coe-modal-close" onClick={closeModal} aria-label="Close modal">
+                <FaTimes />
+              </button>
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                className="coe-modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img src={examProcessImg} alt="Exam Cell Process Chart Fullscreen" className="coe-modal-img" />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   );
 }

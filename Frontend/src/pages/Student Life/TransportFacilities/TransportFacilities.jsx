@@ -40,21 +40,21 @@ const TransportFacilities = () => {
           <motion.div className="transport-stat-card" variants={fadeInUp}>
             <div className="stat-icon-wrapper"><FaBus /></div>
             <div className="stat-info">
-              <h2>50+</h2>
+              <h2>20+</h2>
               <p>College Buses</p>
             </div>
           </motion.div>
           <motion.div className="transport-stat-card" variants={fadeInUp}>
             <div className="stat-icon-wrapper"><FaMapMarkedAlt /></div>
             <div className="stat-info">
-              <h2>25+</h2>
+              <h2>30+</h2>
               <p>Routes Covered</p>
             </div>
           </motion.div>
           <motion.div className="transport-stat-card" variants={fadeInUp}>
             <div className="stat-icon-wrapper"><FaUsers /></div>
             <div className="stat-info">
-              <h2>2000+</h2>
+              <h2>1000+</h2>
               <p>Daily Commuters</p>
             </div>
           </motion.div>

@@ -39,7 +39,7 @@ const tesla2 = tesla1;
 const stats = [
   {
     icon: <FaUserGraduate />,
-    number: "90%",
+    number: "97.97%",
     title: "Placement Rate",
     desc: "Consistent placement record with leading multinational companies.",
     color: "blue",
@@ -60,7 +60,7 @@ const stats = [
   },
   {
     icon: <FaBuilding />,
-    number: "20+",
+    number: "80+",
     title: "Recruiters",
     desc: "Top national & international companies visit our campus.",
     color: "purple",

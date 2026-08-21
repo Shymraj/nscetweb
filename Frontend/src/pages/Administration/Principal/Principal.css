@@ -489,3 +489,46 @@ body.dark-mode .pr-contact-item a {
 body.dark-mode .pr-contact-subicon {
   color: #38bdf8;
 }
+
+/* ==========================================================================
+   HOME PAGE SECTION HEADER MATCHING STYLES
+   ========================================================================== */
+
+.principal-page.pr-home-view {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.pr-home-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.pr-home-title {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 20px;
+  font-family: var(--font-heading);
+}
+
+.pr-home-title::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  margin: 18px 0 0;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #2563eb, #ff7a00);
+}
+
+body.dark-mode .pr-home-title {
+  color: #f8fafc;
+}
+
+@media (max-width: 768px) {
+  .pr-home-title { font-size: 32px; }
+}

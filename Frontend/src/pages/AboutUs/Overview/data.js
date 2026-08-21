@@ -17,10 +17,10 @@ export const campusImages = [
 ];
 
 export const statistics = [
-  { id: 1, label: "Students", value: 5000, suffix: "+" },
-  { id: 2, label: "Faculty", value: 250, suffix: "+" },
-  { id: 3, label: "Departments", value: 9, suffix: "+" },
-  { id: 4, label: "Recruiters", value: 250, suffix: "+" },
+  { id: 1, label: "Students", value: 1000, suffix: "+" },
+  { id: 2, label: "Faculty", value: 150, suffix: "+" },
+  { id: 3, label: "Departments", value: 12, suffix: "" },
+  { id: 4, label: "Recruiters", value: 80, suffix: "+" },
 ];
 
 export const features = [

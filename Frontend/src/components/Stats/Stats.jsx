@@ -42,7 +42,7 @@ function Stats() {
           </div>
 
           <h2>
-            <Counter end={1200} suffix="+" start={true} />
+            <Counter end={1000} suffix="+" start={true} />
           </h2>
 
           <p>Students</p>
@@ -66,7 +66,7 @@ function Stats() {
           </div>
 
           <h2>
-            <Counter end={10} suffix="+" start={true} />
+            <Counter end={12} suffix="" start={true} />
           </h2>
 
           <p>Departments</p>
@@ -78,7 +78,7 @@ function Stats() {
           </div>
 
           <h2>
-            <Counter end={90} suffix="%" start={true} />
+            <Counter end={97.97} suffix="%" start={true} />
           </h2>
 
           <p>Placement Rate</p>
