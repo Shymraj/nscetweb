@@ -3,7 +3,7 @@
 =========================================================== */
 .news-section {
   width: 100%;
-  padding: 100px 0;
+  padding: 40px 0; /* Reduced from 100px to remove unwanted top/bottom space */
   background-color: #ffffff; /* Clean white background */
   font-family: 'Inter', sans-serif;
 }
@@ -21,7 +21,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 50px;
+  margin-bottom: 28px; /* Reduced from 50px */
 }
 
 .news-subtitle {
@@ -30,7 +30,7 @@
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .news-main-title {
@@ -41,12 +41,11 @@
   margin: 0;
 }
 
-/* Reusing the view-all-btn style from previous sections for consistency */
 .view-all-btn {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 28px;
+  padding: 12px 24px;
   border: none;
   border-radius: 8px;
   background-color: #f97316; 
@@ -68,7 +67,7 @@
 .news-grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr; /* Left side slightly larger */
-  gap: 40px;
+  gap: 30px;
   align-items: start;
 }
 
@@ -86,13 +85,13 @@
 
 .featured-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1); /* Subtle orange glow */
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1);
 }
 
 .featured-image-wrapper {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 320px;
   overflow: hidden;
 }
 
@@ -123,7 +122,7 @@
 }
 
 .featured-content {
-  padding: 30px;
+  padding: 24px 30px 30px 30px;
 }
 
 .featured-meta {
@@ -133,7 +132,7 @@
   color: #64748b;
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .featured-meta svg {
@@ -142,18 +141,18 @@
 }
 
 .featured-title {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 800;
   color: #111827;
   line-height: 1.3;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .featured-description {
   color: #4b5563;
-  font-size: 16px;
-  line-height: 1.7;
-  margin-bottom: 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .read-more-link {
@@ -179,17 +178,17 @@
    RIGHT COLUMN: NOTICE BOARD
 =========================================================== */
 .notice-board-wrapper {
-  background-color: #fffaf5; /* Very subtle orange tint */
+  background-color: #fffaf5;
   border-radius: 20px;
-  border: 1px solid #fed7aa; /* Light orange border */
+  border: 1px solid #fed7aa;
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-height: 700px; /* Aligns roughly with left card height */
+  max-height: 620px;
 }
 
 .notice-board-header {
-  padding: 24px 30px;
+  padding: 20px 24px;
   border-bottom: 1px solid #fed7aa;
   background-color: #fff7ed;
   border-radius: 20px 20px 0 0;
@@ -200,7 +199,7 @@
   align-items: center;
   gap: 12px;
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
   color: #111827;
 }
@@ -213,9 +212,8 @@
 .notice-scroll-area {
   flex: 1;
   overflow-y: auto;
-  padding: 20px 30px;
+  padding: 16px 24px;
   
-  /* Custom Scrollbar */
   scrollbar-width: thin;
   scrollbar-color: #f97316 transparent;
 }
@@ -240,12 +238,12 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .notice-item {
   background: #ffffff;
-  padding: 20px;
+  padding: 16px;
   border-radius: 12px;
   border-left: 4px solid #f97316;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
@@ -261,7 +259,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .notice-date {
@@ -283,8 +281,8 @@
 }
 
 .badge-new {
-  background-color: #374151; /* Dark gray to match image */
-  color: #ffffff; /* White text */
+  background-color: #374151;
+  color: #ffffff;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
@@ -300,7 +298,7 @@
 
 .notice-title {
   display: block;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: #111827;
   text-decoration: none;
@@ -308,9 +306,31 @@
   transition: color 0.3s ease;
 }
 
-/* Orange text for the new item title */
 .notice-item.is-new .notice-title {
-  color: #ea580c; /* Orange color matching image */
+  color: #ea580c;
+}
+
+.notice-item:hover .notice-title {
+  color: #f97316;
+}
+
+.notice-board-footer {
+  padding: 14px;
+  text-align: center;
+  border-top: 1px solid #fed7aa;
+  background-color: #fff7ed;
+  border-radius: 0 0 20px 20px;
+}
+
+.load-more-text {
+  background: transparent;
+  border: none;
+  color: #f97316;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 /* ===========================================================
@@ -381,46 +401,13 @@ body.dark-mode .badge-new {
   100% { box-shadow: 0 0 0 0 rgba(254, 240, 138, 0); }
 }
 
-.notice-title {
-  display: block;
-  font-size: 16px;
-  font-weight: 700;
-  color: #111827;
-  line-height: 1.5;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.notice-item:hover .notice-title {
-  color: #f97316;
-}
-
-.notice-board-footer {
-  padding: 16px;
-  text-align: center;
-  border-top: 1px solid #fed7aa;
-  background-color: #fff7ed;
-  border-radius: 0 0 20px 20px;
-}
-
-.load-more-text {
-  background: transparent;
-  border: none;
-  color: #f97316;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
 /* ===========================================================
    RESPONSIVE DESIGN
 =========================================================== */
 @media (max-width: 1024px) {
   .news-grid {
-    grid-template-columns: 1fr; /* Stacks to single column */
-    gap: 50px;
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
   
   .notice-board-wrapper {
@@ -430,24 +417,25 @@ body.dark-mode .badge-new {
 
 @media (max-width: 768px) {
   .news-section {
-    padding: 60px 0;
+    padding: 30px 0;
   }
 
   .news-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 16px;
+    margin-bottom: 20px;
   }
 
   .news-main-title {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .featured-image-wrapper {
-    height: 250px;
+    height: 220px;
   }
 
   .featured-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 }

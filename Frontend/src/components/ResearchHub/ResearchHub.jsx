@@ -6,22 +6,16 @@ import { FaBookOpen, FaRunning, FaBed, FaUsers, FaCoffee, FaArrowRight } from "r
 // =========================================================================
 // ASSETS IMPORTS
 // =========================================================================
-import ispin from "../../assets/coe/ispin.mp4"; 
 import coeDrone3 from "../../assets/coe/drone3.jpg";
 import coeDrone4 from "../../assets/coe/drone4.jpg";
 import coePrinting1 from "../../assets/coe/printing.jpg";
 import vehicle1 from "../../assets/coe/vehicle1.jpg";
 import vehicle2 from "../../assets/coe/vehicle2.jpg";
+// Puthusa add panna IoT images
+import iot1 from "../../assets/coe/iot 1.jpg";
+import iot2 from "../../assets/coe/iot 2.jpg";
 
 const campusData = [
-  {
-    id: "library",
-    title: "ISPIN (CSE,IT,AIDS)",
-    icon: <FaBookOpen />,
-    video: ispin, 
-    description: "Innovative Software Product at NSCET",
-    highlight: "Department of (CSE,IT,AI & DS)"
-  },
   {
     id: "sports",
     title: "Drone Technology",
@@ -50,7 +44,7 @@ const campusData = [
     id: "cafeteria",
     title: "WG Tech (ECE)",
     icon: <FaCoffee />,
-    image: "https://via.placeholder.com/1000x800/f8fafc/f97316?text=Cafeteria+Image+Coming+Soon",
+    images: [iot1, iot2], 
     description: "Spacious multi-cuisine cafeterias and lush green campus hangout spots where ideas are brewed over coffee and lifelong friendships are made.",
     highlight: "Hygienic Multi-Cuisine"
   }
@@ -135,16 +129,25 @@ function CampusLife() {
                     />
                   ) : activeTab.images ? (
                     <AnimatePresence mode="popLayout">
-                      <motion.img 
-                        key={imageIndex}
-                        src={activeTab.images[imageIndex]} 
-                        alt={activeTab.title}
-                        className="display-media sliding-media"
-                        initial={{ opacity: 0, filter: "blur(12px)", scale: 1.05 }}
-                        animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-                        exit={{ opacity: 0, filter: "blur(12px)", scale: 1.05 }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
-                      />
+                      {(() => {
+                        const currentImage = activeTab.images[imageIndex];
+                        // Identify if the current image is the rotated one
+                        const isRotatedImage = currentImage === iot2;
+
+                        return (
+                          <motion.img 
+                            key={imageIndex}
+                            src={currentImage} 
+                            alt={activeTab.title}
+                            className="display-media sliding-media"
+                            /* CHANGED 90 to -90 SO THEY STAND STRAIGHT UP */
+                            initial={{ opacity: 0, filter: "blur(12px)", scale: isRotatedImage ? 1.8 : 1.05, rotate: isRotatedImage ? -90 : 0 }}
+                            animate={{ opacity: 1, filter: "blur(0px)", scale: isRotatedImage ? 1.6 : 1, rotate: isRotatedImage ? -90 : 0 }}
+                            exit={{ opacity: 0, filter: "blur(12px)", scale: isRotatedImage ? 1.8 : 1.05, rotate: isRotatedImage ? -90 : 0 }}
+                            transition={{ duration: 1, ease: "easeInOut" }}
+                          />
+                        );
+                      })()}
                     </AnimatePresence>
                   ) : (
                     <img 

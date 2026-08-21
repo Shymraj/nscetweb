@@ -4,7 +4,7 @@
    MAIN SECTION & BACKGROUND
    ========================================================== */
 .whychoose {
-  padding: 100px 8%;
+  padding: 40px 8%; /* Reduced top/bottom padding from 100px to 40px */
   background: linear-gradient(180deg, #f8fbff, #ffffff);
   position: relative;
   overflow: hidden;
@@ -32,25 +32,25 @@
   text-align: center;
   max-width: 750px;
   margin: auto;
-  margin-bottom: 60px;
+  margin-bottom: 28px; /* Reduced bottom margin from 60px */
   position: relative;
   z-index: 1;
 }
 
 .why-subtitle {
   color: #2563eb;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 15px;
+  margin-bottom: 8px; /* Reduced margin */
 }
 
 .why-title {
-  font-size: 45px;
+  font-size: 42px; /* Adjusted size for consistency */
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 /* Underline Animation for Title */
@@ -59,15 +59,15 @@
   display: block;
   width: 90px;
   height: 4px;
-  margin: 15px auto 0;
+  margin: 10px auto 0; /* Reduced margin */
   border-radius: 20px;
   background: linear-gradient(90deg, #2563eb, #f59e0b);
 }
 
 .why-description {
-  font-size: 18px;
+  font-size: 16px;
   color: #64748b;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 /* ==========================================================
@@ -76,15 +76,15 @@
 .why-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 24px; /* Slightly reduced gap from 30px */
   position: relative;
   z-index: 1;
 }
 
 .why-card {
   background: #ffffff;
-  border-radius: 24px;
-  padding: 40px 30px;
+  border-radius: 20px;
+  padding: 28px 22px; /* Compact padding from 40px 30px */
   text-align: center;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -97,13 +97,13 @@
 
 /* Card Hover Interactions */
 .why-card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-8px);
   background: linear-gradient(135deg, #ffffff, #f8faff);
   box-shadow: 0 20px 45px rgba(37, 99, 235, 0.12);
   border-color: #2563eb;
 }
 
-/* Top Gradient Line Animation (Cleaned up duplicates) */
+/* Top Gradient Line Animation */
 .why-card::before {
   content: "";
   position: absolute;
@@ -121,14 +121,14 @@
 }
 
 .why-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 25px auto;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 18px auto; /* Reduced margin */
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 34px;
+  font-size: 28px;
   background: #eff6ff;
   color: #2563eb;
   transition: 0.4s;
@@ -142,24 +142,24 @@
 }
 
 .why-card h3 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   color: #0f172a;
   letter-spacing: -0.5px;
 }
 
 .why-card p {
   color: #475569;
-  line-height: 1.7;
-  font-size: 15px;
+  line-height: 1.6;
+  font-size: 14px;
   font-weight: 500;
-  margin-bottom: 25px;
+  margin-bottom: 18px; /* Reduced margin */
   flex-grow: 1; /* Pushes button to bottom */
 }
 
 /* ==========================================================
-   FIXED: LEARN MORE BUTTON
+   LEARN MORE BUTTON
    ========================================================== */
 .learn-more-btn {
   display: inline-flex;
@@ -169,7 +169,7 @@
   background: transparent;
   border: none;
   color: #2563eb;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   font-family: inherit;
   cursor: pointer;
@@ -183,12 +183,13 @@
 }
 
 .why-card:hover .learn-more-btn {
-  color: #f59e0b; /* Turns orange on card hover */
+  color: #f59e0b;
 }
 
 .learn-more-btn:hover .btn-arrow {
   transform: translateX(5px);
 }
+
 /* ==========================================================
    DARK MODE COMPATIBILITY
    ========================================================== */
@@ -265,18 +266,21 @@ body.dark-mode .stat-box p {
 
 @media (max-width: 768px) {
   .whychoose {
-    padding: 80px 5%;
+    padding: 30px 5%; /* Reduced top/bottom padding for mobile */
+  }
+  .why-header {
+    margin-bottom: 20px;
   }
   .why-grid {
     grid-template-columns: 1fr;
   }
   .why-title {
-    font-size: 34px;
+    font-size: 30px;
   }
   .banner-stats {
-    gap: 25px;
+    gap: 20px;
   }
   .stat-box h3 {
-    font-size: 32px;
+    font-size: 28px;
   }
 }

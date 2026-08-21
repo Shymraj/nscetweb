@@ -3,7 +3,7 @@
 =========================================================== */
 .wide-courses-section {
   width: 100%;
-  padding: 100px 0;
+  padding: 40px 0; /* Reduced top/bottom padding from 100px to 40px */
   background-color: #fafaf9; 
   overflow: hidden;
   font-family: 'Inter', sans-serif;
@@ -24,8 +24,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 40px;
-  gap: 12px;
+  margin-bottom: 24px; /* Reduced margin from 40px */
+  gap: 8px; /* Slightly reduced gap */
 }
 
 .w-subtitle {
@@ -52,19 +52,19 @@
 .wide-filter-tabs-wrapper {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 50px;
+  gap: 14px;
+  margin-bottom: 28px; /* Reduced margin from 50px */
   flex-wrap: wrap;
 }
 
 .wide-filter-tab {
   position: relative;
-  padding: 12px 30px;
+  padding: 10px 24px; /* Compact padding */
   background: #ffffff;
   color: #475569;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 50px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -119,8 +119,8 @@
 .side-arrow {
   position: absolute;
   z-index: 10;
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background-color: #ffffff;
   color: #111827;
@@ -142,13 +142,13 @@
   box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
 }
 
-.left-arrow { left: -25px; }
-.right-arrow { right: -25px; }
+.left-arrow { left: -20px; }
+.right-arrow { right: -20px; }
 
 .wide-slider-viewport {
   width: 100%;
   overflow: hidden; 
-  padding: 20px 0; 
+  padding: 10px 0; /* Reduced vertical padding */
 }
 
 .wide-slider-track {
@@ -163,7 +163,7 @@
 }
 
 .wide-card-column {
-  padding: 0 15px; 
+  padding: 0 12px; 
   box-sizing: border-box;
 }
 
@@ -173,7 +173,7 @@
 .wide-course-card {
   position: relative;
   width: 100%;
-  height: 300px; 
+  height: 290px; 
   border-radius: 20px;
   background: #111827;
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -187,7 +187,7 @@
 }
 
 .wide-course-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   border-color: #f97316;
   box-shadow: 0 25px 50px rgba(249, 115, 22, 0.15), inset 0 0 0 1px rgba(249, 115, 22, 0.4);
 }
@@ -218,7 +218,7 @@
 
 .w-card-top-badge {
   position: absolute;
-  top: 20px; left: 20px;
+  top: 16px; left: 16px;
   z-index: 3;
 }
 
@@ -227,7 +227,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: #ea580c; 
-  padding: 6px 16px;
+  padding: 5px 14px;
   border-radius: 30px;
   font-size: 11px;
   font-weight: 800;
@@ -244,15 +244,15 @@
 .w-card-info-box {
   position: relative;
   z-index: 3;
-  padding: 24px;
+  padding: 20px;
 }
 
 .w-card-name {
   color: #ffffff !important; 
-  font-size: 20px; 
+  font-size: 19px; 
   font-weight: 800;
   line-height: 1.3;
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
   text-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
@@ -350,8 +350,9 @@ body.dark-mode .wide-course-card:hover .w-card-top-badge span {
 }
 
 @media (max-width: 768px) {
-  .wide-courses-section { padding: 60px 0; }
-  .w-title { font-size: 32px; }
+  .wide-courses-section { padding: 30px 0; }
+  .wide-courses-header { margin-bottom: 20px; }
+  .w-title { font-size: 30px; }
   
   .wide-slider-track.center-aligned-track {
     justify-content: flex-start !important;

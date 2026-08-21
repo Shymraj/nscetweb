@@ -3,7 +3,7 @@
 ========================================================== */
 .infra-section {
   width: 100%;
-  padding: 100px 5%;
+  padding: 40px 5%; /* Reduced top/bottom padding from 100px to 40px */
   background-color: #ffffff; /* Premium White Background */
   font-family: "Plus Jakarta Sans", sans-serif;
   overflow: hidden;
@@ -18,7 +18,7 @@
 .infra-header {
   text-align: center;
   max-width: 750px;
-  margin: 0 auto 60px;
+  margin: 0 auto 28px; /* Reduced bottom margin from 60px */
 }
 
 .infra-subtitle {
@@ -29,9 +29,9 @@
   letter-spacing: 3px;
   text-transform: uppercase;
   background: rgba(234, 88, 12, 0.1);
-  padding: 8px 20px;
+  padding: 6px 18px; /* Slightly compact padding */
   border-radius: 50px;
-  margin-bottom: 16px;
+  margin-bottom: 10px; /* Reduced margin */
 }
 
 .infra-title {
@@ -39,20 +39,20 @@
   font-weight: 900;
   color: #0f172a;
   line-height: 1.2;
-  margin-bottom: 20px;
+  margin-bottom: 12px; /* Reduced margin from 20px */
 }
 
 .infra-desc {
   color: #64748b;
-  font-size: 17px;
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 /* ================= ACCORDION MECHANICS ================= */
 .accordion-container {
   display: flex;
   gap: 15px;
-  height: 550px; /* Adjust height based on preference */
+  height: 480px; /* Reduced height from 550px for better vertical proportion */
   width: 100%;
 }
 
@@ -100,30 +100,30 @@
 /* ================= VERTICAL TEXT (Collapsed State) ================= */
 .vertical-title-box {
   position: absolute;
-  bottom: 30px;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   transition: opacity 0.3s ease, transform 0.3s ease;
   width: 100%;
 }
 
 .vertical-icon {
-  font-size: 24px;
+  font-size: 22px;
   color: #ffffff;
 }
 
 .vertical-text {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 800;
-  letter-spacing: 4px;
-  writing-mode: vertical-rl; /* Makes text vertical */
-  transform: rotate(180deg); /* Reads bottom to top */
+  letter-spacing: 3px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
   margin: 0;
   white-space: nowrap;
 }
@@ -140,14 +140,14 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 40px;
+  padding: 28px; /* Reduced padding from 40px */
   z-index: 2;
   display: flex;
   align-items: flex-end;
-  gap: 25px;
+  gap: 20px;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s; /* Delayed fade in */
+  transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
   pointer-events: none;
 }
 
@@ -158,8 +158,8 @@
 }
 
 .content-icon-wrapper {
-  width: 65px;
-  height: 65px;
+  width: 55px;
+  height: 55px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -167,24 +167,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 28px;
+  font-size: 24px;
   color: #ffffff;
   flex-shrink: 0;
 }
 
 .content-text-box h3 {
   color: #ffffff;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 900;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .content-text-box p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.5;
   max-width: 500px;
-  margin-bottom: 25px;
+  margin-bottom: 18px; /* Reduced margin */
 }
 
 /* ================= EXPLORE BUTTON ================= */
@@ -195,9 +195,9 @@
   background: #ffffff;
   color: #ea580c;
   border: none;
-  padding: 12px 28px;
+  padding: 10px 24px;
   border-radius: 50px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 800;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -234,35 +234,37 @@ body.dark-mode .infra-desc {
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
   .accordion-container {
-    height: 500px;
+    height: 450px;
   }
   .content-text-box h3 {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 
 @media (max-width: 768px) {
   .infra-section {
-    padding: 80px 5%;
+    padding: 30px 5%; /* Reduced top/bottom padding for mobile */
+  }
+  .infra-header {
+    margin-bottom: 20px;
   }
   .infra-title {
-    font-size: 32px;
+    font-size: 30px;
   }
   
-  /* Convert horizontal accordion to vertical accordion for mobile */
   .accordion-container {
     flex-direction: column;
-    height: 800px; /* Taller to fit all cards vertically */
+    height: 700px;
   }
 
   .vertical-title-box {
     bottom: 50%;
     transform: translate(-50%, 50%);
-    flex-direction: row; /* Horizontal icon & text when collapsed vertically */
+    flex-direction: row;
   }
 
   .vertical-text {
-    writing-mode: horizontal-tb; /* Reset text to normal reading mode */
+    writing-mode: horizontal-tb;
     transform: none;
   }
 
@@ -273,13 +275,13 @@ body.dark-mode .infra-desc {
   .panel-content {
     flex-direction: column;
     align-items: flex-start;
-    padding: 25px;
-    gap: 15px;
+    padding: 20px;
+    gap: 12px;
   }
 
   .content-icon-wrapper {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
   }
 }

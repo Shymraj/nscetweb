@@ -5,11 +5,11 @@
 .about{
     position:relative;
     overflow:hidden;
-    padding:100px 8%;
+    padding:40px 8%; /* Reduced top/bottom padding from 100px to 40px */
     display:grid;
     grid-template-columns:1fr 1fr;
     align-items:center;
-    gap:80px;
+    gap:50px; /* Reduced gap from 80px */
     background:linear-gradient(180deg,#ffffff,#f8fbff);
 }
 
@@ -77,23 +77,23 @@
     right:25px;
     background:rgba(255,255,255,.95);
     backdrop-filter:blur(15px);
-    padding:18px 26px;
+    padding:16px 22px;
     border-radius:18px;
     box-shadow:0 20px 45px rgba(0,0,0,.12);
     text-align:center;
 }
 
 .about-badge h2{
-    font-size:34px;
+    font-size:30px;
     color:#ff7a00;
     margin:0;
     font-weight:800;
 }
 
 .about-badge p{
-    margin-top:6px;
+    margin-top:4px;
     color:#64748b;
-    font-size:14px;
+    font-size:13px;
 }
 
 /* ==========================================
@@ -102,31 +102,31 @@
 
 .experience-card{
     position:absolute;
-    left:30px;
-    bottom:30px;
+    left:25px;
+    bottom:25px;
     background:#ffffff;
     border-radius:18px;
-    padding:18px 22px;
+    padding:16px 20px;
     display:flex;
     align-items:center;
-    gap:16px;
+    gap:14px;
     box-shadow:0 18px 45px rgba(0,0,0,.12);
 }
 
 .experience-card svg{
-    font-size:34px;
+    font-size:30px;
     color:#2563eb;
 }
 
 .experience-card h4{
     color:#0f172a;
-    font-size:18px;
-    margin-bottom:4px;
+    font-size:17px;
+    margin-bottom:2px;
 }
 
 .experience-card span{
     color:#64748b;
-    font-size:14px;
+    font-size:13px;
 }
 
 /* ==========================================
@@ -141,19 +141,19 @@
 .about-subtitle{
     display:inline-block;
     color:#2563eb;
-    font-size:15px;
+    font-size:14px;
     font-weight:700;
     letter-spacing:3px;
     text-transform:uppercase;
-    margin-bottom:18px;
+    margin-bottom:10px; /* Reduced from 18px */
 }
 
 .about-title{
-    font-size:50px;
+    font-size:44px; /* Reduced slightly for tight layout */
     font-weight:800;
     line-height:1.25;
     color:#0f172a;
-    margin-bottom:25px;
+    margin-bottom:18px; /* Reduced from 25px */
 }
 
 .about-title span{
@@ -165,16 +165,16 @@
     display:block;
     width:90px;
     height:4px;
-    margin-top:18px;
+    margin-top:12px; /* Reduced from 18px */
     border-radius:20px;
     background:linear-gradient(90deg,#2563eb,#ff7a00);
 }
 
 .about-description{
-    font-size:17px;
+    font-size:16px;
     color:#64748b;
-    line-height:1.9;
-    margin-bottom:35px;
+    line-height:1.7;
+    margin-bottom:24px; /* Reduced from 35px */
 }
 
 /* ==========================================
@@ -184,8 +184,9 @@
 .about-features{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:22px;
+    gap:18px; /* Reduced gap from 22px */
 }
+
 /* ==========================================
    FEATURE BOX
 ========================================== */
@@ -193,8 +194,8 @@
 .feature-box{
     display:flex;
     align-items:flex-start;
-    gap:18px;
-    padding:22px;
+    gap:14px;
+    padding:18px; /* Reduced padding from 22px */
     background:#ffffff;
     border-radius:18px;
     border:1px solid rgba(37,99,235,.08);
@@ -203,27 +204,27 @@
 }
 
 .feature-box svg{
-    font-size:28px;
+    font-size:26px;
     color:#2563eb;
-    min-width:28px;
+    min-width:26px;
     transition:.35s;
 }
 
 .feature-box h4{
-    font-size:18px;
+    font-size:17px;
     font-weight:700;
     color:#0f172a;
-    margin-bottom:8px;
+    margin-bottom:6px;
 }
 
 .feature-box p{
-    font-size:14px;
+    font-size:13px;
     color:#64748b;
-    line-height:1.7;
+    line-height:1.6;
 }
 
 .feature-box:hover{
-    transform:translateY(-8px);
+    transform:translateY(-6px);
     border-color:#ff7a00;
     box-shadow:0 20px 40px rgba(255,122,0,.18);
 }
@@ -242,16 +243,16 @@
 ========================================== */
 
 .about-btn{
-    margin-top:40px;
+    margin-top:24px; /* Reduced from 40px */
     display:inline-flex;
     align-items:center;
     gap:12px;
-    padding:16px 34px;
+    padding:14px 28px;
     border:none;
     border-radius:14px;
     background:linear-gradient(135deg,#2563eb,#1d4ed8);
     color:#fff;
-    font-size:16px;
+    font-size:15px;
     font-weight:700;
     cursor:pointer;
     transition:.35s;
@@ -277,11 +278,11 @@
 ========================================== */
 
 .about-image:hover .about-badge{
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 }
 
 .about-image:hover .experience-card{
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 }
 
 .about-badge,
@@ -297,11 +298,11 @@
 
 .about{
     grid-template-columns:1fr;
-    gap:60px;
+    gap:40px;
 }
 
 .about-title{
-    font-size:42px;
+    font-size:38px;
 }
 
 }
@@ -309,11 +310,11 @@
 @media(max-width:768px){
 
 .about{
-    padding:80px 6%;
+    padding:30px 6%; /* Reduced top/bottom padding for mobile */
 }
 
 .about-title{
-    font-size:34px;
+    font-size:30px;
 }
 
 .about-description{
@@ -327,21 +328,21 @@
 .about-badge{
     right:15px;
     top:15px;
-    padding:14px 20px;
+    padding:12px 16px;
 }
 
 .about-badge h2{
-    font-size:26px;
+    font-size:24px;
 }
 
 .experience-card{
     left:15px;
     bottom:15px;
-    padding:14px 18px;
+    padding:12px 16px;
 }
 
 .experience-card h4{
-    font-size:16px;
+    font-size:15px;
 }
 
 .about-btn{

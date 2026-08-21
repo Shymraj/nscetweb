@@ -13,7 +13,6 @@ import ResearchHub from "../components/ResearchHub/ResearchHub";
 import Events from "../components/Events/Events";
 import WhyChoose from "../components/WhyChoose/WhyChoose";
 import Contact from "../components/Contact/Contact";
-import Placement from "../components/Placement/Placement";
 import PlacedStudents from "../components/PlacedStudents/PlacedStudents";
 import AlumniReviews from "../components/AlumniReviews/AlumniReviews";
 import Principal from "./Administration/Principal/Principal";
@@ -64,7 +63,6 @@ function Home() {
       <Events />
       <WhyChoose />
       <Contact />
-      <Placement />
       <PlacedStudents />
       <AlumniReviews />
     </>

@@ -1,0 +1,249 @@
+/* ==========================================================================
+   THE DENSE EDGE-TO-EDGE BENTO (HIGH-CONTRAST LIGHT MODE FIX)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* --- 1. DYNAMIC COLOR VARIABLES --- */
+.ispinDenseContainer {
+  /* LIGHT MODE VARIABLES (Upgraded for maximum contrast) */
+  --bg-base: #EEF2F6; /* Deeper cool-grey background */
+  --bg-glow: radial-gradient(ellipse at 50% 0%, rgba(255, 79, 0, 0.15) 0%, transparent 70%);
+  --grid-line: rgba(15, 23, 42, 0.06); /* Slightly more visible grid */
+  
+  --card-bg: #FFFFFF; /* Pure Solid White Cards to pop out */
+  --card-border: rgba(15, 23, 42, 0.08); /* Crisper card borders */
+  --card-shadow: 0 12px 40px rgba(0,0,0,0.06); /* Richer shadow for depth */
+  
+  --text-hero: #0F172A;
+  --text-strong: #0F172A;
+  --text-p: #475569;
+  --text-dim: #64748B;
+  
+  --chip: rgba(15, 23, 42, 0.05);
+  --btn-bg: #0F172A;
+  --btn-txt: #FFFFFF;
+
+  width: 100% !important;
+  background: var(--bg-glow), var(--bg-base) !important;
+  font-family: 'Manrope', sans-serif !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+  transition: background 0.5s ease, color 0.5s ease !important;
+}
+
+/* Engineering Grid Overlay */
+.ispinDenseContainer::before {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important;
+  background-image: 
+    linear-gradient(var(--grid-line) 1px, transparent 1px), 
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) !important;
+  background-size: 40px 40px !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%) !important;
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%) !important;
+  transition: background-image 0.5s ease !important;
+}
+
+/* System-level & Navbar Dark Mode (Unchanged - Keeps it working perfectly) */
+:global(body.dark-mode) .ispinDenseContainer {
+    --bg-base: #020617; 
+    --bg-glow: radial-gradient(ellipse at 50% 0%, rgba(255, 79, 0, 0.18) 0%, transparent 70%);
+    --grid-line: rgba(255, 255, 255, 0.03);
+    
+    --card-bg: rgba(15, 23, 42, 0.5); 
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    
+    --text-hero: #F8FAFC;
+    --text-strong: #F8FAFC;
+    --text-p: #94A3B8;
+    --text-dim: #64748B;
+    
+    --chip: rgba(255, 255, 255, 0.05);
+    --btn-bg: #F8FAFC;
+    --btn-txt: #0F172A;
+}
+
+/* Global Typography */
+.ispinDenseContainer h1, .ispinDenseContainer h2, .ispinDenseContainer h3, .ispinDenseContainer h4 {
+  font-family: 'Outfit', sans-serif !important;
+  margin: 0 !important; padding: 0 !important; line-height: 1.2 !important;
+}
+
+.ispinDenseContainer p, .ispinDenseContainer span {
+  font-family: 'Manrope', sans-serif !important;
+  margin: 0 !important; padding: 0 !important; line-height: 1.5 !important;
+}
+
+/* ==========================================
+   01. HERO SECTION 
+   ========================================== */
+.darkHeroSection {
+  width: 100% !important;
+  background: transparent !important; 
+  padding: 180px 4vw 80px 4vw !important; /* Navbar clearance */
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.heroGrid {
+  display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 60px !important; 
+  align-items: center !important; width: 100% !important; max-width: 1400px !important; margin: 0 auto !important;
+}
+
+.heroTextContent { display: flex !important; flex-direction: column !important; align-items: flex-start !important; }
+
+.heroBadge {
+  display: inline-flex !important; align-items: center !important; gap: 10px !important;
+  background: rgba(255, 79, 0, 0.1) !important; border: 1px solid #FF4F00 !important;
+  padding: 8px 18px !important; border-radius: 100px !important; margin-bottom: 30px !important;
+}
+
+.accentIcon { color: #FF4F00 !important; font-size: 14px !important; }
+.heroBadge span { font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 2px !important; color: var(--text-hero) !important; transition: color 0.5s ease !important; }
+
+.heroTitle {
+  font-size: clamp(3rem, 5vw, 4.5rem) !important; font-weight: 800 !important;
+  letter-spacing: -0.02em !important; margin-bottom: 40px !important; line-height: 1.1 !important;
+  color: var(--text-hero) !important; transition: color 0.5s ease !important;
+}
+
+.heroTitle span {
+  color: #FF4F00 !important;
+  background: linear-gradient(135deg, #FF4F00 0%, #FFA033 100%) !important;
+  -webkit-background-clip: text !important; background-clip: text !important; -webkit-text-fill-color: transparent !important;
+}
+
+.heroStats { display: flex !important; gap: 30px !important; }
+.statBox h4 { font-size: 2.2rem !important; font-weight: 700 !important; color: var(--text-hero) !important; transition: color 0.5s ease !important; }
+.statBox h4 span { color: #FF4F00 !important; }
+.statBox p { font-size: 0.8rem !important; color: var(--text-p) !important; letter-spacing: 1px !important; margin-top: 4px !important; transition: color 0.5s ease !important; }
+
+/* Hero Video */
+.heroVideoWrapper {
+  width: 100% !important; background: #000000 !important; border: 1px solid var(--card-border) !important;
+  border-radius: 16px !important; overflow: hidden !important; box-shadow: var(--card-shadow) !important;
+  position: relative !important; transition: border-color 0.5s ease, box-shadow 0.5s ease !important;
+}
+
+.videoMacHeader { display: flex !important; align-items: center !important; justify-content: space-between !important; background: rgba(255,255,255,0.05) !important; padding: 12px 20px !important; border-bottom: 1px solid rgba(255,255,255,0.05) !important; }
+.dots { display: flex !important; gap: 8px !important; }
+.dots span { width: 12px !important; height: 12px !important; border-radius: 50% !important; }
+.r { background: #FF5F56 !important; } .y { background: #FFBD2E !important; } .g { background: #27C93F !important; }
+.vidName { font-family: 'Manrope', sans-serif !important; font-size: 0.75rem !important; color: #888888 !important; letter-spacing: 0.5px !important; }
+.heroVideo { width: 100% !important; display: block !important; aspect-ratio: 16/9 !important; object-fit: cover !important; opacity: 0.9 !important; }
+.liveTag { position: absolute !important; bottom: 20px !important; right: 20px !important; background: rgba(0,0,0,0.6) !important; backdrop-filter: blur(8px) !important; padding: 6px 14px !important; border-radius: 100px !important; display: flex !important; align-items: center !important; gap: 8px !important; font-size: 0.75rem !important; font-weight: 600 !important; color: #FFFFFF !important; }
+.pulse { width: 8px !important; height: 8px !important; background: #10B981 !important; border-radius: 50% !important; animation: pulseG 2s infinite !important; }
+@keyframes pulseG { 0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.4); } 70% { box-shadow: 0 0 0 8px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+
+/* ==========================================
+   02. MEGA BENTO GRID
+   ========================================== */
+.bentoSection {
+  width: 100% !important;
+  background: transparent !important; 
+  padding: 60px 4vw !important; box-sizing: border-box !important; position: relative !important; z-index: 1 !important;
+}
+
+.sectionHeader { margin-bottom: 40px !important; }
+.sectionHeader.center { text-align: center !important; }
+.subTag { font-size: 0.85rem !important; color: #FF4F00 !important; letter-spacing: 2px !important; font-weight: 700 !important; display: block !important; margin-bottom: 8px !important; text-transform: uppercase !important; }
+.sectionHeader h2 { font-size: 2.8rem !important; font-weight: 700 !important; color: var(--text-strong) !important; letter-spacing: -1px !important; transition: color 0.5s ease !important; }
+
+.megaBentoGrid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; grid-auto-rows: minmax(180px, auto) !important; gap: 24px !important; max-width: 1400px !important; margin: 0 auto !important; }
+
+.bentoBox {
+  background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 20px !important;
+  padding: 40px !important; box-shadow: var(--card-shadow) !important; display: flex !important; flex-direction: column !important;
+  backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important; 
+  transition: all 0.3s ease !important;
+}
+.bentoBox:hover { transform: translateY(-4px) !important; border-color: rgba(255,79,0,0.4) !important; box-shadow: 0 24px 48px rgba(0,0,0,0.12) !important; }
+.span2 { grid-column: span 2 !important; } 
+
+.bentoTop { margin-bottom: 24px !important; }
+.bentoIdx { font-size: 0.8rem !important; font-weight: 700 !important; color: var(--text-dim) !important; letter-spacing: 1px !important; transition: color 0.5s ease !important; }
+.bentoTop h3 { font-size: 2rem !important; font-weight: 700 !important; margin-top: 4px !important; color: var(--text-strong) !important; transition: color 0.5s ease !important; }
+.bentoDesc { font-size: 1.1rem !important; color: var(--text-p) !important; margin-bottom: 24px !important; transition: color 0.5s ease !important; }
+.bentoList p { display: flex !important; align-items: center !important; gap: 12px !important; font-size: 1rem !important; font-weight: 600 !important; color: var(--text-strong) !important; margin-bottom: 12px !important; transition: color 0.5s ease !important; }
+.check { color: #FF4F00 !important; font-size: 1.2rem !important; }
+
+.pillarBox { justify-content: center !important; }
+.pillarTitle { font-size: 1.4rem !important; font-weight: 700 !important; margin-bottom: 12px !important; color: var(--text-strong) !important; transition: color 0.5s ease !important; }
+.pillarDesc { font-size: 1rem !important; color: var(--text-p) !important; transition: color 0.5s ease !important; }
+
+/* ==========================================
+   03. COVERFLOW TIMELINE 
+   ========================================== */
+.timelineSection {
+  width: 100% !important; background: transparent !important; 
+  padding: 80px 4vw 120px 4vw !important; box-sizing: border-box !important; position: relative !important; z-index: 1 !important;
+}
+
+.coverflowArea { width: 100% !important; height: 520px !important; position: relative !important; display: flex !important; justify-content: center !important; align-items: center !important; perspective: 1500px !important; transform-style: preserve-3d !important; margin-top: 50px !important; }
+.coverflowTrack { position: relative !important; width: 100% !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+
+.flowCard {
+  position: absolute !important; width: 400px !important; height: 500px !important;
+  background: var(--card-bg) !important; border-radius: 20px !important; border: 1px solid var(--card-border) !important;
+  backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important;
+  cursor: pointer !important; overflow: hidden !important; transition: all 0.5s ease !important;
+}
+
+.flowCard.flowActive {
+  border-color: #FF4F00 !important; box-shadow: 0 30px 60px -15px rgba(255, 79, 0, 0.15) !important; cursor: default !important;
+  transform: scale(1.02); /* Pop out effect */
+}
+
+.cardGloss { position: absolute !important; top: 0; left: 0; width: 100% !important; height: 6px !important; background: var(--card-border) !important; transition: background 0.5s ease !important; }
+.flowCard.flowActive .cardGloss { background: linear-gradient(90deg, #FF4F00 0%, #FFA033 100%) !important; }
+
+.cardInner { padding: 40px !important; display: flex !important; flex-direction: column !important; height: 100% !important; box-sizing: border-box !important; }
+
+.cardTopBar { display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 24px !important; }
+.year { font-family: 'Outfit', sans-serif !important; font-size: 3.5rem !important; font-weight: 800 !important; color: var(--card-border) !important; line-height: 1 !important; transition: color 0.5s ease !important; }
+.flowCard.flowActive .year { color: #FF4F00 !important; }
+
+.iconBox { width: 48px !important; height: 48px !important; border-radius: 12px !important; background: var(--chip) !important; color: var(--text-dim) !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 22px !important; transition: all 0.5s ease !important; }
+.flowCard.flowActive .iconBox { background: rgba(255, 79, 0, 0.1) !important; color: #FF4F00 !important; }
+
+.cardTitle { font-size: 1.6rem !important; font-weight: 700 !important; margin-bottom: 12px !important; color: var(--text-strong) !important; transition: color 0.5s ease !important; }
+.cardDesc { font-size: 1.05rem !important; color: var(--text-p) !important; margin-bottom: 24px !important; flex-grow: 1 !important; transition: color 0.5s ease !important; }
+
+.tagsGrid { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; margin-bottom: 24px !important; }
+.tagsGrid span { font-size: 0.75rem !important; font-weight: 600 !important; color: var(--text-p) !important; background: var(--chip) !important; padding: 6px 12px !important; border-radius: 6px !important; transition: all 0.5s ease !important; }
+
+.inspectBtn { width: 100% !important; padding: 16px !important; background: var(--btn-bg) !important; color: var(--btn-txt) !important; border: none !important; border-radius: 10px !important; font-family: 'Manrope', sans-serif !important; font-size: 1rem !important; font-weight: 700 !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; gap: 10px !important; transition: all 0.3s ease !important; }
+.inspectBtn:hover { background: #FF4F00 !important; color: #FFFFFF !important; transform: translateY(-2px) !important;}
+
+.matrixControls { display: flex !important; justify-content: center !important; align-items: center !important; gap: 30px !important; margin-top: 30px !important; }
+.ctrlBtn { width: 50px !important; height: 50px !important; border-radius: 10px !important; background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; color: var(--text-strong) !important; display: flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important; transition: all 0.3s ease !important; backdrop-filter: blur(10px) !important; }
+.ctrlBtn:hover:not(:disabled) { border-color: #FF4F00 !important; color: #FF4F00 !important; }
+.ctrlBtn:disabled { opacity: 0.3 !important; }
+
+.dotsContainer { display: flex !important; gap: 10px !important; }
+.navDot { width: 10px !important; height: 10px !important; background: var(--text-dim) !important; border-radius: 50% !important; cursor: pointer !important; transition: all 0.3s ease !important; opacity: 0.4 !important; }
+.navDot.navActive { background: #FF4F00 !important; width: 30px !important; border-radius: 100px !important; opacity: 1 !important; }
+
+/* ==========================================
+   RESPONSIVE DESIGN 
+   ========================================== */
+@media (max-width: 1024px) {
+  .heroGrid { grid-template-columns: 1fr !important; gap: 40px !important; } 
+  .heroVideoWrapper { width: 100% !important; max-width: 800px !important; margin: 0 auto !important;}
+  .megaBentoGrid { grid-template-columns: 1fr 1fr !important; } 
+  .span2 { grid-column: span 2 !important; }
+}
+
+@media (max-width: 768px) {
+  .darkHeroSection { padding: 140px 6vw 60px 6vw !important; } 
+  .megaBentoGrid { grid-template-columns: 1fr !important; } 
+  .span2 { grid-column: span 1 !important; }
+  .heroTitle { font-size: 2.8rem !important; }
+  .flowCard { width: 320px !important; height: 460px !important; }
+  .cardInner { padding: 24px !important; }
+}

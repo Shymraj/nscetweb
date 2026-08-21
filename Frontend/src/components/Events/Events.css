@@ -5,7 +5,7 @@
 ================================================== */
 .events {
   width: 100%;
-  padding: 100px 7%;
+  padding: 40px 7%; /* Reduced top/bottom padding from 100px to 40px */
   background-color: #f8fafc;
   font-family: 'Plus Jakarta Sans', sans-serif;
   transition: background-color 0.4s ease;
@@ -13,7 +13,7 @@
 
 .events-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 28px; /* Reduced bottom margin from 60px */
 }
 
 .events-header span {
@@ -23,14 +23,14 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 6px; /* Reduced margin */
 }
 
 .events-header h2 {
-  font-size: 44px;
+  font-size: 42px; /* Adjusted size for consistency */
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 16px;
+  margin-bottom: 12px; /* Reduced margin from 16px */
   line-height: 1.2;
   transition: color 0.4s ease;
 }
@@ -48,7 +48,7 @@
   width: 60px;
   height: 4px;
   background: #ff7a00;
-  margin: 20px auto 0;
+  margin: 12px auto 0; /* Reduced margin */
   border-radius: 10px;
 }
 
@@ -58,7 +58,7 @@
 .events-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 24px; /* Reduced gap from 32px */
   max-width: 1300px;
   margin: 0 auto;
 }
@@ -79,7 +79,7 @@
 }
 
 .event-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   border-color: #ff7a00;
   background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 20px 45px rgba(255, 122, 0, 0.18);
@@ -108,7 +108,7 @@
 .event-image {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 190px; /* Reduced height from 220px */
   overflow: hidden;
 }
 
@@ -126,14 +126,14 @@
 /* Glassmorphism Badge */
 .badge {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  padding: 8px 16px;
+  top: 12px;
+  left: 12px;
+  padding: 6px 14px;
   background: rgba(242, 241, 241, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.35);
   color: #ffffff;
   border-radius: 30px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   backdrop-filter: blur(4px);
   transition: all 0.3s ease;
@@ -152,7 +152,7 @@
    CARD CONTENT
 ================================================== */
 .event-content {
-  padding: 24px;
+  padding: 20px; /* Reduced padding from 24px */
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -165,7 +165,7 @@
   color: #ff7a00;
   font-size: 13px;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 8px; /* Reduced margin */
 }
 
 .calendar-icon {
@@ -173,10 +173,10 @@
 }
 
 .event-content h3 {
-  font-size: 22px;
+  font-size: 20px;
   color: #0f172a;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 8px; /* Reduced margin */
   line-height: 1.3;
   transition: color 0.3s ease;
 }
@@ -188,8 +188,8 @@
 .event-content p {
   color: #64748b;
   font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 24px;
+  line-height: 1.6;
+  margin-bottom: 16px; /* Reduced margin */
   flex: 1;
   transition: color 0.4s ease;
 }
@@ -203,7 +203,7 @@
   justify-content: space-between;
   gap: 12px;
   width: 100%;
-  padding: 12px 20px;
+  padding: 10px 18px; /* Reduced padding */
   background: #f8fafc;
   color: #0f172a;
   border: 1px solid #e2e8f0;
@@ -289,7 +289,7 @@ body.dark-mode .event-card:hover .event-btn {
 @media (max-width: 1100px) {
   .events-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 20px;
   }
   .events-header h2 {
     font-size: 36px;
@@ -298,7 +298,10 @@ body.dark-mode .event-card:hover .event-btn {
 
 @media (max-width: 768px) {
   .events {
-    padding: 60px 5%;
+    padding: 30px 5%; /* Reduced top/bottom padding for mobile */
+  }
+  .events-header {
+    margin-bottom: 20px;
   }
   .events-grid {
     grid-template-columns: 1fr;
@@ -307,6 +310,6 @@ body.dark-mode .event-card:hover .event-btn {
     font-size: 30px;
   }
   .event-image {
-    height: 200px;
+    height: 180px;
   }
 }
