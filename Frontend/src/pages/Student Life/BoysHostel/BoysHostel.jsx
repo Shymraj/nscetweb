@@ -56,7 +56,7 @@ const BoysHostel = () => {
 
       <section className="hostel-hero">
         <div className="hero-content">
-          {/* <h1 className="animate-slide-down">NSCET BOYS HOSTEL</h1> */}
+          <h1 className="animate-slide-down">NSCET BOYS HOSTEL</h1>
         </div>
       </section>
 

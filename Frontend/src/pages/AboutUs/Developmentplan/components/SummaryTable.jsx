@@ -5,8 +5,8 @@ const SummaryTable = () => {
   return (
     <section className="dev-section-wrapper bg-light-1">
       <div className="dev-inner-container">
-      <h2 className="dev-section-title" style={{ display: "block", textAlign: "center", marginBottom: "3rem" }}>
-        Summary Alignment Table
+      <h2 className="about-section-heading">
+        SUMMARY ALIGNMENT TABLE
       </h2>
       
       <motion.div

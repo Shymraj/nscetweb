@@ -15,7 +15,7 @@ const KeyEnablers = () => {
         <section className="dev-section-wrapper bg-light-1">
             <div className="dev-inner-container">
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <h2 className="dev-section-title">{keyEnablersData.title}</h2>
+                    <h2 className="about-section-heading">{keyEnablersData.title}</h2>
                     <p className="exec-text" style={{ maxWidth: '800px', margin: '0 auto' }}>
                         {keyEnablersData.subtitle}
                     </p>

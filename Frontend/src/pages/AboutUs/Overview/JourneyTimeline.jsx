@@ -39,7 +39,7 @@ const JourneyTimeline = React.memo(() => {
 
   return (
     <section className="journey-section">
-      <h2 className="section-title">Our Journey</h2>
+      <h2 className="about-section-heading">OUR JOURNEY</h2>
       <div className="timeline-container" ref={containerRef}>
         <div className="timeline-line"></div>
         <motion.div

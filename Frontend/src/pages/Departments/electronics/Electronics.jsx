@@ -14,7 +14,6 @@ import { electronicsFacultyData } from "./facultyData";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
-import DepartmentHODProfile from "../../../components/common/DepartmentHODProfile/DepartmentHODProfile";
 
 // Auto-load banner image inside ./images/banner/
 const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
@@ -61,9 +60,6 @@ const Electronics = () => {
   };
 
   const faculties = useDepartmentStaff(['electronics and communication'], electronicsFacultyData);
-
-  const hod = faculties[0];
-  const staff = faculties.slice(1);
 
   const stats = [
     { count: "450+", label: "ECE Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
@@ -345,31 +341,7 @@ const Electronics = () => {
         </div>
       </section>
 
-      {/* SECTION 6: HOD Leadership */}
-      <section className="cse-section cse-hod-section" id="ece-hod">
-        <div className="cse-container">
-          <motion.div 
-            className="cse-section-header"
-            initial="hidden" whileInView="visible" viewport={{ once: true }}
-            variants={staggerContainer}
-          >
-            <motion.h2 variants={fadeInUp} className="cse-section-title">
-              Department <span className="cse-text-accent">Leadership</span>
-            </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
-          </motion.div>
-
-          <DepartmentHODProfile 
-            hod={{
-              ...hod,
-              quoteText: "Electronics & Communication lies at the core of the global digital era. We empower our students to design cutting-edge silicon chips and high-speed wireless networks."
-            }} 
-            onOpenProfile={handleOpenProfile} 
-          />
-        </div>
-      </section>
-
-      {/* SECTION 7: Faculty Directory */}
+            {/* SECTION 7: Faculty Directory */}
       <section className="cse-section cse-faculty-section" id="ece-faculty">
         <div className="cse-bg-glow glow-2"></div>
         <div className="cse-container">
@@ -389,8 +361,9 @@ const Electronics = () => {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
           >
-            {staff.map((member, idx) => (
-              <DepartmentFacultyCard 
+            {faculties.map((member, idx) => (
+              <DepartmentFacultyCard
+                isHOD={idx === 0} 
                 key={idx} 
                 member={member} 
                 onOpenProfile={handleOpenProfile} 

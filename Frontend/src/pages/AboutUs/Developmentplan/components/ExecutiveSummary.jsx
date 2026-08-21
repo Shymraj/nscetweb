@@ -23,7 +23,7 @@ const ExecutiveSummary = () => {
         className="exec-summary-wrapper"
       >
         <div className="exec-left">
-          <h2 className="dev-section-title">{executiveSummary.title}</h2>
+          <h2 className="about-section-heading">{executiveSummary.title}</h2>
           <p className="exec-text">{executiveSummary.intro}</p>
           
           <p className="exec-focus-intro">{executiveSummary.focusPrefix}</p>

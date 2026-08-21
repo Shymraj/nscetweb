@@ -1,5 +1,5 @@
 export const executiveSummary = {
-  title: "Executive Summary",
+  title: "EXECUTIVE SUMMARY",
   intro: "This Institutional Development Plan (IDP) outlines a strategic roadmap for NSCET from 2024 to 2029.",
   focusPrefix: "The plan focuses on",
   focusPoints: [
@@ -14,7 +14,7 @@ export const executiveSummary = {
 };
 
 export const institutionalProfile = {
-  title: "Institutional Profile",
+  title: "INSTITUTIONAL PROFILE",
   description: [
     "Nadar Saraswathi College of Engineering and Technology (NSCET), situated at Vadapudupatti, Theni District, Tamil Nadu, is dedicated to providing quality technical education.",
     "The institution is established under the Theni Melapettai Hindu Nadar Uravinmurai.",
@@ -208,7 +208,7 @@ export const summaryTableData = [
 ];
 
 export const keyEnablersData = {
-  title: "Key Enablers",
+  title: "KEY ENABLERS",
   subtitle: "The strategic pillars that will drive our 2029 vision into reality.",
   enablers: [
     {
@@ -243,7 +243,7 @@ export const keyEnablersData = {
 };
 
 export const institutionalStrengthData = {
-  title: "Our Core Strengths",
+  title: "OUR CORE STRENGTHS",
   subtitle: "The foundational assets that empower NSCET's growth and academic distinction.",
   points: [
     {

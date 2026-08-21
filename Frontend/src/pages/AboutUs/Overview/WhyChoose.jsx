@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { features } from "./data";
+import { awards } from "./data";
 
 const Achievements = () => {
   return (
     <section className="achievements-section">
-      <h2 className="section-title">Achievements & Awards</h2>
+      <h2 className="about-section-heading">ACHIEVEMENTS & AWARDS</h2>
       <div className="achievements-grid">
-        {features.map((achievement, index) => {
+        {awards.map((achievement, index) => {
           return (
             <motion.div
               key={achievement.id}
@@ -18,10 +18,10 @@ const Achievements = () => {
               className="achievement-card"
             >
               <div className="achievement-image-wrapper">
-                {/* Fallback to a styled placeholder until the user adds actual images */}
                 <img 
                   src={achievement.image} 
                   alt={achievement.title}
+                  style={{ objectPosition: achievement.id === 6 ? 'top center' : 'center center' }}
                   onError={(e) => {
                     e.target.onerror = null; 
                     e.target.src = `https://placehold.co/600x400/1e40af/FFFFFF?text=${encodeURIComponent(achievement.title)}`;
@@ -29,8 +29,8 @@ const Achievements = () => {
                   className="achievement-image"
                 />
                 <div className="achievement-overlay">
+                  <span style={{color: '#fbbf24', fontWeight: 'bold', fontSize: '1.2rem', marginBottom: '0.5rem'}}>{achievement.year}</span>
                   <h3 className="achievement-title">{achievement.title}</h3>
-                  <p className="achievement-description">{achievement.description}</p>
                 </div>
               </div>
             </motion.div>

@@ -13,8 +13,8 @@ const DepartmentAccordion = () => {
   return (
     <section className="dev-section-wrapper bg-white">
       <div className="dev-inner-container">
-      <h2 className="dev-section-title" style={{ display: "block", textAlign: "center", marginBottom: "3rem" }}>
-        Department-wise Alignment
+      <h2 className="about-section-heading">
+        DEPARTMENT-WISE ALIGNMENT
       </h2>
       <div className="accordion-wrapper">
         {departmentData.map((dept, index) => (

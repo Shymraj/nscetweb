@@ -9,7 +9,7 @@
 /* Intro Section */
 .ic-intro-section {
   max-width: 1200px;
-  margin: 40px auto;
+  margin: 60px auto 40px; /* Replaced overlapping margin with a clean gap */
   padding: 40px;
   background: white;
   border-radius: 20px;
@@ -19,8 +19,6 @@
   gap: 20px;
   position: relative;
   overflow: hidden;
-  margin-top: -40px; /* Overlap with banner slightly if possible */
-  z-index: 2;
 }
 
 .ic-intro-section::before {

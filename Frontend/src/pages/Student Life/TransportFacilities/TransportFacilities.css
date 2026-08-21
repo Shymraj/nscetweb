@@ -939,20 +939,25 @@ body.dark-mode .skeleton-item {
 }
 
 .incharge-cards-container {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
-  flex-wrap: wrap;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .incharge-cards-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .incharge-card {
   background: white;
   border-radius: 20px;
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 100%; /* Changed to 100% to fill the grid column */
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   transition: all 0.3s ease;

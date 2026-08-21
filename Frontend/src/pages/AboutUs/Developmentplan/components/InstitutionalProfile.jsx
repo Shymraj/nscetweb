@@ -13,7 +13,7 @@ const InstitutionalProfile = () => {
         transition={{ duration: 0.6 }}
         className="premium-glass-card profile-card"
       >
-        <h2 className="dev-section-title">{institutionalProfile.title}</h2>
+        <h2 className="about-section-heading">{institutionalProfile.title}</h2>
         
         <div className="profile-content">
           {institutionalProfile.description.map((text, index) => (

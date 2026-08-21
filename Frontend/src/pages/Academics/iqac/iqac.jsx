@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaUserCheck, 
-  FaFileDownload, 
+  FaFilePdf, 
   FaSearch, 
   FaAward, 
   FaCalendarCheck, 
@@ -11,21 +11,27 @@ import {
   FaGraduationCap, 
   FaCheckCircle, 
   FaFlask,
-  FaShieldAlt
+  FaShieldAlt,
+  FaClipboardCheck
 } from 'react-icons/fa';
 import './iqac.css';
 
+import pdf2021 from './images/2021-22.pdf';
+import pdf2022 from './images/2022-23.pdf';
+import pdf2023 from './images/2023-24.pdf';
+import pdf2025 from './images/2025-26.pdf';
+
 const committeeSections = [
   {
-    title: 'Chairperson',
-    icon: <FaAward />,
+    title: 'Senior Faculty Members',
+    icon: <FaUserTie />,
     items: [
-      { label: 'Dr. C. Mathalai Sundaram', detail: 'Principal' },
+      { label: 'Dr. C. Chithra', detail: 'Prof. Coordinator / S&H' },
     ],
   },
   {
-    title: 'Coordinator of IQAC',
-    icon: <FaUserCheck />,
+    title: 'IQAC Coordinators',
+    icon: <FaClipboardCheck />,
     items: [
       { label: 'Mr. R. Udhaya Kumar', detail: 'AP / CSE / Convenor' },
       { label: 'Dr. N. David Mathan', detail: 'ASP / CHE / Convenor' },
@@ -45,7 +51,6 @@ const committeeSections = [
       { label: 'Mr. L.S. Vignesh', detail: 'HOD / AD' },
       { label: 'Dr. M. Sathya', detail: 'VP / HOD / IT' },
       { label: 'Mr. C. Prathap', detail: 'HOD / S&H' },
-      { label: 'Dr. C. Chithra', detail: 'Prof. Coordinator / S&H' },
     ],
   },
   {
@@ -95,11 +100,11 @@ const committeeSections = [
 ];
 
 const meetingRecords = [
-  { label: '2021–2022', color: 'blue' },
-  { label: '2022–2023', color: 'green' },
-  { label: '2023–2024', color: 'orange' },
-  { label: '2024–2025', color: 'purple' },
-  { label: '2025–2026', color: 'teal' },
+  { label: '2021-2022', color: 'blue', link: pdf2021 },
+  { label: '2022-2023', color: 'green', link: pdf2022 },
+  { label: '2023-2024', color: 'orange', link: pdf2023 },
+  { label: '2024-2025', color: 'purple', link: null },
+  { label: '2025-2026', color: 'teal', link: pdf2025 },
 ];
 
 const getInitials = (name) => {
@@ -213,24 +218,31 @@ const IQAC = () => {
             <h2>IQAC Annual Meeting Records</h2>
             <p>Access official minutes, action taken reports, and quality audit documentation by academic year.</p>
           </div>
-
           <div className="iqac-records-grid">
             {meetingRecords.map((record) => (
-              <motion.button 
+              <motion.a 
                 key={record.label} 
-                type="button" 
+                href={record.link ? `${record.link}#toolbar=0` : '#'}
+                target={record.link ? '_blank' : '_self'}
+                rel={record.link ? 'noopener noreferrer' : ''}
                 className={`iqac-record-card iqac-record-${record.color}`}
                 whileHover={{ scale: 1.03, y: -4 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={(e) => {
+                  if (!record.link) {
+                    e.preventDefault();
+                    alert('PDF for this academic year is not available yet.');
+                  }
+                }}
               >
                 <div className="record-card-icon">
-                  <FaFileDownload />
+                  <FaFilePdf />
                 </div>
                 <div className="record-card-info">
                   <span className="record-year">{record.label}</span>
-                  <span className="record-action">View / Download Report</span>
+                  <span className="record-action">{record.link ? 'View Report' : 'Coming Soon'}</span>
                 </div>
-              </motion.button>
+              </motion.a>
             ))}
           </div>
         </motion.div>

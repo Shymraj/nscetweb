@@ -25,7 +25,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
                             {item.id === "certificate" ? (
                                 <a
                                     className="sidebar-link"
-                                    href={certificatePdf}
+                                    href={`${certificatePdf}#toolbar=0`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     style={{ display: 'block', textDecoration: 'none' }}

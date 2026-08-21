@@ -548,7 +548,7 @@ body.dark-mode .features-list li {
     font-size: 20px;
     font-weight: 800;
     margin-bottom: 12px;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .impact-box p {
@@ -575,7 +575,7 @@ body.dark-mode .features-list li {
     font-size: 30px;
     font-weight: 800;
     margin-bottom: 12px;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .cta-box p {

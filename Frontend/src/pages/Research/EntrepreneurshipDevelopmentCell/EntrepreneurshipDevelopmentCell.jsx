@@ -3,14 +3,14 @@ import './Entrepreneurship Development Cell.css';
 
 const EdcIicGrid = () => {
   const teamMembers = [
-    { name: "Mr. P. Surulimani", role: "Coordinator", dept: "AP/Mech" ,  photo: "/Surulimani.jpg"},
-    { name: "Dr. S. R. Krishnamoorthi", role: "Coordinator", dept: "Prof/Phy" , photo:"/krishnamoorthy.jpg"},
-    { name: "Mr. V. Sivaganesan", role: "Coordinator", dept: "AP/Mech" , photo:"/sivaganesan.jpg" },
-    { name: "Mrs. K. Benita Merlin Isabella", role: "Member", dept: "AP/CIVIL" , photo: "/Benita.jpg" },
-    { name: "Mr. C. Shiva", role: "Member", dept: "AP/EEE",  photo: "/shiva.jpg"},
-    { name: "Mrs. P. Shantha Devi", role: "Member", dept: "AP/ECE",photo: "/shanthadevi.jpg" },
-    { name: "Mr. J. Vinoth Kumar", role: "Member", dept: "AP/AI&DS", photo: "/vinothkumar.jpg" },
-    { name: "Mr. K. Rajaguru", role: "Member", dept: "AP/Phy",photo: "/rajaguru.jpg" },
+    { name: "Mr. P. Surulimani", role: "Coordinator", dept: "AP/Mech" ,  photo: "/MECH/Surulimani.jpg"},
+    { name: "Dr. S. R. Krishnamoorthi", role: "Coordinator", dept: "Prof/Phy" , photo:"/S&H/krishnamoorthy.jpg"},
+    { name: "Mr. V. Sivaganesan", role: "Coordinator", dept: "AP/Mech" , photo:"/MECH/sivaganesan.jpg" },
+    { name: "Mrs. K. Benita Merlin Isabella", role: "Member", dept: "AP/CIVIL" , photo: "/ME STRUCTURAL/Benita.jpg" },
+    { name: "Mr. C. Shiva", role: "Member", dept: "AP/EEE",  photo: "/EEE/shiva.jpg"},
+    { name: "Mrs. P. Shantha Devi", role: "Member", dept: "AP/ECE",photo: "/ECE/shanthadevi.jpg" },
+    { name: "Mr. J. Vinoth Kumar", role: "Member", dept: "AP/AI&DS", photo: "/AIDS/vinothkumar.jpg" },
+    { name: "Mr. K. Rajaguru", role: "Member", dept: "AP/Phy",photo: "/S&H/rajaguru.jpg" },
    ];
 
 

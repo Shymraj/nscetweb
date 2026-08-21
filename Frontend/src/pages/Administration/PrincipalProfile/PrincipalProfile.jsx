@@ -44,7 +44,7 @@ export default function PrincipalProfile() {
 
   const handleBackClick = (e) => {
     e.preventDefault();
-    navigate(`/administration/principal`);
+    navigate('/#principal-section');
   };
 
   useEffect(() => {

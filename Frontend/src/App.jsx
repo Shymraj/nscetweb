@@ -86,7 +86,7 @@ import ChatBot from "./components/chatbox/chatbox.jsx";
 const AppContent = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin-");
-  const isStandalonePortfolio = /^\/departments\/[^/]+\/faculty\//.test(location.pathname) || location.pathname === "/administration/principal/profile";
+  const isStandalonePortfolio = /^\/departments\/[^/]+\/faculty\//.test(location.pathname) || location.pathname === "/home/profile";
   const hideGlobalNavAndFooter = isAdminRoute || isStandalonePortfolio;
 
   return (
@@ -134,7 +134,7 @@ const AppContent = () => {
         <Route path="/administration" element={<Administration />} />
         <Route path="/administration/tmhnutrust" element={<TMHNUTrust />} />
         <Route path="/administration/principal" element={<Principal />} />
-        <Route path="/administration/principal/profile" element={<PrincipalProfile />} />
+        <Route path="/home/profile" element={<PrincipalProfile />} />
         <Route path="/administration/finance-officer" element={<FinanceOfficer />} />
         <Route path="/administration/controller-examination" element={<ControllerOfExamination />} />
         <Route path="/administration/ombudsperson" element={<Ombudsperson />} />

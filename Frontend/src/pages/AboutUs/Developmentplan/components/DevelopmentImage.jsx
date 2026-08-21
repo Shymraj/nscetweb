@@ -36,7 +36,7 @@ const DevelopmentImage = () => {
     <section className="dev-section-wrapper bg-white">
       <div className="dev-inner-container">
       <div className="dev-image-header">
-        <h2 className="dev-section-title">Institutional Development Plan Roadmap</h2>
+        <h2 className="about-section-heading">INSTITUTIONAL DEVELOPMENT PLAN ROADMAP</h2>
         <p className="dev-image-subtitle">Visual representation of NSCET's strategic development roadmap.</p>
       </div>
 

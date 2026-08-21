@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 import { 
   FaEnvelope, 
   FaPhoneAlt, 
@@ -31,8 +32,19 @@ function Principal({ hideBreadcrumb = false }) {
     fetchPrincipal();
   }, []);
 
+  const location = useLocation();
+  const principalRef = useRef(null);
+
+  useEffect(() => {
+    if (location.hash === '#principal-section' && principalRef.current) {
+      setTimeout(() => {
+        principalRef.current.scrollIntoView({ behavior: 'auto', block: 'start' });
+      }, 0);
+    }
+  }, [location]);
+
   return (
-    <div className={`principal-page ${hideBreadcrumb ? 'pr-home-view' : ''}`}>
+    <div id="principal-section" ref={principalRef} className={`principal-page ${hideBreadcrumb ? 'pr-home-view' : ''}`}>
       <div className="pr-container">
         
         {/* Centered Page Title & Breadcrumb Header */}
@@ -87,7 +99,7 @@ function Principal({ hideBreadcrumb = false }) {
               )}
               
               <div style={{ marginTop: '20px' }}>
-                <Link to="/administration/principal/profile" className="pr-academic-profile-btn">
+                <Link to="/home/profile" className="pr-academic-profile-btn">
                   <FaUserCircle className="pr-btn-icon" />
                   View Academic Profile
                 </Link>
@@ -101,23 +113,6 @@ function Principal({ hideBreadcrumb = false }) {
         <div className="pr-details-container">
           
 
-          {/* 4. Contact Information Card */}
-          <div className="pr-info-card pr-contact-card">
-            <div className="pr-card-header">
-              <FaEnvelope className="pr-card-icon" />
-              <h2>Contact Information</h2>
-            </div>
-            <div className="pr-card-body pr-contact-rows">
-              <div className="pr-contact-item">
-                <FaEnvelope className="pr-contact-subicon" />
-                <span><strong>Email:</strong> <a href="mailto:principal@nscet.org">principal@nscet.org</a></span>
-              </div>
-              <div className="pr-contact-item">
-                <FaPhoneAlt className="pr-contact-subicon" />
-                <span><strong>Contact:</strong> +91 94434 88999, +91 98426 85138</span>
-              </div>
-            </div>
-          </div>
 
         </div>
 

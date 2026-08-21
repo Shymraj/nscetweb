@@ -32,21 +32,12 @@
   position: relative;
 }
 
-.modern-girls-hostel-page .gh-hero-content { width: 100%; padding: 20px; }
-.modern-girls-hostel-page .gh-hero h1 { 
-  font-size: clamp(2.2rem, 5vw, 4rem); 
-  font-weight: 700; 
-  letter-spacing: 2px; 
-  margin-bottom: 15px; 
-  color: #ffffff !important; 
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+/* Desktop: Hide hero text because it's baked into the banner image */
+@media (min-width: 768px) {
+  .modern-girls-hostel-page .gh-hero-content {
+    display: none;
+  }
 }
-.modern-girls-hostel-page .gh-hero p { 
-  font-size: clamp(1rem, 1.5vw, 1.4rem); 
-  font-weight: 300; 
-  opacity: 0.95; 
-}
-
 /* --- MAIN CONTAINER & COMMON SECTION --- */
 .modern-girls-hostel-page .gh-main-container {
   max-width: 100%; 
@@ -377,6 +368,62 @@
   background: #1e3a8a; width: 30px; border-radius: 10px;
 }
 
+@media (max-width: 767px) {
+  .modern-girls-hostel-page .gh-hero {
+    /* Keep banner image visible and act as positioning container */
+    align-items: stretch;
+    padding-top: 0;
+    /* Increased height to make the banner extend further down */
+    min-height: 380px;
+    border-radius: 0;
+    /* Shift the image focal point slightly to the right */
+    background-position: 75% center;
+  }
+  .modern-girls-hostel-page .gh-main-container {
+    margin-top: 20px; /* Reduced gap below the banner */
+  }
+  .modern-girls-hostel-page .gh-hero-content {
+    /* Center the text and make the overlay slightly more transparent to show the image clearly */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Move text to the center */
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Added a slightly stronger dark gradient to ensure the text shadow stands out clearly */
+    background: radial-gradient(circle at center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.15) 100%);
+    border-radius: 0;
+    padding: 20px 15px;
+    margin: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+  .modern-girls-hostel-page .gh-hero h1 {
+    /* Larger size, Golden and White mixed combo */
+    font-size: clamp(32px, 9vw, 42px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0;
+    font-family: "Cinzel", serif;
+    text-transform: uppercase;
+    text-align: center;
+    
+    /* Golden and White gradient text effect */
+    background: linear-gradient(135deg, #FFDF00 0%, #FFFFFF 50%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback */
+    
+    /* Intense drop shadow to create a strong background shadow effect behind the text */
+    filter: drop-shadow(2px 4px 5px rgba(0,0,0,0.9)) drop-shadow(0px 0px 15px rgba(0,0,0,0.8));
+  }
+}
+
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 992px) {
   .modern-girls-hostel-page .gh-events-rules-split { 
@@ -396,6 +443,10 @@
 }
 
 /* 🔥 NIGHT BLUE HEADINGS FIX (#1e3a8a) */
+body.dark-mode .modern-girls-hostel-page .gh-hero h1 {
+  -webkit-text-fill-color: transparent !important;
+}
+
 .modern-girls-hostel-page .gh-section-title,
 .modern-girls-hostel-page .gh-section-title.center,
 .modern-girls-hostel-page h2 {
@@ -429,4 +480,32 @@
 
 .gh-zoom-hover:hover {
   transform: scale(1.02);
+}
+
+/* --- DARK MODE FULL SUPPORT --- */
+body.dark-mode .modern-girls-hostel-page {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+body.dark-mode .modern-girls-hostel-page .gh-section,
+body.dark-mode .modern-girls-hostel-page .gh-admin-card-content,
+body.dark-mode .modern-girls-hostel-page .gh-facilities-container,
+body.dark-mode .modern-girls-hostel-page .gh-events-card,
+body.dark-mode .modern-girls-hostel-page .gh-rules-card,
+body.dark-mode .modern-girls-hostel-page .gh-about-section {
+  background-color: var(--theme-bg) !important;
+  border-color: var(--theme-border) !important;
+  box-shadow: none !important;
+}
+body.dark-mode .modern-girls-hostel-page .gh-facilities-list-item,
+body.dark-mode .modern-girls-hostel-page .gh-rules-list li,
+body.dark-mode .modern-girls-hostel-page .gh-event-desc,
+body.dark-mode .modern-girls-hostel-page .gh-about-text p,
+body.dark-mode .modern-girls-hostel-page .gh-facilities-container ul {
+  color: var(--theme-text) !important;
+}
+body.dark-mode .modern-girls-hostel-page .gh-section-title,
+body.dark-mode .modern-girls-hostel-page h2,
+body.dark-mode .modern-girls-hostel-page h3 {
+  color: var(--theme-text) !important;
 }

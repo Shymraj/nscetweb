@@ -11,9 +11,9 @@ const QualityPolicy = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="section-title"
+          className="about-section-heading"
         >
-          Quality Policy
+          QUALITY POLICY
         </motion.h2>
         <motion.p
           initial={{ y: 20, opacity: 0 }}

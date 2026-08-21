@@ -7,6 +7,13 @@ import campus4 from "./assets/campus-slider/campus4.jpg";
 import campus5 from "./assets/campus-slider/campus5.jpg";
 import campus6 from "./assets/campus-slider/campus6.jpg";
 
+import award1 from "./assets/AWARDS&ACHIEVEMENTS/CAPTAINTV2022.png";
+import award2 from "./assets/AWARDS&ACHIEVEMENTS/BESTCOLLEGE2021.png";
+import award3 from "./assets/AWARDS&ACHIEVEMENTS/BESTCOLLEGE2019.png";
+import award4 from "./assets/AWARDS&ACHIEVEMENTS/IntellectualProperty.png";
+import award5 from "./assets/AWARDS&ACHIEVEMENTS/BESTENGINEERING2018.png";
+import award6 from "./assets/AWARDS&ACHIEVEMENTS/Best Educational Institution Award.png";
+
 export const campusImages = [
   campus1,
   campus2,
@@ -23,48 +30,42 @@ export const statistics = [
   { id: 4, label: "Recruiters", value: 80, suffix: "+" },
 ];
 
-export const features = [
+export const awards = [
   {
     id: 1,
-    title: "Academic Excellence",
-    description: "Providing outcome-based education with experienced faculty and modern teaching methodologies.",
-    icon: FaGraduationCap,
-    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement1.jpg",
+    year: "2022",
+    title: "CAPTAIN TV Best College Award",
+    image: award1,
   },
   {
     id: 2,
-    title: "Industry Collaboration",
-    description: "Strong partnerships with industries for internships, industrial visits and placements.",
-    icon: FaHandshake,
-    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement2.jpg",
+    year: "2021",
+    title: "Best College Award",
+    image: award2,
   },
   {
     id: 3,
-    title: "Research & Innovation",
-    description: "Research centers, innovation labs, incubation support and project-based learning.",
-    icon: FaLightbulb,
-    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement3.jpg",
+    year: "2019",
+    title: "Best Engineering College Award",
+    image: award3,
   },
   {
     id: 4,
-    title: "Modern Infrastructure",
-    description: "Smart classrooms, advanced laboratories, digital library, hostels and sports facilities.",
-    icon: FaBuilding,
-    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement4.jpg",
+    year: "2019",
+    title: "Intellectual Property Awards",
+    image: award4,
   },
   {
     id: 5,
-    title: "Placement Excellence",
-    description: "Dedicated placement training, aptitude coaching and excellent recruitment opportunities.",
-    icon: FaBriefcase,
-    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement5.jpg",
+    year: "2018",
+    title: "Best Engineering College Award",
+    image: award5,
   },
   {
     id: 6,
-    title: "Holistic Development",
-    description: "Technical clubs, NSS, NCC, cultural events, hackathons and leadership activities.",
-    icon: FaUsers,
-    image: "/src/pages/Aboutus/Overview/assets/achievements/achievement6.jpg",
+    year: "2016",
+    title: "Best Educational Institution Award",
+    image: award6,
   },
 ];
 

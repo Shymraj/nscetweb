@@ -23,7 +23,7 @@ const OrganizationalChart = () => {
     <section id="organizational-chart" className="about-section-wrapper bg-light-2">
       <div className="about-inner-container act-section">
       <div className="section-header">
-        <h2 className="section-title">Organizational Chart</h2>
+        <h2 className="about-section-heading">ORGANIZATIONAL CHART</h2>
       </div>
 
       <motion.div

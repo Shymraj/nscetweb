@@ -3,15 +3,14 @@
    ========================================================================== */
 
 .dept-faculty-card {
-  background: #F8F0C9;
+  background: #e0f2fe;
   border-radius: 26px;
-  padding: 1.5rem 1.2rem;
+  padding: 0; /* Changed for edge-to-edge image */
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  overflow: hidden; /* Added for edge-to-edge image */
   height: 100%;
   box-sizing: border-box;
   transition: all 0.35s ease;
@@ -32,98 +31,158 @@ body.dark-mode .dept-faculty-card:hover {
   border-color: rgba(56, 189, 248, 0.3);
 }
 
-.dept-faculty-card-inner {
+.dept-faculty-card-inner-v2 {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   width: 100%;
   height: 100%;
 }
 
-.dept-faculty-avatar-wrap {
-  width: 95px;
-  height: 95px;
-  border-radius: 50%;
-  overflow: hidden;
+.dept-faculty-img-top {
+  width: 100%;
+  height: 220px; /* Half card height */
+  position: relative;
   flex-shrink: 0;
-  border: 3px solid #ffffff;
-  background-color: #ffffff;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.2rem;
-  transition: all 0.35s ease;
 }
 
-body.dark-mode .dept-faculty-avatar-wrap {
-  border-color: #1e293b;
-  background-color: #1e293b;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+/* Glass background elements */
+.dept-faculty-glass-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
-.dept-faculty-card:hover .dept-faculty-avatar-wrap,
-.dept-faculty-avatar-wrap:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 0 6px rgba(30, 136, 229, 0.08), 0 20px 45px rgba(30, 136, 229, 0.18);
-}
-
-.dept-faculty-avatar {
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
+.glass-bg-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center top;
-  display: block;
+  filter: blur(12px);
+  transform: scale(1.15); /* prevent blurred edges from showing */
+  opacity: 0.6;
 }
 
-.dept-faculty-avatar-fallback {
-  width: 85px;
-  height: 85px;
+.glass-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(224, 242, 254, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+body.dark-mode .glass-bg-overlay {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+/* Circle photo elements */
+.dept-faculty-circle-wrap {
+  position: relative;
+  z-index: 2;
+  width: 165px;
+  height: 165px;
   border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+  overflow: hidden;
+  background: #ffffff;
+}
+
+body.dark-mode .dept-faculty-circle-wrap {
+  border-color: #1e293b;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  background: #1e293b;
+}
+
+.dept-faculty-circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.dept-faculty-card:hover .dept-faculty-circle-img {
+  transform: scale(1.08);
+}
+
+.dept-faculty-circle-fallback {
+  width: 100%;
+  height: 100%;
   background: #f1f5f9;
   color: #64748b;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.8rem;
+  font-size: 3rem;
 }
 
-.dept-faculty-info {
+/* Glassmorphism shadow divider */
+.dept-faculty-img-glass-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to top, #e0f2fe 10%, rgba(224, 242, 254, 0.3) 60%, transparent 100%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 3;
+}
+
+body.dark-mode .dept-faculty-img-glass-divider {
+  background: linear-gradient(to top, #1e293b 10%, rgba(30, 41, 59, 0.3) 60%, transparent 100%);
+}
+
+.dept-faculty-info-bottom {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 1rem 1.2rem 1.5rem 1.2rem;
   width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
 }
 
 .dept-faculty-name {
   font-family: var(--font-subtopic);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 0.3rem 0;
+  font-size: 1.35rem; /* Increased for 1st priority */
+  font-weight: 800;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin: 0 0 0.2rem 0;
   min-height: 2.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  line-height: 1.35;
+  line-height: 1.2;
 }
 
 body.dark-mode .dept-faculty-name {
-  color: #f8fafc;
+  background: linear-gradient(135deg, #f8fafc 0%, #93c5fd 100%);
+  -webkit-background-clip: text;
 }
 
 .dept-faculty-role {
   font-family: var(--font-subtopic);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #2563eb;
-  margin-bottom: 0.2rem;
-  min-height: 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #d97706; /* Vibrant amber/orange to stand out */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.1rem;
 }
 
 body.dark-mode .dept-faculty-role {
@@ -132,9 +191,10 @@ body.dark-mode .dept-faculty-role {
 
 .dept-faculty-qual {
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: #64748b;
-  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 1rem;
 }
 
 body.dark-mode .dept-faculty-qual {
@@ -153,12 +213,26 @@ body.dark-mode .dept-faculty-qual {
 
 .dept-spec-badge {
   font-family: var(--font-subtopic);
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  background: #f1f5f9;
-  color: #475569;
-  padding: 3px 10px;
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  color: #ffffff;
+  padding: 5px 14px;
   border-radius: 99px;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .dept-spec-badge {
+  background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dept-spec-badge.extra {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(225, 29, 72, 0.25);
 }
 
 body.dark-mode .dept-spec-badge {
@@ -244,4 +318,186 @@ body.dark-mode .dept-profile-btn:hover {
   border-color: #38bdf8;
   color: #38bdf8;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   HOD Glassmorphism Card Styles (Like the provided image)
+   ========================================================================== */
+.dept-faculty-card.hod-glass-card {
+  position: relative;
+  background: linear-gradient(180deg, #fef3c7 0%, #fde68a 100%); /* Light golden champagne */
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 0;
+  border: 4px solid #fff; /* the thick white frame */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  min-height: 480px; /* Adapts to split layout */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.dept-faculty-card.hod-glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 45px rgba(217, 119, 6, 0.25); /* Soft amber shadow */
+  border-color: #d97706; /* Rich amber border on hover */
+}
+
+body.dark-mode .dept-faculty-card.hod-glass-card {
+  border-color: #1e293b;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Top Half Wrapper */
+.hod-img-top {
+  width: 100%;
+  height: 240px; /* Slightly taller than normal faculties */
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 5;
+  box-shadow: 0 10px 25px -10px rgba(120, 53, 15, 0.15); /* Soft shadow blending downwards */
+}
+
+.hod-glass-bg-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+}
+
+.hod-glass-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(15px);
+  transform: scale(1.2);
+  opacity: 0.5; /* Darker to make the circle pop */
+}
+
+.hod-glass-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(254, 243, 199, 0.75); /* Light golden frosted overlay */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Floating Animated Circle! */
+.hod-circle-wrap {
+  position: relative;
+  z-index: 2;
+  width: 190px; /* Bigger than 165px for standard faculties */
+  height: 190px;
+  border-radius: 50%;
+  border: 4px solid #ffffff; /* White looks cleaner on light gold */
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
+  animation: hodPulse 3.5s infinite alternate ease-in-out; /* Attractive floating animation */
+}
+
+@keyframes hodPulse {
+  0% { box-shadow: 0 0 15px rgba(217, 119, 6, 0.2); transform: scale(1) translateY(0px); }
+  100% { box-shadow: 0 0 35px rgba(217, 119, 6, 0.45); transform: scale(1.02) translateY(-4px); }
+}
+
+.hod-circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.dept-faculty-card.hod-glass-card:hover .hod-circle-img {
+  transform: scale(1.1);
+}
+
+.hod-circle-fallback {
+  width: 100%;
+  height: 100%;
+  background: #f1f5f9;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+/* Removed hod-img-glass-divider as mask-image perfectly handles blending */
+
+.hod-glass-content {
+  position: relative;
+  z-index: 4;
+  padding: 10px 24px 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centered like standard cards */
+}
+
+.hod-glass-name {
+  font-family: var(--font-subtopic); /* Using project standard */
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  color: #451a03 !important; /* Espresso brown */
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+.hod-glass-name .verified-icon {
+  margin-left: 6px;
+  color: #d97706; /* Rich amber */
+}
+
+.hod-glass-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #78350f !important; /* Medium warm brown */
+  margin-bottom: 22px;
+  font-weight: 600;
+}
+
+.hod-glass-footer {
+  display: flex;
+  justify-content: center; /* Center the button since stats are removed */
+  align-items: center;
+  border-top: 1px solid rgba(120, 53, 15, 0.15); /* Brown border */
+  padding-top: 15px;
+  width: 100%;
+}
+
+.hod-glass-btn {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  border: 1px solid #f59e0b;
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+}
+
+.hod-glass-btn:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
 }

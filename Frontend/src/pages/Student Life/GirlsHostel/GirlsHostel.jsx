@@ -74,7 +74,7 @@ const GirlsHostel = () => {
       
       <section className="gh-hero" style={{ aspectRatio: '8 / 3', width: '100%' }}>
         <div className="gh-hero-content">
-          
+          <h1 className="gh-animate-slide-down">NSCET GIRLS HOSTEL</h1>
         </div>
       </section>
 

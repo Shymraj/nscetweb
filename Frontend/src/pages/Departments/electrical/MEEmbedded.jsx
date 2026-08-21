@@ -14,7 +14,6 @@ import { meembeddedFacultyData } from "./meembedded/facultyData";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
-import DepartmentHODProfile from "../../../components/common/DepartmentHODProfile/DepartmentHODProfile";
 
 // Auto-load banner image inside ./images/embbeded_banner/
 const bannerGlobs = import.meta.glob("./images/embbeded_banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
@@ -51,9 +50,6 @@ const MEEmbedded = () => {
   };
 
   const faculties = useDepartmentStaff(['m.e. - embedded'], meembeddedFacultyData);
-
-  const hod = faculties[0];
-  const staff = faculties.slice(1);
 
   const stats = [
     { count: "30+", label: "PG Embedded Scholars", icon: <FaGraduationCap />, color: "#2563eb" },
@@ -280,31 +276,7 @@ const MEEmbedded = () => {
         </div>
       </section>
 
-      {/* SECTION 5: HOD Leadership */}
-      <section className="cse-section cse-hod-section" id="meembed-hod">
-        <div className="cse-container">
-          <motion.div 
-            className="cse-section-header"
-            initial="hidden" whileInView="visible" viewport={{ once: true }}
-            variants={staggerContainer}
-          >
-            <motion.h2 variants={fadeInUp} className="cse-section-title">
-              Program <span className="cse-text-accent">Leadership</span>
-            </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
-          </motion.div>
-
-          <DepartmentHODProfile 
-            hod={{
-              ...hod,
-              quoteText: "Embedded intelligence powers every modern electronic device. We train our scholars to build robust microcontrollers and real-time computing systems."
-            }} 
-            onOpenProfile={handleOpenProfile} 
-          />
-        </div>
-      </section>
-
-      {/* SECTION 6: Faculty Directory */}
+            {/* SECTION 6: Faculty Directory */}
       <section className="cse-section cse-faculty-section" id="meembed-faculty">
         <div className="cse-bg-glow glow-2"></div>
         <div className="cse-container">
@@ -324,8 +296,9 @@ const MEEmbedded = () => {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
           >
-            {staff.map((member, idx) => (
-              <DepartmentFacultyCard 
+            {faculties.map((member, idx) => (
+              <DepartmentFacultyCard
+                isHOD={idx === 0} 
                 key={idx} 
                 member={member} 
                 onOpenProfile={handleOpenProfile} 

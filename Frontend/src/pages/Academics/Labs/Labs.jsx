@@ -63,26 +63,9 @@ const Labs = () => {
   return (
     <div className="labs-page-container">
       {/* =========================================
-          HERO SECTION (UNTOUCHED AS REQUESTED) 
+          HERO SECTION (UPDATED) 
           ========================================= */}
       <section className="labs-hero">
-        <div className="labs-hero-bg"></div>
-        <div className="labs-hero-content">
-          <motion.h1 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            State-of-the-Art <span>Laboratories</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Experience hands-on learning with industry-standard equipment and advanced research facilities designed to transform theoretical knowledge into practical expertise.
-          </motion.p>
-        </div>
       </section>
 
       {/* =========================================

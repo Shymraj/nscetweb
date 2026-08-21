@@ -14,7 +14,6 @@ import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
-import DepartmentHODProfile from "../../../components/common/DepartmentHODProfile/DepartmentHODProfile";
 
 import bannerImg from "./images/banner/civil.png";
 
@@ -64,9 +63,6 @@ const Civil = () => {
   };
 
   const faculties = useDepartmentStaff(['civil'], civilFacultyData);
-
-  const hod = faculties[0];
-  const staff = faculties.slice(1);
 
   const stats = [
     { count: "380+", label: "Civil Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
@@ -344,31 +340,7 @@ const Civil = () => {
         </div>
       </section>
 
-      {/* SECTION 6: HOD Leadership */}
-      <section className="cse-section cse-hod-section" id="civil-hod">
-        <div className="cse-container">
-          <motion.div 
-            className="cse-section-header"
-            initial="hidden" whileInView="visible" viewport={{ once: true }}
-            variants={staggerContainer}
-          >
-            <motion.h2 variants={fadeInUp} className="cse-section-title">
-              Department <span className="cse-text-accent">Leadership</span>
-            </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
-          </motion.div>
-
-          <DepartmentHODProfile 
-            hod={{
-              ...hod,
-              quoteText: "Civil Engineering is the backbone of societal growth. We train our engineers to construct safe, sustainable, and aesthetically brilliant structures for future generations."
-            }} 
-            onOpenProfile={handleOpenProfile} 
-          />
-        </div>
-      </section>
-
-      {/* SECTION 7: Faculty Directory */}
+            {/* SECTION 7: Faculty Directory */}
       <section className="cse-section cse-faculty-section" id="civil-faculty">
         <div className="cse-bg-glow glow-2"></div>
         <div className="cse-container">
@@ -388,8 +360,9 @@ const Civil = () => {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
           >
-            {staff.map((member, idx) => (
-              <DepartmentFacultyCard 
+            {faculties.map((member, idx) => (
+              <DepartmentFacultyCard
+                isHOD={idx === 0} 
                 key={idx} 
                 member={member} 
                 onOpenProfile={handleOpenProfile} 

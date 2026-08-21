@@ -1,5 +1,6 @@
 import nssLogo from './assets/nss.png';
 import yrcLogo from './assets/yrc.png';
+import iqacLogo from './assets/IQAC.jpg';
 import greenEnvLogo from './assets/greenenvironment.jpeg';
 import edcLogo from './assets/Entrepreneurship Development.png';
 import iipcLogo from './assets/Industry Institute Partnership Cell.png';
@@ -299,7 +300,7 @@ export const clubsData = [
   {
     id: 'iqac',
     name: 'Internal Quality Assurance Cell',
-    icon: null,
+    icon: iqacLogo,
     details: {
       coordinator: 'Mr. R. Udhaya Kumar, AP /CSE/ Convenor\nDr.N.David Mathan, ASP /CHE/Convenor',
       members: 'Dr. C. Mathalai Sundaram, Principal\nDr. N. Mathavan, AP/ECE\nDr. M. Sathya, Placement Officer\nDr. B. Radha Krishnan, HOD/MECH\nDr. E. Anantha Krishnan, AP/CIVIL\nDr. J. Mathalai Raj ,HoD/ CSE\nMr. L.S. Vignesh, HOD/AIDS\nMrs. S. Aruljothi HOD/IT\nDr. R. Athilingam, HOD /EEE\nMr. A. Vembathu Rajesh, HoD / S&H\nDr. T. Venishkumar, HOD/ECE\nMr. N. Nagarathinam, HoD/CIVIL\nDr. C. Chithra, Prof - Coordinator/S&H',
