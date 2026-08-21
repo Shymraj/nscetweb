@@ -195,7 +195,7 @@
 
 .al-section-wrapper {
   max-width: 1240px;
-  margin: 0 auto 60px auto;
+  margin: 0 auto 25px auto;
   padding: 0 20px;
 }
 
@@ -304,6 +304,12 @@
 .al-admin-card .al-avatar-ring {
   width: 130px;
   height: 130px;
+  margin: 10px auto 16px auto;
+}
+
+.al-lib-card .al-avatar-ring {
+  width: 115px;
+  height: 115px;
   margin: 10px auto 16px auto;
 }
 
@@ -488,7 +494,7 @@
 .al-divider {
   width: 75%;
   max-width: 800px;
-  margin: 0 auto 55px auto;
+  margin: 10px auto 25px auto;
   border: 0;
   height: 1px;
   background: linear-gradient(to right, transparent, #e2e8f0, transparent);

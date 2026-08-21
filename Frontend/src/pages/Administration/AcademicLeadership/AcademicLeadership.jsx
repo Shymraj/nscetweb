@@ -255,14 +255,25 @@ const AcademicLeadership = () => {
       <hr className="al-divider" />
 
       {/* LIBRARY AND PHYSICAL EDUCATION */}
-      <div className="al-section-wrapper" style={{ marginBottom: '60px' }}>
+      <div className="al-section-wrapper" style={{ marginBottom: '35px' }}>
         <h2 className="al-section-title">Library and Physical Education</h2>
         <div className="al-split-container">
 
-          <div className="al-card al-admin-card">
+          <div className="al-card al-admin-card al-lib-card">
             <div className="al-card-top-bar"></div>
             <div className="al-avatar-ring">
-              <img src={encodeURI("/library/Sinthan.jpg")} alt="Librarian" loading="eager" decoding="async" />
+              <img 
+                src={encodeURI("/library/Sinthan.jpg")} 
+                alt="Dr. S. Sinthan" 
+                loading="eager" 
+                decoding="async" 
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = '/nscet-logo.png';
+                  e.target.style.objectFit = 'contain';
+                  e.target.style.padding = '8px';
+                }}
+              />
             </div>
             <h2 className="al-name">Dr. S. Sinthan</h2>
             <p className="al-dept-name">
@@ -274,10 +285,21 @@ const AcademicLeadership = () => {
             </ul>
           </div>
 
-          <div className="al-card al-admin-card">
+          <div className="al-card al-admin-card al-lib-card">
             <div className="al-card-top-bar"></div>
             <div className="al-avatar-ring">
-              <img src={encodeURI("/ped.jpg")} alt="Physical Education Director" loading="eager" decoding="async" />
+              <img 
+                src={encodeURI("/ped.jpg")} 
+                alt="Mr. Ponnaiah" 
+                loading="eager" 
+                decoding="async" 
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = '/nscet-logo.png';
+                  e.target.style.objectFit = 'contain';
+                  e.target.style.padding = '8px';
+                }}
+              />
             </div>
             <h2 className="al-name">Mr. Ponnaiah</h2>
             <p className="al-dept-name">
