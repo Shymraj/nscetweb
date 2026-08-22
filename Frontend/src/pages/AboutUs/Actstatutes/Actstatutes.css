@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap');
 
 :root {
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
@@ -7,9 +8,25 @@
 
 /* Global and Container */
 .act-statutes-page {
+  /* =========================================
+     TEST TYPOGRAPHY & COLOR SYSTEM
+     ========================================= */
+  --font-heading: 'Outfit', sans-serif;
+  --font-section: 'Outfit', sans-serif;
+  --font-subtopic: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --color-h1: #123B7A;
+  --color-h2: #1E56A0;
+  --color-h3: #234A7D;
+  --color-body: #111111;
+  --color-muted: #5F6368;
+  --color-accent-gold: #F5A400;
+  --color-link: #2563EB;
+
   font-family: var(--font-body);
   background-color: #f8fafc;
-  color: #1e293b;
+  color: var(--color-body);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -161,9 +178,7 @@
   font-family: var(--font-section);
   font-size: 2.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #1e40af 0%, var(--theme-primary-light, #38BDF8) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-h2);
   margin-bottom: 1rem;
   position: relative;
   display: inline-block;
@@ -176,7 +191,7 @@
   left: 0;
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, var(--theme-primary-light, #38BDF8), #93c5fd);
+  background: var(--color-accent-gold);
   border-radius: 2px;
 }
 
@@ -226,7 +241,7 @@
   font-family: var(--font-subtopic);
   font-size: 2rem;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-h3);
   letter-spacing: 1px;
 }
 
@@ -275,7 +290,7 @@
   font-family: var(--font-subtopic);
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-h3);
   letter-spacing: 0.5px;
 }
 
@@ -292,13 +307,14 @@
 }
 
 .elegant-vision-text {
+  font-family: var(--font-body);
   font-size: 1.15rem;
   line-height: 1.7;
-  font-weight: 500;
-  color: #334155;
+  font-weight: 400;
+  color: var(--color-body);
   position: relative;
   padding-left: 1rem;
-  border-left: 3px solid var(--theme-primary-light, #38BDF8);
+  border-left: 3px solid var(--color-accent-gold);
 }
 
 .elegant-mission-list {
@@ -334,9 +350,11 @@
 }
 
 .elegant-mission-text {
+  font-family: var(--font-body);
   font-size: 1.05rem;
   line-height: 1.6;
-  color: #475569;
+  font-weight: 400;
+  color: var(--color-body);
 }
 
 /* Quality Policy Grid */
@@ -385,9 +403,10 @@
 }
 
 .quality-card-title {
+  font-family: var(--font-subtopic);
   font-size: 1.3rem;
   font-weight: 700;
-  color: #1e3a8a;
+  color: var(--color-h3);
   margin-bottom: 1rem;
   position: relative;
   padding-bottom: 0.75rem;
@@ -410,9 +429,11 @@
 }
 
 .quality-card-content {
+  font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.7;
-  color: #64748b;
+  font-weight: 400;
+  color: var(--color-body);
   flex-grow: 1;
 }
 
@@ -453,18 +474,20 @@
 }
 
 .commitment-title {
+  font-family: var(--font-subtopic);
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #93c5fd;
+  color: var(--color-accent-gold);
 }
 
 .commitment-quote {
+  font-family: var(--font-body);
   font-size: 1.8rem;
   line-height: 1.6;
-  font-weight: 300;
+  font-weight: 400;
   margin: 0;
   position: relative;
   z-index: 1;
@@ -557,15 +580,18 @@
 }
 
 .document-title {
+  font-family: var(--font-subtopic);
   font-size: 2rem;
   font-weight: 800;
-  color: #1e293b;
+  color: var(--color-h3);
   margin-bottom: 0.75rem;
 }
 
 .document-description {
+  font-family: var(--font-body);
   font-size: 1.1rem;
-  color: #64748b;
+  color: var(--color-body);
+  font-weight: 400;
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }

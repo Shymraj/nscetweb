@@ -165,6 +165,48 @@ export const departmentData = [
       "Lifelong Learning",
       "Skill-based Teaching"
     ]
+  },
+  {
+    name: "Mechanical Engineering",
+    vision: "To achieve global recognition in mechanical engineering education and research, developing innovative software-driven mechanical engineers and industrial leaders.",
+    mission: [
+      "To provide rigorous technical education in design, thermal systems, and manufacturing.",
+      "To foster industrial collaborations, internships, and robotics automation projects.",
+      "To instill ethical values, teamwork, and sustainable engineering practices."
+    ],
+    alignment: [
+      "Software-driven mechanical engineers",
+      "Robotics automation projects",
+      "Sustainable engineering practices"
+    ]
+  },
+  {
+    name: "Information Technology",
+    vision: "To achieve academic excellence in Information Technology by imparting high-quality technical education, research mindset, and entrepreneurial spirit to meet global industry needs.",
+    mission: [
+      "To provide comprehensive education in cloud computing, data science, and web architectures.",
+      "To establish collaborative partnerships with IT industries for internships and real-world projects.",
+      "To instill ethical values, leadership qualities, and lifelong learning attitudes in students."
+    ],
+    alignment: [
+      "Cloud computing, data science",
+      "IT industries",
+      "Lifelong learning attitudes"
+    ]
+  },
+  {
+    name: "Artificial Intelligence & Data Science",
+    vision: "To emerge as a center of excellence in Artificial Intelligence and Data Science by producing world-class researchers and engineers capable of solving complex societal problems through intelligent technology.",
+    mission: [
+      "To impart deep technical mastery in Machine Learning, Deep Learning, Big Data, and AI algorithms.",
+      "To foster industry partnerships, research collaborations, and continuous innovation.",
+      "To nurture ethical AI principles, leadership traits, and interdisciplinary problem-solving skills."
+    ],
+    alignment: [
+      "Machine Learning, Deep Learning",
+      "Continuous innovation",
+      "Ethical AI principles"
+    ]
   }
 ];
 

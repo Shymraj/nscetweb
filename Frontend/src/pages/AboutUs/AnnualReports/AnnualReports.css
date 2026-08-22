@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap');
+
 :root {
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
   --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
@@ -6,9 +8,25 @@
 /* AnnualReports.css */
 
 .annual-reports-page {
+  /* =========================================
+     TEST TYPOGRAPHY & COLOR SYSTEM
+     ========================================= */
+  --font-heading: 'Outfit', sans-serif;
+  --font-section: 'Outfit', sans-serif;
+  --font-subtopic: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --color-h1: #123B7A;
+  --color-h2: #1E56A0;
+  --color-h3: #234A7D;
+  --color-body: #111111;
+  --color-muted: #5F6368;
+  --color-accent-gold: #F5A400;
+  --color-link: #2563EB;
+
   font-family: var(--font-body);
   background-color: #f8fafc;
-  color: #1e293b;
+  color: var(--color-body);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -112,15 +130,17 @@
   font-family: var(--font-section);
   font-size: 2.5rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--color-h2);
   margin-bottom: 0.5rem;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 
 .ar-underline {
   height: 4px;
   width: 80px;
-  background: linear-gradient(90deg, var(--theme-primary-light, #38BDF8), #f97316);
+  background: var(--color-accent-gold);
   border-radius: 2px;
   margin: 0 auto 3rem;
 }
@@ -142,11 +162,13 @@
 }
 
 .ar-description {
-  color: #475569;
+  font-family: var(--font-body);
+  color: var(--color-body);
   font-size: 1.15rem;
   line-height: 1.8;
   max-width: 900px;
   margin: 0 auto;
+  font-weight: 400;
 }
 
 /* Highlights Section */
@@ -191,9 +213,10 @@
 }
 
 .category-title {
+  font-family: var(--font-subtopic);
   font-size: 1.4rem;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-h3);
   margin: 0;
 }
 
@@ -275,23 +298,18 @@
 }
 
 .stat-number {
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 0.5rem;
-  /* Fallback color */
-  color: #1e3a8a;
-  /* Gradient text effect */
-  background: linear-gradient(to right, #1e3a8a, var(--theme-primary-light, #38BDF8));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-h1);
 }
 
 .stat-label {
-  font-family: var(--font-subtopic);
-  color: #64748b;
-  font-weight: 700;
+  font-family: var(--font-body);
+  color: var(--color-accent-gold);
+  font-weight: 600;
   font-size: 1.05rem;
   margin: 0;
 }
@@ -329,9 +347,10 @@
 }
 
 .value-label {
+  font-family: var(--font-subtopic);
   font-size: 1.1rem;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-h3);
   margin-bottom: 0.25rem;
 }
 
@@ -374,17 +393,20 @@
 }
 
 .document-title {
+  font-family: var(--font-subtopic);
   font-size: 1.8rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--color-h3);
   margin-bottom: 0.75rem;
 }
 
 .document-description {
-  color: #475569;
+  font-family: var(--font-body);
+  color: var(--color-body);
   font-size: 1.05rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  font-weight: 400;
 }
 
 .document-badges {
@@ -394,9 +416,10 @@
 }
 
 .doc-badge {
+  font-family: var(--font-body);
   padding: 0.4rem 1rem;
   background: #f1f5f9;
-  color: #475569;
+  color: var(--color-accent-gold);
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;

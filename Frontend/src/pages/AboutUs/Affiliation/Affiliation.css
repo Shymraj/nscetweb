@@ -1,13 +1,30 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap');
+/* Affiliation.css */
 :root {
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
   --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
 }
-/* Affiliation.css */
 .affiliation-page {
+  /* =========================================
+     TEST TYPOGRAPHY & COLOR SYSTEM
+     ========================================= */
+  --font-heading: 'Outfit', sans-serif;
+  --font-section: 'Outfit', sans-serif;
+  --font-subtopic: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --color-h1: #123B7A;
+  --color-h2: #1E56A0;
+  --color-h3: #234A7D;
+  --color-body: #111111;
+  --color-muted: #5F6368;
+  --color-accent-gold: #F5A400;
+  --color-link: #2563EB;
+
   font-family: var(--font-body);
   background-color: #f8fafc;
-  color: #1e293b;
+  color: var(--color-body);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -225,12 +242,14 @@
 
 /* Content Area */
 .affiliation-heading {
-  font-family: var(--font-subtopic);
+  font-family: var(--font-section);
   font-size: 2.5rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--color-h2);
   margin-bottom: 0.5rem;
   line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 
 .heading-underline {
@@ -242,10 +261,12 @@
 }
 
 .affiliation-description {
-  color: #475569;
+  font-family: var(--font-body);
+  color: var(--color-body);
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 3rem;
+  font-weight: 400;
 }
 
 .affiliation-description p {
@@ -267,10 +288,10 @@
   background: var(--premium-card-bg);
   border: var(--premium-card-border);
   padding: 0.5rem 1.25rem 0.5rem 0.75rem;
-  border-radius: 50px; /* Pill design */
-  font-weight: 500;
+  border-radius: 50px; 
+  font-weight: 600;
   font-size: 0.95rem;
-  color: #334155;
+  color: var(--color-accent-gold);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
   cursor: default;
   transition: all 0.3s ease;

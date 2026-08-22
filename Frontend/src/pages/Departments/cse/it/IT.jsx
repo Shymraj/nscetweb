@@ -62,10 +62,9 @@ const IT = () => {
   const faculties = useDepartmentStaff(['it', 'information technology'], itFacultyData);
 
   const stats = [
-    { count: "320+", label: "IT Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "12+", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "131", label: "IT Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
+    { count: "8", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
     { count: "60+", label: "Research Publications", icon: <FaBookOpen />, color: "#d97706" },
-    { count: "5+", label: "Advanced IT Labs", icon: <FaServer />, color: "#7c3aed" },
     { count: "92%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
   ];
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaChevronDown, FaBuilding } from "react-icons/fa";
+import { FaChevronDown, FaBuilding, FaTrophy, FaLightbulb, FaShieldAlt } from "react-icons/fa";
 import { departmentData } from "../data";
 
 const DepartmentAccordion = () => {
@@ -30,57 +30,46 @@ const DepartmentAccordion = () => {
               className="accordion-header" 
               onClick={() => toggleAccordion(index)}
             >
-              <div className="accordion-header-left">
-                <div className="accordion-icon">
-                  <FaBuilding />
+              <div className="accordion-title-group">
+                <div className="accordion-icon" style={{ color: dept.color }}>
+                  {dept.icon === "FaTrophy" && <FaTrophy />}
+                  {dept.icon === "FaLightbulb" && <FaLightbulb />}
+                  {dept.icon === "FaShieldAlt" && <FaShieldAlt />}
+                  {!dept.icon && <FaBuilding />}
                 </div>
-                <h3 className="accordion-title">{dept.name}</h3>
+                <h3>{dept.name || dept.title}</h3>
               </div>
-              <motion.div
-                animate={{ rotate: openIndex === index ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="accordion-toggle-icon"
-              >
+              <div className="accordion-toggle-icon">
                 <FaChevronDown />
-              </motion.div>
+              </div>
             </div>
             
-            <AnimatePresence>
-              {openIndex === index && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="accordion-content-wrapper"
-                >
-                  <div className="accordion-content">
-                    <div className="accordion-section">
-                      <h4>Vision</h4>
-                      <p>{dept.vision}</p>
-                    </div>
-                    
-                    <div className="accordion-section">
-                      <h4>Mission</h4>
-                      <ul>
-                        {dept.mission.map((item, i) => (
-                          <li key={i}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div className="accordion-section highlight-section">
-                      <h4>Alignment Highlights</h4>
-                      <div className="highlight-tags">
-                        {dept.alignment.map((item, i) => (
-                          <span key={i} className="highlight-tag">{item}</span>
-                        ))}
-                      </div>
-                    </div>
+            <div className="accordion-content-wrapper">
+              <div className="accordion-content">
+                <div className="accordion-section">
+                  <h4>Vision</h4>
+                  <p>{dept.vision}</p>
+                </div>
+                
+                <div className="accordion-section">
+                  <h4>Mission</h4>
+                  <ul>
+                    {dept.mission?.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="accordion-section highlight-section">
+                  <h4>Alignment Highlights</h4>
+                  <div className="highlight-tags">
+                    {dept.alignment?.map((item, i) => (
+                      <span key={i} className="highlight-tag">{item}</span>
+                    ))}
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                </div>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>

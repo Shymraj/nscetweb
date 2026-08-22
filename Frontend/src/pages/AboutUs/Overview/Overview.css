@@ -1,5 +1,5 @@
 /* Overview.css */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,600;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&family=Cormorant+Infant:ital,wght@0,600;1,600&display=swap');
 
 :root {
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
@@ -17,17 +17,39 @@
 }
 
 .overview-page {
+  /* =========================================
+     TEST TYPOGRAPHY & COLOR SYSTEM
+     ========================================= */
+  --font-heading: 'Outfit', sans-serif;
+  --font-section: 'Outfit', sans-serif;
+  --font-subtopic: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --color-h1: #123B7A;
+  --color-h2: #1E56A0;
+  --color-h3: #234A7D;
+  --color-body: #111111;
+  --color-muted: #5F6368;
+  --color-accent-gold: #F5A400;
+  --color-link: #2563EB;
+
+  /* Override original page-specific variables */
+  --nscet-blue: var(--color-h2);
+  --nscet-accent: var(--color-accent-gold);
+
   font-family: var(--font-body);
-  color: #333;
+  color: var(--color-body);
   overflow-x: hidden;
   background-color: #f8fafc;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 /* ==================================================
    HERO SECTION REDESIGN
    ================================================== */
 .hero-section {
-  padding: 4rem 3% 6rem; /* Further reduced top padding for tighter balance */
+  padding: 0 3% 0; /* Removed top and bottom padding to eliminate unwanted gaps */
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   position: relative;
   /* Removed min-height: 90vh and overflow: hidden to fix scroll layout bugs */
@@ -89,9 +111,9 @@
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 3rem; /* Slightly reduced for better balance */
-  font-weight: 800;
-  color: var(--nscet-blue);
+  font-size: 3rem; 
+  font-weight: 900;
+  color: var(--color-h1);
   line-height: 1.1;
   margin: 0;
   letter-spacing: -1px;
@@ -101,7 +123,7 @@
   font-family: var(--font-section);
   font-style: italic;
   font-size: 1.45rem;
-  color: #C9971A;
+  color: var(--color-accent-gold);
   font-weight: 700;
   margin: 0;
   letter-spacing: 0.6px;
@@ -143,22 +165,22 @@
   font-family: var(--font-subtopic);
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--nscet-blue);
+  color: var(--color-h3);
   line-height: 1;
   margin-bottom: 0.2rem;
 }
 
 .hero-info-val.grade-a {
-  color: var(--nscet-accent);
+  color: var(--color-accent-gold);
 }
 
 .info-label {
-  font-family: var(--font-subtopic);
+  font-family: var(--font-body);
   font-size: 0.8rem;
-  color: #64748b;
+  color: var(--color-accent-gold);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* Text Content */
@@ -169,9 +191,11 @@
 }
 
 .hero-description {
+  font-family: var(--font-body);
   font-size: 1.05rem;
   line-height: 1.8;
-  color: #475569;
+  color: var(--color-body);
+  font-weight: 400;
 }
 
 /* Premium Quote Card */
@@ -196,10 +220,11 @@
 }
 
 .hero-quote-card p {
+  font-family: var(--font-body);
   margin: 0;
   font-style: italic;
   font-size: 1.1rem;
-  color: #1e293b;
+  color: var(--color-body);
   font-weight: 500;
   line-height: 1.6;
 }
@@ -283,17 +308,20 @@
 }
 
 .caption-content h4 {
+  font-family: var(--font-subtopic);
   margin: 0 0 0.5rem 0;
-  color: var(--nscet-blue);
+  color: var(--color-h3);
   font-size: 1.1rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .caption-content p {
+  font-family: var(--font-body);
   margin: 0;
-  color: #475569;
+  color: var(--color-body);
   font-size: 0.9rem;
   line-height: 1.5;
+  font-weight: 400;
 }
 
 .slider-controls {
@@ -351,54 +379,64 @@
 /* ==================================================
    STATISTICS SECTION
    ================================================== */
-.stats-section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+.overview-stats-section {
+  display: flex;
+  justify-content: center;
   padding: 2.5rem 5%;
   background: var(--nscet-blue);
   color: white;
   position: relative;
+  width: 100%;
 }
 
-.stat-card {
-  background: rgba(255, 255, 255, 0.7);
+.overview-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.overview-stat-card {
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  padding: 2rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
   text-align: center;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: var(--nscet-blue); 
 }
 
-.stat-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15);
+.overview-stat-card:hover {
+  transform: translateY(-4px);
+  background: #ffffff;
+  border-color: var(--nscet-accent);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.stat-value {
-  font-size: 2.2rem;
+.overview-stat-value {
+  font-family: var(--font-heading);
+  font-size: 2rem; 
   font-weight: 800;
-  color: var(--nscet-accent);
-  margin-bottom: 0.5rem;
+  color: var(--color-h1);
+  margin-bottom: 0.25rem;
+  line-height: 1;
 }
 
-.stat-label {
-  font-family: var(--font-subtopic);
-  font-size: 0.9rem;
+.overview-stat-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+  color: var(--color-accent-gold);
 }
 
 /* ==================================================
@@ -412,22 +450,16 @@
 .about-section-heading {
   font-family: var(--font-section);
   text-align: center;
-  font-size: clamp(2.5rem, 4.5vw, 3.25rem); /* Increased size for visual presence */
-  font-weight: 700; /* Must be 700 for var(--font-section) per AGENTS.md */
-  letter-spacing: 0.5px; /* Clean readability for uppercase */
+  font-size: clamp(2.5rem, 4.5vw, 3.25rem);
+  font-weight: 700; 
+  letter-spacing: -0.5px; /* Tighter letter spacing as requested */
   margin: 0 auto 3.5rem auto;
   position: relative;
   display: block;
   width: max-content;
   max-width: 100%;
   text-transform: uppercase;
-  
-  /* Premium Cyan-Blue Gradient Text */
-  background: linear-gradient(135deg, var(--nscet-blue) 0%, #0284c7 40%, #06b6d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  text-shadow: 0 2px 10px rgba(6, 182, 212, 0.15); /* very subtle soft shadow */
+  color: var(--color-h2); /* Strong Blue instead of gradient */
 }
 
 /* Premium Short Horizontal Gradient Line */
@@ -439,9 +471,8 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, transparent, var(--nscet-blue), #06b6d4, transparent);
+  background: var(--color-accent-gold);
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
   transition: width 0.4s ease;
 }
 
@@ -453,14 +484,14 @@
 .about-section-heading::before {
   content: '';
   position: absolute;
-  bottom: -18px; /* Perfectly aligned to the center of the 4px line at -16px */
+  bottom: -18px; 
   left: 50%;
   transform: translateX(-50%);
   width: 8px;
   height: 8px;
-  background: #ffffff; /* White core */
+  background: #ffffff;
   border-radius: 50%;
-  box-shadow: 0 0 8px 2px #06b6d4, 0 0 15px 4px rgba(6, 182, 212, 0.5); /* Glowing highlight */
+  box-shadow: 0 0 8px 2px var(--color-accent-gold);
   z-index: 1;
 }
 
@@ -520,6 +551,7 @@
 }
 
 .achievement-title {
+  font-family: var(--font-subtopic);
   font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff !important;
@@ -530,13 +562,15 @@
 
 .achievement-card:hover .achievement-title {
   transform: translateY(-5px);
-  color: var(--nscet-accent) !important;
+  color: var(--color-accent-gold) !important;
 }
 
 .achievement-description {
+  font-family: var(--font-body);
   color: rgba(255, 255, 255, 0);
   line-height: 1.5;
   font-size: 0.95rem;
+  font-weight: 400;
   transform: translateY(10px);
   transition: all 0.4s ease;
   height: 0;
@@ -666,9 +700,10 @@
 }
 
 .timeline-year {
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--nscet-blue);
+  color: var(--color-h1);
   opacity: 0.1;
   position: absolute;
   top: 1rem;
@@ -709,14 +744,17 @@
 }
 
 .timeline-title {
+  font-family: var(--font-subtopic);
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--nscet-blue);
+  color: var(--color-h3);
   margin-bottom: 0.5rem;
 }
 
 .timeline-description {
-  color: #475569;
+  font-family: var(--font-body);
+  color: var(--color-body);
+  font-weight: 400;
   line-height: 1.6;
 }
 
@@ -740,19 +778,20 @@
 }
 
 .cta-title {
+  font-family: var(--font-section);
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  background: linear-gradient(to right, #ffffff, #cbd5e1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff; /* Keeping white for contrast against dark background */
 }
 
 .cta-description {
+  font-family: var(--font-body);
   font-size: 1.2rem;
-  color: #94a3b8;
+  color: #e2e8f0; /* Lighter color for dark background */
   margin-bottom: 3rem;
   line-height: 1.8;
+  font-weight: 400;
 }
 
 .cta-buttons {
@@ -829,7 +868,7 @@
     bottom: -15px;
   }
 
-  .stats-section {
+  .overview-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   
@@ -840,8 +879,8 @@
 
 @media (max-width: 768px) {
   .hero-title {
-  font-weight: 800;
-  font-family: var(--font-heading);
+    font-weight: 900;
+    font-family: var(--font-heading);
     font-size: 2.5rem;
   }
   
@@ -882,7 +921,7 @@
 }
 
 @media (max-width: 480px) {
-  .stats-section {
+  .overview-stats-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -942,7 +981,7 @@ body.dark-mode .bg-light-2 {
   background-color: transparent !important;
 }
 
-body.dark-mode .stats-section {
+body.dark-mode .overview-stats-section {
   background: transparent;
 }
 
@@ -963,7 +1002,7 @@ body.dark-mode .caption-content p {
 body.dark-mode .info-card,
 body.dark-mode .hero-quote-card,
 body.dark-mode .floating-caption,
-body.dark-mode .stat-card,
+body.dark-mode .overview-stat-card,
 body.dark-mode .timeline-content,
 body.dark-mode .achievement-card {
   background: rgba(30, 41, 59, 0.4);
@@ -971,7 +1010,7 @@ body.dark-mode .achievement-card {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-body.dark-mode .stat-card:hover,
+body.dark-mode .overview-stat-card:hover,
 body.dark-mode .timeline-content:hover {
   background: rgba(15, 23, 42, 0.25);
   border-color: rgba(255, 255, 255, 0.25);

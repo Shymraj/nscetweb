@@ -1,12 +1,10 @@
 
-:root {
-  --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
-  --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
-}
 /* Developmentplan.css */
 
 /* Global and Container */
 .dev-plan-page {
+  --premium-card-bg: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%) !important;
+  --premium-card-border: 1px solid rgba(59, 130, 246, 0.25) !important;
   font-family: var(--font-body);
   background-color: #f8fafc;
   color: #1e293b;
@@ -426,7 +424,7 @@
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  color: #f8fafc;
+  color: var(--font-heading, var(--theme-text));
   position: relative;
   z-index: 1;
 }
@@ -434,18 +432,18 @@
 .quality-text {
   font-size: 1.35rem;
   line-height: 1.8;
-  color: #e2e8f0;
+  color: var(--theme-text);
   max-width: 900px;
   margin: 0 auto 1.5rem auto;
   position: relative;
   z-index: 1;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .quality-framework {
   font-size: 1.15rem;
   line-height: 1.8;
-  color: #cbd5e1;
+  color: var(--theme-text-light, #475569);
   max-width: 800px;
   margin: 0 auto;
   position: relative;
@@ -596,16 +594,29 @@
   margin: 0 auto;
 }
 
-.accordion-item {
+.accordion-wrapper .accordion-item {
   padding: 0;
-  overflow: hidden;
-  border-left: 4px solid transparent;
+  border: 1px solid #B8D4F2 !important;
+  background: #E6F0FA !important;
+  box-shadow: 0 8px 28px rgba(31, 78, 121, 0.08) !important;
+  border-radius: 22px !important;
   transition: all 0.3s ease;
 }
 
-.accordion-item.open {
-  border-left-color: var(--theme-primary-light, #38BDF8);
-  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.08);
+.accordion-wrapper .accordion-item:hover {
+  background: #DCE8F5 !important;
+  border-color: #A3C6EF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(31, 78, 121, 0.12) !important;
+}
+
+/* Hide the glassmorphism white overlay to let the true background color shine through */
+.accordion-wrapper .accordion-item::before {
+  display: none !important;
+}
+
+.accordion-wrapper .accordion-item.open {
+  border-color: #B8D4F2 !important;
 }
 
 .accordion-header {
@@ -619,7 +630,7 @@
 }
 
 .accordion-header:hover {
-  background: rgba(248, 250, 252, 0.5);
+  background: transparent;
 }
 
 .accordion-header-left {
@@ -629,9 +640,9 @@
 }
 
 .accordion-icon {
-  color: var(--theme-primary-light, #38BDF8);
+  color: #2196E8 !important;
   font-size: 1.25rem;
-  background: rgba(59, 130, 246, 0.1);
+  background: #E3F0FF !important;
   width: 40px;
   height: 40px;
   border-radius: 10px;
@@ -644,7 +655,7 @@
   font-family: var(--font-subtopic);
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #17233A !important;
   margin: 0;
 }
 
@@ -653,20 +664,60 @@
   font-size: 1.25rem;
 }
 
-.accordion-item.open .accordion-toggle-icon {
-  color: var(--theme-primary-light, #38BDF8);
+.accordion-wrapper .accordion-item.open .accordion-toggle-icon {
+  color: #2196E8 !important;
 }
 
-.accordion-content-wrapper {
-  background: var(--premium-card-bg);
-  border-top: 1px solid rgba(226, 232, 240, 0.8);
+.accordion-wrapper .accordion-content-wrapper {
+  background: #EDF4FC !important;
+  border-top: 1px solid #B8D4F2 !important;
+  display: none;
+  height: 0;
+  overflow: hidden;
+  border-radius: 0 0 22px 22px;
 }
 
-.accordion-content {
+/* Dark Mode Protection */
+body.dark-mode .accordion-wrapper .accordion-item {
+  background: rgba(30, 41, 59, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+body.dark-mode .accordion-wrapper .accordion-item:hover {
+  background: rgba(30, 41, 59, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+body.dark-mode .accordion-icon {
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+body.dark-mode .accordion-title {
+  color: #f1f5f9 !important;
+}
+body.dark-mode .accordion-wrapper .accordion-content-wrapper {
+  background: rgba(15, 23, 42, 0.4) !important;
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.accordion-wrapper .accordion-item.open .accordion-content-wrapper {
+  display: block;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  opacity: 1;
+  visibility: visible;
+}
+
+.accordion-wrapper .accordion-item .accordion-content {
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  color: var(--theme-text);
+  height: auto;
+  max-height: none;
+  opacity: 1;
+  visibility: visible;
+  overflow: visible;
+  background: transparent; /* Override leaked white background */
 }
 
 .accordion-section h4 {
@@ -682,11 +733,19 @@
   line-height: 1.7;
 }
 
+body.dark-mode .accordion-section p {
+  color: #cbd5e1; /* Light gray for dark mode */
+}
+
 .accordion-section ul {
   padding-left: 1.5rem;
   margin: 0;
   color: #475569;
   line-height: 1.7;
+}
+
+body.dark-mode .accordion-section ul {
+  color: #cbd5e1; /* Light gray for dark mode */
 }
 
 .accordion-section li {
@@ -1187,28 +1246,12 @@ body.dark-mode .table-container-card:hover {
 }
 
 /* Fix text readability for all cards with light backgrounds */
-.premium-glass-card, .feature-card, .profile-card, .vmq-card, .mission-check-card, .quality-info-card, .swot-card, .table-container-card,
-.premium-glass-card h1, .premium-glass-card h2, .premium-glass-card h3, .premium-glass-card h4, .premium-glass-card p, .premium-glass-card li, .premium-glass-card span,
-.feature-card h1, .feature-card h2, .feature-card h3, .feature-card h4, .feature-card p, .feature-card li, .feature-card span,
-.profile-card h1, .profile-card h2, .profile-card h3, .profile-card h4, .profile-card p, .profile-card li, .profile-card span,
-.vmq-card h1, .vmq-card h2, .vmq-card h3, .vmq-card h4, .vmq-card p, .vmq-card li, .vmq-card span,
-.mission-check-card h1, .mission-check-card h2, .mission-check-card h3, .mission-check-card h4, .mission-check-card p, .mission-check-card li, .mission-check-card span,
-.quality-info-card h1, .quality-info-card h2, .quality-info-card h3, .quality-info-card h4, .quality-info-card p, .quality-info-card li, .quality-info-card span,
-.swot-card h1, .swot-card h2, .swot-card h3, .swot-card h4, .swot-card p, .swot-card li, .swot-card span,
-.table-container-card h1, .table-container-card h2, .table-container-card h3, .table-container-card h4, .table-container-card p, .table-container-card li, .table-container-card span {
-    color: var(--theme-text) !important;
+.premium-glass-card, .feature-card, .profile-card, .vmq-card, .mission-check-card, .quality-info-card, .swot-card, .table-container-card {
+    color: var(--theme-text);
 }
 
-body.dark-mode .premium-glass-card, body.dark-mode .feature-card, body.dark-mode .profile-card, body.dark-mode .vmq-card, body.dark-mode .mission-check-card, body.dark-mode .quality-info-card, body.dark-mode .swot-card, body.dark-mode .table-container-card,
-body.dark-mode .premium-glass-card h1, body.dark-mode .premium-glass-card h2, body.dark-mode .premium-glass-card h3, body.dark-mode .premium-glass-card h4, body.dark-mode .premium-glass-card p, body.dark-mode .premium-glass-card li, body.dark-mode .premium-glass-card span,
-body.dark-mode .feature-card h1, body.dark-mode .feature-card h2, body.dark-mode .feature-card h3, body.dark-mode .feature-card h4, body.dark-mode .feature-card p, body.dark-mode .feature-card li, body.dark-mode .feature-card span,
-body.dark-mode .profile-card h1, body.dark-mode .profile-card h2, body.dark-mode .profile-card h3, body.dark-mode .profile-card h4, body.dark-mode .profile-card p, body.dark-mode .profile-card li, body.dark-mode .profile-card span,
-body.dark-mode .vmq-card h1, body.dark-mode .vmq-card h2, body.dark-mode .vmq-card h3, body.dark-mode .vmq-card h4, body.dark-mode .vmq-card p, body.dark-mode .vmq-card li, body.dark-mode .vmq-card span,
-body.dark-mode .mission-check-card h1, body.dark-mode .mission-check-card h2, body.dark-mode .mission-check-card h3, body.dark-mode .mission-check-card h4, body.dark-mode .mission-check-card p, body.dark-mode .mission-check-card li, body.dark-mode .mission-check-card span,
-body.dark-mode .quality-info-card h1, body.dark-mode .quality-info-card h2, body.dark-mode .quality-info-card h3, body.dark-mode .quality-info-card h4, body.dark-mode .quality-info-card p, body.dark-mode .quality-info-card li, body.dark-mode .quality-info-card span,
-body.dark-mode .swot-card h1, body.dark-mode .swot-card h2, body.dark-mode .swot-card h3, body.dark-mode .swot-card h4, body.dark-mode .swot-card p, body.dark-mode .swot-card li, body.dark-mode .swot-card span,
-body.dark-mode .table-container-card h1, body.dark-mode .table-container-card h2, body.dark-mode .table-container-card h3, body.dark-mode .table-container-card h4, body.dark-mode .table-container-card p, body.dark-mode .table-container-card li, body.dark-mode .table-container-card span {
-    color: var(--theme-text) !important;
+body.dark-mode .premium-glass-card, body.dark-mode .feature-card, body.dark-mode .profile-card, body.dark-mode .vmq-card, body.dark-mode .mission-check-card, body.dark-mode .quality-info-card, body.dark-mode .swot-card, body.dark-mode .table-container-card {
+    color: var(--theme-text);
 }
 
 

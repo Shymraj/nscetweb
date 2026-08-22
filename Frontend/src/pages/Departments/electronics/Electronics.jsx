@@ -62,10 +62,9 @@ const Electronics = () => {
   const faculties = useDepartmentStaff(['electronics and communication'], electronicsFacultyData);
 
   const stats = [
-    { count: "450+", label: "ECE Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "15+", label: "Expert ECE Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "154", label: "ECE Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
+    { count: "11", label: "Expert ECE Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
     { count: "80+", label: "Research Publications", icon: <FaBookOpen />, color: "#d97706" },
-    { count: "7+", label: "VLSI & RF Research Labs", icon: <FaMicrochip />, color: "#7c3aed" },
     { count: "94%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
   ];
 

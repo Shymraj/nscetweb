@@ -13,6 +13,7 @@ import {
   FaUserGraduate
 } from 'react-icons/fa';
 import bannerImage from './Banner/AcademicLeadership.png';
+import ponnaiahImg from './Ponnaiah.png';
 
 const AcademicLeadership = () => {
   const hodsData = [
@@ -262,11 +263,11 @@ const AcademicLeadership = () => {
           <div className="al-card al-admin-card al-lib-card">
             <div className="al-card-top-bar"></div>
             <div className="al-avatar-ring">
-              <img 
-                src={encodeURI("/library/Sinthan.jpg")} 
-                alt="Dr. S. Sinthan" 
-                loading="eager" 
-                decoding="async" 
+              <img
+                src={encodeURI("/library/Sinthan.jpg")}
+                alt="Dr. S. Sinthan"
+                loading="eager"
+                decoding="async"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = '/nscet-logo.png';
@@ -288,16 +289,18 @@ const AcademicLeadership = () => {
           <div className="al-card al-admin-card al-lib-card">
             <div className="al-card-top-bar"></div>
             <div className="al-avatar-ring">
-              <img 
-                src={encodeURI("/ped.jpg")} 
-                alt="Mr. Ponnaiah" 
-                loading="eager" 
-                decoding="async" 
+              <img
+                src={ponnaiahImg}
+                alt="Mr. Ponnaiah"
+                loading="eager"
+                decoding="async"
+                style={{ objectFit: 'cover', transform: 'scale(1.3)' }}
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = '/nscet-logo.png';
                   e.target.style.objectFit = 'contain';
                   e.target.style.padding = '8px';
+                  e.target.style.transform = 'scale(1)';
                 }}
               />
             </div>

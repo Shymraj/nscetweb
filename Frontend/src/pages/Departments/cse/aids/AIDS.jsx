@@ -63,10 +63,9 @@ const AIDS = () => {
   const faculties = useDepartmentStaff(['artificial intelligence', 'aids'], aidsFacultyData);
 
   const stats = [
-    { count: "240+", label: "AI & DS Students", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "10+", label: "Specialized AI Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "131", label: "AI & DS Students", icon: <FaGraduationCap />, color: "#2563eb" },
+    { count: "8", label: "Specialized AI Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
     { count: "45+", label: "AI & ML Publications", icon: <FaBookOpen />, color: "#d97706" },
-    { count: "4+", label: "GPU Research Labs", icon: <FaBrain />, color: "#7c3aed" },
     { count: "94%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
   ];
 

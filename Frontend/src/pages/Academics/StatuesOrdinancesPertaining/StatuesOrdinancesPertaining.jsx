@@ -84,7 +84,7 @@ const StatutesLayout = () => {
               
               <div className="accordion-content">
                 <div className="document-list">
-                  <a href={ug_aids} target="_blank" rel="noopener noreferrer" className="document-row">
+                  <a href={`${ug_aids}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
                     <div className="doc-left">
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>AI&DS</span>
                       <div className="doc-info">
@@ -98,7 +98,7 @@ const StatutesLayout = () => {
                     </div>
                   </a>
 
-                  <a href={ug_cse} target="_blank" rel="noopener noreferrer" className="document-row">
+                  <a href={`${ug_cse}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
                     <div className="doc-left">
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>CSE</span>
                       <div className="doc-info">
@@ -112,7 +112,7 @@ const StatutesLayout = () => {
                     </div>
                   </a>
 
-                  <a href={ug_ece} target="_blank" rel="noopener noreferrer" className="document-row">
+                  <a href={`${ug_ece}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
                     <div className="doc-left">
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>ECE</span>
                       <div className="doc-info">
@@ -126,7 +126,7 @@ const StatutesLayout = () => {
                     </div>
                   </a>
 
-                  <a href={ug_eee} target="_blank" rel="noopener noreferrer" className="document-row">
+                  <a href={`${ug_eee}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
                     <div className="doc-left">
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>EEE</span>
                       <div className="doc-info">
@@ -140,7 +140,7 @@ const StatutesLayout = () => {
                     </div>
                   </a>
 
-                  <a href={ug_civil} target="_blank" rel="noopener noreferrer" className="document-row">
+                  <a href={`${ug_civil}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
                     <div className="doc-left">
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>CIVIL</span>
                       <div className="doc-info">
@@ -154,7 +154,7 @@ const StatutesLayout = () => {
                     </div>
                   </a>
 
-                  <a href={ug_it} target="_blank" rel="noopener noreferrer" className="document-row">
+                  <a href={`${ug_it}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
                     <div className="doc-left">
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>IT</span>
                       <div className="doc-info">
@@ -168,7 +168,7 @@ const StatutesLayout = () => {
                     </div>
                   </a>
 
-                  <a href={ug_mech} target="_blank" rel="noopener noreferrer" className="document-row">
+                  <a href={`${ug_mech}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
                     <div className="doc-left">
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>MECH</span>
                       <div className="doc-info">
@@ -200,7 +200,7 @@ const StatutesLayout = () => {
 
               <div className="accordion-content">
                 <div className="document-list">
-                  <a href={pg_structural} target="_blank" rel="noopener noreferrer" className="document-row">
+                  <a href={`${pg_structural}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
                     <div className="doc-left">
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>STR</span>
                       <div className="doc-info">
@@ -214,7 +214,7 @@ const StatutesLayout = () => {
                     </div>
                   </a>
 
-                  <a href={pg_mfg} target="_blank" rel="noopener noreferrer" className="document-row">
+                  <a href={`${pg_mfg}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
                     <div className="doc-left">
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>MFG</span>
                       <div className="doc-info">
@@ -232,7 +232,7 @@ const StatutesLayout = () => {
             </div>
             
             {/* PHD REGULATION (Static Row) */}
-            <a href="./IMAGE/Ph.D-Regulation-2025.pdf" target="_blank" rel="noopener noreferrer" className="document-row phd-row">
+            <a href="./IMAGE/Ph.D-Regulation-2025.pdf#toolbar=0" target="_blank" rel="noopener noreferrer" className="document-row phd-row">
               <div className="doc-left">
                 <span className="doc-number">03</span>
                 <div className="doc-info">

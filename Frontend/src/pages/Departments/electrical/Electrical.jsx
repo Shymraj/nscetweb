@@ -62,11 +62,10 @@ const Electrical = () => {
   const faculties = useDepartmentStaff(['electrical'], electricalFacultyData);
 
   const stats = [
-    { count: "350+", label: "EEE Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "12+", label: "Expert EEE Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
-    { count: "65+", label: "Power Research Papers", icon: <FaBookOpen />, color: "#d97706" },
-    { count: "6+", label: "High Voltage Labs", icon: <FaBolt />, color: "#7c3aed" },
-    { count: "93%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
+    { count: "120", label: "EEE Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
+    { count: "11", label: "Expert EEE Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "15", label: "Power Research Papers", icon: <FaBookOpen />, color: "#d97706" },
+    { count: "100%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
   ];
 
   const facilities = [
@@ -114,7 +113,7 @@ const Electrical = () => {
     {
       year: "2023 - 2024",
       title: "Smart Grid Research & Patents",
-      desc: "Faculty published 65+ research papers in IEEE/Scopus journals and filed 3 smart metering patents.",
+      desc: "Faculty published 15 research papers in IEEE/Scopus journals and filed 3 smart metering patents.",
       badge: "Research",
       icon: <FaBookOpen />
     }

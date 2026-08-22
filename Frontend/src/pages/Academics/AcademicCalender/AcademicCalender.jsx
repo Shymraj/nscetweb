@@ -138,7 +138,7 @@ const AcademicCalendar = () => {
                   </div>
                 </div>
                 <div className="ac-calendar-actions">
-                  <a href={calendar.file} target="_blank" rel="noopener noreferrer" className="ac-view-btn">
+                  <a href={`${calendar.file}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="ac-view-btn">
                     <FaEye className="ac-view-icon" />
                     View
                   </a>
