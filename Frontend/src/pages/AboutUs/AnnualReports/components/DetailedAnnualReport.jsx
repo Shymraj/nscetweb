@@ -333,10 +333,10 @@ const DetailedAnnualReport = () => {
             {/* Right: Principal Info */}
             <div className="exec-plain-right">
               <div className="ar-principal-strip">
-                <div className="principal-avatar">
+                <div className="ar-principal-avatar">
                   <FaUserTie />
                 </div>
-                <div className="principal-info">
+                <div className="ar-principal-info">
                   <h4>Dr. C. Mathalai Sundaram</h4>
                   <p className="p-deg">M.E., M.B.A., Ph.D., MISTE</p>
                   <p className="p-role">Principal, NSCET</p>

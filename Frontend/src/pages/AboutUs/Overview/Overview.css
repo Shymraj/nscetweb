@@ -641,20 +641,30 @@
 }
 
 .timeline-item {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   margin-bottom: 2rem;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
-.timeline-item:nth-child(even) {
-  flex-direction: row-reverse;
+.timeline-item:nth-child(odd) .timeline-content {
+  grid-column: 1;
+  margin-right: 40px; /* Exact distance from center */
+  margin-left: auto;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  grid-column: 2;
+  margin-left: 40px; /* Exact distance from center */
+  margin-right: auto;
 }
 
 .timeline-content {
-  width: 47%;
+  width: 100%;
+  max-width: 550px; /* Prevents cards from getting too wide on huge screens */
   background: var(--premium-card-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -893,9 +903,19 @@
   }
   
   .timeline-item, .timeline-item:nth-child(even) {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding-left: 70px;
+    gap: 0;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    grid-column: 1;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
   }
   
   .timeline-content {

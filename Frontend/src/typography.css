@@ -7,15 +7,94 @@
   No hardcoded font-family declarations are allowed.
   
   System Rules:
-  - --font-heading: Poppins 800 (Main Page Headings / Hero Titles)
-  - --font-section: Manrope 700 (Section Headings / H2)
-  - --font-subtopic: Alegreya Sans SC 700 (H3, H4, Card Titles, Labels, Chips, Badges)
-  - --font-body: Inter 400 (Body Content, Paragraphs), 500 (Buttons, Links, Navbar), 600 (Table Headers)
+  - --font-heading, --font-section, --font-subtopic: Outfit (All Headings)
+  - --font-body: Inter (Body Content, Paragraphs, Links)
 */
 
 :root {
-  --font-heading: 'Poppins', sans-serif;
-  --font-section: 'Manrope', sans-serif;
-  --font-subtopic: 'Alegreya Sans SC', sans-serif;
+  /* ONE SINGLE FONT FAMILY for all headings */
+  --font-heading: 'Outfit', sans-serif;
+  --font-section: 'Outfit', sans-serif;
+  --font-subtopic: 'Outfit', sans-serif;
+  
+  /* Body font */
   --font-body: 'Inter', sans-serif;
+
+  /* Typography Color System */
+  --heading-color: #123F86;
+  --subheading-color: #1E5BB8;
+  --body-color: #111827;
+}
+
+body.dark-mode {
+  --heading-color: #E2E8F0;
+  --subheading-color: #CBD5E1;
+  --body-color: #F8FAFC;
+}
+
+/* 
+  =========================================================
+  BASE SEMANTIC TYPOGRAPHY
+  =========================================================
+  These establish the global default for all standard text.
+  Class selectors (like .hero-title) will naturally override these
+  tag-level styles if they specify custom colors or sizes.
+*/
+
+body, p {
+  font-family: var(--font-body);
+  color: var(--body-color);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-top: 0;
+}
+
+/* Maintain Hierarchy through size, weight, line-height, letter-spacing */
+
+h1, .h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--heading-color);
+}
+
+h2, .h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  color: var(--subheading-color);
+}
+
+h3, .h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--subheading-color);
+}
+
+h4, .h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--subheading-color);
+}
+
+h5, .h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--subheading-color);
+}
+
+h6, .h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--subheading-color);
 }

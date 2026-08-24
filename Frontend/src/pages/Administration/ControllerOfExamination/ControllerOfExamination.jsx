@@ -264,7 +264,7 @@ function ControllerOfExamination() {
                 <h4>Exam Cell Constitution</h4>
                 <p>Official constitution document</p>
               </div>
-              <a href={examCellPdf} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+              <a href={`${examCellPdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
                 PDF
               </a>
             </div>
@@ -274,7 +274,7 @@ function ControllerOfExamination() {
                 <h4>Internal Assessment Mechanism</h4>
                 <p>Assessment process and criteria</p>
               </div>
-              <a href={internalAssessmentPdf} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+              <a href={`${internalAssessmentPdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
                 PDF
               </a>
             </div>
@@ -284,7 +284,7 @@ function ControllerOfExamination() {
                 <h4>Internal Examinations Grievance</h4>
                 <p>Grievance redressal for internal exams</p>
               </div>
-              <a href={ieGrievancePdf} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+              <a href={`${ieGrievancePdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
                 PDF
               </a>
             </div>
@@ -294,7 +294,7 @@ function ControllerOfExamination() {
                 <h4>External Examinations Grievances</h4>
                 <p>Grievance process for external exams</p>
               </div>
-              <a href={eeGrievancesPdf} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+              <a href={`${eeGrievancesPdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
                 PDF
               </a>
             </div>

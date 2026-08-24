@@ -20,8 +20,8 @@ const PolicyDocument = () => {
       >
         <div className="card-glow-effect"></div>
         <div className="document-content">
-          <div className="document-icon-wrapper">
-            <FaFilePdf className="pdf-icon" />
+          <div className="act-document-icon-wrapper">
+            <FaFilePdf className="act-pdf-icon" />
           </div>
           <div className="document-details">
             <span className="official-badge">Official Document Badge</span>

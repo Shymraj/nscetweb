@@ -540,7 +540,7 @@
   z-index: 1;
 }
 
-.document-icon-wrapper {
+.act-document-icon-wrapper {
   background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
   width: 120px;
   height: 120px;
@@ -553,11 +553,11 @@
   transition: transform 0.4s ease;
 }
 
-.document-showcase-card:hover .document-icon-wrapper {
+.document-showcase-card:hover .act-document-icon-wrapper {
   transform: scale(1.05) rotate(5deg);
 }
 
-.pdf-icon {
+.act-pdf-icon {
   font-size: 4rem;
   color: white;
 }

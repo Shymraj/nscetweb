@@ -26,6 +26,8 @@ const searchData = [
   { name: "Teaching Faculty", path: "/academics/teaching-faculty" },
   { name: "Non-Teaching Faculty", path: "/academics/non-teaching-faculty" },
   { name: "IQAC", path: "/academics/iqac" },
+  { name: "Infosys Springboard", path: "/academics/e-learning/infosys-springboard" },
+  { name: "NPTEL", path: "/academics/e-learning/nptel" },
   { name: "Library", path: "/academics/library" },
   { name: "Labs", path: "/academics/labs" },
   { name: "Industry Collaboration", path: "/academics/industry-collaboration" },
@@ -224,6 +226,13 @@ function Navbar() {
               <li><Link to="/academics/teaching-faculty">Teaching Faculty</Link></li>
               <li><Link to="/academics/non-teaching-faculty">Non-Teaching Faculty</Link></li>
               <li><Link to="/academics/iqac">IQAC</Link></li>
+              <li className="has-submenu">
+                <span className="submenu-label">E-learning <span className="submenu-arrow">›</span></span>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/academics/e-learning/infosys-springboard">INFOSYS SPRINGBOARD</Link></li>
+                  <li><Link to="/academics/e-learning/nptel">NPTEL</Link></li>
+                </ul>
+              </li>
               <li><Link to="/academics/library">Library</Link></li>
               <li><Link to="/academics/labs">Labs</Link></li>
               <li><Link to="/academics/industry-collaboration">Industry Collaboration</Link></li>

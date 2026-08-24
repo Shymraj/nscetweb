@@ -49,6 +49,7 @@ import IQAC from "./pages/Academics/iqac/iqac";
 import Library from "./pages/Academics/Library/Library";
 import AcademicsIndustryCollaboration from "./pages/Academics/IndustryCollaboration/IndustryCollaboration";
 import Labs from "./pages/Academics/Labs/Labs";
+import Elearning from "./pages/Academics/E-learning/Elearning";
 import Gallery from "./pages/Gallery";
 import ClubsAndChapters from "./pages/Gallery/ClubsAndChapters/ClubsAndChapters";
 import Events from "./pages/Gallery/Events/Events";
@@ -108,6 +109,8 @@ const AppContent = () => {
         <Route path="/academics/library" element={<Library />} />
         <Route path="/academics/industry-collaboration" element={<AcademicsIndustryCollaboration />} />
         <Route path="/academics/labs" element={<Labs />} />
+        <Route path="/academics/e-learning/infosys-springboard" element={<Elearning />} />
+        <Route path="/academics/e-learning/nptel" element={<Elearning />} />
         <Route path="/departments" element={<Departments />} />
 
         <Route path="/departments/cse" element={<CSE />} />

@@ -919,7 +919,7 @@ body.dark-mode .doc-badge:hover {
   border-color: rgba(59, 130, 246, 0.4);
 }
 
-.principal-avatar {
+.ar-principal-avatar {
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -934,7 +934,7 @@ body.dark-mode .doc-badge:hover {
   border: 3px solid #18147f;
 }
 
-.ar-principal-strip .principal-info h4 {
+.ar-principal-info h4 {
   font-family: var(--font-subtopic);
   font-size: 1.2rem;
   font-weight: 800;
@@ -943,21 +943,21 @@ body.dark-mode .doc-badge:hover {
   letter-spacing: 0.2px;
 }
 
-.ar-principal-strip .principal-info .p-deg {
+.ar-principal-info .p-deg {
   font-size: 0.9rem;
   color: #0b1d25 !important; /* Bright cyan matching the screenshot */
   font-weight: 700;
   margin: 0 0 6px 0;
 }
 
-.ar-principal-strip .principal-info .p-role {
+.ar-principal-info .p-role {
   font-size: 0.9rem;
   color: #334155 !important; /* Slate grey matching the screenshot */
   font-weight: 600;
   margin: 0 0 2px 0;
 }
 
-.ar-principal-strip .principal-info .p-loc {
+.ar-principal-info .p-loc {
   font-size: 0.8rem;
   color: #1e3a8a !important; /* Dark blue matching the screenshot */
   margin: 0;
@@ -978,30 +978,30 @@ body.dark-mode .ar-principal-strip:hover,
   border-color: rgba(24, 60, 75, 0.4);
 }
 
-body.dark-mode .principal-avatar,
-.dark .principal-avatar {
+body.dark-mode .ar-principal-avatar,
+.dark .ar-principal-avatar {
   border-color: #1e293b;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-body.dark-mode .ar-principal-strip .principal-info h4,
-.dark .ar-principal-strip .principal-info h4 {
-  color: #e2e8f0 !important;
+body.dark-mode .ar-principal-info h4,
+.dark .ar-principal-info h4 {
+  color: #08325c;
 }
 
-body.dark-mode .ar-principal-strip .principal-info .p-deg,
-.dark .ar-principal-strip .principal-info .p-deg {
-  color: #0b2d3c !important;
+body.dark-mode .ar-principal-info .p-deg,
+.dark .ar-principal-info .p-deg {
+  color: #074966;
 }
 
-body.dark-mode .ar-principal-strip .principal-info .p-role,
-.dark .ar-principal-strip .principal-info .p-role {
-  color: #1b3b68 !important;
+body.dark-mode .ar-principal-info .p-role,
+.dark .ar-principal-info .p-role {
+  color: #cbd5e1;
 }
 
-body.dark-mode .ar-principal-strip .principal-info .p-loc,
-.dark .ar-principal-strip .principal-info .p-loc {
-  color: #cbd5e1 !important;
+body.dark-mode .ar-principal-info .p-loc,
+.dark .ar-principal-info .p-loc {
+  color: #94a3b8;
 }
 
 /* Accordions Grid */
