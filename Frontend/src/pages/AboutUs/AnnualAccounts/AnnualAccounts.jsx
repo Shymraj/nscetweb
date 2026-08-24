@@ -59,32 +59,6 @@ const AnnualAccounts = () => {
                 </button>
               </div>
             </motion.div>
-
-            <motion.div
-              className="document-glass-card ar-glass-card"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <div className="document-icon-wrapper">
-                <FaFilePdf className="document-pdf-icon" />
-              </div>
-              <div className="document-info">
-                <h3 className="document-title">Annual Report</h3>
-                <p className="document-description">
-                  Official Annual Report of Nadar Saraswathi College of Engineering and Technology.
-                </p>
-                <div className="document-badges">
-                  <span className="doc-badge doc-badge-type">Document Type : PDF</span>
-                </div>
-              </div>
-              <div className="document-actions">
-                <button onClick={() => window.open(annualReportPdf + '#toolbar=0', '_blank')} className="btn-view-doc">
-                  <FaEye /> View Annual Report
-                </button>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>

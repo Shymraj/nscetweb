@@ -20,6 +20,8 @@ import pdf2021 from './images/2021-22.pdf';
 import pdf2022 from './images/2022-23.pdf';
 import pdf2023 from './images/2023-24.pdf';
 import pdf2025 from './images/2025-26.pdf';
+import udhayakumarImg from './images/udhayakumar.jpg';
+import davidmathanImg from './images/davidmathan.jpg';
 
 const committeeSections = [
   {
@@ -160,12 +162,25 @@ const IQAC = () => {
             <div className="iqac-exec-plain-right">
               <div className="iqac-principal-strip">
                 <div className="iqac-principal-avatar">
-                  <FaUserCheck />
+                  <img src={udhayakumarImg} alt="Mr. R. Udhaya Kumar" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', borderRadius: '50%' }} />
                 </div>
                 <div className="iqac-principal-info">
-                  <h4>Dr. C. Mathalai Sundaram</h4>
-                  <p className="p-deg">Principal & IQAC Chairperson</p>
+                  <h4>Mr. R. Udhaya Kumar</h4>
+                  <p className="p-deg">Assistant Professor M.E (CSE), MBA (ITM), (Ph.D)</p>
                   <p className="p-role">NSCET, Vadapudupatti, Theni</p>
+                </div>
+              </div>
+
+              {/* Box 2 - IQAC Coordinator */}
+              <div className="iqac-principal-strip iqac-coordinator-strip">
+                <div className="iqac-principal-avatar iqac-coordinator-avatar">
+                  <img src={davidmathanImg} alt="Dr. N. David Mathan" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', borderRadius: '50%' }} />
+                </div>
+                <div className="iqac-principal-info">
+                  <h4>Dr. N. David Mathan</h4>
+                  <p className="p-deg">Professor M.Sc., Ph.D.</p>
+                  <p className="p-role"></p>
+                  <p className="p-loc">NSCET, Vadapudupatti, Theni</p>
                 </div>
               </div>
             </div>

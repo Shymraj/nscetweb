@@ -794,6 +794,7 @@ body.dark-mode .doc-badge:hover {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
   .exec-plain-right {
     justify-content: flex-start;
   }
@@ -894,8 +895,8 @@ body.dark-mode .doc-badge:hover {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.08), 
-              inset 0 1px 0 rgba(255, 255, 255, 1);
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
@@ -914,8 +915,8 @@ body.dark-mode .doc-badge:hover {
 
 .ar-principal-strip:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.15), 
-              inset 0 1px 0 rgba(255, 255, 255, 1);
+  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
   border-color: rgba(59, 130, 246, 0.4);
 }
 
@@ -938,28 +939,32 @@ body.dark-mode .doc-badge:hover {
   font-family: var(--font-subtopic);
   font-size: 1.2rem;
   font-weight: 800;
-  color: #1e40af !important; /* Dark blue matching the screenshot */
+  color: #1e40af !important;
+  /* Dark blue matching the screenshot */
   margin: 0 0 4px 0;
   letter-spacing: 0.2px;
 }
 
 .ar-principal-info .p-deg {
   font-size: 0.9rem;
-  color: #0b1d25 !important; /* Bright cyan matching the screenshot */
+  color: #0b1d25 !important;
+  /* Bright cyan matching the screenshot */
   font-weight: 700;
   margin: 0 0 6px 0;
 }
 
 .ar-principal-info .p-role {
   font-size: 0.9rem;
-  color: #334155 !important; /* Slate grey matching the screenshot */
+  color: #334155 !important;
+  /* Slate grey matching the screenshot */
   font-weight: 600;
   margin: 0 0 2px 0;
 }
 
 .ar-principal-info .p-loc {
   font-size: 0.8rem;
-  color: #1e3a8a !important; /* Dark blue matching the screenshot */
+  color: #1e3a8a !important;
+  /* Dark blue matching the screenshot */
   margin: 0;
   font-weight: 500;
 }

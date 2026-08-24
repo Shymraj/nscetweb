@@ -71,8 +71,10 @@
 
 .iqac-exec-plain-right {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -135,7 +137,7 @@
   display: inline-flex;
   align-items: center;
   gap: 1.2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
   padding: 1.2rem 1.8rem;
   background: #ffffff;
   border-radius: 16px;
@@ -189,6 +191,32 @@
   color: #0f3849 !important;
   font-weight: 600;
   margin: 0 0 2px 0;
+}
+
+.iqac-principal-info .p-loc {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* IQAC Coordinator Box - Green Accent */
+.iqac-coordinator-strip {
+  border-color: rgba(5, 150, 105, 0.25);
+}
+
+.iqac-coordinator-strip::before {
+  background: linear-gradient(to bottom, #059669, #047857);
+}
+
+.iqac-coordinator-strip:hover {
+  border-color: rgba(5, 150, 105, 0.45);
+  box-shadow: 0 15px 35px rgba(5, 150, 105, 0.15);
+}
+
+.iqac-coordinator-avatar {
+  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.35);
 }
 
 .iqac-principal-info .p-role {
