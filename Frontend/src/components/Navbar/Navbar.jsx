@@ -70,6 +70,7 @@ function Navbar() {
 
   const [darkMode, setDarkMode] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -81,6 +82,8 @@ function Navbar() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
+    setActiveSubmenu(null);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -226,11 +229,11 @@ function Navbar() {
               <li><Link to="/academics/industry-collaboration">Industry Collaboration</Link></li>
             </ul>
           </li>
-          <li className="dropdown">
+          <li className="dropdown" onMouseLeave={() => window.innerWidth > 1024 && setActiveSubmenu(null)}>
             <Link to="#" onClick={(e) => e.preventDefault()}>Departments</Link>
-            <ul className="dropdown-menu">
-              <li className="has-submenu">
-                <span className="submenu-label">Dept of Computer Science & Engineering <span className="submenu-arrow">›</span></span>
+            <ul className={`dropdown-menu ${activeSubmenu ? 'has-active-submenu' : ''}`}>
+              <li className={`has-submenu ${activeSubmenu === 'cse' ? 'active' : ''}`}>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'cse' ? null : 'cse'); }}>Dept of Computer Science & Engineering <span className="submenu-arrow">›</span></span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/cse">B.E Computer Science & Engineering</Link></li>
                   <li><Link to="/departments/me-cse">M.E Computer Science & Engineering</Link></li>
@@ -238,29 +241,29 @@ function Navbar() {
                   <li><Link to="/departments/aids">B.TECH Artificial Intelligence & Data Science</Link></li>
                 </ul>
               </li>
-              <li className="has-submenu">
-                <span className="submenu-label">Dept of Civil Engineering <span className="submenu-arrow">›</span></span>
+              <li className={`has-submenu ${activeSubmenu === 'civil' ? 'active' : ''}`}>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'civil' ? null : 'civil'); }}>Dept of Civil Engineering <span className="submenu-arrow">›</span></span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/civil">B.E Civil Engineering</Link></li>
                   <li><Link to="/departments/me-structural">M.E Structural Engineering</Link></li>
                 </ul>
               </li>
-              <li className="has-submenu">
-                <span className="submenu-label">Dept of Mechanical Engineering <span className="submenu-arrow">›</span></span>
+              <li className={`has-submenu ${activeSubmenu === 'mech' ? 'active' : ''}`}>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'mech' ? null : 'mech'); }}>Dept of Mechanical Engineering <span className="submenu-arrow">›</span></span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/mechanical">B.E Mechanical Engineering</Link></li>
                   <li><Link to="/departments/me-manufacturing">M.E Manufacturing Engineering</Link></li>
                 </ul>
               </li>
-              <li className="has-submenu">
-                <span className="submenu-label">Dept of Electrical Engineering <span className="submenu-arrow">›</span></span>
+              <li className={`has-submenu ${activeSubmenu === 'eee' ? 'active' : ''}`}>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'eee' ? null : 'eee'); }}>Dept of Electrical Engineering <span className="submenu-arrow">›</span></span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/electrical">B.E Electrical & Electronics Engineering</Link></li>
                   <li><Link to="/departments/me-embedded">M.E Embedded System & Technology</Link></li>
                 </ul>
               </li>
-              <li className="has-submenu">
-                <span className="submenu-label">Dept of Electronics Engineering <span className="submenu-arrow">›</span></span>
+              <li className={`has-submenu ${activeSubmenu === 'ece' ? 'active' : ''}`}>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'ece' ? null : 'ece'); }}>Dept of Electronics Engineering <span className="submenu-arrow">›</span></span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/electronics">B.E Electronics & Communication Engineering</Link></li>
                 </ul>

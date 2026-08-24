@@ -14,6 +14,7 @@ const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,J
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
 // Staff Images
+import Ponnaiah from "../../Administration/AcademicLeadership/Ponnaiah.png";
 import Vayalsamy from "./images/Vayalsamy.JPG";
 
 // Sport Images
@@ -46,7 +47,7 @@ const Sports = () => {
     };
 
     const staffMembers = [
-        { name: "Mr. Ponnaiah", desig: "HOD & Physical Director", qual: "B.Com., M.P.Ed., PG.DY", image: null },
+        { name: "Mr. Ponnaiah", desig: "HOD & Physical Director", qual: "B.Com., M.P.Ed., PG.DY", image: Ponnaiah },
         { name: "Mr. M. Vayalsamy", desig: "Assistant Physical Director", qual: "B.Sc., M.P.Ed.", image: Vayalsamy }
     ];
 

@@ -975,7 +975,8 @@ body.dark-mode .naac-logo {
     user-select: none;
 }
 
-.has-submenu:hover>.submenu-label {
+.has-submenu:hover>.submenu-label,
+.has-submenu.active>.submenu-label {
     background: #fff4eb;
     color: #ff7a00;
 }
@@ -984,7 +985,8 @@ body.dark-mode .submenu-label {
     color: white;
 }
 
-body.dark-mode .has-submenu:hover>.submenu-label {
+body.dark-mode .has-submenu:hover>.submenu-label,
+body.dark-mode .has-submenu.active>.submenu-label {
     background: #374151;
     color: #ff7a00;
 }
@@ -995,7 +997,8 @@ body.dark-mode .has-submenu:hover>.submenu-label {
     transition: transform 0.2s ease;
 }
 
-.has-submenu:hover>.sub-dropdown-menu {
+.dropdown-menu:not(.has-active-submenu) .has-submenu:hover>.sub-dropdown-menu,
+.has-submenu.active>.sub-dropdown-menu {
     display: block;
 }
 
@@ -1135,7 +1138,9 @@ body.dark-mode .mobile-menu-icon {
 
     /* Change hover logic to allow tapping to open on mobile, overriding initial display none */
     .dropdown:hover .dropdown-menu,
-    .has-submenu:hover .sub-dropdown-menu {
+    .dropdown-menu:not(.has-active-submenu) .has-submenu:hover .sub-dropdown-menu,
+    .dropdown.active .dropdown-menu,
+    .has-submenu.active .sub-dropdown-menu {
         display: block;
     }
 
