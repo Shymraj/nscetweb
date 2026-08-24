@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap');
 
 :root {
-  --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
+  --premium-card-bg: linear-gradient(135deg, #ffffff 0%, #e6f0fa 100%) !important;
   --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
 }
 
@@ -934,32 +934,32 @@ body.dark-mode .doc-badge:hover {
   border: 3px solid #18147f;
 }
 
-.principal-info h4 {
+.ar-principal-strip .principal-info h4 {
   font-family: var(--font-subtopic);
   font-size: 1.2rem;
   font-weight: 800;
-  color: #0284c7;
+  color: #1e40af !important; /* Dark blue matching the screenshot */
   margin: 0 0 4px 0;
   letter-spacing: 0.2px;
 }
 
-.principal-info .p-deg {
+.ar-principal-strip .principal-info .p-deg {
   font-size: 0.9rem;
-  color: #0369a1;
+  color: #0b1d25 !important; /* Bright cyan matching the screenshot */
   font-weight: 700;
   margin: 0 0 6px 0;
 }
 
-.principal-info .p-role {
+.ar-principal-strip .principal-info .p-role {
   font-size: 0.9rem;
-  color: #062e66;
+  color: #334155 !important; /* Slate grey matching the screenshot */
   font-weight: 600;
   margin: 0 0 2px 0;
 }
 
-.principal-info .p-loc {
+.ar-principal-strip .principal-info .p-loc {
   font-size: 0.8rem;
-  color: #0b3c81;
+  color: #1e3a8a !important; /* Dark blue matching the screenshot */
   margin: 0;
   font-weight: 500;
 }
@@ -968,14 +968,14 @@ body.dark-mode .doc-badge:hover {
 body.dark-mode .ar-principal-strip,
 .dark .ar-principal-strip {
   background: linear-gradient(145deg, #1e293b, #0f172a);
-  border-color: rgba(56, 189, 248, 0.2);
+  border-color: rgba(9, 52, 71, 0.2);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 body.dark-mode .ar-principal-strip:hover,
 .dark .ar-principal-strip:hover {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  border-color: rgba(56, 189, 248, 0.4);
+  border-color: rgba(24, 60, 75, 0.4);
 }
 
 body.dark-mode .principal-avatar,
@@ -984,24 +984,24 @@ body.dark-mode .principal-avatar,
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-body.dark-mode .principal-info h4,
-.dark .principal-info h4 {
-  color: #08325c;
+body.dark-mode .ar-principal-strip .principal-info h4,
+.dark .ar-principal-strip .principal-info h4 {
+  color: #e2e8f0 !important;
 }
 
-body.dark-mode .principal-info .p-deg,
-.dark .principal-info .p-deg {
-  color: #074966;
+body.dark-mode .ar-principal-strip .principal-info .p-deg,
+.dark .ar-principal-strip .principal-info .p-deg {
+  color: #0b2d3c !important;
 }
 
-body.dark-mode .principal-info .p-role,
-.dark .principal-info .p-role {
-  color: #cbd5e1;
+body.dark-mode .ar-principal-strip .principal-info .p-role,
+.dark .ar-principal-strip .principal-info .p-role {
+  color: #1b3b68 !important;
 }
 
-body.dark-mode .principal-info .p-loc,
-.dark .principal-info .p-loc {
-  color: #94a3b8;
+body.dark-mode .ar-principal-strip .principal-info .p-loc,
+.dark .ar-principal-strip .principal-info .p-loc {
+  color: #cbd5e1 !important;
 }
 
 /* Accordions Grid */
