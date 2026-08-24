@@ -56,7 +56,7 @@ const TransportFacilities = () => {
           <motion.div className="transport-stat-card" variants={fadeInUp}>
             <div className="stat-icon-wrapper"><FaUsers /></div>
             <div className="stat-info">
-              <h2>1000+</h2>
+              <h2>800+</h2>
               <p>Daily Commuters</p>
             </div>
           </motion.div>
