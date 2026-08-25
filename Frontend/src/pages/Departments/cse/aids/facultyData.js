@@ -10,26 +10,23 @@ import imgKodeeswaran from "./images/1778918812_ADS - Kodeeswaran.jpeg";
 import imgNithyapriya from "./images/Nithyapriya.png";
 
 export const aidsFacultyData = [
-    {id: "mr-l-s-vignesh", slug: "mr-l-s-vignesh",  name: "Mr. L.S. Vignesh", desig: "Assistant Professor & Head [I/C]", qual: "M.E., (Ph.D)", email: "hodai_ds@nscet.org", image: imgVignesh, spec: "Artificial Intelligence & Deep Learning", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
+    {id: "mr-l-s-vignesh", slug: "mr-l-s-vignesh",  name: "Vignesh L S", desig: "Assistant Professor & Head [I/C]", qual: "M.E., (Ph.D)", email: "vigneshls@nscet.org", image: imgVignesh, spec: "Artificial Intelligence & Machine Learning", objectPosition: "center 10%" ,
+    linkedin: "http://www.linkedin.com/in/vignesh-l-s-213b01a8",
+    about: "Vignesh L S is the Head of the Department of Artificial Intelligence and Data Science with 16 years of experience in the field of Artificial Intelligence and Machine Learning. He is actively involved in research and innovation, with 6 publications, 4 patents, 15 projects, and 2 awards to his credit.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "6"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "15"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "4"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "2"
     ],
     experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
+      "16 years"
     ]},
     {id: "mr-j-vinoth-kumar", slug: "mr-j-vinoth-kumar",  name: "Vinoth Kumar J", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "vinothkumar@nscet.org", image: imgVinothKumar, spec: "Deep Learning", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/vinoth-kumar-19477b197/",

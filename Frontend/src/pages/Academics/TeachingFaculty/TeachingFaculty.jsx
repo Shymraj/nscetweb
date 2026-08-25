@@ -37,7 +37,7 @@ const TeachingFaculty = () => {
     { id: 8, name: "Mrs. Maahalakshmi . S", qualifications: ["M.E."], department: "B.Tech - Information Technology", position: "Assistant Professor", email: "mahalakshmi@nscet.org", photo: "/IT/Mahalakshmi.jpg", isHOD: false },
 
     // --- B.Tech - Artificial Intelligence & Data Science (Total: 8) ---
-    { id: 9, name: "Mr. L.S. Vignesh", qualifications: ["Ph.D", "M.E."], department: "B.Tech - Artificial Intelligence & Data Science", position: " Professor", email: " hodai_ds@nscet.org", photo: "/AIDS/vignesh.jpg", isHOD: true },
+    { id: 9, name: "Vignesh L S", qualifications: ["Ph.D", "M.E."], department: "B.Tech - Artificial Intelligence & Data Science", position: " Professor", email: "vigneshls@nscet.org", photo: "/AIDS/vignesh.jpg", isHOD: true },
     { id: 10, name: "Mr. J. Vinoth Kumar", qualifications: ["M.E., (Ph.D)"], department: "B.Tech - Artificial Intelligence & Data Science", position: "Assistant Professor", email: "vinothkumar@nscet.org", photo: "/AIDS/vinothkumar.jpg", isHOD: false },
     { id: 11, name: "Mrs. G. Geerthiga", qualifications: ["M.E."], department: "B.Tech - Artificial Intelligence & Data Science", position: "Assistant Professor", email: "geerthiga@nscet.org", photo: "/AIDS/Geerthiga.jpg", isHOD: false },
     { id: 12, name: "Mrs. M. Pavithra", qualifications: ["M.E."], department: "B.Tech - Artificial Intelligence & Data Science", position: "Assistant Professor", email: " pavithra@nscet.org", photo: "/AIDS/Pavithra.jpg", isHOD: false },

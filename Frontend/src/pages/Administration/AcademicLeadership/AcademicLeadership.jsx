@@ -19,7 +19,7 @@ const AcademicLeadership = () => {
   const hodsData = [
     {
       id: 1,
-      name: "Dr. L.S. Vignesh",
+      name: "Vignesh L S",
       role: "PROFESSOR & HEAD OF THE DEPARTMENT",
       department: "Artificial Intelligence & Data Science",
       image: "/AIDS/vignesh.jpg",
