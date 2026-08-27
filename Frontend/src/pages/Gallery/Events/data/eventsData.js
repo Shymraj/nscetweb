@@ -19,7 +19,7 @@ const imageGlobs = {
   'signout-day': import.meta.glob('../assets/events/signout-day/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'sports-achievements': import.meta.glob('../assets/events/sports-achievements/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'waves-25': import.meta.glob('../assets/events/waves-25/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
-  'waves-24': import.meta.glob('../assets/events/waves-24/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' })
+  'waves-24': import.meta.glob('../assets/events/waves-24/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
 };
 
 // Helper to convert glob results to array of URLs

@@ -37,7 +37,6 @@ const GirlsHostel = () => {
     gallery: [
       { id: 1, imgUrl: "/GH/GH.jpg" },
       { id: 2, imgUrl: "/GH/GH2.jpg" },
-      { id: 3, imgUrl: "/GH/GH3.jpg" },
       { id: 4, imgUrl: "/GH/GH1.png" }
     ]
   };
