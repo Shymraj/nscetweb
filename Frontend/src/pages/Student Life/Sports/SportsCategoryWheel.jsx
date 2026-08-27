@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
     FaRunning, 
@@ -129,6 +129,42 @@ const parseAchievements = (achievementsData) => {
     return parsedStudents;
 };
 
+const StudentCard = ({ student, index, side }) => (
+    <motion.div
+        layout
+        initial={{ opacity: 0, scale: 0.9, x: side === 'left' ? 20 : -20 }}
+        animate={{ opacity: 1, scale: 1, x: 0 }}
+        exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+        transition={{ duration: 0.4, delay: index * 0.05 }}
+        className="achiever-card"
+    >
+        <div className="achiever-top">
+            <div className="achiever-avatar">
+                <FaUserGraduate size={24} />
+            </div>
+            <div className="achiever-info">
+                <h4>{student.name}</h4>
+                <span>{student.dept || 'Student'}</span>
+            </div>
+        </div>
+        
+        <div className="achiever-details">
+            <div className="achievement-text">
+                <strong>{student.achievement}</strong>
+            </div>
+            <div className="venue-text" style={{ color: 'var(--theme-primary)', fontWeight: 600 }}>
+                {student.sport}
+            </div>
+            {student.venue && (
+                <div className="venue-text">
+                    <FaMapMarkerAlt style={{ marginTop: '2px' }} />
+                    {student.venue}
+                </div>
+            )}
+        </div>
+    </motion.div>
+);
+
 const SportsCategoryWheel = ({ achievementsData }) => {
     const [selectedCategory, setSelectedCategory] = useState('All Sports');
     
@@ -139,11 +175,100 @@ const SportsCategoryWheel = ({ achievementsData }) => {
         return allStudents.filter(s => s.tags.includes(selectedCategory));
     }, [selectedCategory, allStudents]);
 
-    // Calculate positions for the outer circles
-    const radius = 190; // Pixels from center
+    const halfLength = Math.ceil(filteredStudents.length / 2);
+    const leftStudents = filteredStudents.slice(0, halfLength);
+    const rightStudents = filteredStudents.slice(halfLength);
+    
+    const sectionRef = useRef(null);
+    const leftInnerRef = useRef(null);
+    const rightInnerRef = useRef(null);
+    const scrollProgress = useRef(0);
+
+    // Reset scroll progress when category changes
+    useEffect(() => {
+        scrollProgress.current = 0;
+        if (leftInnerRef.current) leftInnerRef.current.style.transform = 'translateY(0px)';
+        if (rightInnerRef.current) rightInnerRef.current.style.transform = 'translateY(0px)';
+    }, [selectedCategory]);
+
+    useEffect(() => {
+        const container = sectionRef.current;
+        if (!container) return;
+
+        const handleWheel = (e) => {
+            const leftInner = leftInnerRef.current;
+            const rightInner = rightInnerRef.current;
+            if (!leftInner || !rightInner) return;
+
+            const viewportHeight = leftInner.parentElement.clientHeight || 520;
+            const leftMax = Math.max(0, leftInner.scrollHeight - viewportHeight);
+            const rightMax = Math.max(0, rightInner.scrollHeight - viewportHeight);
+            
+            if (leftMax === 0 && rightMax === 0) return;
+            const maxScrollPixels = Math.max(leftMax, rightMax);
+            
+            // Check if section is active in viewport
+            const rect = container.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const isMidScroll = scrollProgress.current > 0 && scrollProgress.current < 1;
+            
+            if (!isMidScroll) {
+                if (scrollProgress.current === 0 && e.deltaY > 0) {
+                    // Scrolling down into the section
+                    if (rect.top > 120) return; // Allow page to scroll until section is near top
+                } else if (scrollProgress.current === 1 && e.deltaY < 0) {
+                    // Scrolling up into the section
+                    if (rect.bottom < windowHeight - 120) return; // Allow page to scroll until section is near bottom
+                }
+            }
+
+            let currentPixels = scrollProgress.current * maxScrollPixels;
+            
+            if (e.deltaY > 0) {
+                // Scrolling DOWN
+                if (scrollProgress.current < 1) {
+                    e.preventDefault();
+                    currentPixels += e.deltaY;
+                } else {
+                    // progress >= 1: DO NOT preventDefault, let page scroll down naturally
+                    return;
+                }
+            } else if (e.deltaY < 0) {
+                // Scrolling UP
+                if (scrollProgress.current > 0) {
+                    e.preventDefault();
+                    currentPixels += e.deltaY;
+                } else {
+                    // progress <= 0: DO NOT preventDefault, let page scroll up naturally
+                    return;
+                }
+            }
+
+            // Strictly clamp
+            currentPixels = Math.max(0, Math.min(currentPixels, maxScrollPixels));
+            
+            if (currentPixels <= 0) {
+                scrollProgress.current = 0;
+            } else if (currentPixels >= maxScrollPixels) {
+                scrollProgress.current = 1;
+            } else {
+                scrollProgress.current = currentPixels / maxScrollPixels;
+            }
+            
+            const leftTransform = scrollProgress.current * leftMax;
+            const rightTransform = scrollProgress.current * rightMax;
+            
+            leftInner.style.transform = `translateY(-${leftTransform}px)`;
+            rightInner.style.transform = `translateY(-${rightTransform}px)`;
+        };
+
+        // passive: false is required to call preventDefault
+        container.addEventListener('wheel', handleWheel, { passive: false });
+        return () => container.removeEventListener('wheel', handleWheel);
+    }, [filteredStudents]);
     
     return (
-        <section className="sports-wheel-section">
+        <section ref={sectionRef} className="sports-wheel-section">
             <div className="sports-wheel-container">
                 
                 <div className="sports-wheel-header">
@@ -152,126 +277,111 @@ const SportsCategoryWheel = ({ achievementsData }) => {
                     <p>Discover students who represented the institution across multiple sporting disciplines, bringing pride and laurels to NSCET.</p>
                 </div>
 
+                <div className="achiever-category-header">
+                    <motion.h3 
+                        key={`title-${selectedCategory}`}
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="achiever-title"
+                    >
+                        {selectedCategory.toUpperCase()}
+                    </motion.h3>
+                    <div className="achiever-subtitle">
+                        <span>{selectedCategory === 'All Sports' ? 'All Athletes' : `${selectedCategory} Achievers`}</span>
+                        <span className="achiever-count">{filteredStudents.length} Students</span>
+                    </div>
+                </div>
+
                 <div className="sports-wheel-layout">
                     
-                    {/* LEFT SIDE: The Wheel */}
-                    <div className="wheel-container">
-                        
-                        <button 
-                            className={`wheel-center ${selectedCategory === 'All Sports' ? 'active' : ''}`}
-                            onClick={() => setSelectedCategory('All Sports')}
-                            aria-label="View All Sports"
-                            style={{ 
-                                cursor: 'pointer', 
-                                border: selectedCategory === 'All Sports' ? '2px solid #38bdf8' : '2px solid rgba(56, 189, 248, 0.3)',
-                                boxShadow: selectedCategory === 'All Sports' ? '0 0 40px rgba(56, 189, 248, 0.4)' : ''
-                            }}
-                        >
-                            <FaTrophy className="trophy-icon" />
-                            <span>ALL SPORTS</span>
-                        </button>
-
-                        <div className="wheel-segments">
-                            {CATEGORIES.map((cat, index) => {
-                                const angle = (index / CATEGORIES.length) * 2 * Math.PI;
-                                const x = radius * Math.cos(angle);
-                                const y = radius * Math.sin(angle);
-                                const Icon = cat.icon;
-                                const isActive = selectedCategory === cat.id;
-                                
-                                return (
-                                    <button
-                                        key={cat.id}
-                                        className={`wheel-item ${isActive ? 'active' : ''}`}
-                                        style={{ transform: `translate(${x}px, ${y}px)` }}
-                                        onClick={() => setSelectedCategory(cat.id)}
-                                        aria-label={`Select ${cat.label}`}
-                                        aria-pressed={isActive}
-                                    >
-                                        <div className="wheel-item-content">
-                                            <Icon className="wheel-item-icon" />
-                                            <span className="wheel-item-name">{cat.label}</span>
-                                        </div>
-                                    </button>
-                                );
-                            })}
+                    {/* LEFT SIDE: First half of achievers */}
+                    <div className="achiever-column left-column">
+                        <div className="achiever-grid single-col">
+                            <div className="achiever-grid-inner" ref={leftInnerRef}>
+                                <AnimatePresence mode="popLayout">
+                                    {leftStudents.map((student, i) => (
+                                        <StudentCard key={student.id} student={student} index={i} side="left" />
+                                    ))}
+                                </AnimatePresence>
+                            </div>
                         </div>
                     </div>
 
-                    {/* RIGHT SIDE: Achievers Grid */}
-                    <div className="achiever-section">
-                        
-                        <div className="achiever-header">
-                            <motion.h3 
-                                key={`title-${selectedCategory}`}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className="achiever-title"
+                    {/* CENTER: The Wheel */}
+                    <div className="wheel-column">
+                        <div className="wheel-container">
+                            <button 
+                                className={`wheel-center ${selectedCategory === 'All Sports' ? 'active' : ''}`}
+                                onClick={() => setSelectedCategory('All Sports')}
+                                aria-label="View All Sports"
+                                style={{ 
+                                    cursor: 'pointer', 
+                                    border: selectedCategory === 'All Sports' ? '2px solid #38bdf8' : '2px solid rgba(56, 189, 248, 0.3)',
+                                    boxShadow: selectedCategory === 'All Sports' ? '0 0 40px rgba(56, 189, 248, 0.4)' : ''
+                                }}
                             >
-                                {selectedCategory.toUpperCase()}
-                            </motion.h3>
-                            <div className="achiever-subtitle">
-                                <span>{selectedCategory === 'All Sports' ? 'All Athletes' : `${selectedCategory} Achievers`}</span>
-                                <span className="achiever-count">{filteredStudents.length} Students</span>
+                                <FaTrophy className="trophy-icon" />
+                                <span>ALL SPORTS</span>
+                            </button>
+
+                            <div className="wheel-segments">
+                                {CATEGORIES.map((cat, index) => {
+                                    const angle = (index / CATEGORIES.length) * 2 * Math.PI;
+                                    const xDir = Math.cos(angle);
+                                    const yDir = Math.sin(angle);
+                                    const Icon = cat.icon;
+                                    const isActive = selectedCategory === cat.id;
+                                    
+                                    return (
+                                        <button
+                                            key={cat.id}
+                                            className={`wheel-item ${isActive ? 'active' : ''}`}
+                                            style={{ 
+                                                '--x-dir': xDir,
+                                                '--y-dir': yDir
+                                            }}
+                                            onClick={() => setSelectedCategory(cat.id)}
+                                            aria-label={`Select ${cat.label}`}
+                                            aria-pressed={isActive}
+                                        >
+                                            <div className="wheel-item-content">
+                                                <Icon className="wheel-item-icon" />
+                                                <span className="wheel-item-name">{cat.label}</span>
+                                            </div>
+                                        </button>
+                                    );
+                                })}
                             </div>
                         </div>
+                    </div>
 
-                        <div className="achiever-grid">
-                            <AnimatePresence mode="popLayout">
-                                {filteredStudents.length > 0 ? (
-                                    filteredStudents.map((student, i) => (
-                                        <motion.div
-                                            key={student.id}
-                                            layout
-                                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                                            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                                            transition={{ duration: 0.4, delay: i * 0.05 }}
-                                            className="achiever-card"
-                                        >
-                                            <div className="achiever-top">
-                                                <div className="achiever-avatar">
-                                                    <FaUserGraduate size={24} />
-                                                </div>
-                                                <div className="achiever-info">
-                                                    <h4>{student.name}</h4>
-                                                    <span>{student.dept || 'Student'}</span>
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="achiever-details">
-                                                <div className="achievement-text">
-                                                    <strong>{student.achievement}</strong>
-                                                </div>
-                                                <div className="venue-text" style={{ color: 'var(--theme-primary)', fontWeight: 600 }}>
-                                                    {student.sport}
-                                                </div>
-                                                {student.venue && (
-                                                    <div className="venue-text">
-                                                        <FaMapMarkerAlt style={{ marginTop: '2px' }} />
-                                                        {student.venue}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        </motion.div>
-                                    ))
-                                ) : (
-                                    <motion.div 
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        className="no-achievers"
-                                        style={{ gridColumn: '1 / -1' }}
-                                    >
-                                        <FaMedal />
-                                        <p>No achievers recorded for this category yet.</p>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                    {/* RIGHT SIDE: Second half of achievers */}
+                    <div className="achiever-column right-column">
+                        <div className="achiever-grid single-col">
+                            <div className="achiever-grid-inner" ref={rightInnerRef}>
+                                <AnimatePresence mode="popLayout">
+                                    {rightStudents.map((student, i) => (
+                                        <StudentCard key={student.id} student={student} index={i} side="right" />
+                                    ))}
+                                </AnimatePresence>
+                            </div>
                         </div>
                     </div>
 
                 </div>
+
+                {filteredStudents.length === 0 && (
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="no-achievers"
+                    >
+                        <FaMedal />
+                        <p>No achievers recorded for this category yet.</p>
+                    </motion.div>
+                )}
+
             </div>
         </section>
     );
