@@ -101,7 +101,7 @@ const TeachingFaculty = () => {
     { id: 93, name: "Dr. N. Pandi Selvi", qualifications: [" M.E., Ph.D"], department: "B.E. - Electrical and Electronics Engineering", position: "Assistant Professor", email: "pandiselvi@nscet.org", photo: "/EEE/pandiselvi.jpeg", isHOD: false },
 
     // --- M.E. - Computer Science Engineering (Total: 2) ---
-    { id: 49, name: "Dr. M. Sathya", qualifications: ["Ph.D", "M.E."], department: "M.E. - Computer Science Engineering", position: "Vice Principal & Professor ", email: "msathya15@gmail.com", photo: "/ME CSE/Sathya.jpeg", isHOD: false },
+    { id: 49, name: "Dr. M. Sathya", qualifications: ["Ph.D", "M.E."], department: "M.E. - Computer Science Engineering", position: "Vice Principal & Professor ", email: "msathya15@gmail.com", photo: "/ME CSE/sathya.jpeg", isHOD: false },
     { id: 50, name: "Mr. G. R. Naveenkarthick", qualifications: ["M.E."], department: "M.E. - Computer Science Engineering", position: "Assistant Professor", email: "grnaveenkarthick@gmail.com", photo: "/IT/karthick.jpeg", isHOD: false },
 
     // --- M.E. - Structural Engineering (Total: 2) 
@@ -194,7 +194,7 @@ const TeachingFaculty = () => {
               department: mappedDept,
               position: staff.designation || (existingIndex !== -1 ? updatedData[existingIndex].position : "Assistant Professor"),
               email: staff.email || (existingIndex !== -1 ? updatedData[existingIndex].email : ""),
-              photo: staff.photo_url ? `http://localhost:5000${staff.photo_url}` : (existingIndex !== -1 ? updatedData[existingIndex].photo : "https://via.placeholder.com/150"),
+              photo: (existingIndex !== -1 && updatedData[existingIndex].photo) ? updatedData[existingIndex].photo : (staff.photo_url ? `http://localhost:5000${staff.photo_url}` : "https://via.placeholder.com/150"),
               isHOD: staff.is_hod === 1 || staff.is_hod === true || staff.is_hod === '1' || staff.is_hod === 'true'
             };
 
@@ -318,9 +318,12 @@ const TeachingFaculty = () => {
         onClick={() => handleCardClick(staff.id)}
         style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
       >
-        {/* Mail POP-UP icon strictly removed here */}
-
-        <img src={staff.photo} alt={staff.name} className="tf-staff-img" onError={(e) => e.target.src="https://via.placeholder.com/100"} />
+        <img 
+          src={staff.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(staff.name)}&background=1e3a8a&color=fff&size=150`} 
+          alt={staff.name} 
+          className="tf-staff-img" 
+          onError={(e) => { e.target.onerror = null; e.target.src=`https://ui-avatars.com/api/?name=${encodeURIComponent(staff.name)}&background=1e3a8a&color=fff&size=150`; }} 
+        />
         
         {/* Added standard flex wrapper with fixed min-heights so items stay perfectly aligned inline */}
         <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, width: '100%', alignItems: 'center' }}>
@@ -332,9 +335,7 @@ const TeachingFaculty = () => {
           </p>
           
           <div className="tf-qual-badges tf-center-badges" style={{ minHeight: '60px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'flex-start', width: '100%' }}>
-            {staff.qualifications.map((qual, i) => (
-              <span key={i} className="tf-badge-outline" style={{ margin: '2px' }}>{qual}</span>
-            ))}
+            <span className="tf-badge-outline" style={{ margin: '2px' }}>{staff.qualifications.join(', ')}</span>
           </div>
         </div>
 
@@ -394,7 +395,12 @@ const TeachingFaculty = () => {
             {hod && (
               <div className="tf-hod-fixed-wrapper fade-in" style={{ alignSelf: 'flex-end', marginBottom: '30px', marginTop: '16px' }}>
                 <div className="tf-staff-card tf-hod-special-card" style={{ display: 'flex', flexDirection: 'column' }}>
-                  <img src={hod.photo} alt={hod.name} className="tf-staff-img tf-hod-img-small" onError={(e) => e.target.src="https://via.placeholder.com/100"} />
+                  <img 
+                    src={hod.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(hod.name)}&background=1e3a8a&color=fff&size=150`} 
+                    alt={hod.name} 
+                    className="tf-staff-img tf-hod-img-small" 
+                    onError={(e) => { e.target.onerror = null; e.target.src=`https://ui-avatars.com/api/?name=${encodeURIComponent(hod.name)}&background=1e3a8a&color=fff&size=150`; }} 
+                  />
                   
                   <div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
                     <h4 className="tf-staff-name" style={{ minHeight: '48px', display: 'flex', alignItems: 'center', textAlign: 'center', margin: '10px 0 5px' }}>
@@ -406,9 +412,7 @@ const TeachingFaculty = () => {
                     </p>
                     
                     <div className="tf-qual-badges tf-center-badges" style={{ minHeight: '60px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'flex-start', width: '100%' }}>
-                      {hod.qualifications.map((qual, index) => (
-                        <span key={index} className="tf-badge-outline tf-hod-badge-outline" style={{ margin: '2px' }}>{qual}</span>
-                      ))}
+                      <span className="tf-badge-outline tf-hod-badge-outline" style={{ margin: '2px' }}>{hod.qualifications.join(', ')}</span>
                     </div>
                   </div>
 

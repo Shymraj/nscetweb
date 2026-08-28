@@ -13,7 +13,7 @@ export const civilFacultyData = [
   {
     id: "hod",
     slug: "hod",
-    name: "Nagarathinam N",
+    name: "Mr. N. Nagarathinam",
     desig: "Head of the Department (HOD)",
     qual: "M.E., M.I.S.T.E., (Ph.D)",
     email: "naguhky@gmail.com",
@@ -55,7 +55,7 @@ export const civilFacultyData = [
   {
     id: "gayathri",
     slug: "gayathri",
-    name: "S. GAYATHRI",
+    name: "Mrs. S. GAYATHRI",
     desig: "Assistant Professor",
     qual: "M.E., M.I.S.T.E.",
     email: "gayathri@nscet.org",
@@ -89,7 +89,7 @@ export const civilFacultyData = [
   {
     id: "shanmugapriyan",
     slug: "shanmugapriyan",
-    name: "R. Shanmugapriyan",
+    name: "Mr. R. Shanmugapriyan",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "shanmugapriyan@nscet.org",
@@ -177,7 +177,7 @@ export const civilFacultyData = [
   {
     id: "kanimozhi",
     slug: "kanimozhi",
-    name: "Kanimozhi M",
+    name: "Mrs. M. Kanimozhi",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "kanimozhi@nscet.org",
@@ -211,7 +211,7 @@ export const civilFacultyData = [
   {
     id: "aruljebaraj",
     slug: "aruljebaraj",
-    name: "Arul Jebaraj",
+    name: "Mr. Arul Jebaraj",
     desig: "Assistant Professor",
     qual: "M.Tech",
     email: "aruljebaraj@nscet.org",
@@ -247,7 +247,7 @@ export const civilFacultyData = [
   {
     id: "nathirunsabinash",
     slug: "nathirunsabinash",
-    name: "Nathirun Sabinash R",
+    name: "Mrs. R. Nathirun Sabinash",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "nathirunsabinash@nscet.org",
@@ -281,7 +281,7 @@ export const civilFacultyData = [
   {
     id: "hariprasath",
     slug: "hariprasath",
-    name: "Hariprasath T",
+    name: "Mr. T. Hariprasath",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "mailtohari16@gmail.com",
@@ -369,7 +369,7 @@ export const civilFacultyData = [
   {
     id: "aadhitya",
     slug: "aadhitya",
-    name: "P. Aadhitya",
+    name: "Mrs. P. Aadhitya",
     desig: "Assistant Professor",
     qual: "",
     email: "aadhitya@nscet.org",

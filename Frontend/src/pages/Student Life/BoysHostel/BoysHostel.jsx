@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaShieldAlt, FaBolt, FaTint, FaLeaf, FaUserTie } from 'react-icons/fa';
 import './BoysHostel.css';
 
 const BoysHostel = () => {
@@ -14,7 +15,7 @@ const BoysHostel = () => {
     ],
     culture: [
       { id: 1, imgUrl: "/BOYS%20HOSTEL/hc3.JPG" },
-      { id: 2,  imgUrl: "/BOYS%20HOSTEL/hc2.JPG" },
+      { id: 2, imgUrl: "/BOYS%20HOSTEL/hc2.JPG" },
       { id: 3, imgUrl: "/BOYS%20HOSTEL/hc4.JPG" }
     ],
     facilities: [
@@ -65,30 +66,42 @@ const BoysHostel = () => {
         {/* About Section */}
         <section className="hostel-section about-section animate-slide-up">
           <div className="about-text">
-            <h2 className="section-title">About the Hostel</h2>
+            <h2 className="bh-section-title">About the Hostel</h2>
             <p>{hostelData.about}</p>
           </div>
           <div className="about-highlights">
-            <div className="highlight-chip">24/7 Security</div>
-            <div className="highlight-chip">100% Power Backup</div>
-            <div className="highlight-chip">RO Purified Water</div>
-            <div className="highlight-chip">Peaceful Environment</div>
+            <div className="highlight-chip">
+              <FaShieldAlt className="chip-icon" /> 24/7 Security
+            </div>
+            <div className="highlight-chip">
+              <FaBolt className="chip-icon" /> 100% Power Backup
+            </div>
+            <div className="highlight-chip">
+              <FaTint className="chip-icon" /> RO Purified Water
+            </div>
+            <div className="highlight-chip">
+              <FaLeaf className="chip-icon" /> Peaceful Environment
+            </div>
           </div>
         </section>
 
-        {/* UPDATED: Centered Administration Section with Hover Effect (Strength & Infra removed) */}
-        <section className="hostel-section animate-slide-up-delay-1">
-          <div className="admin-section">
-            <h2 className="section-title hostel-admin-title">Hostel Administration</h2>
-            
-            {/* Hover effect irukka card */}
-            <div className="admin-animated-card">
-              <div className="admin-card-content">
-                <h3>{hostelData.chiefWarden.name}</h3>
-                <p>{hostelData.chiefWarden.role}</p>
+        {/* Administration Section */}
+        <section className="hostel-section admin-split-section animate-slide-up-delay-1">
+          <div className="admin-split-container">
+            <div className="admin-split-left">
+              <div className="admin-profile-full">
+                <img src="/ME MANUFACTURING/principle.png" alt={hostelData.chiefWarden.name} className="admin-profile-full-img" />
+                <h3 className="admin-profile-name">{hostelData.chiefWarden.name}</h3>
+                <p className="admin-profile-role">{hostelData.chiefWarden.role}</p>
               </div>
             </div>
-
+            <div className="admin-split-right">
+              <h2 className="bh-section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>Hostel Administration</h2>
+              <div className="admin-divider" style={{ margin: '0 0 20px 0' }}></div>
+              <p className="admin-description">
+                The Boys Hostel administration is dedicated to maintaining a disciplined, nurturing, and home-like environment. We focus on holistic student development, ensuring the highest standards of safety, hygiene, and academic support throughout their stay.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -96,7 +109,7 @@ const BoysHostel = () => {
           <div className="culture-facilities-grid">
 
             <div className="culture-side">
-              <h2 className="section-title">Cultural Activities</h2>
+              <h2 className="bh-section-title">Cultural Activities</h2>
               <div className="culture-image-card">
                 <div className="culture-slider-wrapper">
                   {hostelData.culture.map((item, index) => (
@@ -120,7 +133,7 @@ const BoysHostel = () => {
             </div>
 
             <div className="facilities-side">
-              <h2 className="section-title">Facilities</h2>
+              <h2 className="bh-section-title">Facilities</h2>
               <div className="facilities-box">
                 <ul className="facilities-list">
                   {hostelData.facilities.map((fac, idx) => (
@@ -136,7 +149,7 @@ const BoysHostel = () => {
         </section>
 
         <section className="hostel-section rules-section animate-slide-up-delay-4">
-          <h2 className="section-title">Rules & Regulations</h2>
+          <h2 className="bh-section-title">Rules & Regulations</h2>
           <div className="rules-two-container">
             <div className="rules-box">
               <h3 className="rules-box-title">Study Hours & General Rules</h3>
@@ -163,7 +176,7 @@ const BoysHostel = () => {
         </section>
 
         <section className="hostel-section gallery-section animate-slide-up-delay-5">
-          <h2 className="section-title">Photo Gallery</h2>
+          <h2 className="bh-section-title">Photo Gallery</h2>
           <div className="gallery-slider-container">
             <div className="slider-images-wrapper">
               {hostelData.gallery.map((item, index) => (

@@ -65,10 +65,9 @@ const Civil = () => {
   const faculties = useDepartmentStaff(['civil'], civilFacultyData);
 
   const stats = [
-    { count: "380+", label: "Civil Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "12+", label: "Expert Civil Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
-    { count: "50+", label: "Testing Consultancies", icon: <FaFlask />, color: "#d97706" },
-    { count: "6+", label: "NABL Grade Labs", icon: <BsBuildingsFill />, color: "#7c3aed" },
+    { count: "78", label: "Civil Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
+    { count: "12", label: "Expert Civil Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "0", label: "Testing Consultancies", icon: <FaFlask />, color: "#d97706" },
     { count: "90%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
   ];
 

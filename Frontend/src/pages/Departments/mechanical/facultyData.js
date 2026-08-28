@@ -49,7 +49,7 @@ export const mechanicalFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mr-v-sivaganesan", slug: "mr-v-sivaganesan",  name: "Sivaganesan V", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "sivaganesan@nscet.org", image: imgSivaganesan, spec: "Engineering Design, Materials", objectPosition: "center 10%" ,
+    {id: "mr-v-sivaganesan", slug: "mr-v-sivaganesan",  name: "Mr. V. Sivaganesan", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "sivaganesan@nscet.org", image: imgSivaganesan, spec: "Engineering Design, Materials", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/sivaganesan73/",
     about: "Sivaganesan V is a dedicated faculty member with 12 years of teaching and research experience in the Department of Mechanical Engineering. His areas of specialization include Engineering Design and Materials. He is passionate about innovative engineering practices, research, and helping students develop strong technical knowledge through practical and industry-oriented learning.",
     publications: [
@@ -85,7 +85,7 @@ export const mechanicalFacultyData = [
     experience: [
       "13 Years"
     ]},
-    {id: "mr-p-surulimani", slug: "mr-p-surulimani",  name: "Surulimani P", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "surulimani@nscet.org", image: imgSurulimani, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
+    {id: "mr-p-surulimani", slug: "mr-p-surulimani",  name: "Mr. P. Surulimani", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "surulimani@nscet.org", image: imgSurulimani, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/surulimani-p-mech-79138a34a",
     about: "Surulimani P is a dedicated faculty member with 15 years of teaching experience in the Department of Mechanical Engineering. His specialization is Manufacturing Engineering, and he is committed to fostering practical learning, research, and innovation while equipping students with industry-relevant technical skills.",
     publications: [
@@ -99,7 +99,7 @@ export const mechanicalFacultyData = [
     experience: [
       "15 Years"
     ]},
-    {id: "mr-s-harikishore", slug: "mr-s-harikishore",  name: "S. Harikishore", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "harikishoreidea@gmail.com", image: imgHarikishore, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
+    {id: "mr-s-harikishore", slug: "mr-s-harikishore",  name: "Mr. S. Harikishore", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "harikishoreidea@gmail.com", image: imgHarikishore, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/harikishore-s-8036501ab",
     about: "S. Harikishore is a dedicated faculty member with 11 years of teaching and research experience in the Department of Mechanical Engineering. His specialization is Manufacturing Engineering, with a strong focus on practical and industry-oriented learning. He is committed to supporting students in developing technical skills while contributing to research and innovation in modern manufacturing practices.",
     publications: [
@@ -138,7 +138,7 @@ export const mechanicalFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mr-r-nagaraja", slug: "mr-r-nagaraja",  name: "Nagaraja R", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "nagaraja@nscet.org", image: imgNagaraja, spec: "Engineering Design", objectPosition: "center 10%" ,
+    {id: "mr-r-nagaraja", slug: "mr-r-nagaraja",  name: "Mr. R. Nagaraja", desig: "Assistant Professor", qual: "M.E., MISTE.", email: "nagaraja@nscet.org", image: imgNagaraja, spec: "Engineering Design", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/nagaraja-rajamanickam-431148126/",
     about: "Nagaraja R is a dedicated faculty member with 13 years of teaching and research experience in the Department of Mechanical Engineering. His area of specialization is Engineering Design, and he is committed to developing students' design and problem-solving skills through practical, industry-oriented learning while contributing to research and innovation in mechanical engineering.",
     publications: [

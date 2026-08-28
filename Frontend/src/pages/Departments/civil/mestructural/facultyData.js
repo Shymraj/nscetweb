@@ -24,7 +24,7 @@ export const mestructuralFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mrs-m-sindhu", slug: "mrs-m-sindhu",  name: "Sindhu M", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "sindhu@nscet.org", image: imgSindhu, spec: "Structural Engineering", objectPosition: "center 10%" ,
+    {id: "mrs-m-sindhu", slug: "mrs-m-sindhu",  name: "Mrs. M. Sindhu", desig: "Assistant Professor", qual: "M.E., (Ph.D)", email: "sindhu@nscet.org", image: imgSindhu, spec: "Structural Engineering", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/sindhu-m-19b495157",
     about: "Sindhu M is a dedicated faculty member with 6 years of teaching experience in the Department of Mechanical Engineering (Structural). Her specialization is Structural Engineering, and she is passionate about structural analysis, innovative engineering practices, and helping students develop strong technical and practical skills through effective teaching and research.",
     publications: [
@@ -38,7 +38,7 @@ export const mestructuralFacultyData = [
     experience: [
       "6 Years"
     ]},
-    {id: "mrs-k-benita-merlin-isabella", slug: "mrs-k-benita-merlin-isabella",  name: "Benita Merlin Isabella K", desig: "Assistant Professor", qual: "M.E", email: "benitamerlin22@gmail.com", image: imgBenita, spec: "Structural Engineering (Structural Design & Analysis)", objectPosition: "center 10%" ,
+    {id: "mrs-k-benita-merlin-isabella", slug: "mrs-k-benita-merlin-isabella",  name: "Mrs. K. Benita Merlin Isabella", desig: "Assistant Professor", qual: "M.E", email: "benitamerlin22@gmail.com", image: imgBenita, spec: "Structural Engineering (Structural Design & Analysis)", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/benita-merlin-005b69242",
     about: "Benita Merlin Isabella K is a dedicated faculty member in the Department of Mechanical Engineering (Structural). She brings a unique blend of 3 years of industry experience and 2.2 years of teaching experience. Her specialization is Structural Engineering, with a focus on Structural Design and Analysis, and she is committed to helping students develop strong technical knowledge through practical and industry-oriented learning.",
     publications: [

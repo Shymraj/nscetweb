@@ -63,11 +63,11 @@ const CSE = () => {
   const faculties = useDepartmentStaff(['cse', 'computer science'], cseFacultyData);
 
   const stats = [
-    { count: "480+", label: "Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "15+", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
-    { count: "85+", label: "Research Papers", icon: <FaBookOpen />, color: "#d97706" },
-    { count: "6+", label: "Specialized Labs", icon: <FaServer />, color: "#7c3aed" },
-    { count: "95%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
+    { count: "166", label: "Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
+    { count: "9", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "0", label: "Research Papers", icon: <FaBookOpen />, color: "#d97706" },
+    { count: "0", label: "Specialized Labs", icon: <FaServer />, color: "#7c3aed" },
+    { count: "90%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
   ];
 
   const facilities = [

@@ -150,12 +150,12 @@ function ControllerOfExamination() {
               onClick={!imageError ? openModal : undefined}
             >
               <div className="coe-image-glow"></div>
-              
+
               {!imageError ? (
                 <div className="coe-image-wrapper">
-                  <img 
-                    src={examProcessImg} 
-                    alt="Exam Cell Process Chart" 
+                  <img
+                    src={examProcessImg}
+                    alt="Exam Cell Process Chart"
                     className="coe-roadmap-img"
                     onError={() => setImageError(true)}
                   />

@@ -85,7 +85,7 @@ export const shFacultyData = [
     experience: [
       "15 Years"
     ]},
-    {id: "mr-r-c-richard-britto", slug: "mr-r-c-richard-britto",  name: "R. C. Richard Britto", desig: "Assistant Professor", qual: "M.A., M.Phil.", email: "richardbritto56@gmail.com", image: imgRichardBritto, spec: "English", objectPosition: "center 10%" ,
+    {id: "mr-r-c-richard-britto", slug: "mr-r-c-richard-britto",  name: "Mr. R. C. Richard Britto", desig: "Assistant Professor", qual: "M.A., M.Phil.", email: "richardbritto56@gmail.com", image: imgRichardBritto, spec: "English", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/richard-britto-585a1b358",
     about: "R. C. Richard Britto is a dedicated faculty member with 10 years of teaching experience in the Department of Science and Humanities. His specialization is English, and he is committed to enhancing students' communication, language, and critical thinking skills through engaging and learner-centered teaching.",
     publications: [
@@ -136,7 +136,7 @@ export const shFacultyData = [
     experience: [
       "27 Years"
     ]},
-    {id: "mrs-r-karunyah", slug: "mrs-r-karunyah",  name: "R. Karunyah", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "mkaruniya@gmail.com", image: imgKarunyah, spec: "Mathematics", objectPosition: "center 10%" ,
+    {id: "mrs-r-karunyah", slug: "mrs-r-karunyah",  name: "Mrs. R. Karunyah", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "mkaruniya@gmail.com", image: imgKarunyah, spec: "Mathematics", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/karun-manikandan-6a1b45427",
     about: "R. Karunyah is a dedicated faculty member with 17 years of teaching experience in the Department of Science and Humanities. Her specialization is Mathematics, and she is passionate about helping students build strong analytical and problem-solving skills through effective teaching, academic excellence, and continuous learning.",
     publications: [],
@@ -146,7 +146,7 @@ export const shFacultyData = [
     experience: [
       "17 Years"
     ]},
-    {id: "mrs-m-arulvizhi", slug: "mrs-m-arulvizhi",  name: "M. Arulvizhi", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "arulvizhi@nscet.org", image: imgArulvizhi, spec: "Graph Theory", objectPosition: "center 10%" ,
+    {id: "mrs-m-arulvizhi", slug: "mrs-m-arulvizhi",  name: "Mrs. M. Arulvizhi", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "arulvizhi@nscet.org", image: imgArulvizhi, spec: "Graph Theory", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/arul-vizhi-2a4a033b9",
     about: "M. Arulvizhi is a dedicated faculty member with 14 years of teaching experience in the Department of Science and Humanities. Her area of specialization is Graph Theory, and she is committed to providing quality education while inspiring students through effective teaching and continuous learning.",
     publications: [],
@@ -156,7 +156,7 @@ export const shFacultyData = [
     experience: [
       "14 Years"
     ]},
-    {id: "mr-r-dhandayuthapani", slug: "mr-r-dhandayuthapani",  name: "R. Dhandayuthapani", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "rdpani2000@gmail.com", image: imgDhandayuthapani, spec: "Electronics", objectPosition: "center 10%" ,
+    {id: "mr-r-dhandayuthapani", slug: "mr-r-dhandayuthapani",  name: "Mr. R. Dhandayuthapani", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "rdpani2000@gmail.com", image: imgDhandayuthapani, spec: "Electronics", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dhandayuthapani-r-221268427",
     about: "R. Dhandayuthapani is a dedicated faculty member with 13 years of teaching experience in the Department of Science and Humanities. His specialization is Electronics, and he is committed to delivering quality education, fostering technical knowledge, and inspiring students through practical and innovative learning.",
     publications: [],
@@ -166,7 +166,7 @@ export const shFacultyData = [
     experience: [
       "13 Years"
     ]},
-    {id: "mr-k-rajaguru", slug: "mr-k-rajaguru",  name: "Rajaguru K", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "rajaguru@nscet.org", image: imgRajaguru, spec: "Thin Film", objectPosition: "center 10%" ,
+    {id: "mr-k-rajaguru", slug: "mr-k-rajaguru",  name: "Mr. K. Rajaguru", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "rajaguru@nscet.org", image: imgRajaguru, spec: "Thin Film", objectPosition: "center 10%" ,
     linkedin: "https://in.linkedin.com/in/rajaguru-k-32a4893a3",
     about: "Rajaguru K is a dedicated faculty member with over 7 years of teaching experience in the Department of Science and Humanities. His area of specialization is Thin Film Technology, and he is passionate about inspiring students through quality teaching, research, and continuous academic growth.",
     publications: [],
@@ -234,7 +234,7 @@ export const shFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "dr-p-buvaneshwari", slug: "dr-p-buvaneshwari",  name: "R. Bhuvaneshwari", desig: "Assistant Professor (Physics)", qual: "B.Sc., M.Sc., Ph.D.", email: "2012bhuvana@gmail.com", image: imgBuvaneshwari, spec: "Material Science, Electrochemical Energy Storage Devices, Supercapattery", objectPosition: "center 10%" ,
+    {id: "dr-p-buvaneshwari", slug: "dr-p-buvaneshwari",  name: "Mrs. R. Bhuvaneshwari", desig: "Assistant Professor (Physics)", qual: "B.Sc., M.Sc., Ph.D.", email: "2012bhuvana@gmail.com", image: imgBuvaneshwari, spec: "Material Science, Electrochemical Energy Storage Devices, Supercapattery", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/bhuvaneshwari-ramasamy-924047256",
     about: "R. Bhuvaneshwari is a dedicated faculty member in the Department of Science and Humanities with research expertise in Material Science, Electrochemical Energy Storage Devices, and Supercapattery. With 6 years of research experience, she is passionate about scientific innovation, advanced materials research, and mentoring students through research-driven learning.",
     publications: [
@@ -269,7 +269,7 @@ export const shFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "dr-p-malarvizhi", slug: "dr-p-malarvizhi",  name: "P. Malarvizhi", desig: "Assistant Professor", qual: "M.A., M.Phil., Ph.D.", email: "ponakilmalar7@gmail.com", image: imgMalarvizhi, spec: "English Literature", objectPosition: "center 10%" ,
+    {id: "dr-p-malarvizhi", slug: "dr-p-malarvizhi",  name: "Dr. P. Malarvizhi", desig: "Assistant Professor", qual: "M.A., M.Phil., Ph.D.", email: "ponakilmalar7@gmail.com", image: imgMalarvizhi, spec: "English Literature", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/malar-vizhi-4542671b0",
     about: "P. Malarvizhi is a dedicated faculty member with 2 years of teaching experience in the Department of Science and Humanities. Her specialization is English Literature, and she is passionate about literature, language education, and helping students develop strong communication and critical thinking skills through engaging and learner-centered teaching.",
     publications: [
@@ -347,7 +347,7 @@ export const shFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "sangeetha-v", slug: "sangeetha-v",  name: "Sangeetha V", desig: "Assistant Professor", qual: "M.A. English", email: "vijayansangeetha281985@gmail.com", image: imgSangeetha, spec: "English Phonetics & Grammar", objectPosition: "center 10%" ,
+    {id: "sangeetha-v", slug: "sangeetha-v",  name: "Mrs. V. Sangeetha", desig: "Assistant Professor", qual: "M.A. English", email: "vijayansangeetha281985@gmail.com", image: imgSangeetha, spec: "English Phonetics & Grammar", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
@@ -368,7 +368,7 @@ export const shFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "murugan-m", slug: "murugan-m",  name: "Murugan M", desig: "Assistant Professor", qual: "M.Sc – Maths", email: "muruganmaths92@gmail.com", image: imgMurugan, spec: "Linear Algebra", objectPosition: "center 10%" ,
+    {id: "murugan-m", slug: "murugan-m",  name: "Mr. M. Murugan", desig: "Assistant Professor", qual: "M.Sc – Maths", email: "muruganmaths92@gmail.com", image: imgMurugan, spec: "Linear Algebra", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/murugan-m-194874384",
     about: "Murugan M is a faculty member in the Department of Science and Humanities. His area of specialization is Linear Algebra, and he is passionate about helping students develop strong mathematical foundations through clear and engaging teaching.",
     publications: [],
@@ -378,7 +378,7 @@ export const shFacultyData = [
     experience: [
       "6 Months"
     ]},
-    {id: "dr-diana-p", slug: "dr-diana-p",  name: "Dr. Diana P", desig: "Assistant Professor", qual: "M.Sc., Ph.D - Physics", email: "13diana83@gmail.com", image: imgDiana, spec: "Material Science", objectPosition: "center 10%" ,
+    {id: "dr-diana-p", slug: "dr-diana-p",  name: "Dr. P. Diana", desig: "Assistant Professor", qual: "M.Sc., Ph.D - Physics", email: "13diana83@gmail.com", image: imgDiana, spec: "Material Science", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/diana-p-a2485b426",
     about: "Dr. Diana P is a dedicated faculty member in the Department of Science and Humanities with expertise in Material Science. She is passionate about scientific research, innovative teaching, and inspiring students to build a strong foundation in science through academic excellence and continuous learning.",
     publications: [
@@ -389,7 +389,7 @@ export const shFacultyData = [
     awards: [],
     experience: []
     },
-    {id: "dr-easwari-m", slug: "dr-easwari-m",  name: "Dr. Easwari M", desig: "Assistant Professor", qual: "M.Sc., Ph.D - Physics", email: "easwariphy@gmail.com", image: imgEaswari, spec: "Nuclear & Modern Physics", objectPosition: "center 10%" ,
+    {id: "dr-easwari-m", slug: "dr-easwari-m",  name: "Dr. M. Easwari", desig: "Assistant Professor", qual: "M.Sc., Ph.D - Physics", email: "easwariphy@gmail.com", image: imgEaswari, spec: "Nuclear & Modern Physics", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
@@ -410,7 +410,7 @@ export const shFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "ms-a-iniya", slug: "ms-a-iniya",  name: "Ms. A. Iniya", desig: "Assistant Professor", qual: "M.E (CSE)", email: "iniyakames777@gmail.com", image: imgIniya, spec: "General Engineering & Programming", objectPosition: "center 10%" ,
+    {id: "ms-a-iniya", slug: "ms-a-iniya",  name: "Mrs. A. Iniya", desig: "Assistant Professor", qual: "M.E (CSE)", email: "iniyakames777@gmail.com", image: imgIniya, spec: "General Engineering & Programming", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
@@ -431,7 +431,7 @@ export const shFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "ms-nandhini-m", slug: "ms-nandhini-m",  name: "Ms. Nandhini M.", desig: "Assistant Professor", qual: "M.E (CSE)", email: "benandhu10@gmail.com", image: imgNandhini, spec: "Problem Solving & Python", objectPosition: "center 10%" ,
+    {id: "ms-nandhini-m", slug: "ms-nandhini-m",  name: "Mrs. M. Nandhini", desig: "Assistant Professor", qual: "M.E (CSE)", email: "benandhu10@gmail.com", image: imgNandhini, spec: "Problem Solving & Python", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
@@ -452,7 +452,7 @@ export const shFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "dr-srinithi-s", slug: "dr-srinithi-s",  name: "Srinithi S", desig: "Assistant Professor", qual: "M.Sc., Ph.D (Chemistry)", email: "srinithi28sep95@gmail.com", image: imgSrinithi, spec: "Electrochemistry and Nanomaterials", objectPosition: "center 10%" ,
+    {id: "dr-srinithi-s", slug: "dr-srinithi-s",  name: "Dr. S. Srinithi", desig: "Assistant Professor", qual: "M.Sc., Ph.D (Chemistry)", email: "srinithi28sep95@gmail.com", image: imgSrinithi, spec: "Electrochemistry and Nanomaterials", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/srinithi-subburaj-747776197",
     about: "Srinithi S is a faculty member in the Department of Science and Humanities with expertise in Electrochemistry and Nanomaterials. She is passionate about scientific research, innovative teaching, and helping students build a strong foundation in chemistry through practical and research-oriented learning.",
     publications: [
@@ -464,7 +464,7 @@ export const shFacultyData = [
     experience: [
       "4 Months"
     ]},
-    {id: "mrs-n-thisha", slug: "mrs-n-thisha",  name: "N. Thisha", desig: "Assistant Professor (Tamil)", qual: "B.A., M.A., NET.", email: "thishaprabi4@gmail.com", image: imgThisha, spec: "Literature and Novel", objectPosition: "center 10%" ,
+    {id: "mrs-n-thisha", slug: "mrs-n-thisha",  name: "Mrs. N. Thisha", desig: "Assistant Professor (Tamil)", qual: "B.A., M.A., NET.", email: "thishaprabi4@gmail.com", image: imgThisha, spec: "Literature and Novel", objectPosition: "center 10%" ,
     linkedin: "https://in.linkedin.com/in/n-thisha-2794873ba",
     about: "N. Thisha is a faculty member in the Department of Science and Humanities with a passion for English Literature and Novels. She is committed to creating an engaging learning environment that helps students strengthen their language, communication, and literary skills.",
     publications: [
@@ -476,7 +476,7 @@ export const shFacultyData = [
     experience: [
       "1 Year"
     ]},
-    {id: "mr-ram-kumar-k", slug: "mr-ram-kumar-k",  name: "Mr. Ram Kumar K", desig: "Assistant Professor", qual: "B.E - EEE., M.B.A", email: "ramkumar@nscet.org", image: imgRamKumar, spec: "General Engineering & Management", objectPosition: "center 10%" ,
+    {id: "mr-ram-kumar-k", slug: "mr-ram-kumar-k",  name: "Mr. K. Ram Kumar", desig: "Assistant Professor", qual: "B.E - EEE., M.B.A", email: "ramkumar@nscet.org", image: imgRamKumar, spec: "General Engineering & Management", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dummy-nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
@@ -515,7 +515,7 @@ export const shFacultyData = [
     experience: [
       "2 Years"
     ]},
-    {id: "mr-g-arun-kumar", slug: "mr-g-arun-kumar",  name: "Arunkumar G", desig: "Assistant Professor", qual: "M.E.", email: "arunkumar@nscet.org", image: imgArunKumar, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
+    {id: "mr-g-arun-kumar", slug: "mr-g-arun-kumar",  name: "Mr. G. Arunkumar", desig: "Assistant Professor", qual: "M.E.", email: "arunkumar@nscet.org", image: imgArunKumar, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/arun-kumar-5433553b4",
     about: "Arunkumar G is a dedicated faculty member with 9 years of teaching experience. His specialization is Manufacturing Engineering, and he is passionate about advancing engineering education through practical learning, research, and innovation. He is committed to equipping students with industry-relevant knowledge and technical skills.",
     publications: [
@@ -555,7 +555,7 @@ export const shFacultyData = [
         "12.7 Years"
       ]
     },
-    {id: "ms-jenifer-k", slug: "ms-jenifer-k",  name: "Jenifer K", desig: "Assistant Professor", qual: "B.Tech(IT)., M.E(CSE)", email: "jenifer@nscet.org", image: imgJenifer, spec: "Data Mining", objectPosition: "center 10%" ,
+    {id: "ms-jenifer-k", slug: "ms-jenifer-k",  name: "Mrs. K. Jenifer", desig: "Assistant Professor", qual: "B.Tech(IT)., M.E(CSE)", email: "jenifer@nscet.org", image: imgJenifer, spec: "Data Mining", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/jenifer-k-6238312a4",
     about: "Jenifer K is a dedicated faculty member with 5 years of teaching experience. Her specialization is Data Mining, and she is passionate about research, innovation, and guiding students in emerging AI and data-driven technologies.",
     publications: [

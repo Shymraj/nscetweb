@@ -20,7 +20,7 @@ export const meembeddedFacultyData = [
     experience: [
       "13.6 Years"
     ]},
-    {id: "mrs-s-kalaivani", slug: "mrs-s-kalaivani",  name: "S. Kalaivani", desig: "Assistant Professor", qual: "M.Tech.", email: "kalaivani@nscet.org", image: imgKalaivani, spec: "VLSI Design, Communication Systems", objectPosition: "center 10%" ,
+    {id: "mrs-s-kalaivani", slug: "mrs-s-kalaivani",  name: "Mrs. S. Kalaivani", desig: "Assistant Professor", qual: "M.Tech.", email: "kalaivani@nscet.org", image: imgKalaivani, spec: "VLSI Design, Communication Systems", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/kalaivani",
     about: "S. Kalaivani is a dedicated faculty member with over 10 years of teaching and research experience in the Department of Mechanical Engineering (Embedded Systems). Her areas of specialization include VLSI Design and Communication Systems. She is passionate about semiconductor technologies, communication systems, research, and helping students develop strong technical knowledge through innovative and practical learning.",
     publications: [

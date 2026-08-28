@@ -614,3 +614,28 @@ body.dark-mode .record-action,
   color: #38bdf8 !important;
 }
 
+/* Executive / Principal Strip Dark Mode */
+body.dark-mode .iqac-exec-plain-heading,
+.dark .iqac-exec-plain-heading,
+body.dark-mode .iqac-principal-info h4,
+.dark .iqac-principal-info h4 {
+  color: #f8fafc !important;
+}
+
+body.dark-mode .iqac-exec-plain-desc,
+.dark .iqac-exec-plain-desc,
+body.dark-mode .iqac-principal-info .p-deg,
+.dark .iqac-principal-info .p-deg,
+body.dark-mode .iqac-principal-info .p-role,
+.dark .iqac-principal-info .p-role,
+body.dark-mode .iqac-principal-info .p-loc,
+.dark .iqac-principal-info .p-loc {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .iqac-principal-strip,
+.dark .iqac-principal-strip {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}

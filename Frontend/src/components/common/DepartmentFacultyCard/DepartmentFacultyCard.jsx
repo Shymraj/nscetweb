@@ -17,7 +17,7 @@ const DepartmentFacultyCard = ({ member, onOpenProfile, fadeInUp, isHOD }) => {
       <div className="dept-faculty-img-top">
         {/* Glassmorphism Background filling the free spaces */}
         <div className="dept-faculty-glass-bg">
-          {member.image && <img src={member.image} alt="" className="glass-bg-img" />}
+          {member.image && <img src={member.image} alt="" className="glass-bg-img" onError={(e) => { e.target.onerror = null; e.target.src=`https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=1e3a8a&color=fff&size=400`; }} />}
           <div className="glass-bg-overlay"></div>
         </div>
 
@@ -29,6 +29,7 @@ const DepartmentFacultyCard = ({ member, onOpenProfile, fadeInUp, isHOD }) => {
               alt={member.name} 
               className="dept-faculty-circle-img" 
               style={{ objectPosition: member.objectPosition || 'center 15%' }}
+              onError={(e) => { e.target.onerror = null; e.target.src=`https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=1e3a8a&color=fff&size=200`; }}
             />
           ) : (
             <div className="dept-faculty-circle-fallback"><FaUserTie /></div>
@@ -83,7 +84,7 @@ const DepartmentFacultyCard = ({ member, onOpenProfile, fadeInUp, isHOD }) => {
         <div className="hod-img-top">
           {/* Glassmorphism Background filling the free spaces */}
           <div className="hod-glass-bg-blur">
-            {member.image && <img src={member.image} alt="" className="hod-glass-bg-img" />}
+            {member.image && <img src={member.image} alt="" className="hod-glass-bg-img" onError={(e) => { e.target.onerror = null; e.target.src=`https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=1e3a8a&color=fff&size=400`; }} />}
             <div className="hod-glass-overlay"></div>
           </div>
 
@@ -95,6 +96,7 @@ const DepartmentFacultyCard = ({ member, onOpenProfile, fadeInUp, isHOD }) => {
                 alt={member.name} 
                 className="hod-circle-img" 
                 style={{ objectPosition: member.objectPosition || 'center 15%' }}
+                onError={(e) => { e.target.onerror = null; e.target.src=`https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=1e3a8a&color=fff&size=200`; }}
               />
             ) : (
               <div className="hod-circle-fallback"><FaUserTie /></div>
