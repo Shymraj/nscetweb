@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.png";
 import { FaMoon, FaSun, FaSearch, FaTimes, FaBars, FaLinkedin, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import annualAccountsPdf from "../../pages/Aboutus/AnnualAccounts/assets/documents/annual-accounts.pdf";
+import annualAccountsPdf from "../../pages/AboutUs/AnnualAccounts/assets/documents/annual-accounts.pdf";
 import governingPdf from "../../pages/Administration/GoverningCouncil/governing.pdf";
 
 const searchData = [
