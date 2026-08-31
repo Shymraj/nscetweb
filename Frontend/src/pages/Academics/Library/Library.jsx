@@ -9,6 +9,7 @@ import {
   FaImages
 } from 'react-icons/fa';
 import './Library.css'; 
+import bannerImage from './Banner/NSCET_LIBRARY.png';
 
 
 const AnimatedNumber = ({ value }) => {
@@ -92,7 +93,7 @@ const Library = () => {
       {/* 👇 PLAIN IMAGE BANNER ADD PANNAPATTULLATHU 👇 */}
       <div 
         style={{ 
-          backgroundImage: `url('/library/6.jpeg')`, 
+          backgroundImage: `url(${bannerImage})`, 
           backgroundSize: 'cover', 
           backgroundPosition: 'center', 
           width: '100%', 
