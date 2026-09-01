@@ -1,4 +1,4 @@
-import imgSathya from "../images/Sathya.jpeg";
+import imgSathya from "../images/sathya.jpeg";
 import imgKarthick from "../images/karthick.jpeg";
 
 export const mecseFacultyData = [
@@ -20,7 +20,7 @@ export const mecseFacultyData = [
     experience: [
       "16 Years"
     ]},
-    {id: "naveenkarthick-g-r", slug: "naveenkarthick-g-r",  name: "Naveenkarthick G R", desig: "Assistant Professor", qual: "M.E.", email: "naveenkarthick@nscet.org", image: imgKarthick, spec: "Distributed Systems & Algorithms", objectPosition: "center 10%" ,
+    {id: "naveenkarthick-g-r", slug: "naveenkarthick-g-r",  name: "Mr. J. R. Naveenkarthick", desig: "Assistant Professor", qual: "M.E.", email: "naveenkarthick@nscet.org", image: imgKarthick, spec: "Distributed Systems & Algorithms", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/naveen-karthick-8b713ab1/",
     about: "Naveenkarthick G R is a dedicated faculty member with 5 years of teaching experience. . He is passionate about web technologies and focuses on helping students build strong front-end development skills through practical and interactive learning.",
     publications: [],

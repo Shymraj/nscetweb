@@ -10,7 +10,7 @@ import imgArulJothi from "./images/aruljothi.jpg";
 import imgMareeswari from "./images/Mareeswari M.jpg";
 
 export const itFacultyData = [
-    {id: "mr-c-prathap", slug: "mr-c-prathap",  name: "Prathap C", desig: "Head of the Department (HOD)", qual: "M.Tech., (Ph.D)", email: "prathapc@nscet.org", image: imgPrathap, spec: "IoT and Image Processing", objectPosition: "center 10%" ,
+    {id: "mr-c-prathap", slug: "mr-c-prathap",  name: "Dr. C. Prathap", desig: "Head of the Department (HOD)", qual: "M.Tech., (Ph.D)", email: "prathapc@nscet.org", image: imgPrathap, spec: "IoT and Image Processing", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/prathap-c-9302283b7/",
     about: "Prathap C serves as the Head of the Department of Information Technology with over 16 years of teaching and research experience. His areas of expertise include IoT and Image Processing. With significant contributions in research, patents, and academic projects, he is committed to fostering innovation, industry-oriented learning, and academic excellence.",
     publications: [
@@ -57,7 +57,7 @@ export const itFacultyData = [
     experience: [
       "2 Years"
     ]},
-    {id: "b-sai-suganya", slug: "b-sai-suganya",  name: "B. Sai Suganya", desig: "Assistant Professor", qual: "M.Tech.", email: "saisuganya@nscet.org", image: imgSaiSuganya, spec: "Cloud Computing", objectPosition: "center 12%" ,
+    {id: "b-sai-suganya", slug: "b-sai-suganya",  name: "Mrs. B. Sai Suganya", desig: "Assistant Professor", qual: "M.Tech.", email: "saisuganya@nscet.org", image: imgSaiSuganya, spec: "Cloud Computing", objectPosition: "center 12%" ,
     linkedin: "https://www.linkedin.com/in/sai-suganya-b-it-3b46a53a3",
     about: "B. Sai Suganya is a faculty member in the Department of Information Technology with a specialization in Cloud Computing. She is passionate about emerging cloud technologies, practical learning, and helping students build a strong foundation in modern computing through research and innovation.",
     publications: [
@@ -75,7 +75,7 @@ export const itFacultyData = [
     experience: [
       "1.6 Years"
     ]},
-    {id: "mrs-m-bhavani", slug: "mrs-m-bhavani",  name: "Bhavani M", desig: "Assistant Professor", qual: "M.E.", email: "bhavani@nscet.org", image: imgBhavani, spec: "UI/UX", objectPosition: "center 10%" ,
+    {id: "mrs-m-bhavani", slug: "mrs-m-bhavani",  name: "Mrs. M. Bhavani", desig: "Assistant Professor", qual: "M.E.", email: "bhavani@nscet.org", image: imgBhavani, spec: "UI/UX", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/bhavani-m-54332471",
     about: "",
     publications: [
@@ -110,7 +110,7 @@ export const itFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mrs-p-jasmine-jose", slug: "mrs-p-jasmine-jose",  name: "P. Jasmine Jose", desig: "Assistant Professor", qual: "M.E.", email: "jasminepercy16@gmail.com", image: imgJasmineJose, spec: "Data Science", objectPosition: "center 10%" ,
+    {id: "mrs-p-jasmine-jose", slug: "mrs-p-jasmine-jose",  name: "Mrs. P. Jasmine Jose", desig: "Assistant Professor", qual: "M.E.", email: "jasminepercy16@gmail.com", image: imgJasmineJose, spec: "Data Science", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/jasmine-jose-p",
     about: "P. Jasmine Jose is a dedicated faculty member with 5 years of teaching experience in the Department of Information Technology. Her specialization is Data Science, and she is passionate about research, data-driven technologies, and helping students develop analytical and problem-solving skills through practical learning.",
     publications: [
@@ -147,7 +147,7 @@ export const itFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "ms-mareeswari-m", slug: "ms-mareeswari-m",  name: "Mareeswari M", desig: "Assistant Professor", qual: "M.E.", email: "mareeswarim@nscet.org", image: imgMareeswari, spec: "Image Processing", objectPosition: "center 10%" ,
+    {id: "ms-mareeswari-m", slug: "ms-mareeswari-m",  name: "Mrs. M. Mareeswari", desig: "Assistant Professor", qual: "M.E.", email: "mareeswarim@nscet.org", image: imgMareeswari, spec: "Image Processing", objectPosition: "center 10%" ,
     linkedin: "http://www.linkedin.com/in/mareeswari-m-a08767426",
     about: "Mareeswari M is a faculty member in the Department of Information Technology specializing in Image Processing.",
     publications: [

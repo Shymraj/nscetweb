@@ -75,26 +75,26 @@
   box-shadow: 0 20px 40px rgba(234, 88, 12, 0.2);
 }
 
-/* Orange to Dark Premium Gradient Overlay */
+/* Subtle dark gradient only at bottom for text readability */
 .panel-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(
     to top, 
-    rgba(234, 88, 12, 0.95) 0%, 
-    rgba(15, 23, 42, 0.4) 50%, 
-    rgba(0, 0, 0, 0.1) 100%
+    rgba(0, 0, 0, 0.8) 0%, 
+    rgba(0, 0, 0, 0.3) 20%, 
+    rgba(0, 0, 0, 0) 50%
   );
   z-index: 1;
   transition: opacity 0.5s ease;
 }
 
 .accordion-panel:not(.active) .panel-overlay {
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.4));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 40%);
 }
 
 .accordion-panel:not(.active):hover .panel-overlay {
-  background: linear-gradient(to top, rgba(234, 88, 12, 0.8), rgba(15, 23, 42, 0.4));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 50%);
 }
 
 /* ================= VERTICAL TEXT (Collapsed State) ================= */

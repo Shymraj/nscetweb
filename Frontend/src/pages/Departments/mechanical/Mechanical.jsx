@@ -63,11 +63,10 @@ const Mechanical = () => {
   const faculties = useDepartmentStaff(['mechanical'], mechanicalFacultyData);
 
   const stats = [
-    { count: "420+", label: "Mechanical Students", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "14+", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
-    { count: "75+", label: "Research Papers", icon: <FaBookOpen />, color: "#d97706" },
-    { count: "8+", label: "Machining & CNC Labs", icon: <FaCogs />, color: "#7c3aed" },
-    { count: "91%", label: "Placement Track Record", icon: <FaChartLine />, color: "#ec4899" }
+    { count: "86", label: "Mechanical Students", icon: <FaGraduationCap />, color: "#2563eb" },
+    { count: "17", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "0", label: "Research Papers", icon: <FaBookOpen />, color: "#d97706" },
+    { count: "90%", label: "Placement Track Record", icon: <FaChartLine />, color: "#ec4899" }
   ];
 
   const facilities = [

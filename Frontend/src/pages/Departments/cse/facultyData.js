@@ -44,7 +44,7 @@ export const cseFacultyData = [
   {
     id: "velkumar",
     slug: "velkumar",
-    name: "Dr. Velkumar K",
+    name: "Dr. K. Velkumar",
     desig: "Assistant Professor",
     qual: "M.E, Ph.D",
     email: "velkumarskc@gmail.com",
@@ -100,7 +100,7 @@ export const cseFacultyData = [
   {
     id: "archana",
     slug: "archana",
-    name: "Archana R",
+    name: "Mrs. R. Archana",
     desig: "Assistant Professor",
     qual: "M.E., (Ph.D)",
     email: "archana@nscet.org",
@@ -128,7 +128,7 @@ export const cseFacultyData = [
   {
     id: "abirami",
     slug: "abirami",
-    name: "Abirami Kayathiri",
+    name: "Mrs. Abirami Kayathiri",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "abiramikayathiri@nscet.org",
@@ -150,7 +150,7 @@ export const cseFacultyData = [
   {
     id: "venkatalakshmi",
     slug: "venkatalakshmi",
-    name: "Venkata Lakshmi M",
+    name: "Mrs. M. Venkata Lakshmi",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "venkatalakshmims@gmail.com",
@@ -178,7 +178,7 @@ export const cseFacultyData = [
   {
     id: "anusuya",
     slug: "anusuya",
-    name: "Anusuya Vairamuthu",
+    name: "Mrs. Anusuya Vairamuthu",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "anuzyabe91@gmail.com",
@@ -198,7 +198,7 @@ export const cseFacultyData = [
   {
     id: "vinothini",
     slug: "vinothini",
-    name: "Vinothini V",
+    name: "Mrs. V. Vinothini",
     desig: "Assistant Professor",
     qual: "M.E - Software",
     email: "Vinothini@nscet.org",
@@ -220,7 +220,7 @@ export const cseFacultyData = [
   {
     id: "snega",
     slug: "snega",
-    name: "Snega Priyanka J S",
+    name: "Mrs. J. S. Snega Priyanka",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "snegapriyanka20@gmail.com",

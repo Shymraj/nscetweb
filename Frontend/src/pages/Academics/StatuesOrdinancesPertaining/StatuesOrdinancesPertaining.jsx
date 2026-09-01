@@ -28,6 +28,8 @@ import ug_cse from './UG REGULATIONS/BE CSE.pdf';
 
 import pg_mfg from './PG REGULATION/M.E. Manufacturing.pdf';
 import pg_structural from './PG REGULATION/M.E. Structural Engg.pdf';
+import pg_est from './PG REGULATION/M.E. EST.pdf';
+import pg_cse from './PG REGULATION/M.E. CSE.pdf';
 
 const StatutesLayout = () => {
   const [isUgOpen, setIsUgOpen] = useState(false);
@@ -144,7 +146,7 @@ const StatutesLayout = () => {
                     <div className="doc-left">
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>CIVIL</span>
                       <div className="doc-info">
-                        <h3 className="doc-title">B.E. Civil Engineering</h3>
+                        <h3 className="doc-title">B.E. Civil</h3>
                         <p className="doc-meta">Regulation Guidelines</p>
                       </div>
                     </div>
@@ -172,7 +174,7 @@ const StatutesLayout = () => {
                     <div className="doc-left">
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>MECH</span>
                       <div className="doc-info">
-                        <h3 className="doc-title">B.E. Mechanical Engineering</h3>
+                        <h3 className="doc-title">B.E. Mechanical</h3>
                         <p className="doc-meta">Regulation Guidelines</p>
                       </div>
                     </div>
@@ -219,6 +221,34 @@ const StatutesLayout = () => {
                       <span className="doc-number" style={{fontSize: '1.5rem'}}>MFG</span>
                       <div className="doc-info">
                         <h3 className="doc-title">M.E. Manufacturing Engineering</h3>
+                        <p className="doc-meta">Regulation Guidelines</p>
+                      </div>
+                    </div>
+                    <div className="doc-right">
+                      <span className="doc-action">VIEW</span>
+                      <FaArrowRight className="doc-arrow" />
+                    </div>
+                  </a>
+
+                  <a href={`${pg_est}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
+                    <div className="doc-left">
+                      <span className="doc-number" style={{fontSize: '1.5rem'}}>EST</span>
+                      <div className="doc-info">
+                        <h3 className="doc-title">M.E. Embedded System & Technology</h3>
+                        <p className="doc-meta">Regulation Guidelines</p>
+                      </div>
+                    </div>
+                    <div className="doc-right">
+                      <span className="doc-action">VIEW</span>
+                      <FaArrowRight className="doc-arrow" />
+                    </div>
+                  </a>
+
+                  <a href={`${pg_cse}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
+                    <div className="doc-left">
+                      <span className="doc-number" style={{fontSize: '1.5rem'}}>CSE</span>
+                      <div className="doc-info">
+                        <h3 className="doc-title">M.E. Computer Science Engineering</h3>
                         <p className="doc-meta">Regulation Guidelines</p>
                       </div>
                     </div>
@@ -303,6 +333,12 @@ const StatutesLayout = () => {
                 </Link>
                 <Link to="/departments/me-manufacturing" className="prog-chip">
                   <FaCog className="chip-icon"/> <span>MANUFACTURING ENGINEERING</span>
+                </Link>
+                <Link to="/departments/me-embedded" className="prog-chip">
+                  <FaMicrochip className="chip-icon"/> <span>EMBEDDED SYSTEM & TECHNOLOGY</span>
+                </Link>
+                <Link to="/departments/me-cse" className="prog-chip">
+                  <FaLaptopCode className="chip-icon"/> <span>M.E. COMPUTER SCIENCE ENGINEERING</span>
                 </Link>
               </div>
             </div>

@@ -44,7 +44,7 @@ export const electronicsFacultyData = [
     experience: [
       "13 Years"
     ]},
-    {id: "mr-m-idhayachandran", slug: "mr-m-idhayachandran",  name: "Idhaya Chandran M", desig: "Assistant Professor", qual: "M.E.", email: "idhayachandran@nscet.org", image: imgIdhayachandran, spec: "VLSI Design", objectPosition: "center 10%" ,
+    {id: "mr-m-idhayachandran", slug: "mr-m-idhayachandran",  name: "Mr. M. Idhaya Chandran", desig: "Assistant Professor", qual: "M.E.", email: "idhayachandran@nscet.org", image: imgIdhayachandran, spec: "VLSI Design", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/idhayachandran-ece-a325562a3",
     about: "Idhaya Chandran M is a dedicated faculty member with 15 years of teaching and research experience in the Department of Electronics and Communication Engineering. His specialization is VLSI Design, and he is committed to helping students develop strong technical knowledge through practical learning while contributing to research and innovation in semiconductor and digital electronics technologies.",
     publications: [
@@ -79,7 +79,7 @@ export const electronicsFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mr-r-pradeep-kumar", slug: "mr-r-pradeep-kumar",  name: "Pradeep Kumar R", desig: "Assistant Professor", qual: "M.E (PhD)", email: "pradeepkumar@nscet.org", image: imgPradeepKumar, spec: "Digital System Design", objectPosition: "center 10%" ,
+    {id: "mr-r-pradeep-kumar", slug: "mr-r-pradeep-kumar",  name: "Mr. R. Pradeep Kumar", desig: "Assistant Professor", qual: "M.E (PhD)", email: "pradeepkumar@nscet.org", image: imgPradeepKumar, spec: "Digital System Design", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/pradeep-kumar-ramaraj-93716778",
     about: "Pradeep Kumar R is a dedicated faculty member with 18 years of teaching and research experience in the Department of Electronics and Communication Engineering. His specialization is Digital System Design. With significant contributions in academic projects, research, and innovation, he is committed to mentoring students and fostering excellence in digital electronics and embedded system technologies.",
     publications: [
@@ -97,7 +97,7 @@ export const electronicsFacultyData = [
     experience: [
       "18 Years"
     ]},
-    {id: "mrs-t-tamil-selvi", slug: "mrs-t-tamil-selvi",  name: "T. Tamilselvi", desig: "Assistant Professor", qual: "M.Tech., (Ph.D.)", email: "tamilselvi@nscet.org", image: imgTamilSelvi, spec: "VLSI Design, Embedded Systems and IoT", objectPosition: "center 10%" ,
+    {id: "mrs-t-tamil-selvi", slug: "mrs-t-tamil-selvi",  name: "Mrs. T. Tamilselvi", desig: "Assistant Professor", qual: "M.Tech., (Ph.D.)", email: "tamilselvi@nscet.org", image: imgTamilSelvi, spec: "VLSI Design, Embedded Systems and IoT", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/tamilselvi-thangamani-10212756/",
     about: "T. Tamilselvi is a dedicated faculty member with over 12.8 years of teaching experience in the Department of Electronics and Communication Engineering. Her areas of specialization include VLSI Design, Embedded Systems, and IoT. She is passionate about research, innovation, and mentoring students through practical and industry-oriented learning.",
     publications: [
@@ -115,7 +115,7 @@ export const electronicsFacultyData = [
     experience: [
       "12.8 Years"
     ]},
-    {id: "mrs-p-shantha-devi", slug: "mrs-p-shantha-devi",  name: "Ms. P. Shantha Devi", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "shanthadevi@nscet.org", image: imgShanthaDevi, spec: "VLSI Design, Digital Electronics, Embedded Systems", objectPosition: "center 10%" ,
+    {id: "mrs-p-shantha-devi", slug: "mrs-p-shantha-devi",  name: "Mrs. P. Shantha Devi", desig: "Assistant Professor", qual: "M.E., (Ph.D.)", email: "shanthadevi@nscet.org", image: imgShanthaDevi, spec: "VLSI Design, Digital Electronics, Embedded Systems", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/shantha-devi-p-820644126",
     about: "Ms. P. Shantha Devi is a dedicated faculty member with over 8 years of teaching and research experience in the Department of Electronics and Communication Engineering. Her areas of specialization include VLSI Design, Digital Electronics, and Embedded Systems. She is passionate about innovation, research, and helping students build strong technical skills through practical and industry-oriented learning.",
     publications: [
@@ -133,7 +133,7 @@ export const electronicsFacultyData = [
     experience: [
       "8.6 Years"
     ]},
-    {id: "mrs-p-gowthami", slug: "mrs-p-gowthami",  name: "Gowthami P", desig: "Assistant Professor", qual: "M.E.", email: "gowthami@nscet.org", image: imgGowthami, spec: "Communication Systems", objectPosition: "center 10%" ,
+    {id: "mrs-p-gowthami", slug: "mrs-p-gowthami",  name: "Mrs. P. Gowthami", desig: "Assistant Professor", qual: "M.E.", email: "gowthami@nscet.org", image: imgGowthami, spec: "Communication Systems", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/gowthami-palanisamy-2a036a24a",
     about: "Gowthami P is a dedicated faculty member with 2 years of teaching experience in the Department of Electronics and Communication Engineering. Her specialization is Communication Systems, and she is passionate about communication technologies, research, and helping students build strong theoretical and practical knowledge through innovative teaching.",
     publications: [

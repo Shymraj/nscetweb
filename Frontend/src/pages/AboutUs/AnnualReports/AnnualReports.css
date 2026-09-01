@@ -991,22 +991,22 @@ body.dark-mode .ar-principal-avatar,
 
 body.dark-mode .ar-principal-info h4,
 .dark .ar-principal-info h4 {
-  color: #08325c;
+  color: #f8fafc !important;
 }
 
 body.dark-mode .ar-principal-info .p-deg,
 .dark .ar-principal-info .p-deg {
-  color: #074966;
+  color: #38bdf8 !important;
 }
 
 body.dark-mode .ar-principal-info .p-role,
 .dark .ar-principal-info .p-role {
-  color: #cbd5e1;
+  color: #cbd5e1 !important;
 }
 
 body.dark-mode .ar-principal-info .p-loc,
 .dark .ar-principal-info .p-loc {
-  color: #94a3b8;
+  color: #94a3b8 !important;
 }
 
 /* Accordions Grid */

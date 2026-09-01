@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.png";
 import { FaMoon, FaSun, FaSearch, FaTimes, FaBars, FaLinkedin, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import annualAccountsPdf from "../../pages/Aboutus/AnnualAccounts/assets/documents/annual-accounts.pdf";
+import annualAccountsPdf from "../../pages/AboutUs/AnnualAccounts/assets/documents/annual-accounts.pdf";
 import governingPdf from "../../pages/Administration/GoverningCouncil/governing.pdf";
 
 const searchData = [
@@ -186,8 +186,13 @@ function Navbar() {
           <li><Link to="/">Home</Link></li>
 
 
-          <li className="dropdown">
-            <Link to="/about">About Us</Link>
+          <li className={`dropdown ${activeDropdown === 'about' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="/about" onClick={(e) => {
+              if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                setActiveDropdown(activeDropdown === 'about' ? null : 'about');
+              }
+            }}>About Us</Link>
             <ul className="dropdown-menu">
               <li><Link to="/about/actstatutes">Act and Statutes</Link></li>
               <li><Link to="/about/development-plan">Institutional Development Plan</Link></li>
@@ -197,8 +202,13 @@ function Navbar() {
           </li>
 
 
-          <li className="dropdown">
-            <Link to="/administration/tmhnutrust">Administration</Link>
+          <li className={`dropdown ${activeDropdown === 'admin' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="/administration/tmhnutrust" onClick={(e) => {
+              if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                setActiveDropdown(activeDropdown === 'admin' ? null : 'admin');
+              }
+            }}>Administration</Link>
             <ul className="dropdown-menu">
              {/* <li><Link to="/administration/finance-officer">Finance Officer</Link></li>*/}
               <li><Link to="/administration/controller-examination">Exam Cell</Link></li>
@@ -218,8 +228,13 @@ function Navbar() {
               <li><Link to="/administration/academic-leadership">Academic Leadership</Link></li>
             </ul>
           </li>
-          <li className="dropdown">
-            <Link to="/academics/details-of-academic-programs">Academics</Link>
+          <li className={`dropdown ${activeDropdown === 'academics' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="/academics/details-of-academic-programs" onClick={(e) => {
+              if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                setActiveDropdown(activeDropdown === 'academics' ? null : 'academics');
+              }
+            }}>Academics</Link>
             <ul className="dropdown-menu">
               <li><Link to="/academics/academic-calendar">Academic Calendar</Link></li>
               <li><Link to="/academics/statutes-ordinances-pertaining">Statutes/Ordinances Pertaining</Link></li>
@@ -238,8 +253,13 @@ function Navbar() {
               <li><Link to="/academics/industry-collaboration">Industry Collaboration</Link></li>
             </ul>
           </li>
-          <li className="dropdown" onMouseLeave={() => window.innerWidth > 1024 && setActiveSubmenu(null)}>
-            <Link to="#" onClick={(e) => e.preventDefault()}>Departments</Link>
+          <li className={`dropdown ${activeDropdown === 'departments' ? 'active' : ''}`} onMouseLeave={() => { if(window.innerWidth > 1024) { setActiveDropdown(null); setActiveSubmenu(null); } }}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
+              if (window.innerWidth <= 1024) {
+                setActiveDropdown(activeDropdown === 'departments' ? null : 'departments');
+              }
+            }}>Departments</Link>
             <ul className={`dropdown-menu ${activeSubmenu ? 'has-active-submenu' : ''}`}>
               <li className={`has-submenu ${activeSubmenu === 'cse' ? 'active' : ''}`}>
                 <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'cse' ? null : 'cse'); }}>Dept of Computer Science & Engineering <span className="submenu-arrow">›</span></span>
@@ -282,8 +302,13 @@ function Navbar() {
               </li>
             </ul>
           </li>
-          <li className="dropdown">
-            <Link to="#" onClick={(e) => e.preventDefault()}>Research</Link>
+          <li className={`dropdown ${activeDropdown === 'research' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
+              if (window.innerWidth <= 1024) {
+                setActiveDropdown(activeDropdown === 'research' ? null : 'research');
+              }
+            }}>Research</Link>
             <ul className="dropdown-menu">
               <li><Link to="/research/rnd-cell">Research and Development Cell</Link></li>
               <li><Link to="/research/statistics">Research Statistics</Link></li>
@@ -292,8 +317,13 @@ function Navbar() {
             </ul>
           </li>
           <li><Link to="/ispin">ISPIN</Link></li>
-          <li className="dropdown">
-            <Link to="#" onClick={(e) => e.preventDefault()}>Gallery</Link>
+          <li className={`dropdown ${activeDropdown === 'gallery' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
+              if (window.innerWidth <= 1024) {
+                setActiveDropdown(activeDropdown === 'gallery' ? null : 'gallery');
+              }
+            }}>Gallery</Link>
             <ul className="dropdown-menu">
               <li><Link to="/gallery/waves25">WAVES'25</Link></li>
               <li><Link to="/gallery/clubs-chapters">CLUBS & CHAPTERS</Link></li>
@@ -302,8 +332,13 @@ function Navbar() {
               <li><Link to="/gallery/events">Events</Link></li>
             </ul>
           </li>
-          <li className="dropdown">
-            <Link to="#" onClick={(e) => e.preventDefault()}>Student Life</Link>
+          <li className={`dropdown ${activeDropdown === 'student-life' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
+              if (window.innerWidth <= 1024) {
+                setActiveDropdown(activeDropdown === 'student-life' ? null : 'student-life');
+              }
+            }}>Student Life</Link>
             <ul className="dropdown-menu">
               <li><Link to="/student-life/sports">Sports</Link></li>
               <li><Link to="/student-life/nss">NSS</Link></li>

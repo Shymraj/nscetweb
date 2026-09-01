@@ -5,14 +5,12 @@ import {
   FaLaptopCode, 
   FaClock, 
   FaUserGraduate, 
-  FaCheckCircle, 
   FaLayerGroup, 
-  FaUniversity,
-  FaLightbulb,
-  FaShieldAlt,
   FaImages
 } from 'react-icons/fa';
 import './Library.css'; 
+import bannerImage from './Banner/NSCET_LIBRARY.png';
+
 
 const AnimatedNumber = ({ value }) => {
   const [count, setCount] = useState(0);
@@ -45,20 +43,10 @@ const AnimatedNumber = ({ value }) => {
 const Library = () => {
   const [activeTab, setActiveTab] = useState('objectives');
 
-  const heroImages = ["/library/1.jpeg", "/library/2.jpeg", "/library/3.jpeg", "/library/4.jpeg"];
-  const [currentBgIndex, setCurrentBgIndex] = useState(0);
-
-  useEffect(() => {
-    const bgInterval = setInterval(() => {
-      setCurrentBgIndex((prev) => (prev + 1) % heroImages.length);
-    }, 4000); 
-    return () => clearInterval(bgInterval);
-  }, [heroImages.length]);
-
   const collections = [
     { label: "VOLUMES", count: 22191, icon: <FaBook /> },
     { label: "TITLES", count: 5017, icon: <FaLayerGroup /> },
-    { label: "JOURNALS", count: 144, icon: <FaUniversity /> }
+    { label: "JOURNALS", count: 144, icon: <FaBook /> }
   ];
 
   const objectivesList = [
@@ -102,53 +90,21 @@ const Library = () => {
   return (
     <div className="model1-landing-wrapper">
       
-      {/* 1. HERO BANNER AT TOP (INTACT AS REQUESTED) */}
-      <section 
-        className="m1-hero-section"
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.5)), url('${heroImages[currentBgIndex]}')`
+      {/* 👇 PLAIN IMAGE BANNER ADD PANNAPATTULLATHU 👇 */}
+      <div 
+        style={{ 
+          backgroundImage: `url(${bannerImage})`, 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center', 
+          width: '100%', 
+          aspectRatio: '8 / 3',
+          minHeight: '350px' 
         }}
       >
-        <div className="m1-hero-container">
-          <span className="m1-welcome-text">WELCOME TO</span>
-          <h1 className="m1-hero-title">Central Library</h1>
-          <p className="m1-hero-subtitle">
-            A hub of knowledge, innovation, and inspiration.<br/>
-            Empowering minds, shaping futures across all engineering disciplines.
-          </p>
-        </div>
-      </section>
+      </div>
 
-      {/* MAIN CONTAINER (R&D CELL / IQAC STYLE SHOWCASE) */}
       <main className="m1-main-container">
         
-        {/* EXECUTIVE SHOWCASE CARD (R&D STYLE) */}
-        <motion.div 
-          className="lib-exec-card"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="exec-badge-wrap">
-            <span className="exec-badge">
-              <FaBook /> 21,810+ Volumes & 5,016+ Titles
-            </span>
-            <span className="exec-badge gold">
-              <FaLaptopCode /> 30 High-Speed E-Library Systems
-            </span>
-          </div>
-
-          <div className="exec-grid">
-            <div className="exec-main-text">
-              <h3>Gateway to World-Class Technical Learning</h3>
-              <p>
-                Our Central Library functions as a modern Learning Resource Centre, housing an expansive collection of print volumes, Indian and foreign periodicals, and high-speed digital infrastructure to empower scholarly research across all engineering disciplines.
-              </p>
-            </div>
-
-          </div>
-        </motion.div>
-
         {/* ABOUT LIBRARY & E-LIBRARY DUAL CARDS */}
         <section className="m1-section m1-about-section" id="elibrary">
           <div className="m1-about-grid">
@@ -221,19 +177,19 @@ const Library = () => {
                 className={`ntf-tab-chip ${activeTab === 'objectives' ? 'active' : ''}`} 
                 onClick={() => setActiveTab('objectives')}
               >
-                <FaLightbulb className="tab-icon" /> Objectives
+                Objectives
               </button>
               <button 
                 className={`ntf-tab-chip ${activeTab === 'facilities' ? 'active' : ''}`} 
                 onClick={() => setActiveTab('facilities')}
               >
-                <FaUniversity className="tab-icon" /> Facilities
+                Facilities
               </button>
               <button 
                 className={`ntf-tab-chip ${activeTab === 'rules' ? 'active' : ''}`} 
                 onClick={() => setActiveTab('rules')}
               >
-                <FaShieldAlt className="tab-icon" /> Rules & Regulations
+                Rules & Regulations
               </button>
             </div>
             
@@ -243,7 +199,7 @@ const Library = () => {
                   <ul>
                     {objectivesList.map((item, i) => (
                       <li key={i}>
-                        <FaCheckCircle className="li-check-icon" /> {item}
+                        • {item}
                       </li>
                     ))}
                   </ul>
@@ -252,7 +208,7 @@ const Library = () => {
                   <ul>
                     {facilitiesList.map((item, i) => (
                       <li key={i}>
-                        <FaCheckCircle className="li-check-icon" /> {item}
+                        • {item}
                       </li>
                     ))}
                   </ul>
@@ -261,7 +217,7 @@ const Library = () => {
                   <ul>
                     {rulesList.map((item, i) => (
                       <li key={i}>
-                        <FaCheckCircle className="li-check-icon" /> {item}
+                        • {item}
                       </li>
                     ))}
                   </ul>

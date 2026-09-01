@@ -183,89 +183,82 @@ const SportsCategoryWheel = ({ achievementsData }) => {
     const leftInnerRef = useRef(null);
     const rightInnerRef = useRef(null);
     const scrollProgress = useRef(0);
+    const requestRef = useRef(null);
+    const [isAnimating, setIsAnimating] = useState(false);
+    const direction = useRef(1);
 
     // Reset scroll progress when category changes
     useEffect(() => {
         scrollProgress.current = 0;
         if (leftInnerRef.current) leftInnerRef.current.style.transform = 'translateY(0px)';
         if (rightInnerRef.current) rightInnerRef.current.style.transform = 'translateY(0px)';
+        setIsAnimating(false);
     }, [selectedCategory]);
 
+    const animate = () => {
+        const leftInner = leftInnerRef.current;
+        const rightInner = rightInnerRef.current;
+        if (!leftInner || !rightInner) return;
+
+        const viewportHeight = leftInner.parentElement.clientHeight || 520;
+        const leftMax = Math.max(0, leftInner.scrollHeight - viewportHeight);
+        const rightMax = Math.max(0, rightInner.scrollHeight - viewportHeight);
+        
+        if (leftMax === 0 && rightMax === 0) {
+            setIsAnimating(false);
+            return;
+        }
+
+        const maxScrollPixels = Math.max(leftMax, rightMax);
+        
+        // Use a constant pixel speed so all categories (e.g. All Sports vs Chess) scroll at the exact same visual speed
+        const PIXELS_PER_FRAME = 0.8; 
+        scrollProgress.current += direction.current * (PIXELS_PER_FRAME / maxScrollPixels);
+        
+        if (scrollProgress.current >= 1) {
+            scrollProgress.current = 1;
+            direction.current = -1; // Reverse direction
+        } else if (scrollProgress.current <= 0) {
+            scrollProgress.current = 0;
+            direction.current = 1; // Reverse direction
+        }
+
+        const leftTransform = scrollProgress.current * leftMax;
+        const rightTransform = scrollProgress.current * rightMax;
+        
+        leftInner.style.transform = `translateY(-${leftTransform}px)`;
+        rightInner.style.transform = `translateY(-${rightTransform}px)`;
+
+        requestRef.current = requestAnimationFrame(animate);
+    };
+
     useEffect(() => {
-        const container = sectionRef.current;
-        if (!container) return;
+        if (isAnimating) {
+            requestRef.current = requestAnimationFrame(animate);
+        }
+        return () => cancelAnimationFrame(requestRef.current);
+    }, [isAnimating, selectedCategory, filteredStudents]);
 
-        const handleWheel = (e) => {
-            const leftInner = leftInnerRef.current;
-            const rightInner = rightInnerRef.current;
-            if (!leftInner || !rightInner) return;
-
-            const viewportHeight = leftInner.parentElement.clientHeight || 520;
-            const leftMax = Math.max(0, leftInner.scrollHeight - viewportHeight);
-            const rightMax = Math.max(0, rightInner.scrollHeight - viewportHeight);
-            
-            if (leftMax === 0 && rightMax === 0) return;
-            const maxScrollPixels = Math.max(leftMax, rightMax);
-            
-            // Check if section is active in viewport
-            const rect = container.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            const isMidScroll = scrollProgress.current > 0 && scrollProgress.current < 1;
-            
-            if (!isMidScroll) {
-                if (scrollProgress.current === 0 && e.deltaY > 0) {
-                    // Scrolling down into the section
-                    if (rect.top > 120) return; // Allow page to scroll until section is near top
-                } else if (scrollProgress.current === 1 && e.deltaY < 0) {
-                    // Scrolling up into the section
-                    if (rect.bottom < windowHeight - 120) return; // Allow page to scroll until section is near bottom
-                }
-            }
-
-            let currentPixels = scrollProgress.current * maxScrollPixels;
-            
-            if (e.deltaY > 0) {
-                // Scrolling DOWN
-                if (scrollProgress.current < 1) {
-                    e.preventDefault();
-                    currentPixels += e.deltaY;
-                } else {
-                    // progress >= 1: DO NOT preventDefault, let page scroll down naturally
-                    return;
-                }
-            } else if (e.deltaY < 0) {
-                // Scrolling UP
-                if (scrollProgress.current > 0) {
-                    e.preventDefault();
-                    currentPixels += e.deltaY;
-                } else {
-                    // progress <= 0: DO NOT preventDefault, let page scroll up naturally
-                    return;
-                }
-            }
-
-            // Strictly clamp
-            currentPixels = Math.max(0, Math.min(currentPixels, maxScrollPixels));
-            
-            if (currentPixels <= 0) {
-                scrollProgress.current = 0;
-            } else if (currentPixels >= maxScrollPixels) {
-                scrollProgress.current = 1;
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+            if (entry.isIntersecting) {
+                setIsAnimating(true);
             } else {
-                scrollProgress.current = currentPixels / maxScrollPixels;
+                setIsAnimating(false);
             }
-            
-            const leftTransform = scrollProgress.current * leftMax;
-            const rightTransform = scrollProgress.current * rightMax;
-            
-            leftInner.style.transform = `translateY(-${leftTransform}px)`;
-            rightInner.style.transform = `translateY(-${rightTransform}px)`;
-        };
+        }, { threshold: 0.5 }); // Start animation when 50% of the section is visible
 
-        // passive: false is required to call preventDefault
-        container.addEventListener('wheel', handleWheel, { passive: false });
-        return () => container.removeEventListener('wheel', handleWheel);
-    }, [filteredStudents]);
+        const container = sectionRef.current;
+        if (container) {
+            observer.observe(container);
+        }
+
+        return () => {
+            if (container) observer.unobserve(container);
+            cancelAnimationFrame(requestRef.current);
+        };
+    }, [selectedCategory, filteredStudents]);
     
     return (
         <section ref={sectionRef} className="sports-wheel-section">

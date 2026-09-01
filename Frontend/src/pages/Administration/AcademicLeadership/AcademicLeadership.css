@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
-
 .al-page-container {
   font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: #f8fafc;
-  color: #334155;
+  color: #fbfcff;
   width: 100%;
   overflow-x: hidden;
 }

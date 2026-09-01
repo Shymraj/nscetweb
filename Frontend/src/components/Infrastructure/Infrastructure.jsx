@@ -10,8 +10,12 @@ import { FaLaptopCode, FaBookReader, FaRunning, FaBuilding, FaBus, FaArrowRight 
 // import labsImg from "../../assets/labs.jpg";
 // import libraryImg from "../../assets/library.jpg";
 // import sportsImg from "../../assets/sports.jpg";
-// import hostelImg from "../../assets/hostel.jpg";
 // import transportImg from "../../assets/transport.jpg";
+import premiumHostelImg from "../../pages/WORLD-CLASS FACILITIES/Premium hostel.png";
+import sportsComplexImg from "../../pages/WORLD-CLASS FACILITIES/Sports Complex.png";
+import centralLibraryImg from "../../pages/WORLD-CLASS FACILITIES/Central Library.png";
+import hitechLabsImg from "../../pages/WORLD-CLASS FACILITIES/HiTech Labs.png";
+import smartTransportImg from "../../pages/WORLD-CLASS FACILITIES/Smart Transport.png";
 
 const infraData = [
   {
@@ -19,8 +23,7 @@ const infraData = [
     title: "Hi-Tech Labs",
     shortName: "LABS",
     icon: <FaLaptopCode />,
-    // Future code: image: labsImg,
-    image: "https://via.placeholder.com/1000x800/ea580c/ffffff?text=Labs+Image",
+    image: hitechLabsImg,
     desc: "Equipped with the latest hardware and software, our smart labs provide hands-on experience in cutting-edge technologies.",
     link: "/academics/labs"
   },
@@ -29,8 +32,7 @@ const infraData = [
     title: "Central Library",
     shortName: "LIBRARY",
     icon: <FaBookReader />,
-    // Future code: image: libraryImg,
-    image: "https://via.placeholder.com/1000x800/f97316/ffffff?text=Library+Image",
+    image: centralLibraryImg,
     desc: "A massive repository of 1 Lakh+ books, digital IEEE journals, and quiet A/C reading halls for focused learning.",
     link: "/academics/library"
   },
@@ -39,8 +41,7 @@ const infraData = [
     title: "Sports Complex",
     shortName: "SPORTS",
     icon: <FaRunning />,
-    // Future code: image: sportsImg,
-    image: "https://via.placeholder.com/1000x800/ea580c/ffffff?text=Sports+Image",
+    image: sportsComplexImg,
     desc: "Sprawling playgrounds, indoor courts, and modern gym facilities to build physical fitness and team spirit.",
     link: "/student-life/sports" // Added Route
   },
@@ -49,8 +50,7 @@ const infraData = [
     title: "Premium Hostels",
     shortName: "HOSTELS",
     icon: <FaBuilding />,
-    // Future code: image: hostelImg,
-    image: "https://via.placeholder.com/1000x800/f97316/ffffff?text=Hostel+Image",
+    image: premiumHostelImg,
     desc: "Safe, secure, and comfortable AC/Non-AC hostels with high-speed Wi-Fi and hygienic multi-cuisine mess.",
     link: "/student-life/boys-hostel" // Added Route
   },
@@ -59,8 +59,7 @@ const infraData = [
     title: "Smart Transport",
     shortName: "TRANSPORT",
     icon: <FaBus />,
-    // Future code: image: transportImg,
-    image: "https://via.placeholder.com/1000x800/ea580c/ffffff?text=Transport+Image",
+    image: smartTransportImg,
     desc: "A fleet of 50+ modern buses covering a 100km radius, ensuring safe and punctual commute for all students.",
     link: "/student-life/transport-facilities" // Updated Route
   }
