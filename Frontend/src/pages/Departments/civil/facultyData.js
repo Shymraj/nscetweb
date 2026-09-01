@@ -55,7 +55,7 @@ export const civilFacultyData = [
   {
     id: "gayathri",
     slug: "gayathri",
-    name: "Mrs. S. GAYATHRI",
+    name: "Mrs. S. Gayathri",
     desig: "Assistant Professor",
     qual: "M.E., M.I.S.T.E.",
     email: "gayathri@nscet.org",
