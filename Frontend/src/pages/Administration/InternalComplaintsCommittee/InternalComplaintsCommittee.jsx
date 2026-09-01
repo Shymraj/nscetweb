@@ -189,8 +189,8 @@ function InternalComplaintsCommittee() {
           </div>
           <div className='icc-content'>
             <div className='icc-steps-timeline'>
-              {complaintSteps.map((step) => (
-                <div key={step.step} className='icc-step-item'>
+              {complaintSteps.map((step, index) => (
+                <div key={step.step} className={`icc-step-item ${index === 6 ? 'span-three' : ''}`}>
                   <div className='icc-step-number'>{step.step}</div>
                   <div className='icc-step-content'>
                     <h4>{step.title}</h4>

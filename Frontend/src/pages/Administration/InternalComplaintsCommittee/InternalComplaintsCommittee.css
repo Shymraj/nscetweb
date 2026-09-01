@@ -242,9 +242,9 @@
 
 /* Complaint Procedure Timeline */
 .icc-steps-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
 .icc-step-item {
@@ -256,6 +256,14 @@
   border-radius: 12px;
   border: 1px solid rgba(13, 59, 142, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icc-step-item.span-two {
+  grid-column: span 2;
+}
+
+.icc-step-item.span-three {
+  grid-column: span 3;
 }
 
 .icc-step-item:hover {
@@ -704,6 +712,10 @@ body.dark-mode .confidentiality-icon {
   .icc-table th,
   .icc-table td {
     padding: 0.75rem 0.5rem;
+  }
+
+  .icc-steps-timeline {
+    grid-template-columns: 1fr;
   }
 
   .icc-step-item {
