@@ -27,6 +27,53 @@ import KhoKho from "./images/khokho.png";
 import Handball from "./images/handball.png";
 import Cycling from "./images/Cycling.jpeg";
 
+// Student Images
+const studentImgGlobs = import.meta.glob("./images/Sports students/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}", { eager: true, import: "default" });
+
+const findImg = (nameStr) => {
+    const key = Object.keys(studentImgGlobs).find(k => k.toLowerCase().includes(nameStr.toLowerCase()));
+    return key ? studentImgGlobs[key] : null;
+};
+
+const studentPhotos = {
+    // CIVIL
+    "J. Ajay": findImg("Civil/01 Ajay"),
+    "S. Bala": findImg("Civil/02 Bala"),
+    "M. Iyyanathan": findImg("Civil/07 IYYANATHAN"),
+    "S. Nithiya Shree": findImg("Civil/12 Nithya shree"),
+    "R. Mohanapriya": findImg("Civil/13 MOHANAPRIYA"),
+    "S. Subitchana Sri": findImg("Civil/17 SUBITCHANASRI"),
+    "P. Siddharthan": findImg("Civil/21 SIDDHARTHAN"),
+    
+    // ECE
+    "R. Aswanthika": findImg("ECE/04 Aswanthika"),
+    "M. Bharathi": findImg("ECE/05 Bharathi"),
+    "V. Atchaya Kamali": findImg("ECE/07 Atchayakamali"),
+    "K. Devadharshini": findImg("ECE/09 Dhevadharshini"),
+    "P. Pooja": findImg("ECE/36 Pooja"),
+    "G. Santhiya": findImg("ECE/43 Santhiya"),
+    
+    // EEE
+    "S. Anusri": findImg("EEE/01 Anushree"),
+    "S. Devadharshini": findImg("EEE/02 Devadharshini"),
+    "K. Dharanisri": findImg("EEE/06 Dharanishri"),
+    "K. Ganesh Kumar": findImg("EEE/10 Ganesh Kumar"),
+    "M. Guru Prasath": findImg("EEE/12 Guruprasath"),
+    "M. Guru Prasad": findImg("EEE/12 Guruprasath"),
+    "S. Harina": findImg("EEE/13 Harina"),
+    "A. Mohammed Nowfil": findImg("EEE/21 Mohamed Nowfil"),
+    "V. S. Shahana": findImg("EEE/21 Sahana"),
+    "J. Santhosh": findImg("EEE/28 Santhosh"),
+    "P. Yuvaraj": findImg("EEE/37 YUVARAJ"),
+    
+    // MECH
+    "G. Bharathwaj": findImg("Mechanical/05 Bharathwaj"),
+    "G. Yogesh": findImg("Mechanical/09 Yogesh"),
+    "M. Sanjay Ram Kumar": findImg("Mechanical/19 SANJAY RAMKUMAR"),
+    "S. Sudharsan": findImg("Mechanical/26 Sudharsan"),
+    "S. Vishal": findImg("Mechanical/30 VISHAL")
+};
+
 const Sports = () => {
     const fadeInUp = {
         hidden: { opacity: 0, y: 40 },
@@ -67,15 +114,15 @@ const Sports = () => {
     ];
 
     const achievements = [
-        { sno: 1, date: "26.01.2025", students: "G. K. Phiramoth – IV CSE", event: "🏅 National Medalist – 2025 (HCL)\n• 9-Time State Champion in Cycling\n• Indian Book of Records Holder\n  → Completed 580 km from Puducherry to Kanyakumari in 36 hours\n• Selected for International Competitions – 2027\n• Represents the Sports Development Authority of Tamil Nadu (SDAT)", venue: "JCI Theni Honey Bee", highlight: false, goldenHighlight: true },
-        { sno: 2, date: "23.02.2025", students: "O. Dinesh Babu – III AI&DS", event: "OSCAR World Record – “The longest duration of performing silambam multiweapons event one hour”", venue: "Velmurga Veerakalai Koedam", highlight: true },
+        { sno: 1, date: "26.01.2025", students: "G. K. Phiramoth – III CSE", event: "🏅 National Medalist – 2025 (HCL)\n• 9-Time State Champion in Cycling\n• Indian Book of Records Holder\n  → Completed 580 km from Puducherry to Kanyakumari in 36 hours\n• Selected for International Competitions – 2027\n• Represents the Sports Development Authority of Tamil Nadu (SDAT)", venue: "JCI Theni Honey Bee", highlight: false, goldenHighlight: true },
+        { sno: 2, date: "23.02.2025", students: "O. Dinesh Babu – I AI&DS", event: "OSCAR World Record – “The longest duration of performing silambam multiweapons event one hour”", venue: "Velmurga Veerakalai Koedam", highlight: true },
         { sno: 3, date: "", students: "Bala Ganesh – IV CSE", event: "• Bronze Medal – Interzone Judo Tournament 2023–2024\n• Gold Medal – Interzone Wushu Tournament 2025–2026\n• Participated in All India Inter University Wushu Championship Tournament and secured 8th position overall\n• Bronze Medal – Interzone Judo Tournament 2025–2026", venue: "Paavai College of Engineering and Technology\nBNEC, Theni\n-\nPaavai College of Engineering and Technology", highlight: false },
         { sno: 4, date: "27.01.2025 & 28.01.2025", students: "V. Atchaya Kamali – IV ECE\nK. Devadharshini – IV ECE\nG. Santhiya – IV ECE\nS. Subitchana Sri – IV CIVIL\nV. Yuva Priya – IV CSE\nS. Devadharshini – III EEE", event: "Anna University Inter Zone Handball Women Tournament – Participated", venue: "PSNA College of Engineering and Technology, Dindigul", highlight: false },
         { sno: 5, date: "07.12.2024 to 10.12.2024", students: "G. K. Phiramoth – IV CSE", event: "Tamil Nadu Team – CFI Cycling National Championships – Participated", venue: "Odisha Cycling Association, Odisha", highlight: false },
         { sno: 6, date: "20.12.2024 to 02.01.2025", students: "M. Guru Prasath – IV EEE", event: "All India Inter University Boxing Men & Women Tournament – Participated", venue: "Guru Kashi University, Bathinda, Punjab", highlight: false },
         { sno: 7, date: "21.12.2024 & 22.12.2024", students: "O. Dinesh Babu – III AI&DS", event: "Anna University Inter Zone Power Lifting Men & Women Tournament – Participated", venue: "Paavai College of Engineering and Technology, Namakkal", highlight: false },
         { sno: 8, date: "06.11.2024 & 07.11.2024", students: "A. Mohammed Nowfil – IV EEE\nP. Yuvaraj – IV EEE\nK. Ganesh Kumar – IV EEE\nG. Yogesh – IV MECH\nM. Iyyanathan – IV CIVIL", event: "Anna University Inter Zone Cross Country Men Tournament – Participated", venue: "University College of Engineering, Trichy", highlight: false },
-        { sno: 9, date: "06.11.2024 & 07.11.2024", students: "K. Devadharshini – IV ECE\nD. Christina – IV ECE", event: "Anna University Inter Zone Cross Country Women Tournament – Participated", venue: "University College of Engineering, Trichy", highlight: false },
+        { sno: 9, date: "06.11.2024 & 07.11.2024", students: "K. Devadharshini – IV ECE", event: "Anna University Inter Zone Cross Country Women Tournament – Participated", venue: "University College of Engineering, Trichy", highlight: false },
         { sno: 10, date: "07.11.2024 & 08.11.2024", students: "O. Dinesh Babu – III AI&DS", event: "Anna University Inter Zone Weight Lifting Men Tournament – Participated", venue: "Paavai College of Engineering, Namakkal", highlight: false },
         { sno: 11, date: "08.11.2024 & 09.11.2024", students: "S. Anjali – IV AI&DS\nK. Dharanisri – III EEE\nG. Santhiya – IV ECE\nR. Mohanapriya – III CIVIL\nS. Anusri – III EEE\nV. Sri Vaishnavi – III CIVIL\nP. Pooja – IV ECE", event: "Anna University Zone-17 Ball Badminton Women Tournament – III Position", venue: "Kamaraj College of Engineering & Technology, Virudhunagar", highlight: true },
         { sno: 12, date: "23.11.2024 & 24.11.2024", students: "MEN:\n1. A. Mohammed Nowfil – IV EEE (Half Marathon – I Position, 5000m – I Position)\n2. K. Ajay Prasath – IV AI&DS (High Jump – II Position)\n3. P. Yuvaraj – IV EEE (10000m – III Position)\n4. P. Devendra Kumar – IV AI&DS (Shot-Put – III Position)\nWOMEN:\n1. K. Devadharshini – IV ECE (5000m – I Position)\n2. S. Nithiya Shree – IV Civil (Javelin – III Position)", event: "Anna University Zone-17 Athletics Men & Women Tournament", venue: "PSNA College of Engineering and Technology, Dindigul", highlight: true },
@@ -86,7 +133,7 @@ const Sports = () => {
         { sno: 17, date: "09.10.2024 & 10.10.2024", students: "S. Ragul – IV CSE\nS. Vishal – III MECH", event: "Anna University Inter Zone Taekwondo Men Tournament – Participated", venue: "Stella Mary’s College of Engineering, Nagecoil", highlight: false },
         { sno: 18, date: "15.10.2024 & 16.10.2024", students: "M. Mukesh Kanna – IV CSE\nA. Kavin Prashad – IV CSE\nJ. Yokesh – IV AI&DS\nG. Bharathwaj – III MECH\nS. Sudharsan – III MECH", event: "Anna University Zone-17 Chess Men Tournament – IV Position", venue: "University College of Engineering, Dindigul", highlight: false },
         { sno: 19, date: "15.10.2024 & 16.10.2024", students: "V.S. Thirunika – III AI&DS\nM. Priyadharshini – III IT\nA. Irfana Begam – III CSE\nR. Aswanthika – III ECE", event: "Anna University Zone-17 Chess Women Tournament – Participated", venue: "University College of Engineering, Dindigul", highlight: false },
-        { sno: 20, date: "15.10.2024 & 16.10.2024", students: "K. Akshaya Shri – IV CSE\nS. Harina – IV EEE\nA. Praveena – III AI&DS", event: "Anna University Zone-17 Table Tennis Women Tournament – Participated", venue: "University College of Engineering, Dindigul", highlight: false },
+        { sno: 20, date: "15.10.2024 & 16.10.2024", students: "K. Akshaya Shri – IV CSE\nS. Harina – IV EEE\nA. Praveena – I IT\nM. Dheiva Shri – III AI&DS", event: "Anna University Zone-17 Table Tennis Women Tournament – Participated", venue: "University College of Engineering, Dindigul", highlight: false },
         { sno: 21, date: "19.10.2024 & 20.10.2024", students: "P. Yuvaraj – IV EEE\nS. Bala – IV CIVIL\nK. Maruthupandi – III EEE\nP. Siddharthan – III CIVIL\nJ. Ajay – IV CIVIL", event: "Anna University Zone-17 Kabbadi Men Tournament – Participated", venue: "Christian College of Engineering & Technology, Ottanchatram", highlight: false },
         { sno: 22, date: "08.09.2024", students: "G. K. Phiramoth – IV CSE", event: "District Cycling Championship – II Position", venue: "State Cycling Association, Madurai", highlight: true },
         { sno: 23, date: "18.09.2024 & 19.09.2024", students: "V. Atchaya Kamali – IV ECE\nK. Devadharshini – IV ECE\nG. Santhiya – IV ECE\nS. Subitchana Sri – IV CIVIL\nP. Pooja – IV ECE", event: "Anna University Zone-17 Basketball Women Tournament – II Position", venue: "Nadar Saraswathi College of Engineering & Technology, Theni", highlight: true }
@@ -175,7 +222,7 @@ const Sports = () => {
                 </motion.div>
 
                 {/* SPORTS CATEGORY WHEEL */}
-                <SportsCategoryWheel achievementsData={achievements} />
+                <SportsCategoryWheel achievementsData={achievements} studentPhotos={studentPhotos} />
 
                 {/* ACHIEVEMENTS */}
                 <h2 className="glam-title">Student <span>Achievements</span></h2>

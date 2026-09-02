@@ -378,16 +378,22 @@ body.dark-mode .achiever-card {
 }
 
 .achiever-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
   background: var(--theme-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--theme-text-light);
-  border: 1px solid var(--theme-border);
   flex-shrink: 0;
+  border: 2px solid rgba(56, 189, 248, 0.2);
+  overflow: hidden;
+}
+
+.achiever-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .achiever-card:hover .achiever-avatar {

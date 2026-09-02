@@ -31,7 +31,7 @@ const events = [
     description:
       "NSCET's flagship cultural festival celebrating music, dance, drama, fine arts and technology.",
     button: "View More",
-    link: "/gallery/waves25" // 👉 Link for Waves'25
+    link: "/gallery/Waves26" // 👉 Link for Waves'25
   },
   {
     category: "Conference",
@@ -100,8 +100,8 @@ const Events = () => {
               <p>{event.description}</p>
 
               {/* 👉 4. Added onClick with dynamic link */}
-              <button 
-                className="event-btn" 
+              <button
+                className="event-btn"
                 onClick={() => navigate(event.link)}
               >
                 <span>{event.button}</span>

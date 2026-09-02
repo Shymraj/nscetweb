@@ -129,7 +129,7 @@ const parseAchievements = (achievementsData) => {
     return parsedStudents;
 };
 
-const StudentCard = ({ student, index, side }) => (
+const StudentCard = ({ student, index, side, photo }) => (
     <motion.div
         layout
         initial={{ opacity: 0, scale: 0.9, x: side === 'left' ? 20 : -20 }}
@@ -140,7 +140,7 @@ const StudentCard = ({ student, index, side }) => (
     >
         <div className="achiever-top">
             <div className="achiever-avatar">
-                <FaUserGraduate size={24} />
+                {photo ? <img src={photo} alt={student.name} /> : <FaUserGraduate size={24} />}
             </div>
             <div className="achiever-info">
                 <h4>{student.name}</h4>
@@ -165,15 +165,16 @@ const StudentCard = ({ student, index, side }) => (
     </motion.div>
 );
 
-const SportsCategoryWheel = ({ achievementsData }) => {
+const SportsCategoryWheel = ({ achievementsData, studentPhotos = {} }) => {
     const [selectedCategory, setSelectedCategory] = useState('All Sports');
     
     const allStudents = useMemo(() => parseAchievements(achievementsData), [achievementsData]);
     
     const filteredStudents = useMemo(() => {
-        if (selectedCategory === 'All Sports') return allStudents;
-        return allStudents.filter(s => s.tags.includes(selectedCategory));
-    }, [selectedCategory, allStudents]);
+        const baseStudents = allStudents.filter(s => !!studentPhotos[s.name]);
+        if (selectedCategory === 'All Sports') return baseStudents;
+        return baseStudents.filter(s => s.tags.includes(selectedCategory));
+    }, [selectedCategory, allStudents, studentPhotos]);
 
     const halfLength = Math.ceil(filteredStudents.length / 2);
     const leftStudents = filteredStudents.slice(0, halfLength);
@@ -294,7 +295,7 @@ const SportsCategoryWheel = ({ achievementsData }) => {
                             <div className="achiever-grid-inner" ref={leftInnerRef}>
                                 <AnimatePresence mode="popLayout">
                                     {leftStudents.map((student, i) => (
-                                        <StudentCard key={student.id} student={student} index={i} side="left" />
+                                        <StudentCard key={student.id} student={student} index={i} side="left" photo={studentPhotos[student.name]} />
                                     ))}
                                 </AnimatePresence>
                             </div>
@@ -355,7 +356,7 @@ const SportsCategoryWheel = ({ achievementsData }) => {
                             <div className="achiever-grid-inner" ref={rightInnerRef}>
                                 <AnimatePresence mode="popLayout">
                                     {rightStudents.map((student, i) => (
-                                        <StudentCard key={student.id} student={student} index={i} side="right" />
+                                        <StudentCard key={student.id} student={student} index={i} side="right" photo={studentPhotos[student.name]} />
                                     ))}
                                 </AnimatePresence>
                             </div>

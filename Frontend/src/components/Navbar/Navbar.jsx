@@ -48,7 +48,7 @@ const searchData = [
   { name: "Research Centre", path: "/research/centre" },
   { name: "Entrepreneurship Development Cell", path: "/research/entrepreneurship-cell" },
   { name: "ISPIN", path: "/ispin" },
-  { name: "WAVES'25", path: "/gallery/waves25" },
+  { name: "WAVES'26", path: "/gallery/waves25" },
   { name: "CLUBS & CHAPTERS", path: "/gallery/clubs-chapters" },
   { name: "NIRF", path: "/gallery/nirf" },
   { name: "RTI", path: "/gallery/rti" },
@@ -78,7 +78,7 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -115,7 +115,7 @@ function Navbar() {
     if (query.trim() === "") {
       setSearchResults([]);
     } else {
-      const results = searchData.filter(item => 
+      const results = searchData.filter(item =>
         item.name.toLowerCase().includes(query.toLowerCase())
       );
       setSearchResults(results);
@@ -210,7 +210,7 @@ function Navbar() {
               }
             }}>Administration</Link>
             <ul className="dropdown-menu">
-             {/* <li><Link to="/administration/finance-officer">Finance Officer</Link></li>*/}
+              {/* <li><Link to="/administration/finance-officer">Finance Officer</Link></li>*/}
               <li><Link to="/administration/controller-examination">Exam Cell</Link></li>
               <li><Link to="/administration/ombudsperson">Ombudsperson</Link></li>
               <li>
@@ -253,7 +253,7 @@ function Navbar() {
               <li><Link to="/academics/industry-collaboration">Industry Collaboration</Link></li>
             </ul>
           </li>
-          <li className={`dropdown ${activeDropdown === 'departments' ? 'active' : ''}`} onMouseLeave={() => { if(window.innerWidth > 1024) { setActiveDropdown(null); setActiveSubmenu(null); } }}>
+          <li className={`dropdown ${activeDropdown === 'departments' ? 'active' : ''}`} onMouseLeave={() => { if (window.innerWidth > 1024) { setActiveDropdown(null); setActiveSubmenu(null); } }}>
             <Link to="#" onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
@@ -325,7 +325,7 @@ function Navbar() {
               }
             }}>Gallery</Link>
             <ul className="dropdown-menu">
-              <li><Link to="/gallery/waves25">WAVES'25</Link></li>
+              <li><Link to="/gallery/waves25">WAVES'26</Link></li>
               <li><Link to="/gallery/clubs-chapters">CLUBS & CHAPTERS</Link></li>
               <li><Link to="/gallery/nirf">NIRF</Link></li>
               <li><Link to="/gallery/rti">RTI</Link></li>
@@ -400,12 +400,12 @@ function Navbar() {
               >
                 <FaTimes />
               </button>
-              
+
               {searchResults.length > 0 && (
                 <div className="search-results">
                   {searchResults.map((result, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className="search-result-item"
                       onClick={() => handleSearchResultClick(result)}
                     >

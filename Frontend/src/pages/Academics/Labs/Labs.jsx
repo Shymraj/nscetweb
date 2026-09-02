@@ -7,7 +7,7 @@ const labData = [
   {
     id: 1,
     title: "Advanced Computing Labs",
-    department: "CSE, IT & AI&DS",
+    department: "AI & DS, CSE, IT",
     icon: <FaLaptopCode />,
     description: "Equipped with high-end workstations and modern software development tools to foster innovation in AI, Machine Learning, and Cloud Computing.",
     color: "#3b82f6",
@@ -20,7 +20,7 @@ const labData = [
   {
     id: 2,
     title: "VLSI & Embedded Systems Lab",
-    department: "Electronics & Comm",
+    department: "ECE",
     icon: <FaMicrochip />,
     description: "State-of-the-art facilities for chip design, IoT research, and embedded system programming using industry-standard simulation tools.",
     color: "#8b5cf6",
@@ -34,7 +34,7 @@ const labData = [
   {
     id: 3,
     title: "CNC & Advanced Manufacturing",
-    department: "Mechanical Engg",
+    department: "Mechanical",
     icon: <FaCogs />,
     description: "Features modern CNC machines, 3D printers, and CAD/CAM software to train students in smart manufacturing and Industry 4.0 concepts.",
     color: "#f59e0b",
@@ -51,7 +51,7 @@ const labData = [
   {
     id: 4,
     title: "Power Systems & Drives Lab",
-    department: "Electrical & Elex",
+    department: "EEE",
     icon: <FaBolt />,
     description: "Comprehensive testing environments for electric machines, renewable energy systems, and modern power electronics applications.",
     color: "#ef4444",
@@ -64,7 +64,7 @@ const labData = [
   {
     id: 5,
     title: "NABL Accredited Material Testing & Civil Engineering Laboratories",
-    department: "Civil Engineering",
+    department: "Civil",
     icon: <FaBuilding />,
     description: "Industry-grade testing equipment for concrete, soil, and structural analysis, providing consultancy services and hands-on training.",
     color: "#10b981",
