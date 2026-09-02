@@ -20,6 +20,7 @@ import {
   FaChevronUp,
   FaFileAlt
 } from 'react-icons/fa';
+import principalImage from '../../AnnualAccounts/img/prinicipal.jpg';
 
 const sectionsData = [
   {
@@ -334,7 +335,7 @@ const DetailedAnnualReport = () => {
             <div className="exec-plain-right">
               <div className="ar-principal-strip">
                 <div className="ar-principal-avatar">
-                  <FaUserTie />
+                  <img src={principalImage} alt="Dr. C. Mathalai Sundaram" />
                 </div>
                 <div className="ar-principal-info">
                   <h4>Dr. C. Mathalai Sundaram</h4>

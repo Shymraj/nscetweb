@@ -9,11 +9,8 @@ import {
   FaBrain, 
   FaEnvelope, 
   FaPhoneAlt, 
-  FaUsers,
   FaSearch,
   FaUserCog,
-  FaCheckCircle,
-  FaTools,
   FaThList
 } from 'react-icons/fa';
 import './NonTeachingFaculty.css';
@@ -63,15 +60,6 @@ const deptIcons = {
   "AI & DS": <FaBrain />
 };
 
-const getInitials = (name) => {
-  const cleanName = name.replace(/^(Mr\.|Mrs\.|Ms\.)\s+/i, '');
-  const parts = cleanName.split(/\s+/).filter(Boolean);
-  if (parts.length >= 2) {
-    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-  }
-  return parts[0] ? parts[0][0].toUpperCase() : 'ST';
-};
-
 const NonTeachingFaculty = () => {
   const [activeDept, setActiveDept] = useState("All");
 
@@ -113,14 +101,6 @@ const NonTeachingFaculty = () => {
         >
           <div className="ntf-exec-plain-grid">
             <div className="ntf-exec-plain-left">
-              <div className="exec-badge-wrap">
-                <span className="ntf-exec-badge-plain">
-                  <FaUsers /> {totalStaffCount} Dedicated Staff Members
-                </span>
-                <span className="ntf-exec-badge-plain gold">
-                  <FaTools /> 6 Engineering Laboratories & Workshops
-                </span>
-              </div>
               <h3 className="ntf-exec-plain-heading">Technical Backbone of Practical Education</h3>
               <p className="ntf-exec-plain-desc">
                 Our non-teaching technical staff play a vital role in providing hands-on laboratory experiences, maintaining advanced testing equipment, ensuring workshop safety compliance, and assisting students during practical sessions.
@@ -128,9 +108,6 @@ const NonTeachingFaculty = () => {
             </div>
             <div className="ntf-exec-plain-right">
               <div className="ntf-principal-strip">
-                <div className="ntf-principal-avatar">
-                  <FaUserCog />
-                </div>
                 <div className="ntf-principal-info">
                   <h4>Technical Operations</h4>
                   <p className="p-deg">NSCET Campus</p>
@@ -155,9 +132,6 @@ const NonTeachingFaculty = () => {
               >
                 <span className="tab-icon">{deptIcons[dept]}</span>
                 <span className="tab-name">{dept === "All" ? "All Departments" : dept}</span>
-                <span className="tab-count">
-                  {dept === "All" ? totalStaffCount : departmentData[dept].length}
-                </span>
               </button>
             ))}
           </div>
@@ -184,23 +158,13 @@ const NonTeachingFaculty = () => {
                 }}
                 whileHover={{ y: -6, boxShadow: "0 15px 35px rgba(2, 132, 199, 0.12)" }}
               >
-                {/* Avatar */}
-                <div className="ntf-avatar-circle">
-                  {getInitials(staff.name)}
-                </div>
-
                 {/* Staff Details */}
                 <div className="ntf-staff-details">
-                  <h3 className="ntf-staff-name">{staff.name}</h3>
+                  <h3 className="ntf-staff-name"><span className="ntf-bullet">•</span> {staff.name}</h3>
                   <div className="ntf-meta-row">
                     <span className="ntf-pos-chip">{staff.position}</span>
                     <span className="ntf-dept-tag">{staff.dept}</span>
                   </div>
-                </div>
-
-                {/* Verified Badge */}
-                <div className="ntf-verified-badge" title="Technical Staff Member">
-                  <FaCheckCircle />
                 </div>
               </motion.div>
             ))
