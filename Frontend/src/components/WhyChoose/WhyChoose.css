@@ -1,38 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap");
 
 /* ==========================================================
-   MAIN SECTION & BACKGROUND
+   1. WHY CHOOSE US - CLEAN WHITE CARDS
    ========================================================== */
 .whychoose {
-  padding: 40px 8%; /* Reduced top/bottom padding from 100px to 40px */
-  background: linear-gradient(180deg, #f8fbff, #ffffff);
+  padding: 80px 8% 45px 8%;
+  background: #ffffff;
   position: relative;
   overflow: hidden;
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  box-sizing: border-box;
 }
 
-/* Background Blur Element */
+/* Background Soft Glow */
 .whychoose::before {
   content: "";
   position: absolute;
-  width: 350px;
-  height: 350px;
-  background: rgba(37, 99, 235, 0.08);
-  filter: blur(100px);
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
   border-radius: 50%;
-  top: -120px;
-  right: -120px;
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
   z-index: 0;
 }
 
-/* ==========================================================
-   HEADER STYLES
-   ========================================================== */
+/* Header */
 .why-header {
   text-align: center;
-  max-width: 750px;
-  margin: auto;
-  margin-bottom: 28px; /* Reduced bottom margin from 60px */
+  max-width: 780px;
+  margin: 0 auto 50px auto;
   position: relative;
   z-index: 1;
 }
@@ -40,43 +38,45 @@
 .why-subtitle {
   color: #2563eb;
   font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  margin-bottom: 8px; /* Reduced margin */
+  margin: 0 0 12px 0;
+  display: block;
 }
 
 .why-title {
-  font-size: 42px; /* Adjusted size for consistency */
+  font-size: 40px;
   font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 12px;
+  color: #1e3a8a;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
 }
 
-/* Underline Animation for Title */
-.why-title::after {
-  content: "";
-  display: block;
-  width: 90px;
+.why-title-line {
+  width: 60px;
   height: 4px;
-  margin: 10px auto 0; /* Reduced margin */
-  border-radius: 20px;
-  background: linear-gradient(90deg, #2563eb, #f59e0b);
+  margin: 0 auto 18px auto;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #2563eb 0%, #f59e0b 100%);
 }
 
 .why-description {
   font-size: 16px;
   color: #64748b;
   line-height: 1.7;
+  margin: 0 auto;
+  font-weight: 400;
 }
 
-/* ==========================================================
-   CARDS GRID & CARD STYLES
-   ========================================================== */
+/* Cards Grid */
 .why-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px; /* Slightly reduced gap from 30px */
+  gap: 24px;
+  max-width: 1320px;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
 }
@@ -84,35 +84,35 @@
 .why-card {
   background: #ffffff;
   border-radius: 20px;
-  padding: 28px 22px; /* Compact padding from 40px 30px */
+  padding: 36px 24px 30px 24px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  border: 1px solid rgba(37, 99, 235, 0.08);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 10px -2px rgba(0, 0, 0, 0.02);
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid #eef2f6;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-/* Card Hover Interactions */
 .why-card:hover {
   transform: translateY(-8px);
-  background: linear-gradient(135deg, #ffffff, #f8faff);
-  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.12);
-  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 20px 40px -5px rgba(37, 99, 235, 0.12), 0 8px 16px -2px rgba(0, 0, 0, 0.04);
+  border-color: #bfdbfe;
 }
 
-/* Top Gradient Line Animation */
+/* Top Accent Line on Card Hover */
 .why-card::before {
   content: "";
   position: absolute;
   top: 0;
   left: 50%;
   width: 0;
-  height: 4px;
+  height: 3.5px;
   background: linear-gradient(90deg, #2563eb, #f59e0b);
-  transition: all 0.4s ease;
+  transition: all 0.35s ease;
   transform: translateX(-50%);
 }
 
@@ -121,46 +121,42 @@
 }
 
 .why-icon {
-  width: 68px;
-  height: 68px;
-  margin: 0 auto 18px auto; /* Reduced margin */
-  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px auto;
+  border-radius: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 28px;
+  font-size: 24px;
   background: #eff6ff;
   color: #2563eb;
-  transition: 0.4s;
+  transition: all 0.35s ease;
 }
 
 .why-card:hover .why-icon {
-  background: linear-gradient(135deg, #f59e0b, #ea580c);
-  color: white;
-  transform: rotate(10deg) scale(1.08);
-  box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2);
+  background: #2563eb;
+  color: #ffffff;
+  transform: scale(1.06);
 }
 
 .why-card h3 {
   font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 8px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
   color: #0f172a;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
 }
 
 .why-card p {
-  color: #475569;
-  line-height: 1.6;
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 18px; /* Reduced margin */
-  flex-grow: 1; /* Pushes button to bottom */
+  color: #64748b;
+  line-height: 1.65;
+  font-size: 14.5px;
+  font-weight: 400;
+  margin: 0 0 24px 0;
+  flex-grow: 1;
 }
 
-/* ==========================================================
-   LEARN MORE BUTTON
-   ========================================================== */
 .learn-more-btn {
   display: inline-flex;
   align-items: center;
@@ -169,118 +165,360 @@
   background: transparent;
   border: none;
   color: #2563eb;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 14.5px;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  padding: 0;
+  padding: 6px 12px;
+  border-radius: 8px;
   transition: all 0.3s ease;
   margin-top: auto;
 }
 
 .learn-more-btn .btn-arrow {
   transition: transform 0.3s ease;
+  font-size: 13px;
 }
 
-.why-card:hover .learn-more-btn {
-  color: #f59e0b;
+.learn-more-btn:hover {
+  color: #1d4ed8;
+  background: #eff6ff;
 }
 
 .learn-more-btn:hover .btn-arrow {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
 /* ==========================================================
-   DARK MODE COMPATIBILITY
+   2. DUAL SCROLLING MARQUEE BANNER (BALANCED TYPOGRAPHY & BIG LOGOS)
    ========================================================== */
-body.dark-mode .whychoose {
-  background: linear-gradient(180deg, #0f172a, #020617);
+.campus-partners-section {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  background-image: url("../../assets/about/about.png");
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 42px 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: inset 0 16px 40px rgba(10, 25, 47, 0.65), inset 0 -16px 40px rgba(10, 25, 47, 0.65);
 }
 
-body.dark-mode .why-title,
-body.dark-mode .why-description,
-body.dark-mode .why-subtitle,
-body.dark-mode .banner-left h2,
-body.dark-mode .banner-left p {
-  color: #cbd5e1;
+/* Deep Royal Navy & Sapphire Blue Gradient Overlay for Rich Visual Contrast */
+.campus-partners-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(10, 25, 47, 0.72) 0%,
+      rgba(15, 30, 60, 0.45) 50%,
+      rgba(10, 25, 47, 0.76) 100%),
+    radial-gradient(ellipse at center, rgba(30, 58, 138, 0.3) 0%, transparent 85%);
+  pointer-events: none;
+  z-index: 1;
 }
 
-body.dark-mode .why-card {
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.05);
-  box-shadow: 0 15px 35px rgba(0,0,0,.3);
+/* Big Bold Centered Title (OUR INDUSTRY CONNECT - EDITORIAL LUXURY SERIF & GOLD) */
+.partners-center-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  margin: 14px auto;
+  max-width: 820px;
+  background: transparent;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-body.dark-mode .why-card h3 {
-  color: #f8fafc;
+.partners-main-title {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: "Cinzel", "Playfair Display", "Times New Roman", Georgia, serif;
 }
 
-body.dark-mode .why-card p,
-body.dark-mode .why-icon {
-  color: #94a3b8;
+.partners-main-title .title-white {
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 4px 25px rgba(0, 0, 0, 0.85);
 }
 
-body.dark-mode .why-icon {
-  background: rgba(255,255,255,.08);
+.partners-main-title .title-gold {
+  color: #e5be68;
+  background: linear-gradient(180deg, #fff3c4 0%, #ecd07e 30%, #dfb55a 65%, #bf8a25 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.95)) drop-shadow(0 4px 25px rgba(0, 0, 0, 0.85));
 }
 
-body.dark-mode .learn-more-btn {
-  color: #60a5fa;
+/* Elegant Golden Ornamental Divider */
+.partners-gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px auto 6px auto;
+  width: 100%;
+  max-width: 360px;
 }
 
-body.dark-mode .why-bottom-banner {
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.08);
+.partners-gold-divider .divider-line {
+  height: 1.5px;
+  flex: 1;
 }
 
-body.dark-mode .stat-box h3 {
-  color: #3b82f6;
+.partners-gold-divider .divider-line.left {
+  background: linear-gradient(90deg, transparent 0%, rgba(229, 190, 104, 0.5) 45%, #e5be68 100%);
 }
 
-body.dark-mode .stat-box p {
-  color: #94a3b8;
+.partners-gold-divider .divider-line.right {
+  background: linear-gradient(90deg, #e5be68 0%, rgba(229, 190, 104, 0.5) 55%, transparent 100%);
+}
+
+.partners-gold-divider .divider-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.85));
+}
+
+.partners-description {
+  color: #ffffff;
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  margin: 4px auto 0 auto;
+  max-width: 650px;
+  font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.9);
+  opacity: 0.98;
+}
+
+/* Continuous Infinite Marquee Tracks */
+.partners-marquee-row {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  padding: 10px 0;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.partners-marquee-inner {
+  display: flex;
+  align-items: center;
+  gap: 85px;
+  width: max-content;
+  will-change: transform;
+}
+
+.partners-marquee-inner.scroll-left {
+  animation: scrollLeftSmooth 38s linear infinite;
+  animation-play-state: paused;
+}
+
+.partners-marquee-inner.scroll-right {
+  animation: scrollRightSmooth 38s linear infinite;
+  animation-play-state: paused;
+}
+
+.partners-marquee-inner.is-animating {
+  animation-play-state: running;
+}
+
+.partners-marquee-row:hover .partners-marquee-inner {
+  animation-play-state: paused !important;
+}
+
+@keyframes scrollLeftSmooth {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+@keyframes scrollRightSmooth {
+  0% {
+    transform: translateX(-33.33%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Pure White Vector Logo Wrap (EQUAL SPACING & BALANCED HEIGHT) */
+.partner-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 56px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transform: scale(var(--item-scale, 1));
+  transform-origin: center center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.partner-vector-logo {
+  height: 44px;
+  max-height: 44px;
+  max-width: 160px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.partner-vector-logo.logo-white {
+  display: block;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.85));
+  opacity: 0.92;
+}
+
+.partner-vector-logo.logo-color {
+  display: none;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.75));
+  opacity: 1;
+}
+
+.partner-logo-wrap:hover {
+  background: transparent;
+  transform: scale(calc(var(--item-scale, 1) * 1.2));
+}
+
+.partner-logo-wrap:hover .partner-vector-logo.logo-white {
+  display: none;
+}
+
+.partner-logo-wrap:hover .partner-vector-logo.logo-color {
+  display: block;
 }
 
 /* ==========================================================
    RESPONSIVE DESIGN
    ========================================================== */
-@media (max-width: 1200px) {
-  .why-bottom-banner {
-    flex-direction: column;
-    text-align: center;
-  }
-  .banner-left h2 {
-    justify-content: center;
-  }
-  .banner-stats {
-    justify-content: center;
-    width: 100%;
-  }
-}
-
 @media (max-width: 1100px) {
   .why-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .partners-main-title {
+    font-size: 38px;
+    letter-spacing: 2.5px;
+  }
+
+  .partners-gold-divider {
+    max-width: 360px;
+  }
+
+  .partners-description {
+    font-size: 15px;
+    max-width: 540px;
+  }
+
+  .partner-logo-wrap {
+    width: 145px;
+    height: 48px;
+    padding: 2px 6px;
+  }
+
+  .partner-vector-logo {
+    max-height: 40px;
+    max-width: 130px;
+  }
+
+  .partners-marquee-inner {
+    gap: 45px;
   }
 }
 
 @media (max-width: 768px) {
   .whychoose {
-    padding: 30px 5%; /* Reduced top/bottom padding for mobile */
+    padding: 60px 5% 35px 5%;
   }
+
   .why-header {
-    margin-bottom: 20px;
+    margin-bottom: 36px;
   }
-  .why-grid {
-    grid-template-columns: 1fr;
-  }
+
   .why-title {
     font-size: 30px;
   }
-  .banner-stats {
+
+  .why-description {
+    font-size: 15px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
     gap: 20px;
   }
-  .stat-box h3 {
-    font-size: 28px;
+
+  .campus-partners-section {
+    background-attachment: scroll;
+    padding: 35px 0 35px 0;
+    min-height: 430px;
+  }
+
+  .partners-main-title {
+    font-size: 26px;
+    letter-spacing: 1.5px;
+  }
+
+  .partners-gold-divider {
+    max-width: 280px;
+    margin: 8px auto 4px auto;
+  }
+
+  .partners-gold-divider .divider-icon svg {
+    width: 26px;
+    height: 20px;
+  }
+
+  .partners-description {
+    font-size: 13.5px;
+    max-width: 90%;
+    margin-top: 6px;
+  }
+
+  .partner-logo-wrap {
+    width: 125px;
+    height: 42px;
+    padding: 2px 4px;
+  }
+
+  .partner-vector-logo {
+    max-height: 34px;
+    max-width: 110px;
+  }
+
+  .partners-marquee-inner {
+    gap: 30px;
   }
 }

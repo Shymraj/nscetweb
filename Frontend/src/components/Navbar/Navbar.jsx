@@ -358,29 +358,33 @@ function Navbar() {
         </ul>
 
         <div className="nav-right">
-          <div className="nav-desktop-elements" style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: showSearch ? 0 : 1, visibility: showSearch ? 'hidden' : 'visible', pointerEvents: showSearch ? 'none' : 'auto', transition: 'opacity 0.3s ease' }}>
-            <button
-              className="search-btn"
-              onClick={() => setShowSearch(true)}
-            >
-              <FaSearch />
-            </button>
-            <button
-              className="theme-btn"
-              onClick={() => setDarkMode(!darkMode)}
-            >
-              {darkMode ? <FaSun /> : <FaMoon />}
-            </button>
+          {!showSearch ? (
+            <div className="nav-desktop-elements">
+              <button
+                className="search-btn"
+                onClick={() => setShowSearch(true)}
+                title="Search"
+                aria-label="Search"
+              >
+                <FaSearch />
+              </button>
+              <button
+                className="theme-btn"
+                onClick={() => setDarkMode(!darkMode)}
+                title="Toggle Theme"
+                aria-label="Toggle Theme"
+              >
+                {darkMode ? <FaSun /> : <FaMoon />}
+              </button>
 
-            <img src="/images/naac.png?v=3" alt="NAAC Logo" className="naac-logo" />
-          </div>
-
-          {showSearch && (
+              <img src="/images/naac.png?v=3" alt="NAAC Logo" className="naac-logo" />
+            </div>
+          ) : (
             <div className="search-box">
               <FaSearch className="search-icon" />
               <input
                 type="text"
-                placeholder="Search"
+                placeholder="Search..."
                 value={searchQuery}
                 onChange={handleSearchChange}
                 onKeyDown={(e) => {
@@ -397,6 +401,8 @@ function Navbar() {
                   setSearchQuery("");
                   setSearchResults([]);
                 }}
+                title="Close Search"
+                aria-label="Close Search"
               >
                 <FaTimes />
               </button>

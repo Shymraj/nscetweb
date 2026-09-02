@@ -202,12 +202,22 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.85rem;
   font-weight: 800;
-  color: #051630;
+  color: #1e3a8a;
   margin-bottom: 38px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   position: relative;
   display: block;
+}
+
+.al-section-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3.5px;
+  background: linear-gradient(90deg, #1e3a8a 0%, #d97706 100%);
+  margin: 8px auto 0 auto;
+  border-radius: 2px;
 }
 
 /* ================= SPLIT CONTAINER (2 CARDS IN 1 ROW) ================= */
@@ -599,6 +609,11 @@ body.dark-mode .al-section-title,
   color: #60a5fa;
   background: none;
   -webkit-text-fill-color: initial;
+}
+
+body.dark-mode .al-section-title::after,
+[data-theme="dark"] .al-section-title::after {
+  background: linear-gradient(90deg, #60a5fa 0%, #fb923c 100%);
 }
 
 /* Dark Mode Cards Styling */
