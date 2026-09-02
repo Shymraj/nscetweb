@@ -18,7 +18,7 @@ import rds from "../../assets/recruiters/rds.jpeg";
 import wgtech from "../../assets/recruiters/wgtech.png";
 import alpha from "../../assets/recruiters/alpha.png";
 import mssoftware from "../../assets/recruiters/M&S software.png";
-import spark from "../../assets/recruiters/spark.png";
+import wipro from "../../assets/recruiters/wipro.png";
 import tesla1 from "../../assets/recruiters/tesla.png";
 import logoOg from "../../assets/recruiters/logo-og.png";
 
@@ -27,13 +27,10 @@ import ftl from "../../assets/recruiters/company.png";
 import hcl from "../../assets/recruiters/HCL.png";
 import infosys from "../../assets/recruiters/Infosys_logo.svg.png";
 import tcs2 from "../../assets/recruiters/tcs.png";
-
-/* 
-  🛑 ERROR FIX: 
-  'tesla-electronic-vclogo_2.jpg' file folder la illadha kaaranathala error varudhu. 
-  App crash aagama iruka, temporary ah pazhaya 'tesla1' image-ye assign panniruken.
-*/
-const tesla2 = tesla1; 
+import nardil from "../../assets/Recruiters/NaRdil-Logo-270.webp";
+import crewLogo from "../../assets/Recruiters/chennai_ratha_engineering_works_logo-removebg-preview.png";
+import rainbow from "../../assets/Recruiters/rainbow.png";
+import rippleLinks from "../../assets/Recruiters/ripple_links.png";
 
 /* ================= Placement Stats ================= */
 const stats = [
@@ -67,7 +64,7 @@ const stats = [
   },
 ];
 
-/* ================= Recruiters Array (Total 15) ================= */
+/* ================= Recruiters Array (Total 17) ================= */
 const recruiters = [
   { name: "TCS", logo: tcs1 },
   { name: "Schneider Electric", logo: schneider },
@@ -76,14 +73,16 @@ const recruiters = [
   { name: "WGTECH", logo: wgtech },
   { name: "Alpha Hospital Solutions", logo: alpha },
   { name: "M&S Software", logo: mssoftware },
-  { name: "Spark Minda", logo: spark },
+  { name: "Wipro", logo: wipro },
   { name: "Tesla Electric", logo: tesla1 },
   { name: "Indo Shell", logo: logoOg },
   { name: "FTL Maldives", logo: ftl },
   { name: "HCL", logo: hcl },
   { name: "Infosys", logo: infosys },
-  { name: "Tata Consultancy Services", logo: tcs2 },
-  { name: "Tesla Electronic", logo: tesla2 },
+  { name: "NaRDil", logo: nardil },
+  { name: "Chennai Radha Engineering Works", logo: crewLogo },
+  { name: "Rainbow Enterprises", logo: rainbow },
+  { name: "Ripple Links", logo: rippleLinks },
 ];
 
 function Placement() {

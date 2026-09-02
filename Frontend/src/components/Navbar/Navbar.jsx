@@ -78,7 +78,7 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -115,7 +115,7 @@ function Navbar() {
     if (query.trim() === "") {
       setSearchResults([]);
     } else {
-      const results = searchData.filter(item => 
+      const results = searchData.filter(item =>
         item.name.toLowerCase().includes(query.toLowerCase())
       );
       setSearchResults(results);
@@ -210,7 +210,7 @@ function Navbar() {
               }
             }}>Administration</Link>
             <ul className="dropdown-menu">
-             {/* <li><Link to="/administration/finance-officer">Finance Officer</Link></li>*/}
+              {/* <li><Link to="/administration/finance-officer">Finance Officer</Link></li>*/}
               <li><Link to="/administration/controller-examination">Exam Cell</Link></li>
               <li><Link to="/administration/ombudsperson">Ombudsperson</Link></li>
               <li>
@@ -253,7 +253,7 @@ function Navbar() {
               <li><Link to="/academics/industry-collaboration">Industry Collaboration</Link></li>
             </ul>
           </li>
-          <li className={`dropdown ${activeDropdown === 'departments' ? 'active' : ''}`} onMouseLeave={() => { if(window.innerWidth > 1024) { setActiveDropdown(null); setActiveSubmenu(null); } }}>
+          <li className={`dropdown ${activeDropdown === 'departments' ? 'active' : ''}`} onMouseLeave={() => { if (window.innerWidth > 1024) { setActiveDropdown(null); setActiveSubmenu(null); } }}>
             <Link to="#" onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
@@ -358,29 +358,33 @@ function Navbar() {
         </ul>
 
         <div className="nav-right">
-          <div className="nav-desktop-elements" style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: showSearch ? 0 : 1, visibility: showSearch ? 'hidden' : 'visible', pointerEvents: showSearch ? 'none' : 'auto', transition: 'opacity 0.3s ease' }}>
-            <button
-              className="search-btn"
-              onClick={() => setShowSearch(true)}
-            >
-              <FaSearch />
-            </button>
-            <button
-              className="theme-btn"
-              onClick={() => setDarkMode(!darkMode)}
-            >
-              {darkMode ? <FaSun /> : <FaMoon />}
-            </button>
+          {!showSearch ? (
+            <div className="nav-desktop-elements">
+              <button
+                className="search-btn"
+                onClick={() => setShowSearch(true)}
+                title="Search"
+                aria-label="Search"
+              >
+                <FaSearch />
+              </button>
+              <button
+                className="theme-btn"
+                onClick={() => setDarkMode(!darkMode)}
+                title="Toggle Theme"
+                aria-label="Toggle Theme"
+              >
+                {darkMode ? <FaSun /> : <FaMoon />}
+              </button>
 
-            <img src="/images/naac.png?v=3" alt="NAAC Logo" className="naac-logo" />
-          </div>
-
-          {showSearch && (
+              <img src="/images/naac.png?v=3" alt="NAAC Logo" className="naac-logo" />
+            </div>
+          ) : (
             <div className="search-box">
               <FaSearch className="search-icon" />
               <input
                 type="text"
-                placeholder="Search"
+                placeholder="Search..."
                 value={searchQuery}
                 onChange={handleSearchChange}
                 onKeyDown={(e) => {
@@ -397,15 +401,17 @@ function Navbar() {
                   setSearchQuery("");
                   setSearchResults([]);
                 }}
+                title="Close Search"
+                aria-label="Close Search"
               >
                 <FaTimes />
               </button>
-              
+
               {searchResults.length > 0 && (
                 <div className="search-results">
                   {searchResults.map((result, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className="search-result-item"
                       onClick={() => handleSearchResultClick(result)}
                     >
