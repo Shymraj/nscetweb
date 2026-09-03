@@ -292,11 +292,12 @@
   font-family: var(--font-section);
   font-size: 2.5rem;
   font-weight: 800;
+  color: #ffffff;
 }
 
 .arc-complaint-text {
   font-size: 1.2rem;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 2.5rem;
 }
 

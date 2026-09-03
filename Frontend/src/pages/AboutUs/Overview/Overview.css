@@ -1002,7 +1002,28 @@ body.dark-mode .bg-light-2 {
 }
 
 body.dark-mode .overview-stats-section {
-  background: transparent;
+  background: linear-gradient(135deg, #0c2461 0%, #1a3a8a 50%, #0c2461 100%);
+  box-shadow: 0 0 40px rgba(26, 58, 138, 0.3);
+}
+
+body.dark-mode .overview-stat-card {
+  background: rgba(15, 25, 55, 0.6);
+  border: 1px solid rgba(100, 160, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .overview-stat-card:hover {
+  background: rgba(20, 35, 75, 0.8);
+  border-color: rgba(245, 164, 0, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .overview-stat-value {
+  color: #f1f5f9;
+}
+
+body.dark-mode .overview-stat-label {
+  color: #fbbf24;
 }
 
 body.dark-mode .hero-title,
@@ -1022,7 +1043,6 @@ body.dark-mode .caption-content p {
 body.dark-mode .info-card,
 body.dark-mode .hero-quote-card,
 body.dark-mode .floating-caption,
-body.dark-mode .overview-stat-card,
 body.dark-mode .timeline-content,
 body.dark-mode .achievement-card {
   background: rgba(30, 41, 59, 0.4);
@@ -1030,7 +1050,6 @@ body.dark-mode .achievement-card {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-body.dark-mode .overview-stat-card:hover,
 body.dark-mode .timeline-content:hover {
   background: rgba(15, 23, 42, 0.25);
   border-color: rgba(255, 255, 255, 0.25);

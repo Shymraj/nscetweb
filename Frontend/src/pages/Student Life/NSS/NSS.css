@@ -415,8 +415,8 @@ body.dark-mode .nss-member-card:hover {
 }
 
 .nss-member-avatar {
-  width: 58px;
-  height: 58px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: #f8fafc;
   display: flex;
@@ -426,6 +426,7 @@ body.dark-mode .nss-member-card:hover {
   font-size: 1.5rem;
   flex-shrink: 0;
   border: 1px solid #cbd5e1;
+  overflow: hidden;
   transition: all 0.3s ease;
 }
 body.dark-mode .nss-member-avatar {
@@ -443,6 +444,14 @@ body.dark-mode .nss-member-card:hover .nss-member-avatar {
   background: rgba(56, 189, 248, 0.15);
   color: #38bdf8;
   border-color: rgba(56, 189, 248, 0.3);
+}
+
+.nss-member-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .nss-member-info {

@@ -17,6 +17,42 @@ import placed2 from './images/1769520502_place (1).jpg';
 import placed3 from './images/1769520516_place (1).jpeg';
 import placed4 from './images/1769520863_WhatsApp Image 2026-01-27 at 7.03.37 PM.jpeg';
 
+// Recruiter Logos
+import atxLogo from "../../../assets/Recruiters/ATX.png";
+import atxWhiteLogo from "../../../assets/Recruiters/ATX_white.png";
+import dviliteLogo from "../../../assets/Recruiters/dvilite_color.png";
+import dviliteWhiteLogo from "../../../assets/Recruiters/dvilite_white.png";
+import promonLogo from "../../../assets/Recruiters/promon_logo_hd.webp";
+import tcsLogo from "../../../assets/Recruiters/tcs.png";
+import infosysLogo from "../../../assets/Recruiters/Infosys_logo.svg.png";
+import zohoLogo from "../../../assets/Recruiters/zoho.png";
+import hclLogo from "../../../assets/Recruiters/hcl.png";
+import wiproLogo from "../../../assets/Recruiters/wipro.png";
+import webberaxLogo from "../../../assets/Recruiters/webberax.png";
+import teslaLogo from "../../../assets/Recruiters/tesla.png";
+import msLogo from "../../../assets/Recruiters/M&S software.png";
+import nardilLogo from "../../../assets/Recruiters/NaRdil-Logo-270.webp";
+import crewLogo from "../../../assets/Recruiters/chennai_ratha_engineering_works_logo-removebg-preview.png";
+import rainbowLogo from "../../../assets/Recruiters/rainbow.png";
+import wgtechLogo from "../../../assets/Recruiters/wgtech.png";
+const recruiterLogos = [
+  { name: "Infosys", logo: infosysLogo },
+  { name: "Zoho", logo: zohoLogo },
+  { name: "TCS", logo: tcsLogo },
+  { name: "Tesla Electric", logo: teslaLogo },
+  { name: "HCL", logo: hclLogo },
+  { name: "Wipro", logo: wiproLogo },
+  { name: "Webberax", logo: webberaxLogo },
+  { name: "Rainbow Enterprises", logo: rainbowLogo },
+  { name: "ATX", logo: atxLogo, logoWhite: atxWhiteLogo },
+  { name: "Dvilite", logo: dviliteLogo, logoWhite: dviliteWhiteLogo },
+  { name: "NaRDil", logo: nardilLogo },
+  { name: "Chennai Radha Engineering Works", logo: crewLogo },
+  { name: "Promon", logo: promonLogo },
+  { name: "M&S Software", logo: msLogo },
+  { name: "WGTech", logo: wgtechLogo },
+];
+
 const galleryImages = [
   { src: poster1, alt: 'Placement Poster 1', type: 'poster' },
   { src: poster2, alt: 'Placement Poster 2', type: 'poster' },
@@ -536,12 +572,27 @@ const Placements = () => {
             <FaBuilding className="pl-header-icon" />
             <h2>Our Recruiters</h2>
           </div>
-          <div className="pl-coming-soon-wrapper">
-            <div className="pl-coming-soon-card">
-              <FaIndustry className="pl-coming-soon-icon" />
-              <h3>Coming Soon</h3>
-              <p>We are currently updating our list of esteemed recruiters.</p>
-            </div>
+          <div className="pl-recruiters-grid">
+            {recruiterLogos.map((company, index) => (
+              <motion.div
+                key={index}
+                className="pl-recruiter-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="pl-recruiter-logo-wrapper">
+                  <img
+                    src={company.logo}
+                    alt={company.name}
+                    className="pl-recruiter-logo"
+                  />
+                </div>
+                <p className="pl-recruiter-name">{company.name}</p>
+              </motion.div>
+            ))}
           </div>
         </motion.section>
 

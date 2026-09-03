@@ -7,6 +7,15 @@ import {
 } from 'react-icons/fa';
 import './ResearchDevelopmentCell.css';
 
+import imgRadhaKrishnan from './Images/radhakrishnan.jpg';
+import imgMathalaiSundaram from './Images/mathalai sundharam.png';
+import imgAthilingam from './Images/Dr_athilingam.jpg';
+import imgVenishKumar from './Images/venishkumar.jpg';
+import imgSathya from './Images/sathya.jpeg';
+import imgDavidMathan from './Images/davidmathan.jpg';
+import imgMathavan from './Images/Mathavan.jpg';
+import imgMathalaiRaj from './Images/mathalairaj.jpg';
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -79,14 +88,14 @@ const ResearchDevelopmentCell = () => {
   ];
 
   const members = [
-    { name: "Dr. B. Radha Krishnan", desig: "Professor & Head", dept: "Department of Mechanical Engineering" },
-    { name: "Dr. C. Mathalai Sundaram", desig: "Principal & Professor", dept: "Department of Mechanical Engineering" },
-    { name: "Dr. Athilingam R", desig: "Professor & Head", dept: "Department of Electrical and Electronics Engineering" },
-    { name: "Dr. T. Venish Kumar A", desig: "Professor & Head", dept: "Department of Electronics and Communication Engineering" },
-    { name: "Dr. M. Sathya", desig: "Vice principal & Professor", dept: "Department of Computer Science and Engineering" },
-    { name: "Dr. N. David Mathan", desig: "Professor", dept: "Department of Chemistry" },
-    { name: "Dr. N. Mathavan", desig: "Professor", dept: "Department of Electronics and Communication Engineering" },
-    { name: "Dr. Mathalai Raj", desig: "Professor & Head", dept: "Department of Computer Science and Engineering" }
+    { name: "Dr. B. Radha Krishnan", desig: "Professor & Head", dept: "Department of Mechanical Engineering", image: imgRadhaKrishnan },
+    { name: "Dr. C. Mathalai Sundaram", desig: "Principal & Professor", dept: "Department of Mechanical Engineering", image: imgMathalaiSundaram },
+    { name: "Dr. Athilingam R", desig: "Professor & Head", dept: "Department of Electrical and Electronics Engineering", image: imgAthilingam },
+    { name: "Dr. T. Venish Kumar A", desig: "Professor & Head", dept: "Department of Electronics and Communication Engineering", image: imgVenishKumar },
+    { name: "Dr. M. Sathya", desig: "Vice principal & Professor", dept: "Department of Computer Science and Engineering", image: imgSathya },
+    { name: "Dr. N. David Mathan", desig: "Professor", dept: "Department of Chemistry", image: imgDavidMathan },
+    { name: "Dr. N. Mathavan", desig: "Professor", dept: "Department of Electronics and Communication Engineering", image: imgMathavan },
+    { name: "Dr. Mathalai Raj", desig: "Professor & Head", dept: "Department of Computer Science and Engineering", image: imgMathalaiRaj }
   ];
 
   return (
@@ -184,7 +193,11 @@ const ResearchDevelopmentCell = () => {
             {members.map((member, i) => (
               <motion.div key={i} variants={fadeUp} className="rdc-member-card" whileHover={{ scale: 1.02 }}>
                 <div className="rdc-member-avatar">
-                  <FaUserTie />
+                  {member.image ? (
+                    <img src={member.image} alt={member.name} className="rdc-member-img" />
+                  ) : (
+                    <FaUserTie />
+                  )}
                 </div>
                 <div className="rdc-member-info">
                   <h4 className="rdc-member-name">{member.name}</h4>
