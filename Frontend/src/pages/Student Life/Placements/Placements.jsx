@@ -8,10 +8,7 @@ import DepartmentFacultyCard from '../../../components/common/DepartmentFacultyC
 const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 import { FaBuilding, FaUserTie, FaChalkboardTeacher, FaBriefcase, FaWifi, FaUsers, FaGraduationCap, FaIndustry, FaPhone, FaEnvelope, FaChevronLeft, FaChevronRight, FaCheckCircle, FaBullseye, FaHandshake, FaChartLine, FaUtensils, FaComments, FaBrain, FaRegLightbulb } from 'react-icons/fa';
-import geethaImg from './images/Geetha.jpeg';
-import ramkumarImg from './images/Ramkumar.jpeg';
-import megaImg from './images/Mega.jpeg';
-import subathamaniImg from './images/Subathamani.jpeg';
+import { placementOfficerData, placementCoordinatorsData } from './facultyData';
 import poster1 from './images/1769520719_Placement Poster M&S 1.jpg.webp';
 import poster2 from './images/1769521126_Placement Poster 11-06-2025.webp';
 import poster3 from './images/1769521242_Placement Poster EEE.webp';
@@ -28,19 +25,6 @@ const galleryImages = [
   { src: placed2, alt: 'Placed Student 2', type: 'placed' },
   { src: placed3, alt: 'Placed Student 3', type: 'placed' },
   { src: placed4, alt: 'Placed Student 4', type: 'placed' },
-];
-
-const placementOfficerData = {
-  name: "Mrs. C. Geetha ",
-  desig: "Training and Placement Officer",
-  image: geethaImg,
-  spec: "Corporate Relations, Career Guidance"
-};
-
-const placementCoordinatorsData = [
-  { name: "Mr. K. Ramkumar", qual: "B.E., MBA.", desig: "Training and Placement Coordinator", image: ramkumarImg, spec: "Placement Training" },
-  { name: "Mrs. S. Megha", qual: "B.Sc", desig: "Training and Placement Coordinator", image: megaImg, spec: "Soft Skills" },
-  { name: "Mrs. T. Subathamani", qual: "M.A., B.Ed., M.Phil.", desig: "Training and Placement Coordinator", image: subathamaniImg, spec: "Communication" }
 ];
 
 const departmentCoordinators = [
@@ -88,6 +72,14 @@ const csetActivities = [
 ];
 
 const Placements = () => {
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || member.slug;
+    if (facultyId) {
+      window.open(`/departments/placements/faculty/${facultyId}`, "_blank");
+    }
+  };
+
   // Duplicate array for seamless infinite marquee scrolling
   const marqueeData = galleryImages.length > 0
     ? [...galleryImages, ...galleryImages, ...galleryImages, ...galleryImages]
@@ -198,7 +190,7 @@ const Placements = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <DepartmentFacultyCard member={placementOfficerData} isHOD={true} />
+              <DepartmentFacultyCard member={placementOfficerData} isHOD={true} onOpenProfile={handleOpenProfile} />
             </motion.div>
             <div className="pl-officer-responsibilities">
               <h3>Roles and Responsibilities</h3>
@@ -236,7 +228,7 @@ const Placements = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <DepartmentFacultyCard member={coordinator} />
+                <DepartmentFacultyCard member={coordinator} onOpenProfile={handleOpenProfile} />
               </motion.div>
             ))}
           </div>

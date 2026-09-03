@@ -210,9 +210,40 @@
   grid-template-columns: 1fr;
 }
 
-.modal-info-grid.single-column .info-value {
-  column-count: 2;
-  column-gap: 2rem;
+.modal-info-grid.single-column .info-highlight-card {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  gap: 1.2rem;
+}
+
+.modal-info-grid.single-column .info-content {
+  align-items: center;
+}
+
+.modal-info-grid.single-column .info-value.members-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.modal-info-grid.single-column .member-item {
+  min-width: 0;
+  word-wrap: break-word;
+  white-space: normal;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .modal-info-grid.single-column .info-value.members-list {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
 }
 
 .info-highlight-card {

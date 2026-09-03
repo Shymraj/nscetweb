@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './ControllerOfExamination.css';
 import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaFileAlt, FaClipboardCheck, FaExclamationTriangle, FaUserTie, FaProjectDiagram, FaCertificate, FaUserGraduate, FaRupeeSign, FaSearchPlus, FaTimes } from 'react-icons/fa';
+import VerificationWorkflow from './components/VerificationWorkflow';
 import ganeshImg from './images/ganesh.jpg';
 import sivaganesanImg from './images/sivaganesan.jpg';
 import examCellPdf from './images/1 ExamCell Constitution FC.pdf';
@@ -209,18 +210,7 @@ function ControllerOfExamination() {
               There is a separate Certificate Verification system for students and employers to verify academic credentials.
             </p>
             <h3>Verification Procedure</h3>
-            <div className='coe-steps-grid'>
-              {verificationSteps.map((step) => (
-                <div key={step.id} className='coe-step-card'>
-                  <div className='coe-step-number'>{step.id}</div>
-                  <div className='coe-step-icon'>
-                    <step.icon />
-                  </div>
-                  <h4>{step.title}</h4>
-                  <p>{step.description}</p>
-                </div>
-              ))}
-            </div>
+            <VerificationWorkflow features={verificationSteps} />
             <div className='coe-fee-info'>
               <FaRupeeSign className='fee-icon' />
               <p><strong>Fee:</strong> ₹200 per certificate</p>

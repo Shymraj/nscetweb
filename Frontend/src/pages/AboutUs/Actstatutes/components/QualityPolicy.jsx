@@ -21,6 +21,7 @@ const QualityPolicy = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="section-intro"
+          style={{ textAlign: "center", margin: "0 auto" }}
         >
           {qualityPolicyIntro}
         </motion.p>

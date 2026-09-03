@@ -13,9 +13,7 @@ import "./Sports.css";
 const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 
-// Staff Images
-import Ponnaiah from "../../Administration/AcademicLeadership/Ponnaiah.png";
-import Vayalsamy from "./images/Vayalsamy.JPG";
+// Staff data imported from facultyData.js
 
 // Sport Images
 import Basketball from "./images/Basketball.png";
@@ -26,6 +24,7 @@ import TableTennis from "./images/table.png";
 import KhoKho from "./images/khokho.png";
 import Handball from "./images/handball.png";
 import Cycling from "./images/Cycling.jpeg";
+import { sportsFacultyData } from "./facultyData";
 
 // Student Images
 const studentImgGlobs = import.meta.glob("./images/Sports students/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}", { eager: true, import: "default" });
@@ -93,12 +92,15 @@ const Sports = () => {
         }
     };
 
-    const staffMembers = [
-        { name: "Mr. Ponnaiah", desig: "HOD & Physical Director", qual: "B.Com., M.P.Ed., PG.DY", image: Ponnaiah },
-        { name: "Mr. M. Vayalsamy", desig: "Assistant Physical Director", qual: "B.Sc., M.P.Ed.", image: Vayalsamy },
-        { name: "Pandiyammal S", desig: "Assistant Physical Director", qual: "", image: null }
-    ];
+    const handleOpenProfile = (member) => {
+        if (!member) return;
+        const facultyId = member.id || member.slug;
+        if (facultyId) {
+            window.open(`/departments/sports/faculty/${facultyId}`, "_blank");
+        }
+    };
 
+    const staffMembers = sportsFacultyData;
     const hod = staffMembers[0];
     const staff = staffMembers.slice(1);
 
@@ -201,9 +203,9 @@ const Sports = () => {
                     hod={{
                         ...hod,
                         quoteText: "Nurturing champions through discipline, teamwork, and athletic excellence.",
-                        expBadge: "Physical Director",
-                        hideProfileBtn: true
+                        expBadge: "Physical Director"
                     }} 
+                    onOpenProfile={handleOpenProfile}
                 />
 
                 {/* STAFF GRID */}
@@ -217,6 +219,7 @@ const Sports = () => {
                             key={idx} 
                             member={member} 
                             fadeInUp={fadeInUp} 
+                            onOpenProfile={handleOpenProfile}
                         />
                     ))}
                 </motion.div>

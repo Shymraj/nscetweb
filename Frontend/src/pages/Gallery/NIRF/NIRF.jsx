@@ -186,7 +186,7 @@ const NIRF = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="premium-section-title">View NIRF Reports</h2>
-            <div className="title-accent-line center-line"></div>
+            <div className="title-accent-line center-line" style={{ marginBottom: '0.5rem' }}></div>
           </motion.div>
 
           <motion.div 
@@ -199,7 +199,7 @@ const NIRF = () => {
             {reports.map((report) => (
               <motion.a 
                 key={report.id}
-                href={report.link}
+                href={`${report.link}#toolbar=0`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="horizontal-report-tile"
@@ -220,7 +220,6 @@ const NIRF = () => {
                 <div className="tile-action-section">
                   <div className="download-btn-premium">
                     <span className="btn-text">View</span>
-                    <FaDownload className="btn-icon" />
                   </div>
                 </div>
               </motion.a>

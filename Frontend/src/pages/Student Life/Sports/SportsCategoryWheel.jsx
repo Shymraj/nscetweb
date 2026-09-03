@@ -138,29 +138,30 @@ const StudentCard = ({ student, index, side, photo }) => (
         transition={{ duration: 0.4, delay: index * 0.05 }}
         className="achiever-card"
     >
-        <div className="achiever-top">
-            <div className="achiever-avatar">
-                {photo ? <img src={photo} alt={student.name} /> : <FaUserGraduate size={24} />}
-            </div>
+        <div className="achiever-avatar-full">
+            {photo ? <img src={photo} alt={student.name} /> : <FaUserGraduate size={32} />}
+        </div>
+        
+        <div className="achiever-content-right">
             <div className="achiever-info">
                 <h4>{student.name}</h4>
                 <span>{student.dept || 'Student'}</span>
             </div>
-        </div>
-        
-        <div className="achiever-details">
-            <div className="achievement-text">
-                <strong>{student.achievement}</strong>
-            </div>
-            <div className="venue-text" style={{ color: 'var(--theme-primary)', fontWeight: 600 }}>
-                {student.sport}
-            </div>
-            {student.venue && (
-                <div className="venue-text">
-                    <FaMapMarkerAlt style={{ marginTop: '2px' }} />
-                    {student.venue}
+            
+            <div className="achiever-details">
+                <div className="achievement-text">
+                    <strong>{student.achievement}</strong>
                 </div>
-            )}
+                <div className="venue-text" style={{ color: 'var(--theme-primary)', fontWeight: 600 }}>
+                    {student.sport}
+                </div>
+                {student.venue && (
+                    <div className="venue-text">
+                        <FaMapMarkerAlt style={{ marginTop: '2px' }} />
+                        {student.venue}
+                    </div>
+                )}
+            </div>
         </div>
     </motion.div>
 );

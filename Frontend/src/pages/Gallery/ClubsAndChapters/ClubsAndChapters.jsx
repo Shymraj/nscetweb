@@ -105,9 +105,19 @@ const ClubsAndChapters = () => {
                     <div className="info-icon-wrapper">
                       <FaUsers />
                     </div>
-                    <div className="info-content">
+                    <div className="info-content w-full">
                       <span className="info-label">Members</span>
-                      <span className="info-value">{selectedClub.details?.members || 'To be updated'}</span>
+                      <div className="info-value members-list">
+                        {selectedClub.details?.members ? (
+                          selectedClub.details.members.split('\n').map((member, i) => (
+                            <div key={i} className="member-item">
+                              {member}
+                            </div>
+                          ))
+                        ) : (
+                          'To be updated'
+                        )}
+                      </div>
                     </div>
                   </motion.div>
                 </div>
