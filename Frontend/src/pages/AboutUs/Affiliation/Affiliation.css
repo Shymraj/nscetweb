@@ -416,3 +416,11 @@
 .affiliation-page {
     padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
 }
+
+/* =========================================
+   DARK MODE OVERRIDES
+   ========================================= */
+body.dark-mode .affiliation-page h2.affiliation-heading {
+  color: #60a5fa !important;
+  -webkit-text-fill-color: #60a5fa !important;
+}

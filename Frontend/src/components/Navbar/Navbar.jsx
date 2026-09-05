@@ -254,7 +254,7 @@ function Navbar() {
             </ul>
           </li>
           <li className={`dropdown ${activeDropdown === 'departments' ? 'active' : ''}`} onMouseLeave={() => { if (window.innerWidth > 1024) { setActiveDropdown(null); setActiveSubmenu(null); } }}>
-            <Link to="#" onClick={(e) => {
+            <Link to="#" style={{ cursor: "default" }} onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
                 setActiveDropdown(activeDropdown === 'departments' ? null : 'departments');
@@ -303,7 +303,7 @@ function Navbar() {
             </ul>
           </li>
           <li className={`dropdown ${activeDropdown === 'research' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="#" onClick={(e) => {
+            <Link to="#" style={{ cursor: "default" }} onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
                 setActiveDropdown(activeDropdown === 'research' ? null : 'research');
@@ -318,7 +318,7 @@ function Navbar() {
           </li>
           <li><Link to="/ispin">ISPIN</Link></li>
           <li className={`dropdown ${activeDropdown === 'gallery' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="#" onClick={(e) => {
+            <Link to="#" style={{ cursor: "default" }} onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
                 setActiveDropdown(activeDropdown === 'gallery' ? null : 'gallery');
@@ -333,7 +333,7 @@ function Navbar() {
             </ul>
           </li>
           <li className={`dropdown ${activeDropdown === 'student-life' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="#" onClick={(e) => {
+            <Link to="#" style={{ cursor: "default" }} onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
                 setActiveDropdown(activeDropdown === 'student-life' ? null : 'student-life');

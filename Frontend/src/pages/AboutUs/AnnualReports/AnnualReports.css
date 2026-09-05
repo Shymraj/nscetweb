@@ -921,8 +921,8 @@ body.dark-mode .doc-badge:hover {
 }
 
 .ar-principal-avatar {
-  width: 64px;
-  height: 64px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
