@@ -261,6 +261,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
+.ntf-tab-chip * {
+  cursor: pointer;
+}
+
 .ntf-tab-chip .tab-icon {
   color: #0284c7;
   font-size: 1rem;
@@ -315,6 +319,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
   position: relative;
+  cursor: default;
 }
 
 .ntf-staff-details {

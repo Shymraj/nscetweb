@@ -285,6 +285,9 @@ body.dark-mode .directory-search-input:focus {
   transition: all 0.25s ease;
 }
 
+.cat-tab * {
+  cursor: pointer;
+}
 body.dark-mode .cat-tab {
   color: #94a3b8;
 }

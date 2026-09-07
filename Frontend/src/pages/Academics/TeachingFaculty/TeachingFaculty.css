@@ -389,7 +389,7 @@
   position: relative;
   width: 260px;
   flex-shrink: 0;
-  cursor: pointer;
+  cursor: default;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-top 0.3s ease-in-out;
   border-top: 4px solid transparent;
   padding-bottom: 15px;

@@ -31,55 +31,66 @@ const NSSTeam = () => {
       name: "Mr. R. Pradeep Kumar",
       role: "Coordinator",
       dept: "Assistant Professor / ECE",
-      image: imgPradeep
+      image: imgPradeep,
+      img: "/ECE/pradeepkumar.jpg" 
     },
     {
       name: "Mr. B. Nagarajan",
       role: "Coordinator",
       dept: "Assistant Professor / MECH",
-      image: imgNagarajan
+      image: imgNagarajan,
+      img: "/MECH/nagarajan.jpg" 
     },
     {
       name: "Mr. C. Shiva",
       role: "Coordinator",
       dept: "Assistant Professor / EEE",
-      image: imgShiva
+      image: imgShiva,
+      img: "/EEE/shiva.jpg" 
     },
     {
       name: "Mr. P. Arul Jebaraj",
       role: "Member",
       dept: "Assistant Professor / Civil",
-      image: imgArulJebaraj
+      image: imgArulJebaraj,
+      img: "/CIVIL/aruljebaraj.jpg"
     },
     {
       name: "Mr. N. Kesavamoorthy",
       role: "Member",
       dept: "Assistant Professor / IT",
-      image: imgKesavamoorthy
+      image: imgKesavamoorthy,
+      img: "/IT/kesavamoorthy.jpg"
     },
     {
       name: "Mrs. N. Abirami",
       role: "Member",
       dept: "Assistant Professor / EEE",
-      image: imgAbirami
+      image: imgAbirami,
+      img: "/EEE/Abirami.jpg"
     },
     {
       name: "Mr. K. Rajaguru",
       role: "Member",
       dept: "Assistant Professor / Physics",
-      image: imgRajaguru
+      dept: "Assistant Professor / S&H",
+      image: imgRajaguru,
+      img: "/S&H/rajaguru.jpg"
     },
     {
       name: "Mr. J. Vinothkumar",
       role: "Member",
       dept: "Assistant Professor / AI&DS",
-      image: imgVinothkumar
+      image: imgVinothkumar,
+      img: "/AIDS/vinothkumar.jpg"
     },
     {
       name: "Mrs. M. Arulvizhi",
       role: "Member",
       dept: "Assistant Professor / Mathematics",
-      image: imgArulvizhi
+      dept: "Assistant Professor / S&H",
+      image: imgArulvizhi,
+      img: "/S&H/arulvizhi.jpg"
     }
   ];
 
@@ -115,8 +126,8 @@ const NSSTeam = () => {
               whileHover={{ y: -4 }}
             >
               <div className="nss-member-avatar">
-                {member.image ? (
-                  <img src={member.image} alt={member.name} className="nss-member-img" />
+                {member.image || member.img ? (
+                  <img src={member.image || member.img} alt={member.name} className="nss-member-img" />
                 ) : (
                   member.role === 'Coordinator' ? <FaUserTie /> : <FaUserAlt />
                 )}

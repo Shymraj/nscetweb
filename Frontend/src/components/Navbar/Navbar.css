@@ -356,6 +356,9 @@ header.scrolled {
     position: relative;
 }
 
+.nav-links a.no-page {
+    cursor: default;
+}
 
 .nav-links a::after {
     content: "";
@@ -1384,5 +1387,43 @@ body.dark-mode .search-result-item:hover {
     .nav-desktop-elements,
     .nav-right {
         gap: 4px !important;
+    }
+}
+
+/* ==========================================================================
+   GLOBAL PAGE WRAPPER & BANNER STYLES (ELLA PAGES KUM COMMON)
+   ========================================================================== */
+
+/* Navbar fixed/floating ah irundhaalum banner continuous ah navbar kku keela theriya padding-top 0 aakurrom */
+.common-page-wrapper {
+    padding-top: 0 !important; 
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Common Banner Style for all pages */
+.common-hero-banner {
+    width: 100%;
+    aspect-ratio: 8 / 3; /* Laptop la correct aana size */
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 0 !important;
+}
+
+/* Mobile View (Responsive) */
+@media (max-width: 767px) {
+    .common-page-wrapper {
+        /* Mobile navbar is exactly 60px. Matching 60px eliminates white gap and prevents banner from getting hidden */
+        padding-top: 60px !important; 
+    }
+    
+    .common-hero-banner {
+        aspect-ratio: 16 / 9; /* Mobile la banner theliva theriya */
     }
 }

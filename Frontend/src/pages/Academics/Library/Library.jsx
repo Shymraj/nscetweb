@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { 
   FaBook, 
   FaLaptopCode, 
@@ -11,11 +11,17 @@ import {
 import './Library.css'; 
 import bannerImage from './Banner/NSCET_LIBRARY.png';
 
-
 const AnimatedNumber = ({ value }) => {
   const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  
+  // Scroll panni intha edathukku vanthuttangala nu check panna:
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {
+    // Scroll panni antha section-a paarkumbothu mattum thaan counting start aagum
+    if (!isInView) return; 
+
     let start = 0;
     const end = parseInt(value, 10);
     if (start === end) return;
@@ -35,9 +41,9 @@ const AnimatedNumber = ({ value }) => {
     }, incrementTime);
 
     return () => clearInterval(timer);
-  }, [value]);
+  }, [value, isInView]);
 
-  return <span>{count.toLocaleString()}+</span>;
+  return <span ref={ref}>{count.toLocaleString()}+</span>;
 };
 
 const Library = () => {

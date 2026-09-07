@@ -73,7 +73,7 @@ const StatutesLayout = () => {
             
             {/* UNDERGRADUATE ACCORDION */}
             <div className={`programme-group accordion-group ${isUgOpen ? 'open' : ''}`}>
-              <div className="accordion-header" onClick={() => setIsUgOpen(!isUgOpen)}>
+              <div className="accordion-header">
                 <div className="accordion-title-box">
                   <span className="accordion-number">01</span>
                   <div>
@@ -81,7 +81,7 @@ const StatutesLayout = () => {
                     <p className="doc-meta">View regulation guidelines for all 7 UG departments</p>
                   </div>
                 </div>
-                {isUgOpen ? <FaChevronUp className="accordion-icon" /> : <FaChevronDown className="accordion-icon" />}
+                {isUgOpen ? <FaChevronUp className="accordion-icon" onClick={() => setIsUgOpen(!isUgOpen)} /> : <FaChevronDown className="accordion-icon" onClick={() => setIsUgOpen(!isUgOpen)} />}
               </div>
               
               <div className="accordion-content">
@@ -189,7 +189,7 @@ const StatutesLayout = () => {
 
             {/* POSTGRADUATE ACCORDION */}
             <div className={`programme-group accordion-group ${isPgOpen ? 'open' : ''}`}>
-              <div className="accordion-header" onClick={() => setIsPgOpen(!isPgOpen)}>
+              <div className="accordion-header">
                 <div className="accordion-title-box">
                   <span className="accordion-number">02</span>
                   <div>
@@ -197,7 +197,7 @@ const StatutesLayout = () => {
                     <p className="doc-meta">View regulation guidelines for PG departments</p>
                   </div>
                 </div>
-                {isPgOpen ? <FaChevronUp className="accordion-icon" /> : <FaChevronDown className="accordion-icon" />}
+                {isPgOpen ? <FaChevronUp className="accordion-icon" onClick={() => setIsPgOpen(!isPgOpen)} /> : <FaChevronDown className="accordion-icon" onClick={() => setIsPgOpen(!isPgOpen)} />}
               </div>
 
               <div className="accordion-content">

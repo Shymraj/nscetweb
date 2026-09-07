@@ -165,8 +165,8 @@
 }
 
 .iqac-principal-avatar {
-  width: 52px;
-  height: 52px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background: linear-gradient(135deg, #0284c7, #0369a1);
   display: flex;
@@ -498,6 +498,10 @@
   text-align: left;
   transition: all 0.3s ease;
   text-decoration: none;
+}
+
+.iqac-record-card * {
+  cursor: pointer;
 }
 
 .record-card-icon {

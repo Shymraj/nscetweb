@@ -384,9 +384,9 @@ body.dark-mode .card-shine-sweep {
 
 .horizontal-reports-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  max-width: 1500px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  max-width: 100%;
   margin: -1.5rem auto 0;
 }
 
@@ -415,6 +415,11 @@ body.dark-mode .card-shine-sweep {
   box-shadow: 0 4px 15px var(--nirf-shadow);
   transition: all 0.3s ease;
   overflow: hidden;
+  cursor: default;
+}
+
+.horizontal-report-tile * {
+  cursor: default;
 }
 
 .horizontal-report-tile:hover {
@@ -496,6 +501,11 @@ body.dark-mode .card-shine-sweep {
   font-size: 0.95rem;
   transition: all 0.3s ease;
   border: 1px solid var(--nirf-card-border);
+  cursor: pointer;
+}
+
+.download-btn-premium * {
+  cursor: pointer !important;
 }
 
 .horizontal-report-tile:hover .download-btn-premium {

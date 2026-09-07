@@ -6,8 +6,8 @@ import bannerImg from './banner/ANTIRAG.png';
 
 const committeeMembers = [
   { sno: 1, name: 'Dr. C. Mathalai Sundaram', designation: 'Principal', position: 'Chair Person' },
-  { sno: 2, name: 'Dr. M. Sathya', designation: 'Vice Principal / Placement Officer', position: 'Member' },
-  { sno: 3, name: 'Dr. N. Mathavan', designation: 'Prof / ECE', position: 'Member / Convener' },
+  { sno: 2, name: 'Dr. M. Sathya', designation: 'Vice Principal ', position: 'Member' },
+  { sno: 3, name: 'Dr. N. Mathavan', designation: 'Professor / ECE', position: 'Member / Convener' },
   { sno: 4, name: 'Mr. M. Kannan', designation: 'Police Inspector', position: 'Member' },
   { sno: 5, name: 'Mr. S. Satheesh', designation: 'Tahsildar', position: 'Member' },
   { sno: 6, name: 'Mr. P. Muthupandi', designation: 'NGO Representative', position: 'Member' },

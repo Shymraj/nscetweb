@@ -78,7 +78,13 @@ import AntiRaggingCell from "./pages/Student Life/AntiRaggingCell/AntiRaggingCel
 import EqualOpportunityCell from "./pages/Student Life/EqualOpportunityCell/EqualOpportunityCell";
 import HealthMedicalFacilities from "./pages/Student Life/HealthMedicalFacilities/HealthMedicalFacilities";
 import TransportFacilities from "./pages/Student Life/TransportFacilities/TransportFacilities";
+
+// SEDG MAIN & SUB-PAGES
 import SEDG from "./pages/Student Life/SEDG/SEDG";
+import SEDGGrievance from "./pages/Student Life/SEDG/SEDGGrievance";
+import SEDGScholarships from "./pages/Student Life/SEDG/SEDGScholarships";
+import SEDGMinutes from "./pages/Student Life/SEDG/SEDGMinutes";
+import SEDGWelfare from "./pages/Student Life/SEDG/SEDGWelfare";
 
 import AdminLogin from "./pages/Admin/Login";
 import AdminDashboard from "./pages/Admin/Dashboard";
@@ -106,6 +112,7 @@ const AppContent = () => {
       <ScrollToTop />
       {!hideGlobalNavAndFooter && <Navbar />}
 
+      <div className={location.pathname === '/' ? '' : 'modern-fonts'}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<Overview />} />
@@ -180,11 +187,18 @@ const AppContent = () => {
         <Route path="/student-life/equal-opportunity-cell" element={<EqualOpportunityCell />} />
         <Route path="/student-life/health-medical-facilities" element={<HealthMedicalFacilities />} />
         <Route path="/student-life/transport-facilities" element={<TransportFacilities />} />
+        
+        {/* SEDG Routes */}
         <Route path="/student-life/sedg" element={<SEDG />} />
+        <Route path="/student-life/sedg/grievance" element={<SEDGGrievance />} />
+        <Route path="/student-life/sedg/scholarships" element={<SEDGScholarships />} />
+        <Route path="/student-life/sedg/minutes" element={<SEDGMinutes />} />
+        <Route path="/student-life/sedg/welfare" element={<SEDGWelfare />} />
 
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
+      </div>
 
       {/* Admin route illana mattum thaan ChatBot varum */}
       {!isAdminRoute && <ChatBot />}
