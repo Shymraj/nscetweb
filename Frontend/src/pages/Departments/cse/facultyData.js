@@ -128,7 +128,7 @@ export const cseFacultyData = [
   {
     id: "abirami",
     slug: "abirami",
-    name: "Mrs. Abirami Kayathiri",
+    name: "Ms. Abirami Kayathiri S",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "abiramikayathiri@nscet.org",
@@ -178,7 +178,7 @@ export const cseFacultyData = [
   {
     id: "anusuya",
     slug: "anusuya",
-    name: "Mrs. Anusuya Vairamuthu",
+    name: "Mrs. Anusuya V",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "anuzyabe91@gmail.com",
@@ -220,7 +220,7 @@ export const cseFacultyData = [
   {
     id: "snega",
     slug: "snega",
-    name: "Mrs. J. S. Snega Priyanka",
+    name: "Ms. J. S. Snega Priyanka",
     desig: "Assistant Professor",
     qual: "M.E.",
     email: "snegapriyanka20@gmail.com",

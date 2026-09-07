@@ -211,7 +211,7 @@ export const civilFacultyData = [
   {
     id: "aruljebaraj",
     slug: "aruljebaraj",
-    name: "Mr. Arul Jebaraj",
+    name: "Mr. Arul Jebaraj P",
     desig: "Assistant Professor",
     qual: "M.Tech",
     email: "aruljebaraj@nscet.org",

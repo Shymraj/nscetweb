@@ -35,7 +35,7 @@ import imgPremkumar from "./images/General Engg - Premkumar.jpg";
 import imgJenifer from "./images/Jenifer Daksh.jpg";
 
 export const shFacultyData = [
-    {id: "dr-a-vembathurajesh", slug: "dr-a-vembathurajesh",  name: "Dr. A. Vembathurajesh", desig: "Head of the Department (HOD)", qual: "M.E., Ph.D, MISTE.", email: "vembathurajesh@nscet.org", image: imgVembathuRajesh, spec: "Materials, Thermal, Composites", objectPosition: "center 10%" ,
+    {id: "dr-a-vembathurajesh", slug: "dr-a-vembathurajesh",  name: "Dr. A. Vembathurajesh", desig: "Assistant Professor & Head [I/C] / S&H", qual: "B.E - Mechanical, M.E - Thermal, Ph.D - Mechanical", email: "vembathurajesh@nscet.org", image: imgVembathuRajesh, spec: "Materials, Thermal, Composites", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/dr-vembathurajesh-a-192b50426/",
     about: "Dr. A. Vembathurajesh is the Head of the Department with over 16 years of teaching and research experience in the Department of Science and Humanities. His areas of expertise include Materials, Thermal, and Composite Engineering. With numerous publications, research projects, patents, and academic achievements, he is dedicated to fostering innovation and excellence in engineering education.",
     publications: [
@@ -104,22 +104,22 @@ export const shFacultyData = [
       "10 Years"
     ]},
     {id: "mrs-t-subathamani", slug: "mrs-t-subathamani",  name: "Mrs. T. Subathamani", desig: "Assistant Professor", qual: "M.A., M.Phil., B.Ed.", email: "subathamani@gmail.com", image: imgSubathamani, spec: "English Literature & Soft Skills", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "Publication Title 1 — Journal of Engineering, 2024",
+      "Publication Title 2 — International Conference, 2023"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "Funded Project 1",
+      "Consultancy Project 2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "Patent Application (Published - 2023)"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "Excellence Award - 2024",
+      "Best Researcher Award - 2023"
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
@@ -193,43 +193,43 @@ export const shFacultyData = [
       "16 Years"
     ]},
     {id: "dr-s-selvapriya", slug: "dr-s-selvapriya",  name: "Dr. S. Selvapriya", desig: "Assistant Professor", qual: "M.A., M.Phil., Ph.D.", email: "selvapriyashailesh@gmail.com", image: imgSelvapriya, spec: "English Communication Skills", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "Publication Title 1 — Journal of Engineering, 2024",
+      "Publication Title 2 — International Conference, 2023"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "Funded Project 1",
+      "Consultancy Project 2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "Patent Application (Published - 2023)"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "Excellence Award - 2024",
+      "Best Researcher Award - 2023"
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
     {id: "mrs-s-reka", slug: "mrs-s-reka",  name: "Mrs. S. Reka", desig: "Assistant Professor", qual: "M.A., M.Phil.", email: "subhalakshmireka@gmail.com", image: imgReka, spec: "English Literature", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "Publication Title 1 — Journal of Engineering, 2024",
+      "Publication Title 2 — International Conference, 2023"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "Funded Project 1",
+      "Consultancy Project 2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "Patent Application (Published - 2023)"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "Excellence Award - 2024",
+      "Best Researcher Award - 2023"
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
@@ -249,22 +249,22 @@ export const shFacultyData = [
       "6 Years"
     ]},
     {id: "dr-s-devimeenakshmi", slug: "dr-s-devimeenakshmi",  name: "Dr. S. Devimeenakshmi", desig: "Assistant Professor (Chemistry)", qual: "M.Sc., Ph.D.", email: "devimeenakshi84@gmail.com", image: imgDeviMeenakshi, spec: "Physical Chemistry & Electrochemistry", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "Publication Title 1 — Journal of Engineering, 2024",
+      "Publication Title 2 — International Conference, 2023"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "Funded Project 1",
+      "Consultancy Project 2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "Patent Application (Published - 2023)"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "Excellence Award - 2024",
+      "Best Researcher Award - 2023"
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
@@ -294,28 +294,28 @@ export const shFacultyData = [
       "13 Years"
     ]},
     {id: "mrs-s-mufeena", slug: "mrs-s-mufeena",  name: "Mrs. S. Mufeena", desig: "Assistant Professor", qual: "M.Sc., M.Phil.", email: "mufeena@nscet.org", image: imgMufeena, spec: "Engineering Mathematics", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "Publication Title 1 — Journal of Engineering, 2024",
+      "Publication Title 2 — International Conference, 2023"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "Funded Project 1",
+      "Consultancy Project 2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "Patent Application (Published - 2023)"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "Excellence Award - 2024",
+      "Best Researcher Award - 2023"
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
     {id: "dr-r-saravanakumar", slug: "dr-r-saravanakumar",  name: "Dr. R. Saravana Kumar", desig: "Assistant Professor", qual: "M.Sc., Ph.D.", email: "saravanakumar@nscet.org", image: imgSaravanakumar, spec: "Chemistry", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "Dr. R. Saravana Kumar is a dedicated faculty member with over 22 years of teaching and research experience in the Department of Science and Humanities. His specialization is Chemistry, and he is passionate about delivering quality education, advancing scientific research, and inspiring students through innovative teaching and academic excellence.",
     publications: [
       "12"
@@ -326,44 +326,44 @@ export const shFacultyData = [
     experience: [
       "22.1 Years"
     ]},
-    {id: "dr-sumathra-m", slug: "dr-sumathra-m",  name: "Dr. Sumathra M", desig: "Assistant Professor", qual: "M.Sc., Ph.D - Chemistry", email: "sumathravms@gmail.com", image: imgSumathra, spec: "Inorganic & Polymer Chemistry", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    {id: "dr-sumathra-m", slug: "dr-sumathra-m",  name: "Dr. Sumathra M", desig: "Assistant Professor", qual: "B.Sc., M.Sc., Ph.D - Chemistry", email: "sumathravms@gmail.com", image: imgSumathra, spec: "Inorganic & Polymer Chemistry", objectPosition: "center 10%" ,
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "Publication Title 1 — Journal of Engineering, 2024",
+      "Publication Title 2 — International Conference, 2023"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "Funded Project 1",
+      "Consultancy Project 2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "Patent Application (Published - 2023)"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "Excellence Award - 2024",
+      "Best Researcher Award - 2023"
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
     {id: "sangeetha-v", slug: "sangeetha-v",  name: "Mrs. V. Sangeetha", desig: "Assistant Professor", qual: "M.A. English", email: "vijayansangeetha281985@gmail.com", image: imgSangeetha, spec: "English Phonetics & Grammar", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "Publication Title 1 — Journal of Engineering, 2024",
+      "Publication Title 2 — International Conference, 2023"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "Funded Project 1",
+      "Consultancy Project 2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "Patent Application (Published - 2023)"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "Excellence Award - 2024",
+      "Best Researcher Award - 2023"
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
@@ -390,64 +390,64 @@ export const shFacultyData = [
     experience: []
     },
     {id: "dr-easwari-m", slug: "dr-easwari-m",  name: "Dr. M. Easwari", desig: "Assistant Professor", qual: "M.Sc., Ph.D - Physics", email: "easwariphy@gmail.com", image: imgEaswari, spec: "Nuclear & Modern Physics", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "Publication Title 1 — Journal of Engineering, 2024",
+      "Publication Title 2 — International Conference, 2023"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "Funded Project 1",
+      "Consultancy Project 2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "Patent Application (Published - 2023)"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "Excellence Award - 2024",
+      "Best Researcher Award - 2023"
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
     {id: "ms-a-iniya", slug: "ms-a-iniya",  name: "Mrs. A. Iniya", desig: "Assistant Professor", qual: "M.E (CSE)", email: "iniyakames777@gmail.com", image: imgIniya, spec: "General Engineering & Programming", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "Publication Title 1 — Journal of Engineering, 2024",
+      "Publication Title 2 — International Conference, 2023"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "Funded Project 1",
+      "Consultancy Project 2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "Patent Application (Published - 2023)"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "Excellence Award - 2024",
+      "Best Researcher Award - 2023"
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
     {id: "ms-nandhini-m", slug: "ms-nandhini-m",  name: "Mrs. M. Nandhini", desig: "Assistant Professor", qual: "M.E (CSE)", email: "benandhu10@gmail.com", image: imgNandhini, spec: "Problem Solving & Python", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "Publication Title 1 — Journal of Engineering, 2024",
+      "Publication Title 2 — International Conference, 2023"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "Funded Project 1",
+      "Consultancy Project 2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "Patent Application (Published - 2023)"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "Excellence Award - 2024",
+      "Best Researcher Award - 2023"
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
@@ -477,27 +477,27 @@ export const shFacultyData = [
       "1 Year"
     ]},
     {id: "mr-ram-kumar-k", slug: "mr-ram-kumar-k",  name: "Mr. K. Ram Kumar", desig: "Assistant Professor", qual: "B.E - EEE., M.B.A", email: "ramkumar@nscet.org", image: imgRamKumar, spec: "General Engineering & Management", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/dummy-nscet",
+    linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
-      "Dummy Publication Title 1 — Journal of Engineering, 2024",
-      "Dummy Publication Title 2 — International Conference, 2023"
+      "Publication Title 1 — Journal of Engineering, 2024",
+      "Publication Title 2 — International Conference, 2023"
     ],
     projects: [
-      "Dummy Funded Project 1",
-      "Dummy Consultancy Project 2"
+      "Funded Project 1",
+      "Consultancy Project 2"
     ],
     patents: [
-      "Dummy Patent Application (Published - 2023)"
+      "Patent Application (Published - 2023)"
     ],
     awards: [
-      "Dummy Excellence Award - 2024",
-      "Dummy Best Researcher Award - 2023"
+      "Excellence Award - 2024",
+      "Best Researcher Award - 2023"
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mrs-s-rajeshshree", slug: "mrs-s-rajeshshree",  name: "Mrs. S. Rajeshshree", desig: "Assistant Professor", qual: "B.E., M.E.", email: "rajeshshree@nscet.org", image: imgRajeshshree, spec: "Semiconductor Technology, Digital Communication", objectPosition: "center 10%" ,
+    {id: "mrs-s-rajeshshree", slug: "mrs-s-rajeshshree",  name: "Ms. S. Rajeshshree", desig: "Assistant Professor", qual: "B.E - ECE, M.E - Applied Electronics", email: "rajeshshree@nscet.org", image: imgRajeshshree, spec: "Semiconductor Technology, Digital Communication", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/rajeshshree-ece-2aa7503a4",
     about: "Mrs. S. Rajeshshree is a dedicated faculty member with 2 years of teaching experience. Her areas of specialization include Semiconductor Technology and Digital Communication. She is passionate about research, innovation, and helping students build strong technical knowledge through practical and industry-oriented learning.",
     publications: [

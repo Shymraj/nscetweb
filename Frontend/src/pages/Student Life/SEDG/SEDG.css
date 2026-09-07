@@ -49,7 +49,9 @@ body.dark-mode .sedg-page {
 .sedg-hero {
   position: relative;
   width: 100%;
-  background: linear-gradient(135deg, #051630 0%, #0d3b8e 55%, #1e40af 100%);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('./banner/SEDG.png');
+  background-size: cover;
+  background-position: center;
   color: #ffffff;
   padding: 140px 24px 70px;
   display: flex;
