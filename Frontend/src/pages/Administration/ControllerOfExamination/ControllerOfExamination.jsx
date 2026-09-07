@@ -18,22 +18,22 @@ const deputyControllers = [
   {
     id: 1,
     name: "Mr. K. Ganesh",
-    qualification: "M.Tech,(Ph.D).,   Asst.Prof of EEE",
-    role: "Deputy exam cell",
+    qualification: "M.Tech,(Ph.D).,",
+    role: "Co-ordinator",
     image: ganeshImg
   },
   {
     id: 2,
     name: "Mr. V. Sivaganesan",
-    qualification: "M.E.(Ph.D)., Asst.Prof of MECH",
-    role: "Deputy exam cell",
+    qualification: "M.E.(Ph.D).,",
+    role: "Co-ordinator",
     image: sivaganesanImg
   },
   {
     id: 3,
     name: "Dr.R.Saravana Kumar",
-    qualification: "M.Sc., M.Phil, Ph.D., MISTE., Asst.Prof of S&H",
-    role: "Deputy exam cell",
+    qualification: "M.Sc., M.Phil, Ph.D.,",
+    role: "Co-ordinator",
     image: saravanaImg
   }
 ];
@@ -180,10 +180,10 @@ function ControllerOfExamination() {
         <section className='coe-section coe-team'>
           <div className='coe-header'>
             <FaUserTie className='coe-header-icon' />
-            <h2>Co-ordinaters of Exam Cell</h2>
+            <h2>Co-ordinators of Exam Cell</h2>
           </div>
           <div className='coe-content'>
-            <h3>Co-ordinaters</h3>
+            <h3>Co-ordinators</h3>
             <div className='coe-team-grid'>
               {deputyControllers.map((member) => (
                 <div key={member.id} className='coe-team-card'>
