@@ -162,6 +162,10 @@
   box-shadow: 0 8px 25px rgba(2, 132, 199, 0.35);
 }
 
+.grc-download-btn * {
+  cursor: pointer;
+}
+
 .grc-btn-icon {
   display: flex;
   align-items: center;
@@ -222,7 +226,8 @@
 }
 
 .grc-objective-card:hover .grc-objective-icon-wrap {
-  transform: rotate(-8deg) scale(1.08);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
 }
 
 .grc-objective-content h3 {
@@ -423,7 +428,7 @@
 }
 
 .grc-action-card:hover .grc-card-icon-wrap {
-  transform: scale(1.12) rotate(-5deg);
+  transform: translateY(-3px) scale(1.08);
 }
 
 .card-gradient-1 {

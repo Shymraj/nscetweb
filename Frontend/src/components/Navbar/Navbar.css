@@ -342,6 +342,10 @@ header.scrolled {
     position: relative;
 }
 
+.nav-links a.no-page {
+    cursor: default;
+}
+
 .nav-links a::after {
     content: "";
     position: absolute;

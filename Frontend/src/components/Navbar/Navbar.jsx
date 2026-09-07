@@ -261,7 +261,7 @@ function Navbar() {
             </ul>
           </li>
           <li className={`dropdown ${mobileMenuOpen === 'departments' ? 'mobile-expanded' : ''}`}>
-            <Link to="#" onClick={(e) => handleMenuClick(e, 'departments', true)}>Departments</Link>
+            <Link to="#" className="no-page" onClick={(e) => handleMenuClick(e, 'departments', true)}>Departments</Link>
             <ul className="dropdown-menu">
               <li className={`has-submenu ${mobileSubMenuOpen === 'cse' ? 'mobile-expanded' : ''}`}>
                 <span className="submenu-label" onClick={(e) => handleSubMenuClick(e, 'cse')}>
@@ -315,7 +315,7 @@ function Navbar() {
             </ul>
           </li>
           <li className={`dropdown ${mobileMenuOpen === 'research' ? 'mobile-expanded' : ''}`}>
-            <Link to="#" onClick={(e) => handleMenuClick(e, 'research', true)}>Research</Link>
+            <Link to="#" className="no-page" onClick={(e) => handleMenuClick(e, 'research', true)}>Research</Link>
             <ul className="dropdown-menu">
               <li><Link to="/research/rnd-cell">Research and Development Cell</Link></li>
               <li><Link to="/research/statistics">Research Statistics</Link></li>
@@ -326,7 +326,7 @@ function Navbar() {
           
           <li><Link to="/ispin">ISPIN</Link></li>
           <li className={`dropdown ${mobileMenuOpen === 'gallery' ? 'mobile-expanded' : ''}`}>
-            <Link to="#" onClick={(e) => handleMenuClick(e, 'gallery', true)}>Gallery</Link>
+            <Link to="#" className="no-page" onClick={(e) => handleMenuClick(e, 'gallery', true)}>Gallery</Link>
             <ul className="dropdown-menu">
               <li><Link to="/gallery/waves25">WAVES'26</Link></li>
               <li><Link to="/gallery/clubs-chapters">CLUBS & CHAPTERS</Link></li>
@@ -336,7 +336,7 @@ function Navbar() {
             </ul>
           </li>
           <li className={`dropdown ${mobileMenuOpen === 'studentLife' ? 'mobile-expanded' : ''}`}>
-            <Link to="#" onClick={(e) => handleMenuClick(e, 'studentLife', true)}>Student Life</Link>
+            <Link to="#" className="no-page" onClick={(e) => handleMenuClick(e, 'studentLife', true)}>Student Life</Link>
             <ul className="dropdown-menu">
               <li><Link to="/student-life/sports">Sports</Link></li>
               <li><Link to="/student-life/nss">NSS</Link></li>

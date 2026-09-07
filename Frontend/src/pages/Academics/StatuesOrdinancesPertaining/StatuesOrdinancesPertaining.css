@@ -178,10 +178,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 25px 30px;
-  cursor: pointer;
+  cursor: default !important;
   user-select: none;
   background: white;
   transition: background 0.3s ease;
+}
+
+.accordion-header h3, 
+.accordion-header p, 
+.accordion-header span {
+  cursor: default !important;
 }
 
 .accordion-header:hover {
@@ -211,6 +217,7 @@
   font-size: 1.2rem;
   color: #64748b;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .accordion-group.open .accordion-icon {
@@ -398,7 +405,12 @@
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
+  cursor: pointer !important;
   transition: all 0.3s ease;
+}
+
+.prog-chip span, .prog-chip .chip-icon {
+  cursor: pointer !important;
 }
 
 .prog-chip:hover {

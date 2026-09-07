@@ -311,20 +311,28 @@
 }
 
 .info-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #475569;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--theme-secondary);
+    margin-bottom: 0.25rem;
+    display: block;
+    cursor: default;
 }
 
 .info-value {
-  font-size: 0.95rem;
-  color: #0f172a;
-  font-weight: 600;
-  line-height: 1.6;
-  white-space: pre-wrap;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--theme-text);
+    line-height: 1.4;
+    cursor: default;
+}
+
+.member-item {
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+    cursor: default;
 }
 
 .modal-duties-section {
@@ -609,7 +617,9 @@ body.dark-mode .no-duties-card h3,
 body.dark-mode .no-duties-card h4,
 body.dark-mode .no-duties-card p,
 body.dark-mode .no-duties-card li,
-body.dark-mode .no-duties-card span {
+body.dark-mode .no-duties-card span,
+body.dark-mode .member-item,
+body.dark-mode .info-content div {
     color: #f1f5f9 !important;
 }
 

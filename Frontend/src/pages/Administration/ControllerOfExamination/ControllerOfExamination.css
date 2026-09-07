@@ -547,7 +547,12 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  margin-bottom: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coe-doc-card:last-child {
+  margin-bottom: 0;
 }
 
 .coe-doc-card:hover {

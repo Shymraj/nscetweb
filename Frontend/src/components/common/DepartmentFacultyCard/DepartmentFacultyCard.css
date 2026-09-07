@@ -13,6 +13,7 @@
   overflow: hidden; /* Added for edge-to-edge image */
   height: 100%;
   box-sizing: border-box;
+  cursor: default;
   transition: all 0.35s ease;
 }
 

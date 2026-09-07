@@ -145,10 +145,14 @@ body {
   border-radius: 20px;
   padding: 2px;
   position: relative;
-  cursor: pointer;
+  cursor: default;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.m1-stat-card * {
+  cursor: default !important;
 }
 
 .m1-stat-card::before {
@@ -315,7 +319,7 @@ body {
   overflow: hidden;
   border-radius: 18px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  cursor: pointer;
+  cursor: default;
   height: 280px; 
   background-color: #ffffff;
   border: 1px solid #cbd5e1;
