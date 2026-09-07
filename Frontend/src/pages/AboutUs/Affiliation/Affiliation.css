@@ -406,12 +406,12 @@
    RESPONSIVE NAVBAR PUSH DOWN FIX
    ========================================= */
 .affiliation-page {
-    padding-top: 135px !important; /* Matches Navbar height on Desktop */
+    padding-top: 0 !important;
 }
 
 @media (max-width: 767px) {
     .affiliation-page {
-        padding-top: 60px !important; /* Matches mobile navbar height */
+        padding-top: 60px !important;
     }
 }
 

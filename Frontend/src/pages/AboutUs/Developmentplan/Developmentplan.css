@@ -17,16 +17,15 @@
   overflow-x: hidden;
   margin: 0 !important;
   
-  /* 👇 IMAGE MELA HIDE AAGAMA IRUKKA EXACT NAVBAR GAP KUDUTHAACHU 👇 */
-  padding-top: 135px !important; 
+  padding-top: 0 !important; 
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
 
-/* Mobile ku gap konjam kammi aaganum */
+/* Mobile ku navbar 60px height-ku connect aaga */
 @media (max-width: 767px) {
   .dev-plan-page {
-    padding-top: 75px !important;
+    padding-top: 60px !important;
   }
 }
 
