@@ -28,8 +28,12 @@
 }
 
 /* Prevent text cursor on typography elements in Hero */
-.hero h1, .hero h2, .hero h3, .hero p, .hero span {
-    cursor: default;
+.hero h1,
+.hero h2,
+.hero h3,
+.hero p,
+.hero span {
+  cursor: default;
 }
 
 /* NEW: Background Wrapper for Blur Transitions */
@@ -530,6 +534,7 @@ body.dark-mode .hero .btn-secondary:hover {
     font-size: 12px;
   }
 }
+
 /* ==========================================================================
    COMING SOON TOAST (PROFESSIONAL & CLEAN)
    ========================================================================== */
