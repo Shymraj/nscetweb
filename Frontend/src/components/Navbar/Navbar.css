@@ -1327,10 +1327,9 @@ body.dark-mode .search-result-item:hover {
    GLOBAL PAGE WRAPPER & BANNER STYLES (ELLA PAGES KUM COMMON)
    ========================================================================== */
 
-/* Navbar fixed ah irukadhala, banner athukku pinnala poidama irukka indha gap thevai */
+/* Navbar fixed/floating ah irundhaalum banner continuous ah navbar kku keela theriya padding-top 0 aakurrom */
 .common-page-wrapper {
-    /* Desktop la Topbar(38px) + Navbar(76px) gap */
-    padding-top: 120px !important; 
+    padding-top: 0 !important; 
     width: 100%;
     overflow-x: hidden;
 }
@@ -1353,8 +1352,8 @@ body.dark-mode .search-result-item:hover {
 /* Mobile View (Responsive) */
 @media (max-width: 767px) {
     .common-page-wrapper {
-        /* Mobile la topbar hide aagidum, navbar 60px thaan. So gap kuraikurom */
-        padding-top: 65px !important; 
+        /* Mobile navbar is exactly 60px. Matching 60px eliminates white gap and prevents banner from getting hidden */
+        padding-top: 60px !important; 
     }
     
     .common-hero-banner {

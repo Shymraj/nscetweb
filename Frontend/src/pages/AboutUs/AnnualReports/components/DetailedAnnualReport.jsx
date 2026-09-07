@@ -10,15 +10,13 @@ import {
   FaLeaf,
   FaCheckCircle,
   FaUserTie,
-  FaAward,
   FaCalendarAlt,
   FaHandshake,
   FaBook,
   FaDesktop,
   FaLaptop,
   FaChevronDown,
-  FaChevronUp,
-  FaFileAlt
+  FaChevronUp
 } from 'react-icons/fa';
 import principalImage from '../../AnnualAccounts/img/prinicipal.jpg';
 
@@ -319,12 +317,8 @@ const DetailedAnnualReport = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="exec-plain-grid">
-            {/* Left: Badges + Heading + Description */}
+            {/* Left: Heading + Description */}
             <div className="exec-plain-left">
-              <div className="exec-badge-wrap">
-                <span className="exec-badge-plain"><FaFileAlt /> OFFICIAL IQAC REPORT</span>
-                <span className="exec-badge-plain gold"><FaAward /> NAAC QUALITY ALIGNED</span>
-              </div>
               <h3 className="exec-plain-heading">Institutional Quality Overview</h3>
               <p className="exec-plain-desc">
                 The Internal Quality Assurance Cell (IQAC) plays a vital role in improving academic and administrative quality in accordance with NAAC guidelines. This report highlights the major activities and achievements of Nadar Saraswathi College of Engineering &amp; Technology during the Academic Year 2024–25.

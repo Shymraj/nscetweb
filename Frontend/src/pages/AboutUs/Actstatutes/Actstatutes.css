@@ -759,7 +759,7 @@
    ========================================================================== */
 
 .common-page-wrapper {
-    padding-top: 135px !important; /* 👈 115px la irunthu 135px ku increase panniyachu */
+    padding-top: 0 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
     margin: 0 !important;
@@ -789,6 +789,6 @@
 /* Mobile View Gap Adjustments */
 @media (max-width: 767px) {
     .common-page-wrapper {
-        padding-top: 75px !important; /* 👈 Mobile-layum 60px la irunthu 75px ku erakkiyachu */
+        padding-top: 60px !important;
     }
 }
