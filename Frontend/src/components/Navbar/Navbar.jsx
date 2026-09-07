@@ -71,6 +71,8 @@ const searchData = [
 function Navbar() {
 
   const [darkMode, setDarkMode] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -80,14 +82,10 @@ function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  // Mobile Accordion States
-  const [mobileMenuOpen, setMobileMenuOpen] = useState("");
-  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState("");
-
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setMobileMenuOpen("");
-    setMobileSubMenuOpen("");
+    setActiveDropdown(null);
+    setActiveSubmenu(null);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -98,6 +96,7 @@ function Navbar() {
         setIsScrolled(false);
       }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -132,28 +131,6 @@ function Navbar() {
     setShowSearch(false);
     setSearchQuery("");
     setSearchResults([]);
-  };
-
-  // Logic to handle mobile menu clicks
-  const handleMenuClick = (e, menuName, isDummy) => {
-    if (window.innerWidth <= 1024) {
-      if (mobileMenuOpen !== menuName) {
-        e.preventDefault();
-        setMobileMenuOpen(menuName);
-        setMobileSubMenuOpen(""); // Reset submenus
-      } else if (isDummy) {
-        e.preventDefault();
-        setMobileMenuOpen(""); // Close if it's a dummy link (#)
-      }
-    }
-  };
-
-  const handleSubMenuClick = (e, subMenuName) => {
-    if (window.innerWidth <= 1024) {
-      e.preventDefault();
-      e.stopPropagation();
-      setMobileSubMenuOpen(mobileSubMenuOpen === subMenuName ? "" : subMenuName);
-    }
   };
 
   return (
@@ -194,10 +171,12 @@ function Navbar() {
       </div>
 
       <nav className="navbar">
+
         <Link to="/" className="logo-section" style={{ textDecoration: 'none' }}>
           <div className="logo-box">
             <img src={logo} alt="NSCET Logo" className="logo" />
           </div>
+
           <div className="college-name">
             <h2 className="nscet-text">NSCET</h2>
           </div>
@@ -206,222 +185,262 @@ function Navbar() {
         <ul key={location.pathname} className={isMobileMenuOpen ? "nav-links active" : "nav-links"}>
           <li><Link to="/">Home</Link></li>
 
-          <li className={`dropdown ${mobileMenuOpen === 'about' ? 'mobile-expanded' : ''}`}>
-            <Link to="/about" onClick={(e) => handleMenuClick(e, 'about', false)}>About Us</Link>
-      <ul className="dropdown-menu">
-        <li><Link to="/about">About NSCET</Link></li>
-        <li><Link to="/about/actstatutes">Act and Statutes</Link></li>
-        <li><Link to="/about/development-plan">Institutional Development Plan</Link></li>
-        <li><Link to="/about/affiliation">Affiliation & Accreditation</Link></li>
-        <li><Link to="/about/annual-accounts">Annual Accounts</Link></li>
-      </ul>
-    </li>
 
-          <li className={`dropdown ${mobileMenuOpen === 'admin' ? 'mobile-expanded' : ''}`}>
-            <Link to="/administration/tmhnutrust" onClick={(e) => handleMenuClick(e, 'admin', false)}>Administration</Link>
-      <ul className="dropdown-menu">
-        <li><Link to="/administration/tmhnutrust">TMHNU Trust</Link></li>
-        <li><Link to="/administration/academic-leadership">Academic Leadership</Link></li>
-        <li><Link to="/administration/controller-examination">Exam Cell</Link></li>
-        <li><Link to="/administration/ombudsperson">Ombudsperson</Link></li>
-        <li>
-          <a
-            href="#"
-            onClick={(e) => {
+          <li className={`dropdown ${activeDropdown === 'about' ? 'active' : ''}`}
+            onMouseEnter={() => window.innerWidth > 1024 && setActiveDropdown('about')}
+            onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
               e.preventDefault();
-              window.open(governingPdf + '#toolbar=0', "_blank");
-            }}
-          >
-            Governing Council
-          </a>
-        </li>
-        <li><Link to="/administration/internal-complaints-committee">Internal Complaints Committee</Link></li>
-      </ul>
-    </li>
-          <li className={`dropdown ${mobileMenuOpen === 'academics' ? 'mobile-expanded' : ''}`}>
-            <Link to="/academics/details-of-academic-programs" onClick={(e) => handleMenuClick(e, 'academics', false)}>Academics</Link>
-      <ul className="dropdown-menu">
-        <li><Link to="/academics/details-of-academic-programs">Details of Academic Programs</Link></li>
-        <li><Link to="/academics/academic-calendar">Academic Calendar</Link></li>
-        <li><Link to="/academics/statutes-ordinances-pertaining">Statutes/Ordinances Pertaining</Link></li>
-        <li><Link to="/academics/teaching-faculty">Teaching Faculty</Link></li>
-        <li><Link to="/academics/non-teaching-faculty">Non-Teaching Faculty</Link></li>
-        <li><Link to="/academics/iqac">IQAC</Link></li>
-        <li className={`has-submenu ${mobileSubMenuOpen === 'elearning' ? 'mobile-expanded' : ''}`}>
-          <span className="submenu-label" onClick={(e) => handleSubMenuClick(e, 'elearning')}>
-            E-learning <span className="submenu-arrow">›</span>
-          </span>
-          <ul className="sub-dropdown-menu">
-            <li><Link to="/academics/e-learning/infosys-springboard">INFOSYS SPRINGBOARD</Link></li>
-            <li><Link to="/academics/e-learning/nptel">NPTEL</Link></li>
-          </ul>
-        </li>
-        <li><Link to="/academics/library">Library</Link></li>
-        <li><Link to="/academics/labs">Labs</Link></li>
-        <li><Link to="/academics/industry-collaboration">Industry Collaboration</Link></li>
-      </ul>
-    </li>
-    <li className={`dropdown ${mobileMenuOpen === 'departments' ? 'mobile-expanded' : ''}`}>
-      <Link to="#" onClick={(e) => handleMenuClick(e, 'departments', true)}>Departments</Link>
-      <ul className="dropdown-menu">
-        <li className={`has-submenu ${mobileSubMenuOpen === 'cse' ? 'mobile-expanded' : ''}`}>
-          <span className="submenu-label" onClick={(e) => handleSubMenuClick(e, 'cse')}>
-            Dept of Computer Science & Engineering <span className="submenu-arrow">›</span>
-          </span>
-          <ul className="sub-dropdown-menu">
-            <li><Link to="/departments/cse">B.E Computer Science & Engineering</Link></li>
-            <li><Link to="/departments/me-cse">M.E Computer Science & Engineering</Link></li>
-            <li><Link to="/departments/it">B.TECH Information Technology</Link></li>
-            <li><Link to="/departments/aids">B.TECH Artificial Intelligence & Data Science</Link></li>
-          </ul>
-        </li>
-        <li className={`has-submenu ${mobileSubMenuOpen === 'civil' ? 'mobile-expanded' : ''}`}>
-          <span className="submenu-label" onClick={(e) => handleSubMenuClick(e, 'civil')}>
-            Dept of Civil Engineering <span className="submenu-arrow">›</span>
-          </span>
-          <ul className="sub-dropdown-menu">
-            <li><Link to="/departments/civil">B.E Civil Engineering</Link></li>
-            <li><Link to="/departments/me-structural">M.E Structural Engineering</Link></li>
-          </ul>
-        </li>
-        <li className={`has-submenu ${mobileSubMenuOpen === 'mech' ? 'mobile-expanded' : ''}`}>
-          <span className="submenu-label" onClick={(e) => handleSubMenuClick(e, 'mech')}>
-            Dept of Mechanical Engineering <span className="submenu-arrow">›</span>
-          </span>
-          <ul className="sub-dropdown-menu">
-            <li><Link to="/departments/mechanical">B.E Mechanical Engineering</Link></li>
-            <li><Link to="/departments/me-manufacturing">M.E Manufacturing Engineering</Link></li>
-          </ul>
-        </li>
-        <li className={`has-submenu ${mobileSubMenuOpen === 'electrical' ? 'mobile-expanded' : ''}`}>
-          <span className="submenu-label" onClick={(e) => handleSubMenuClick(e, 'electrical')}>
-            Dept of Electrical Engineering <span className="submenu-arrow">›</span>
-          </span>
-          <ul className="sub-dropdown-menu">
-            <li><Link to="/departments/electrical">B.E Electrical & Electronics Engineering</Link></li>
-            <li><Link to="/departments/me-embedded">M.E Embedded System & Technology</Link></li>
-          </ul>
-        </li>
-        <li className={`has-submenu ${mobileSubMenuOpen === 'electronics' ? 'mobile-expanded' : ''}`}>
-          <span className="submenu-label" onClick={(e) => handleSubMenuClick(e, 'electronics')}>
-            Dept of Electronics Engineering <span className="submenu-arrow">›</span>
-          </span>
-          <ul className="sub-dropdown-menu">
-            <li><Link to="/departments/electronics">B.E Electronics & Communication Engineering</Link></li>
-          </ul>
-        </li>
-        <li>
-          <Link to="/departments/science-humanities">Science & Humanities</Link>
-        </li>
-      </ul>
-    </li>
-    <li className={`dropdown ${mobileMenuOpen === 'research' ? 'mobile-expanded' : ''}`}>
-      <Link to="#" onClick={(e) => handleMenuClick(e, 'research', true)}>Research</Link>
-      <ul className="dropdown-menu">
-        <li><Link to="/research/rnd-cell">Research and Development Cell</Link></li>
-        <li><Link to="/research/statistics">Research Statistics</Link></li>
-        <li><Link to="/research/centre">Research Centre</Link></li>
-        <li><Link to="/research/entrepreneurship-cell">Entrepreneurship Development Cell</Link></li>
-      </ul>
-    </li>
-          <li><Link to="/ispin">iSPIN</Link></li>
-          <li className={`dropdown ${mobileMenuOpen === 'gallery' ? 'mobile-expanded' : ''}`}>
-            <Link to="#" onClick={(e) => handleMenuClick(e, 'gallery', true)}>Gallery</Link>
-        <ul className="dropdown-menu">
-          <li><Link to="/gallery/waves25">WAVES'26</Link></li>
-          <li><Link to="/gallery/clubs-chapters">Clubs & Chapters</Link></li>
-          <li><Link to="/gallery/nirf">NIRF</Link></li>
-          <li><Link to="/gallery/rti">RTI</Link></li>
-          <li><Link to="/gallery/events">Events</Link></li>
-        </ul>
-      </li>
-      <li className={`dropdown ${mobileMenuOpen === 'studentLife' ? 'mobile-expanded' : ''}`}>
-        <Link to="#" onClick={(e) => handleMenuClick(e, 'studentLife', true)}>Student Life</Link>
-        <ul className="dropdown-menu">
-          <li><Link to="/student-life/sports">Sports</Link></li>
-          <li><Link to="/student-life/nss">NSS</Link></li>
-          <li><Link to="/student-life/boys-hostel">Boys Hostel</Link></li>
-          <li><Link to="/student-life/girls-hostel">Girls Hostel</Link></li>
-          <li><Link to="/student-life/placements">Placements</Link></li>
-          <li><Link to="/student-life/grievance-redressal">Grievance Redressal</Link></li>
-          <li><Link to="/student-life/anti-ragging-cell">Anti-Ragging Cell</Link></li>
-          <li><Link to="/student-life/equal-opportunity-cell">Equal Opportunity Cell</Link></li>
-          <li><Link to="/student-life/health-medical-facilities">Health and Medical Facilities</Link></li>
-          <li><Link to="/student-life/transport-facilities">Transport Facilities</Link></li>
-          <li><Link to="/student-life/sedg">SEDG</Link></li>
-        </ul>
-      </li>
-
-      <li><Link to="/alumni">Alumni</Link></li>
-      <li><Link to="/contact">Contact</Link></li>
-    </ul>
-
-    <div className="nav-right">
-      <div className="nav-desktop-elements" style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: showSearch ? 0 : 1, visibility: showSearch ? 'hidden' : 'visible', pointerEvents: showSearch ? 'none' : 'auto', transition: 'opacity 0.3s ease' }}>
-        <button className="search-btn" onClick={() => setShowSearch(true)} title="Search" aria-label="Search">
-          <FaSearch />
-        </button>
-        <button className="theme-btn" onClick={() => setDarkMode(!darkMode)} title="Toggle Theme" aria-label="Toggle Theme">
-          {darkMode ? <FaSun /> : <FaMoon />}
-        </button>
-        <img src="/images/naac.png?v=3" alt="NAAC Logo" className="naac-logo" />
-      </div>
-
-      {showSearch && (
-        <div className="search-box">
-          <FaSearch className="search-icon" />
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchQuery}
-            onChange={handleSearchChange}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' && searchResults.length > 0) {
-                handleSearchResultClick(searchResults[0]);
+              if (window.innerWidth <= 1024) {
+                setActiveDropdown(activeDropdown === 'about' ? null : 'about');
               }
-            }}
-            autoFocus
-          />
-          <button
-            className="close-search"
-            onClick={() => {
-              setShowSearch(false);
-              setSearchQuery("");
-              setSearchResults([]);
-            }}
-            title="Close Search"
-            aria-label="Close Search"
-          >
-            <FaTimes />
-          </button>
+            }}>About Us</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/about">About NSCET</Link></li>
+              <li><Link to="/about/actstatutes">Act and Statutes</Link></li>
+              <li><Link to="/about/development-plan">Institutional Development Plan</Link></li>
+              <li><Link to="/about/affiliation">Affiliation & Accreditation</Link></li>
+              <li><Link to="/about/annual-accounts">Annual Accounts</Link></li>
+            </ul>
+          </li>
 
-          {searchResults.length > 0 && (
-            <div className="search-results">
-              {searchResults.map((result, index) => (
-                <div
-                  key={index}
-                  className="search-result-item"
-                  onClick={() => handleSearchResultClick(result)}
+
+          <li className={`dropdown ${activeDropdown === 'admin' ? 'active' : ''}`}
+            onMouseEnter={() => window.innerWidth > 1024 && setActiveDropdown('admin')}
+            onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
+              if (window.innerWidth <= 1024) {
+                setActiveDropdown(activeDropdown === 'admin' ? null : 'admin');
+              }
+            }}>Administration</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/administration/tmhnutrust">TMHNU Trust</Link></li>
+              <li><Link to="/administration/academic-leadership">Academic Leadership</Link></li>
+              <li><Link to="/administration/controller-examination">Exam Cell</Link></li>
+              <li><Link to="/administration/ombudsperson">Ombudsperson</Link></li>
+              <li>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open(governingPdf + '#toolbar=0', "_blank");
+                  }}
                 >
-                  {result.name}
+                  Governing Council
+                </a>
+              </li>
+              <li><Link to="/administration/internal-complaints-committee">Internal Complaints Committee</Link></li>
+            </ul>
+          </li>
+          <li className={`dropdown ${activeDropdown === 'academics' ? 'active' : ''}`}
+            onMouseEnter={() => window.innerWidth > 1024 && setActiveDropdown('academics')}
+            onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
+              if (window.innerWidth <= 1024) {
+                setActiveDropdown(activeDropdown === 'academics' ? null : 'academics');
+              }
+            }}>Academics</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/academics/details-of-academic-programs">Details of Academic Programs</Link></li>
+              <li><Link to="/academics/academic-calendar">Academic Calendar</Link></li>
+              <li><Link to="/academics/statutes-ordinances-pertaining">Statutes/Ordinances Pertaining</Link></li>
+              <li><Link to="/academics/teaching-faculty">Teaching Faculty</Link></li>
+              <li><Link to="/academics/non-teaching-faculty">Non-Teaching Faculty</Link></li>
+              <li><Link to="/academics/iqac">IQAC</Link></li>
+              <li className="has-submenu">
+                <span className="submenu-label">E-learning <span className="submenu-arrow">›</span></span>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/academics/e-learning/infosys-springboard">INFOSYS SPRINGBOARD</Link></li>
+                  <li><Link to="/academics/e-learning/nptel">NPTEL</Link></li>
+                </ul>
+              </li>
+              <li><Link to="/academics/library">Library</Link></li>
+              <li><Link to="/academics/labs">Labs</Link></li>
+              <li><Link to="/academics/industry-collaboration">Industry Collaboration</Link></li>
+            </ul>
+          </li>
+          <li className={`dropdown ${activeDropdown === 'departments' ? 'active' : ''}`} onMouseLeave={() => { if (window.innerWidth > 1024) { setActiveDropdown(null); setActiveSubmenu(null); } }}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
+              if (window.innerWidth <= 1024) {
+                setActiveDropdown(activeDropdown === 'departments' ? null : 'departments');
+              }
+            }}>Departments</Link>
+            <ul className={`dropdown-menu ${activeSubmenu ? 'has-active-submenu' : ''}`}>
+              <li className={`has-submenu ${activeSubmenu === 'cse' ? 'active' : ''}`}>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'cse' ? null : 'cse'); }}>Dept of Computer Science & Engineering <span className="submenu-arrow">›</span></span>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/departments/cse">B.E Computer Science & Engineering</Link></li>
+                  <li><Link to="/departments/me-cse">M.E Computer Science & Engineering</Link></li>
+                  <li><Link to="/departments/it">B.TECH Information Technology</Link></li>
+                  <li><Link to="/departments/aids">B.TECH Artificial Intelligence & Data Science</Link></li>
+                </ul>
+              </li>
+              <li className={`has-submenu ${activeSubmenu === 'civil' ? 'active' : ''}`}>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'civil' ? null : 'civil'); }}>Dept of Civil Engineering <span className="submenu-arrow">›</span></span>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/departments/civil">B.E Civil Engineering</Link></li>
+                  <li><Link to="/departments/me-structural">M.E Structural Engineering</Link></li>
+                </ul>
+              </li>
+              <li className={`has-submenu ${activeSubmenu === 'mech' ? 'active' : ''}`}>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'mech' ? null : 'mech'); }}>Dept of Mechanical Engineering <span className="submenu-arrow">›</span></span>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/departments/mechanical">B.E Mechanical Engineering</Link></li>
+                  <li><Link to="/departments/me-manufacturing">M.E Manufacturing Engineering</Link></li>
+                </ul>
+              </li>
+              <li className={`has-submenu ${activeSubmenu === 'eee' ? 'active' : ''}`}>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'eee' ? null : 'eee'); }}>Dept of Electrical Engineering <span className="submenu-arrow">›</span></span>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/departments/electrical">B.E Electrical & Electronics Engineering</Link></li>
+                  <li><Link to="/departments/me-embedded">M.E Embedded System & Technology</Link></li>
+                </ul>
+              </li>
+              <li className={`has-submenu ${activeSubmenu === 'ece' ? 'active' : ''}`}>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'ece' ? null : 'ece'); }}>Dept of Electronics Engineering <span className="submenu-arrow">›</span></span>
+                <ul className="sub-dropdown-menu">
+                  <li><Link to="/departments/electronics">B.E Electronics & Communication Engineering</Link></li>
+                </ul>
+              </li>
+              <li>
+                <Link to="/departments/science-humanities">Science & Humanities</Link>
+              </li>
+            </ul>
+          </li>
+          <li className={`dropdown ${activeDropdown === 'research' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
+              if (window.innerWidth <= 1024) {
+                setActiveDropdown(activeDropdown === 'research' ? null : 'research');
+              }
+            }}>Research</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/research/rnd-cell">Research and Development Cell</Link></li>
+              <li><Link to="/research/statistics">Research Statistics</Link></li>
+              <li><Link to="/research/centre">Research Centre</Link></li>
+              <li><Link to="/research/entrepreneurship-cell">Entrepreneurship Development Cell</Link></li>
+            </ul>
+          </li>
+          <li><Link to="/ispin">iSPIN</Link></li>
+          <li className={`dropdown ${activeDropdown === 'gallery' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
+              if (window.innerWidth <= 1024) {
+                setActiveDropdown(activeDropdown === 'gallery' ? null : 'gallery');
+              }
+            }}>Gallery</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/gallery/waves25">WAVES'26</Link></li>
+              <li><Link to="/gallery/clubs-chapters">Clubs & Chapters</Link></li>
+              <li><Link to="/gallery/nirf">NIRF</Link></li>
+              <li><Link to="/gallery/rti">RTI</Link></li>
+              <li><Link to="/gallery/events">Events</Link></li>
+            </ul>
+          </li>
+          <li className={`dropdown ${activeDropdown === 'student-life' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
+              if (window.innerWidth <= 1024) {
+                setActiveDropdown(activeDropdown === 'student-life' ? null : 'student-life');
+              }
+            }}>Student Life</Link>
+            <ul className="dropdown-menu">
+              <li><Link to="/student-life/sports">Sports</Link></li>
+              <li><Link to="/student-life/nss">NSS</Link></li>
+              <li><Link to="/student-life/boys-hostel">Boys Hostel</Link></li>
+              <li><Link to="/student-life/girls-hostel">Girls Hostel</Link></li>
+              <li><Link to="/student-life/placements">Placements</Link></li>
+              <li><Link to="/student-life/grievance-redressal">Grievance Redressal</Link></li>
+              <li><Link to="/student-life/anti-ragging-cell">Anti-Ragging Cell</Link></li>
+              <li><Link to="/student-life/equal-opportunity-cell">Equal Opportunity Cell</Link></li>
+              <li><Link to="/student-life/health-medical-facilities">Health and Medical Facilities</Link></li>
+              <li><Link to="/student-life/transport-facilities">Transport Facilities</Link></li>
+              <li><Link to="/student-life/sedg">SEDG</Link></li>
+            </ul>
+          </li>
+          <li><Link to="/alumni">Alumni</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+        </ul>
+
+        <div className="nav-right">
+          {!showSearch ? (
+            <div className="nav-desktop-elements">
+              <button
+                className="search-btn"
+                onClick={() => setShowSearch(true)}
+                title="Search"
+                aria-label="Search"
+              >
+                <FaSearch />
+              </button>
+              <button
+                className="theme-btn"
+                onClick={() => setDarkMode(!darkMode)}
+                title="Toggle Theme"
+                aria-label="Toggle Theme"
+              >
+                {darkMode ? <FaSun /> : <FaMoon />}
+              </button>
+
+              <img src="/images/naac.png?v=3" alt="NAAC Logo" className="naac-logo" />
+            </div>
+          ) : (
+            <div className="search-box">
+              <FaSearch className="search-icon" />
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={handleSearchChange}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && searchResults.length > 0) {
+                    handleSearchResultClick(searchResults[0]);
+                  }
+                }}
+                autoFocus
+              />
+              <button
+                className="close-search"
+                onClick={() => {
+                  setShowSearch(false);
+                  setSearchQuery("");
+                  setSearchResults([]);
+                }}
+                title="Close Search"
+                aria-label="Close Search"
+              >
+                <FaTimes />
+              </button>
+
+              {searchResults.length > 0 && (
+                <div className="search-results">
+                  {searchResults.map((result, index) => (
+                    <div
+                      key={index}
+                      className="search-result-item"
+                      onClick={() => handleSearchResultClick(result)}
+                    >
+                      {result.name}
+                    </div>
+                  ))}
                 </div>
-              ))}
+              )}
             </div>
           )}
+          <button className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
-      )}
-      <button className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-        {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-      </button>
-    </div>
 
-  {/* TNEA Badge logic - dynamically hides on non-home pages for mobile */ }
-  <div className={`tnea-badge-hanging ${location.pathname !== '/' ? 'hide-tnea-mobile' : ''}`}>
-    <span className="tnea-badge-title">TNEA CODE</span>
-    <span className="tnea-badge-number">5865</span>
-  </div>
-      </nav >
-    </header >
+        <div className="tnea-badge-hanging">
+          <span className="tnea-badge-title">TNEA CODE</span>
+          <span className="tnea-badge-number">5865</span>
+        </div>
+      </nav>
+    </header>
   );
 }
 
