@@ -10,6 +10,13 @@ import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import bannerImg from "./Banner/TMHNUTRUST.png";
 import "./TMHNUTrust.css";
 
+import imgDharmarajan from "../../../assets/tmhnu/Dharmarajan.jpeg";
+import imgJeevagan from "../../../assets/tmhnu/AS Jeevagan sir - Vice President.jpg";
+import imgAnandhavel from "../../../assets/tmhnu/General Secretary-M.M.Anandhavel.jpg";
+import imgRamachandran from "../../../assets/tmhnu/Ramachandran - Treasurer.jpg";
+import imgSomaSundaram from "../../../assets/tmhnu/SomaSundaram.jpg";
+import imgSubramani from "../../../assets/tmhnu/subramani.jpg";
+
 /* ─── Animation Helpers ─── */
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -58,25 +65,25 @@ const governingCell = [
   {
     name: "Mr. A. S. G. Dharmarajan, B.A",
     role: "President",
-    image: "https://nscet.org/assets/img/administration/Dharmarajan.jpeg",
+    image: imgDharmarajan,
     icon: <FaCrown />
   },
   {
     name: "Mr. A. S. Jeevagan",
     role: "Vice President",
-    image: "https://nscet.org/assets/img/administration/AS%20Jeevagan%20sir%20-%20Vice%20President.jpg",
+    image: imgJeevagan,
     icon: <FaChessKing />
   },
   {
     name: "Mr. M.M. Anandhavel, M.B.A",
     role: "General Secretary",
-    image: "https://nscet.org/assets/img/administration/General%20Secretary-M.M.Anandhavel.jpg",
+    image: imgAnandhavel,
     icon: <FaShieldAlt />
   },
   {
     name: "Mr. B. Ramachandran, M.B.A",
     role: "Treasurer",
-    image: "https://nscet.org/assets/img/administration/Ramachandran%20-%20Treasurer.jpg",
+    image: imgRamachandran,
     icon: <FaHandshake />
   }
 ];
@@ -100,12 +107,12 @@ const prominentPersonalities = [
   {
     name: "Er. A.S.S.S. Soma Sundaram, B.E.",
     role: "Secretary",
-    image: "https://nscet.org/assets/img/administration/SomaSundaram.jpg"
+    image: imgSomaSundaram
   },
   {
     name: "Mr. T. Subramani, B.C.A., M.B.A.",
     role: "Joint Secretary",
-    image: "https://nscet.org/assets/img/administration/subramani.jpg"
+    image: imgSubramani
   }
 ];
 

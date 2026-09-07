@@ -47,9 +47,9 @@ const searchData = [
   { name: "Research Statistics", path: "/research/statistics" },
   { name: "Research Centre", path: "/research/centre" },
   { name: "Entrepreneurship Development Cell", path: "/research/entrepreneurship-cell" },
-  { name: "ISPIN", path: "/ispin" },
+  { name: "iSPIN", path: "/ispin" },
   { name: "WAVES'26", path: "/gallery/waves25" },
-  { name: "CLUBS & CHAPTERS", path: "/gallery/clubs-chapters" },
+  { name: "Clubs & Chapters", path: "/gallery/clubs-chapters" },
   { name: "NIRF", path: "/gallery/nirf" },
   { name: "RTI", path: "/gallery/rti" },
   { name: "Events", path: "/gallery/events" },
@@ -186,14 +186,17 @@ function Navbar() {
           <li><Link to="/">Home</Link></li>
 
 
-          <li className={`dropdown ${activeDropdown === 'about' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="/about" onClick={(e) => {
+          <li className={`dropdown ${activeDropdown === 'about' ? 'active' : ''}`}
+            onMouseEnter={() => window.innerWidth > 1024 && setActiveDropdown('about')}
+            onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
               if (window.innerWidth <= 1024) {
-                e.preventDefault();
                 setActiveDropdown(activeDropdown === 'about' ? null : 'about');
               }
             }}>About Us</Link>
             <ul className="dropdown-menu">
+              <li><Link to="/about">About NSCET</Link></li>
               <li><Link to="/about/actstatutes">Act and Statutes</Link></li>
               <li><Link to="/about/development-plan">Institutional Development Plan</Link></li>
               <li><Link to="/about/affiliation">Affiliation & Accreditation</Link></li>
@@ -202,15 +205,18 @@ function Navbar() {
           </li>
 
 
-          <li className={`dropdown ${activeDropdown === 'admin' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="/administration/tmhnutrust" onClick={(e) => {
+          <li className={`dropdown ${activeDropdown === 'admin' ? 'active' : ''}`}
+            onMouseEnter={() => window.innerWidth > 1024 && setActiveDropdown('admin')}
+            onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
               if (window.innerWidth <= 1024) {
-                e.preventDefault();
                 setActiveDropdown(activeDropdown === 'admin' ? null : 'admin');
               }
             }}>Administration</Link>
             <ul className="dropdown-menu">
-              {/* <li><Link to="/administration/finance-officer">Finance Officer</Link></li>*/}
+              <li><Link to="/administration/tmhnutrust">TMHNU Trust</Link></li>
+              <li><Link to="/administration/academic-leadership">Academic Leadership</Link></li>
               <li><Link to="/administration/controller-examination">Exam Cell</Link></li>
               <li><Link to="/administration/ombudsperson">Ombudsperson</Link></li>
               <li>
@@ -225,17 +231,19 @@ function Navbar() {
                 </a>
               </li>
               <li><Link to="/administration/internal-complaints-committee">Internal Complaints Committee</Link></li>
-              <li><Link to="/administration/academic-leadership">Academic Leadership</Link></li>
             </ul>
           </li>
-          <li className={`dropdown ${activeDropdown === 'academics' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="/academics/details-of-academic-programs" onClick={(e) => {
+          <li className={`dropdown ${activeDropdown === 'academics' ? 'active' : ''}`}
+            onMouseEnter={() => window.innerWidth > 1024 && setActiveDropdown('academics')}
+            onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
+            <Link to="#" onClick={(e) => {
+              e.preventDefault();
               if (window.innerWidth <= 1024) {
-                e.preventDefault();
                 setActiveDropdown(activeDropdown === 'academics' ? null : 'academics');
               }
             }}>Academics</Link>
             <ul className="dropdown-menu">
+              <li><Link to="/academics/details-of-academic-programs">Details of Academic Programs</Link></li>
               <li><Link to="/academics/academic-calendar">Academic Calendar</Link></li>
               <li><Link to="/academics/statutes-ordinances-pertaining">Statutes/Ordinances Pertaining</Link></li>
               <li><Link to="/academics/teaching-faculty">Teaching Faculty</Link></li>
@@ -316,7 +324,7 @@ function Navbar() {
               <li><Link to="/research/entrepreneurship-cell">Entrepreneurship Development Cell</Link></li>
             </ul>
           </li>
-          <li><Link to="/ispin">ISPIN</Link></li>
+          <li><Link to="/ispin">iSPIN</Link></li>
           <li className={`dropdown ${activeDropdown === 'gallery' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
             <Link to="#" onClick={(e) => {
               e.preventDefault();
@@ -326,7 +334,7 @@ function Navbar() {
             }}>Gallery</Link>
             <ul className="dropdown-menu">
               <li><Link to="/gallery/waves25">WAVES'26</Link></li>
-              <li><Link to="/gallery/clubs-chapters">CLUBS & CHAPTERS</Link></li>
+              <li><Link to="/gallery/clubs-chapters">Clubs & Chapters</Link></li>
               <li><Link to="/gallery/nirf">NIRF</Link></li>
               <li><Link to="/gallery/rti">RTI</Link></li>
               <li><Link to="/gallery/events">Events</Link></li>

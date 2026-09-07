@@ -264,8 +264,8 @@ header.scrolled {
 .logo-section {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-left: 0;
+    gap: 18px;
+    margin-left: 40px;
     flex-shrink: 0;
     text-decoration: none;
 }
@@ -284,8 +284,8 @@ header.scrolled {
 }
 
 .logo {
-    height: 92px;
-    width: 92px;
+    height: 100px;
+    width: 100px;
     max-width: none;
     object-fit: contain;
     border: none;
@@ -333,9 +333,8 @@ header.scrolled {
     align-items: center;
     list-style: none;
     gap: 6px;
-    margin-right: auto;
-    margin-right: 10px;
-    margin-left: 14px;
+    margin-left: 24px;
+    margin-right: auto !important;
 }
 
 .nav-links li {
@@ -533,8 +532,8 @@ body.dark-mode .tnea-badge-title {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: auto;
-    min-width: auto;
+    width: 220px;
+    min-width: 220px;
     height: 52px;
     position: relative;
     margin-right: 30px;
@@ -566,8 +565,8 @@ body.dark-mode .tnea-badge-title {
 }
 
 .search-box:focus-within {
-    border-color: #ff7a00;
-    box-shadow: 0 0 12px rgba(255, 122, 0, 0.2);
+    border-color: #cbd5e1;
+    box-shadow: none;
 }
 
 
@@ -703,7 +702,8 @@ body.dark-mode .search-box input {
 
 
 
-.dropdown.open .dropdown-menu {
+.dropdown.open .dropdown-menu,
+.dropdown.active .dropdown-menu {
     display: block;
 }
 
@@ -850,6 +850,11 @@ body.dark-mode .search-box {
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .search-box:focus-within {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: none;
 }
 
 body.dark-mode .search-box input {
@@ -1380,4 +1385,4 @@ body.dark-mode .search-result-item:hover {
     .nav-right {
         gap: 4px !important;
     }
-}
+}

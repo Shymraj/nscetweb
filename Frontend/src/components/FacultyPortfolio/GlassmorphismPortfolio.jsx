@@ -142,6 +142,29 @@ export function GlassmorphismPortfolio({ faculty, departmentName }) {
                     <span className="text-sm font-bold tracking-wide">LinkedIn Profile</span>
                   </Button>
                 )}
+
+                {faculty?.profile_pdf && (
+                  <Button
+                    size="lg"
+                    onClick={() => window.open(faculty.profile_pdf, '_blank')}
+                    className="w-full gap-3 rounded-xl h-12 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold transition-all duration-300 shadow-md"
+                  >
+                    <FileText className="h-4 w-4" />
+                    <span className="text-sm font-bold tracking-wide">Academic Profile (PDF)</span>
+                  </Button>
+                )}
+
+                {faculty?.profile_url && (
+                  <Button
+                    size="lg"
+                    onClick={() => window.open(faculty.profile_url, '_blank')}
+                    variant="outline"
+                    className="w-full gap-3 rounded-xl h-12 bg-background/50 hover:bg-background/80 border-border/40 transition-all duration-300 shadow-sm text-foreground/80"
+                  >
+                    <Globe className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-bold tracking-wide">Research Profile Link</span>
+                  </Button>
+                )}
               </div>
             </div>
           </motion.div>

@@ -18,15 +18,6 @@ import ponnaiahImg from './Ponnaiah.png';
 const AcademicLeadership = () => {
   const hodsData = [
     {
-      id: 1,
-      name: "Dr . L S .Vignesh",
-      role: "PROFESSOR & HEAD OF THE DEPARTMENT",
-      department: "Artificial Intelligence & Data Science",
-      image: "/AIDS/vignesh.jpg",
-      qualifications: ["M.E., Ph.D"],
-      Icon: FaBrain
-    },
-    {
       id: 2,
       name: "Mr. N. Nagarathinam",
       role: "ASSISTANT PROFESSOR & HEAD OF THE DEPARTMENT",
@@ -45,15 +36,6 @@ const AcademicLeadership = () => {
       Icon: FaDesktop
     },
     {
-      id: 4,
-      name: "Dr. R. Athilingam",
-      role: "PROFESSOR & HEAD OF THE DEPARTMENT",
-      department: "Electrical and Electronics Engineering",
-      image: "/EEE/athilingam.jpg",
-      qualifications: ["M.E., Ph.D."],
-      Icon: FaMicrochip
-    },
-    {
       id: 5,
       name: "Dr. T. Venishkumar",
       role: "PROFESSOR & HEAD OF THE DEPARTMENT",
@@ -63,13 +45,13 @@ const AcademicLeadership = () => {
       Icon: FaBroadcastTower
     },
     {
-      id: 7,
-      name: "Dr. C. Prathap",
+      id: 4,
+      name: "Dr. R. Athilingam",
       role: "PROFESSOR & HEAD OF THE DEPARTMENT",
-      department: "Information Technology",
-      image: "/IT/prathap c.jpg",
-      qualifications: ["M.Tech., Ph.D"],
-      Icon: FaCode
+      department: "Electrical and Electronics Engineering",
+      image: "/EEE/athilingam.jpg",
+      qualifications: ["M.E., Ph.D."],
+      Icon: FaMicrochip
     },
     {
       id: 8,
@@ -79,6 +61,24 @@ const AcademicLeadership = () => {
       image: "/MECH/radhakrishnan.jpg",
       qualifications: ["M.E., Ph.D., MISTE., MIE."],
       Icon: FaCogs
+    },
+    {
+      id: 1,
+      name: "Dr . L S .Vignesh",
+      role: "PROFESSOR & HEAD OF THE DEPARTMENT",
+      department: "Artificial Intelligence & Data Science",
+      image: "/AIDS/vignesh.jpg",
+      qualifications: ["M.E., Ph.D"],
+      Icon: FaBrain
+    },
+    {
+      id: 7,
+      name: "Dr. C. Prathap",
+      role: "PROFESSOR & HEAD OF THE DEPARTMENT",
+      department: "Information Technology",
+      image: "/IT/prathap c.jpg",
+      qualifications: ["M.Tech., Ph.D"],
+      Icon: FaCode
     },
     {
       id: 9,

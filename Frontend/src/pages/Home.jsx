@@ -19,7 +19,7 @@ import Principal from "./Administration/Principal/Principal";
 
 function Home() {
   return (
-    <>  
+    <>
       <AnnouncementPopup />
       <MarqueeBanner />
       <Hero />
@@ -29,13 +29,13 @@ function Home() {
           <div className="mobile-hero-content">
             <h4 className="mobile-hero-trust">Theni Melapettai Hindu Nadargal Uravinmurai</h4>
             <h1 className="mobile-hero-title">
-              NADAR SARASWATHI<br/>
-              COLLEGE OF<br/>
-              ENGINEERING &<br/>
+              NADAR SARASWATHI<br />
+              COLLEGE OF<br />
+              ENGINEERING &<br />
               TECHNOLOGY
             </h1>
             <p className="mobile-hero-tagline">Empowering Minds, Shaping the Future</p>
-            
+
             <div className="mobile-hero-approvals">
               <p>Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai</p>
               <p>Accredited by NAAC with 'A' Grade</p>

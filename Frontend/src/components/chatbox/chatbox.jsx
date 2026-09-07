@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './chatbox.css'; 
+import './chatbox.css';
 
 const DEFAULT_SUGGESTIONS = [
-  'College Name', 
-  'TNEA Counselling Code', 
-  'UG Courses', 
-  'Departments', 
-  'Fee Structure', 
+  'College Name',
+  'TNEA Counselling Code',
+  'UG Courses',
+  'Departments',
+  'Fee Structure',
   'Hostel Facilities'
 ];
 
@@ -32,6 +32,8 @@ const getSuggestionIcon = (text) => {
   if (t.includes('transport') || t.includes('bus')) return '🚌';
   if (t.includes('placement') || t.includes('job') || t.includes('career')) return '💼';
   if (t.includes('admission') || t.includes('apply')) return '📝';
+  if (t.includes('event') || t.includes('cultural') || t.includes('fest') || t.includes('celebration')) return '🎉';
+  if (t.includes('wifi') || t.includes('internet')) return '📶';
   if (t.includes('scholarship')) return '🎓';
   if (t.includes('contact') || t.includes('phone') || t.includes('mail')) return '📞';
   return '💡';
@@ -105,14 +107,15 @@ const renderMessageText = (text) => {
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { 
-      sender: 'ai', 
+    {
+      sender: 'ai',
       text: 'Hello! Welcome to NSCET AI Assistant. How can I help you today?'
     }
   ]);
   const [currentSuggestions, setCurrentSuggestions] = useState(DEFAULT_SUGGESTIONS);
   const [inputText, setInputText] = useState('');
   const [isBotBusy, setIsBotBusy] = useState(false);
+  const [isSuggestionsCollapsed, setIsSuggestionsCollapsed] = useState(false);
   const chatBodyRef = useRef(null);
   const typingIntervalRef = useRef(null);
 
@@ -133,15 +136,16 @@ const ChatBot = () => {
     if (chatBodyRef.current) {
       chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
     }
-  }, [messages, isOpen, currentSuggestions]);
+  }, [messages, isOpen, currentSuggestions, isSuggestionsCollapsed]);
 
   const toggleChat = () => {
     clearTypingAnimation();
     setIsBotBusy(false);
+    setIsSuggestionsCollapsed(false); // Always open suggested questions by default
     if (isOpen) {
       setMessages([
-        { 
-          sender: 'ai', 
+        {
+          sender: 'ai',
           text: 'Hello! Welcome to NSCET AI Assistant. How can I help you today?'
         }
       ]);
@@ -161,11 +165,12 @@ const ChatBot = () => {
     // 1. Add User Message
     setMessages(prev => [...prev, { sender: 'user', text: userMessage }]);
     setInputText('');
-    
+
     // 2. Add 3 Animated Typing Dots Indicator
     setMessages(prev => [...prev, { sender: 'ai', text: 'Typing...', isTyping: true }]);
 
     try {
+      const startTime = Date.now();
       const response = await fetch('http://localhost:5000/api/chat', {
         method: 'POST',
         headers: {
@@ -197,6 +202,13 @@ const ChatBot = () => {
         replyText = replyText.substring(0, sugIdx).trim();
       }
 
+      // Natural loading & thinking delay (at least 1.1 - 1.3s) so it doesn't answer abruptly / tak-nu
+      const elapsed = Date.now() - startTime;
+      const minThinkingTime = 1200; // 1.2 seconds natural thinking delay
+      if (elapsed < minThinkingTime) {
+        await new Promise(resolve => setTimeout(resolve, minThinkingTime - elapsed));
+      }
+
       // 3. Remove 3 Dots and initialize ChatGPT Typewriter Stream
       setMessages(prev => {
         const filtered = prev.filter(m => !m.isTyping);
@@ -204,14 +216,15 @@ const ChatBot = () => {
       });
 
       let charIndex = 0;
-      const speed = replyText.length > 300 ? 18 : 28; // comfortable, natural typing speed
+      const speed = replyText.length > 250 ? 18 : 25;
+      const step = replyText.length > 300 ? 2 : 1;
 
       typingIntervalRef.current = setInterval(() => {
-        charIndex += 1;
+        charIndex += step;
         if (charIndex >= replyText.length) {
           charIndex = replyText.length;
           clearTypingAnimation();
-          
+
           setMessages(prev => {
             const updated = [...prev];
             const lastIndex = updated.length - 1;
@@ -221,6 +234,7 @@ const ChatBot = () => {
             return updated;
           });
           setCurrentSuggestions(newSuggestions);
+          setIsSuggestionsCollapsed(false); // Open new suggestions by default
           setIsBotBusy(false);
         } else {
           const currentChunk = replyText.slice(0, charIndex);
@@ -240,8 +254,8 @@ const ChatBot = () => {
       clearTypingAnimation();
       setMessages(prev => {
         const filtered = prev.filter(m => !m.isTyping && !m.isStreaming);
-        return [...filtered, { 
-          sender: 'ai', 
+        return [...filtered, {
+          sender: 'ai',
           text: 'Sorry, server error. Please try again!'
         }];
       });
@@ -276,13 +290,16 @@ const ChatBot = () => {
             </div>
             <button className="close-btn" onClick={toggleChat} aria-label="Close Chat">✕</button>
           </div>
-          
+
           <div className="chat-body" ref={chatBodyRef}>
             {messages.map((msg, index) => (
               <div key={index} className={`message-bubble ${msg.sender} ${msg.isTyping ? 'typing-bubble' : ''}`}>
                 {msg.isTyping ? (
-                  <div className="typing-dots">
-                    <span></span><span></span><span></span>
+                  <div className="typing-dots-wrapper">
+                    <div className="typing-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <span className="typing-label">Thinking...</span>
                   </div>
                 ) : (
                   <>
@@ -296,44 +313,74 @@ const ChatBot = () => {
 
           {/* Quick Suggestion Pills Bar directly above Chat Footer */}
           {displaySuggestions.length > 0 && (
-            <div className="suggestions-wrapper">
-              <div className="suggestions-header">
-                <span className="sparkle-icon">💡</span> Suggested Questions
+            <div className={`suggestions-wrapper ${isSuggestionsCollapsed ? 'collapsed' : ''}`}>
+              <div
+                className="suggestions-header"
+                onClick={() => setIsSuggestionsCollapsed(!isSuggestionsCollapsed)}
+                title={isSuggestionsCollapsed ? "Show suggested questions" : "Hide suggested questions"}
+              >
+                <div className="suggestions-header-left">
+                  <span className="sparkle-icon">💡</span> Suggested Questions
+                </div>
+                <button
+                  className="suggestions-toggle-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsSuggestionsCollapsed(!isSuggestionsCollapsed);
+                  }}
+                  aria-label={isSuggestionsCollapsed ? "Show suggested questions" : "Hide suggested questions"}
+                  title={isSuggestionsCollapsed ? "Show suggested questions" : "Hide suggested questions"}
+                >
+                  <svg
+                    className={`toggle-chevron ${isSuggestionsCollapsed ? 'rotate-up' : ''}`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
               </div>
-              <div className={`suggestions-grid ${gridColsClass}`}>
-                {displaySuggestions.map((sug, i) => {
-                  const icon = getSuggestionIcon(sug);
-                  return (
-                    <div key={i} className="suggestion-pill-wrapper">
-                      <button 
-                        className="suggestion-pill"
-                        onClick={() => sendQuery(sug)}
-                        disabled={isBotBusy}
-                        title={sug}
-                      >
-                        {icon && <span className="pill-icon">{icon}</span>}
-                        <span className="pill-text">{sug}</span>
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
+
+              {!isSuggestionsCollapsed && (
+                <div className={`suggestions-grid ${gridColsClass}`}>
+                  {displaySuggestions.map((sug, i) => {
+                    const icon = getSuggestionIcon(sug);
+                    return (
+                      <div key={i} className="suggestion-pill-wrapper">
+                        <button
+                          className="suggestion-pill"
+                          onClick={() => sendQuery(sug)}
+                          disabled={isBotBusy}
+                          title={sug}
+                        >
+                          {icon && <span className="pill-icon">{icon}</span>}
+                          <span className="pill-text">{sug}</span>
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           )}
-          
+
           <div className="chat-footer">
             <div className="input-box-wrapper">
-              <input 
-                type="text" 
-                placeholder="Ask NSCET AI a question..." 
+              <input
+                type="text"
+                placeholder="Ask NSCET AI a question..."
                 value={inputText}
                 disabled={isBotBusy}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
               />
-              <button 
-                className="send-btn" 
-                onClick={handleSendMessage} 
+              <button
+                className="send-btn"
+                onClick={handleSendMessage}
                 disabled={isBotBusy}
                 aria-label="Send Message"
               >
@@ -349,21 +396,21 @@ const ChatBot = () => {
       )}
 
       {/* Floating Robot Video Button */}
-      <button 
-        className={`robot-trigger-btn ${isOpen ? 'trigger-hidden' : ''}`} 
+      <button
+        className={`robot-trigger-btn ${isOpen ? 'trigger-hidden' : ''}`}
         onClick={toggleChat}
         aria-label="Toggle Chat"
       >
         {!isOpen && (
           <div className="lets-talk-bubble">ProBot Here!</div>
         )}
-        <video 
-          className="robot-model" 
-          src="/robot.mp4" 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
+        <video
+          className="robot-model"
+          src="/robot.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
         />
       </button>
     </div>

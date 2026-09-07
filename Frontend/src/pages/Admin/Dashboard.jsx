@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import HomePageManager from './HomePageManager';
-import { FaChevronUp, FaHome, FaUsers, FaBriefcase, FaCalendarCheck, FaImages, FaCalendarAlt, FaCog, FaSignOutAlt, FaUserPlus, FaUserTie, FaGraduationCap, FaEnvelope, FaBook, FaBuilding, FaImage, FaCheck, FaTimes, FaUpload, FaRedo, FaEye, FaTrash, FaArrowLeft, FaBars, FaSearch, FaBell, FaChevronDown, FaCheckCircle, FaPhoneAlt, FaWhatsapp, FaCity, FaCommentAlt, FaUser } from "react-icons/fa";
+import { FaChevronUp, FaHome, FaUsers, FaBriefcase, FaCalendarCheck, FaImages, FaCalendarAlt, FaCog, FaSignOutAlt, FaUserPlus, FaUserTie, FaGraduationCap, FaEnvelope, FaBook, FaBuilding, FaImage, FaCheck, FaTimes, FaUpload, FaRedo, FaEye, FaTrash, FaArrowLeft, FaBars, FaSearch, FaBell, FaChevronDown, FaCheckCircle, FaPhoneAlt, FaWhatsapp, FaCity, FaCommentAlt, FaUser, FaFileAlt, FaExternalLinkAlt, FaFilePdf, FaLinkedin, FaExclamationTriangle, FaFilter } from "react-icons/fa";
+import { getFacultyData, getAllStaticStaff } from '../Departments/facultyRegistry';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -12,6 +13,7 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "NSCET | Admin";
     const isAdmin = localStorage.getItem('isAdmin');
     if (!isAdmin) {
       navigate('/admin-login');
@@ -670,7 +672,23 @@ const EventsManager = () => {
 
 // --- STAFF MANAGER ---
 const StaffManager = () => {
-  const [staff, setStaff] = useState([]);
+  const [staff, setStaff] = useState(() => {
+    try {
+      const cached = localStorage.getItem('cached_admin_staff');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch (e) {}
+    try {
+      return getAllStaticStaff();
+    } catch (e) {
+      return [];
+    }
+  });
+  const [isBackendOnline, setIsBackendOnline] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [deptFilter, setDeptFilter] = useState('All');
   const [name, setName] = useState('');
   const [designation, setDesignation] = useState('');
   const [department, setDepartment] = useState('');
@@ -680,9 +698,129 @@ const StaffManager = () => {
   const [photo, setPhoto] = useState(null);
   const [editingStaffId, setEditingStaffId] = useState(null);
 
+  // --- Academic Profile State ---
+  const [academicStaff, setAcademicStaff] = useState(null);
+  const [acadAbout, setAcadAbout] = useState('');
+  const [acadLinkedin, setAcadLinkedin] = useState('');
+  const [acadSpec, setAcadSpec] = useState('');
+  const [acadExperience, setAcadExperience] = useState('');
+  const [acadPublications, setAcadPublications] = useState('');
+  const [acadProjects, setAcadProjects] = useState('');
+  const [acadPatents, setAcadPatents] = useState('');
+  const [acadAwards, setAcadAwards] = useState('');
+  const [acadProfileUrl, setAcadProfileUrl] = useState('');
+  const [acadPdfFile, setAcadPdfFile] = useState(null);
+  const [existingPdfUrl, setExistingPdfUrl] = useState('');
+  const [removePdf, setRemovePdf] = useState(false);
+  const [isSavingAcad, setIsSavingAcad] = useState(false);
+  const [acadActiveTab, setAcadActiveTab] = useState('summary'); // 'summary' | 'details' | 'document'
+
+  const arrayToLines = (val) => {
+    if (!val) return '';
+    if (Array.isArray(val)) return val.join('\n');
+    try {
+      const parsed = JSON.parse(val);
+      if (Array.isArray(parsed)) return parsed.join('\n');
+    } catch (e) {}
+    return String(val);
+  };
+
+  const linesToArray = (str) => {
+    if (!str) return [];
+    return str.split('\n').map(s => s.trim()).filter(Boolean);
+  };
+
+  const getDeptSlug = (dept) => {
+    const d = (dept || '').toLowerCase().trim();
+    if (d.includes('computer science') || d.includes('cse')) return 'cse';
+    if (d.includes('artificial') || d.includes('aids')) return 'aids';
+    if (d.includes('information') || d.includes('it')) return 'it';
+    if (d.includes('civil')) return 'civil';
+    if (d.includes('mechanical')) return 'mechanical';
+    if (d.includes('electrical') || d.includes('eee')) return 'electrical';
+    if (d.includes('electronics') || d.includes('ece')) return 'electronics';
+    if (d.includes('science') || d.includes('humanities') || d.includes('s&h')) return 'science-humanities';
+    return 'cse';
+  };
+
+  const getLiveProfileUrl = (st) => {
+    if (!st) return '#';
+    const slug = getDeptSlug(st.department);
+    return `/departments/${slug}/faculty/${st.id}`;
+  };
+
+  const handleOpenAcademicModal = (st) => {
+    setAcademicStaff(st);
+    setAcadActiveTab('summary');
+    const slug = getDeptSlug(st.department);
+    const fallback = getFacultyData(slug, st.name) || {};
+
+    setAcadAbout(st.about !== undefined && st.about !== null && st.about !== '' ? st.about : (fallback.about || ''));
+    setAcadLinkedin(st.linkedin !== undefined && st.linkedin !== null && st.linkedin !== '' ? st.linkedin : (fallback.linkedin || ''));
+    setAcadSpec(st.spec || st.research || fallback.spec || '');
+    setAcadExperience(arrayToLines(st.experience || fallback.experience || []));
+    setAcadPublications(arrayToLines(st.publications || fallback.publications || []));
+    setAcadProjects(arrayToLines(st.projects || fallback.projects || []));
+    setAcadPatents(arrayToLines(st.patents || fallback.patents || []));
+    setAcadAwards(arrayToLines(st.awards || fallback.awards || []));
+    setAcadProfileUrl(st.profile_url || '');
+    setExistingPdfUrl(st.profile_pdf || '');
+    setAcadPdfFile(null);
+    setRemovePdf(false);
+  };
+
+  const handleSaveAcademicProfile = async (e) => {
+    e.preventDefault();
+    if (!academicStaff) return;
+    setIsSavingAcad(true);
+
+    try {
+      const formData = new FormData();
+      formData.append('about', acadAbout);
+      formData.append('linkedin', acadLinkedin);
+      formData.append('spec', acadSpec);
+      formData.append('experience', JSON.stringify(linesToArray(acadExperience)));
+      formData.append('publications', JSON.stringify(linesToArray(acadPublications)));
+      formData.append('projects', JSON.stringify(linesToArray(acadProjects)));
+      formData.append('patents', JSON.stringify(linesToArray(acadPatents)));
+      formData.append('awards', JSON.stringify(linesToArray(acadAwards)));
+      formData.append('profile_url', acadProfileUrl);
+      formData.append('remove_pdf', removePdf);
+      if (acadPdfFile) {
+        formData.append('profile_pdf', acadPdfFile);
+      }
+
+      const res = await axios.put(`http://localhost:5000/api/admin/staff/${academicStaff.id}/academic-profile`, formData);
+      if (res.data.success) {
+        alert('Academic Profile updated successfully!');
+        setAcademicStaff(null);
+        fetchStaff();
+      } else {
+        alert('Failed: ' + res.data.message);
+      }
+    } catch (err) {
+      console.error('Error saving academic profile:', err);
+      alert('Error updating academic profile: ' + (err.response?.data?.message || err.message));
+    } finally {
+      setIsSavingAcad(false);
+    }
+  };
+
   const fetchStaff = async () => {
-    const res = await axios.get('http://localhost:5000/api/admin/staff');
-    setStaff(res.data.data);
+    try {
+      const res = await axios.get('http://localhost:5000/api/admin/staff');
+      if (res.data && res.data.success && Array.isArray(res.data.data) && res.data.data.length > 0) {
+        setStaff(res.data.data);
+        setIsBackendOnline(true);
+        try {
+          localStorage.setItem('cached_admin_staff', JSON.stringify(res.data.data));
+        } catch (e) {}
+      }
+    } catch (err) {
+      console.warn("Backend API offline or unreachable; using static/cached fallback staff:", err);
+      setIsBackendOnline(false);
+      setStaff(prev => (prev && prev.length > 0 ? prev : getAllStaticStaff()));
+    }
   };
 
   useEffect(() => { fetchStaff(); }, []);
@@ -741,12 +879,15 @@ const StaffManager = () => {
     }
   };
 
-  // Group staff by department
-  const staffByDept = staff.reduce((acc, st) => {
-    if (!acc[st.department]) acc[st.department] = [];
-    acc[st.department].push(st);
-    return acc;
-  }, {});
+  const getStaffPhoto = (url, staffName) => {
+    if (!url) return `https://ui-avatars.com/api/?name=${encodeURIComponent(staffName || 'Faculty')}&background=1e3a8a&color=fff&size=200`;
+    if (typeof url === 'string') {
+      if (url.startsWith('http') || url.startsWith('data:') || url.startsWith('blob:')) return url;
+      if (url.startsWith('/uploads')) return `http://localhost:5000${url}`;
+      return url;
+    }
+    return url;
+  };
 
   const deptNames = [
     'Computer Science and Engineering',
@@ -758,6 +899,29 @@ const StaffManager = () => {
     'Civil Engineering',
     'Science and Humanities'
   ];
+
+  // Filter staff by department and search query
+  const filteredStaff = staff.filter(st => {
+    if (deptFilter !== 'All' && st.department !== deptFilter) return false;
+    if (!searchQuery.trim()) return true;
+    const q = searchQuery.toLowerCase().trim();
+    return (
+      (st.name && st.name.toLowerCase().includes(q)) ||
+      (st.designation && st.designation.toLowerCase().includes(q)) ||
+      (st.department && st.department.toLowerCase().includes(q)) ||
+      (st.email && st.email.toLowerCase().includes(q)) ||
+      (st.qualifications && st.qualifications.toLowerCase().includes(q)) ||
+      (st.research && st.research.toLowerCase().includes(q))
+    );
+  });
+
+  // Group staff by department
+  const staffByDept = filteredStaff.reduce((acc, st) => {
+    const dept = st.department || 'Other';
+    if (!acc[dept]) acc[dept] = [];
+    acc[dept].push(st);
+    return acc;
+  }, {});
 
   return (
     <div>
@@ -821,66 +985,204 @@ const StaffManager = () => {
         </div>
       )}
 
-      {[...new Set([...deptNames, ...Object.keys(staffByDept)])].filter(dept => staffByDept[dept] && staffByDept[dept].length > 0).map(dept => (
-        <div key={dept} className="dept-group">
-          <div className="dept-header">
-            <div><FaBuilding style={{marginRight: '10px'}}/> {dept}</div>
-            <div className="dept-badge">{staffByDept[dept].length} Staff</div>
+      {/* Filter and Search Bar */}
+      <div style={{
+        backgroundColor: '#ffffff',
+        padding: '20px 24px',
+        borderRadius: '10px',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+        border: '1px solid #e2e8f0',
+        marginBottom: '25px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '15px'
+      }}>
+        {!isBackendOnline && (
+          <div style={{
+            backgroundColor: '#fffbeb',
+            border: '1px solid #fef3c7',
+            padding: '10px 14px',
+            borderRadius: '6px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            fontSize: '13px',
+            color: '#92400e'
+          }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <FaExclamationTriangle style={{ color: '#d97706' }} />
+              Showing offline faculty directory (Backend server not connected).
+            </span>
+            <button
+              onClick={fetchStaff}
+              style={{
+                backgroundColor: '#f59e0b',
+                color: 'white',
+                border: 'none',
+                padding: '4px 12px',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                fontSize: '12px',
+                fontWeight: '600'
+              }}
+            >
+              Retry Sync
+            </button>
           </div>
-          <div className="staff-cards-grid">
-            {staffByDept[dept].sort((a, b) => b.is_hod - a.is_hod).map(st => (
-              <div className="staff-card" key={st.id}>
-                {st.photo_url ? (
-                  <img src={`http://localhost:5000${st.photo_url}`} alt={st.name} />
-                ) : (
-                  <div style={{height: '200px', background: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>No Image</div>
-                )}
-                <div className="staff-card-info" style={{padding: '15px'}}>
-                  <h4 className="staff-card-name" style={{color: '#1e3a8a', fontSize: '16px', marginBottom: '4px'}}>{st.name}</h4>
-                  <p className="staff-card-desig" style={{color: '#4b5563', fontSize: '14px', marginBottom: '15px'}}>{st.designation}</p>
-                  
-                  {/* Info List */}
-                  <div style={{display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '15px', borderBottom: '1px solid #e5e7eb', paddingBottom: '15px'}}>
-                    <div style={{display: 'flex', gap: '10px', textAlign: 'left', alignItems: 'flex-start'}}>
-                      <div style={{color: '#3b82f6', marginTop: '2px'}}><FaGraduationCap /></div>
-                      <div>
-                        <div style={{fontSize: '12px', color: '#6b7280', fontWeight: '600'}}>Qualification:</div>
-                        <div style={{fontSize: '13px', color: '#374151'}}>{st.qualifications || 'N/A'}</div>
-                      </div>
-                    </div>
-                    <div style={{display: 'flex', gap: '10px', textAlign: 'left', alignItems: 'flex-start'}}>
-                      <div style={{color: '#3b82f6', marginTop: '2px'}}><FaEnvelope /></div>
-                      <div>
-                        <div style={{fontSize: '12px', color: '#6b7280', fontWeight: '600'}}>Email:</div>
-                        <div style={{fontSize: '13px', color: '#374151', wordBreak: 'break-all'}}>{st.email || 'N/A'}</div>
-                      </div>
-                    </div>
-                    <div style={{display: 'flex', gap: '10px', textAlign: 'left', alignItems: 'flex-start'}}>
-                      <div style={{color: '#3b82f6', marginTop: '2px'}}><FaBook /></div>
-                      <div>
-                        <div style={{fontSize: '12px', color: '#6b7280', fontWeight: '600'}}>Research and publications:</div>
-                        <div style={{fontSize: '13px', color: '#374151'}}>{st.research || 'N/A'}</div>
-                      </div>
-                    </div>
-                  </div>
+        )}
 
-                  <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                    <button onClick={() => {
-                      setEditingStaffId(st.id);
-                      setName(st.name || ''); setDesignation(st.designation || ''); setDepartment(st.department || '');
-                      setEmail(st.email || ''); setQualifications(st.qualifications || ''); setResearch(st.research || '');
-                      setPhoto(null);
-                    }} style={{backgroundColor: '#0056b3', color: 'white', border: 'none', padding: '10px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'}}>
-                      <FaUserTie /> Edit Details
-                    </button>
-                    <button onClick={() => handleDeleteStaff(st.id)} style={{backgroundColor: 'transparent', color: '#ef4444', border: 'none', padding: '5px', cursor: 'pointer', fontSize: '12px', textDecoration: 'underline'}}>Delete</button>
-                  </div>
-                </div>
-              </div>
-            ))}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: 1, minWidth: '260px', position: 'relative' }}>
+            <FaSearch style={{ position: 'absolute', left: '12px', color: '#94a3b8' }} />
+            <input
+              type="text"
+              placeholder="Search faculty by name, designation, qualification or email..."
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '10px 12px 10px 38px',
+                borderRadius: '6px',
+                border: '1px solid #cbd5e1',
+                fontSize: '14px',
+                outline: 'none'
+              }}
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                style={{
+                  position: 'absolute',
+                  right: '12px',
+                  background: 'none',
+                  border: 'none',
+                  color: '#94a3b8',
+                  cursor: 'pointer',
+                  fontSize: '14px'
+                }}
+              >
+                ✕
+              </button>
+            )}
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaFilter style={{ color: '#64748b', fontSize: '13px' }} />
+            <select
+              value={deptFilter}
+              onChange={e => setDeptFilter(e.target.value)}
+              style={{
+                padding: '10px 14px',
+                borderRadius: '6px',
+                border: '1px solid #cbd5e1',
+                fontSize: '13px',
+                fontWeight: '600',
+                color: '#334155',
+                backgroundColor: '#f8fafc',
+                cursor: 'pointer',
+                outline: 'none'
+              }}
+            >
+              <option value="All">All Departments ({staff.length})</option>
+              {deptNames.map(d => {
+                const count = staff.filter(s => s.department === d).length;
+                return <option key={d} value={d}>{d} ({count})</option>;
+              })}
+            </select>
           </div>
         </div>
-      ))}
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', color: '#64748b' }}>
+          <span>Showing <strong>{filteredStaff.length}</strong> faculties {deptFilter !== 'All' ? `in ${deptFilter}` : 'across all departments'}</span>
+          {searchQuery && <span>Matching "<em>{searchQuery}</em>"</span>}
+        </div>
+      </div>
+
+      {filteredStaff.length === 0 ? (
+        <div style={{
+          padding: '60px 20px',
+          textAlign: 'center',
+          backgroundColor: '#ffffff',
+          borderRadius: '10px',
+          border: '1px dashed #cbd5e1',
+          color: '#64748b'
+        }}>
+          <FaUsers style={{ fontSize: '48px', color: '#cbd5e1', marginBottom: '12px' }} />
+          <h4 style={{ margin: '0 0 6px 0', fontSize: '16px', color: '#1e293b' }}>No Faculty Members Found</h4>
+          <p style={{ margin: 0, fontSize: '13px' }}>Try clearing your search query or choosing a different department filter.</p>
+        </div>
+      ) : (
+        [...new Set([...deptNames, ...Object.keys(staffByDept)])].filter(dept => staffByDept[dept] && staffByDept[dept].length > 0).map(dept => (
+          <div key={dept} className="dept-group">
+            <div className="dept-header">
+              <div><FaBuilding style={{marginRight: '10px'}}/> {dept}</div>
+              <div className="dept-badge">{staffByDept[dept].length} Staff</div>
+            </div>
+            <div className="staff-cards-grid">
+              {staffByDept[dept].sort((a, b) => (b.is_hod || 0) - (a.is_hod || 0)).map(st => (
+                <div className="staff-card" key={st.id} style={{display: 'flex', flexDirection: 'column', height: '100%', background: '#ffffff'}}>
+                  <img 
+                    src={getStaffPhoto(st.photo_url || st.image, st.name)} 
+                    alt={st.name} 
+                    style={{width: '100%', height: '200px', objectFit: 'cover', borderBottom: '1px solid #e5e7eb', flexShrink: 0}}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name || 'Faculty')}&background=1e3a8a&color=fff&size=200`;
+                    }}
+                  />
+                  <div className="staff-card-info" style={{padding: '16px', display: 'flex', flexDirection: 'column', flex: 1}}>
+                    <h4 className="staff-card-name" style={{color: '#1e3a8a', fontSize: '16px', marginBottom: '4px', minHeight: '22px'}}>{st.name}</h4>
+                    <p className="staff-card-desig" style={{color: '#4b5563', fontSize: '14px', marginBottom: '15px', minHeight: '36px', lineHeight: '1.3'}}>{st.designation}</p>
+                    
+                    {/* Info List */}
+                    <div style={{display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '15px', borderBottom: '1px solid #e5e7eb', paddingBottom: '15px', flexGrow: 1}}>
+                      <div style={{display: 'flex', gap: '10px', textAlign: 'left', alignItems: 'flex-start', minHeight: '36px'}}>
+                        <div style={{color: '#3b82f6', marginTop: '2px', flexShrink: 0}}><FaGraduationCap /></div>
+                        <div>
+                          <div style={{fontSize: '12px', color: '#6b7280', fontWeight: '600'}}>Qualification:</div>
+                          <div style={{fontSize: '13px', color: '#374151'}}>{st.qualifications || 'N/A'}</div>
+                        </div>
+                      </div>
+                      <div style={{display: 'flex', gap: '10px', textAlign: 'left', alignItems: 'flex-start', minHeight: '36px'}}>
+                        <div style={{color: '#3b82f6', marginTop: '2px', flexShrink: 0}}><FaEnvelope /></div>
+                        <div>
+                          <div style={{fontSize: '12px', color: '#6b7280', fontWeight: '600'}}>Email:</div>
+                          <div style={{fontSize: '13px', color: '#374151', wordBreak: 'break-all'}}>{st.email || 'N/A'}</div>
+                        </div>
+                      </div>
+                      <div style={{display: 'flex', gap: '10px', textAlign: 'left', alignItems: 'flex-start', minHeight: '48px'}}>
+                        <div style={{color: '#3b82f6', marginTop: '2px', flexShrink: 0}}><FaBook /></div>
+                        <div>
+                          <div style={{fontSize: '12px', color: '#6b7280', fontWeight: '600'}}>Research and publications:</div>
+                          <div style={{fontSize: '13px', color: '#374151', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden'}} title={st.research || 'N/A'}>{st.research || 'N/A'}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Perfectly aligned action buttons pinned to bottom */}
+                    <div style={{display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto'}}>
+                      <button onClick={() => {
+                        setEditingStaffId(st.id);
+                        setName(st.name || ''); setDesignation(st.designation || ''); setDepartment(st.department || '');
+                        setEmail(st.email || ''); setQualifications(st.qualifications || ''); setResearch(st.research || '');
+                        setPhoto(null);
+                      }} style={{backgroundColor: '#0056b3', color: 'white', border: 'none', padding: '9px 12px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', transition: 'background-color 0.2s', width: '100%'}}>
+                        <FaUserTie /> Edit Details
+                      </button>
+                      
+                      <button onClick={() => handleOpenAcademicModal(st)} style={{backgroundColor: '#4f46e5', color: 'white', border: 'none', padding: '9px 12px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', boxShadow: '0 2px 4px rgba(79, 70, 229, 0.2)', transition: 'background-color 0.2s', width: '100%'}}>
+                        <FaFileAlt /> Edit Academic Profile
+                      </button>
+
+                      <button onClick={() => handleDeleteStaff(st.id)} style={{backgroundColor: 'transparent', color: '#ef4444', border: 'none', padding: '6px', cursor: 'pointer', fontSize: '12px', textDecoration: 'underline', marginTop: '2px', alignSelf: 'center'}}>Delete</button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      )}
 
       {editingStaffId && (
         <div style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000}}>
@@ -922,6 +1224,334 @@ const StaffManager = () => {
                   <button type="button" onClick={() => setEditingStaffId(null)} style={{flex: 1, backgroundColor: '#f3f4f6', color: '#4b5563', border: '1px solid #d1d5db', padding: '12px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px', fontWeight: '600'}}><FaTimes style={{marginRight: '5px'}}/> Cancel</button>
                   <button type="submit" style={{flex: 1, backgroundColor: '#3b82f6', color: 'white', border: 'none', padding: '12px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px', fontWeight: '600'}}><FaCheck style={{marginRight: '5px'}}/> Save Changes</button>
                 </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* --- ACADEMIC PROFILE MANAGER MODAL --- */}
+      {academicStaff && (
+        <div style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(15, 23, 42, 0.65)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1100, padding: '15px'}}>
+          <div style={{backgroundColor: 'white', borderRadius: '12px', width: '100%', maxWidth: '780px', maxHeight: '92vh', display: 'flex', flexDirection: 'column', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', overflow: 'hidden'}}>
+            
+            {/* Modal Header */}
+            <div style={{padding: '18px 24px', borderBottom: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#f8fafc'}}>
+              <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
+                <div style={{width: '40px', height: '40px', borderRadius: '8px', backgroundColor: '#4f46e5', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px'}}>
+                  <FaGraduationCap />
+                </div>
+                <div>
+                  <h3 style={{margin: 0, color: '#0f172a', fontSize: '18px', fontWeight: '700'}}>
+                    Edit Academic Profile
+                  </h3>
+                  <div style={{fontSize: '13px', color: '#64748b', marginTop: '2px', display: 'flex', alignItems: 'center', gap: '8px'}}>
+                    <span style={{fontWeight: '600', color: '#1e293b'}}>{academicStaff.name}</span>
+                    <span>•</span>
+                    <span style={{color: '#475569'}}>{academicStaff.designation}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                <button 
+                  type="button" 
+                  onClick={() => window.open(getLiveProfileUrl(academicStaff), '_blank')}
+                  style={{display: 'flex', alignItems: 'center', gap: '6px', backgroundColor: '#e0e7ff', color: '#4338ca', border: 'none', padding: '7px 14px', borderRadius: '6px', cursor: 'pointer', fontSize: '12px', fontWeight: '600', transition: 'all 0.2s'}}
+                  title="Preview live profile on website"
+                >
+                  <FaExternalLinkAlt style={{fontSize: '11px'}} /> View Live Profile
+                </button>
+                <button 
+                  type="button" 
+                  onClick={() => setAcademicStaff(null)} 
+                  style={{backgroundColor: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer', fontSize: '20px', display: 'flex', alignItems: 'center', padding: '4px'}}
+                >
+                  <FaTimes />
+                </button>
+              </div>
+            </div>
+
+            {/* Navigation Tabs */}
+            <div style={{display: 'flex', borderBottom: '1px solid #e2e8f0', backgroundColor: '#ffffff', padding: '0 24px'}}>
+              <button 
+                type="button"
+                onClick={() => setAcadActiveTab('summary')}
+                style={{
+                  padding: '12px 16px',
+                  border: 'none',
+                  borderBottom: acadActiveTab === 'summary' ? '2px solid #4f46e5' : '2px solid transparent',
+                  color: acadActiveTab === 'summary' ? '#4f46e5' : '#64748b',
+                  fontWeight: acadActiveTab === 'summary' ? '700' : '500',
+                  fontSize: '14px',
+                  backgroundColor: 'transparent',
+                  cursor: 'pointer'
+                }}
+              >
+                1. Summary & Specialization
+              </button>
+              <button 
+                type="button"
+                onClick={() => setAcadActiveTab('details')}
+                style={{
+                  padding: '12px 16px',
+                  border: 'none',
+                  borderBottom: acadActiveTab === 'details' ? '2px solid #4f46e5' : '2px solid transparent',
+                  color: acadActiveTab === 'details' ? '#4f46e5' : '#64748b',
+                  fontWeight: acadActiveTab === 'details' ? '700' : '500',
+                  fontSize: '14px',
+                  backgroundColor: 'transparent',
+                  cursor: 'pointer'
+                }}
+              >
+                2. Academic Highlights
+              </button>
+              <button 
+                type="button"
+                onClick={() => setAcadActiveTab('document')}
+                style={{
+                  padding: '12px 16px',
+                  border: 'none',
+                  borderBottom: acadActiveTab === 'document' ? '2px solid #4f46e5' : '2px solid transparent',
+                  color: acadActiveTab === 'document' ? '#4f46e5' : '#64748b',
+                  fontWeight: acadActiveTab === 'document' ? '700' : '500',
+                  fontSize: '14px',
+                  backgroundColor: 'transparent',
+                  cursor: 'pointer'
+                }}
+              >
+                3. Profile PDF Document
+              </button>
+            </div>
+
+            {/* Modal Body / Form */}
+            <form onSubmit={handleSaveAcademicProfile} style={{display: 'flex', flexDirection: 'column', flex: 1, overflowY: 'auto'}}>
+              <div style={{padding: '24px', display: 'flex', flexDirection: 'column', gap: '18px', flex: 1}}>
+                
+                {acadActiveTab === 'summary' && (
+                  <>
+                    <div>
+                      <label style={{fontSize: '13px', color: '#334155', fontWeight: '600', marginBottom: '6px', display: 'block'}}>
+                        Professional Summary / About Faculty
+                      </label>
+                      <textarea 
+                        rows={4}
+                        value={acadAbout}
+                        onChange={e => setAcadAbout(e.target.value)}
+                        placeholder="Write a brief professional summary or introduction for this faculty member..."
+                        style={{width: '100%', padding: '10px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '14px', lineHeight: '1.5', fontFamily: 'inherit'}}
+                      />
+                      <span style={{fontSize: '11px', color: '#94a3b8', marginTop: '4px', display: 'block'}}>
+                        This appears under the "Professional Summary" section on their academic portfolio page.
+                      </span>
+                    </div>
+
+                    <div>
+                      <label style={{fontSize: '13px', color: '#334155', fontWeight: '600', marginBottom: '6px', display: 'block'}}>
+                        Research Domains & Specializations (Comma separated)
+                      </label>
+                      <input 
+                        type="text" 
+                        value={acadSpec} 
+                        onChange={e => setAcadSpec(e.target.value)}
+                        placeholder="e.g. Recommendation Systems, Cloud Computing, Artificial Intelligence"
+                        style={{width: '100%', padding: '10px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '14px'}}
+                      />
+                      <span style={{fontSize: '11px', color: '#94a3b8', marginTop: '4px', display: 'block'}}>
+                        Separate each area with a comma. They will display as badge tags.
+                      </span>
+                    </div>
+
+                    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px'}}>
+                      <div>
+                        <label style={{fontSize: '13px', color: '#334155', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px'}}>
+                          <FaLinkedin style={{color: '#0a66c2'}} /> LinkedIn Profile URL
+                        </label>
+                        <input 
+                          type="url" 
+                          value={acadLinkedin} 
+                          onChange={e => setAcadLinkedin(e.target.value)}
+                          placeholder="https://linkedin.com/in/username"
+                          style={{width: '100%', padding: '10px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '14px'}}
+                        />
+                      </div>
+                      <div>
+                        <label style={{fontSize: '13px', color: '#334155', fontWeight: '600', marginBottom: '6px', display: 'block'}}>
+                          Research Portfolio / Google Scholar Link
+                        </label>
+                        <input 
+                          type="url" 
+                          value={acadProfileUrl} 
+                          onChange={e => setAcadProfileUrl(e.target.value)}
+                          placeholder="https://scholar.google.com/citations?user=..."
+                          style={{width: '100%', padding: '10px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '14px'}}
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {acadActiveTab === 'details' && (
+                  <>
+                    <div style={{backgroundColor: '#f1f5f9', padding: '10px 14px', borderRadius: '8px', fontSize: '12px', color: '#475569', display: 'flex', alignItems: 'center', gap: '8px'}}>
+                      💡 <span><strong>Tip:</strong> Enter one item per line. Each line will be shown as an individual bullet point or publication entry.</span>
+                    </div>
+
+                    <div>
+                      <label style={{fontSize: '13px', color: '#334155', fontWeight: '600', marginBottom: '4px', display: 'block'}}>
+                        Selected Publications & Papers (One per line)
+                      </label>
+                      <textarea 
+                        rows={3}
+                        value={acadPublications}
+                        onChange={e => setAcadPublications(e.target.value)}
+                        placeholder="Deep Learning Approaches for Anomaly Detection — IEEE Transactions, 2023&#10;Cloud-based Scalable Architecture — Journal of Cloud Computing, 2024"
+                        style={{width: '100%', padding: '10px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '13px', lineHeight: '1.5', fontFamily: 'inherit'}}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={{fontSize: '13px', color: '#334155', fontWeight: '600', marginBottom: '4px', display: 'block'}}>
+                        Funded Projects & Consultancy (One per line)
+                      </label>
+                      <textarea 
+                        rows={3}
+                        value={acadProjects}
+                        onChange={e => setAcadProjects(e.target.value)}
+                        placeholder="AI-Powered Smart Campus Administration System&#10;Rural Health IoT Monitoring System"
+                        style={{width: '100%', padding: '10px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '13px', lineHeight: '1.5', fontFamily: 'inherit'}}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={{fontSize: '13px', color: '#334155', fontWeight: '600', marginBottom: '4px', display: 'block'}}>
+                        Patents & Innovations (One per line)
+                      </label>
+                      <textarea 
+                        rows={3}
+                        value={acadPatents}
+                        onChange={e => setAcadPatents(e.target.value)}
+                        placeholder="Automated Resource Provisioning Framework (Published - 2023)"
+                        style={{width: '100%', padding: '10px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '13px', lineHeight: '1.5', fontFamily: 'inherit'}}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={{fontSize: '13px', color: '#334155', fontWeight: '600', marginBottom: '4px', display: 'block'}}>
+                        Professional Experience (One per line)
+                      </label>
+                      <textarea 
+                        rows={3}
+                        value={acadExperience}
+                        onChange={e => setAcadExperience(e.target.value)}
+                        placeholder="Associate Professor, NSCET (2020 - Present)&#10;Assistant Professor, XYZ College (2015 - 2020)"
+                        style={{width: '100%', padding: '10px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '13px', lineHeight: '1.5', fontFamily: 'inherit'}}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={{fontSize: '13px', color: '#334155', fontWeight: '600', marginBottom: '4px', display: 'block'}}>
+                        Awards & Recognition (One per line)
+                      </label>
+                      <textarea 
+                        rows={2}
+                        value={acadAwards}
+                        onChange={e => setAcadAwards(e.target.value)}
+                        placeholder="Excellence in AI Research Award - 2023"
+                        style={{width: '100%', padding: '10px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '13px', lineHeight: '1.5', fontFamily: 'inherit'}}
+                      />
+                    </div>
+                  </>
+                )}
+
+                {acadActiveTab === 'document' && (
+                  <>
+                    <div style={{backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '10px', padding: '18px'}}>
+                      <h4 style={{margin: '0 0 10px 0', fontSize: '15px', color: '#1e293b', display: 'flex', alignItems: 'center', gap: '8px'}}>
+                        <FaFilePdf style={{color: '#ef4444', fontSize: '18px'}} /> Official Academic Profile Document (PDF)
+                      </h4>
+                      <p style={{margin: '0 0 15px 0', fontSize: '13px', color: '#64748b', lineHeight: '1.5'}}>
+                        Upload the faculty member's detailed Anna University / NAAC format profile, CV, or bio-data in PDF format. When uploaded, a prominent download button will appear on their live academic profile page.
+                      </p>
+
+                      {existingPdfUrl && !removePdf && (
+                        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#e2e8f0', padding: '10px 15px', borderRadius: '8px', marginBottom: '15px'}}>
+                          <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                            <FaFilePdf style={{color: '#dc2626', fontSize: '18px'}} />
+                            <div>
+                              <div style={{fontSize: '13px', fontWeight: '600', color: '#1e293b'}}>Current Attached PDF</div>
+                              <a 
+                                href={`http://localhost:5000${existingPdfUrl}`} 
+                                target="_blank" 
+                                rel="noreferrer" 
+                                style={{fontSize: '12px', color: '#4f46e5', textDecoration: 'underline'}}
+                              >
+                                View Current PDF
+                              </a>
+                            </div>
+                          </div>
+                          <button 
+                            type="button" 
+                            onClick={() => setRemovePdf(true)}
+                            style={{backgroundColor: '#fee2e2', color: '#dc2626', border: 'none', padding: '6px 12px', borderRadius: '6px', cursor: 'pointer', fontSize: '12px', fontWeight: '600'}}
+                          >
+                            Remove File
+                          </button>
+                        </div>
+                      )}
+
+                      {removePdf && (
+                        <div style={{backgroundColor: '#fef2f2', border: '1px solid #fecaca', padding: '10px 15px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                          <span style={{fontSize: '13px', color: '#991b1b'}}>Current PDF will be removed upon saving.</span>
+                          <button 
+                            type="button" 
+                            onClick={() => setRemovePdf(false)}
+                            style={{backgroundColor: '#e2e8f0', color: '#334155', border: 'none', padding: '4px 10px', borderRadius: '4px', cursor: 'pointer', fontSize: '12px'}}
+                          >
+                            Undo
+                          </button>
+                        </div>
+                      )}
+
+                      <div>
+                        <label style={{fontSize: '13px', color: '#334155', fontWeight: '600', marginBottom: '6px', display: 'block'}}>
+                          {existingPdfUrl && !removePdf ? 'Replace With New PDF Document' : 'Select PDF Document'}
+                        </label>
+                        <input 
+                          type="file" 
+                          accept="application/pdf"
+                          onChange={e => setAcadPdfFile(e.target.files[0] || null)}
+                          style={{width: '100%', padding: '10px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '13px', backgroundColor: 'white'}}
+                        />
+                        {acadPdfFile && (
+                          <div style={{marginTop: '6px', fontSize: '12px', color: '#059669', fontWeight: '600'}}>
+                            Selected: {acadPdfFile.name} ({(acadPdfFile.size / 1024).toFixed(1)} KB)
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </>
+                )}
+
+              </div>
+
+              {/* Modal Footer */}
+              <div style={{padding: '16px 24px', borderTop: '1px solid #e2e8f0', display: 'flex', justifyContent: 'flex-end', gap: '12px', backgroundColor: '#f8fafc'}}>
+                <button 
+                  type="button" 
+                  onClick={() => setAcademicStaff(null)} 
+                  disabled={isSavingAcad}
+                  style={{backgroundColor: '#f1f5f9', color: '#475569', border: '1px solid #cbd5e1', padding: '10px 20px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px', fontWeight: '600'}}
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="submit" 
+                  disabled={isSavingAcad}
+                  style={{backgroundColor: '#4f46e5', color: 'white', border: 'none', padding: '10px 24px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '8px', opacity: isSavingAcad ? 0.7 : 1}}
+                >
+                  <FaCheck /> {isSavingAcad ? 'Saving Academic Profile...' : 'Save Academic Profile'}
+                </button>
               </div>
             </form>
           </div>

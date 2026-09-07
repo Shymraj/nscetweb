@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { SmartLoaderProvider } from "./components/SmartLoader/SmartLoaderProvider";
 
 import Navbar from "./components/Navbar/Navbar";
@@ -90,6 +91,14 @@ const AppContent = () => {
   const isAdminRoute = location.pathname.startsWith("/admin-");
   const isStandalonePortfolio = /^\/departments\/[^/]+\/faculty\//.test(location.pathname) || location.pathname === "/home/profile";
   const hideGlobalNavAndFooter = isAdminRoute || isStandalonePortfolio;
+
+  useEffect(() => {
+    if (isAdminRoute || location.pathname.startsWith("/admin")) {
+      document.title = "NSCET | Admin";
+    } else if (location.pathname === "/") {
+      document.title = "NSCET | Home";
+    }
+  }, [location.pathname, isAdminRoute]);
 
   return (
     <>

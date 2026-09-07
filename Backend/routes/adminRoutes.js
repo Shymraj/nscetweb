@@ -10,7 +10,7 @@ router.get("/test", (req, res) => {
 
 const { 
   loginAdmin,
-  getStaff, addStaff, updateStaff, deleteStaff,
+  getStaff, addStaff, updateStaff, deleteStaff, updateAcademicProfile,
   getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent, deleteEventPhoto,
   getDepartments, addDepartment, deleteDepartment,
   getPlacements, addPlacement, deletePlacement,
@@ -23,6 +23,7 @@ router.post("/login", loginAdmin);
 router.get("/staff", getStaff);
 router.post("/staff", upload.single("photo"), addStaff);
 router.put("/staff/:id", upload.single("photo"), updateStaff);
+router.put("/staff/:id/academic-profile", upload.single("profile_pdf"), updateAcademicProfile);
 router.delete("/staff/:id", deleteStaff);
 
 // Event Routes

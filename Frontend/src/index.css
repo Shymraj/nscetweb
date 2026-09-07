@@ -911,20 +911,67 @@ body.dark-mode .statutes-container {
 }
 
 /* 2. Department Cards (Bento, Glass, etc) */
-body.dark-mode .cse-bento-card, body.dark-mode .cse-glass-card, body.dark-mode .cse-cap-card, body.dark-mode .cse-member-card, body.dark-mode .cse-empty-events-state,
-body.dark-mode .it-bento-card, body.dark-mode .it-glass-card, body.dark-mode .it-cap-card, body.dark-mode .it-member-card, body.dark-mode .it-empty-events-state,
-body.dark-mode .aids-bento-card, body.dark-mode .aids-glass-card, body.dark-mode .aids-cap-card, body.dark-mode .aids-member-card, body.dark-mode .aids-empty-events-state,
-body.dark-mode .ece-bento-card, body.dark-mode .ece-glass-card, body.dark-mode .ece-cap-card, body.dark-mode .ece-member-card, body.dark-mode .ece-empty-events-state,
-body.dark-mode .eee-bento-card, body.dark-mode .eee-glass-card, body.dark-mode .eee-cap-card, body.dark-mode .eee-member-card, body.dark-mode .eee-empty-events-state,
-body.dark-mode .civil-bento-card, body.dark-mode .civil-glass-card, body.dark-mode .civil-cap-card, body.dark-mode .civil-member-card, body.dark-mode .civil-empty-events-state,
-body.dark-mode .sh-bento-card, body.dark-mode .sh-glass-card, body.dark-mode .sh-cap-card, body.dark-mode .sh-member-card, body.dark-mode .sh-empty-events-state,
-body.dark-mode .mech-bento-card, body.dark-mode .mech-glass-card, body.dark-mode .mech-cap-card, body.dark-mode .mech-member-card, body.dark-mode .mech-empty-events-state,
-body.dark-mode .bento-card, body.dark-mode .glass-card, body.dark-mode .cap-card, body.dark-mode .member-card, body.dark-mode .empty-events-state,
-body.dark-mode .tf-hod-card, body.dark-mode .tf-contact-item, body.dark-mode .tf-staff-card, body.dark-mode .tf-pill-nav-container,
-body.dark-mode .statutes-footer, body.dark-mode .statutes-course-capsule, body.dark-mode .statutes-btn-solid, body.dark-mode .statutes-footer-item,
+body.dark-mode .cse-bento-card,
+body.dark-mode .cse-glass-card,
+body.dark-mode .cse-cap-card,
+body.dark-mode .cse-member-card,
+body.dark-mode .cse-empty-events-state,
+body.dark-mode .it-bento-card,
+body.dark-mode .it-glass-card,
+body.dark-mode .it-cap-card,
+body.dark-mode .it-member-card,
+body.dark-mode .it-empty-events-state,
+body.dark-mode .aids-bento-card,
+body.dark-mode .aids-glass-card,
+body.dark-mode .aids-cap-card,
+body.dark-mode .aids-member-card,
+body.dark-mode .aids-empty-events-state,
+body.dark-mode .ece-bento-card,
+body.dark-mode .ece-glass-card,
+body.dark-mode .ece-cap-card,
+body.dark-mode .ece-member-card,
+body.dark-mode .ece-empty-events-state,
+body.dark-mode .eee-bento-card,
+body.dark-mode .eee-glass-card,
+body.dark-mode .eee-cap-card,
+body.dark-mode .eee-member-card,
+body.dark-mode .eee-empty-events-state,
+body.dark-mode .civil-bento-card,
+body.dark-mode .civil-glass-card,
+body.dark-mode .civil-cap-card,
+body.dark-mode .civil-member-card,
+body.dark-mode .civil-empty-events-state,
+body.dark-mode .sh-bento-card,
+body.dark-mode .sh-glass-card,
+body.dark-mode .sh-cap-card,
+body.dark-mode .sh-member-card,
+body.dark-mode .sh-empty-events-state,
+body.dark-mode .mech-bento-card,
+body.dark-mode .mech-glass-card,
+body.dark-mode .mech-cap-card,
+body.dark-mode .mech-member-card,
+body.dark-mode .mech-empty-events-state,
+body.dark-mode .bento-card,
+body.dark-mode .glass-card,
+body.dark-mode .cap-card,
+body.dark-mode .member-card,
+body.dark-mode .empty-events-state,
+body.dark-mode .tf-hod-card,
+body.dark-mode .tf-contact-item,
+body.dark-mode .tf-staff-card,
+body.dark-mode .tf-pill-nav-container,
+body.dark-mode .statutes-footer,
+body.dark-mode .statutes-course-capsule,
+body.dark-mode .statutes-btn-solid,
+body.dark-mode .statutes-footer-item,
 body.dark-mode .non-teaching-staff-card,
-body.dark-mode .ap-card, body.dark-mode .ap-item, body.dark-mode .ap-research-box, body.dark-mode .ap-check,
-body.dark-mode .iqac-about-card, body.dark-mode .iqac-member-card, body.dark-mode .iqac-record-card,
+body.dark-mode .ap-card,
+body.dark-mode .ap-item,
+body.dark-mode .ap-research-box,
+body.dark-mode .ap-check,
+body.dark-mode .iqac-about-card,
+body.dark-mode .iqac-member-card,
+body.dark-mode .iqac-record-card,
 body.dark-mode .m1-stat-card-inner {
   background: var(--theme-card) !important;
   color: var(--theme-text) !important;
@@ -951,25 +998,31 @@ body.dark-mode .ic-table-container {
   background: var(--theme-card) !important;
   border: 1px solid var(--theme-border) !important;
 }
+
 body.dark-mode .ic-intro-section p,
 body.dark-mode .ic-table td {
   color: #d1d5db !important;
 }
+
 body.dark-mode .ic-intro-section h2,
 body.dark-mode .ic-table-section h2,
 body.dark-mode .ic-table th {
   color: #ffffff !important;
 }
+
 body.dark-mode .ic-table thead {
   background: rgba(14, 165, 233, 0.15) !important;
 }
+
 body.dark-mode .ic-table th,
 body.dark-mode .ic-table td {
   border-bottom-color: var(--theme-border) !important;
 }
+
 body.dark-mode .ic-table tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.05) !important;
 }
+
 body.dark-mode .ic-badge {
   background-color: rgba(37, 99, 235, 0.2) !important;
   color: #93c5fd !important;
@@ -983,12 +1036,15 @@ body.dark-mode .team-card {
   background: var(--theme-card) !important;
   border-color: var(--theme-border) !important;
 }
+
 body.dark-mode .split-card.mission-card {
   border-top-color: #f59e0b !important;
 }
+
 body.dark-mode .split-card.obj-card {
   border-top-color: #10b981 !important;
 }
+
 body.dark-mode .edc-page-title,
 body.dark-mode .section-heading,
 body.dark-mode .edc-about-box h2,
@@ -997,38 +1053,47 @@ body.dark-mode .team-name {
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
 }
+
 body.dark-mode .edc-about-box p,
 body.dark-mode .custom-list,
 body.dark-mode .custom-list li,
 body.dark-mode .archives-subtext {
   color: #d1d5db !important;
 }
+
 body.dark-mode .team-dept {
   color: #9ca3af !important;
 }
+
 body.dark-mode .card-header {
   border-bottom-color: var(--theme-border) !important;
 }
+
 body.dark-mode .team-card:hover {
   background-color: rgba(255, 255, 255, 0.03) !important;
   border-color: #3b82f6 !important;
 }
+
 body.dark-mode .archive-pill {
   background-color: transparent !important;
   color: #60a5fa !important;
   border-color: #3b82f6 !important;
 }
+
 body.dark-mode .archive-pill:hover {
   background-color: #3b82f6 !important;
   color: #ffffff !important;
 }
+
 body.dark-mode .profile-icon {
   background: rgba(255, 255, 255, 0.1) !important;
 }
+
 body.dark-mode .role-coord {
   background-color: rgba(253, 224, 71, 0.2) !important;
   color: #fde047 !important;
 }
+
 body.dark-mode .role-member {
   background-color: rgba(125, 211, 252, 0.2) !important;
   color: #7dd3fc !important;
@@ -1045,7 +1110,7 @@ body.dark-mode .submenu-label {
 
 body.dark-mode .dropdown-menu li a:hover,
 body.dark-mode .sub-dropdown-menu li a:hover,
-body.dark-mode .has-submenu:hover > .submenu-label {
+body.dark-mode .has-submenu:hover>.submenu-label {
   background-color: rgba(212, 175, 55, 0.12) !important;
   color: #D4AF37 !important;
 }
@@ -1053,8 +1118,8 @@ body.dark-mode .has-submenu:hover > .submenu-label {
 /* =========================================
    DARK MODE OVERRIDES for Teaching Faculty
    ========================================= */
-body.dark-mode .tf-hod-card, 
-body.dark-mode .tf-staff-card, 
+body.dark-mode .tf-hod-card,
+body.dark-mode .tf-staff-card,
 body.dark-mode .tf-pill-nav-container {
   background: var(--theme-card) !important;
   border-color: var(--theme-border) !important;
@@ -1067,7 +1132,8 @@ body.dark-mode .tf-staff-name {
 
 body.dark-mode .tf-hod-position,
 body.dark-mode .tf-staff-pos {
-  color: #60a5fa !important; /* Lighter blue for dark mode */
+  color: #60a5fa !important;
+  /* Lighter blue for dark mode */
 }
 
 body.dark-mode .tf-hod-dept,
@@ -1090,9 +1156,9 @@ body.dark-mode .tf-sub-nav-btn:not(.active):hover {
 /* =========================================
    DARK MODE OVERRIDES for Department Pages
    ========================================= */
-body.dark-mode .bento-card:not(.primary), 
-body.dark-mode .glass-card, 
-body.dark-mode .course-card, 
+body.dark-mode .bento-card:not(.primary),
+body.dark-mode .glass-card,
+body.dark-mode .course-card,
 body.dark-mode .faculty-card {
   background: var(--theme-card) !important;
   border-color: var(--theme-border) !important;
@@ -1108,9 +1174,9 @@ body.dark-mode .glam-title {
   color: #ffffff !important;
 }
 
-body.dark-mode .bento-card p, 
-body.dark-mode .glass-card p, 
-body.dark-mode .course-desc, 
+body.dark-mode .bento-card p,
+body.dark-mode .glass-card p,
+body.dark-mode .course-desc,
 body.dark-mode .faculty-desig,
 body.dark-mode .faculty-email {
   color: #cbd5e1 !important;
@@ -1162,9 +1228,11 @@ body.dark-mode .ic-table th,
 body.dark-mode .ic-table td {
   border-bottom-color: var(--theme-border) !important;
 }
+
 body.dark-mode .ic-table tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.05) !important;
 }
+
 body.dark-mode .ic-badge {
   background-color: rgba(37, 99, 235, 0.2) !important;
   color: #93c5fd !important;
@@ -1178,12 +1246,15 @@ body.dark-mode .team-card {
   background: var(--theme-card) !important;
   border-color: var(--theme-border) !important;
 }
+
 body.dark-mode .split-card.mission-card {
   border-top-color: #f59e0b !important;
 }
+
 body.dark-mode .split-card.obj-card {
   border-top-color: #10b981 !important;
 }
+
 body.dark-mode .edc-page-title,
 body.dark-mode .section-heading,
 body.dark-mode .edc-about-box h2,
@@ -1192,38 +1263,47 @@ body.dark-mode .team-name {
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
 }
+
 body.dark-mode .edc-about-box p,
 body.dark-mode .custom-list,
 body.dark-mode .custom-list li,
 body.dark-mode .archives-subtext {
   color: #d1d5db !important;
 }
+
 body.dark-mode .team-dept {
   color: #9ca3af !important;
 }
+
 body.dark-mode .card-header {
   border-bottom-color: var(--theme-border) !important;
 }
+
 body.dark-mode .team-card:hover {
   background-color: rgba(255, 255, 255, 0.03) !important;
   border-color: #3b82f6 !important;
 }
+
 body.dark-mode .archive-pill {
   background-color: transparent !important;
   color: #60a5fa !important;
   border-color: #3b82f6 !important;
 }
+
 body.dark-mode .archive-pill:hover {
   background-color: #3b82f6 !important;
   color: #ffffff !important;
 }
+
 body.dark-mode .profile-icon {
   background: rgba(255, 255, 255, 0.1) !important;
 }
+
 body.dark-mode .role-coord {
   background-color: rgba(253, 224, 71, 0.2) !important;
   color: #fde047 !important;
 }
+
 body.dark-mode .role-member {
   background-color: rgba(125, 211, 252, 0.2) !important;
   color: #7dd3fc !important;
@@ -1240,7 +1320,7 @@ body.dark-mode .submenu-label {
 
 body.dark-mode .dropdown-menu li a:hover,
 body.dark-mode .sub-dropdown-menu li a:hover,
-body.dark-mode .has-submenu:hover > .submenu-label {
+body.dark-mode .has-submenu:hover>.submenu-label {
   background-color: rgba(212, 175, 55, 0.12) !important;
   color: #D4AF37 !important;
 }
@@ -1248,8 +1328,8 @@ body.dark-mode .has-submenu:hover > .submenu-label {
 /* =========================================
    DARK MODE OVERRIDES for Teaching Faculty
    ========================================= */
-body.dark-mode .tf-hod-card, 
-body.dark-mode .tf-staff-card, 
+body.dark-mode .tf-hod-card,
+body.dark-mode .tf-staff-card,
 body.dark-mode .tf-pill-nav-container {
   background: var(--theme-card) !important;
   border-color: var(--theme-border) !important;
@@ -1262,7 +1342,8 @@ body.dark-mode .tf-staff-name {
 
 body.dark-mode .tf-hod-position,
 body.dark-mode .tf-staff-pos {
-  color: #60a5fa !important; /* Lighter blue for dark mode */
+  color: #60a5fa !important;
+  /* Lighter blue for dark mode */
 }
 
 body.dark-mode .tf-hod-dept,
@@ -1285,9 +1366,9 @@ body.dark-mode .tf-sub-nav-btn:not(.active):hover {
 /* =========================================
    DARK MODE OVERRIDES for Department Pages
    ========================================= */
-body.dark-mode .bento-card:not(.primary), 
-body.dark-mode .glass-card, 
-body.dark-mode .course-card, 
+body.dark-mode .bento-card:not(.primary),
+body.dark-mode .glass-card,
+body.dark-mode .course-card,
 body.dark-mode .faculty-card {
   background: var(--theme-card) !important;
   border-color: var(--theme-border) !important;
@@ -1303,9 +1384,9 @@ body.dark-mode .glam-title {
   color: #ffffff !important;
 }
 
-body.dark-mode .bento-card p, 
-body.dark-mode .glass-card p, 
-body.dark-mode .course-desc, 
+body.dark-mode .bento-card p,
+body.dark-mode .glass-card p,
+body.dark-mode .course-desc,
 body.dark-mode .faculty-desig,
 body.dark-mode .faculty-email {
   color: #cbd5e1 !important;
@@ -1363,6 +1444,7 @@ body.dark-mode .non-teaching-avatar {
    Requirement: Hide ALL hero/page banners across the entire project on mobile
    ========================================================================== */
 @media (max-width: 767px) {
+
   .page-banner,
   .hero {
     display: none !important;
@@ -1376,8 +1458,8 @@ body.dark-mode .non-teaching-avatar {
 
   /* Add top offset to the first content section immediately after the hidden banner
      to compensate for the 60px fixed navbar on mobile */
-  .page-banner + *,
-  .hero + * {
+  .page-banner+*,
+  .hero+* {
     margin-top: 60px !important;
   }
 }
@@ -1398,16 +1480,18 @@ body.dark-mode .non-teaching-avatar {
     position: relative;
     /* margin-top is handled by .hero + * (60px) to seamlessly attach to navbar */
   }
-  
+
   .mobile-home-hero img {
     width: 100%;
     height: 55vh;
-    min-height: 440px; /* Increased slightly to comfortably fit all text */
+    min-height: 440px;
+    /* Increased slightly to comfortably fit all text */
     object-fit: cover;
     display: block;
-    border-radius: 0 0 15px 15px; /* optional aesthetic */
+    border-radius: 0 0 15px 15px;
+    /* optional aesthetic */
   }
-  
+
   /* Mobile Hero Text Overlay Styles */
   .mobile-hero-overlay {
     position: absolute;
@@ -1419,7 +1503,7 @@ body.dark-mode .non-teaching-avatar {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.75) 100%);
     border-radius: 0 0 15px 15px;
     padding: 20px 15px;
     text-align: center;
@@ -1438,21 +1522,24 @@ body.dark-mode .non-teaching-avatar {
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: #FFD700; /* Gold */
+    color: #FFD700;
+    /* Gold */
     margin-bottom: 6px;
     font-weight: 700;
     font-family: var(--font-subtopic);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   }
 
   .mobile-hero-title {
     font-size: 22px;
-    font-weight: 700; /* Match desktop Cinzel weight */
+    font-weight: 700;
+    /* Match desktop Cinzel weight */
     line-height: 1.2;
     color: #ffffff;
     margin-bottom: 6px;
-    font-family: "Cinzel", serif; /* Match desktop font */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+    font-family: "Cinzel", serif;
+    /* Match desktop font */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
   }
 
   .mobile-hero-tagline {
@@ -1461,7 +1548,7 @@ body.dark-mode .non-teaching-avatar {
     color: #E0E7FF;
     margin-bottom: 15px;
     font-family: var(--font-body);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   }
 
   .mobile-hero-approvals {

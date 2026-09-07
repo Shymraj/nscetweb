@@ -56,12 +56,80 @@ const updateStaff = (req, res) => {
   });
 };
 
+const updateAcademicProfile = (req, res) => {
+  const { id } = req.params;
+  const {
+    about,
+    linkedin,
+    spec,
+    experience,
+    publications,
+    projects,
+    patents,
+    awards,
+    profile_url,
+    remove_pdf
+  } = req.body;
+
+  const profile_pdf = req.file ? `/uploads/staff/${req.file.filename}` : null;
+
+  // If removing old PDF or uploading new one while old exists
+  if (remove_pdf === 'true' || remove_pdf === true || profile_pdf) {
+    db.query("SELECT profile_pdf FROM staff WHERE id = ?", [id], (err, results) => {
+      if (results && results.length > 0 && results[0].profile_pdf) {
+        const filePath = path.join(__dirname, "..", results[0].profile_pdf);
+        if (fs.existsSync(filePath)) {
+          try { fs.unlinkSync(filePath); } catch (e) { console.error("Error removing old PDF:", e); }
+        }
+      }
+    });
+  }
+
+  let sql = `UPDATE staff SET about=?, linkedin=?, spec=?, experience=?, publications=?, projects=?, patents=?, awards=?, profile_url=?`;
+  let params = [
+    about || '',
+    linkedin || '',
+    spec || '',
+    typeof experience === 'string' ? experience : JSON.stringify(experience || []),
+    typeof publications === 'string' ? publications : JSON.stringify(publications || []),
+    typeof projects === 'string' ? projects : JSON.stringify(projects || []),
+    typeof patents === 'string' ? patents : JSON.stringify(patents || []),
+    typeof awards === 'string' ? awards : JSON.stringify(awards || []),
+    profile_url || ''
+  ];
+
+  if (profile_pdf) {
+    sql += `, profile_pdf=?`;
+    params.push(profile_pdf);
+  } else if (remove_pdf === 'true' || remove_pdf === true) {
+    sql += `, profile_pdf=NULL`;
+  }
+
+  sql += ` WHERE id=?`;
+  params.push(id);
+
+  db.query(sql, params, (err, result) => {
+    if (err) return res.status(500).json({ success: false, message: err.message });
+    res.json({ success: true, message: "Academic profile updated successfully", profile_pdf });
+  });
+};
+
 const deleteStaff = (req, res) => {
   const { id } = req.params;
-  db.query("SELECT photo_url FROM staff WHERE id = ?", [id], (err, results) => {
-    if (results && results.length > 0 && results[0].photo_url) {
-      const filePath = path.join(__dirname, "..", results[0].photo_url);
-      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+  db.query("SELECT photo_url, profile_pdf FROM staff WHERE id = ?", [id], (err, results) => {
+    if (results && results.length > 0) {
+      if (results[0].photo_url) {
+        const filePath = path.join(__dirname, "..", results[0].photo_url);
+        if (fs.existsSync(filePath)) {
+          try { fs.unlinkSync(filePath); } catch (e) {}
+        }
+      }
+      if (results[0].profile_pdf) {
+        const pdfPath = path.join(__dirname, "..", results[0].profile_pdf);
+        if (fs.existsSync(pdfPath)) {
+          try { fs.unlinkSync(pdfPath); } catch (e) {}
+        }
+      }
     }
     db.query("DELETE FROM staff WHERE id = ?", [id], (err) => {
       if (err) return res.status(500).json({ success: false, message: err.message });
@@ -271,7 +339,7 @@ const deleteEnquiry = (req, res) => {
 
 module.exports = { 
   loginAdmin, 
-  getStaff, addStaff, updateStaff, deleteStaff,
+  getStaff, addStaff, updateStaff, deleteStaff, updateAcademicProfile,
   getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent, deleteEventPhoto,
   getDepartments, addDepartment, deleteDepartment,
   getPlacements, addPlacement, deletePlacement,
