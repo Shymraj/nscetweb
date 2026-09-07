@@ -7,7 +7,8 @@ export default {
   content: [
     "./src/pages/Departments/civil/**/*.{js,jsx,ts,tsx}",
     "./src/components/ui/**/*.{js,jsx,ts,tsx}",
-    "./src/components/FacultyPortfolio/**/*.{js,jsx,ts,tsx}"
+    "./src/components/FacultyPortfolio/**/*.{js,jsx,ts,tsx}",
+    "./src/pages/Administration/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
     extend: {

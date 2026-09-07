@@ -143,7 +143,7 @@
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
   border: 1px solid #e0f2fe;
-  border-left: 8px solid #0369a1;
+  border-left: 8px solid #f3f4f5;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -156,15 +156,17 @@
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: #0284c7;
-  border: 3px solid #1e1b4b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  color: #ffffff;
+  overflow: hidden;
   flex-shrink: 0;
   box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+  border: 3px solid #0284c7;
+}
+
+.ntf-principal-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .ntf-principal-info h4 {
@@ -179,7 +181,7 @@
 
 .ntf-principal-info .p-deg {
   font-size: 1rem;
-  color: #38bdf8 !important;
+  color: #195169 !important;
   font-weight: 700;
   text-transform: uppercase;
   margin: 0 0 4px 0;
@@ -315,22 +317,6 @@
   position: relative;
 }
 
-.ntf-avatar-circle {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-  color: #0369a1;
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
-}
-
 .ntf-staff-details {
   flex: 1;
 }
@@ -341,6 +327,15 @@
   font-weight: 700;
   color: #0f172a;
   margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ntf-bullet {
+  color: #0284c7;
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
 .ntf-meta-row {
@@ -351,18 +346,18 @@
 }
 
 .ntf-pos-chip {
-  background: #e0f2fe;
-  color: #0369a1;
+  background: #edf0f0;
+  color: #000000;
   font-size: 0.8rem;
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 999px;
-  border: 1px solid #bae6fd;
+  border: 1px solid #d7e2e8;
 }
 
 .ntf-dept-tag {
   background: #f1f5f9;
-  color: #475569;
+  color: #00050d;
   font-size: 0.78rem;
   font-weight: 600;
   padding: 3px 9px;

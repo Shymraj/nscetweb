@@ -287,6 +287,17 @@
   border-color: rgba(2, 132, 199, 0.3);
 }
 
+/* Wide Cards for specific sections */
+.wide-category-card {
+  grid-column: 1 / -1;
+}
+
+.wide-category-card .category-members-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
 .category-header {
   display: flex;
   align-items: center;

@@ -10,6 +10,8 @@ import { mecseFacultyData } from "./cse/mecse/facultyData";
 import { meembeddedFacultyData } from "./electrical/meembedded/facultyData";
 import { memanufacturingFacultyData } from "./mechanical/memanufacturing/facultyData";
 import { mestructuralFacultyData } from "./civil/mestructural/facultyData";
+import { placementsFacultyData } from "../Student Life/Placements/facultyData";
+import { sportsFacultyData } from "../Student Life/Sports/facultyData";
 
 const registry = {
   civil: civilFacultyData,
@@ -23,7 +25,9 @@ const registry = {
   "me-cse": mecseFacultyData,
   "me-embedded": meembeddedFacultyData,
   "me-manufacturing": memanufacturingFacultyData,
-  "me-structural": mestructuralFacultyData
+  "me-structural": mestructuralFacultyData,
+  "placements": placementsFacultyData,
+  "sports": sportsFacultyData
 };
 
 export const departmentNames = {
@@ -38,7 +42,9 @@ export const departmentNames = {
   "me-cse": "M.E. Computer Science & Engineering",
   "me-embedded": "M.E. Embedded System Technologies",
   "me-manufacturing": "M.E. Manufacturing Engineering",
-  "me-structural": "M.E. Structural Engineering"
+  "me-structural": "M.E. Structural Engineering",
+  "placements": "Training & Placement Cell",
+  "sports": "Department of Physical Education"
 };
 
 export function getFacultyData(deptId, facultyId) {

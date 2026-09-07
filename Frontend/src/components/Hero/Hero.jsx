@@ -18,6 +18,12 @@ import {
 const Hero = () => {
   const [heroes, setHeroes] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showComingSoon, setShowComingSoon] = useState(false);
+
+  const handleExploreClick = () => {
+    setShowComingSoon(true);
+    setTimeout(() => setShowComingSoon(false), 3000);
+  };
 
   useEffect(() => {
     const fetchHeroes = async () => {
@@ -127,7 +133,7 @@ const Hero = () => {
                       <FaArrowRight />
                     </button>
                   )}
-                  <button className="btn-secondary">
+                  <button className="btn-secondary" onClick={handleExploreClick}>
                     Explore Campus
                     <FaArrowRight />
                   </button>
@@ -160,11 +166,11 @@ const Hero = () => {
 
                 <div className="hero-buttons">
                   <button className="btn-primary" onClick={scrollToEnquiry}>
-                    Apply Now
+                    Enroll Now
                     <FaArrowRight />
                   </button>
 
-                  <button className="btn-secondary">
+                  <button className="btn-secondary" onClick={handleExploreClick}>
                     Explore Campus
                     <FaArrowRight />
                   </button>
@@ -207,6 +213,27 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Professional Coming Soon Toast */}
+      <AnimatePresence>
+        {showComingSoon && (
+          <motion.div 
+            className="coming-soon-toast"
+            initial={{ opacity: 0, x: "-50%", y: "calc(-50% + 50px)", scale: 0.95 }}
+            animate={{ opacity: 1, x: "-50%", y: "-50%", scale: 1 }}
+            exit={{ opacity: 0, x: "-50%", y: "calc(-50% + 20px)", scale: 0.95 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <div className="toast-icon-wrap">
+              <span className="toast-icon">✨</span>
+            </div>
+            <div className="toast-content">
+              <h4>Coming Soon!</h4>
+              <p>Our interactive 3D virtual campus tour is under development.</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

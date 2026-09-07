@@ -7,10 +7,7 @@ import DepartmentFacultyCard from '../../../components/common/DepartmentFacultyC
 const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
 const bannerImg = Object.values(bannerGlobs)[0] || null;
 import { FaBuilding, FaUserTie, FaChalkboardTeacher, FaBriefcase, FaWifi, FaUsers, FaGraduationCap, FaIndustry, FaPhone, FaEnvelope, FaChevronLeft, FaChevronRight, FaCheckCircle, FaBullseye, FaHandshake, FaChartLine, FaUtensils, FaComments, FaBrain, FaRegLightbulb } from 'react-icons/fa';
-import geethaImg from './images/Geetha.jpeg';
-import ramkumarImg from './images/Ramkumar.jpeg';
-import megaImg from './images/Mega.jpeg';
-import subathamaniImg from './images/Subathamani.jpeg';
+import { placementOfficerData, placementCoordinatorsData } from './facultyData';
 import poster1 from './images/1769520719_Placement Poster M&S 1.jpg.webp';
 import poster2 from './images/1769521126_Placement Poster 11-06-2025.webp';
 import poster3 from './images/1769521242_Placement Poster EEE.webp';
@@ -18,6 +15,42 @@ import placed1 from './images/1769520443_place (2).jpg';
 import placed2 from './images/1769520502_place (1).jpg';
 import placed3 from './images/1769520516_place (1).jpeg';
 import placed4 from './images/1769520863_WhatsApp Image 2026-01-27 at 7.03.37 PM.jpeg';
+
+// Recruiter Logos
+import atxLogo from "../../../assets/Recruiters/ATX.png";
+import atxWhiteLogo from "../../../assets/Recruiters/ATX_white.png";
+import dviliteLogo from "../../../assets/Recruiters/dvilite_color.png";
+import dviliteWhiteLogo from "../../../assets/Recruiters/dvilite_white.png";
+import promonLogo from "../../../assets/Recruiters/promon_logo_hd.webp";
+import tcsLogo from "../../../assets/Recruiters/tcs.png";
+import infosysLogo from "../../../assets/Recruiters/Infosys_logo.svg.png";
+import zohoLogo from "../../../assets/Recruiters/zoho.png";
+import hclLogo from "../../../assets/Recruiters/hcl.png";
+import wiproLogo from "../../../assets/Recruiters/wipro.png";
+import webberaxLogo from "../../../assets/Recruiters/webberax.png";
+import teslaLogo from "../../../assets/Recruiters/tesla.png";
+import msLogo from "../../../assets/Recruiters/M&S software.png";
+import nardilLogo from "../../../assets/Recruiters/NaRdil-Logo-270.webp";
+import crewLogo from "../../../assets/Recruiters/chennai_ratha_engineering_works_logo-removebg-preview.png";
+import rainbowLogo from "../../../assets/Recruiters/rainbow.png";
+import wgtechLogo from "../../../assets/Recruiters/wgtech.png";
+const recruiterLogos = [
+  { name: "Infosys", logo: infosysLogo },
+  { name: "Zoho", logo: zohoLogo },
+  { name: "TCS", logo: tcsLogo },
+  { name: "Tesla Electric", logo: teslaLogo },
+  { name: "HCL", logo: hclLogo },
+  { name: "Wipro", logo: wiproLogo },
+  { name: "Webberax", logo: webberaxLogo },
+  { name: "Rainbow Enterprises", logo: rainbowLogo },
+  { name: "ATX", logo: atxLogo, logoWhite: atxWhiteLogo },
+  { name: "Dvilite", logo: dviliteLogo, logoWhite: dviliteWhiteLogo },
+  { name: "NaRDil", logo: nardilLogo },
+  { name: "Chennai Radha Engineering Works", logo: crewLogo },
+  { name: "Promon", logo: promonLogo },
+  { name: "M&S Software", logo: msLogo },
+  { name: "WGTech", logo: wgtechLogo },
+];
 
 const galleryImages = [
   { src: poster1, alt: 'Placement Poster 1', type: 'poster' },
@@ -27,19 +60,6 @@ const galleryImages = [
   { src: placed2, alt: 'Placed Student 2', type: 'placed' },
   { src: placed3, alt: 'Placed Student 3', type: 'placed' },
   { src: placed4, alt: 'Placed Student 4', type: 'placed' },
-];
-
-const placementOfficerData = {
-  name: "Mrs. C. Geetha ",
-  desig: "Training and Placement Officer",
-  image: geethaImg,
-  spec: "Corporate Relations, Career Guidance"
-};
-
-const placementCoordinatorsData = [
-  { name: "Mr. K. Ramkumar", qual: "B.E., MBA.", desig: "Training and Placement Coordinator", image: ramkumarImg, spec: "Placement Training" },
-  { name: "Mrs. S. Megha", qual: "B.Sc", desig: "Training and Placement Coordinator", image: megaImg, spec: "Soft Skills" },
-  { name: "Mrs. T. Subathamani", qual: "M.A., B.Ed., M.Phil.", desig: "Training and Placement Coordinator", image: subathamaniImg, spec: "Communication" }
 ];
 
 const departmentCoordinators = [
@@ -87,6 +107,14 @@ const csetActivities = [
 ];
 
 const Placements = () => {
+  const handleOpenProfile = (member) => {
+    if (!member) return;
+    const facultyId = member.id || member.slug;
+    if (facultyId) {
+      window.open(`/departments/placements/faculty/${facultyId}`, "_blank");
+    }
+  };
+
   // Duplicate array for seamless infinite marquee scrolling
   const marqueeData = galleryImages.length > 0
     ? [...galleryImages, ...galleryImages, ...galleryImages, ...galleryImages]
@@ -202,7 +230,7 @@ const Placements = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <DepartmentFacultyCard member={placementOfficerData} isHOD={true} />
+              <DepartmentFacultyCard member={placementOfficerData} isHOD={true} onOpenProfile={handleOpenProfile} />
             </motion.div>
             <div className="pl-officer-responsibilities">
               <h3>Roles and Responsibilities</h3>
@@ -240,7 +268,7 @@ const Placements = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <DepartmentFacultyCard member={coordinator} />
+                <DepartmentFacultyCard member={coordinator} onOpenProfile={handleOpenProfile} />
               </motion.div>
             ))}
           </div>
@@ -548,12 +576,27 @@ const Placements = () => {
             <FaBuilding className="pl-header-icon" />
             <h2>Our Recruiters</h2>
           </div>
-          <div className="pl-coming-soon-wrapper">
-            <div className="pl-coming-soon-card">
-              <FaIndustry className="pl-coming-soon-icon" />
-              <h3>Coming Soon</h3>
-              <p>We are currently updating our list of esteemed recruiters.</p>
-            </div>
+          <div className="pl-recruiters-grid">
+            {recruiterLogos.map((company, index) => (
+              <motion.div
+                key={index}
+                className="pl-recruiter-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="pl-recruiter-logo-wrapper">
+                  <img
+                    src={company.logo}
+                    alt={company.name}
+                    className="pl-recruiter-logo"
+                  />
+                </div>
+                <p className="pl-recruiter-name">{company.name}</p>
+              </motion.div>
+            ))}
           </div>
         </motion.section>
 

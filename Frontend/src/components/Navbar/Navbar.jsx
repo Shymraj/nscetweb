@@ -48,7 +48,7 @@ const searchData = [
   { name: "Research Centre", path: "/research/centre" },
   { name: "Entrepreneurship Development Cell", path: "/research/entrepreneurship-cell" },
   { name: "ISPIN", path: "/ispin" },
-  { name: "WAVES'25", path: "/gallery/waves25" },
+  { name: "WAVES'26", path: "/gallery/waves25" },
   { name: "CLUBS & CHAPTERS", path: "/gallery/clubs-chapters" },
   { name: "NIRF", path: "/gallery/nirf" },
   { name: "RTI", path: "/gallery/rti" },
@@ -76,7 +76,7 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -116,7 +116,7 @@ function Navbar() {
     if (query.trim() === "") {
       setSearchResults([]);
     } else {
-      const results = searchData.filter(item => 
+      const results = searchData.filter(item =>
         item.name.toLowerCase().includes(query.toLowerCase())
       );
       setSearchResults(results);
@@ -219,6 +219,7 @@ function Navbar() {
           <li className={`dropdown ${mobileMenuOpen === 'admin' ? 'mobile-expanded' : ''}`}>
             <Link to="/administration/tmhnutrust" onClick={(e) => handleMenuClick(e, 'admin', false)}>Administration</Link>
             <ul className="dropdown-menu">
+              {/* <li><Link to="/administration/finance-officer">Finance Officer</Link></li>*/}
               <li><Link to="/administration/controller-examination">Exam Cell</Link></li>
               <li><Link to="/administration/ombudsperson">Ombudsperson</Link></li>
               <li>
@@ -259,7 +260,6 @@ function Navbar() {
               <li><Link to="/academics/industry-collaboration">Industry Collaboration</Link></li>
             </ul>
           </li>
-
           <li className={`dropdown ${mobileMenuOpen === 'departments' ? 'mobile-expanded' : ''}`}>
             <Link to="#" onClick={(e) => handleMenuClick(e, 'departments', true)}>Departments</Link>
             <ul className="dropdown-menu">
@@ -314,7 +314,6 @@ function Navbar() {
               </li>
             </ul>
           </li>
-
           <li className={`dropdown ${mobileMenuOpen === 'research' ? 'mobile-expanded' : ''}`}>
             <Link to="#" onClick={(e) => handleMenuClick(e, 'research', true)}>Research</Link>
             <ul className="dropdown-menu">
@@ -326,18 +325,16 @@ function Navbar() {
           </li>
           
           <li><Link to="/ispin">ISPIN</Link></li>
-          
           <li className={`dropdown ${mobileMenuOpen === 'gallery' ? 'mobile-expanded' : ''}`}>
             <Link to="#" onClick={(e) => handleMenuClick(e, 'gallery', true)}>Gallery</Link>
             <ul className="dropdown-menu">
-              <li><Link to="/gallery/waves25">WAVES'25</Link></li>
+              <li><Link to="/gallery/waves25">WAVES'26</Link></li>
               <li><Link to="/gallery/clubs-chapters">CLUBS & CHAPTERS</Link></li>
               <li><Link to="/gallery/nirf">NIRF</Link></li>
               <li><Link to="/gallery/rti">RTI</Link></li>
               <li><Link to="/gallery/events">Events</Link></li>
             </ul>
           </li>
-
           <li className={`dropdown ${mobileMenuOpen === 'studentLife' ? 'mobile-expanded' : ''}`}>
             <Link to="#" onClick={(e) => handleMenuClick(e, 'studentLife', true)}>Student Life</Link>
             <ul className="dropdown-menu">
@@ -361,10 +358,10 @@ function Navbar() {
 
         <div className="nav-right">
           <div className="nav-desktop-elements" style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: showSearch ? 0 : 1, visibility: showSearch ? 'hidden' : 'visible', pointerEvents: showSearch ? 'none' : 'auto', transition: 'opacity 0.3s ease' }}>
-            <button className="search-btn" onClick={() => setShowSearch(true)}>
+            <button className="search-btn" onClick={() => setShowSearch(true)} title="Search" aria-label="Search">
               <FaSearch />
             </button>
-            <button className="theme-btn" onClick={() => setDarkMode(!darkMode)}>
+            <button className="theme-btn" onClick={() => setDarkMode(!darkMode)} title="Toggle Theme" aria-label="Toggle Theme">
               {darkMode ? <FaSun /> : <FaMoon />}
             </button>
             <img src="/images/naac.png?v=3" alt="NAAC Logo" className="naac-logo" />
@@ -375,7 +372,7 @@ function Navbar() {
               <FaSearch className="search-icon" />
               <input
                 type="text"
-                placeholder="Search"
+                placeholder="Search..."
                 value={searchQuery}
                 onChange={handleSearchChange}
                 onKeyDown={(e) => {
@@ -392,15 +389,17 @@ function Navbar() {
                   setSearchQuery("");
                   setSearchResults([]);
                 }}
+                title="Close Search"
+                aria-label="Close Search"
               >
                 <FaTimes />
               </button>
-              
+
               {searchResults.length > 0 && (
                 <div className="search-results">
                   {searchResults.map((result, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className="search-result-item"
                       onClick={() => handleSearchResultClick(result)}
                     >

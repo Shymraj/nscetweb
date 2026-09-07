@@ -29,6 +29,21 @@ body.dark-mode {
   box-sizing: border-box;
 }
 
+/* Prevent text cursor (I-beam) over typography and static elements */
+h1, h2, h3, h4, h5, h6, p, span, label, li, section, article {
+  cursor: default;
+}
+
+/* Ensure form elements have correct cursors */
+input, textarea {
+  cursor: text;
+}
+
+/* Ensure interactive elements keep their pointer cursor */
+a, button {
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   padding: 0;

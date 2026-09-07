@@ -10,6 +10,7 @@ const imageGlobs = {
   'diwali-celebration': import.meta.glob('../assets/events/diwali-celebration/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'freshers-day': import.meta.glob('../assets/events/freshers-day/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'graduation-day': import.meta.glob('../assets/events/graduation-day/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
+  'independence-day-26': import.meta.glob("../assets/events/Independence Day '26/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}", { eager: true, import: 'default' }),
   'kalam-awards': import.meta.glob('../assets/events/kalam-awards/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'nexus-aim-association': import.meta.glob('../assets/events/nexus-aim-association/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
   'nss-tree-plantation': import.meta.glob('../assets/events/nss-tree-plantation/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' }),
@@ -34,7 +35,6 @@ export const eventsData = [
   { id: 2, title: "Waves'25", slug: "waves-25" },
   { id: 3, title: "Onam Celebration 2025", slug: "onam-celebration-2025" },
   { id: 4, title: "Fresher's Day 2025", slug: "freshers-day-2025" },
-  { id: 5, title: "Independence Day 2025", slug: "independence-day-2025" },
   { id: 6, title: "Signout Day 2025", slug: "signout-day-2025" },
   { id: 7, title: "Pongal 2025", slug: "pongal-2025" },
   { id: 10, title: "Sports Achievements", slug: "sports-achievements" },
@@ -42,7 +42,8 @@ export const eventsData = [
   { id: 12, title: "Graduation Day", slug: "graduation-day" },
   { id: 13, title: "Kalam Awards", slug: "kalam-awards" },
   { id: 14, title: "Signout Day", slug: "signout-day" },
-  { id: 15, title: "NSS Tree Plantation", slug: "nss-tree-plantation" }
+  { id: 15, title: "NSS Tree Plantation", slug: "nss-tree-plantation" },
+  { id: 16, title: "Independence Day '26", slug: "independence-day-26" }
 ].map(event => {
   const images = getImages(event.slug);
   return {

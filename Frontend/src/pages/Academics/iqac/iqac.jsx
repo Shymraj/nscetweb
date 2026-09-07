@@ -189,10 +189,12 @@ const IQAC = () => {
 
         {/* COMMITTEE SECTIONS (R&D STYLE SHOWCASE) */}
           <div className="iqac-committee-grid">
-            {committeeSections.map((section, sIdx) => (
+            {committeeSections.map((section, sIdx) => {
+              const isWideCard = ['Senior Faculty Members', 'IQAC Coordinators', 'Teachers to Represent All Levels'].includes(section.title);
+              return (
               <motion.div 
                 key={section.title}
-                className="iqac-category-card"
+                className={`iqac-category-card ${isWideCard ? 'wide-category-card' : ''}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -218,7 +220,7 @@ const IQAC = () => {
                   ))}
                 </div>
               </motion.div>
-            ))}
+            )})}
           </div>
 
         {/* IQAC MEETING RECORDS SECTION */}

@@ -56,6 +56,7 @@ import Events from "./pages/Gallery/Events/Events";
 import EventGallery from "./pages/Gallery/Events/EventGallery";
 import NIRF from "./pages/Gallery/NIRF/NIRF";
 import RTI from "./pages/Gallery/RTI/RTI";
+import Waves26 from "./pages/Gallery/Waves/Waves26";
 import Alumni from "./pages/Alumini/Alumni";
 import Contact from "./pages/Contacts/Contact";
 import Overview from "./pages/AboutUs/Overview/Overview";
@@ -82,7 +83,7 @@ import AdminLogin from "./pages/Admin/Login";
 import AdminDashboard from "./pages/Admin/Dashboard";
 import PageTransition from "./components/Preloader/PageTransition";
 import ScrollToTop from "./components/ScrollToTop";
-import ChatBot from "./components/chatbox/chatbox.jsx"; 
+import ChatBot from "./components/chatbox/chatbox.jsx";
 
 const AppContent = () => {
   const location = useLocation();
@@ -150,6 +151,7 @@ const AppContent = () => {
         <Route path="/gallery/events/:eventSlug" element={<EventGallery />} />
         <Route path="/gallery/nirf" element={<NIRF />} />
         <Route path="/gallery/rti" element={<RTI />} />
+        <Route path="/gallery/waves25" element={<Waves26 />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about/actstatutes" element={<ActStatus />} />
@@ -174,10 +176,10 @@ const AppContent = () => {
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
-      
+
       {/* Admin route illana mattum thaan ChatBot varum */}
-      {!isAdminRoute && <ChatBot />} 
-      
+      {!isAdminRoute && <ChatBot />}
+
       {!hideGlobalNavAndFooter && <Footer />}
     </>
   );
