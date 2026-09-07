@@ -11,7 +11,6 @@ import {
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import { electricalFacultyData } from "./facultyData";
 
-import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
 
@@ -33,6 +32,7 @@ import imgJuriyaBanu from "./images/juriyabanu.jpg";
 import imgPandiSelvi from "./images/pandiselvi.jpeg";
 
 import "../cse/CSE.css";
+import "./Electrical.css";
 
 const Electrical = () => {
   const handleOpenProfile = (member) => {
@@ -120,20 +120,19 @@ const Electrical = () => {
   ];
 
   return (
-    <div className="cse-redesign-page">
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper cse-redesign-page">
 
-      {/* Page Banner (Preserved Untouched) */}
-      <PageBanner
-        title="Department of Electrical & Electronics Engineering"
-        subtitle="Powering the Future — Smart Grids, Electric Mobility, Renewable Energy, and Power Electronics"
-        hideBreadcrumb={false}
-        breadcrumb={[
-          { label: "Academics", link: "#" },
-          { label: "Departments", link: "#" },
-          { label: "EEE" }
-        ]}
-        backgroundImage={bannerImg}
-      />
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Electrical Engineering Department Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       {/* SECTION 1: Introduction */}
       <section className="cse-section cse-intro-section" id="eee-intro">
@@ -340,7 +339,7 @@ const Electrical = () => {
         </div>
       </section>
 
-            {/* SECTION 7: Faculty Directory */}
+      {/* SECTION 7: Faculty Directory */}
       <section className="cse-section cse-faculty-section" id="eee-faculty">
         <div className="cse-bg-glow glow-2"></div>
         <div className="cse-container">
@@ -445,8 +444,6 @@ const Electrical = () => {
           </motion.div>
         </div>
       </section>
-
-      
 
     </div>
   );

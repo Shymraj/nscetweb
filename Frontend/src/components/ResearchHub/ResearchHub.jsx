@@ -12,8 +12,8 @@ import coePrinting1 from "../../assets/coe/printing.jpg";
 import vehicle1 from "../../assets/coe/vehicle1.jpg";
 import vehicle2 from "../../assets/coe/vehicle2.jpg";
 // Puthusa add panna IoT images
-import iot1 from "../../assets/coe/iot 1.jpg";
-import iot2 from "../../assets/coe/iot 2.jpg";
+import iot1 from "../../assets/coe/iot-1.jpg";
+import iot2 from "../../assets/coe/iot-2.jpg";
 
 const campusData = [
   {

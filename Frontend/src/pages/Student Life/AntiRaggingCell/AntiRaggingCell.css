@@ -1,17 +1,43 @@
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.antiraggingcell-page .common-hero-banner + .arc-container {
+  padding-top: 40px !important; /* Perfect neat gap before content */
+  margin-top: 0 !important;
+}
+
 /* Typography guidelines from AGENTS.md */
 .antiraggingcell-page {
   font-family: var(--font-body);
   background: #f8fafc;
   min-height: 100vh;
+  margin: 0 !important;
+  /* Top padding is handled globally by .common-page-wrapper */
 }
 
 .arc-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem; /* The top padding is overridden above for banner follow-up */
   display: flex;
   flex-direction: column;
   gap: 4rem;
+}
+
+@media (max-width: 768px) {
+  .antiraggingcell-page .common-hero-banner + .arc-container {
+    padding-top: 25px !important; /* Tighter gap for mobile */
+  }
+
+  .arc-container {
+    padding: 2rem 1rem;
+    gap: 3rem;
+  }
 }
 
 /* Section Common Styles */
@@ -377,28 +403,28 @@
     padding: 2rem 1rem;
     gap: 3rem;
   }
-  
+
   .arc-section-header h3 {
     font-size: 1.8rem;
   }
-  
+
   .arc-header-icon {
     font-size: 1.8rem;
   }
-  
+
   .arc-complaint-card {
     padding: 2rem 1.5rem;
   }
-  
+
   .arc-complaint-header h3 {
     font-size: 2rem;
   }
-  
+
   .arc-complaint-actions {
     flex-direction: column;
     gap: 1.5rem;
   }
-  
+
   .arc-helpline-box {
     width: 100%;
     justify-content: center;

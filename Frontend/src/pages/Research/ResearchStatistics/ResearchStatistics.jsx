@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import StatCard from './components/StatCard';
 import { FaTimes } from 'react-icons/fa';
 import bannerImg from './assets/images/Research&Statistics.png';
@@ -35,13 +34,20 @@ const ResearchStatistics = () => {
   }, [selectedImage]);
 
   return (
-    <div className="research-statistics-page">
-      <PageBanner
-        title="Research Statistics"
-        subtitle="Explore the institution's research achievements through publications, patents, funded projects, research grants, doctoral statistics, consultancy activities, intellectual property, and academic contributions."
-        backgroundImage={bannerImg}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper research-statistics-page">
       
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Research Statistics Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
+
       <div className="rs-container">
         <div className="rs-grid">
           {statisticsData.map((stat) => (

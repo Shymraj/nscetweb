@@ -35,7 +35,7 @@ header {
 }
 
 header.scrolled {
-    transform: translateY(-34px);
+    transform: translateY(0); /* Scroll pannalum stable ah nikka */
 }
 
 .topbar {
@@ -185,7 +185,6 @@ header.scrolled {
     font-family: var(--font-body);
     font-size: 11px;
     color: #061938;
-    /* Navy blue for contrast */
     margin-right: 6px;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -196,14 +195,11 @@ header.scrolled {
     font-size: 16px;
     font-weight: 900;
     color: #061938;
-    /* Navy blue for contrast */
     letter-spacing: 1px;
     background: rgba(255, 255, 255, 0.4);
     padding: 1px 8px;
     border-radius: 12px;
 }
-
-/* disable hover color change for phone link */
 
 .contact-btn {
     width: 22px;
@@ -220,7 +216,6 @@ header.scrolled {
 }
 
 .topbar-contact:hover .contact-btn {
-    /* keep contact icon button appearance unchanged on hover */
     background: rgba(255, 255, 255, 0.12) !important;
     transform: none !important;
     color: #ffffff !important;
@@ -279,7 +274,6 @@ header.scrolled {
     flex-shrink: 0;
 }
 
-
 .college-name {
     display: flex;
     flex-direction: column;
@@ -309,14 +303,12 @@ header.scrolled {
     text-align: left;
 }
 
-
 .nav-links {
     display: flex;
     align-items: center;
     list-style: none;
     gap: 8px;
     margin-right: auto;
-    margin-right: 15px;
     margin-left: 15px;
 }
 
@@ -330,11 +322,6 @@ header.scrolled {
     justify-content: center;
     flex-shrink: 0;
 }
-
-
-
-
-
 
 .nav-links li {
     list-style: none;
@@ -368,8 +355,10 @@ header.scrolled {
     transition: 0.3s;
 }
 
-.nav-links li:hover>a::after {
-    width: 70%;
+@media screen and (min-width: 1025px) {
+    .nav-links li:hover>a::after {
+        width: 70%;
+    }
 }
 
 /* Remove underline from dropdown menu links */
@@ -404,19 +393,19 @@ body.dark-mode .nav-links a::after {
 /* Hanging Counselling Badge positioned seamlessly at the right corner */
 .tnea-badge-hanging {
     position: absolute;
-    top: calc(100% - 1.5px); /* Overlap the bottom border to make it seamless */
-    right: 20px; /* Aligns exactly where the navbar's bottom curve starts */
-    width: 130px; /* Fills the space nicely */
-    background: linear-gradient(135deg, #051630 0%, #0d3b8e 50%, #061938 100%); /* Top nav color gradient */
-    border: 1.5px solid rgba(212, 175, 55, 0.85); /* Exact match with navbar border */
-    border-top: none; /* Connects seamlessly to the navbar */
+    top: calc(100% - 1.5px);
+    right: 20px;
+    width: 130px;
+    background: linear-gradient(135deg, #051630 0%, #0d3b8e 50%, #061938 100%);
+    border: 1.5px solid rgba(212, 175, 55, 0.85);
+    border-top: none;
     padding: 14px 10px 16px 10px;
-    border-radius: 0 0 20px 20px; /* Sharp professional curve */
+    border-radius: 0 0 20px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    z-index: 10; /* Hangs in front, completely below the navbar */
+    z-index: 10;
     cursor: default;
 }
 
@@ -429,7 +418,7 @@ body.dark-mode .nav-links a::after {
 .tnea-badge-title {
     font-size: 10px;
     font-weight: 800;
-    color: #FFD700; /* Bright gold text */
+    color: #FFD700;
     letter-spacing: 1.5px;
     margin-bottom: 3px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
@@ -535,39 +524,21 @@ body.dark-mode .tnea-badge-title {
     max-width: 240px;
     min-width: 240px;
     height: 52px;
-
     display: flex;
     align-items: center;
     gap: 12px;
-
     padding: 0 16px 0 16px;
-
     background: #fff;
     border: 1px solid #d1d5db;
     border-radius: 30px;
-
     overflow: visible;
     z-index: 20;
     animation: reveal .4s ease forwards;
 }
 
-@media screen and (max-width: 1024px) {
-    .search-box {
-        left: auto;
-        right: 45px;
-    }
-}
-
 @keyframes reveal {
-    from {
-        clip-path: inset(0 100% 0 0);
-        opacity: 0;
-    }
-
-    to {
-        clip-path: inset(-1000px -1000px -1000px -1000px);
-        opacity: 1;
-    }
+    from { clip-path: inset(0 100% 0 0); opacity: 0; }
+    to { clip-path: inset(-1000px -1000px -1000px -1000px); opacity: 1; }
 }
 
 .search-icon {
@@ -578,26 +549,15 @@ body.dark-mode .tnea-badge-title {
 }
 
 @keyframes iconSlide {
-
-    from {
-        opacity: 0;
-        transform: translateX(-15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
+    from { opacity: 0; transform: translateX(-15px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 .search-box input {
     flex: 1;
     height: 100%;
-
     border: none;
     outline: none;
-
     background: transparent;
     color: #111827;
     font-size: 16px;
@@ -614,17 +574,8 @@ body.dark-mode .search-box input {
 }
 
 @keyframes textSlide {
-
-    from {
-        opacity: 0;
-        transform: translateX(-25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
+    from { opacity: 0; transform: translateX(-25px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 .close-search {
@@ -655,109 +606,77 @@ body.dark-mode .search-box input {
 }
 
 @keyframes closeSlide {
-
-    from {
-        opacity: 0;
-        transform: translateY(-50%) translateX(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(-50%) translateX(0);
-    }
-
+    from { opacity: 0; transform: translateY(-50%) translateX(20px); }
+    to { opacity: 1; transform: translateY(-50%) translateX(0); }
 }
 
 .close-search:hover {
-
     background: #ff7a00;
     color: #fff;
-
     transform: translateY(-50%) rotate(90deg);
-
 }
 
+/* ================= DESKTOP DROPDOWN (Hover-based) ================= */
+@media screen and (min-width: 1025px) {
+    .dropdown {
+        position: relative;
+    }
 
+    .dropdown::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        height: 12px;
+    }
 
+    .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        min-width: 280px;
+        width: max-content;
+        background: #ffffff;
+        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        padding: 8px 0;
+        list-style: none;
+        display: none;
+        z-index: 1000;
+    }
 
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
 
-
-
-/* Dropdown */
-.dropdown {
-    position: relative;
+    .has-submenu:hover > .sub-dropdown-menu {
+        display: block;
+    }
+    
+    .sub-dropdown-menu {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 320px;
+        background: #ffffff;
+        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        padding: 8px 0;
+        list-style: none;
+        display: none;
+        z-index: 1001;
+    }
 }
 
-
-
-.dropdown.open .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu li {
+.dropdown-menu li, .sub-dropdown-menu li {
     width: 100%;
-}
-
-.dropdown-menu li a {
-    display: block;
-    padding: 12px 20px;
-    color: #1f2937;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.dropdown-menu li a:hover {
-    background: #fff3e8;
-    color: #ff7a00;
-}
-
-/* Dropdown Parent */
-.dropdown {
-    position: relative;
-}
-
-.dropdown::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 100%;
-    width: 100%;
-    height: 12px;
-}
-
-
-/* Dropdown Box */
-.dropdown-menu {
-    position: absolute;
-    top: 100px;
-    top: calc(100% + 12px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .18);
-    left: 0;
-    min-width: 280px;
-    width: max-content;
-    background: #ffffff;
-    border-radius: 10px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-    padding: 8px 0;
-    list-style: none;
-
-    display: none;
-    z-index: 1000;
-}
-
-/* Hover panna open aagum */
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-/* Remove default list style */
-.dropdown-menu li {
     margin: 0;
     padding: 0;
 }
 
-/* Links */
 .dropdown-menu li a {
     display: block;
     padding: 12px 24px;
@@ -778,10 +697,7 @@ body.dark-mode .search-box input {
     padding-left: 30px;
 }
 
-
-
 /* ================= DARK MODE ================= */
-
 body.dark-mode .navbar {
     background: rgba(15, 23, 42, 0.75);
     backdrop-filter: blur(24px) saturate(150%);
@@ -884,7 +800,6 @@ body.dark-mode .dropdown-menu li a:hover {
     color: #D4AF37 !important;
 }
 
-/* Header and Topbar dark mode styles */
 body.dark-mode header {
     background: transparent;
     padding-bottom: 10px;
@@ -923,36 +838,12 @@ body.dark-mode .social-btn {
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-
-/* Dark Mode Floating Navbar matching exact reference image colors */
-body.dark-mode .navbar {
-    background: rgba(30, 35, 50, 0.55);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    width: calc(100% - 40px);
-    margin: 0 auto;
-    height: 76px;
-    padding-top: 0;
-    border-radius: 20px;
-    border: 1.5px solid rgba(212, 175, 55, 0.85);
-    box-shadow: 0 0 22px rgba(212, 175, 55, 0.32), 0 8px 30px rgba(0, 0, 0, 0.35);
-    transition: all 0.3s ease;
-}
-
-body.dark-mode .navbar:hover {
-    border-color: #D4AF37;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.45), 0 10px 35px rgba(0, 0, 0, 0.45);
-}
-
-/* Ensure NAAC logo 'A' is white without a full white background box */
 body.dark-mode .naac-logo {
     background: radial-gradient(circle at 50% 45%, #ffffff 0%, #ffffff 30%, transparent 35%);
-    /* Optional: helps constrain background if needed */
     padding: 0;
 }
 
 /* ================= NESTED SUB-DROPDOWN ================= */
-
 .has-submenu {
     position: relative;
 }
@@ -1017,6 +908,7 @@ body.dark-mode .has-submenu.active>.submenu-label {
     z-index: 1001;
 }
 
+
 .sub-dropdown-menu li a {
     display: block;
     padding: 12px 20px;
@@ -1034,7 +926,6 @@ body.dark-mode .has-submenu.active>.submenu-label {
     padding-left: 28px;
 }
 
-/* Dark mode for sub-dropdown */
 body.dark-mode .sub-dropdown-menu {
     background: rgba(30, 35, 50, 0.92);
     backdrop-filter: blur(18px);
@@ -1064,7 +955,7 @@ body.dark-mode .sub-dropdown-menu li a:hover {
     }
 }
 
-/* ================= MOBILE RESPONSIVENESS ================= */
+/* ================= MOBILE RESPONSIVENESS & ACCORDION MENU ================= */
 .mobile-menu-icon {
     display: none;
     background: transparent;
@@ -1082,6 +973,11 @@ body.dark-mode .mobile-menu-icon {
 }
 
 @media screen and (max-width: 1024px) {
+    .search-box {
+        left: auto;
+        right: 45px;
+    }
+
     .nav-links {
         position: fixed;
         top: 80px;
@@ -1144,13 +1040,85 @@ body.dark-mode .mobile-menu-icon {
         display: block;
     }
 
+
     .mobile-menu-icon {
         display: flex;
     }
 
     .apply-btn {
         display: none;
-        /* Hide apply btn on mobile to save space */
+    }
+
+    /* Base styles for dropdowns in mobile (Accordion behavior) */
+    .dropdown-menu, .sub-dropdown-menu {
+        position: static !important;
+        display: none; 
+        box-shadow: none !important;
+        border: none !important;
+        background: transparent !important;
+        padding-left: 15px !important;
+        width: 100% !important;
+        margin-top: 5px;
+    }
+
+    /* Expand when clicked (Controlled via React states) */
+    .dropdown.mobile-expanded > .dropdown-menu,
+    .has-submenu.mobile-expanded > .sub-dropdown-menu {
+        display: block !important;
+        animation: slideDown 0.3s ease-out forwards;
+    }
+
+    /* Arrow rotation for nested menus */
+    .has-submenu .submenu-arrow {
+        transition: transform 0.3s ease;
+        display: inline-block;
+    }
+    
+    .has-submenu.mobile-expanded > .submenu-label .submenu-arrow {
+        transform: rotate(90deg);
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Clean links inside accordion */
+    .dropdown-menu li a {
+        padding: 12px 5px !important;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        font-size: 14px !important;
+    }
+    
+    body.dark-mode .dropdown-menu li a {
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .sub-dropdown-menu li a {
+        padding: 10px 10px !important;
+        font-size: 13px !important;
+        color: #4b5563;
+    }
+    
+    body.dark-mode .sub-dropdown-menu li a {
+        color: #d1d5db;
+    }
+    
+    .submenu-label {
+        padding: 12px 5px !important;
+        width: 100%;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        font-size: 14px !important;
+        justify-content: space-between;
+    }
+    
+    body.dark-mode .submenu-label {
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* Hide the underline animation in mobile to look clean */
+    .nav-links a::after {
+        display: none !important;
     }
 }
 
@@ -1216,6 +1184,11 @@ body.dark-mode .search-result-item:hover {
         display: none !important;
     }
 
+    /* Fixed Scroll Fix: Keeps Navbar stuck at top properly on scroll */
+    header.scrolled {
+        transform: translateY(0) !important;
+    }
+
     /* 1. Main Navbar Container */
     .navbar {
         width: 100% !important;
@@ -1232,7 +1205,7 @@ body.dark-mode .search-result-item:hover {
     .logo-section {
         margin-left: 0 !important;
         gap: 6px !important;
-        flex: 1; /* Allow it to take available space */
+        flex: 1; 
         min-width: 0;
     }
     
@@ -1250,7 +1223,7 @@ body.dark-mode .search-result-item:hover {
     }
     
     .college-name p {
-        display: none !important; /* Hide full name to save space */
+        display: none !important;
     }
 
     /* 3. Right Side: Controls Container */
@@ -1282,7 +1255,7 @@ body.dark-mode .search-result-item:hover {
         object-fit: contain !important;
     }
 
-    /* 6. Mobile Menu Icon (More ⋮/Hamburger) */
+    /* 6. Mobile Menu Icon */
     .mobile-menu-icon {
         margin-left: 4px !important;
         font-size: 20px !important;
@@ -1305,6 +1278,11 @@ body.dark-mode .search-result-item:hover {
     .tnea-badge-title {
         font-size: 8px !important;
         letter-spacing: 0.5px !important;
+    }
+
+    /* 🔥 Home page thavira matha pages la TNEA code ah hide panradhuku 🔥 */
+    .hide-tnea-mobile {
+        display: none !important;
     }
 
     /* 8. Search Box Overlay Centering on Mobile */
@@ -1342,5 +1320,44 @@ body.dark-mode .search-result-item:hover {
     }
     .nav-desktop-elements, .nav-right {
         gap: 4px !important;
+    }
+}
+
+/* ==========================================================================
+   GLOBAL PAGE WRAPPER & BANNER STYLES (ELLA PAGES KUM COMMON)
+   ========================================================================== */
+
+/* Navbar fixed ah irukadhala, banner athukku pinnala poidama irukka indha gap thevai */
+.common-page-wrapper {
+    /* Desktop la Topbar(38px) + Navbar(76px) gap */
+    padding-top: 120px !important; 
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Common Banner Style for all pages */
+.common-hero-banner {
+    width: 100%;
+    aspect-ratio: 8 / 3; /* Laptop la correct aana size */
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 0 !important;
+}
+
+/* Mobile View (Responsive) */
+@media (max-width: 767px) {
+    .common-page-wrapper {
+        /* Mobile la topbar hide aagidum, navbar 60px thaan. So gap kuraikurom */
+        padding-top: 65px !important; 
+    }
+    
+    .common-hero-banner {
+        aspect-ratio: 16 / 9; /* Mobile la banner theliva theriya */
     }
 }

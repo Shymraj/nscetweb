@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import {
     FaUserTie, FaTrophy, FaMedal, FaBasketballBall
 } from "react-icons/fa";
-import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import SportsCategoryWheel from "./SportsCategoryWheel";
 import DepartmentHODProfile from "../../../components/common/DepartmentHODProfile/DepartmentHODProfile";
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
@@ -59,7 +58,7 @@ const Sports = () => {
         { name: "Volleyball", image: Volleyball },
         { name: "Badminton", image: Badminton },
         { name: "Kabaddi", image: Kabaddi },
-        { name: "Table Tennis", image: TableTennis },
+        { name: "Table Tennis", image: KhoKho },
         { name: "Kho Kho", image: KhoKho },
         { name: "Handball", image: Handball },
         { name: "Cycling", image: Cycling }
@@ -104,16 +103,19 @@ const Sports = () => {
     ];
 
     return (
-        <div className="sports-dept-container">
+        /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+        <div className="common-page-wrapper sports-dept-container">
 
-            {/* HERO BANNER */}
-            <PageBanner
-                title="SPORTS AT NSCET"
-                subtitle="Promoting all-round growth — nurturing champions through discipline, teamwork, and athletic excellence."
-                hideBreadcrumb={true}
-                backgroundImage={bannerImg}
-                height="auto"
-            />
+            {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+            <div className="common-hero-banner">
+                {bannerImg && (
+                <img 
+                    src={bannerImg} 
+                    alt="Sports Department Banner" 
+                    style={{ width: '100%', height: 'auto', display: 'block' }} 
+                />
+                )}
+            </div>
 
             <main className="content-wrapper">
 

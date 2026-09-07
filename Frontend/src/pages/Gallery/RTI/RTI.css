@@ -1,3 +1,16 @@
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.rti-page .common-hero-banner + .rti-premium-container {
+  padding-top: 40px !important; /* Perfect neat gap before content */
+  margin-top: 0 !important;
+}
+
 :root {
   /* LIGHT MODE */
   --rti-bg-primary: #FFFFFF;
@@ -28,18 +41,21 @@ body.dark-mode {
   --rti-blob-3: #FFB347;
 }
 
+/* Page Base Override */
 .rti-page {
   background-color: var(--rti-bg-primary);
   min-height: 100vh;
   font-family: var(--font-body);
   transition: background-color 0.3s ease;
+  margin: 0 !important;
+  /* Top padding is handled globally by .common-page-wrapper */
 }
 
 .rti-premium-container {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5rem 2rem 8rem 2rem;
+  padding: 5rem 2rem 8rem 2rem; /* The top padding is overridden above for banner follow-up */
   background: var(--rti-container-bg);
   overflow: hidden;
   transition: background 0.3s ease;
@@ -239,6 +255,10 @@ body.dark-mode .certificate-image-wrapper {
 
 /* RESPONSIVENESS */
 @media (max-width: 768px) {
+  .rti-page .common-hero-banner + .rti-premium-container {
+    padding-top: 25px !important; /* Tighter gap for mobile */
+  }
+
   .rti-premium-container { padding: 4rem 1rem; }
   .rti-main-title { font-size: 2.2rem; }
   .certificate-glass-frame { padding: 1rem; }

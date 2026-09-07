@@ -16,7 +16,20 @@ function Ombudsperson() {
   const [showApprovalModal, setShowApprovalModal] = useState(false);
 
   return (
-    <div className="ombudsperson-page">
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper ombudsperson-page">
+      
+      {/* 👇 Oruvela ungalukku Banner venum-na indha div-a use pannikonga 👇 */}
+      {/* 
+      <div className="common-hero-banner">
+        <img 
+          src={yourBannerImage} 
+          alt="Ombudsperson Banner" 
+          style={{ width: '100%', height: 'auto', display: 'block' }} 
+        />
+      </div> 
+      */}
+
       {/* Background Animated Floating Ambient Shapes */}
       <div className="omb-bg-shapes">
         <div className="omb-shape omb-shape-1"></div>

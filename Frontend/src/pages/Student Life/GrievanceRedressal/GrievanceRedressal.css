@@ -1,3 +1,16 @@
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.grc-page .common-hero-banner + .grc-container {
+  padding-top: 40px !important; /* Perfect neat gap before contents */
+  margin-top: 0 !important;
+}
+
 /* ===== Grievance Redressal Page — Premium Animated Styles ===== */
 /* Typography: Uses centralized vars from AGENTS.md */
 
@@ -6,15 +19,28 @@
   font-family: var(--font-body);
   background: #f8fafc;
   min-height: 100vh;
+  margin: 0 !important;
+  /* Top padding is handled globally by .common-page-wrapper */
 }
 
 .grc-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem; /* The top padding is overridden above for banner follow-up */
   display: flex;
   flex-direction: column;
   gap: 5rem;
+}
+
+@media (max-width: 768px) {
+  .grc-page .common-hero-banner + .grc-container {
+    padding-top: 25px !important; /* Tighter gap for mobile */
+  }
+
+  .grc-container {
+    padding: 2rem 1rem;
+    gap: 3.5rem;
+  }
 }
 
 /* ── Section Header (shared) ── */
@@ -459,11 +485,6 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .grc-container {
-    padding: 2rem 1rem;
-    gap: 3.5rem;
-  }
-
   .grc-section-header h3 {
     font-size: 1.5rem;
   }

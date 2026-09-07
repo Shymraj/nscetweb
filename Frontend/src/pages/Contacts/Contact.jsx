@@ -13,7 +13,6 @@ import {
   FaThList
 } from "react-icons/fa";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
-import PageBanner from "../../components/common/PageBanner/PageBanner";
 import "./Contact.css";
 
 // Automatically load any image manually placed inside src/pages/Contacts/assets/banner/
@@ -80,14 +79,19 @@ const Contact = () => {
   });
 
   return (
-    <div className="contacts-page-wrapper">
-      <PageBanner
-        title=""
-        subtitle=""
-        hideBreadcrumb={true}
-        showOverlay={false}
-        {...(customBanner ? { backgroundImage: customBanner } : {})}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper contacts-page-wrapper">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {customBanner && (
+          <img 
+            src={customBanner} 
+            alt="Contact Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <main className="content-wrapper">
         {/* BENTO GRID: CONTACT INFO */}

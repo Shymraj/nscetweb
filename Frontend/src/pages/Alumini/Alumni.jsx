@@ -1,5 +1,4 @@
 import { useState } from "react";
-import PageBanner from "../../components/common/PageBanner/PageBanner";
 import Sidebar from "./components/Sidebar";
 import Overview from "./components/Overview";
 import OfficeBearers from "./components/OfficeBearers";
@@ -36,14 +35,19 @@ const Alumni = () => {
   };
 
   return (
-    <div className="alumni-page">
-      <PageBanner
-        title=""
-        subtitle=""
-        hideBreadcrumb={true}
-        backgroundImage={customBanner}
-        showOverlay={false}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper alumni-page">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {customBanner && (
+          <img 
+            src={customBanner} 
+            alt="Alumni Association Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <div className="alumni-container">
         <div className="alumni-layout">

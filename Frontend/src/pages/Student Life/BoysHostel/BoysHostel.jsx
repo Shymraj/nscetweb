@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { FaShieldAlt, FaBolt, FaTint, FaLeaf, FaUserTie } from 'react-icons/fa';
 import './BoysHostel.css';
 
+// Auto-load custom banner image from ./banner/
+const bannerGlobs = import.meta.glob("./banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const customBanner = Object.values(bannerGlobs)[0] || null;
+
 const BoysHostel = () => {
   const hostelData = {
     about: "The Boys Hostel at our college provides a comfortable and secure environment for students. Equipped with modern facilities and 24/7 supervision, the hostel ensures a home-like atmosphere where students can focus on their academics while enjoying their stay. Spacious rooms, hygienic dining, and recreational areas make it an ideal place for holistic growth and development.",
@@ -53,13 +57,19 @@ const BoysHostel = () => {
   };
 
   return (
-    <div className="modern-hostel-page">
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper modern-hostel-page">
 
-      <section className="hostel-hero">
-        <div className="hero-content">
-          <h1 className="animate-slide-down">NSCET BOYS HOSTEL</h1>
-        </div>
-      </section>
+      {/* 👇 Pazhaya hostel-hero-a thookitu pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {customBanner && (
+          <img 
+            src={customBanner} 
+            alt="Boys Hostel Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <div className="hostel-main-container">
 

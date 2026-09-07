@@ -1,9 +1,24 @@
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.modern-hostel-page .common-hero-banner + .hostel-main-container {
+  padding-top: 25px !important; /* Adjust gap to fit content */
+  margin-top: 0 !important;
+}
+
+/* Base style overrides */
 .modern-hostel-page {
   font-family: 'Poppins', sans-serif;
   background-color: #f4f7f6;
   color: #2c3e50;
   padding-bottom: 60px;
   overflow-x: hidden;
+  margin: 0 !important; /* Global margin reset */
 }
 
 /* --- ANIMATIONS --- */
@@ -132,7 +147,7 @@
 /* --- MAIN CONTAINER & SECTION (Full Width) --- */
 .hostel-main-container {
   max-width: 100%;
-  margin: 40px auto 0 auto;
+  margin: 0 auto 0 auto;
   padding: 0;
   position: relative;
   z-index: 10;
@@ -811,6 +826,10 @@
 }
 
 @media (max-width: 767px) {
+  .modern-hostel-page .common-hero-banner + .hostel-main-container {
+    padding-top: 15px !important;
+  }
+
   .hostel-hero {
     /* Keep banner image visible and act as positioning container */
     align-items: stretch;

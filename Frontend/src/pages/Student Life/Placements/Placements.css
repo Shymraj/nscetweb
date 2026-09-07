@@ -1,15 +1,36 @@
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.placements-page .common-hero-banner + .placements-content {
+  padding-top: 40px !important; /* Perfect neat gap before cards */
+  margin-top: 0 !important;
+}
+
 /* Placements Page Styles */
 .placements-page {
   width: 100%;
   font-family: var(--font-body);
   background-color: #f8fafc;
   color: #1f2937;
+  margin: 0 !important; /* Global margin reset */
+  /* Top padding is handled globally by .common-page-wrapper */
 }
 
 .placements-content {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 3rem 2rem 5rem;
+  padding: 3rem 2rem 5rem; /* The top padding is overridden above for banner follow-up */
+}
+
+@media (max-width: 768px) {
+  .placements-page .common-hero-banner + .placements-content {
+    padding-top: 25px !important; /* Tighter gap for mobile */
+  }
 }
 
 /* Section Styles */

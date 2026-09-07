@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './Placements.css';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import DepartmentFacultyCard from '../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard';
 
 // Auto-load banner image inside ./images/banner/
@@ -94,14 +93,19 @@ const Placements = () => {
     : [];
 
   return (
-    <div className="placements-page">
-      <PageBanner
-        title="Placements"
-        subtitle="Training & Placement Cell"
-        hideBreadcrumb={true}
-        backgroundImage={bannerImg}
-        height="auto"
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper placements-page">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Placements Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <div className="placements-content">
         {/* About Placement */}

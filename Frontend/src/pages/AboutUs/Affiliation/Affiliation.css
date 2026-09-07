@@ -1,10 +1,23 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap');
 /* Affiliation.css */
 :root {
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
   --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
 }
+
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.affiliation-page .common-hero-banner + * {
+  padding-top: 15px !important; /* Tiny neat gap before card */
+  margin-top: 0 !important;
+}
+
 .affiliation-page {
   /* =========================================
      TEST TYPOGRAPHY & COLOR SYSTEM
@@ -28,7 +41,9 @@
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  padding-bottom: 5rem;
+  margin: 0 !important;
+  padding: 0 !important;
+  padding-bottom: 5rem !important;
 }
 
 /* Full-Width Section Architecture */
@@ -41,22 +56,13 @@
 .about-inner-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 80px 40px;
+  padding: 30px 40px; /* Reduced vertical spacing for seamless look */
 }
 
 /* Alternate Backgrounds */
 .bg-white { background-color: #FFFFFF; }
 .bg-light-1 { background-color: #F8FBFF; }
 .bg-light-2 { background-color: #F5F9FF; }
-
-/* Prevent double padding when overlapping the PageBanner */
-.page-banner + .about-section-wrapper {
-  padding: 0 !important;
-  margin-top: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  background-color: transparent !important;
-}
 
 .affiliation-premium-card {
   background: var(--premium-card-bg);
@@ -180,10 +186,6 @@
   gap: 30px;
   justify-items: center;
   align-items: center;
-}
-
-.connecting-line-svg {
-  display: none;
 }
 
 .nscet-logo-wrapper,
@@ -377,21 +379,17 @@
     flex: 0 0 100%;
     padding: 3rem 2rem;
   }
-  
-  .accreditation-ecosystem {
-    transform: scale(0.9);
-  }
 }
 
 @media (max-width: 1024px) {
-  .about-inner-container { padding: 60px 48px; }
+  .about-inner-container { padding: 40px 30px; }
 }
 
 @media (max-width: 768px) {
-  .about-inner-container { padding: 60px 24px; }
+  .about-inner-container { padding: 20px 15px; }
   .affiliation-heading {
-  font-weight: 700;
-  font-family: var(--font-subtopic);
+    font-weight: 700;
+    font-family: var(--font-subtopic);
     font-size: 2rem;
   }
   
@@ -399,20 +397,20 @@
     font-size: 1rem;
   }
   
-  .accreditation-ecosystem {
-    transform: scale(0.75);
-  }
-  
   .affiliation-visual-col {
     padding: 2rem 1rem;
   }
 }
 
-
-
 /* =========================================
-   HERO BOX PUSH DOWN FIX
+   RESPONSIVE NAVBAR PUSH DOWN FIX
    ========================================= */
 .affiliation-page {
-    padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
+    padding-top: 135px !important; /* Matches Navbar height on Desktop */
+}
+
+@media (max-width: 767px) {
+    .affiliation-page {
+        padding-top: 60px !important; /* Matches mobile navbar height */
+    }
 }

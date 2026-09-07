@@ -1,8 +1,29 @@
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Ensure the first component inside nss-content doesn't have excess top margin */
+.nss-page .common-hero-banner + .nss-content > :first-child {
+  padding-top: 40px !important;
+  margin-top: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .nss-page .common-hero-banner + .nss-content > :first-child {
+    padding-top: 25px !important; /* Tighter gap for mobile */
+  }
+}
+
 /* ==========================================================================
    National Service Scheme (NSS) Page Styles
    Strictly following AGENTS.md typography and R&D Cell design language
    ========================================================================== */
 
+/* Page Base Override */
 .nss-page {
   font-family: var(--font-body);
   color: #1e293b;
@@ -10,6 +31,8 @@
   overflow-x: hidden;
   background: #ffffff;
   position: relative;
+  margin: 0 !important;
+  /* Top padding is handled globally by .common-page-wrapper */
 }
 
 body.dark-mode .nss-page {

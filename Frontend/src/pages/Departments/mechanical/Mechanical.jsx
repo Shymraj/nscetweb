@@ -11,7 +11,6 @@ import {
 import { GiGears, GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import { mechanicalFacultyData } from "./facultyData";
 
-import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
 
@@ -21,7 +20,6 @@ const bannerImg = Object.values(bannerGlobs)[0] || null;
 
 import massLogo from "./images/mass.png";
 import rightSideImg from "./Tmeme Img/MECH.png";
-
 // Faculty images
 import imgRadhaKrishnan from "./images/radhakrishnan.jpg";
 import imgSanthaseelan from "./images/santhaseelan.jpg";
@@ -34,6 +32,7 @@ import imgNagaraja from "./images/nagaraja.jpg";
 import imgVembathurajesh from "./images/vembathurajesh.png";
 
 import "../cse/CSE.css";
+import "./Mechanical.css";
 
 const Mechanical = () => {
   const handleOpenProfile = (member) => {
@@ -121,20 +120,19 @@ const Mechanical = () => {
   ];
 
   return (
-    <div className="cse-redesign-page">
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper cse-redesign-page">
 
-      {/* Page Banner (Preserved Untouched) */}
-      <PageBanner
-        title="Department of Mechanical Engineering"
-        subtitle="Designing the Machines of Tomorrow — Manufacturing Excellence, Thermal Systems, and Smart Mechatronics"
-        hideBreadcrumb={false}
-        breadcrumb={[
-          { label: "Academics", link: "#" },
-          { label: "Departments", link: "#" },
-          { label: "Mechanical" }
-        ]}
-        backgroundImage={bannerImg}
-      />
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Mechanical Engineering Department Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       {/* SECTION 1: Introduction */}
       <section className="cse-section cse-intro-section" id="mech-intro">
@@ -341,7 +339,7 @@ const Mechanical = () => {
         </div>
       </section>
 
-            {/* SECTION 7: Faculty Directory */}
+      {/* SECTION 7: Faculty Directory */}
       <section className="cse-section cse-faculty-section" id="mech-faculty">
         <div className="cse-bg-glow glow-2"></div>
         <div className="cse-container">
@@ -446,8 +444,6 @@ const Mechanical = () => {
           </motion.div>
         </div>
       </section>
-
-      
 
     </div>
   );

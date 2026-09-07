@@ -1,5 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Banner ku keela vara first section (Intro) gap-a clean ah 35px ku set panrom */
+.cse-redesign-page .common-hero-banner + .cse-intro-section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.cse-redesign-page .common-hero-banner + .cse-intro-section .cse-container {
+  padding-top: 35px !important; /* Perfect neat gap */
+}
+
+@media (max-width: 768px) {
+  .cse-redesign-page .common-hero-banner + .cse-intro-section .cse-container {
+    padding-top: 20px !important; /* Extremely tight for mobile */
+  }
+}
+
+/* Page Base Override */
+.cse-redesign-page {
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 /* ================= VARIABLES ================= */
 :root {
     --eee-primary: var(--theme-primary);
@@ -17,7 +49,7 @@
 .eee-container {
     width: 100%;
     min-height: 100vh;
-    padding-top: 100px;
+    padding-top: 0px; /* Handled by common-page-wrapper */
     font-family: var(--font-body);
     color: var(--eee-text);
     background-color: var(--eee-bg);
@@ -25,7 +57,7 @@
     position: relative;
 }
 
-/* ================= HERO SECTION ================= */
+/* ================= HERO SECTION (Fallback if used) ================= */
 .eee-hero-section {
     padding: 1.5rem 2.5rem 0;
     margin-bottom: 3rem;
@@ -340,7 +372,7 @@
 }
 
 .glass-card li::before {
-    content: 'âœ“';
+    content: '✓';
     position: absolute;
     left: 0;
     top: 1px;
@@ -865,10 +897,6 @@ body.dark-mode .empty-events-state {
     color: #94a3b8;
 }
 
-
-
-
-
 /* =========================================
    GLOBAL ALUMNI GLASSMORPHISM AUTOMATICALLY APPLIED
    ========================================= */
@@ -1023,7 +1051,6 @@ body.dark-mode .member-card li,
 body.dark-mode .member-card span {
     color: #f1f5f9 !important;
 }
-
 
 /* =========================================
    PROFESSIONAL STAFF HIGHLIGHT OVERRIDES

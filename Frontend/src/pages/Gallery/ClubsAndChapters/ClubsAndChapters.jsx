@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaUserTie, FaUsers, FaTasks, FaCheckCircle } from 'react-icons/fa';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { clubsData } from './data';
 import bannerImg from './assets/images/Clubs&Chapters.png';
 import './ClubsAndChapters.css';
@@ -9,14 +8,33 @@ import './ClubsAndChapters.css';
 const ClubsAndChapters = () => {
   const [selectedClub, setSelectedClub] = useState(null);
 
+  // Auto scroll top when modal is opened to avoid weird positioning
+  useEffect(() => {
+    if (selectedClub) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [selectedClub]);
+
   return (
-    <div className="clubs-chapters-page">
-      <PageBanner
-        title="Clubs & Chapters"
-        subtitle="Empowering students beyond the classroom"
-        backgroundImage={bannerImg}
-        hideBreadcrumb={true}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper clubs-chapters-page">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Clubs and Chapters Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
+
       <div className="clubs-chapters-container">
         <div className="clubs-grid">
           {clubsData.map((club) => {

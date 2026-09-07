@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import './ControllerOfExamination.css';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaFileAlt, FaClipboardCheck, FaExclamationTriangle, FaUserTie, FaProjectDiagram, FaCertificate, FaUserGraduate, FaRupeeSign, FaSearchPlus, FaTimes } from 'react-icons/fa';
 import ganeshImg from './images/ganesh.jpg';
 import sivaganesanImg from './images/sivaganesan.jpg';
@@ -36,7 +35,6 @@ const deputyControllers = [
     role: "Deputy exam cell",
     image: saravanaImg
   }
-
 ];
 
 const verificationSteps = [
@@ -72,17 +70,21 @@ function ControllerOfExamination() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "auto";
-    };
+    }
   }, [isOpen, handleKeyDown]);
 
   return (
-    <div className='coe-page'>
-      <PageBanner
-        title="Controller of Examination"
-        subtitle="Ensuring Academic Excellence through Fair and Transparent Examination Processes"
-        hideBreadcrumb={true}
-        backgroundImage={bannerImg}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className='common-page-wrapper coe-page'>
+      
+      {/* 👇 PageBanner-ku bathila namba pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        <img 
+          src={bannerImg} 
+          alt="Controller of Examination Banner" 
+          style={{ width: '100%', height: 'auto', display: 'block' }} 
+        />
+      </div>
 
       <div className='coe-container'>
         {/* Exam Cell Introduction */}

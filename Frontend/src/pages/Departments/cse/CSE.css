@@ -3,6 +3,25 @@
    Strictly adheres to AGENTS.md typography guidelines and Light/Dark themes
    ========================================================================== */
 
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Banner ku keela vara first section (Intro) gap-a clean ah 35px ku set panrom */
+.cse-redesign-page .common-hero-banner + .cse-intro-section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.cse-redesign-page .common-hero-banner + .cse-intro-section .cse-container {
+  padding-top: 35px !important; /* Perfect neat gap */
+}
+
+/* Page Base */
 .cse-redesign-page {
   font-family: var(--font-body);
   color: #1e293b;
@@ -10,6 +29,8 @@
   overflow-x: hidden;
   background-color: #ffffff;
   position: relative;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 body.dark-mode .cse-redesign-page {
@@ -1267,8 +1288,12 @@ body.dark-mode .cse-empty-desc { color: #94a3b8; }
 }
 
 @media (max-width: 768px) {
+  .cse-redesign-page .common-hero-banner + .cse-intro-section .cse-container {
+    padding-top: 20px !important; /* Extremely tight for mobile */
+  }
+
   .cse-container {
-    padding: 60px 20px;
+    padding: 40px 20px; /* Reduced from 60px to kill gaps */
   }
   .cse-heading {
     font-size: 2rem;

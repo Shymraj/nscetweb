@@ -1,5 +1,4 @@
 import React from 'react';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaFilePdf, FaGavel, FaListAlt, FaEnvelopeOpenText, FaInfoCircle, FaUsers, FaBullseye, FaLink } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import PolicyPDF from './Grievance_Redressal_Policy.pdf';
@@ -31,13 +30,19 @@ const GrievanceRedressal = () => {
   };
 
   return (
-    <div className="grc-page">
-      <PageBanner
-        title="Grievance Redressal Committee"
-        subtitle="Ensuring a Fair and Transparent Campus"
-        hideBreadcrumb={false}
-        backgroundImage={bannerImg}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper grc-page">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Grievance Redressal Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
       
       <div className="grc-container">
 

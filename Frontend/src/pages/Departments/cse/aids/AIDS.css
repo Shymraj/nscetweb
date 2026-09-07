@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Banner ku keela vara first section (Intro) gap-a clean ah 35px ku set panrom */
+.cse-redesign-page .common-hero-banner + .cse-intro-section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.cse-redesign-page .common-hero-banner + .cse-intro-section .cse-container {
+  padding-top: 35px !important; /* Perfect neat gap */
+}
+
+@media (max-width: 768px) {
+  .cse-redesign-page .common-hero-banner + .cse-intro-section .cse-container {
+    padding-top: 20px !important; /* Extremely tight for mobile */
+  }
+}
+
 /* ================= VARIABLES ================= */
 :root {
     --aids-primary: var(--theme-primary);
@@ -17,7 +41,7 @@
 .aids-container {
     width: 100%;
     min-height: 100vh;
-    padding-top: 100px;
+    padding-top: 0px; /* Top padding is handled by common-page-wrapper globally */
     font-family: var(--font-body);
     color: var(--aids-text);
     background-color: var(--aids-bg);
@@ -340,7 +364,7 @@
 }
 
 .glass-card li::before {
-    content: 'âœ“';
+    content: '✓';
     position: absolute;
     left: 0;
     top: 1px;
