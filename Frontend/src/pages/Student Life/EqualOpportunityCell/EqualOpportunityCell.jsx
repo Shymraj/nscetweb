@@ -104,10 +104,8 @@ const EqualOpportunityCell = () => {
             <div className="members-present">
               <h5>Members Present:</h5>
               <ul>
-                <li>Dr. M. Sathya, Viceprincipal, Academic – Coordinator / EOC</li>
-                <li>Dr. C. Karthikeyan, Placement and Training Officer</li>
-                <li>Dr. V. Ananthi, Asst Prof / Maths</li>
-                <li>Mr. N. Keesamoorthy, Asst Prof / CSE</li>
+                <li>Dr. M. Sathya Viceprincipal, Academic – Coordinator / EOC</li>
+                <li>Mr. N. Keesamoorthy, Assistant Professor / IT </li>
                 <li>Mr. A. MuniKumar, JA / Admin</li>
               </ul>
             </div>
@@ -142,7 +140,7 @@ const EqualOpportunityCell = () => {
               </div>
             </div>
             <div className="minutes-signature">
-              <p><strong>Prepared by:</strong> Dr. M. Sathya, Coordinator – Equal Opportunity Cell</p>
+              <p><strong>Prepared by:</strong> Dr. M. Sathya Vice Principal Coordinator – Equal Opportunity Cell</p>
             </div>
           </div>
         </section>
@@ -173,31 +171,31 @@ const EqualOpportunityCell = () => {
                   <tr>
                     <td>1</td>
                     <td>Lecture on Personality development & Soft Skills (July 2024)</td>
-                    <td>Dr. C. Karthikeyan, Placement and Training Officer</td>
+                    <td>Dr. C. Karthikeyan</td>
                     <td>Trainer finalized; Date fixed</td>
                   </tr>
                   <tr>
                     <td>2</td>
                     <td>Career catalyst : Competitive Examinations and trends in Employment (July 2024)</td>
-                    <td>Dr. V. Ananthi, Asst Prof / Maths</td>
+                    <td>Dr. V. Ananthi</td>
                     <td>GATE & TNPSC session planned</td>
                   </tr>
                   <tr>
                     <td>3</td>
                     <td>Guest Lecture on "Opening New Gates of Wisdom & Job opportunities in Japan"</td>
-                    <td>Dr. C. Karthikeyan, Placement and Training Officer<br/>Dr. V. Ananthi, Asst Prof / Maths</td>
+                    <td>Dr. C. Karthikeyan<br/>Dr. V. Ananthi</td>
                     <td>For Teaching Japanese Language And To Provide Knowledge On Opportunities</td>
                   </tr>
                   <tr>
                     <td>4</td>
                     <td>Awareness Program on SC/ST/OBC Schemes (December 2025)</td>
-                    <td>Mr. N. Keesamoorthy, Asst Prof / CSE</td>
+                    <td>Mr. N. Keesamoorthy, Assistant Professor / IT</td>
                     <td>In collaboration with SEDG CELL – planned</td>
                   </tr>
                   <tr>
                     <td>5</td>
                     <td>EOC Annual Report Compilation</td>
-                    <td>Dr. M. Sathya, EOC Coordinator</td>
+                    <td>Dr. M. Sathya Vice Principal , EOC Coordinator</td>
                     <td>In progress; Due by 10.07.2025</td>
                   </tr>
                   <tr>
@@ -320,13 +318,10 @@ const EqualOpportunityCell = () => {
                   <td>Members</td>
                   <td><strong>Dr. M. Sathya</strong><br/>Associate Professor, Academic - Coordinator / EOC</td>
                 </tr>
+                
                 <tr>
                   <td>Members</td>
-                  <td><strong>Dr. V. Ananthi</strong><br/>Assistant Professor / Mathematics</td>
-                </tr>
-                <tr>
-                  <td>Members</td>
-                  <td><strong>Mr. N. Keesamoorthy</strong><br/>Assistant Professor / CSE</td>
+                  <td><strong>Mr. N. Keesamoorthy</strong><br/>Assistant Professor / IT</td>
                 </tr>
                 <tr>
                   <td>Members</td>

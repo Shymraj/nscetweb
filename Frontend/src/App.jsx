@@ -97,6 +97,7 @@ const AppContent = () => {
       <ScrollToTop />
       {!hideGlobalNavAndFooter && <Navbar />}
 
+      <div className={location.pathname === '/' ? '' : 'modern-fonts'}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<Overview />} />
@@ -176,6 +177,7 @@ const AppContent = () => {
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
+      </div>
 
       {/* Admin route illana mattum thaan ChatBot varum */}
       {!isAdminRoute && <ChatBot />}

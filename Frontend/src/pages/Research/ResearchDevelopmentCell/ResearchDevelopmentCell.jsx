@@ -7,15 +7,6 @@ import {
 } from 'react-icons/fa';
 import './ResearchDevelopmentCell.css';
 
-import imgRadhaKrishnan from './Images/radhakrishnan.jpg';
-import imgMathalaiSundaram from './Images/mathalai sundharam.png';
-import imgAthilingam from './Images/Dr_athilingam.jpg';
-import imgVenishKumar from './Images/venishkumar.jpg';
-import imgSathya from './Images/sathya.jpeg';
-import imgDavidMathan from './Images/davidmathan.jpg';
-import imgMathavan from './Images/Mathavan.jpg';
-import imgMathalaiRaj from './Images/mathalairaj.jpg';
-
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -87,15 +78,16 @@ const ResearchDevelopmentCell = () => {
     }
   ];
 
+  // 👇 IMAGE PROPERTY ADD PANNAPATTULLATHU 👇
   const members = [
-    { name: "Dr. B. Radha Krishnan", desig: "Professor & Head", dept: "Department of Mechanical Engineering", image: imgRadhaKrishnan },
-    { name: "Dr. C. Mathalai Sundaram", desig: "Principal & Professor", dept: "Department of Mechanical Engineering", image: imgMathalaiSundaram },
-    { name: "Dr. Athilingam R", desig: "Professor & Head", dept: "Department of Electrical and Electronics Engineering", image: imgAthilingam },
-    { name: "Dr. T. Venish Kumar A", desig: "Professor & Head", dept: "Department of Electronics and Communication Engineering", image: imgVenishKumar },
-    { name: "Dr. M. Sathya", desig: "Vice principal & Professor", dept: "Department of Computer Science and Engineering", image: imgSathya },
-    { name: "Dr. N. David Mathan", desig: "Professor", dept: "Department of Chemistry", image: imgDavidMathan },
-    { name: "Dr. N. Mathavan", desig: "Professor", dept: "Department of Electronics and Communication Engineering", image: imgMathavan },
-    { name: "Dr. Mathalai Raj", desig: "Professor & Head", dept: "Department of Computer Science and Engineering", image: imgMathalaiRaj }
+    { name: "Dr. C. Mathalai Sundaram", desig: "Principal & Professor", dept: "MECH", img: "/ME MANUFACTURING/principle.png" }, // Path example: "/rdc/principal.jpg"
+    { name: "Dr. B. Radha Krishnan", desig: "Professor & Head", dept: " MECH", img: "/MECH/radhakrishnan.jpg" },
+    { name: "Dr. Athilingam R", desig: "Professor & Head", dept: "EEE", img: "/EEE/athilingam.jpg" },
+    { name: "Dr. T. Venish Kumar A", desig: "Professor & Head", dept: "ECE", img: "/ECE/venishkumar.jpg" },
+    { name: "Dr. M. Sathya", desig: "Vice principal", img: "/ME CSE/sathya.jpeg" },
+    { name: "Dr. N. David Mathan", desig: "Professor", dept: "S&H", img: "/S&H/davidmathan.jpg" },
+    { name: "Dr. N. Mathavan", desig: "Professor", dept: "ECE", img: "/ECE/Mathavan.jpg" },
+    { name: "Dr. Mathalai Raj", desig: "Professor & Head", dept: "CSE", img: "/CSE/mathalairaj.jpg " }
   ];
 
   return (
@@ -192,17 +184,20 @@ const ResearchDevelopmentCell = () => {
           >
             {members.map((member, i) => (
               <motion.div key={i} variants={fadeUp} className="rdc-member-card" whileHover={{ scale: 1.02 }}>
+                
+                {/* 👇 IMAGE LOGIC RENDER PANNAPATTULLATHU 👇 */}
                 <div className="rdc-member-avatar">
-                  {member.image ? (
-                    <img src={member.image} alt={member.name} className="rdc-member-img" />
+                  {member.img ? (
+                    <img src={member.img} alt={member.name} className="rdc-member-img" />
                   ) : (
                     <FaUserTie />
                   )}
                 </div>
+
                 <div className="rdc-member-info">
                   <h4 className="rdc-member-name">{member.name}</h4>
                   <p className="rdc-member-desig">{member.desig}</p>
-                  <p className="rdc-member-dept">{member.dept}</p>
+                  {member.dept && <p className="rdc-member-dept">{member.dept}</p>}
                 </div>
               </motion.div>
             ))}

@@ -315,8 +315,8 @@ body.dark-mode .rdc-member-card:hover {
 }
 
 .rdc-member-avatar {
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   background: #f8fafc;
   display: flex;
@@ -326,7 +326,6 @@ body.dark-mode .rdc-member-card:hover {
   font-size: 1.4rem;
   flex-shrink: 0;
   border: 1px solid #e2e8f0;
-  overflow: hidden;
   transition: all 0.3s ease;
 }
 body.dark-mode .rdc-member-avatar {
@@ -344,14 +343,6 @@ body.dark-mode .rdc-member-card:hover .rdc-member-avatar {
   background: rgba(56, 189, 248, 0.1);
   color: #38bdf8;
   border-color: rgba(56, 189, 248, 0.2);
-}
-
-.rdc-member-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
 }
 
 .rdc-member-name {
@@ -532,4 +523,10 @@ body.dark-mode .rdc-contact-icon {
     width: 100%;
     justify-content: center;
   }
+}
+.rdc-member-img {
+  width: 100%;
+  height: 100%;
+  object-fit: center;
+  border-radius: 50%; /* Image-a round-a aakkum */
 }

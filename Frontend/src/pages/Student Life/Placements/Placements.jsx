@@ -63,13 +63,14 @@ const galleryImages = [
 ];
 
 const departmentCoordinators = [
-  { department: 'AI & DS', name: 'Mr. S. Kodeeswaran' },
-  { department: 'CIVIL', name: 'Mrs. S. Gayathri' },
-  { department: 'CSE', name: 'Mrs. M. Venkata Lakshmi' },
-  { department: 'ECE', name: 'Mrs. P. Gowthami' },
-  { department: 'EEE', name: 'Mrs. A. Nishetha Jeflin Nixon' },
-  { department: 'MECH', name: 'Dr. A. Vennimalairajan' },
-  { department: 'IT', name: 'Mrs. B. Sai Suganya' },
+   { department: 'Mrs. B. Sai Suganya', name: 'IT' },
+  { department: 'Mr. S. Kodeeswaran', name: 'AI & DS' },
+  { department: 'Mrs. S. Gayathri', name: 'CIVIL' },
+  { department: 'Mrs. M. Venkata Lakshmi', name: 'CSE' },
+  { department: 'Mrs. P. Gowthami', name: 'ECE' },
+  { department: 'Mrs. A. Nishetha Jeflin Nixon', name: 'EEE' },
+  { department: 'Dr.A.Vennimalairajan', name: 'MECH' },
+ 
 ];
 
 const facilities = [
