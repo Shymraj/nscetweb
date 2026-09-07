@@ -1,0 +1,551 @@
+{
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/civil/facultyData.js": [
+    {
+      "name": "Mr. N. Nagarathinam",
+      "designation": "Head of the Department (HOD)",
+      "qualification": "M.E., M.I.S.T.E., (Ph.D)"
+    },
+    {
+      "name": "Mrs. S. Gayathri",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., M.I.S.T.E."
+    },
+    {
+      "name": "Mr. R. Shanmugapriyan",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. B. Sowmiya",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. M. Kanimozhi",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mr. Arul Jebaraj",
+      "designation": "Assistant Professor",
+      "qualification": "M.Tech"
+    },
+    {
+      "name": "Mrs. R. Nathirun Sabinash",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mr. T. Hariprasath",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mr. R. Manoj Prabakar",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. P. Aadhitya",
+      "designation": "Assistant Professor",
+      "qualification": ""
+    }
+  ],
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/civil/mestructural/facultyData.js": [
+    {
+      "name": "Dr. E. Anantha Krishnan",
+      "designation": "Professor & M.E. Program Head",
+      "qualification": "M.E., Ph.D."
+    },
+    {
+      "name": "Mrs. M. Sindhu",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., (Ph.D)"
+    },
+    {
+      "name": "Mrs. K. Benita Merlin Isabella",
+      "designation": "Assistant Professor",
+      "qualification": "M.E"
+    }
+  ],
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/cse/aids/facultyData.js": [
+    {
+      "name": "Dr. L. S. Vignesh",
+      "designation": "Assistant Professor & Head [I/C]",
+      "qualification": "M.E., (Ph.D)"
+    },
+    {
+      "name": "Mr. J. Vinoth Kumar",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., (Ph.D)"
+    },
+    {
+      "name": "Mrs. J. Kanimoli",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. G. Geerthiga",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. M. Pavithra",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. P. Nagajothi",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. S. Sunitha",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mr. S. Kodeeswaran",
+      "designation": "Assistant Professor",
+      "qualification": "M.Tech."
+    },
+    {
+      "name": "Mrs. V. Nithyapriya",
+      "designation": "Assistant Professor",
+      "qualification": ""
+    }
+  ],
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/cse/facultyData.js": [
+    {
+      "name": "Dr. J. Mathalai Raj",
+      "designation": "Assistant Professor & Head [I/C]",
+      "qualification": "M.E (CSE), Ph.D"
+    },
+    {
+      "name": "Dr. K. Velkumar",
+      "designation": "Assistant Professor",
+      "qualification": "M.E, Ph.D"
+    },
+    {
+      "name": "Mrs. K. Deepiga",
+      "designation": "Assistant Professor",
+      "qualification": "B.E, M.E"
+    },
+    {
+      "name": "Mrs. R. Archana",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., (Ph.D)"
+    },
+    {
+      "name": "Mrs. Abirami Kayathiri",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. M. Venkata Lakshmi",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. Anusuya Vairamuthu",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. V. Vinothini",
+      "designation": "Assistant Professor",
+      "qualification": "M.E - Software"
+    },
+    {
+      "name": "Mrs. J. S. Snega Priyanka",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    }
+  ],
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/cse/it/facultyData.js": [
+    {
+      "name": "Dr. C. Prathap",
+      "designation": "Head of the Department (HOD)",
+      "qualification": "M.Tech., (Ph.D)"
+    },
+    {
+      "name": "Mr. R. Udhaya Kumar",
+      "designation": "Assistant Professor",
+      "qualification": "M.E (CSE), MBA (ITM), (Ph.D)"
+    },
+    {
+      "name": "Mr. N. Kesavamoorthy",
+      "designation": "Assistant Professor",
+      "qualification": "M.E (CSE)"
+    },
+    {
+      "name": "Mrs. B. Sai Suganya",
+      "designation": "Assistant Professor",
+      "qualification": "M.Tech."
+    },
+    {
+      "name": "Mrs. M. Bhavani",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. S. Mahalakshmi",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. P. Jasmine Jose",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. S. Arul Jothi",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., (Ph.D)"
+    },
+    {
+      "name": "Mrs. M. Mareeswari",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    }
+  ],
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/cse/mecse/facultyData.js": [
+    {
+      "name": "Dr. M. Sathya",
+      "designation": "Vice Principal & Professor",
+      "qualification": "M.Tech., MBA., Ph.D"
+    },
+    {
+      "name": "Mr. J. R. Naveenkarthick",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    }
+  ],
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/electrical/facultyData.js": [
+    {
+      "name": "Dr. R. Athilingam",
+      "designation": "Head of the Department (HOD)",
+      "qualification": "M.E., Ph.D"
+    },
+    {
+      "name": "Mr. R. Raja Karthick",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. A. Nishetha Jeflin Nixon",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. M. Vijayalakshmi",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mr. C. Shiva",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., (Ph.D.)"
+    },
+    {
+      "name": "Mrs. N. Abirami",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., (Ph.D.)"
+    },
+    {
+      "name": "Mrs. R. Chitra",
+      "designation": "Associate Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mrs. H. Juriya Banu",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Dr. N. Pandi Selvi",
+      "designation": "Assistant Professor",
+      "qualification": "B.E., M.E., Ph.D."
+    }
+  ],
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/electrical/meembedded/facultyData.js": [
+    {
+      "name": "Dr. R. Athilingam",
+      "designation": "Head of the Department (HOD)",
+      "qualification": "M.E., Ph.D"
+    },
+    {
+      "name": "Mrs. S. Kalaivani",
+      "designation": "Assistant Professor",
+      "qualification": "M.Tech."
+    }
+  ],
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/electronics/facultyData.js": [
+    {
+      "name": "Dr. T. Venish Kumar",
+      "designation": "Head of the Department (HOD)",
+      "qualification": "M.E., Ph.D"
+    },
+    {
+      "name": "Dr. N. Mathavan",
+      "designation": "Assistant Professor",
+      "qualification": "B.Tech., M.E., Ph.D"
+    },
+    {
+      "name": "Mr. M. Idhaya Chandran",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mr. S. Prathap",
+      "designation": "Assistant Professor",
+      "qualification": "M.E (PhD)"
+    },
+    {
+      "name": "Mr. R. Pradeep Kumar",
+      "designation": "Assistant Professor",
+      "qualification": "M.E (PhD)"
+    },
+    {
+      "name": "Mrs. T. Tamilselvi",
+      "designation": "Assistant Professor",
+      "qualification": "M.Tech., (Ph.D.)"
+    },
+    {
+      "name": "Mrs. P. Shantha Devi",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., (Ph.D.)"
+    },
+    {
+      "name": "Mrs. P. Gowthami",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Mr. K. Bharathi Kannan",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    }
+  ],
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/mechanical/facultyData.js": [
+    {
+      "name": "Dr. B. Radha Krishnan",
+      "designation": "Head of the Department (HOD)",
+      "qualification": "M.E., Ph.D., MISTE., MIE."
+    },
+    {
+      "name": "Mr. R. Santhaseelan",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., MISTE."
+    },
+    {
+      "name": "Mr. V. Sivaganesan",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., MISTE."
+    },
+    {
+      "name": "Dr. B. Nagarajan",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., Ph.D, MISTE."
+    },
+    {
+      "name": "Mr. P. Surulimani",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., MISTE."
+    },
+    {
+      "name": "Mr. S. Harikishore",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., MISTE."
+    },
+    {
+      "name": "Mr. J. Chakaravarthy Samy Durai",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., MISTE."
+    },
+    {
+      "name": "Mr. R. Nagaraja",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., MISTE."
+    }
+  ],
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/mechanical/memanufacturing/facultyData.js": [
+    {
+      "name": "Dr. C. Mathalai Sundaram",
+      "designation": "Principal & Professor",
+      "qualification": "M.E., M.B.A., Ph.D., MISTE"
+    },
+    {
+      "name": "Dr. A. Vennimalai Rajan",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., Ph.D, MISTE."
+    }
+  ],
+  "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/s&h/facultyData.js": [
+    {
+      "name": "Dr. A. Vembathurajesh",
+      "designation": "Head of the Department (HOD)",
+      "qualification": "M.E., Ph.D, MISTE."
+    },
+    {
+      "name": "Dr. C. Chithra",
+      "designation": "Professor & Co-Ordinator",
+      "qualification": "M.Sc., M.Phil., B.Ed., P.G.D.C.A., Ph.D."
+    },
+    {
+      "name": "Dr. N. David Mathan",
+      "designation": "Professor",
+      "qualification": "M.Sc., Ph.D."
+    },
+    {
+      "name": "Mr. R. C. Richard Britto",
+      "designation": "Assistant Professor",
+      "qualification": "M.A., M.Phil."
+    },
+    {
+      "name": "Mrs. T. Subathamani",
+      "designation": "Assistant Professor",
+      "qualification": "M.A., M.Phil., B.Ed."
+    },
+    {
+      "name": "Dr. B. Mallaiyasamy",
+      "designation": "Associate Professor",
+      "qualification": "M.Sc., M.Phil., M.Ed., PGDCA, Ph.D., MIST"
+    },
+    {
+      "name": "Mrs. R. Karunyah",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc., M.Phil."
+    },
+    {
+      "name": "Mrs. M. Arulvizhi",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc., M.Phil."
+    },
+    {
+      "name": "Mr. R. Dhandayuthapani",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc., M.Phil."
+    },
+    {
+      "name": "Mr. K. Rajaguru",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc., M.Phil."
+    },
+    {
+      "name": "Dr. S. R. Krishnamoorthi",
+      "designation": "Associate Professor",
+      "qualification": "M.Sc., M.Phil., Ph.D., MISTE"
+    },
+    {
+      "name": "Dr. S. Selvapriya",
+      "designation": "Assistant Professor",
+      "qualification": "M.A., M.Phil., Ph.D."
+    },
+    {
+      "name": "Mrs. S. Reka",
+      "designation": "Assistant Professor",
+      "qualification": "M.A., M.Phil."
+    },
+    {
+      "name": "Mrs. R. Bhuvaneshwari",
+      "designation": "Assistant Professor (Physics)",
+      "qualification": "B.Sc., M.Sc., Ph.D."
+    },
+    {
+      "name": "Dr. S. Devimeenakshmi",
+      "designation": "Assistant Professor (Chemistry)",
+      "qualification": "M.Sc., Ph.D."
+    },
+    {
+      "name": "Dr. P. Malarvizhi",
+      "designation": "Assistant Professor",
+      "qualification": "M.A., M.Phil., Ph.D."
+    },
+    {
+      "name": "Dr. R. Valarmathi",
+      "designation": "Assistant Professor",
+      "qualification": "Ph.D."
+    },
+    {
+      "name": "Mrs. S. Mufeena",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc., M.Phil."
+    },
+    {
+      "name": "Dr. R. Saravana Kumar",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc., Ph.D."
+    },
+    {
+      "name": "Dr. Sumathra M",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc., Ph.D - Chemistry"
+    },
+    {
+      "name": "Mrs. V. Sangeetha",
+      "designation": "Assistant Professor",
+      "qualification": "M.A. English"
+    },
+    {
+      "name": "Mr. M. Murugan",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc – Maths"
+    },
+    {
+      "name": "Dr. P. Diana",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc., Ph.D - Physics"
+    },
+    {
+      "name": "Dr. M. Easwari",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc., Ph.D - Physics"
+    },
+    {
+      "name": "Mrs. A. Iniya",
+      "designation": "Assistant Professor",
+      "qualification": "M.E (CSE)"
+    },
+    {
+      "name": "Mrs. M. Nandhini",
+      "designation": "Assistant Professor",
+      "qualification": "M.E (CSE)"
+    },
+    {
+      "name": "Dr. S. Srinithi",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc., Ph.D (Chemistry)"
+    },
+    {
+      "name": "Mrs. N. Thisha",
+      "designation": "Assistant Professor (Tamil)",
+      "qualification": "B.A., M.A., NET."
+    },
+    {
+      "name": "Mr. K. Ram Kumar",
+      "designation": "Assistant Professor",
+      "qualification": "B.E - EEE., M.B.A"
+    },
+    {
+      "name": "Mrs. S. Rajeshshree",
+      "designation": "Assistant Professor",
+      "qualification": "B.E., M.E."
+    },
+    {
+      "name": "Mr. G. Arunkumar",
+      "designation": "Assistant Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Dr. S. Premkumar",
+      "designation": "Assistant Professor",
+      "qualification": "M.E., Ph.D (Civil)"
+    },
+    {
+      "name": "Mrs. K. Jenifer",
+      "designation": "Assistant Professor",
+      "qualification": "B.Tech(IT)., M.E(CSE)"
+    }
+  ]
+}

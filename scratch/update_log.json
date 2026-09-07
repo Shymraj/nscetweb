@@ -1,0 +1,832 @@
+{
+  "files": [
+    "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/civil/facultyData.js",
+    "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/cse/facultyData.js",
+    "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/cse/it/facultyData.js",
+    "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/electrical/facultyData.js",
+    "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/electrical/meembedded/facultyData.js",
+    "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/electronics/facultyData.js",
+    "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/mechanical/facultyData.js",
+    "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/mechanical/memanufacturing/facultyData.js",
+    "d:/gowtham/ns/nscetweb/Frontend/src/pages/Departments/s&h/facultyData.js",
+    "d:/gowtham/ns/nscetweb/Frontend/src/pages/Academics/TeachingFaculty/TeachingFaculty.jsx"
+  ],
+  "updates": [
+    {
+      "file": "facultyData.js",
+      "name": "Mr. Arul Jebaraj P",
+      "oldDesig": "",
+      "newDesig": "Assistant Professor",
+      "oldQual": "",
+      "newQual": "B.E - Civil, M.Tech - Structural"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. Abirami Kayathiri S",
+      "oldDesig": "",
+      "newDesig": "Assistant Professor",
+      "oldQual": "",
+      "newQual": "B.E - CSE, M.E - CSE"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. Anusuya V",
+      "oldDesig": "",
+      "newDesig": "Assistant Professor",
+      "oldQual": "",
+      "newQual": "B.E - CSE, M.E - CSE"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. C. Prathap",
+      "oldDesig": "Head of the Department (HOD)",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Tech., (Ph.D)",
+      "newQual": "B.E - CSE, M.Tech - CSE"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. R. Udhaya Kumar",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E (CSE), MBA (ITM), (Ph.D)",
+      "newQual": "B.E - CSE, M.E - CSE, M.B.A - ITM"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. N. Kesavamoorthy",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E (CSE)",
+      "newQual": "B.E - CSE, M.E - CSE"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. B. Sai Suganya",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Tech.",
+      "newQual": "B.Tech. - IT, M.Tech. - IT"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. M. Bhavani",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - CSE, M.Tech - CSE"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. S. Mahalakshmi",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.Tech. - IT, M.E - CSE"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. P. Jasmine Jose",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - CSE, M.E - CSE"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. S. Arul Jothi",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., (Ph.D)",
+      "newQual": "B.E - CSE, M.E - CSE"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Dr. R. Athilingam",
+      "oldDesig": "Head of the Department (HOD)",
+      "newDesig": "Associate Professor",
+      "oldQual": "M.E., Ph.D",
+      "newQual": "B.E - EIE, M.E - Applied Electronics, Ph.D - Information & Communication"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. R. Raja Karthick",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - ICE, M.E - Applied Electronics"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. A. Nishetha Jeflin Nixon",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - EEE, M.E - Power Electronics and Drives"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. M. Vijayalakshmi",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - EEE, M.E - Power Systems"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. C. Shiva",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., (Ph.D.)",
+      "newQual": "B.E - EEE, M.E - Power Electronics and Drives"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. N. Abirami",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., (Ph.D.)",
+      "newQual": "B.E - EEE, M.E - VLSI Design"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. H. Juriya Banu",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - EEE, M.E - Power Systems"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Dr. N. Pandi Selvi",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "B.E., M.E., Ph.D.",
+      "newQual": "B.E - EEE, M.E - Power Systems"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Dr. R. Athilingam",
+      "oldDesig": "Head of the Department (HOD)",
+      "newDesig": "Associate Professor",
+      "oldQual": "M.E., Ph.D",
+      "newQual": "B.E - EIE, M.E - Applied Electronics, Ph.D - Information & Communication"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. S. Kalaivani",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Tech.",
+      "newQual": "B.E - ECE, M.E - VLSI & Embedded System"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Dr. T. Venishkumar",
+      "oldDesig": "Head of the Department (HOD)",
+      "newDesig": "Professor & Head [I/C]",
+      "oldQual": "M.E., Ph.D",
+      "newQual": "B.E - ECE, M.E - VLSI Design, Ph.D - Information & Communication"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Dr. N. Mathavan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "B.Tech., M.E., Ph.D",
+      "newQual": "B.Tech - ECE, M.E - Computer & Communication, Ph.D - Information & Communication"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. M. Idhayachandran",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - ECE, M.E - VLSI Design"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. S. Prathap",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E (PhD)",
+      "newQual": "B.E - ECE, M.E - Communication Systems"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. R. Pradeep Kumar",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E (PhD)",
+      "newQual": "B.E - ECE, M.E - Applied Electronics"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. T. Tamilselvi",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Tech., (Ph.D.)",
+      "newQual": "B.E - ECE, M.Tech - VLSI Design"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. P. Shantha Devi",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., (Ph.D.)",
+      "newQual": "B.E - ECE, M.E - VLSI Design"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. P. Gowthami",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - ECE, M.E - Communication Systems"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. K. Bharathi Kannan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - ECE, M.E - VLSI Design"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Dr. B. Radha krishnan",
+      "oldDesig": "Head of the Department (HOD)",
+      "newDesig": "Professor & Head [I/C] Mech & MFE",
+      "oldQual": "M.E., Ph.D., MISTE., MIE.",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. R. Santhaseelan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Industrial Safety"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. V. Sivaganesan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor / Deputy COE",
+      "oldQual": "M.E., MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Engineering Design"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Dr. B. Nagarajan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., Ph.D, MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. P. Surulimani",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. S. Harikishore",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. J. Chakaravarthy Samy Durai",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Mr. R. Nagaraja",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Engineering Design"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Dr. C. Mathalai Sundaram",
+      "oldDesig": "Principal & Professor",
+      "newDesig": "Principal",
+      "oldQual": "M.E., M.B.A., Ph.D., MISTE",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Dr. A. Vennimalai Rajan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., Ph.D, MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Dr. A. Vembathurajesh",
+      "oldDesig": "Head of the Department (HOD)",
+      "newDesig": "Assistant Professor & Head [I/C] / S&H",
+      "oldQual": "M.E., Ph.D, MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Thermal, Ph.D - Mechanical"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Dr. Sumathra M",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Sc., Ph.D - Chemistry",
+      "newQual": "B.Sc., M.Sc., Ph.D - Chemistry"
+    },
+    {
+      "file": "facultyData.js",
+      "name": "Ms. S. Rajeshshree",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "B.E., M.E.",
+      "newQual": "B.E - ECE, M.E - Applied Electronics"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. C. Prathap",
+      "oldDesig": "Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Tech., Ph.D",
+      "newQual": "B.E - CSE, M.Tech - CSE"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. R. Udhaya Kumar",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E , MBA, (Ph.D)",
+      "newQual": "B.E - CSE, M.E - CSE, M.B.A - ITM"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. N. Kesavamoorthy",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E",
+      "newQual": "B.E - CSE, M.E - CSE"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. B. Sai Suganya",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.TECH",
+      "newQual": "B.Tech. - IT, M.Tech. - IT"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. M. Bhavani",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "B.Tech",
+      "newQual": "B.E - CSE, M.Tech - CSE"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. P. Jasmine Jose",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - CSE, M.E - CSE"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. Vignesh L S",
+      "oldDesig": "Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "Ph.D, M.E.",
+      "newQual": "B.E - CSE, M.E - CSE"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. Sunitha S",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.Tech. - IT, M.E - CSE"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. Kodeeswaran S",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.TECH",
+      "newQual": "B.Tech. - IT, M.Tech. - IT"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. Kanimoli J",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - CSE, M.E. - Software"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. Nagajothi P",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - CSE, M.E. - Software"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. Anusuya V",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - CSE, M.E - CSE"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. Vinothini V",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E",
+      "newQual": "B.E - CSE, M.E - Software"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. Snega Priyanka J S",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - CSE, M.E - CSE"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. Deepiga K",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - ECE, M.E - CSE (Networks)"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. Sowmiya B",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - Civil, M.E - Environmental"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. Manojprabakar R",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.Tech - Civil, M.E - Environmental"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. B. Radha krishnan",
+      "oldDesig": "Professor",
+      "newDesig": "Professor & Head [I/C] Mech & MFE",
+      "oldQual": "M.E., Ph.D., MISTE., MIE.",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. R. Nagaraja",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Engineering Design"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. J. Chakaravarthy Samy Durai",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. S. Harikishore",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., MISTE",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. V. Sivaganesan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor / Deputy COE",
+      "oldQual": "M.E., MISTE",
+      "newQual": "B.E - Mechanical, M.E - Engineering Design"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. B. Nagarajan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., Ph.D,MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. P. Surulimani",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., MISTE",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. R. Santhaseelan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "ME",
+      "newQual": "B.E - Mechanical, M.E - Industrial Safety"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. T. Venishkumar",
+      "oldDesig": "Professor",
+      "newDesig": "Professor & Head [I/C]",
+      "oldQual": "M.E., Ph.D",
+      "newQual": "B.E - ECE, M.E - VLSI Design, Ph.D - Information & Communication"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. N. Mathavan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "B.Tech., ME., Ph.D",
+      "newQual": "B.Tech - ECE, M.E - Computer & Communication, Ph.D - Information & Communication"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. M. Idhayachandran",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - ECE, M.E - VLSI Design"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. S. Prathap",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E (PhD)",
+      "newQual": "B.E - ECE, M.E - Communication Systems"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. R. Pradeep Kumar",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E (PhD)",
+      "newQual": "B.E - ECE, M.E - Applied Electronics"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. T. Tamilselvi",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Tech., (Ph.D.)",
+      "newQual": "B.E - ECE, M.Tech - VLSI Design"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. P. Shantha Devi",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., (Ph.D.)",
+      "newQual": "B.E - ECE, M.E - VLSI Design"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. P. Gowthami",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - ECE, M.E - Communication Systems"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. K. Bharathi Kannan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - ECE, M.E - VLSI Design"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. R. Athilingam",
+      "oldDesig": "Professor",
+      "newDesig": "Associate Professor",
+      "oldQual": "M.E, Ph.D",
+      "newQual": "B.E - EIE, M.E - Applied Electronics, Ph.D - Information & Communication"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. R. Raja Karthick",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - ICE, M.E - Applied Electronics"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. A. Nishetha Jeflin Nixon",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - EEE, M.E - Power Electronics and Drives"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. M. Vijayalakshmi",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - EEE, M.E - Power Systems"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. C. Shiva",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., (Ph.D.)",
+      "newQual": "B.E - EEE, M.E - Power Electronics and Drives"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. N. Abirami",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., (Ph.D.)",
+      "newQual": "B.E - EEE, M.E - VLSI Design"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. H. Juriya Banu",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - EEE, M.E - Power Systems"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. N. Pandi Selvi",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., Ph.D",
+      "newQual": "B.E - EEE, M.E - Power Systems"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. C. Mathalai Sundaram",
+      "oldDesig": "Principal & Professor",
+      "newDesig": "Principal",
+      "oldQual": "M. E., M. B. A., Ph.D,   MISTE",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. A. Vennimalai Rajan",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., Ph.D,MISTE.",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. R. Athilingam",
+      "oldDesig": "Asosiate Professor",
+      "newDesig": "Associate Professor",
+      "oldQual": "Ph.D, M.E.",
+      "newQual": "B.E - EIE, M.E - Applied Electronics, Ph.D - Information & Communication"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. S. Kalaivani",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E.",
+      "newQual": "B.E - ECE, M.E - VLSI & Embedded System"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. A. Vembathurajesh",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor & Head [I/C] / S&H",
+      "oldQual": "M.E., Ph.D, MISTE",
+      "newQual": "B.E - Mechanical, M.E - Thermal, Ph.D - Mechanical"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. Devimeenakshi S",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Sc, Ph.D",
+      "newQual": "B.Sc., M.Sc., Ph.D - Chemistry"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. Sumathra M",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Sc, Ph.D",
+      "newQual": "B.Sc., M.Sc., Ph.D - Chemistry"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. Sangeetha V",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.A.",
+      "newQual": "B.A., M.A., English (NET)"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. Arunkumar G",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E",
+      "newQual": "B.E - Mechanical, M.E - Manufacturing"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. Murugan M",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Sc",
+      "newQual": "B.Sc., M.Sc – Maths (SET)"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. Diana P",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Sc, Ph.D",
+      "newQual": "B.Sc., M.Sc., Ph.D - Physics"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. Easwari M",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Sc, Ph.D",
+      "newQual": "B.Sc., M.Sc., Ph.D - Physics"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. Srinithi S",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.Sc, Ph.D",
+      "newQual": "B.Sc., M.Sc., Ph.D - Chemistry"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Mr. Ram Kumar K",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "B.E., M.B.A.",
+      "newQual": "B.E - EEE, M.B.A - Financial Management"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Dr. Premkumar S",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E., Ph.D",
+      "newQual": "B.E - Civil, M.E - Hydrology & Water Resources, Ph.D – Civil Engineering"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. Nandhini M",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "ME",
+      "newQual": "B.E - CSE, M.E - CSE"
+    },
+    {
+      "file": "TeachingFaculty.jsx",
+      "name": "Ms. S. Rajeshshree",
+      "oldDesig": "Assistant Professor",
+      "newDesig": "Assistant Professor",
+      "oldQual": "M.E",
+      "newQual": "B.E - ECE, M.E - Applied Electronics"
+    }
+  ]
+}
