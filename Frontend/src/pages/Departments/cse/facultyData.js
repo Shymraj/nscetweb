@@ -1,12 +1,12 @@
-import imgMathalaiRaj from "./images/67dd26bfce3c4_mathalairaj.jpg";
-import imgVelkumar from "./images/69143b078344d_velkumar.JPG";
+import imgMathalaiRaj from "./images/mathalairaj.jpg";
+import imgVelkumar from "./images/velkumar.JPG";
 import imgDeepiga from "./images/deepika.jpg";
 import imgArchana from "./images/archana.jpeg";
-import imgAbirami from "./images/1774499419_abirami mam.jpeg";
+import imgAbirami from "./images/abirami gayathri.jpeg";
 import imgVenkataLakshmi from "./images/Venkata Lakshmi M.jpg";
 import imgAnusuya from "./images/ANUSUYA VAIRAMUTHU.jpg";
-import imgVinothini from "./images/1778918321_CSE - Vinothini.jpeg";
-import imgSnega from "./images/1778918481_CSE - Snega Priyanka.png";
+import imgVinothini from "./images/Vinothini.jpeg";
+import imgSnega from "./images/Snega Priyanka.png";
 
 export const cseFacultyData = [
   {

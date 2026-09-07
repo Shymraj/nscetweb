@@ -11,7 +11,6 @@ import {
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import { shFacultyData } from "./facultyData";
 
-import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
 
@@ -56,6 +55,7 @@ import imgThisha from "./images/thisha.jpeg";
 import imgRamKumar from "./images/ramkumar.jpeg";
 
 import "../cse/CSE.css";
+import "./ScienceHumanities.css";
 
 const ScienceHumanities = () => {
   const handleOpenProfile = (member) => {
@@ -144,20 +144,19 @@ const ScienceHumanities = () => {
   ];
 
   return (
-    <div className="cse-redesign-page">
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper cse-redesign-page">
 
-      {/* Page Banner (Preserved Untouched) */}
-      <PageBanner
-        title="Department of Science & Humanities"
-        subtitle="Building Strong Academic Foundations — Nurturing Scientific Inquiry, Mathematical Rigor, and Global Communication"
-        hideBreadcrumb={false}
-        breadcrumb={[
-          { label: "Academics", link: "#" },
-          { label: "Departments", link: "#" },
-          { label: "Science & Humanities" }
-        ]}
-        backgroundImage={bannerImg}
-      />
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Science & Humanities Department Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       {/* SECTION 1: Introduction */}
       <section className="cse-section cse-intro-section" id="sh-intro">
@@ -364,7 +363,7 @@ const ScienceHumanities = () => {
         </div>
       </section>
 
-            {/* SECTION 7: Faculty Directory */}
+      {/* SECTION 7: Faculty Directory */}
       <section className="cse-section cse-faculty-section" id="sh-faculty">
         <div className="cse-bg-glow glow-2"></div>
         <div className="cse-container">
@@ -469,8 +468,6 @@ const ScienceHumanities = () => {
           </motion.div>
         </div>
       </section>
-
-      
 
     </div>
   );

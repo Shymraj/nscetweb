@@ -5,19 +5,23 @@ import { motion } from 'framer-motion';
 import { FaFilePdf, FaEye } from 'react-icons/fa';
 import '../AnnualReports/AnnualReports.css';
 import bannerImage from './banner/AnnualAccounts.png';
-
+import './AnnualAccounts.css';
 import annualAccountsPdf from './assets/documents/annual-accounts.pdf';
 import annualReportPdf from './assets/documents/annual-report.pdf';
 
 const AnnualAccounts = () => {
   return (
     <div className="annual-reports-page">
-      <PageBanner
-        backgroundImage={bannerImage}
-        hideBreadcrumb={true}
-        showOverlay={false}
-        showText={false}
-      />
+      
+      {/* Mobile view-la banner hide aaguradhukaga indha div add pannirukom */}
+      <div className="desktop-only-banner">
+        <PageBanner
+          backgroundImage={bannerImage}
+          hideBreadcrumb={true}
+          showOverlay={false}
+          showText={false}
+        />
+      </div>
 
       <DetailedAnnualReport />
 

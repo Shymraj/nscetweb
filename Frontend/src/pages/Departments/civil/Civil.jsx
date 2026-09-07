@@ -11,10 +11,10 @@ import {
 import { BsBuildingsFill } from "react-icons/bs";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 
-import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
 
+// Banner Image Import
 import bannerImg from "./images/banner/civil.png";
 
 import imgNagarathinam from "./images/nagarathinam.jpg";
@@ -30,6 +30,7 @@ import imgManojPrabakar from "./images/Manoj_prabakar.jpg";
 import eycaLogo from "./images/eyca-logo.png";
 
 import "../cse/CSE.css";
+import "./Civil.css";
 import { civilFacultyData } from "./facultyData";
 
 const Civil = () => {
@@ -123,16 +124,19 @@ const Civil = () => {
   ];
 
   return (
-    <div className="cse-redesign-page">
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper cse-redesign-page">
 
-      {/* Page Banner (Preserved Untouched) */}
-      <PageBanner
-        title="Department of Civil Engineering"
-        subtitle="Building the Foundation of Tomorrow — Where Sustainable Design Meets Structural Excellence"
-        hideBreadcrumb={true}
-        backgroundImage={bannerImg}
-        height="auto"
-      />
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Civil Engineering Department Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       {/* SECTION 1: Introduction */}
       <section className="cse-section cse-intro-section" id="civil-intro">
@@ -339,7 +343,7 @@ const Civil = () => {
         </div>
       </section>
 
-            {/* SECTION 7: Faculty Directory */}
+      {/* SECTION 7: Faculty Directory */}
       <section className="cse-section cse-faculty-section" id="civil-faculty">
         <div className="cse-bg-glow glow-2"></div>
         <div className="cse-container">

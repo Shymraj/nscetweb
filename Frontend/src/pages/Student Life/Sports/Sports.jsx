@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import {
     FaUserTie, FaTrophy, FaMedal, FaBasketballBall
 } from "react-icons/fa";
-import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import SportsCategoryWheel from "./SportsCategoryWheel";
 import DepartmentHODProfile from "../../../components/common/DepartmentHODProfile/DepartmentHODProfile";
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
@@ -109,7 +108,7 @@ const Sports = () => {
         { name: "Volleyball", image: Volleyball },
         { name: "Badminton", image: Badminton },
         { name: "Kabaddi", image: Kabaddi },
-        { name: "Table Tennis", image: TableTennis },
+        { name: "Table Tennis", image: KhoKho },
         { name: "Kho Kho", image: KhoKho },
         { name: "Handball", image: Handball },
         { name: "Cycling", image: Cycling }
@@ -138,7 +137,9 @@ const Sports = () => {
         { sno: 20, date: "15.10.2024 & 16.10.2024", students: "K. Akshaya Shri – IV CSE\nS. Harina – IV EEE\nA. Praveena – I IT\nM. Dheiva Shri – III AI&DS", event: "Anna University Zone-17 Table Tennis Women Tournament – Participated", venue: "University College of Engineering, Dindigul", highlight: false },
         { sno: 21, date: "19.10.2024 & 20.10.2024", students: "P. Yuvaraj – IV EEE\nS. Bala – IV CIVIL\nK. Maruthupandi – III EEE\nP. Siddharthan – III CIVIL\nJ. Ajay – IV CIVIL", event: "Anna University Zone-17 Kabbadi Men Tournament – Participated", venue: "Christian College of Engineering & Technology, Ottanchatram", highlight: false },
         { sno: 22, date: "08.09.2024", students: "G. K. Phiramoth – IV CSE", event: "District Cycling Championship – II Position", venue: "State Cycling Association, Madurai", highlight: true },
-        { sno: 23, date: "18.09.2024 & 19.09.2024", students: "V. Atchaya Kamali – IV ECE\nK. Devadharshini – IV ECE\nG. Santhiya – IV ECE\nS. Subitchana Sri – IV CIVIL\nP. Pooja – IV ECE", event: "Anna University Zone-17 Basketball Women Tournament – II Position", venue: "Nadar Saraswathi College of Engineering & Technology, Theni", highlight: true }
+        { sno: 23, date: "18.09.2024 & 19.09.2024", students: "V. Atchaya Kamali – IV ECE\nK. Devadharshini – IV ECE\nG. Santhiya – IV ECE\nS. Subitchana Sri – IV CIVIL\nP. Pooja – IV ECE", event: "Anna University Zone-17 Basketball Women Tournament – II Position", venue: "Nadar Saraswathi College of Engineering & Technology, Theni", highlight: true },
+        { sno: 24, date: "2026", students: "G. Mahima Grace – II IT", event: "Athletics (Sprint Fest) 4X100m Relay I Position, Relay II Position, 100m & 200m – III Position", venue: "Nadar Saraswathi Matriculation Higher Secondary School, Muthudevanpatti", highlight: true },
+        { sno: 25, date: "2026", students: "S. Logammal II ECE", event:"Basketball (Zonal-17) II Position",highlight:true}
     ];
 
     const staffAchievements = [
@@ -155,16 +156,19 @@ const Sports = () => {
     ];
 
     return (
-        <div className="sports-dept-container">
+        /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+        <div className="common-page-wrapper sports-dept-container">
 
-            {/* HERO BANNER */}
-            <PageBanner
-                title="SPORTS AT NSCET"
-                subtitle="Promoting all-round growth — nurturing champions through discipline, teamwork, and athletic excellence."
-                hideBreadcrumb={true}
-                backgroundImage={bannerImg}
-                height="auto"
-            />
+            {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+            <div className="common-hero-banner">
+                {bannerImg && (
+                <img 
+                    src={bannerImg} 
+                    alt="Sports Department Banner" 
+                    style={{ width: '100%', height: 'auto', display: 'block' }} 
+                />
+                )}
+            </div>
 
             <main className="content-wrapper">
 

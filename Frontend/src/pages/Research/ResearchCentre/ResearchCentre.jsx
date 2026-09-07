@@ -1,6 +1,5 @@
 import React from 'react';
 import './ResearchCentre.css';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaGraduationCap, FaBullseye, FaRocket, FaAward, FaFileAlt, FaExternalLinkAlt } from 'react-icons/fa';
 import heroImg from './images/researchcentre.png';
 
@@ -23,13 +22,19 @@ const patents = [
 
 function ResearchCentre() {
   return (
-    <div className='rc-page'>
-      <PageBanner
-        title="Research Centre"
-        subtitle="Advancing Knowledge, Innovation, and Excellence in Engineering Research"
-        hideBreadcrumb={true}
-        backgroundImage={heroImg}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper rc-page">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {heroImg && (
+          <img 
+            src={heroImg} 
+            alt="Research Centre Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <div className='rc-container'>
         {/* Overview Section */}

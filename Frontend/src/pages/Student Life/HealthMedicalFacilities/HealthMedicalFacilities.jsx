@@ -1,7 +1,6 @@
 import './HealthMedicalFacilities.css';
 import React from 'react';
 import { motion } from 'framer-motion';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaHeartbeat, FaUserMd, FaClinicMedical, FaAmbulance, FaCalendarCheck, FaHospital, FaFileMedical, FaNotesMedical, FaStethoscope, FaImages, FaFileSignature } from 'react-icons/fa';
 import img1 from './image/img1.png';
 import img2 from './image/img2.png';
@@ -46,13 +45,19 @@ const HealthMedicalFacilities = () => {
   };
 
   return (
-    <div className="healthmedicalfacilities-page">
-      <PageBanner
-        title="Health and Medical Facilities"
-        subtitle="Student Life at NSCET"
-        hideBreadcrumb={false}
-        backgroundImage={bannerImg}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper healthmedicalfacilities-page">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Health and Medical Facilities Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <div className="hmf-container">
         {/* Overview */}

@@ -1,3 +1,16 @@
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.alumni-page .common-hero-banner + .alumni-container {
+  padding-top: 40px !important; /* Perfect neat gap before content */
+  margin-top: 0 !important;
+}
+
 :root {
     --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
     --premium-card-border: 1px solid rgba(201, 168, 76, 0.15);
@@ -13,7 +26,8 @@
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
-    padding-top: 110px;
+    margin: 0 !important; /* Reset margin */
+    /* Top padding is handled globally by .common-page-wrapper */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -55,9 +69,15 @@ body.dark-mode .alumni-page {
 .alumni-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 4rem 2rem; /* The top padding is overridden above for banner follow-up */
     position: relative;
     z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .alumni-page .common-hero-banner + .alumni-container {
+    padding-top: 25px !important; /* Tighter gap for mobile */
+  }
 }
 
 .alumni-layout {
@@ -798,6 +818,10 @@ body.dark-mode .guest-box ul li {
 }
 
 @media (max-width: 768px) {
+    .alumni-page .common-hero-banner + .alumni-container {
+        padding-top: 25px !important; /* Tighter gap for mobile */
+    }
+
     .alumni-timeline {
         padding-left: 1rem;
     }
@@ -1266,7 +1290,6 @@ body.dark-mode .guest-list-panel ul li {
 
 /* VIBRANT & ATTRACTIVE OVERHAUL FOR ALUMNI COMPONENTS */
 
-/* Colorful floating orbs behind the layout */
 .alumni-container {
     position: relative;
     z-index: 1;
@@ -1323,7 +1346,6 @@ body.dark-mode .guest-list-panel ul li {
 
 .sidebar-link.active::before {
     display: none;
-    /* Hide the old vertical bar */
 }
 
 /* Glass & Colorful Cards for Overview & Activities */

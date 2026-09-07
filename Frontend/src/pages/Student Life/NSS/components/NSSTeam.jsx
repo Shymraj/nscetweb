@@ -2,6 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaUserTie, FaUserAlt } from 'react-icons/fa';
 
+import imgPradeep from '../Images/pradeepkumar.jpg';
+import imgNagarajan from '../Images/nagarajan.jpg';
+import imgShiva from '../Images/shiva.jpg';
+import imgArulJebaraj from '../Images/aruljebaraj.jpg';
+import imgKesavamoorthy from '../Images/kesavamoorthy.jpg';
+import imgAbirami from '../Images/Abirami.jpg';
+import imgRajaguru from '../Images/rajaguru.jpg';
+import imgVinothkumar from '../Images/vinothkumar.jpg';
+import imgArulvizhi from '../Images/arulvizhi.jpg';
+
 const fadeUp = {
   hidden: { opacity: 0, y: 25 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
@@ -20,47 +30,56 @@ const NSSTeam = () => {
     {
       name: "Mr. R. Pradeep Kumar",
       role: "Coordinator",
-      dept: "Assistant Professor / ECE"
+      dept: "Assistant Professor / ECE",
+      image: imgPradeep
     },
     {
       name: "Mr. B. Nagarajan",
       role: "Coordinator",
-      dept: "Assistant Professor / MECH"
+      dept: "Assistant Professor / MECH",
+      image: imgNagarajan
     },
     {
       name: "Mr. C. Shiva",
       role: "Coordinator",
-      dept: "Assistant Professor / EEE"
+      dept: "Assistant Professor / EEE",
+      image: imgShiva
     },
     {
       name: "Mr. P. Arul Jebaraj",
       role: "Member",
-      dept: "Assistant Professor / Civil"
+      dept: "Assistant Professor / Civil",
+      image: imgArulJebaraj
     },
     {
       name: "Mr. N. Kesavamoorthy",
       role: "Member",
-      dept: "Assistant Professor / CSE"
+      dept: "Assistant Professor / IT",
+      image: imgKesavamoorthy
     },
     {
       name: "Mrs. N. Abirami",
       role: "Member",
-      dept: "Assistant Professor / EEE"
+      dept: "Assistant Professor / EEE",
+      image: imgAbirami
     },
     {
       name: "Mr. K. Rajaguru",
       role: "Member",
-      dept: "Assistant Professor / Physics"
+      dept: "Assistant Professor / Physics",
+      image: imgRajaguru
     },
     {
       name: "Mr. J. Vinothkumar",
       role: "Member",
-      dept: "Assistant Professor / AI&DS"
+      dept: "Assistant Professor / AI&DS",
+      image: imgVinothkumar
     },
     {
       name: "Mrs. M. Arulvizhi",
       role: "Member",
-      dept: "Assistant Professor / Mathematics"
+      dept: "Assistant Professor / Mathematics",
+      image: imgArulvizhi
     }
   ];
 
@@ -96,7 +115,11 @@ const NSSTeam = () => {
               whileHover={{ y: -4 }}
             >
               <div className="nss-member-avatar">
-                {member.role === 'Coordinator' ? <FaUserTie /> : <FaUserAlt />}
+                {member.image ? (
+                  <img src={member.image} alt={member.name} className="nss-member-img" />
+                ) : (
+                  member.role === 'Coordinator' ? <FaUserTie /> : <FaUserAlt />
+                )}
               </div>
               <div className="nss-member-info">
                 <div className="nss-member-header">

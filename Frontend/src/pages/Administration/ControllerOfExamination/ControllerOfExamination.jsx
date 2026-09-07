@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import './ControllerOfExamination.css';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaFileAlt, FaClipboardCheck, FaExclamationTriangle, FaUserTie, FaProjectDiagram, FaCertificate, FaUserGraduate, FaRupeeSign, FaSearchPlus, FaTimes } from 'react-icons/fa';
 import VerificationWorkflow from './components/VerificationWorkflow';
 import ganeshImg from './images/ganesh.jpg';
@@ -19,25 +18,24 @@ const deputyControllers = [
   {
     id: 1,
     name: "Mr. K. Ganesh",
-    qualification: "M.Tech,(Ph.D).,   Asst.Prof of EEE",
-    role: "Deputy exam cell",
+    qualification: "M.Tech,(Ph.D).,",
+    role: "Co-ordinator",
     image: ganeshImg
   },
   {
     id: 2,
     name: "Mr. V. Sivaganesan",
-    qualification: "M.E.(Ph.D)., Asst.Prof of MECH",
-    role: "Deputy exam cell",
+    qualification: "M.E.(Ph.D).,",
+    role: "Co-ordinator",
     image: sivaganesanImg
   },
   {
     id: 3,
     name: "Dr.R.Saravana Kumar",
-    qualification: "M.Sc., M.Phil, Ph.D., MISTE., Asst.Prof of S&H",
-    role: "Deputy exam cell",
+    qualification: "M.Sc., M.Phil, Ph.D.,",
+    role: "Co-ordinator",
     image: saravanaImg
   }
-
 ];
 
 const verificationSteps = [
@@ -73,17 +71,21 @@ function ControllerOfExamination() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "auto";
-    };
+    }
   }, [isOpen, handleKeyDown]);
 
   return (
-    <div className='coe-page'>
-      <PageBanner
-        title="Controller of Examination"
-        subtitle="Ensuring Academic Excellence through Fair and Transparent Examination Processes"
-        hideBreadcrumb={true}
-        backgroundImage={bannerImg}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className='common-page-wrapper coe-page'>
+      
+      {/* 👇 PageBanner-ku bathila namba pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        <img 
+          src={bannerImg} 
+          alt="Controller of Examination Banner" 
+          style={{ width: '100%', height: 'auto', display: 'block' }} 
+        />
+      </div>
 
       <div className='coe-container'>
         {/* Exam Cell Introduction */}
@@ -178,10 +180,10 @@ function ControllerOfExamination() {
         <section className='coe-section coe-team'>
           <div className='coe-header'>
             <FaUserTie className='coe-header-icon' />
-            <h2>Co-ordinaters of Exam Cell</h2>
+            <h2>Co-ordinators of Exam Cell</h2>
           </div>
           <div className='coe-content'>
-            <h3>Co-ordinaters</h3>
+            <h3>Co-ordinators</h3>
             <div className='coe-team-grid'>
               {deputyControllers.map((member) => (
                 <div key={member.id} className='coe-team-card'>

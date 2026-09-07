@@ -378,7 +378,7 @@
   flex-shrink: 0;
   background: transparent;
   border: none;
-  cursor: pointer;
+  cursor: default;
   transform: scale(var(--item-scale, 1));
   transform-origin: center center;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);

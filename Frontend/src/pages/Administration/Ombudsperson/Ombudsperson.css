@@ -19,6 +19,19 @@
   --omb-shadow-hover: 0 30px 60px -15px rgba(37, 99, 235, 0.18), 0 15px 30px -10px rgba(0, 0, 0, 0.06);
 }
 
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.ombudsperson-page .common-hero-banner + .omb-main-section {
+  padding-top: 25px !important; /* Proper spacing below the banner */
+  margin-top: 0 !important;
+}
+
 /* Base Page Wrapper */
 .ombudsperson-page {
   position: relative;
@@ -27,11 +40,12 @@
   background-image: 
     radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.04) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.04) 0px, transparent 50%);
-  padding-top: 170px;
   padding-bottom: 100px;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: 'Inter', 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   color: var(--omb-text-body);
+  margin: 0 !important; 
+  /* Note: Top padding is globally handled by .common-page-wrapper */
 }
 
 /* Background Animated Shapes */
@@ -86,6 +100,7 @@
 .omb-main-section {
   position: relative;
   z-index: 5;
+  padding-top: 30px; /* Base padding below the navbar */
 }
 
 .omb-container {
@@ -741,10 +756,6 @@
    RESPONSIVE DESIGN (Desktop, Tablet, Mobile)
    ========================================================================== */
 @media (max-width: 992px) {
-  .ombudsperson-page {
-    padding-top: 140px;
-  }
-
   .omb-two-column-grid {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -758,10 +769,6 @@
 }
 
 @media (max-width: 640px) {
-  .ombudsperson-page {
-    padding-top: 120px;
-  }
-
   .omb-container {
     padding: 0 16px;
   }

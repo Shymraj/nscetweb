@@ -1,8 +1,35 @@
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.events-gallery-page .common-hero-banner + .events-editorial-container {
+  padding-top: 40px !important; /* Perfect neat gap before content */
+  margin-top: 0 !important;
+}
+
+/* Page Base Override */
+.events-gallery-page {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  margin: 0 !important;
+  /* Top padding is handled globally by .common-page-wrapper */
+}
+
+body.dark-mode .events-gallery-page {
+    background-color: #0f172a !important; /* Force dark background */
+}
+
+/* Base Gallery Grid Settings */
 .events-gallery-container {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
   min-height: 80vh;
+  background-color: transparent !important;
 }
 
 .events-header {
@@ -21,6 +48,11 @@
   font-size: 1.1rem;
 }
 
+body.dark-mode .events-header h1,
+body.dark-mode .events-header p {
+    color: #f1f5f9 !important;
+}
+
 .events-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -35,6 +67,10 @@
 }
 
 @media (max-width: 768px) {
+  .events-gallery-page .common-hero-banner + .events-editorial-container {
+    padding-top: 25px !important; /* Tighter gap for mobile */
+  }
+
   .events-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -71,6 +107,10 @@
   padding-top: 66.66%; /* 3:2 Aspect Ratio */
   overflow: hidden;
   background: #f8f9fa;
+}
+
+body.dark-mode .event-card-image-wrapper {
+    background-color: rgba(30, 41, 59, 0.6) !important;
 }
 
 .event-card-image {
@@ -150,7 +190,7 @@
   top: 0;
   left: 0;
   overflow: hidden;
-  z-index: 1000; /* Ensure it stays on top of footer/navbar if needed, or we can just render it full screen */
+  z-index: 1000;
 }
 
 .event-3d-header {
@@ -164,7 +204,7 @@
   flex-direction: column;
   align-items: center;
   background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-  pointer-events: none; /* Let clicks pass through if needed, except for actual buttons */
+  pointer-events: none;
 }
 
 .event-3d-header h1 {
@@ -196,7 +236,7 @@
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
-  pointer-events: auto; /* Re-enable clicks */
+  pointer-events: auto;
   z-index: 20;
 }
 
@@ -207,7 +247,7 @@
 
 .event-3d-canvas-container {
   width: 100%;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
 }
 
 .empty-gallery-state {
@@ -343,7 +383,6 @@ body.dark-mode .event-card-title span {
     color: #f1f5f9 !important;
 }
 
-
 /* =========================================
    DARK MODE FIXES FOR EVENTS INNER CONTENT
    ========================================= */
@@ -367,31 +406,15 @@ body.dark-mode .event-card:hover .event-card-title {
 
 
 /* =========================================
-   PAGE BACKGROUND DARK MODE OVERRIDE
-   ========================================= */
-body.dark-mode .events-gallery-page {
-    background-color: #0f172a !important; /* Force dark background */
-}
-body.dark-mode .events-gallery-container {
-    background-color: transparent !important;
-}
-body.dark-mode .events-header h1,
-body.dark-mode .events-header p {
-    color: #f1f5f9 !important;
-}
-body.dark-mode .event-card-image-wrapper {
-    background-color: rgba(30, 41, 59, 0.6) !important;
-}
-
-/* =========================================
    EDITORIAL SHOWCASE & BENTO GRID STYLES
    ========================================= */
 
 .events-editorial-container {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: 40px 24px 80px; /* The top padding is overridden above for banner follow-up */
   font-family: var(--font-body);
+  background-color: transparent;
 }
 
 /* Filter Bar */

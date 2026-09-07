@@ -1,3 +1,16 @@
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.contacts-page-wrapper .common-hero-banner + .content-wrapper {
+  padding-top: 40px !important; /* Perfect neat gap before contents */
+  margin-top: 0 !important;
+}
+
 /* ==========================================================================
    CONTACT PAGE STYLES - ORDERLY & ELEGANT UI
    ========================================================================== */
@@ -9,6 +22,8 @@
   font-family: var(--font-body, 'Inter', sans-serif);
   color: var(--text-color, #1f2937);
   background-color: var(--bg-color, #f8fafc);
+  margin: 0 !important; /* Global margin reset */
+  /* Top padding is handled globally by .common-page-wrapper */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -26,18 +41,19 @@ body.dark-mode .contacts-page-wrapper {
   --primary-blue: #0d3b8e;
 }
 
-/* Ensure content wrapper sits cleanly below page banner */
-.contacts-page-wrapper .page-banner + * {
-  margin-top: 0 !important;
-}
-
 /* Content Wrapper */
 .content-wrapper {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 3.5rem 1.5rem 5rem 1.5rem;
+  padding: 3.5rem 1.5rem 5rem 1.5rem; /* The top padding is overridden above for banner follow-up */
   position: relative;
   z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .contacts-page-wrapper .common-hero-banner + .content-wrapper {
+    padding-top: 25px !important; /* Tighter gap for mobile */
+  }
 }
 
 /* Titles */
@@ -449,7 +465,7 @@ body.dark-mode .intercom-badge {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
-  box-sizing: border-border-box;
+  box-sizing: border-box;
 }
 
 body.dark-mode .map-glow-wrapper {

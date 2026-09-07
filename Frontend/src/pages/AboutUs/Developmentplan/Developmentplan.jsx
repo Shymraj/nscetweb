@@ -1,4 +1,3 @@
-import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import ExecutiveSummary from "./components/ExecutiveSummary";
 import InstitutionalProfile from "./components/InstitutionalProfile";
 import InstitutionalStrength from "./components/InstitutionalStrength";
@@ -12,14 +11,18 @@ import "./Developmentplan.css";
 
 const Developmentplan = () => {
   return (
-    <div className="dev-plan-page">
-      <PageBanner
-        title="Institutional Development Plan"
-        subtitle="Strategic Roadmap for NSCET (2024–2029)"
-        hideBreadcrumb={true}
-        backgroundImage={bannerImg}
-        imageFit="cover"
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper dev-plan-page">
+      
+      {/* 👇 PageBanner-ku bathila namba pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        <img 
+          src={bannerImg} 
+          alt="Development Plan Banner" 
+          style={{ width: '100%', height: 'auto', display: 'block' }} 
+        />
+      </div>
+
       <ExecutiveSummary />
       <InstitutionalProfile />
       <InstitutionalStrength />

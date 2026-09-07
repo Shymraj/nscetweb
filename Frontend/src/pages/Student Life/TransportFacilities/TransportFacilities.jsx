@@ -1,5 +1,4 @@
 import React from 'react';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaBus, FaMobileAlt, FaUserShield, FaDownload, FaMapMarkedAlt, FaMapMarkerAlt, FaClock, FaShieldAlt, FaUsers, FaArrowLeft, FaCar, FaWalking, FaLocationArrow } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import nagarajaImg from './images/nagaraja.jpg';
@@ -22,13 +21,19 @@ const TransportFacilities = () => {
   };
 
   return (
-    <div className="transportfacilities-page">
-      <PageBanner
-        title="Transport Facilities"
-        subtitle="Safe, Reliable & Punctual Commuting"
-        hideBreadcrumb={false}
-        backgroundImage={bannerImg}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper transportfacilities-page">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Transport Facilities Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <div className="transport-container">
         {/* Stats Section */}

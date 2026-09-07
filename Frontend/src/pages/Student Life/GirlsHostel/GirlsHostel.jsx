@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { FaShieldAlt, FaBolt, FaTint, FaLeaf } from 'react-icons/fa';
 import './GirlsHostel.css';
 
+// Auto-load custom banner image from ./banner/
+const bannerGlobs = import.meta.glob("./banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
+const customBanner = Object.values(bannerGlobs)[0] || null;
+
 const GirlsHostel = () => {
   const hostelData = {
     about: "The Girls Hostel at our college provides a comfortable and secure environment for students. Equipped with modern facilities and 24/7 supervision, the hostel ensures a home-like atmosphere where students can focus on their academics while enjoying their stay. Spacious rooms, hygienic dining, and recreational areas make it an ideal place for holistic growth and development.",
@@ -70,13 +74,19 @@ const GirlsHostel = () => {
   };
 
   return (
-    <div className="modern-girls-hostel-page">
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper modern-girls-hostel-page">
       
-      <section className="gh-hero" style={{ aspectRatio: '8 / 3', width: '100%' }}>
-        <div className="gh-hero-content">
-          <h1 className="gh-animate-slide-down">NSCET GIRLS HOSTEL</h1>
-        </div>
-      </section>
+      {/* 👇 Pazhaya gh-hero-a thookitu pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {customBanner && (
+          <img 
+            src={customBanner} 
+            alt="Girls Hostel Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <div className="gh-main-container">
         

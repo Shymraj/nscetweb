@@ -1,6 +1,5 @@
 import React from 'react';
 import './InternalComplaintsCommittee.css';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaShieldAlt, FaUsers, FaGavel, FaUserTie, FaFileAlt, FaCalendarAlt, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaCheckCircle, FaExclamationTriangle, FaBalanceScale, FaUniversity, FaHandHoldingHeart } from 'react-icons/fa';
 import bannerImg from './images/icc-banner.jpg';
 
@@ -66,13 +65,17 @@ const POSHEActivities = [
 
 function InternalComplaintsCommittee() {
   return (
-    <div className='icc-page'>
-      <PageBanner
-        title="Internal Complaints Committee"
-        subtitle="Ensuring a Safe, Inclusive, and Respectful Campus Environment"
-        hideBreadcrumb={true}
-        backgroundImage={bannerImg}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className='common-page-wrapper icc-page'>
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        <img 
+          src={bannerImg} 
+          alt="Internal Complaints Committee Banner" 
+          style={{ width: '100%', height: 'auto', display: 'block' }} 
+        />
+      </div>
 
       <div className='icc-container'>
         {/* About Section */}
@@ -159,12 +162,12 @@ function InternalComplaintsCommittee() {
                 <tbody>
                   {committeeMembers.map((member) => (
                     <tr key={member.id}>
-                      <td>{member.id}</td>
-                      <td><strong>{member.name}</strong></td>
-                      <td>{member.designation}</td>
-                      <td>{member.position}</td>
-                      <td>{member.contact !== "-" ? member.contact : "-"}</td>
-                      <td>
+                      <td data-label="S.No">{member.id}</td>
+                      <td data-label="Name"><strong>{member.name}</strong></td>
+                      <td data-label="Designation">{member.designation}</td>
+                      <td data-label="Position">{member.position}</td>
+                      <td data-label="Contact">{member.contact !== "-" ? member.contact : "-"}</td>
+                      <td data-label="Email">
                         {member.email !== "-" ? (
                           <a href={`mailto:${member.email}`} className='icc-email-link'>
                             {member.email}

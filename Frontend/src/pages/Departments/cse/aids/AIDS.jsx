@@ -11,7 +11,6 @@ import {
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import { aidsFacultyData } from "./facultyData";
 
-import PageBanner from "../../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../../components/common/FacultyProfileModal/FacultyProfileModal";
 import DepartmentFacultyCard from "../../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
 
@@ -121,20 +120,19 @@ const AIDS = () => {
   ];
 
   return (
-    <div className="cse-redesign-page">
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper cse-redesign-page">
 
-      {/* Page Banner (Preserved Untouched) */}
-      <PageBanner
-        title="Department of Artificial Intelligence & Data Science"
-        subtitle="Pioneering Intelligent Systems, Machine Learning Models, and Advanced Data Engineering Solutions"
-        hideBreadcrumb={false}
-        breadcrumb={[
-          { label: "Academics", link: "#" },
-          { label: "Departments", link: "#" },
-          { label: "AI & DS" }
-        ]}
-        backgroundImage={bannerImg}
-      />
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="AI & DS Department Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       {/* SECTION 1: Introduction */}
       <section className="cse-section cse-intro-section" id="aids-intro">
@@ -341,7 +339,7 @@ const AIDS = () => {
         </div>
       </section>
 
-            {/* SECTION 7: Faculty Directory */}
+      {/* SECTION 7: Faculty Directory */}
       <section className="cse-section cse-faculty-section" id="aids-faculty">
         <div className="cse-bg-glow glow-2"></div>
         <div className="cse-container">
@@ -446,8 +444,6 @@ const AIDS = () => {
           </motion.div>
         </div>
       </section>
-
-      
 
     </div>
   );

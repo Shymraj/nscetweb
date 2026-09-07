@@ -11,7 +11,6 @@ import {
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import { cseFacultyData } from "./facultyData";
 
-import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
 
@@ -22,15 +21,15 @@ const bannerImg = Object.values(bannerGlobs)[0] || null;
 import fistLogo from "./images/fist.png";
 import rightSideImg from "./Theme Img/CSE.png";
 
-import imgMathalaiRaj from "./images/67dd26bfce3c4_mathalairaj.jpg";
-import imgVelkumar from "./images/69143b078344d_velkumar.JPG";
+import imgMathalaiRaj from "./images/mathalairaj.jpg";
+import imgVelkumar from "./images/velkumar.JPG";
 import imgDeepiga from "./images/deepika.jpg";
 import imgArchana from "./images/archana.jpeg";
-import imgAbirami from "./images/1774499419_abirami mam.jpeg";
+import imgAbirami from "./images/abirami gayathri.jpeg";
 import imgVenkataLakshmi from "./images/Venkata Lakshmi M.jpg";
 import imgAnusuya from "./images/ANUSUYA VAIRAMUTHU.jpg";
-import imgVinothini from "./images/1778918321_CSE - Vinothini.jpeg";
-import imgSnega from "./images/1778918481_CSE - Snega Priyanka.png";
+import imgVinothini from "./images/Vinothini.jpeg";
+import imgSnega from "./images/Snega Priyanka.png";
 
 import "./CSE.css";
 
@@ -129,16 +128,19 @@ const CSE = () => {
   ];
 
   return (
-    <div className="cse-redesign-page">
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper cse-redesign-page">
 
-      {/* Page Banner (Preserved) */}
-      <PageBanner
-        title="Department of Computer Science & Engineering"
-        subtitle="Innovating the Digital Frontier — Shaping the Future Through Code, Intelligence, and Industry Excellence"
-        hideBreadcrumb={true}
-        backgroundImage={bannerImg}
-        height="auto"
-      />
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="CSE Department Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       {/* SECTION 1: Department Introduction */}
       <section className="cse-section cse-intro-section" id="cse-intro">
@@ -345,7 +347,6 @@ const CSE = () => {
         </div>
       </section>
 
-
       {/* SECTION 7: Faculty Members */}
       <section className="cse-section cse-faculty-section" id="cse-faculty">
         <div className="cse-bg-glow glow-2"></div>
@@ -451,8 +452,6 @@ const CSE = () => {
           </motion.div>
         </div>
       </section>
-
-      
 
     </div>
   );

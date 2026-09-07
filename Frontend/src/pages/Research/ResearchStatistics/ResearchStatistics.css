@@ -1,13 +1,29 @@
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.research-statistics-page .common-hero-banner + .rs-container {
+  padding-top: 40px !important; /* Perfect neat gap before cards */
+  margin-top: 0 !important;
+}
+
+/* Page Base Override */
 .research-statistics-page {
   background-color: var(--theme-bg);
   min-height: 100vh;
   padding-bottom: 80px;
+  margin: 0 !important;
+  /* Top padding is handled globally by .common-page-wrapper */
 }
 
 .rs-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 24px;
+  padding: 60px 24px; /* This top padding is overridden above for banner follow-up */
 }
 
 .rs-grid {
@@ -23,8 +39,15 @@
 }
 
 @media (max-width: 768px) {
+  .research-statistics-page .common-hero-banner + .rs-container {
+    padding-top: 25px !important; /* Tighter gap for mobile */
+  }
+
   .rs-grid {
     grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .rs-container {
     padding: 40px 16px;
   }
 }

@@ -11,8 +11,6 @@ import {
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import { itFacultyData } from "./facultyData";
 
-import PageBanner from "../../../../components/common/PageBanner/PageBanner";
-import FacultyProfileModal from "../../../../components/common/FacultyProfileModal/FacultyProfileModal";
 import DepartmentFacultyCard from "../../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
 
 // Auto-load banner image inside ./banner/
@@ -33,6 +31,7 @@ import imgJasmineJose from "./images/jasminejose.jpg";
 import imgArulJothi from "./images/aruljothi.jpg";
 
 import "../../cse/CSE.css";
+import "./IT.css";
 
 const IT = () => {
   const handleOpenProfile = (member) => {
@@ -120,16 +119,19 @@ const IT = () => {
   ];
 
   return (
-    <div className="cse-redesign-page">
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper cse-redesign-page">
 
-      {/* Page Banner (Preserved Untouched) */}
-      <PageBanner
-        title="Department of Information Technology"
-        subtitle="Empowering Next-Generation Digital Innovators Through Cloud Systems, Data Analytics, and Software Architecture"
-        hideBreadcrumb={true}
-        backgroundImage={bannerImg}
-        height="auto"
-      />
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Information Technology Department Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       {/* SECTION 1: Introduction */}
       <section className="cse-section cse-intro-section" id="it-intro">
@@ -336,7 +338,7 @@ const IT = () => {
         </div>
       </section>
 
-            {/* SECTION 7: Faculty Directory */}
+      {/* SECTION 7: Faculty Directory */}
       <section className="cse-section cse-faculty-section" id="it-faculty">
         <div className="cse-bg-glow glow-2"></div>
         <div className="cse-container">
@@ -441,8 +443,6 @@ const IT = () => {
           </motion.div>
         </div>
       </section>
-
-      
 
     </div>
   );

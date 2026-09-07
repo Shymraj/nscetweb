@@ -1,5 +1,4 @@
 import React from 'react';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import { FaShieldAlt, FaBullhorn, FaUsers, FaGavel, FaPhone, FaExclamationTriangle, FaCheckCircle, FaFileAlt, FaExternalLinkAlt, FaHandPaper, FaEye } from 'react-icons/fa';
 import './AntiRaggingCell.css';
 import minutesPdf from './images/Anti Ragging Committee.pdf';
@@ -47,13 +46,19 @@ const instructions = [
 
 const AntiRaggingCell = () => {
   return (
-    <div className="antiraggingcell-page">
-      <PageBanner
-        title="Anti-Ragging Cell"
-        subtitle="Ensuring a Safe & Ragging-Free Campus"
-        hideBreadcrumb={false}
-        backgroundImage={bannerImg}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper antiraggingcell-page">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Anti-Ragging Cell Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <div className="arc-container">
         {/* About the Cell */}

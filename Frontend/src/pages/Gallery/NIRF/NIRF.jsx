@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaFilePdf, FaDownload, FaChalkboardTeacher, FaFlask, FaUserGraduate, FaGlobe, FaStar, FaArrowRight } from 'react-icons/fa';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import './NIRF.css';
 import bannerImg from './assets/images/NIRF.png';
 
@@ -88,12 +87,19 @@ const NIRF = () => {
   };
 
   return (
-    <div className="nirf-page">
-      <PageBanner 
-        title="NIRF" 
-        backgroundImage={bannerImg}
-        hideBreadcrumb={true}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper nirf-page">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="NIRF Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
       
       {/* PREMIUM MIDDLE SECTION */}
       <div className="nirf-premium-container">

@@ -1,3 +1,16 @@
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.healthmedicalfacilities-page .common-hero-banner + .hmf-container {
+  padding-top: 40px !important; /* Perfect neat gap before contents */
+  margin-top: 0 !important;
+}
+
 /* HealthMedicalFacilities Page Styles */
 .healthmedicalfacilities-page {
   width: 100%;
@@ -5,15 +18,27 @@
   background-color: var(--theme-bg);
   color: var(--theme-text);
   overflow-x: hidden;
+  margin: 0 !important;
+  /* Top padding is handled globally by .common-page-wrapper */
 }
 
 .hmf-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 3rem 2rem 5rem;
+  padding: 3rem 2rem 5rem; /* The top padding is overridden above for banner follow-up */
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+@media (max-width: 768px) {
+  .healthmedicalfacilities-page .common-hero-banner + .hmf-container {
+    padding-top: 25px !important; /* Tighter gap for mobile */
+  }
+
+  .hmf-container {
+    padding: 1.5rem;
+  }
 }
 
 /* Base Section */

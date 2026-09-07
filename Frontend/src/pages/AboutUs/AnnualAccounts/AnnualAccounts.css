@@ -1,0 +1,52 @@
+/* AnnualAccounts.css */
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS FIXES FOR ANNUAL ACCOUNTS PAGE
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    /* Mobile-la banner ah hide panradhuku */
+    .desktop-only-banner {
+        display: none !important;
+    }
+
+    /* Navbar-ku kela theliva start aaguradhuku gap (140px) */
+    .annual-reports-page {
+        padding-top: 140px !important; 
+    }
+
+    /* Ulla iruka main container spacing adjust */
+    .about-inner-container.ar-section {
+        padding-top: 20px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    /* Text alignment for title in mobile */
+    .ar-section-title {
+        font-size: 1.8rem !important;
+        line-height: 1.3 !important;
+    }
+
+    /* 👇 PUDHUSA ADD PANNA CODE: Badges-ah side-by-side vekka 👇 */
+    .mobile-side-by-side {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    .mobile-side-by-side > * {
+        flex: 1 !important;
+        text-align: center !important;
+        font-size: 0.75rem !important; /* Text chinna aakuna dhan mobile-la 2 um fit aagum */
+        padding: 8px 4px !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        word-wrap: break-word;
+    }
+    /* 👆 -------------------------------------------------- 👆 */
+}

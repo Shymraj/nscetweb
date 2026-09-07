@@ -4,13 +4,31 @@
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
   --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
 }
-/* Actstatutes.css */
+
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP-A MOTHAMA REMOVE PANRA CODE 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.act-statutes-page .common-hero-banner + * {
+  padding-top: 0 !important; /* 👈 Exact 0 gap */
+  margin-top: 0 !important;
+}
+
+/* Ulla irukka react components default margin & padding-a thadukka */
+.act-statutes-page .common-hero-banner + * > div,
+.act-statutes-page .common-hero-banner + * > section,
+.act-statutes-page .common-hero-banner + * .about-inner-container {
+  margin-top: 0 !important; 
+  padding-top: 0 !important; /* 👈 Exact 0 gap */
+}
+
 
 /* Global and Container */
 .act-statutes-page {
-  /* =========================================
-     TEST TYPOGRAPHY & COLOR SYSTEM
-     ========================================= */
   --font-heading: 'Outfit', sans-serif;
   --font-section: 'Outfit', sans-serif;
   --font-subtopic: 'Outfit', sans-serif;
@@ -30,6 +48,8 @@
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  padding: 0 !important; 
+  margin: 0 !important;
 }
 
 /* Floating background shapes */
@@ -45,11 +65,13 @@
   opacity: 0.4;
   pointer-events: none;
 }
+
 .act-statutes-page::before {
   top: -100px;
   left: -200px;
   background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
 }
+
 .act-statutes-page::after {
   bottom: 20%;
   right: -200px;
@@ -66,7 +88,7 @@
 .about-inner-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 80px 40px;
+  padding: 30px 40px; 
 }
 
 /* Alternate Backgrounds */
@@ -74,101 +96,59 @@
 .bg-light-1 { background-color: #F8FBFF; }
 .bg-light-2 { background-color: #F5F9FF; }
 
-/* Prevent double padding when overlapping the PageBanner */
-.page-banner + .about-section-wrapper {
-  padding: 0 !important;
-  margin-top: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  background-color: transparent !important;
-}
-
-.sidebar-glass-card {
-  background: var(--premium-card-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: var(--premium-card-border);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.sidebar-glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-}
-
-.sidebar-title {
-  font-size: 1.25rem;
+/* Premium Section Headings */
+.about-section-heading {
+  font-family: var(--font-section);
+  text-align: center;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
   font-weight: 700;
-  color: #1e40af;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.sidebar-nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.sidebar-link {
-  background: transparent;
-  border: none;
-  text-align: left;
-  padding: 0.75rem 1rem;
-  width: 100%;
-  border-radius: 12px;
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #475569;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  margin: 0 auto 3.5rem auto;
   position: relative;
-  overflow: hidden;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--nscet-blue) 0%, #0284c7 40%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(6, 182, 212, 0.15);
+  word-wrap: break-word;
 }
 
-.sidebar-link::before {
+.about-section-heading::after {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 4px;
-  background: linear-gradient(135deg, var(--theme-primary-light, #38BDF8) 0%, #1e40af 100%);
-  border-radius: 4px 0 0 4px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--nscet-blue), #06b6d4, transparent);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
+  transition: width 0.4s ease;
 }
 
-.sidebar-link:hover {
-  background: rgba(59, 130, 246, 0.05);
-  color: #1e40af;
-  transform: translateX(5px);
+.about-section-heading:hover::after { width: 120px; }
+
+.about-section-heading::before {
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px #06b6d4, 0 0 15px 4px rgba(6, 182, 212, 0.5);
+  z-index: 1;
 }
 
-.sidebar-link.active {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.05) 100%);
-  color: #1e40af;
-  font-weight: 600;
-}
-
-.sidebar-link.active::before {
-  opacity: 1;
-}
-
-/* Removed act-content-wrapper constraints */
-
-.act-section {
-  scroll-margin-top: 120px;
-}
-
-/* General Section Headers */
+/* Section Headers */
 .section-header {
   margin-bottom: 3rem;
   text-align: left;
@@ -182,6 +162,7 @@
   margin-bottom: 1rem;
   position: relative;
   display: inline-block;
+  word-wrap: break-word;
 }
 
 .section-title::after {
@@ -202,7 +183,23 @@
   max-width: 900px;
 }
 
-/* Premium Cards Base */
+/* Cards & Layout */
+.sidebar-glass-card {
+  background: var(--premium-card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--premium-card-border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sidebar-glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
 .premium-card {
   background: var(--premium-card-bg);
   backdrop-filter: blur(10px);
@@ -214,17 +211,7 @@
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
-}
-
-.premium-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
-  pointer-events: none;
 }
 
 .premium-card:hover {
@@ -268,11 +255,9 @@
   width: 100%;
 }
 
-.elegant-card {
+/* Document Showcase Card */
+.document-showcase-card {
   background: var(--premium-card-bg);
-  border-radius: 16px;
-  padding: 2.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   border: var(--premium-card-border);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -315,38 +300,46 @@
   position: relative;
   padding-left: 1rem;
   border-left: 3px solid var(--color-accent-gold);
-}
 
-.elegant-mission-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  border-radius: 24px;
+  padding: 3rem;
   display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.elegant-mission-item {
+.document-content {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
-.elegant-icon-wrapper {
-  background: rgba(59, 130, 246, 0.1);
-  color: var(--theme-primary-light, #38BDF8);
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
+.document-icon-wrapper {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  width: 100px;
+  height: 100px;
+  border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 15px 30px rgba(239, 68, 68, 0.3);
   flex-shrink: 0;
-  margin-top: 0.15rem;
 }
 
-.elegant-check-icon {
-  font-size: 0.75rem;
+.document-details { flex-grow: 1; }
+
+.document-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
 }
 
 .elegant-mission-text {
@@ -357,6 +350,22 @@
   color: var(--color-body);
 }
 
+.premium-btn {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
 /* Quality Policy Grid */
 .quality-grid {
   display: grid;
@@ -365,23 +374,14 @@
   margin-bottom: 4rem;
 }
 
-.quality-card {
-  height: 100%;
-}
-
 .card-glass {
   background: var(--premium-card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: var(--premium-card-border);
   border-radius: 20px;
   padding: 2rem;
   height: 100%;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
 
@@ -664,14 +664,8 @@
   border-radius: 24px;
   padding: 1.5rem;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-  transition: all 0.3s ease;
   border: var(--premium-card-border);
-}
-
-.chart-preview-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .img-placeholder {
@@ -680,7 +674,6 @@
   border-radius: 16px;
   overflow: hidden;
   background-color: #f1f5f9;
-  aspect-ratio: 16/9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -688,44 +681,9 @@
 
 .chart-thumbnail {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.chart-preview-card:hover .chart-thumbnail {
-  transform: scale(1.05);
-}
-
-.hover-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(30, 58, 138, 0.7);
-  backdrop-filter: blur(4px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.chart-preview-card:hover .hover-overlay {
-  opacity: 1;
-}
-
-.zoom-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hover-overlay span {
-  font-size: 1.25rem;
-  font-weight: 600;
+  height: auto; 
+  max-width: 100%;
+  object-fit: contain;
 }
 
 /* Fullscreen Modal */
@@ -736,136 +694,101 @@
   width: 100vw;
   height: 100vh;
   background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(10px);
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-}
-
-.close-btn {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  background: var(--premium-card-bg);
-  border: var(--premium-card-border);
-  color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10000;
-}
-
-.close-btn:hover {
-  background: var(--premium-card-bg);
-  color: #0f172a;
-  transform: rotate(90deg);
-  border: var(--premium-card-border);
+  padding: 1rem;
 }
 
 .chart-fullscreen-img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 100%;
+  max-height: 90vh;
   object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
 }
 
-/* Responsive Design */
+/* ==========================================================================
+   MOBILE RESPONSIVENESS FIXES
+   ========================================================================== */
+
 @media (max-width: 1024px) {
-  .about-inner-container { padding: 60px 48px; }
+  .about-inner-container { padding: 40px 30px; }
+  .document-content { gap: 1.5rem; flex-wrap: wrap; }
 }
 
 @media (max-width: 768px) {
-  .about-inner-container { padding: 60px 24px; }
-  .section-title {
-  font-weight: 700;
-  font-family: var(--font-section);
-    font-size: 2rem;
-  }
-  .premium-card {
-    padding: 2rem;
-  }
-  .commitment-quote {
-    font-size: 1.25rem;
-  }
-  .premium-quote-panel {
-    padding: 2rem;
-  }
-}
-
-
-
-/* =========================================
-   HERO BOX PUSH DOWN FIX
-   ========================================= */
-.act-statutes-page {
-    padding-top: 140px !important; /* Push below the 110px floating navbar + topbar */
-}
-
-
-
-
-
-/* Premium Section Headings (Imported from Overview to match About Page Style) */
-.about-section-heading {
-  font-family: var(--font-section);
-  text-align: center;
-  font-size: clamp(2.5rem, 4.5vw, 3.25rem); /* Increased size for visual presence */
-  font-weight: 700;
-  letter-spacing: 0.5px; /* Clean readability for uppercase */
-  margin: 0 auto 3.5rem auto;
-  position: relative;
-  display: block;
-  width: max-content;
-  max-width: 100%;
-  text-transform: uppercase;
+  .about-inner-container { padding: 20px 15px; } 
   
-  /* Premium Cyan-Blue Gradient Text */
-  background: linear-gradient(135deg, var(--nscet-blue) 0%, #0284c7 40%, #06b6d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  text-shadow: 0 2px 10px rgba(6, 182, 212, 0.15); /* very subtle soft shadow */
+  .about-section-heading { font-size: 1.8rem; line-height: 1.3; margin-bottom: 2.5rem; }
+  .section-title { font-size: 1.8rem; }
+  
+  .premium-card, .card-glass, .document-showcase-card { padding: 1.5rem; border-radius: 16px; }
+  
+  .document-showcase-card { flex-direction: column; text-align: center; }
+  .document-content { flex-direction: column; gap: 1rem; text-align: center; }
+  
+  .document-icon-wrapper { margin: 0 auto; width: 80px; height: 80px; }
+  .pdf-icon { font-size: 3rem; }
+  .document-title { font-size: 1.4rem; }
+  
+  .document-meta { flex-direction: column; gap: 0.5rem; align-items: center; }
+  .document-action, .premium-btn { width: 100%; }
+  
+  .chart-preview-card { padding: 1rem; }
+  .img-placeholder { border-radius: 10px; }
+  .chart-thumbnail { width: 100%; height: auto; }
+  
+  .premium-quote-panel { padding: 2rem 1.5rem; }
+  .commitment-quote { font-size: 1.2rem; line-height: 1.5; }
+  .premium-quote-panel::before { font-size: 8rem; top: -10px; left: 10px; }
+  
+  .quality-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .close-btn { top: 1rem; right: 1rem; width: 40px; height: 40px; font-size: 1.2rem; }
 }
 
-/* Premium Short Horizontal Gradient Line */
-.about-section-heading::after {
-  content: "";
-  position: absolute;
-  bottom: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, var(--nscet-blue), #06b6d4, transparent);
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
-  transition: width 0.4s ease;
+@media (max-width: 480px) {
+  .about-section-heading, .section-title { font-size: 1.5rem; }
+  .premium-card { padding: 1.25rem; }
+  .document-title { font-size: 1.2rem; }
+  .premium-btn { font-size: 0.9rem; padding: 0.75rem 1rem; }
 }
 
-.about-section-heading:hover::after {
-  width: 120px;
+/* ==========================================================================
+   GLOBAL PAGE WRAPPER & BANNER STYLES (ELLA PAGES KUM COMMON)
+   👇 BANNER AH KONJAM KEELA ERAKKI VAIKKA 👇
+   ========================================================================== */
+
+.common-page-wrapper {
+    padding-top: 135px !important; /* 👈 115px la irunthu 135px ku increase panniyachu */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
-/* Small glowing circular highlight around the center */
-.about-section-heading::before {
-  content: "";
-  position: absolute;
-  bottom: -18px; /* Perfectly aligned to the center of the 4px line at -16px */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background: #ffffff; /* White core */
-  border-radius: 50%;
-  box-shadow: 0 0 8px 2px #06b6d4, 0 0 15px 4px rgba(6, 182, 212, 0.5); /* Glowing highlight */
-  z-index: 1;
+.common-hero-banner {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+    line-height: 0; 
+    font-size: 0;
+}
+
+.common-hero-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: cover;
+}
+
+/* Mobile View Gap Adjustments */
+@media (max-width: 767px) {
+    .common-page-wrapper {
+        padding-top: 75px !important; /* 👈 Mobile-layum 60px la irunthu 75px ku erakkiyachu */
+    }
 }

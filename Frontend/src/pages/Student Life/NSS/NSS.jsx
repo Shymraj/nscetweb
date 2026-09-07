@@ -1,5 +1,4 @@
 import React from 'react';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import AboutNSS from './components/AboutNSS';
 import Objectives from './components/Objectives';
 import Activities from './components/Activities';
@@ -12,19 +11,19 @@ import './NSS.css';
 
 const NSS = () => {
   return (
-    <div className="nss-page">
-      <PageBanner
-        title="National Service Scheme"
-        subtitle="Empowering Students Through Community Service, Leadership, and Nation Building"
-        backgroundImage={nssBanner}
-        hideBreadcrumb={false}
-        breadcrumb={[
-          { label: 'Student Life', link: '#' },
-          { label: 'NSS' }
-        ]}
-        showText={true}
-        showOverlay={true}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper nss-page">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {nssBanner && (
+          <img 
+            src={nssBanner} 
+            alt="NSS Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <div className="nss-content">
         <AboutNSS />

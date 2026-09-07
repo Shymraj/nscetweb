@@ -1,11 +1,15 @@
+/* AcademicLeadership.css */
 .al-page-container {
   font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: #f8fafc;
   color: #fbfcff;
   width: 100%;
   overflow-x: hidden;
+  /* 👇 INDHA VALUE AH MATTUM 115px KU KORACHIDUNGA 👇 */
+  padding-top: 115px !important; 
 }
 
+/* Banner gap illama irukka indha margin-ah add pannunga */
 .al-hero-banner {
   background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
   color: white;
@@ -16,6 +20,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 0 !important; /* Gap remove panna */
 }
 
 /* ================= ABOUT OUR ACADEMIC LEADERSHIP FEATURED CARD ================= */
@@ -516,14 +521,69 @@
 }
 
 @media (max-width: 768px) {
+  /* Page top padding to show banner below navbar */
+  .al-page-container {
+      padding-top: 80px !important; 
+  }
+
+  /* About Card layout fix */
+  .al-about-card {
+    flex-direction: column;
+    margin: 20px 15px 40px 15px;
+    align-items: center;
+  }
+
+  /* Blue background section for Icon */
+  .al-about-left-section {
+    width: 100%;
+    height: 100px;
+    border-radius: 22px 22px 0 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Fix Icon Badge: Remove negative margin and center it */
+  .al-about-icon-badge {
+    margin-right: 0 !important; 
+    margin-bottom: 0 !important;
+    width: 80px; 
+    height: 80px;
+    margin-top: 10px; /* Align slightly within blue section */
+  }
+
+  .al-about-badge-icon {
+    font-size: 2.2rem; /* Scale down icon */
+  }
+
+  /* Content area adjustment */
+  .al-about-right-section {
+    padding: 30px 20px 30px 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Hide decorative elements that mess up mobile layout */
+  .al-about-left-section::after,
+  .al-about-dot-grid,
+  .al-about-emblem-watermark {
+    display: none !important;
+  }
+
+  /* Section Title Centering */
+  .al-about-title-indicator {
+    justify-content: center;
+  }
+
+  /* Admin Cards stacked */
   .al-split-container {
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
 
   .al-split-container .al-admin-card {
     width: 100%;
-    max-width: 100%;
+    max-width: 90%;
   }
 }
 

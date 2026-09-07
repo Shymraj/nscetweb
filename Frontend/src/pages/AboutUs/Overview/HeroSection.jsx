@@ -36,7 +36,7 @@ const HeroSection = () => {
               <span className="info-label">Approved</span>
             </div>
             <div className="info-card">
-              <span className="hero-info-val grade-a">NAAC 'A'</span>
+              <span className="hero-info-val">NAAC <span className="grade-a">'A'</span></span>
               <span className="info-label">Accredited</span>
             </div>
           </div>

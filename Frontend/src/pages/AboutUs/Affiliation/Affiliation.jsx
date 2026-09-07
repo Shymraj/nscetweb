@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import nscetLogo from './assets/logos/5865 (2).png';
 import naacLogo from './assets/logos/naac-logo.png';
 import imgAICTE from './assets/logos/AICTE.png';
@@ -22,13 +21,17 @@ const certifications = [
 
 const Affiliation = () => {
   return (
-    <div className="affiliation-page">
-      <PageBanner
-        backgroundImage={bannerImg}
-        hideBreadcrumb={true}
-        showOverlay={false}
-        showText={false}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper affiliation-page">
+      
+      {/* 👇 PageBanner-ku bathila namba pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        <img 
+          src={bannerImg} 
+          alt="Affiliation Banner" 
+          style={{ width: '100%', height: 'auto', display: 'block' }} 
+        />
+      </div>
 
       <section className="about-section-wrapper bg-white">
         <div className="about-inner-container">
@@ -65,8 +68,6 @@ const Affiliation = () => {
               />
 
               <div className="premium-logos-container">
-                {/* SVG removed for grid layout */}
-
                 {/* NSCET Logo (Center) */}
                 <motion.div 
                   className="nscet-logo-wrapper"

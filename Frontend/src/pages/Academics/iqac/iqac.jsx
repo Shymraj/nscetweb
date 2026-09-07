@@ -4,8 +4,6 @@ import {
   FaUserCheck, 
   FaFilePdf, 
   FaSearch, 
-  FaAward, 
-  FaCalendarCheck, 
   FaUserTie, 
   FaBuilding, 
   FaGraduationCap, 
@@ -46,13 +44,13 @@ const committeeSections = [
       { label: 'Mr. N. Nagarathinam', detail: 'HOD / SE' },
       { label: 'Dr. J. Mathalairaj', detail: 'HOD / CSE' },
       { label: 'Dr. B. Radha Krishnan', detail: 'HOD / MECH' },
-      { label: 'Mr. A. VembathuRajesh', detail: 'HOD / MFE' },
+      { label: 'Mr. A. VembathuRajesh', detail: 'HOD / S&H' },
       { label: 'Dr. E. Anantha Krishnan', detail: 'HOD / CIVIL' },
       { label: 'Dr. R. Athilingam', detail: 'HOD / EEE' },
       { label: 'Dr. T. Venishkumar', detail: 'HOD / ECE' },
       { label: 'Mr. L.S. Vignesh', detail: 'HOD / AD' },
-      { label: 'Dr. M. Sathya', detail: 'VP / HOD / IT' },
-      { label: 'Mr. C. Prathap', detail: 'HOD / S&H' },
+      { label: 'Dr. M. Sathya', detail: 'VP / Professor' },
+      { label: 'Mr. C. Prathap', detail: 'HOD / IT' },
     ],
   },
   {
@@ -146,14 +144,6 @@ const IQAC = () => {
         >
           <div className="iqac-exec-plain-grid">
             <div className="iqac-exec-plain-left">
-              <div className="exec-badge-wrap">
-                <span className="iqac-exec-badge-plain">
-                  <FaAward /> NAAC Quality Benchmarks
-                </span>
-                <span className="iqac-exec-badge-plain gold">
-                  <FaCalendarCheck /> Established 2nd July 2017
-                </span>
-              </div>
               <h3 className="iqac-exec-plain-heading">Catalytic Institutional Enhancement</h3>
               <p className="iqac-exec-plain-desc">
                 The primary objective of IQAC is to promote measures for institutional functioning towards quality enhancement through internalization of quality culture and institutionalization of best academic practices.

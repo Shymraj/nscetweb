@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes } from 'react-icons/fa';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import './RTI.css';
 import RTICertificate from './assets/certificate/RTI.jpg';
 
@@ -22,13 +21,19 @@ const RTI = () => {
   }, []);
 
   return (
-    <div className="rti-page">
-      <PageBanner 
-        title="" 
-        subtitle=""
-        hideBreadcrumb={true}
-        {...(customBanner ? { backgroundImage: customBanner } : {})}
-      />
+    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
+    <div className="common-page-wrapper rti-page">
+      
+      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      <div className="common-hero-banner">
+        {customBanner && (
+          <img 
+            src={customBanner} 
+            alt="RTI Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <div className="rti-premium-container">
         {/* Animated Background Elements */}
