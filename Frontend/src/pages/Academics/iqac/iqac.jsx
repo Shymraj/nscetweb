@@ -157,7 +157,6 @@ const IQAC = () => {
                 <div className="iqac-principal-info">
                   <h4>Mr. R. Udhaya Kumar</h4>
                   <p className="p-deg">Assistant Professor M.E (CSE), MBA (ITM), (Ph.D)</p>
-                  <p className="p-role">NSCET, Vadapudupatti, Theni</p>
                 </div>
               </div>
 
@@ -170,7 +169,6 @@ const IQAC = () => {
                   <h4>Dr. N. David Mathan</h4>
                   <p className="p-deg">Professor M.Sc., Ph.D.</p>
                   <p className="p-role"></p>
-                  <p className="p-loc">NSCET, Vadapudupatti, Theni</p>
                 </div>
               </div>
             </div>

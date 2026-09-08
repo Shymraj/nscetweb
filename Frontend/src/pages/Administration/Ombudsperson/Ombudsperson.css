@@ -44,7 +44,8 @@
   overflow-x: hidden;
   font-family: 'Inter', 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   color: var(--omb-text-body);
-  margin: 0 !important; 
+  margin-top: 150px !important;
+  padding-top: 150px !important; /* 👇 Padding-ku bathila Margin use pannirukken 👇 */
   /* Note: Top padding is globally handled by .common-page-wrapper */
 }
 

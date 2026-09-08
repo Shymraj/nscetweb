@@ -4,9 +4,9 @@ import { FaShieldAlt, FaUsers, FaGavel, FaUserTie, FaFileAlt, FaCalendarAlt, FaP
 import bannerImg from './images/icc-banner.jpg';
 
 const committeeMembers = [
-  { id: 1, name: "Dr. M. Sathya", designation: "Vice Principal & Professor / CSE", position: "Academic Convenor", contact: "9884854043", email: "vp_academic@nscet.org" },
+  { id: 1, name: "Dr. M. Sathya", designation: "Vice Principal & Professor ", position: "Academic Convenor", contact: "9884854043", email: "vp_academic@nscet.org" },
   { id: 2, name: "Dr. C. Chithra", designation: "Prof-Coordinator / S&H", position: "Member", contact: "9790148325", email: "chithra.c@nscet.org" },
-  { id: 3, name: "Dr. R. Valarmathi", designation: "Professor / English", position: "Member", contact: "-", email: "-" },
+  { id: 3, name: "Dr. R. Valarmathi", designation: "Professor / S&H", position: "Member", contact: "-", email: "-" },
   { id: 4, name: "Mrs. S. Gayathri", designation: "Assistant Professor / Civil", position: "Member", contact: "8220467759", email: "gayathri@nscet.org" },
   { id: 5, name: "Ms. S. Nanthidha", designation: "Student, IV Yr. / CSE", position: "Student Member", contact: "8015869545", email: "nanthidha_cse@nscet.org" },
   { id: 6, name: "Ms. S. Amutha", designation: "Student, IV Yr. / ECE", position: "Student Member", contact: "9384453946", email: "amuthas_ece@nscet.org" },

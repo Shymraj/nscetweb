@@ -19,21 +19,18 @@ const deputyControllers = [
     id: 1,
     name: "Mr. K. Ganesh",
     qualification: "M.Tech,(Ph.D).,",
-    role: "Co-ordinator",
     image: ganeshImg
   },
   {
     id: 2,
     name: "Mr. V. Sivaganesan",
     qualification: "M.E.(Ph.D).,",
-    role: "Co-ordinator",
     image: sivaganesanImg
   },
   {
     id: 3,
     name: "Dr.R.Saravana Kumar",
     qualification: "M.Sc., M.Phil, Ph.D.,",
-    role: "Co-ordinator",
     image: saravanaImg
   }
 ];
