@@ -139,7 +139,7 @@ function Navbar() {
         <div className="topbar-left">
           <span className="topbar-contact phone-contact" aria-label="Phone">
             <span className="contact-btn" aria-hidden="true"><FaPhoneAlt className="contact-icon" /></span>
-            <span className="contact-text">04546-263900, 901, 902</span>
+            <span className="contact-text">04546-263900</span>
           </span>
 
           <span className="topbar-contact" aria-label="Email">

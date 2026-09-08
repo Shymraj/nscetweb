@@ -31,9 +31,12 @@ import pg_structural from './PG REGULATION/M.E. Structural Engg.pdf';
 import pg_est from './PG REGULATION/M.E. EST.pdf';
 import pg_cse from './PG REGULATION/M.E. CSE.pdf';
 
+import phd_mech from './PH.D REGULATIONS/Ph.d Mechanical.pdf';
+
 const StatutesLayout = () => {
   const [isUgOpen, setIsUgOpen] = useState(false);
   const [isPgOpen, setIsPgOpen] = useState(false);
+  const [isPhdOpen, setIsPhdOpen] = useState(false);
 
   // Ensure the page scrolls to top on load since it's a long scroll page
   useEffect(() => {
@@ -261,20 +264,37 @@ const StatutesLayout = () => {
               </div>
             </div>
             
-            {/* PHD REGULATION (Static Row) */}
-            <a href="./IMAGE/Ph.D-Regulation-2025.pdf#toolbar=0" target="_blank" rel="noopener noreferrer" className="document-row phd-row">
-              <div className="doc-left">
-                <span className="doc-number">03</span>
-                <div className="doc-info">
-                  <h3 className="doc-title">Ph.D Regulations</h3>
-                  <p className="doc-meta">Regulations and guidelines for doctoral studies</p>
+            {/* PHD REGULATION ACCORDION */}
+            <div className={`programme-group accordion-group ${isPhdOpen ? 'open' : ''}`}>
+              <div className="accordion-header">
+                <div className="accordion-title-box">
+                  <span className="accordion-number">03</span>
+                  <div>
+                    <h3 className="group-title" style={{margin:0}}>PH.D REGULATIONS</h3>
+                    <p className="doc-meta">View regulation guidelines for doctoral studies</p>
+                  </div>
+                </div>
+                {isPhdOpen ? <FaChevronUp className="accordion-icon" onClick={() => setIsPhdOpen(!isPhdOpen)} /> : <FaChevronDown className="accordion-icon" onClick={() => setIsPhdOpen(!isPhdOpen)} />}
+              </div>
+
+              <div className="accordion-content">
+                <div className="document-list">
+                  <a href={`${phd_mech}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="document-row">
+                    <div className="doc-left">
+                      <span className="doc-number" style={{fontSize: '1.5rem'}}>MECH</span>
+                      <div className="doc-info">
+                        <h3 className="doc-title">Ph.D. Mechanical Engineering</h3>
+                        <p className="doc-meta">Regulation Guidelines</p>
+                      </div>
+                    </div>
+                    <div className="doc-right">
+                      <span className="doc-action">VIEW</span>
+                      <FaArrowRight className="doc-arrow" />
+                    </div>
+                  </a>
                 </div>
               </div>
-              <div className="doc-right">
-                <span className="doc-action">VIEW</span>
-                <FaArrowRight className="doc-arrow" />
-              </div>
-            </a>
+            </div>
 
           </div>
         </section>

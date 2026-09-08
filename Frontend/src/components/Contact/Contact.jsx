@@ -146,7 +146,7 @@ const Contact = () => {
                 <FaHeadset className="card-icon" />
                 <div>
                   <strong>Admission Cell Hotline</strong>
-                  <p>+91 98765 43210 (Mon - Sat)</p>
+                  <p>04546-263900 (Mon - Sat)</p>
                 </div>
               </div>
 
@@ -154,7 +154,7 @@ const Contact = () => {
                 <FaEnvelope className="card-icon" />
                 <div>
                   <strong>Admissions Email Support</strong>
-                  <p>admissions@nscet.org</p>
+                  <p>info@nscet.org</p>
                 </div>
               </div>
 

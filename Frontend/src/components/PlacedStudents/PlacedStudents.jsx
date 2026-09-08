@@ -61,7 +61,7 @@ const PlacedStudents = () => {
     <section className="placement-section">
       <div className="placement-container">
         <h2 className="section-title">
-          2025-26 <span>PLACED STUDENTS</span>
+          PLACEMENTS <span>2025-26</span>
         </h2>
 
         <div className="marquee-wrapper">

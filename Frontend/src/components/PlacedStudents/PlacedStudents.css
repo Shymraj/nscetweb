@@ -1,13 +1,10 @@
-/* Import Premium Font matching your website */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
 /* =====================================================
    PLACEMENT SECTION BASE
 ===================================================== */
 .placement-section {
   background: linear-gradient(180deg, #ffffff, #f8fbff);
   padding: 40px 20px; /* Reduced top/bottom padding from 80px to 40px */
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: var(--font-body);
   overflow: hidden;
   transition: background 0.4s ease;
 }
@@ -21,39 +18,47 @@
 /* =====================================================
    PREMIUM TITLE (Clean & Professional)
 ===================================================== */
-.section-title {
+.placement-section .section-title {
   position: relative;
   display: inline-block;
-  margin-bottom: 28px; /* Reduced bottom margin from 60px */
+  margin-bottom: 28px;
   
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: var(--font-section);
   font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #0f172a; 
+  color: #0f172a !important; 
+  -webkit-text-fill-color: #0f172a !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
   line-height: 1.2;
   transition: color 0.4s ease;
 }
 
 /* Highlight */
-.section-title span {
-  color: #f59e0b; 
-  font-weight: 800;
+.placement-section .section-title span {
+  color: #f59e0b !important; 
+  -webkit-text-fill-color: #f59e0b !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  font-weight: 700;
   margin-right: 8px;
 }
 
 /* Premium underline matching other sections */
-.section-title::after {
+.placement-section .section-title::after {
   content: "";
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -10px; /* Adjusted position */
+  bottom: -10px;
   width: 80px;
   height: 4px;
   border-radius: 50px;
-  background: linear-gradient(90deg, #2563eb, #ff7a00);
+  background: linear-gradient(90deg, #2563eb, #ff7a00) !important;
 }
 
 /* =====================================================
@@ -165,12 +170,12 @@ body.dark-mode .placement-section {
   background: #0f172a; 
 }
 
-body.dark-mode .section-title {
-  color: #ffffff; 
+body.dark-mode .placement-section .section-title {
+  color: #ffffff !important; 
 }
 
-body.dark-mode .section-title span {
-  color: #f59e0b; 
+body.dark-mode .placement-section .section-title span {
+  color: #f59e0b !important; 
 }
 
 body.dark-mode .status-message {
@@ -205,12 +210,12 @@ body.dark-mode .poster-img-container img {
       padding: 25px 15px; /* Reduced mobile padding from 60px */
   }
 
-  .section-title {
+  .placement-section .section-title {
       font-size: 26px;
       margin-bottom: 20px; /* Reduced from 50px */
   }
 
-  .section-title::after {
+  .placement-section .section-title::after {
       width: 60px;
   }
 

@@ -78,7 +78,7 @@ const Footer = () => {
               </li>
               <li>
                 <FaPhoneAlt className="contact-icon" />
-                <span>04546-263900, 901, 902</span>
+                <span>04546-263900</span>
               </li>
               <li>
                 <a href="mailto:principal@nscet.org" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', width: '100%' }}>

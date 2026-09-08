@@ -66,7 +66,7 @@ const journeyData = [
   },
   {
     year: "2025",
-    title: "iQarena Engine",
+    title: "iQarena",
     desc: "A strictly sandboxed, highly scalable examination and automated assessment portal empowering real-time evaluation.",
     tags: ["EdTech", "Assessment", "Portal"],
     icon: <FaShieldAlt />

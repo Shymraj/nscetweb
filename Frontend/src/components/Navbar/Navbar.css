@@ -703,6 +703,11 @@ body.dark-mode .search-box input {
     position: relative;
 }
 
+.dropdown > a,
+.submenu-label {
+    cursor: default !important;
+}
+
 
 
 .dropdown.open .dropdown-menu,
