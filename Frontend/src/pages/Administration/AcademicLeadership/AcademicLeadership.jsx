@@ -29,7 +29,7 @@ const AcademicLeadership = () => {
     {
       id: 3,
       name: "Dr. J. Mathalai Raj",
-      role: "PROFESSOR & HEAD OF THE DEPARTMENT",
+      role: "ASSISTANT PROFESSOR & HEAD OF THE DEPARTMENT",
       department: "Computer Science Engineering",
       image: "/CSE/mathalairaj.jpg",
       qualifications: ["M.E., Ph.D"],
@@ -47,7 +47,7 @@ const AcademicLeadership = () => {
     {
       id: 4,
       name: "Dr. R. Athilingam",
-      role: "PROFESSOR & HEAD OF THE DEPARTMENT",
+      role: "ASSOCIATE PROFESSOR & HEAD OF THE DEPARTMENT",
       department: "Electrical and Electronics Engineering",
       image: "/EEE/athilingam.jpg",
       qualifications: ["M.E., Ph.D."],
@@ -64,8 +64,8 @@ const AcademicLeadership = () => {
     },
     {
       id: 1,
-      name: "Dr . L S .Vignesh",
-      role: "PROFESSOR & HEAD OF THE DEPARTMENT",
+      name: "Mr . L S .Vignesh",
+      role: "ASSISTANT PROFESSOR & HEAD OF THE DEPARTMENT",
       department: "Artificial Intelligence & Data Science",
       image: "/AIDS/vignesh.jpg",
       qualifications: ["M.E., Ph.D"],
@@ -74,7 +74,7 @@ const AcademicLeadership = () => {
     {
       id: 7,
       name: "Dr. C. Prathap",
-      role: "PROFESSOR & HEAD OF THE DEPARTMENT",
+      role: "ASSISTANT PROFESSOR & HEAD OF THE DEPARTMENT",
       department: "Information Technology",
       image: "/IT/prathap c.jpg",
       qualifications: ["M.Tech., Ph.D"],
@@ -83,7 +83,7 @@ const AcademicLeadership = () => {
     {
       id: 9,
       name: "Dr. A. Vembathurajesh",
-      role: "PROFESSOR & HEAD OF THE DEPARTMENT",
+      role: "ASSISTANT PROFESSOR & HEAD OF THE DEPARTMENT",
       department: "Science & Humanities",
       image: "/S&H/vembathurajesh.png",
       qualifications: ["M.E., Ph.D, MISTE"],
