@@ -79,9 +79,11 @@ export const useDepartmentStaff = (departmentMatchStrings, staticFallbackData) =
                 desig: staff.designation || "Assistant Professor",
                 qual: staff.qualifications || (localMatch ? localMatch.qual : ""),
                 email: staff.email || (localMatch ? localMatch.email : "staff@nscet.org"),
-                image: (localMatch && localMatch.image && !staff.photo_url)
+                image: (localMatch && localMatch.image)
                   ? localMatch.image
                   : (staff.photo_url ? (staff.photo_url.startsWith('http') ? staff.photo_url : `http://localhost:5000${staff.photo_url}`) : (localMatch?.image || "https://via.placeholder.com/150")),
+                fallbackImage: localMatch?.image || null,
+                cardDesc: localMatch?.cardDesc || undefined,
                 spec: staff.spec || staff.research || (localMatch ? localMatch.spec : ""),
                 objectPosition: localMatch ? localMatch.objectPosition : "center 10%",
                 linkedin: staff.linkedin || (localMatch ? localMatch.linkedin : ""),

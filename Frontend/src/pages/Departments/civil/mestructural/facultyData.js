@@ -3,7 +3,7 @@ import imgSindhu from "../images/sindhu.jpg";
 import imgBenita from "../images/Benita Photo.jpg";
 
 export const mestructuralFacultyData = [
-    {id: "dr-e-anantha-krishnan", slug: "dr-e-anantha-krishnan",  name: "Dr. E. Anantha Krishnan", desig: "Professor & M.E. Program Head", qual: "M.E., Ph.D.", email: "ananthakrishnan@nscet.org", image: imgAnanthaKrishnan, spec: "Earthquake Engineering & High-Rise Structures", objectPosition: "center 10%" ,
+    {id: "dr-e-anantha-krishnan", slug: "dr-e-anantha-krishnan",  name: "Dr. E. Anantha Krishnan", desig: "Associate Professor and Head Of Department", cardDesc: "Associate Professor and Head Of Department", qual: "M.E., Ph.D.", email: "ananthakrishnan@nscet.org", image: imgAnanthaKrishnan, spec: "Earthquake Engineering & High-Rise Structures", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [

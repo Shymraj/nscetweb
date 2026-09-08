@@ -11,7 +11,7 @@ import imgMareeswari from "./images/Mareeswari M.jpg";
 
 export const itFacultyData = [
   {
-    id: "mr-c-prathap", slug: "mr-c-prathap", name: "Mr. C. Prathap", desig: "Assistant Professor", qual: "B.E - CSE, M.Tech - CSE", email: "prathapc@nscet.org", image: imgPrathap, spec: "IoT and Image Processing", objectPosition: "center 10%",
+    id: "dr-c-prathap", slug: "dr-c-prathap", name: "Dr. C. Prathap", desig: "Assistant Professor", qual: "B.E - CSE, M.Tech - CSE", email: "prathapc@nscet.org", image: imgPrathap, spec: "IoT and Image Processing", objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/prathap-c-9302283b7/",
     about: "Prathap C serves as the Head of the Department of Information Technology with over 16 years of teaching and research experience. His areas of expertise include IoT and Image Processing. With significant contributions in research, patents, and academic projects, he is committed to fostering innovation, industry-oriented learning, and academic excellence.",
     publications: [

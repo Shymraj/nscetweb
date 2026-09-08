@@ -11,7 +11,7 @@ import imgNithyapriya from "./images/Nithyapriya.png";
 
 export const aidsFacultyData = [
   {
-    id: "mr-l-s-vignesh", slug: "mr-l-s-vignesh", name: "Dr. L. S. Vignesh", desig: "Assistant Professor & Head [I/C]", qual: "M.E., (Ph.D)", email: "vigneshls@nscet.org", image: imgVignesh, spec: "Artificial Intelligence & Machine Learning", objectPosition: "center 10%",
+    id: "mr-l-s-vignesh", slug: "mr-l-s-vignesh", name: "Mr. L. S. Vignesh", desig: "Assistant Professor & Head [I/C]", qual: "M.E., (Ph.D)", email: "vigneshls@nscet.org", image: imgVignesh, spec: "Artificial Intelligence & Machine Learning", objectPosition: "center 10%",
     linkedin: "http://www.linkedin.com/in/vignesh-l-s-213b01a8",
     about: "Vignesh L S is the Head of the Department of Artificial Intelligence and Data Science with 16 years of experience in the field of Artificial Intelligence and Machine Learning. He is actively involved in research and innovation, with 6 publications, 4 patents, 15 projects, and 2 awards to his credit.",
     publications: [

@@ -64,7 +64,7 @@ const AcademicLeadership = () => {
     },
     {
       id: 1,
-      name: "Mr . L S .Vignesh",
+      name: "Mr. L S .Vignesh",
       role: "ASSISTANT PROFESSOR & HEAD OF THE DEPARTMENT",
       department: "Artificial Intelligence & Data Science",
       image: "/AIDS/vignesh.jpg",
@@ -140,7 +140,7 @@ const AcademicLeadership = () => {
             <div className="al-avatar-ring">
               <img src="/HEADS/somasundaram.jpg" alt="Secretary" loading="eager" decoding="async" />
             </div>
-            <h2 className="al-name">Er. A.S.S.S. Soma Sundaram B.E.</h2>
+            <h3 className="al-name">Er. A.S.S.S. Soma Sundaram B.E.</h3>
             <p className="al-dept-name">
               <span className="al-dept-badge">Secretary</span>
             </p>
@@ -154,7 +154,7 @@ const AcademicLeadership = () => {
             <div className="al-avatar-ring">
               <img src="/HEADS/subramani.jpg" alt="Joint Secretary" loading="eager" decoding="async" />
             </div>
-            <h2 className="al-name">Mr. T. Subramani B.C.A., M.B.A.</h2>
+            <h3 className="al-name">Mr. T. Subramani B.C.A., M.B.A.</h3>
             <p className="al-dept-name">
               <span className="al-dept-badge">Joint Secretary</span>
             </p>
@@ -178,7 +178,7 @@ const AcademicLeadership = () => {
             <div className="al-avatar-ring">
               <img src={encodeURI("/ME MANUFACTURING/principle.png")} alt="Principal" loading="eager" decoding="async" />
             </div>
-            <h2 className="al-name">Dr. C. Mathalai Sundaram</h2>
+            <h3 className="al-name">Dr. C. Mathalai Sundaram</h3>
             <p className="al-dept-name">
               <span className="al-dept-badge">Principal & Professor</span>
             </p>
@@ -193,7 +193,7 @@ const AcademicLeadership = () => {
             <div className="al-avatar-ring">
               <img src={encodeURI("/ME CSE/sathya.jpeg")} alt="Vice Principal" loading="eager" decoding="async" />
             </div>
-            <h2 className="al-name">Dr. M. Sathya</h2>
+            <h3 className="al-name">Dr. M. Sathya</h3>
             <p className="al-dept-name">
               <span className="al-dept-badge">Vice Principal & Professor</span>
             </p>
@@ -276,7 +276,7 @@ const AcademicLeadership = () => {
                 }}
               />
             </div>
-            <h2 className="al-name">Dr. S. Sinthan</h2>
+            <h3 className="al-name">Dr. S. Sinthan</h3>
             <p className="al-dept-name">
               <span className="al-dept-badge">Chief Librarian</span>
             </p>
@@ -304,7 +304,7 @@ const AcademicLeadership = () => {
                 }}
               />
             </div>
-            <h2 className="al-name">Mr. Ponnaiah</h2>
+            <h3 className="al-name">Mr. Ponnaiah</h3>
             <p className="al-dept-name">
               <span className="al-dept-badge">Physical Education Director</span>
             </p>
