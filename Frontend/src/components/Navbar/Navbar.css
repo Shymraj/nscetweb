@@ -1115,6 +1115,14 @@ body.dark-mode .mobile-menu-icon {
 }
 
 @media screen and (max-width: 1024px) {
+    header.scrolled {
+        transform: none !important;
+    }
+
+    .tnea-badge-hanging {
+        display: none !important;
+    }
+
     .nav-links {
         position: fixed;
         top: 80px;
@@ -1245,6 +1253,11 @@ body.dark-mode .search-result-item:hover {
    ========================================================================== */
 @media screen and (max-width: 767px) {
 
+    /* Keep header fixed at top without translating/hiding on scroll */
+    header.scrolled {
+        transform: none !important;
+    }
+
     /* 0. Hide the Top Contact Bar */
     .topbar {
         display: none !important;
@@ -1327,22 +1340,9 @@ body.dark-mode .search-result-item:hover {
         padding: 4px !important;
     }
 
-    /* 7. TNEA Badge Scaling & Positioning */
+    /* 7. Hide TNEA Badge on Mobile View */
     .tnea-badge-hanging {
-        right: 12px !important;
-        width: 80px !important;
-        padding: 8px 4px 10px 4px !important;
-        top: calc(100% - 1.5px) !important;
-    }
-
-    .tnea-badge-number {
-        font-size: 14px !important;
-        letter-spacing: 1px !important;
-    }
-
-    .tnea-badge-title {
-        font-size: 8px !important;
-        letter-spacing: 0.5px !important;
+        display: none !important;
     }
 
     /* 8. Search Box Overlay Centering on Mobile */

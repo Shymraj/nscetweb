@@ -19,10 +19,10 @@ import {
 // import alumni3 from "../../assets/alumni3.jpg";
 
 const statsData = [
-  { id: 1, label: "Placement Rate", value: "95%+", icon: <FaChartLine /> },
-  { id: 2, label: "Highest Package", value: "18 LPA", icon: <FaTrophy /> },
-  { id: 3, label: "Top Recruiters", value: "85+", icon: <FaBuilding /> },
-  { id: 4, label: "Total Offers", value: "450+", icon: <FaGraduationCap /> },
+  { id: 1, label: "Placement Rate", value: "98%", icon: <FaChartLine /> },
+  { id: 2, label: "Highest Package", value: "28 LPA", icon: <FaTrophy /> },
+  { id: 3, label: "Top Recruiters", value: "60+", icon: <FaBuilding /> },
+  { id: 4, label: "Total Offers", value: "200+", icon: <FaGraduationCap /> },
 ];
 
 const reviewsData = [
