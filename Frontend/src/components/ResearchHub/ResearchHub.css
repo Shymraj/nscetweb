@@ -1,11 +1,11 @@
 /* ===========================================================
-   CAMPUS LIFE SECTION (Orange & White Theme)
+   CAMPUS LIFE / CENTRE OF EXCELLENCE SECTION (Orange & White Theme)
 =========================================================== */
 .campus-section {
   width: 100%;
-  padding: 40px 0; /* Reduced top/bottom padding from 100px to 40px */
+  padding: 40px 0;
   background-color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
 }
 
 .campus-container {
@@ -21,7 +21,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 28px; /* Reduced margin from 60px */
+  margin-bottom: 28px;
   gap: 30px;
 }
 
@@ -31,16 +31,18 @@
 
 .campus-subtitle {
   color: #f97316; 
+  font-family: var(--font-subtopic);
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 8px; /* Reduced margin */
+  margin-bottom: 8px;
 }
 
 .campus-title {
-  font-size: 42px; /* Adjusted size for better hierarchy */
-  font-weight: 800;
+  font-family: var(--font-section);
+  font-size: 42px;
+  font-weight: 700;
   color: #111827;
   line-height: 1.2;
   margin: 0;
@@ -48,8 +50,10 @@
 
 .campus-header-desc {
   max-width: 500px;
+  font-family: var(--font-body);
   color: #64748b;
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.6;
   margin: 0;
 }
@@ -59,7 +63,7 @@
 =========================================================== */
 .campus-showcase {
   display: flex;
-  gap: 30px; /* Slightly reduced gap from 40px */
+  gap: 30px;
   align-items: stretch;
 }
 
@@ -68,7 +72,7 @@
   width: 30%;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Reduced gap from 12px */
+  gap: 10px;
   padding-right: 15px;
 }
 
@@ -78,9 +82,9 @@
   align-items: center;
   gap: 14px;
   width: 100%;
-  padding: 14px 18px; /* Compact padding from 20px 24px */
+  padding: 14px 18px;
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 14px;
   cursor: pointer;
   text-align: left;
@@ -97,9 +101,14 @@
   color: #94a3b8;
   transition: color 0.3s ease;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .tab-text {
+  font-family: var(--font-subtopic);
   font-size: 16px;
   font-weight: 700;
   color: #64748b;
@@ -130,7 +139,7 @@
 /* --- Right: Dynamic Display --- */
 .campus-display {
   width: 70%;
-  min-height: 480px; /* Slightly reduced min-height from 550px */
+  min-height: 480px;
   border-radius: 24px;
   overflow: hidden;
   position: relative;
@@ -165,66 +174,72 @@
   left: 0;
 }
 
-/* Gentle overlay so the glass card text remains readable */
+/* Gentle overlay so image is crisp while text is easily legible */
 .media-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to top, rgba(17, 24, 39, 0.4) 0%, transparent 40%);
+  background: linear-gradient(to top, rgba(17, 24, 39, 0.35) 0%, transparent 40%);
   pointer-events: none; 
 }
 
 /* ===========================================================
-   FLOATING INFO CARD (PREMIUM GLASSMORPHISM)
-=========================================================== */
+   FLOATING INFO CARD (SLEEK, COMPACT & ULTRA-PREMIUM GLASSMORPHISM)
+========================================================== */
 .display-info-card {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  max-width: 340px;
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 18px 20px; /* Compact padding */
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  bottom: 16px;
+  left: 16px;
+  max-width: 260px;
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   z-index: 10;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .display-info-card:hover {
-  background: rgba(255, 255, 255, 0.85);
-  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
 }
 
 .info-highlight {
   display: inline-block;
   background-color: #f97316;
   color: #ffffff;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 10px;
-  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-family: var(--font-subtopic);
+  font-size: 8.5px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
+  letter-spacing: 0.8px;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 6px rgba(249, 115, 22, 0.3);
 }
 
 .display-info-card h3 {
-  font-size: 20px;
-  font-weight: 800;
-  color: #111827;
-  margin-bottom: 6px;
+  font-family: var(--font-subtopic);
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 3px;
   line-height: 1.2;
 }
 
 .display-info-card p {
-  font-size: 13px;
-  color: #374151;
-  line-height: 1.5;
-  margin-bottom: 14px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  color: #1e293b;
+  line-height: 1.35;
+  margin-bottom: 6px;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -232,81 +247,188 @@
 .explore-facility-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   background: transparent;
   border: none;
   color: #ea580c;
-  font-size: 13px;
-  font-weight: 800;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
   padding: 0;
   cursor: pointer;
-  transition: gap 0.3s ease, color 0.3s ease;
+  transition: gap 0.25s ease, color 0.25s ease;
 }
 
 .explore-facility-btn:hover {
-  gap: 10px;
+  gap: 7px;
   color: #c2410c;
 }
 
 /* ===========================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (TABLET & MOBILE)
 =========================================================== */
 @media (max-width: 1024px) {
   .campus-showcase {
     flex-direction: column;
+    gap: 20px;
   }
   
+  /* Display all 4 subheadings clearly in a clean 2x2 grid */
   .campus-tabs {
     width: 100%;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    scrollbar-width: none; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding-right: 0;
   }
-  .campus-tabs::-webkit-scrollbar { display: none; }
 
   .tab-btn {
-    width: auto;
-    white-space: nowrap;
-    padding: 12px 18px;
-    flex-shrink: 0;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1.5px solid #f1f5f9;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    gap: 10px;
+    white-space: normal;
+  }
+
+  .tab-btn.active {
+    border-color: rgba(249, 115, 22, 0.4);
+  }
+
+  .tab-icon {
+    font-size: 18px;
+  }
+
+  .tab-text {
+    font-size: 14px;
   }
 
   .active-indicator {
-    border-left: none;
-    border-bottom: 3px solid #f97316;
+    border-left: 4px solid #f97316;
+    border-radius: 10px;
   }
 
   .campus-display {
     width: 100%;
-    min-height: 420px;
+    min-height: 440px;
+    height: 440px;
   }
 }
 
 @media (max-width: 768px) {
-  .campus-section { padding: 30px 0; }
+  .campus-section { 
+    padding: 24px 0; 
+  }
+
   .campus-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 12px;
     margin-bottom: 20px;
   }
   
+  .campus-subtitle {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+
   .campus-title {
-    font-size: 30px;
+    font-size: 28px;
+  }
+
+  .campus-header-desc {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* 2x2 Grid for all 4 tabs on mobile */
+  .campus-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .tab-btn {
+    padding: 10px 10px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .tab-icon {
+    font-size: 16px;
+  }
+
+  .tab-text {
+    font-size: 12.5px;
+    line-height: 1.25;
+  }
+
+  .campus-display {
+    min-height: 380px;
+    height: 380px;
+    border-radius: 18px;
   }
 
   .display-info-card {
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
     max-width: none;
-    padding: 16px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.32);
+  }
+
+  .info-highlight {
+    font-size: 8px;
+    padding: 2px 6px;
+    margin-bottom: 4px;
   }
 
   .display-info-card h3 {
-    font-size: 18px;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .display-info-card p {
+    font-size: 10.5px;
+    line-height: 1.35;
+    margin-bottom: 5px;
+    -webkit-line-clamp: 2;
+  }
+
+  .explore-facility-btn {
+    font-size: 10.5px;
+  }
+}
+
+@media (max-width: 420px) {
+  .campus-title {
+    font-size: 24px;
+  }
+
+  .campus-tabs {
+    gap: 6px;
+  }
+
+  .tab-btn {
+    padding: 8px 8px;
+    gap: 6px;
+  }
+
+  .tab-icon {
+    font-size: 14px;
+  }
+
+  .tab-text {
+    font-size: 11.5px;
+  }
+
+  .campus-display {
+    min-height: 350px;
+    height: 350px;
   }
 }
 
@@ -314,42 +436,59 @@
    DARK MODE OVERRIDES
 =========================================================== */
 body.dark-mode .campus-section {
-  background-color: var(--theme-bg);
+  background-color: var(--theme-bg, #111827);
 }
 
 body.dark-mode .campus-title {
-  color: var(--theme-text);
+  color: var(--theme-text, #ffffff);
 }
 
 body.dark-mode .campus-header-desc {
-  color: var(--text-muted);
+  color: var(--text-muted, #9ca3af);
+}
+
+body.dark-mode .tab-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 body.dark-mode .tab-btn:hover {
-  background-color: rgba(255,255,255,0.05);
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 body.dark-mode .tab-text {
-  color: var(--theme-text);
+  color: var(--theme-text, #e2e8f0);
+}
+
+body.dark-mode .tab-icon {
+  color: #94a3b8;
 }
 
 body.dark-mode .active-indicator {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(249, 115, 22, 0.15);
+  border-left: 4px solid #f97316;
+}
+
+body.dark-mode .tab-btn.active .tab-icon,
+body.dark-mode .tab-btn.active .tab-text {
+  color: #f97316;
 }
 
 body.dark-mode .campus-display {
-  background-color: var(--card-bg);
+  background-color: var(--card-bg, #1e293b);
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
-/* Dark Mode Card Styles */
+/* Dark Mode Floating Card */
 body.dark-mode .display-info-card {
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 body.dark-mode .display-info-card:hover {
-  background: rgba(30, 41, 59, 0.85);
+  background: rgba(15, 23, 42, 0.55);
 }
 
 body.dark-mode .display-info-card h3 {
@@ -357,7 +496,7 @@ body.dark-mode .display-info-card h3 {
 }
 
 body.dark-mode .display-info-card p {
-  color: #cbd5e1;
+  color: #e2e8f0;
 }
 
 body.dark-mode .explore-facility-btn {
