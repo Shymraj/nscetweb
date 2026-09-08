@@ -73,7 +73,7 @@ export const electricalFacultyData = [
     ]
   },
   {
-    id: "mrs-m-vijayalakshmi", slug: "mrs-m-vijayalakshmi", name: "Ms. M. Vijayalakshmi", desig: "Assistant Professor", qual: "B.E - EEE, M.E - Power Systems", email: "vijayalakshmi@nscet.org", image: imgVijayalakshmi, spec: "Power Systems, Electrical Machines, Internet of Things (IoT), Electric Vehicles, Renewable Energy Systems, Power Market Restructuring", objectPosition: "center 10%",
+    id: "mrs-m-vijayalakshmi", slug: "mrs-m-vijayalakshmi", name: "Mrs. M. Vijayalakshmi", desig: "Assistant Professor", qual: "B.E - EEE, M.E - Power Systems", email: "vijayalakshmi@nscet.org", image: imgVijayalakshmi, spec: "Power Systems, Electrical Machines, Internet of Things (IoT), Electric Vehicles, Renewable Energy Systems, Power Market Restructuring", objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/vijayalakshmi-paranthaman-b527263b8",
     about: "Vijayalakshmi M is a dedicated faculty member with 2.5 years of teaching experience in the Department of Electrical and Electronics Engineering. Her areas of specialization include Power Systems, Electrical Machines, Internet of Things (IoT), Electric Vehicles, Renewable Energy Systems, and Power Market Restructuring. She is passionate about sustainable energy technologies, smart power systems, and mentoring students through practical, research-oriented learning.",
     publications: [

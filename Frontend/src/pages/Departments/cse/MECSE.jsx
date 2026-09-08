@@ -50,7 +50,7 @@ const MECSE = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = useDepartmentStaff(['m.e. - computer science'], mecseFacultyData);
+  const faculties = useDepartmentStaff(['m.e. - computer science', 'm.e. computer science', 'me-cse'], mecseFacultyData);
 
   const stats = [
     { count: "40+", label: "PG Research Scholars", icon: <FaGraduationCap />, color: "#2563eb" },

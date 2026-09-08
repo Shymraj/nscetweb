@@ -34,8 +34,9 @@ export default function FacultyPortfolio() {
 
           const matchedStaff = data.data.find(s => 
             s.id?.toString() === cleanedId ||
+            (s.name && s.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === cleanedId) ||
             normalize(s.name) === targetNorm ||
-            (targetNorm.length >= 4 && (normalize(s.name).includes(targetNorm) || targetNorm.includes(normalize(s.name))))
+            (targetNorm.length >= 6 && normalize(s.name).includes(targetNorm))
           );
 
           if (matchedStaff) {
@@ -49,29 +50,39 @@ export default function FacultyPortfolio() {
               return String(val).split('\n').filter(Boolean);
             };
 
-            const base = initialFaculty || {};
+            const isSamePerson = initialFaculty && normalize(initialFaculty.name) === normalize(matchedStaff.name);
+            const base = isSamePerson ? initialFaculty : {};
+
             setFaculty({
-              ...base,
               id: matchedStaff.id.toString(),
               slug: base.slug || matchedStaff.id.toString(),
-              name: matchedStaff.name || base.name,
-              desig: matchedStaff.designation || base.desig || "Assistant Professor",
-              qual: matchedStaff.qualifications || base.qual || "M.E.",
-              email: matchedStaff.email || base.email || "staff@nscet.org",
+              name: matchedStaff.name,
+              department: matchedStaff.department || base.department || "",
+              desig: matchedStaff.designation || (isSamePerson ? (base.desig || "Faculty Member") : "Faculty Member"),
+              qual: matchedStaff.qualifications || (isSamePerson ? (base.qual || "") : ""),
+              email: matchedStaff.email || (isSamePerson ? (base.email || "") : ""),
               image: matchedStaff.photo_url 
                 ? (matchedStaff.photo_url.startsWith('http') ? matchedStaff.photo_url : `http://localhost:5000${matchedStaff.photo_url}`) 
-                : (base.image || ""),
-              spec: matchedStaff.spec || matchedStaff.research || base.spec || "Engineering & Technology",
-              objectPosition: base.objectPosition || "center 15%",
-              linkedin: (matchedStaff.linkedin !== undefined && matchedStaff.linkedin !== null && matchedStaff.linkedin !== '') ? matchedStaff.linkedin : (base.linkedin || ""),
-              about: (matchedStaff.about !== undefined && matchedStaff.about !== null && matchedStaff.about !== '') ? matchedStaff.about : (base.about || `${matchedStaff.name} is a dedicated faculty member at Nadar Saraswathi College of Engineering & Technology, committed to academic excellence and student mentorship.`),
-              publications: parseList(matchedStaff.publications, base.publications || []),
-              projects: parseList(matchedStaff.projects, base.projects || []),
-              patents: parseList(matchedStaff.patents, base.patents || []),
-              awards: parseList(matchedStaff.awards, base.awards || []),
-              experience: parseList(matchedStaff.experience, base.experience || []),
-              profile_pdf: matchedStaff.profile_pdf ? (matchedStaff.profile_pdf.startsWith('http') ? matchedStaff.profile_pdf : `http://localhost:5000${matchedStaff.profile_pdf}`) : (base.profile_pdf || null),
-              profile_url: matchedStaff.profile_url || base.profile_url || null,
+                : (isSamePerson ? (base.image || "") : ""),
+              spec: (matchedStaff.spec !== undefined && matchedStaff.spec !== null && matchedStaff.spec !== '') 
+                ? matchedStaff.spec 
+                : (matchedStaff.research || (isSamePerson ? (base.spec || "") : "") || ""),
+              objectPosition: isSamePerson ? (base.objectPosition || "center 15%") : "center 15%",
+              linkedin: (matchedStaff.linkedin !== undefined && matchedStaff.linkedin !== null && matchedStaff.linkedin !== '') 
+                ? matchedStaff.linkedin 
+                : (isSamePerson ? (base.linkedin || "") : ""),
+              about: (matchedStaff.about !== undefined && matchedStaff.about !== null && matchedStaff.about !== '') 
+                ? matchedStaff.about 
+                : (isSamePerson ? (base.about || "") : ""),
+              publications: parseList(matchedStaff.publications, isSamePerson ? (base.publications || []) : []),
+              projects: parseList(matchedStaff.projects, isSamePerson ? (base.projects || []) : []),
+              patents: parseList(matchedStaff.patents, isSamePerson ? (base.patents || []) : []),
+              awards: parseList(matchedStaff.awards, isSamePerson ? (base.awards || []) : []),
+              experience: parseList(matchedStaff.experience, isSamePerson ? (base.experience || []) : []),
+              profile_pdf: matchedStaff.profile_pdf 
+                ? (matchedStaff.profile_pdf.startsWith('http') ? matchedStaff.profile_pdf : `http://localhost:5000${matchedStaff.profile_pdf}`) 
+                : (isSamePerson ? (base.profile_pdf || null) : null),
+              profile_url: matchedStaff.profile_url || (isSamePerson ? (base.profile_url || null) : null),
               _detectedDept: deptId
             });
           }
@@ -80,6 +91,26 @@ export default function FacultyPortfolio() {
       .catch(err => console.error("Error fetching staff portfolio:", err))
       .finally(() => setLoading(false));
   }, [deptId, facultyId, initialFaculty]);
+
+  // Scroll to top on mount and update document title
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (faculty && faculty.name) {
+      document.title = `${faculty.name} | Faculty Portfolio — ${departmentName} (NSCET)`;
+    }
+    return () => {
+      document.title = "NSCET — Nadar Saraswathi College of Engineering & Technology";
+    };
+  }, [faculty, departmentName]);
+
+  // Sync dark mode state with body class
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [isDarkMode]);
 
   const handleBackClick = (e) => {
     e.preventDefault();
@@ -117,27 +148,6 @@ export default function FacultyPortfolio() {
       </div>
     );
   }
-
-  useEffect(() => {
-    // Scroll to top on mount
-    window.scrollTo(0, 0);
-    // Update document title for standalone portfolio experience
-    if (faculty && faculty.name) {
-      document.title = `${faculty.name} | Faculty Portfolio — ${departmentName} (NSCET)`;
-    }
-    return () => {
-      document.title = "NSCET — Nadar Saraswathi College of Engineering & Technology";
-    };
-  }, [faculty, departmentName]);
-
-  // Sync dark mode state with body class
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
-  }, [isDarkMode]);
 
   return (
     <div className="faculty-portfolio-page shadcn-theme">

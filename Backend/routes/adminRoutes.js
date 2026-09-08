@@ -5,10 +5,10 @@ const upload = require("../middleware/upload");
 console.log("✅ adminRoutes.js Loaded");
 
 router.get("/test", (req, res) => {
-    res.send("Admin Route Working");
+  res.send("Admin Route Working");
 });
 
-const { 
+const {
   loginAdmin,
   getStaff, addStaff, updateStaff, deleteStaff, updateAcademicProfile,
   getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent, deleteEventPhoto,

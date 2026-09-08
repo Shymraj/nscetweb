@@ -1,5 +1,4 @@
 import React from 'react';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
 import DetailedAnnualReport from '../AnnualReports/components/DetailedAnnualReport';
 import { motion } from 'framer-motion';
 import { FaFilePdf, FaEye } from 'react-icons/fa';
@@ -11,15 +10,14 @@ import annualReportPdf from './assets/documents/annual-report.pdf';
 
 const AnnualAccounts = () => {
   return (
-    <div className="annual-reports-page">
+    <div className="common-page-wrapper annual-reports-page">
       
-      {/* Mobile view-la banner hide aaguradhukaga indha div add pannirukom */}
-      <div className="desktop-only-banner">
-        <PageBanner
-          backgroundImage={bannerImage}
-          hideBreadcrumb={true}
-          showOverlay={false}
-          showText={false}
+      {/* Background ku bathila direct image tag use panrom - So cut aagathu! (Matching ActStatutes) */}
+      <div className="common-hero-banner">
+        <img 
+          src={bannerImage} 
+          alt="Annual Accounts Banner" 
+          style={{ width: '100%', height: 'auto', display: 'block' }} 
         />
       </div>
 

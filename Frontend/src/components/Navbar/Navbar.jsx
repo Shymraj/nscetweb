@@ -12,7 +12,7 @@ const searchData = [
   { name: "Act and Statutes", path: "/about/actstatutes" },
   { name: "Institutional Development Plan", path: "/about/development-plan" },
   { name: "Affiliation & Accreditation", path: "/about/affiliation" },
-  { name: "Annual Accounts", path: "/about/annual-accounts" },
+  { name: "Annual Reports", path: "/about/annual-accounts" },
   { name: "TMHNU Trust", path: "/administration/tmhnutrust" },
   { name: "Finance Officer", path: "/administration/finance-officer" },
   { name: "Exam Cell", path: "/administration/controller-examination" },
@@ -200,7 +200,7 @@ function Navbar() {
               <li><Link to="/about/actstatutes">Act and Statutes</Link></li>
               <li><Link to="/about/development-plan">Institutional Development Plan</Link></li>
               <li><Link to="/about/affiliation">Affiliation & Accreditation</Link></li>
-              <li><Link to="/about/annual-accounts">Annual Accounts</Link></li>
+              <li><Link to="/about/annual-accounts">Annual Reports</Link></li>
             </ul>
           </li>
 

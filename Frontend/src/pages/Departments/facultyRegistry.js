@@ -49,32 +49,16 @@ export const departmentNames = {
 
 export function getFacultyData(deptId, facultyId) {
   const cleanedId = (facultyId || "").toLowerCase().trim();
-  if (!cleanedId) return registry[deptId]?.[0] || null;
+  if (!cleanedId) return null;
 
   const normalize = (str) => (str || "").replace(/dr\.|mr\.|mrs\.|ms\./gi, '').replace(/[^a-z0-9]/gi, '').toLowerCase();
-  const getKeywords = (str) => (str || "")
-    .toLowerCase()
-    .replace(/dr\.|mr\.|mrs\.|ms\./gi, '')
-    .replace(/[^a-z0-9\s]/gi, ' ')
-    .split(/\s+/)
-    .filter(w => w.length >= 3);
-
   const targetNorm = normalize(cleanedId);
-  const targetWords = getKeywords(cleanedId);
 
   const matchesFaculty = (f) => {
     if (!f) return false;
     if (f.id?.toLowerCase() === cleanedId || f.slug?.toLowerCase() === cleanedId) return true;
     if (normalize(f.id) === targetNorm || normalize(f.slug) === targetNorm) return true;
-    if (normalize(f.name) === targetNorm) return true;
-    
-    // Check keyword intersection
-    const fWords = [...getKeywords(f.name), ...getKeywords(f.id), ...getKeywords(f.slug)];
-    if (targetWords.length > 0 && targetWords.some(tw => fWords.includes(tw))) return true;
-
-    if (targetNorm.length >= 4 && (normalize(f.name).includes(targetNorm) || targetNorm.includes(normalize(f.name)))) {
-      return true;
-    }
+    if (targetNorm.length >= 3 && normalize(f.name) === targetNorm) return true;
     return false;
   };
 
@@ -118,10 +102,10 @@ const deptMap = {
   electrical: "Electrical and Electronics Engineering",
   mechanical: "Mechanical Engineering",
   "science-humanities": "Science and Humanities",
-  "me-cse": "Computer Science and Engineering",
-  "me-embedded": "Electrical and Electronics Engineering",
-  "me-manufacturing": "Mechanical Engineering",
-  "me-structural": "Civil Engineering"
+  "me-cse": "M.E. Computer Science and Engineering",
+  "me-embedded": "M.E. Embedded System Technologies",
+  "me-manufacturing": "M.E. Manufacturing Engineering",
+  "me-structural": "M.E. Structural Engineering"
 };
 
 export function getAllStaticStaff() {

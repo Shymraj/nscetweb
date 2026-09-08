@@ -41,7 +41,7 @@ const updateStaff = (req, res) => {
   const { id } = req.params;
   const { name, designation, department, email, qualifications, research, is_hod } = req.body;
   const photo_url = req.file ? `/uploads/staff/${req.file.filename}` : null;
-  
+
   let sql = "UPDATE staff SET name=?, designation=?, department=?, email=?, qualifications=?, research=?, is_hod=? WHERE id=?";
   let params = [name, designation, department, email, qualifications, research, is_hod === 'true' || is_hod === true, id];
 
@@ -121,13 +121,13 @@ const deleteStaff = (req, res) => {
       if (results[0].photo_url) {
         const filePath = path.join(__dirname, "..", results[0].photo_url);
         if (fs.existsSync(filePath)) {
-          try { fs.unlinkSync(filePath); } catch (e) {}
+          try { fs.unlinkSync(filePath); } catch (e) { }
         }
       }
       if (results[0].profile_pdf) {
         const pdfPath = path.join(__dirname, "..", results[0].profile_pdf);
         if (fs.existsSync(pdfPath)) {
-          try { fs.unlinkSync(pdfPath); } catch (e) {}
+          try { fs.unlinkSync(pdfPath); } catch (e) { }
         }
       }
     }
@@ -162,7 +162,7 @@ const addEvent = (req, res) => {
   const baseSlug = title ? title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : 'event';
   const slug = `${baseSlug}-${Date.now()}`;
   const image_url = req.file ? `/uploads/events/${req.file.filename}` : null;
-  
+
   const sql = "INSERT INTO events (title, slug, description, department, date, image_url) VALUES (?, ?, ?, ?, ?, ?)";
   db.query(sql, [title, slug, description, department, date, image_url], (err, result) => {
     if (err) return res.status(500).json({ success: false, message: err.message });
@@ -173,7 +173,7 @@ const addEvent = (req, res) => {
 const updateEvent = (req, res) => {
   const { id } = req.params;
   const { title, description, department, date } = req.body;
-  
+
   if (req.file) {
     // If a new file is uploaded, update image_url
     const image_url = `/uploads/events/${req.file.filename}`;
@@ -205,14 +205,14 @@ const addEventPhoto = (req, res) => {
 
 const deleteEvent = (req, res) => {
   const { id } = req.params;
-  
+
   // First delete main image if exists
   db.query("SELECT image_url FROM events WHERE id = ?", [id], (err, results) => {
     if (results && results.length > 0 && results[0].image_url) {
       const filePath = path.join(__dirname, "..", results[0].image_url);
       if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
     }
-    
+
     // Then delete extra photos
     db.query("SELECT photo_url FROM event_photos WHERE event_id = ?", [id], (err, photoResults) => {
       if (photoResults) {
@@ -221,7 +221,7 @@ const deleteEvent = (req, res) => {
           if (fs.existsSync(fp)) fs.unlinkSync(fp);
         });
       }
-      
+
       // Finally delete DB record
       db.query("DELETE FROM events WHERE id = ?", [id], (err) => {
         if (err) return res.status(500).json({ success: false, message: err.message });
@@ -284,7 +284,7 @@ const getPlacements = (req, res) => {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
   }
-  
+
   fs.readdir(dirPath, (err, files) => {
     if (err) return res.status(500).json({ success: false, message: "Server Error" });
     const results = files.map(file => ({
@@ -298,7 +298,7 @@ const getPlacements = (req, res) => {
 const addPlacement = (req, res) => {
   const photo_url = req.file ? `/uploads/placements/${req.file.filename}` : null;
   if (!photo_url) return res.status(400).json({ success: false, message: "Image is required" });
-  
+
   res.json({ success: true, message: "Placement image added", id: req.file.filename });
 };
 
@@ -337,8 +337,8 @@ const deleteEnquiry = (req, res) => {
   });
 };
 
-module.exports = { 
-  loginAdmin, 
+module.exports = {
+  loginAdmin,
   getStaff, addStaff, updateStaff, deleteStaff, updateAcademicProfile,
   getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent, deleteEventPhoto,
   getDepartments, addDepartment, deleteDepartment,

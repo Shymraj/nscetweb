@@ -21,11 +21,11 @@ import { FaLinkedin } from "react-icons/fa";
 export function GlassmorphismPortfolio({ faculty, departmentName }) {
   // Fallbacks for baseline safety
   const name = faculty?.name || "Faculty Member";
-  const desig = faculty?.desig || "Assistant Professor";
-  const qual = faculty?.qual || "M.E., Ph.D";
-  const email = faculty?.email || "civil@nscet.org";
+  const desig = faculty?.desig || "Faculty Member";
+  const qual = faculty?.qual || "";
+  const email = faculty?.email || "";
   const image = faculty?.image || "";
-  const spec = faculty?.spec || "Civil Engineering";
+  const spec = faculty?.spec || "";
   const linkedin = faculty?.linkedin || "";
   const department = departmentName ? `Department of ${departmentName}` : "";
 
@@ -46,9 +46,9 @@ export function GlassmorphismPortfolio({ faculty, departmentName }) {
     visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
   };
 
-  // Helper for Section rendering
+  // Helper for Section rendering - always display heading/card, show placeholder if empty
   const renderSection = (title, icon, items) => {
-    if (!items || items.length === 0) return null;
+    const hasItems = Array.isArray(items) && items.length > 0;
     return (
       <motion.div
         variants={itemVariants}
@@ -63,14 +63,20 @@ export function GlassmorphismPortfolio({ faculty, departmentName }) {
             {title}
           </h3>
         </div>
-        <ul className="space-y-4">
-          {items.map((item, idx) => (
-            <li key={idx} className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-foreground/80 highlight-desc">
-              <span className="mt-2.5 h-1.5 w-1.5 rounded-full bg-primary/60 shrink-0" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+        {hasItems ? (
+          <ul className="space-y-4">
+            {items.map((item, idx) => (
+              <li key={idx} className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-foreground/80 highlight-desc">
+                <span className="mt-2.5 h-1.5 w-1.5 rounded-full bg-primary/60 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-[0.95rem] italic text-foreground/40 highlight-desc">
+            Yet to be updated.
+          </p>
+        )}
       </motion.div>
     );
   };
@@ -177,55 +183,57 @@ export function GlassmorphismPortfolio({ faculty, departmentName }) {
             className="lg:col-span-8 space-y-8"
           >
             {/* About / Professional Summary */}
-            {(faculty?.about || faculty?.highlights) && (
-              <motion.div
-                variants={itemVariants}
-                className="relative overflow-hidden rounded-[2rem] border border-border/40 bg-background/40 p-8 md:p-10 backdrop-blur-3xl glass-portfolio-card shadow-[0_8px_40px_-12px_rgba(0,0,0,0.15)]"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <User className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-2xl font-bold tracking-tight text-foreground faculty-heading">
-                    Professional Summary
-                  </h3>
+            <motion.div
+              variants={itemVariants}
+              className="relative overflow-hidden rounded-[2rem] border border-border/40 bg-background/40 p-8 md:p-10 backdrop-blur-3xl glass-portfolio-card shadow-[0_8px_40px_-12px_rgba(0,0,0,0.15)]"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <User className="h-6 w-6" />
                 </div>
-                
-                {faculty?.about ? (
-                  <p className="text-base md:text-[1.05rem] leading-relaxed text-foreground/80 faculty-subtext">
-                    {faculty.about}
-                  </p>
-                ) : (
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    {faculty.highlights.map((item, index) => (
-                      <div key={index} className="space-y-1.5">
-                        <p className="text-xs font-bold uppercase tracking-[0.1em] text-foreground/50 highlight-title">
-                          {item.title}
-                        </p>
-                        <p className="text-[0.95rem] leading-relaxed text-foreground/80 highlight-desc">
-                          {item.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </motion.div>
-            )}
+                <h3 className="text-2xl font-bold tracking-tight text-foreground faculty-heading">
+                  Professional Summary
+                </h3>
+              </div>
+              
+              {faculty?.about ? (
+                <p className="text-base md:text-[1.05rem] leading-relaxed text-foreground/80 faculty-subtext">
+                  {faculty.about}
+                </p>
+              ) : (faculty?.highlights && faculty.highlights.length > 0) ? (
+                <div className="grid gap-6 sm:grid-cols-2">
+                  {faculty.highlights.map((item, index) => (
+                    <div key={index} className="space-y-1.5">
+                      <p className="text-xs font-bold uppercase tracking-[0.1em] text-foreground/50 highlight-title">
+                        {item.title}
+                      </p>
+                      <p className="text-[0.95rem] leading-relaxed text-foreground/80 highlight-desc">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-[0.95rem] italic text-foreground/40 faculty-subtext">
+                  Yet to be updated.
+                </p>
+              )}
+            </motion.div>
 
             {/* Research Domains / Specialization */}
-            {spec && (
-              <motion.div
-                variants={itemVariants}
-                className="relative overflow-hidden rounded-[2rem] border border-border/30 bg-background/30 p-8 backdrop-blur-2xl shadow-xl transition-all duration-300 hover:border-border/50 highlight-card"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Microscope className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-xl font-bold tracking-tight text-foreground faculty-heading">
-                    Research Domains & Specializations
-                  </h3>
+            <motion.div
+              variants={itemVariants}
+              className="relative overflow-hidden rounded-[2rem] border border-border/30 bg-background/30 p-8 backdrop-blur-2xl shadow-xl transition-all duration-300 hover:border-border/50 highlight-card"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <Microscope className="h-6 w-6" />
                 </div>
+                <h3 className="text-xl font-bold tracking-tight text-foreground faculty-heading">
+                  Research Domains & Specializations
+                </h3>
+              </div>
+              {spec && spec.trim() ? (
                 <div className="flex flex-wrap gap-3">
                   {spec.split(/[,&]/).map((domain, idx) => (
                     <Badge
@@ -237,8 +245,12 @@ export function GlassmorphismPortfolio({ faculty, departmentName }) {
                     </Badge>
                   ))}
                 </div>
-              </motion.div>
-            )}
+              ) : (
+                <p className="text-[0.95rem] italic text-foreground/40 highlight-desc">
+                  Yet to be updated.
+                </p>
+              )}
+            </motion.div>
 
             {/* Dynamic Academic Sections */}
             {renderSection("Professional Experience", <Briefcase className="h-6 w-6" />, faculty?.experience)}

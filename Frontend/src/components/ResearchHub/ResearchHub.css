@@ -239,7 +239,8 @@
   line-height: 1.35;
   margin-bottom: 6px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -397,6 +398,7 @@
     line-height: 1.35;
     margin-bottom: 5px;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 
   .explore-facility-btn {

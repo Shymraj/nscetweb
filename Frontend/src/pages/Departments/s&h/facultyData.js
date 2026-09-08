@@ -234,7 +234,7 @@ export const shFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "dr-p-buvaneshwari", slug: "dr-p-buvaneshwari",  name: "Mrs. R. Bhuvaneshwari", desig: "Assistant Professor (Physics)", qual: "B.Sc., M.Sc., Ph.D.", email: "2012bhuvana@gmail.com", image: imgBuvaneshwari, spec: "Material Science, Electrochemical Energy Storage Devices, Supercapattery", objectPosition: "center 10%" ,
+    {id: "dr-p-buvaneshwari", slug: "dr-p-buvaneshwari",  name: "Dr. R. Bhuvaneshwari", desig: "Assistant Professor (Physics)", qual: "B.Sc., M.Sc., Ph.D.", email: "2012bhuvana@gmail.com", image: imgBuvaneshwari, spec: "Material Science, Electrochemical Energy Storage Devices, Supercapattery", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/bhuvaneshwari-ramasamy-924047256",
     about: "R. Bhuvaneshwari is a dedicated faculty member in the Department of Science and Humanities with research expertise in Material Science, Electrochemical Energy Storage Devices, and Supercapattery. With 6 years of research experience, she is passionate about scientific innovation, advanced materials research, and mentoring students through research-driven learning.",
     publications: [
@@ -497,7 +497,7 @@ export const shFacultyData = [
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
     ]},
-    {id: "mrs-s-rajeshshree", slug: "mrs-s-rajeshshree",  name: "Ms. S. Rajeshshree", desig: "Assistant Professor", qual: "B.E - ECE, M.E - Applied Electronics", email: "rajeshshree@nscet.org", image: imgRajeshshree, spec: "Semiconductor Technology, Digital Communication", objectPosition: "center 10%" ,
+    {id: "mrs-s-rajeshshree", slug: "mrs-s-rajeshshree",  name: "Mrs. S. Rajeshshree", desig: "Assistant Professor", qual: "B.E - ECE, M.E - Applied Electronics", email: "rajeshshree@nscet.org", image: imgRajeshshree, spec: "Semiconductor Technology, Digital Communication", objectPosition: "center 10%" ,
     linkedin: "https://www.linkedin.com/in/rajeshshree-ece-2aa7503a4",
     about: "Mrs. S. Rajeshshree is a dedicated faculty member with 2 years of teaching experience. Her areas of specialization include Semiconductor Technology and Digital Communication. She is passionate about research, innovation, and helping students build strong technical knowledge through practical and industry-oriented learning.",
     publications: [

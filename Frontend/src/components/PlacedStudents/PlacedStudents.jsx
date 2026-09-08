@@ -27,6 +27,7 @@ const STATIC_POSTERS = [
 
 const PlacedStudents = () => {
   const [placementPosters, setPlacementPosters] = useState(STATIC_POSTERS);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   useEffect(() => {
     const fetchPlacements = async () => {
@@ -52,10 +53,58 @@ const PlacedStudents = () => {
     fetchPlacements();
   }, []);
 
+  // Keyboard navigation & body scroll lock for modal
+  useEffect(() => {
+    if (activeIndex === null) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setActiveIndex(null);
+      } else if (e.key === "ArrowLeft") {
+        setActiveIndex((prev) => (prev - 1 + placementPosters.length) % placementPosters.length);
+      } else if (e.key === "ArrowRight") {
+        setActiveIndex((prev) => (prev + 1) % placementPosters.length);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeIndex, placementPosters.length]);
+
+  const handleOpenModal = (index) => {
+    // Map index from duplicated marquee to actual placementPosters index
+    const realIndex = index % placementPosters.length;
+    setActiveIndex(realIndex);
+  };
+
+  const handleCloseModal = () => {
+    setActiveIndex(null);
+  };
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    setActiveIndex((prev) => (prev - 1 + placementPosters.length) % placementPosters.length);
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setActiveIndex((prev) => (prev + 1) % placementPosters.length);
+  };
+
   // Duplicate array for seamless infinite marquee scrolling
   const marqueeData = placementPosters.length > 0 
     ? [...placementPosters, ...placementPosters] 
     : [];
+
+  const currentPoster = activeIndex !== null ? placementPosters[activeIndex] : null;
 
   return (
     <section className="placement-section">
@@ -67,7 +116,19 @@ const PlacedStudents = () => {
         <div className="marquee-wrapper">
           <div className="marquee-track">
             {marqueeData.map((poster, index) => (
-              <div className="poster-card" key={`${poster.id}-${index}`}>
+              <div 
+                className="poster-card" 
+                key={`${poster.id}-${index}`}
+                onClick={() => handleOpenModal(index)}
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${poster.altText}`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    handleOpenModal(index);
+                  }
+                }}
+              >
                 <div className="poster-img-container">
                   <img 
                     src={poster.image} 
@@ -77,12 +138,69 @@ const PlacedStudents = () => {
                       e.target.src = poster.fallback || placement1;
                     }}
                   />
+                  <div className="poster-hover-overlay">
+                    <span className="poster-view-badge">Tap to View</span>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* LIGHTBOX / FULLSCREEN MODAL */}
+      {currentPoster && (
+        <div 
+          className="placement-modal-backdrop" 
+          onClick={handleCloseModal}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button 
+            className="placement-modal-close-btn" 
+            onClick={handleCloseModal}
+            aria-label="Close preview"
+          >
+            &times;
+          </button>
+
+          <button 
+            className="placement-modal-nav-btn prev-btn" 
+            onClick={handlePrev}
+            aria-label="Previous poster"
+          >
+            &#8249;
+          </button>
+
+          <div 
+            className="placement-modal-content" 
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              src={currentPoster.image} 
+              alt={currentPoster.altText} 
+              className="placement-modal-img"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = currentPoster.fallback || placement1;
+              }}
+            />
+            <div className="placement-modal-footer">
+              <span className="placement-modal-counter">
+                {activeIndex + 1} / {placementPosters.length}
+              </span>
+            </div>
+          </div>
+
+          <button 
+            className="placement-modal-nav-btn next-btn" 
+            onClick={handleNext}
+            aria-label="Next poster"
+          >
+            &#8250;
+          </button>
+        </div>
+      )}
     </section>
   );
 };

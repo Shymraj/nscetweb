@@ -67,7 +67,7 @@ const TeachingFaculty = () => {
     { id: 74, name: "Mr. T. Hariprasath", qualifications: ["M.E."], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "hariprasath@nscet.org", photo: "/CIVIL/hariprasath.jpg", isHOD: false },
     { id: 75, name: "Mrs. Sowmiya B", qualifications: ["B.E - Civil, M.E - Environmental"], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "sowmiya@nscet.org", photo: "/CIVIL/sowmiya.jpg", isHOD: false },
     { id: 90, name: "Mr. Manojprabakar R", qualifications: ["B.Tech - Civil, M.E - Environmental"], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "manojprabakar@nscet.org", photo: "/CIVIL/manojprabakar.jpg", isHOD: false },
-    { id: 91, name: "Ms. P. AadhityaPraveen S", qualifications: ["M.E."], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "aadhitya@nscet.org", photo: "/CIVIL/aadhithya.jpg", isHOD: false },
+    { id: 91, name: "Mrs. P. AadhityaPraveen S", qualifications: ["M.E."], department: "B.E. - Civil Engineering", position: "Assistant Professor", email: "aadhitya@nscet.org", photo: "/CIVIL/aadhithya.jpg", isHOD: false },
 
     // --- B.E. - Mechanical Engineering (Total: 8) ---
     { id: 31, name: "Dr. B. Radha krishnan", qualifications: ["B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical"], department: "B.E. - Mechanical Engineering", position: "Professor & Head [I/C] Mech & MFE", email: "hodmech@nscet.org", photo: "/MECH/radhakrishnan.jpg", isHOD: true },
@@ -101,21 +101,7 @@ const TeachingFaculty = () => {
     { id: 92, name: "Mrs. H. Juriya Banu", qualifications: ["B.E - EEE, M.E - Power Systems"], department: "B.E. - Electrical and Electronics Engineering", position: "Assistant Professor", email: "juriyabanu@nscet.org", photo: "/EEE/juriyabanu.jpg", isHOD: false },
     { id: 93, name: "Dr. N. Pandi Selvi", qualifications: ["B.E - EEE, M.E - Power Systems, Ph.D"], department: "B.E. - Electrical and Electronics Engineering", position: "Assistant Professor", email: "pandiselvi@nscet.org", photo: "/EEE/pandiselvi.jpeg", isHOD: false },
 
-    // --- M.E. - Computer Science Engineering (Total: 2) ---
-    { id: 49, name: "Dr. M. Sathya", qualifications: ["Ph.D", "M.E."], department: "M.E. - Computer Science Engineering", position: "Vice Principal & Professor ", email: "msathya15@gmail.com", photo: "/ME CSE/sathya.jpeg", isHOD: false },
-    { id: 50, name: "Mr. G. R. Naveenkarthick", qualifications: ["M.E."], department: "M.E. - Computer Science Engineering", position: "Assistant Professor", email: "grnaveenkarthick@gmail.com", photo: "/IT/karthick.jpeg", isHOD: false },
-
-    // --- M.E. - Structural Engineering (Total: 2) 
-    { id: 52, name: "Mrs. M. Sindhu", qualifications: ["M.E."], department: "M.E. - Structural Engineering", position: "Assistant Professor", email: "sindhu@nscet.org", photo: "/ME STRUCTURAL/sindhu.jpg", isHOD: false },
-    { id: 94, name: "Mrs. K. Benita Merlin Isabella", qualifications: ["M.E."], department: "M.E. - Structural Engineering", position: "Assistant Professor", email: "benitamerlin22@gmail.com", photo: "/ME STRUCTURAL/Benita.jpg", isHOD: false },
-
-    // --- M.E. - Manufacturing Engineering (Total: 2) ---
-    { id: 53, name: "Dr. C. Mathalai Sundaram", qualifications: ["B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical"], department: "M.E. - Manufacturing Engineering", position: "Principal", email: "principal@nscet.org", photo: "/ME MANUFACTURING/principle.png", isHOD: false },
-    { id: 54, name: "Dr. A. Vennimalai Rajan", qualifications: ["B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical"], department: "M.E. - Manufacturing Engineering", position: "Assistant Professor", email: "anandan@nscet.org", photo: "/MECH/Vennimalairajan.jpg", isHOD: false },
-
-    // --- M.E. - Embedded Systems and Technology (Total: 2) ---
-    { id: 55, name: "Dr. R. Athilingam", qualifications: ["B.E - EIE, M.E - Applied Electronics, Ph.D - Information & Communication"], department: "M.E. - Embedded Systems and Technology", position: "Associate Professor", email: "athilingam@nscet.org", photo: "/EEE/athilingam.jpg", isHOD: false },
-    { id: 56, name: "Mrs. S. Kalaivani", qualifications: ["B.E - ECE, M.E - VLSI & Embedded System"], department: "M.E. - Embedded Systems and Technology", position: "Assistant Professor", email: "kalaivani@nscet.org", photo: "/ME EMBODDED SYSTEMS/kalaivani.jpg", isHOD: false },
+    // --- M.E. Programs: All M.E. staff are fetched live from DB (see useEffect below) ---
 
     // --- Science & Humanities (Total: 31 Unique) ---
     { id: 59, name: "Dr. A. Vembathurajesh", qualifications: ["B.E - Mechanical, M.E - Thermal, Ph.D - Mechanical"], department: "Science & Humanities", position: "Assistant Professor & Head [I/C] / S&H", email: "vembathurajesh@nscet.org", photo: "/S&H/vembathurajesh.png", isHOD: true },
@@ -128,19 +114,19 @@ const TeachingFaculty = () => {
     { id: 66, name: "Mr. K. Rajaguru", qualifications: ["M.Sc", "M.Phil"], department: "Science & Humanities", position: "Assistant Professor", email: "rajaguru@nscet.org", photo: "/S&H/rajaguru.jpg", isHOD: false },
     { id: 67, name: "Dr. Devimeenakshi S", qualifications: ["B.Sc., M.Sc., Ph.D - Chemistry"], department: "Science & Humanities", position: "Assistant Professor", email: "devimeenakshi84@gmail.com", photo: "/S&H/DEVI MEENAKSHI.jpg", isHOD: false },
     { id: 68, name: "Dr. Sumathra M", qualifications: ["B.Sc., M.Sc., Ph.D - Chemistry"], department: "Science & Humanities", position: "Assistant Professor", email: "sumathravms@gmail.com", photo: "/S&H/Sumathra.jpeg", isHOD: false },
-    { id: 69, name: "Ms. Sangeetha V", qualifications: ["B.A., M.A., English (NET)"], department: "Science & Humanities", position: "Assistant Professor", email: "vijayansangeetha281985@gmail.com", photo: "/S&H/Sangeetha.jpeg", isHOD: false },
+    { id: 69, name: "Mrs. Sangeetha V", qualifications: ["B.A., M.A., English (NET)"], department: "Science & Humanities", position: "Assistant Professor", email: "vijayansangeetha281985@gmail.com", photo: "/S&H/Sangeetha.jpeg", isHOD: false },
     { id: 70, name: "Mr. Arunkumar G", qualifications: ["B.E - Mechanical, M.E - Manufacturing"], department: "Science & Humanities", position: "Assistant Professor", email: "arunkumarg@nscet.org", photo: "/S&H/arunkumar.jpg", isHOD: false },
     { id: 70, name: "Mr. Murugan M", qualifications: ["B.Sc., M.Sc – Maths (SET)"], department: "Science & Humanities", position: "Assistant Professor", email: "muruganmaths92@gmail.com", photo: "/S&H/Murugan.jpeg", isHOD: false },
     { id: 71, name: "Dr. Diana P", qualifications: ["B.Sc., M.Sc., Ph.D - Physics"], department: "Science & Humanities", position: "Assistant Professor", email: "13diana83@gmail.com", photo: "/S&H/diana.jpg", isHOD: false },
     { id: 72, name: "Dr. Easwari M", qualifications: ["B.Sc., M.Sc., Ph.D - Physics"], department: "Science & Humanities", position: "Assistant Professor", email: "easwariphy@gmail.com", photo: "/S&H/Easwari.jpeg", isHOD: false },
-    { id: 73, name: "Ms. A. Iniya", qualifications: ["B.E.", "M.E."], department: "Science & Humanities", position: "Assistant Professor", email: "staff@nscet.org", photo: "/S&H/Iniya.jpeg", isHOD: false },
+    { id: 73, name: "Mrs. A. Iniya", qualifications: ["B.E.", "M.E."], department: "Science & Humanities", position: "Assistant Professor", email: "staff@nscet.org", photo: "/S&H/Iniya.jpeg", isHOD: false },
     { id: 74, name: "Dr. Srinithi S", qualifications: ["B.Sc., M.Sc., Ph.D - Chemistry"], department: "Science & Humanities", position: "Assistant Professor", email: "staff@nscet.org", photo: "/S&H/Srinithi.jpeg", isHOD: false },
     { id: 76, name: "Mrs. N. Thisha", qualifications: ["B.A.", "M.A.", "NET"], department: "Science & Humanities", position: "Assistant Professor", email: "thisha@nscet.org", photo: "/S&H/thisha.jpeg", isHOD: false },
     { id: 77, name: "Mr. Ram Kumar K", qualifications: ["B.E - EEE, M.B.A - Financial Management"], department: "Science & Humanities", position: "Assistant Professor", email: "ramkumar@nscet.org", photo: "/S&H/ramkumar.jpeg", isHOD: false },
     { id: 78, name: "Mr. B. Mallaiyasamy", qualifications: ["M.Sc", "M.Phil"], department: "Science & Humanities", position: "Associate Professor", email: "mallaiyasamy@nscet.org", photo: "/S&H/mailysamy.jpg", isHOD: false },
     { id: 79, name: "Mrs. R. Karunyah", qualifications: ["M.Sc", "M.Phil"], department: "Science & Humanities", position: "Assistant Professor", email: "karunyah@nscet.org", photo: "/S&H/karunyah.jpg", isHOD: false },
     { id: 80, name: "Dr. Premkumar S", qualifications: ["B.E - Civil, M.E - Hydrology & Water Resources, Ph.D – Civil Engineering"], department: "Science & Humanities", position: "Assistant Professor", email: "vignesan@nscet.org", photo: "/S&H/Premkumar.jpg", isHOD: false },
-    { id: 81, name: "Ms. Nandhini M", qualifications: ["B.E - CSE, M.E - CSE"], department: "Science & Humanities", position: "Assistant Professor", email: "benandhu10@gmail.com", photo: "/S&H/Nandini.jpeg", isHOD: false },
+    { id: 81, name: "Mrs. Nandhini M", qualifications: ["B.E - CSE, M.E - CSE"], department: "Science & Humanities", position: "Assistant Professor", email: "benandhu10@gmail.com", photo: "/S&H/Nandini.jpeg", isHOD: false },
     { id: 82, name: "Dr. R. Saravanakumar", qualifications: ["M.SC.Ph.D."], department: "Science & Humanities", position: "Assistant Professor", email: "saravanakumar@nscet.org", photo: "/S&H/Saravanakumar.png", isHOD: false },
     { id: 83, name: "Dr. S. Selvapriya", qualifications: ["M.A., M.Phil., Ph.D."], department: "Science & Humanities", position: "Assistant Professor", email: "selvapriyashailesh@gamil.com", photo: "/S&H/Selvapriya.jpg", isHOD: false },
     { id: 84, name: "Mrs. S. Reka", qualifications: ["M.A., M.Phil."], department: "Science & Humanities", position: "Professor", email: "subhalakshmireka@gamil.com", photo: "/S&H/Reka.jpg", isHOD: false },
@@ -166,16 +152,18 @@ const TeachingFaculty = () => {
 
             if (staff.department) {
               const deptLower = staff.department.toLowerCase();
-              if (deptLower.includes('computer science') && deptLower.includes('m.e')) mappedDept = 'M.E. - Computer Science Engineering';
+              // --- M.E. Programs (must be checked BEFORE their B.E. counterparts) ---
+              if (deptLower.includes('m.e.') && deptLower.includes('computer science')) mappedDept = 'M.E. - Computer Science Engineering';
+              else if (deptLower.includes('m.e.') && deptLower.includes('structural')) mappedDept = 'M.E. - Structural Engineering';
+              else if (deptLower.includes('m.e.') && deptLower.includes('manufacturing')) mappedDept = 'M.E. - Manufacturing Engineering';
+              else if (deptLower.includes('m.e.') && deptLower.includes('embedded')) mappedDept = 'M.E. - Embedded Systems and Technology';
+              // --- B.E. / B.Tech Programs ---
               else if (deptLower.includes('computer science') || deptLower.includes('cse')) mappedDept = 'B.E. - Computer Science Engineering';
               else if (deptLower.includes('information tech')) mappedDept = 'B.Tech - Information Technology';
-              else if (deptLower.includes('artificial intelligence') || deptLower.includes('ai & ds')) mappedDept = 'B.Tech - Artificial Intelligence & Data Science';
-              else if (deptLower.includes('civil') && deptLower.includes('structural')) mappedDept = 'M.E. - Structural Engineering';
+              else if (deptLower.includes('artificial intelligence') || deptLower.includes('ai & ds') || deptLower.includes('data science')) mappedDept = 'B.Tech - Artificial Intelligence & Data Science';
               else if (deptLower.includes('civil')) mappedDept = 'B.E. - Civil Engineering';
-              else if (deptLower.includes('mechanical') && deptLower.includes('manufacturing')) mappedDept = 'M.E. - Manufacturing Engineering';
               else if (deptLower.includes('mechanical')) mappedDept = 'B.E. - Mechanical Engineering';
               else if (deptLower.includes('electronics and communication')) mappedDept = 'B.E. - Electronics and Communication Engineering';
-              else if (deptLower.includes('electrical') && deptLower.includes('embedded')) mappedDept = 'M.E. - Embedded Systems and Technology';
               else if (deptLower.includes('electrical')) mappedDept = 'B.E. - Electrical and Electronics Engineering';
               else if (deptLower.includes('science') && deptLower.includes('humanities')) mappedDept = 'Science & Humanities';
             }
@@ -214,8 +202,10 @@ const TeachingFaculty = () => {
 
   // Filtering data for the selected department
   const currentFaculty = facultiesState.filter(staff => staff.department === activeDept);
-  const hod = currentFaculty.find(staff => staff.isHOD);
-  const regularStaffs = currentFaculty.filter(staff => !staff.isHOD);
+  // M.E. Programs: no HOD yellow glow — all staff appear as normal equal cards
+  const isMEProgram = activeProgram === 'M.E. Programs';
+  const hod = isMEProgram ? null : currentFaculty.find(staff => staff.isHOD);
+  const regularStaffs = isMEProgram ? currentFaculty : currentFaculty.filter(staff => !staff.isHOD);
 
   // Requirement 3: 4 cards-kku mela iruntha mattum auto-move (marquee) aaganum
   const shouldAnimate = regularStaffs.length > 4;

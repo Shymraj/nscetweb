@@ -64,7 +64,7 @@ export const itFacultyData = [
     ]
   },
   {
-    id: "b-sai-suganya", slug: "b-sai-suganya", name: "Ms. B. Sai Suganya", desig: "Assistant Professor", qual: "B.Tech. - IT, M.Tech. - IT", email: "saisuganya@nscet.org", image: imgSaiSuganya, spec: "Cloud Computing", objectPosition: "center 12%",
+    id: "b-sai-suganya", slug: "b-sai-suganya", name: "Mrs. B. Sai Suganya", desig: "Assistant Professor", qual: "B.Tech. - IT, M.Tech. - IT", email: "saisuganya@nscet.org", image: imgSaiSuganya, spec: "Cloud Computing", objectPosition: "center 12%",
     linkedin: "https://www.linkedin.com/in/sai-suganya-b-it-3b46a53a3",
     about: "B. Sai Suganya is a faculty member in the Department of Information Technology with a specialization in Cloud Computing. She is passionate about emerging cloud technologies, practical learning, and helping students build a strong foundation in modern computing through research and innovation.",
     publications: [
@@ -84,7 +84,7 @@ export const itFacultyData = [
     ]
   },
   {
-    id: "mrs-m-bhavani", slug: "mrs-m-bhavani", name: "Ms. M. Bhavani", desig: "Assistant Professor", qual: "B.E - CSE, M.Tech - CSE", email: "bhavani@nscet.org", image: imgBhavani, spec: "UI/UX", objectPosition: "center 10%",
+    id: "mrs-m-bhavani", slug: "mrs-m-bhavani", name: "Mrs. M. Bhavani", desig: "Assistant Professor", qual: "B.E - CSE, M.Tech - CSE", email: "bhavani@nscet.org", image: imgBhavani, spec: "UI/UX", objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/bhavani-m-54332471",
     about: "",
     publications: [
@@ -100,7 +100,7 @@ export const itFacultyData = [
     ]
   },
   {
-    id: "mrs-s-mahalakshmi", slug: "mrs-s-mahalakshmi", name: "Ms. S. Mahalakshmi", desig: "Assistant Professor", qual: "B.Tech. - IT, M.E - CSE", email: "mahalakshmi@nscet.org", image: imgMahalakshmi, spec: "Python Systems & Analytics", objectPosition: "center 5%",
+    id: "mrs-s-mahalakshmi", slug: "mrs-s-mahalakshmi", name: "Mrs. S. Mahalakshmi", desig: "Assistant Professor", qual: "B.Tech. - IT, M.E - CSE", email: "mahalakshmi@nscet.org", image: imgMahalakshmi, spec: "Python Systems & Analytics", objectPosition: "center 5%",
     linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [],
@@ -110,7 +110,7 @@ export const itFacultyData = [
     experience: []
   },
   {
-    id: "mrs-p-jasmine-jose", slug: "mrs-p-jasmine-jose", name: "Ms. P. Jasmine Jose", desig: "Assistant Professor", qual: "B.E - CSE, M.E - CSE", email: "jasminepercy16@gmail.com", image: imgJasmineJose, spec: "Data Science", objectPosition: "center 10%",
+    id: "mrs-p-jasmine-jose", slug: "mrs-p-jasmine-jose", name: "Mrs. P. Jasmine Jose", desig: "Assistant Professor", qual: "B.E - CSE, M.E - CSE", email: "jasminepercy16@gmail.com", image: imgJasmineJose, spec: "Data Science", objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/jasmine-jose-p",
     about: "P. Jasmine Jose is a dedicated faculty member with 5 years of teaching experience in the Department of Information Technology. Her specialization is Data Science, and she is passionate about research, data-driven technologies, and helping students develop analytical and problem-solving skills through practical learning.",
     publications: [
@@ -128,7 +128,7 @@ export const itFacultyData = [
     ]
   },
   {
-    id: "mrs-s-arul-jothi", slug: "mrs-s-arul-jothi", name: "Ms. S. Arul Jothi", desig: "Assistant Professor", qual: "B.E - CSE, M.E - CSE", email: "aruljothi@nscet.org", image: imgArulJothi, spec: "Data Science & AI Systems", objectPosition: "center 10%",
+    id: "mrs-s-arul-jothi", slug: "mrs-s-arul-jothi", name: "Mrs. S. Arul Jothi", desig: "Assistant Professor", qual: "B.E - CSE, M.E - CSE", email: "aruljothi@nscet.org", image: imgArulJothi, spec: "Data Science & AI Systems", objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/nscet",
     about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
     publications: [
