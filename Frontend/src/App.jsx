@@ -99,10 +99,92 @@ const AppContent = () => {
   const hideGlobalNavAndFooter = isAdminRoute || isStandalonePortfolio;
 
   useEffect(() => {
-    if (isAdminRoute || location.pathname.startsWith("/admin")) {
+    const pageTitleMap = {
+      "/": "NSCET | Home",
+      "/about": "NSCET | About Overview",
+      "/academics": "NSCET | Academics",
+      "/academics/details-of-academic-programs": "NSCET | Details of Academic Programs",
+      "/academics/academic-calendar": "NSCET | Academic Calendar",
+      "/academics/statutes-ordinances-pertaining": "NSCET | Statutes Ordinances Pertaining",
+      "/academics/teaching-faculty": "NSCET | Teaching Faculty",
+      "/academics/non-teaching-faculty": "NSCET | Non-Teaching Faculty",
+      "/academics/iqac": "NSCET | IQAC",
+      "/academics/library": "NSCET | Library",
+      "/academics/industry-collaboration": "NSCET | Industry Collaboration",
+      "/academics/labs": "NSCET | Labs",
+      "/academics/e-learning/infosys-springboard": "NSCET | E-Learning (Infosys Springboard)",
+      "/academics/e-learning/nptel": "NSCET | E-Learning (NPTEL)",
+      "/departments": "NSCET | Departments",
+      "/departments/cse": "NSCET | CSE Department",
+      "/departments/it": "NSCET | IT Department",
+      "/departments/aids": "NSCET | AIDS Department",
+      "/departments/me-cse": "NSCET | ME CSE Department",
+      "/departments/civil": "NSCET | Civil Department",
+      "/departments/me-structural": "NSCET | ME Structural Department",
+      "/departments/mechanical": "NSCET | Mechanical Department",
+      "/departments/me-manufacturing": "NSCET | ME Manufacturing Department",
+      "/departments/electrical": "NSCET | Electrical Department",
+      "/departments/me-embedded": "NSCET | ME Embedded Department",
+      "/departments/electronics": "NSCET | Electronics Department",
+      "/departments/science-humanities": "NSCET | Science & Humanities Department",
+      "/infrastructure": "NSCET | Infrastructure",
+      "/research": "NSCET | Research",
+      "/research/rnd-cell": "NSCET | R&D Cell",
+      "/research/statistics": "NSCET | Research Statistics",
+      "/research/centre": "NSCET | Research Centre",
+      "/research/entrepreneurship-cell": "NSCET | Entrepreneurship Development Cell",
+      "/ispin": "NSCET | I-SPIN",
+      "/administration": "NSCET | Administration",
+      "/administration/tmhnutrust": "NSCET | TMHNU Trust",
+      "/administration/principal": "NSCET | Principal",
+      "/home/profile": "NSCET | Principal Profile",
+      "/administration/finance-officer": "NSCET | Finance Officer",
+      "/administration/controller-examination": "NSCET | Controller of Examination",
+      "/administration/ombudsperson": "NSCET | Ombudsperson",
+      "/administration/governing-council": "NSCET | Governing Council",
+      "/administration/internal-complaints-committee": "NSCET | Internal Complaints Committee",
+      "/administration/academic-leadership": "NSCET | Academic Leadership",
+      "/gallery": "NSCET | Gallery",
+      "/gallery/clubs-chapters": "NSCET | Clubs & Chapters",
+      "/gallery/events": "NSCET | Events",
+      "/gallery/nirf": "NSCET | NIRF",
+      "/gallery/rti": "NSCET | RTI",
+      "/gallery/waves25": "NSCET | Waves 25",
+      "/alumni": "NSCET | Alumni",
+      "/contact": "NSCET | Contact",
+      "/about/actstatutes": "NSCET | Act & Statutes",
+      "/about/development-plan": "NSCET | Development Plan",
+      "/about/affiliation": "NSCET | Affiliation",
+      "/about/annual-reports": "NSCET | Annual Reports",
+      "/about/annual-accounts": "NSCET | Annual Accounts",
+      "/student-life/sports": "NSCET | Sports",
+      "/student-life/nss": "NSCET | NSS",
+      "/student-life/boys-hostel": "NSCET | Boys Hostel",
+      "/student-life/girls-hostel": "NSCET | Girls Hostel",
+      "/student-life/placements": "NSCET | Placements",
+      "/student-life/grievance-redressal": "NSCET | Grievance Redressal",
+      "/student-life/anti-ragging-cell": "NSCET | Anti Ragging Cell",
+      "/student-life/equal-opportunity-cell": "NSCET | Equal Opportunity Cell",
+      "/student-life/health-medical-facilities": "NSCET | Health & Medical Facilities",
+      "/student-life/transport-facilities": "NSCET | Transport Facilities",
+      "/student-life/sedg": "NSCET | SEDG",
+      "/student-life/sedg/grievance": "NSCET | SEDG Grievance",
+      "/student-life/sedg/scholarships": "NSCET | SEDG Scholarships",
+      "/student-life/sedg/minutes": "NSCET | SEDG Minutes",
+      "/student-life/sedg/welfare": "NSCET | SEDG Welfare",
+      "/admin-login": "NSCET | Admin Login",
+      "/admin-dashboard": "NSCET | Admin Dashboard"
+    };
+
+    if (isAdminRoute || location.pathname === "/admin-login" || location.pathname === "/admin-dashboard") {
       document.title = "NSCET | Admin";
-    } else if (location.pathname === "/") {
-      document.title = "NSCET | Home";
+    } else if (location.pathname.startsWith("/departments/") && location.pathname.includes("/faculty/")) {
+      // Faculty portfolio pages will handle their own titles
+      return;
+    } else if (location.pathname.startsWith("/gallery/events/")) {
+      document.title = "NSCET | Event Gallery";
+    } else {
+      document.title = pageTitleMap[location.pathname] || "NSCET";
     }
   }, [location.pathname, isAdminRoute]);
 

@@ -1,25 +1,5 @@
 /* AnnualAccounts.css */
 
-/* ==========================================================
-   FIX: BANNER EXACT ZERO GAP (MATCHING ACT STATUTES)
-   ========================================================== */
-.common-hero-banner {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-.annual-reports-page .common-hero-banner + * {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
-
-.annual-reports-page .common-hero-banner + * > div,
-.annual-reports-page .common-hero-banner + * > section,
-.annual-reports-page .common-hero-banner + * .about-inner-container {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
 /* ==========================================================================
    MOBILE RESPONSIVENESS FIXES FOR ANNUAL ACCOUNTS PAGE
    ========================================================================== */
@@ -27,7 +7,6 @@
 
     /* Ulla iruka main container spacing adjust */
     .about-inner-container.ar-section {
-        padding-top: 20px !important;
         padding-left: 15px !important;
         padding-right: 15px !important;
     }
