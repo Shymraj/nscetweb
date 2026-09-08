@@ -5,7 +5,7 @@
 .about{
     position:relative;
     overflow:hidden;
-    padding:40px 8%; /* Reduced top/bottom padding from 100px to 40px */
+    padding:40px 8% 20px 8%;
     display:grid;
     grid-template-columns:1fr 1fr;
     align-items:center;

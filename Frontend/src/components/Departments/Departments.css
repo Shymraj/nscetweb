@@ -3,7 +3,7 @@
 =========================================================== */
 .wide-courses-section {
   width: 100%;
-  padding: 40px 0; /* Reduced top/bottom padding from 100px to 40px */
+  padding: 24px 0 40px 0;
   background-color: #fafaf9; 
   overflow: hidden;
   font-family: 'Inter', sans-serif;
