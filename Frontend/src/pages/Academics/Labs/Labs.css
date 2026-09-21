@@ -80,7 +80,7 @@ body.dark-mode .tabs-container {
   padding: 0.75rem 1.5rem;
   border: none;
   background: transparent;
-  cursor: pointer;
+  cursor: default;
   border-radius: 100px;
   font-weight: 600;
   font-size: 0.9rem;
@@ -111,6 +111,7 @@ body.dark-mode .tab-button {
 .tab-label {
   position: relative;
   z-index: 1;
+  cursor: pointer;
 }
 
 /* Showcase Display Area */
@@ -126,10 +127,16 @@ body.dark-mode .tab-button {
   box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(226, 232, 240, 0.8);
   display: flex;
-  align-items: center;
-  gap: 4rem;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
+}
+
+.showcase-header {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
 }
 
 body.dark-mode .showcase-card {
@@ -265,10 +272,13 @@ body.dark-mode .secondary-btn:hover {
    ========================================= */
 @media (max-width: 968px) {
   .showcase-card {
-    flex-direction: column;
-    text-align: center;
     padding: 3rem 2rem;
     gap: 2rem;
+  }
+
+  .showcase-header {
+    flex-direction: column;
+    text-align: center;
   }
 
   .showcase-content h2 {

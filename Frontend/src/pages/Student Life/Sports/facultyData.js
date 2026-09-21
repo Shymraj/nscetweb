@@ -23,7 +23,7 @@ export const sportsFacultyData = [
   {
     id: "pandiyammal",
     slug: "pandiyammal",
-    name: "Pandiyammal S",
+    name: "Mrs. S. Pandiyammal",
     desig: "Assistant Physical Director",
     qual: "",
     image: Pandiyammal,

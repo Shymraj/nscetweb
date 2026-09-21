@@ -156,32 +156,26 @@ const Labs = () => {
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="showcase-card"
               >
-                <div 
-                  className="showcase-icon-large" 
-                  style={{ 
-                    backgroundColor: `${activeLab.color}15`, 
-                    color: activeLab.color,
-                    boxShadow: `0 0 40px ${activeLab.color}20` 
-                  }}
-                >
-                  {activeLab.icon}
-                </div>
-                
-                <div className="showcase-content">
-                  <span className="showcase-dept" style={{ color: activeLab.color }}>
-                    {activeLab.department} Department
-                  </span>
-                  <h2>{activeLab.title}</h2>
-                  <p>{activeLab.description}</p>
-                  
-                  <div className="showcase-actions">
-                    <button className="primary-btn">
-                      Explore Equipments <FaArrowRight className="btn-icon" />
-                    </button>
-                    <button className="secondary-btn">
-                      View Projects
-                    </button>
+                <div className="showcase-header">
+                  <div 
+                    className="showcase-icon-large" 
+                    style={{ 
+                      backgroundColor: `${activeLab.color}15`, 
+                      color: activeLab.color,
+                      boxShadow: `0 0 40px ${activeLab.color}20` 
+                    }}
+                  >
+                    {activeLab.icon}
                   </div>
+                  
+                  <div className="showcase-content">
+                    <span className="showcase-dept" style={{ color: activeLab.color }}>
+                      {activeLab.department} Department
+                    </span>
+                    <h2>{activeLab.title}</h2>
+                    <p>{activeLab.description}</p>
+                  </div>
+                </div>
 
                   {activeLab.laboratories && (
                     <div className="laboratories-container">
@@ -206,7 +200,6 @@ const Labs = () => {
                       </div>
                     </div>
                   )}
-                </div>
               </motion.div>
             </AnimatePresence>
           </div>

@@ -358,12 +358,11 @@
 }
 
 .call-pill {
-  background: #ffffff;
-  color: #0f172a;
-}
-.call-pill:hover {
   background: #f97316;
   color: #ffffff;
+}
+.call-pill:hover {
+  background: #ea580c;
 }
 
 .wa-pill {

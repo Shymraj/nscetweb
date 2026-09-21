@@ -7,6 +7,8 @@ import './Elearning.css';
 // Import local images
 import infosysLogo from './images/infosys.png';
 import nptelLogo from './images/nptel.png';
+import img1 from './images/image.png';
+import img2 from './images/image copy.png';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -31,7 +33,7 @@ const SectionHeader = ({ title, subtitle }) => (
 );
 
 const InfosysContent = () => (
-  <motion.div 
+  <motion.div
     className="el-partner-content"
     variants={containerVariants}
     initial="hidden"
@@ -41,14 +43,14 @@ const InfosysContent = () => (
       <div className="el-hero-background"></div>
       <div className="el-hero-inner">
         <div className="el-intro-eyebrow">E-Learning Platform</div>
-        
+
         <div className="el-partner-logo-wrapper">
           <img src={infosysLogo} alt="Infosys Springboard Logo" className="el-hero-logo" />
         </div>
-        
+
         <h1 className="el-main-page-title">NSCET × Infosys Springboard</h1>
         <p className="el-tagline">Empowering the next generation of engineers with advanced digital skills through industry-aligned learning.</p>
-        
+
         <div className="el-cta-container">
           <a href="https://infyspringboard.onwingspan.com/" target="_blank" rel="noopener noreferrer" className="el-primary-button">
             Access Portal <ExternalLink size={18} />
@@ -100,13 +102,13 @@ const InfosysContent = () => (
         <SectionHeader title="Glimpses of the Partnership" subtitle="Key activities and sessions conducted under the program." />
         <div className="el-gallery-grid">
           <div className="el-gallery-item">
-            <img src="https://www.nscet.org/e-learning/files/IMG1.jpg" alt="Partnership Activity 1" className="el-gallery-img" />
+            <img src={img1} alt="Partnership Activity 1" className="el-gallery-img" />
             <div className="el-gallery-overlay">
               <span>Training Session</span>
             </div>
           </div>
           <div className="el-gallery-item">
-            <img src="https://www.nscet.org/e-learning/files/IMG2.jpeg" alt="Partnership Activity 2" className="el-gallery-img" />
+            <img src={img2} alt="Partnership Activity 2" className="el-gallery-img" />
             <div className="el-gallery-overlay">
               <span>Faculty Orientation</span>
             </div>
@@ -118,7 +120,7 @@ const InfosysContent = () => (
 );
 
 const NptelContent = () => (
-  <motion.div 
+  <motion.div
     className="el-partner-content"
     variants={containerVariants}
     initial="hidden"
@@ -128,14 +130,14 @@ const NptelContent = () => (
       <div className="el-hero-background nptel-bg"></div>
       <div className="el-hero-inner">
         <div className="el-intro-eyebrow">Academic Partnerships</div>
-        
+
         <div className="el-partner-logo-wrapper">
           <img src={nptelLogo} alt="NPTEL Logo" className="el-hero-logo" />
         </div>
-        
+
         <h1 className="el-main-page-title">NSCET × NPTEL Local Chapter</h1>
         <p className="el-tagline">Providing students and faculty with advanced online learning opportunities through IITs and IISc curated courses.</p>
-        
+
         <div className="el-cta-container">
           <a href="https://nptel.ac.in/" target="_blank" rel="noopener noreferrer" className="el-primary-button">
             Explore NPTEL Courses <ExternalLink size={18} />
