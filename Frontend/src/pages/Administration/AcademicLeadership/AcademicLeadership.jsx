@@ -94,7 +94,12 @@ const AcademicLeadership = () => {
   return (
     <div className="al-page-container">
 
-      <div className="al-hero-banner" style={{ backgroundImage: `url(${bannerImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="common-hero-banner">
+        <img 
+          src={bannerImage} 
+          alt="Academic Leadership Banner" 
+          style={{ width: '100%', height: 'auto', display: 'block' }} 
+        />
       </div>
 
       <div className="al-about-card">

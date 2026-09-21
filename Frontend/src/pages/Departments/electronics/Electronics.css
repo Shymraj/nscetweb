@@ -24,12 +24,49 @@
   }
 }
 
+/* ==========================================================
+   🔥 COMPACT ECE BANNER SPECIFIC FIX 🔥
+   ========================================================== */
+.ece-hero-banner {
+  width: 100%;
+  height: 480px; /* Force banner to be compact/half page height */
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start; /* Ensure top of image is prioritized */
+}
+
+.ece-hero-banner img {
+  width: 100%;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: top center; /* Keep the top text visible when cropping */
+}
+
+@media (max-width: 1024px) {
+  .ece-hero-banner {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ece-hero-banner {
+    height: 250px;
+  }
+}
+
 /* Page Base Override */
 .cse-redesign-page {
   margin: 0 !important;
+  padding-top: 114px !important;
   padding-bottom: 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .cse-redesign-page {
+    padding-top: 60px !important;
+  }
 }
 
 /* ================= VARIABLES ================= */

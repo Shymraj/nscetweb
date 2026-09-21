@@ -124,7 +124,7 @@ const Electronics = () => {
     <div className="common-page-wrapper cse-redesign-page">
 
       {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
-      <div className="common-hero-banner">
+      <div className="common-hero-banner ece-hero-banner">
         {bannerImg && (
           <img 
             src={bannerImg} 

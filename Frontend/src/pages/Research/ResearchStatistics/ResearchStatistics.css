@@ -7,7 +7,7 @@
 }
 
 .research-statistics-page .common-hero-banner + .rs-container {
-  padding-top: 40px !important; /* Perfect neat gap before cards */
+  padding-top: 0 !important; /* Space removed */
   margin-top: 0 !important;
 }
 
@@ -40,7 +40,7 @@
 
 @media (max-width: 768px) {
   .research-statistics-page .common-hero-banner + .rs-container {
-    padding-top: 25px !important; /* Tighter gap for mobile */
+    padding-top: 0 !important; /* Space removed */
   }
 
   .rs-grid {

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaImages, FaCalendarAlt, FaArrowRight, FaFilter, FaStar } from "react-icons/fa";
 import axios from "axios";
+import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import bannerImage from "./assets/banner/EventsGallery.png";
 import { eventsData as staticEvents } from "./data/eventsData";
 import "./Events.css";
@@ -81,19 +82,13 @@ const Events = () => {
   }, [eventsData, activeFilter]);
 
   return (
-    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
-    <div className="common-page-wrapper events-gallery-page">
-      
-      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
-      <div className="common-hero-banner">
-        {bannerImage && (
-          <img 
-            src={bannerImage} 
-            alt="Events Gallery Banner" 
-            style={{ width: '100%', height: 'auto', display: 'block' }} 
-          />
-        )}
-      </div>
+    <div className="events-gallery-page">
+      <PageBanner
+        title="Events Gallery"
+        subtitle="Explore Memorable Moments from Our Campus History"
+        backgroundImage={bannerImage}
+        hideBreadcrumb={true}
+      />
 
       <div className="events-editorial-container">
         

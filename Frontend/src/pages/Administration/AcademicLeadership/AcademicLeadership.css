@@ -5,22 +5,13 @@
   color: #fbfcff;
   width: 100%;
   overflow-x: hidden;
-  /* 👇 INDHA VALUE AH MATTUM 115px KU KORACHIDUNGA 👇 */
-  padding-top: 115px !important; 
+  padding-top: 0 !important; 
 }
 
 /* Banner gap illama irukka indha margin-ah add pannunga */
-.al-hero-banner {
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-  color: white;
-  width: 100%;
-  aspect-ratio: 8 / 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 0 !important; /* Gap remove panna */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* ================= ABOUT OUR ACADEMIC LEADERSHIP FEATURED CARD ================= */
@@ -523,7 +514,7 @@
 @media (max-width: 768px) {
   /* Page top padding to show banner below navbar */
   .al-page-container {
-      padding-top: 80px !important; 
+      padding-top: 60px !important; 
   }
 
   /* About Card layout fix */

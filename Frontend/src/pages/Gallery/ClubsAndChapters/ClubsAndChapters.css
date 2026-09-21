@@ -1,28 +1,14 @@
-/* ==========================================================
-   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
-   ========================================================== */
-.common-hero-banner {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-.clubs-chapters-page .common-hero-banner + .clubs-chapters-container {
-  padding-top: 40px !important; /* Perfect neat gap before cards */
-  margin-top: 0 !important;
-}
-
 /* Page Base Override */
 .clubs-chapters-page {
   background-color: #f8fafc;
   min-height: 100vh;
   margin: 0 !important;
-  /* Top padding is handled globally by .common-page-wrapper */
 }
 
 .clubs-chapters-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem; /* The top padding is overridden above for banner follow-up */
+  padding: 4rem 2rem;
 }
 
 .clubs-grid {
@@ -32,10 +18,6 @@
 }
 
 @media (max-width: 768px) {
-  .clubs-chapters-page .common-hero-banner + .clubs-chapters-container {
-    padding-top: 25px !important; /* Tighter gap for mobile */
-  }
-
   .clubs-grid {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 1.5rem;

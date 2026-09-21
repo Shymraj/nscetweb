@@ -13,6 +13,7 @@ const facultyData = [
   { id: 7, name: "Dr. B. Radha Krishnan", department: "MECH", designation: "Professor & Head Of the Department", googleScholar: "https://scholar.google.co.in/citations?user=o_b0-3sAAAAJ", scopus: "https://www.scopus.com/authid/detail.uri?authorId=57200580185", orcid: "https://orcid.org/0000-0002-5070-5653" },
   { id: 8, name: "Vignesh LS", department: "AI&DS", designation: "Assistant Professor", googleScholar: "https://scholar.google.com/citations?user=y8txljgAAAAJ&hl=en", scopus: "-", orcid: "https://orcid.org/my-orcid?orcid=0000-0003-3084-4821" },
   { id: 9, name: "Dr.N.Mathavan", department: "ECE", designation: "Assistant Professor", googleScholar: "https://scholar.google.com/citations?hl=en&user=omyqfTEAAAAJ", scopus: "-", orcid: "https://orcid.org/0000-0003-3533-2921 & 0000-0003-3533-2921" }
+
 ];
 
 const patents = [

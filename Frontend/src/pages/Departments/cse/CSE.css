@@ -30,7 +30,16 @@
   background-color: #ffffff;
   position: relative;
   margin: 0 !important;
-  padding: 0 !important;
+  padding-top: 114px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .cse-redesign-page {
+    padding-top: 76px !important;
+  }
 }
 
 body.dark-mode .cse-redesign-page {
