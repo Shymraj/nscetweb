@@ -96,17 +96,13 @@ const Library = () => {
   return (
     <div className="model1-landing-wrapper">
       
-      {/* 👇 PLAIN IMAGE BANNER ADD PANNAPATTULLATHU 👇 */}
-      <div 
-        style={{ 
-          backgroundImage: `url(${bannerImage})`, 
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center', 
-          width: '100%', 
-          aspectRatio: '8 / 3',
-          minHeight: '350px' 
-        }}
-      >
+      {/* 👇 FIX PANNAPPATTA BANNER: Background image-ku bathila direct Image tag potruken. Ippo cut aagathu! 👇 */}
+      <div style={{ width: '100%', overflow: 'hidden' }}>
+        <img 
+          src={bannerImage} 
+          alt="NSCET Central Library Banner" 
+          style={{ width: '100%', height: 'auto', display: 'block' }} 
+        />
       </div>
 
       <main className="m1-main-container">

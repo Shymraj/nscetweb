@@ -439,15 +439,67 @@ body {
   font-weight: 500;
 }
 
-/* --- Responsive Adjustments --- */
+/* =========================================
+   RESPONSIVE ADJUSTMENTS (FIXED BANNER & GALLERY)
+   ========================================= */
+
 @media (max-width: 1024px) {
   .m1-gallery-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
+  .model1-landing-wrapper {
+    padding-top: 38px !important; 
+  }
+  
+  /* 👇 BANNER ZOOM FIX FOR TABLET 👇 */
+  .model1-landing-wrapper > div:first-child {
+    min-height: auto !important; 
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .m1-main-container { padding: 1.5rem 1.5rem 4rem; } 
+  .m1-section-title { font-size: 1.8rem; }
   .m1-about-grid { grid-template-columns: 1fr; }
-  .m1-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  /* GALLERY FIX FOR TAB: 2 Columns */
+  .m1-gallery-grid { grid-template-columns: repeat(2, 1fr) !important; } 
+  
   .m1-bottom-info { grid-template-columns: 1fr; }
+  .m1-about-card, .m1-tab-content-card, .m1-info-card { padding: 1.8rem; }
+}
+
+@media (max-width: 576px) {
+  .model1-landing-wrapper {
+    padding-top: 38px !important; 
+  }
+
+  /* 👇 BANNER ZOOM FIX FOR MOBILE (CSS ONLY) 👇 */
+  /* Ithu antha React file la irukka inline 'minHeight: 350px' ah force panni thadukkum */
+  .model1-landing-wrapper > div:first-child {
+    min-height: auto !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center top !important;
+  }
+
+  .m1-main-container { padding: 1rem 1rem 3rem; }
+  .m1-section-title { font-size: 1.5rem; flex-direction: column; text-align: center; } 
+  
+  /* GALLERY FIX FOR MOBILE: 1 Column and proper aspect ratio */
+  .m1-gallery-grid { grid-template-columns: 1fr !important; } 
+  .m1-gallery-item-wrapper { 
+    height: auto !important; 
+    aspect-ratio: 4 / 3; 
+  }
+  
+  .ntf-tab-chip { width: 100%; justify-content: center; }
+  .m1-stats-grid { flex-direction: column; align-items: center; }
+  .m1-stat-card { width: 100%; max-width: 300px; }
+  .about-card-header { flex-direction: column; text-align: center; }
+  .m1-lib-profile { flex-direction: column; text-align: center; }
+  .m1-about-card, .m1-tab-content-card, .m1-info-card { padding: 1.2rem; }
 }
 
 /* =========================================

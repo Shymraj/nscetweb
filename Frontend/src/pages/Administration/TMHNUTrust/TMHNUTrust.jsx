@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
   FaUniversity, FaUserTie, FaUsers, FaGraduationCap,
   FaStar, FaCrown, FaShieldAlt, FaHandshake,
-  FaBookOpen, FaLandmark, FaChessKing, FaChessQueen
+  FaBookOpen, FaLandmark, FaChessKing, FaChessQueen, FaUserCircle
 } from "react-icons/fa";
-import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import bannerImg from "./Banner/TMHNUTRUST.png";
 import "./TMHNUTrust.css";
 
@@ -41,6 +40,39 @@ const scaleIn = {
 const stagger = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.12 } }
+};
+
+/* ─── CountUp Animation Component for Stats ─── */
+const AnimatedCounter = ({ endValue, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.5 });
+
+  useEffect(() => {
+    if (inView) {
+      let start = 0;
+      const end = parseInt(endValue, 10);
+      if (start === end) return;
+      
+      const totalDuration = 2000; 
+      const incrementTime = 30; 
+      const steps = totalDuration / incrementTime;
+      const increment = end / steps;
+
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= end) {
+          setCount(end);
+          clearInterval(timer);
+        } else {
+          setCount(Math.ceil(start));
+        }
+      }, incrementTime);
+
+      return () => clearInterval(timer);
+    }
+  }, [inView, endValue]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
 };
 
 /* ─── Animated Section Wrapper ─── */
@@ -89,18 +121,18 @@ const governingCell = [
 ];
 
 const committeeMembers = [
-  "Mr. B. Ashokan",
-  "Mr. K.T. Balasubramanian",
-  "Mr. V.K.P. Gobi",
-  "Mr. K.A.T. Karthikeyan",
-  "Mr. R. Pandikumar",
-  "Mr. G.S. Raja",
-  "Mr. A. Ramakrishnan",
-  "Mr. T.M. Sampath",
-  "Mr. M. Senthilkumar",
-  "Mr. C. Sundarapandian",
-  "Mr. O.K.T. Vijay",
-  "Mr. R.V. Vijayakumar"
+  { name: "Mr. B. Ashokan" },
+  { name: "Mr.K.T.Balasubramanian" },
+  { name: "Mr. V.K.P. Gobi" },
+  { name: "Mr. K.A.T. Karthikeyan" },
+  { name: "Mr. R. Pandikumar" },
+  { name: "Mr. G.S. Raja" },
+  { name: "Mr. A. Ramakrishnan" },
+  { name: "Mr. T.M. Sampath" },
+  { name: "Mr. M. Senthilkumar" },
+  { name: "Mr. C. Sundarapandian" },
+  { name: "Mr. O.K.T. Vijay" },
+  { name: "Mr. R.V. Vijayakumar" }
 ];
 
 const prominentPersonalities = [
@@ -119,117 +151,97 @@ const prominentPersonalities = [
 /* ─── Component ─── */
 function TMHNUTrust() {
   return (
-    <div className="tmhnu-page">
-      {/* Hero Banner (Only TMHNUTRUST.png image as requested) */}
-      <PageBanner
-        backgroundImage={bannerImg}
-        hideBreadcrumb={true}
-        showOverlay={false}
-        showText={false}
-      />
+    <div className="tmhnu-page-wrapper">
+      
+      {/* 🔥 NEW Custom Responsive Banner 🔥 */}
+      <div className="tmhnu-custom-banner">
+        <img src={bannerImg} alt="TMHNU Trust Banner" loading="lazy" />
+      </div>
 
-      {/* About TMHNU & Our Journey */}
-      <section className="tmhnu-about-section">
+      {/* --- SECTION 1: ABOUT --- */}
+      <section className="tmhnu-section tmhnu-bg-main">
         <div className="tmhnu-container">
-          <div className="tmhnu-about-grid">
-            {/* About TMHNU */}
-            <AnimatedSection variants={fadeInLeft}>
-              <div className="tmhnu-about-card">
-                <div className="tmhnu-section-badge">
-                  <FaLandmark className="badge-icon" />
-                  Heritage
-                </div>
-                <h2 className="tmhnu-section-title">About TMHNU</h2>
-
-                <p className="tmhnu-about-text">
+          <div className="tmhnu-bento-grid">
+            
+            {/* Heritage Card */}
+            <AnimatedSection variants={fadeInLeft} className="tmhnu-bento-card">
+              <div className="tmhnu-bento-header">
+                <span className="tmhnu-badge"><FaLandmark className="badge-icon" /> HERITAGE</span>
+                <h2>About TMHNU</h2>
+              </div>
+              <div className="tmhnu-bento-content">
+                <p>
                   Theni Melapettai Hindu Nadargal Uravinmurai (TMHNU) proclaims to society its tremendous service in providing quality education. The pioneers of TMHNU (1898) started the primary school in 1919, named Nadar Saraswathi Vidhyasala, with 38 students and 2 teachers. Now, that small seed has flourished into a large tree. With the blessings of Annai Sri Bathrakaliamman, 17 educational institutions now function under this bower, providing quality education. Over 22,000 students study here, with more than 1,000 teaching and 1,000 supportive staff members.
                 </p>
-                <div className="tmhnu-stats-row">
-                  <div className="tmhnu-stat-chip">
-                    <span className="stat-number">1898</span>
-                    <span className="stat-label">Founded</span>
-                  </div>
-                  <div className="tmhnu-stat-chip">
-                    <span className="stat-number">17</span>
-                    <span className="stat-label">Institutions</span>
-                  </div>
-                  <div className="tmhnu-stat-chip">
-                    <span className="stat-number">22K+</span>
-                    <span className="stat-label">Students</span>
-                  </div>
+              </div>
+
+              {/* 3 Separate Stats Cards */}
+              <div className="tmhnu-stats-3-cards-container">
+                <div className="tmhnu-stat-card">
+                  <h3 className="stat-number-highlight"><AnimatedCounter endValue={1898} /></h3>
+                  <span className="stat-text-highlight">FOUNDED</span>
+                </div>
+                
+                <div className="tmhnu-stat-card">
+                  <h3 className="stat-number-highlight"><AnimatedCounter endValue={17} /></h3>
+                  <span className="stat-text-highlight">INSTITUTIONS</span>
+                </div>
+                
+                <div className="tmhnu-stat-card">
+                  <h3 className="stat-number-highlight"><AnimatedCounter endValue={22} suffix="K+" /></h3>
+                  <span className="stat-text-highlight">STUDENTS</span>
                 </div>
               </div>
             </AnimatedSection>
 
-            {/* About Our Journey */}
-            <AnimatedSection variants={fadeInRight}>
-              <div className="tmhnu-about-card">
-                <div className="tmhnu-section-badge">
-                  <FaBookOpen className="badge-icon" />
-                  Our Journey
-                </div>
-                <h2 className="tmhnu-section-title">About Our Journey</h2>
-
-                <p className="tmhnu-about-text">
+            {/* Journey Card */}
+            <AnimatedSection variants={fadeInRight} className="tmhnu-bento-card">
+              <div className="tmhnu-bento-header">
+                <span className="tmhnu-badge"><FaBookOpen className="badge-icon" /> OUR JOURNEY</span>
+                <h2>About Our Journey</h2>
+              </div>
+              <div className="tmhnu-bento-content">
+                <p>
                   Nadar Saraswathi College of Engineering and Technology was established in 2010 to uplift rural students and nurture them with excellence. Located on a 21-acre eco-friendly campus near Theni, the institution focuses on molding outstanding engineers as responsible citizens and professionals.
                 </p>
-                <p className="tmhnu-about-text" style={{ marginTop: "14px" }}>
+                <p>
                   In today's world, there is a genuine need for an institute that provides quality academic and career education in a personalized atmosphere. NSCET offers programs that prepare students for successful employment through quality teaching, learning and research. Our goal is to equip students with lifelong knowledge, skills and credentials for professional advancement at any point in their careers.
                 </p>
-                <p className="tmhnu-about-text" style={{ marginTop: "14px" }}>
+                <p>
                   Excellence in teaching remains our most important criterion for faculty recruitment. Our faculty are also engaged in continuous research, scholarly work and service to the region and state. The college offers comprehensive support services to ensure student success.
                 </p>
               </div>
             </AnimatedSection>
+            
           </div>
         </div>
       </section>
 
-      {/* Governing Cell */}
-      <section className="tmhnu-governing-section">
+      {/* --- SECTION 2: GOVERNING CELL --- */}
+      <section className="tmhnu-section tmhnu-bg-light">
         <div className="tmhnu-container">
-          <AnimatedSection variants={fadeInUp}>
-            <div className="tmhnu-heading-center">
-              <div className="tmhnu-section-badge">
-                <FaUniversity className="badge-icon" />
-                Leadership
-              </div>
-              <h2 className="tmhnu-section-title">Governing Cell</h2>
-              <p className="tmhnu-heading-subtitle">
-                Dedicated leaders guiding TMHNU towards excellence in education and institutional growth
-              </p>
-            </div>
+          <AnimatedSection variants={fadeInUp} className="tmhnu-section-header">
+            <span className="tmhnu-badge"><FaUserTie className="badge-icon" /> LEADERSHIP</span>
+            <h2>Governing Cell</h2>
+            <p>Dedicated leaders guiding TMHNU towards excellence in education and institutional growth</p>
           </AnimatedSection>
 
-          <motion.div
-            className="tmhnu-leaders-grid"
+          <motion.div 
+            className="tmhnu-screenshot-grid-4"
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
             {governingCell.map((leader, index) => (
-              <motion.div
-                className="tmhnu-leader-card"
-                key={index}
-                variants={scaleIn}
-              >
-                <div className="tmhnu-leader-card-inner">
-                  <div className="tmhnu-leader-avatar-wrap">
-                    <div className="tmhnu-leader-avatar-ring">
-                      <img
-                        src={leader.image}
-                        alt={leader.name}
-                        className="tmhnu-leader-avatar"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="tmhnu-leader-rank">{leader.icon}</div>
-                  </div>
-                  <div className="tmhnu-leader-info">
-                    <div className="tmhnu-leader-role">{leader.role}</div>
-                    <h3 className="tmhnu-leader-name">{leader.name}</h3>
-                  </div>
+              <motion.div className="tmhnu-screenshot-card-box" key={index} variants={scaleIn}>
+                <div className="screenshot-img-wrapper">
+                  <img src={leader.image} alt={leader.name} loading="lazy" />
+                  <div className="screenshot-icon-badge">{leader.icon}</div>
+                </div>
+                <div className="screenshot-text-box">
+                  <span className="screenshot-role-text">{leader.role}</span>
+                  <h4 className="screenshot-name-text">{leader.name}</h4>
                 </div>
               </motion.div>
             ))}
@@ -237,94 +249,67 @@ function TMHNUTrust() {
         </div>
       </section>
 
-      {/* Executive Committee */}
-      <section className="tmhnu-committee-section">
+      {/* --- SECTION 3: PROMINENT PERSONALITIES --- */}
+      <section className="tmhnu-section tmhnu-bg-main">
         <div className="tmhnu-container">
-          <AnimatedSection variants={fadeInUp}>
-            <div className="tmhnu-heading-center">
-              <div className="tmhnu-section-badge">
-                <FaUsers className="badge-icon" />
-                Committee
-              </div>
-              <h2 className="tmhnu-section-title">Executive Committee Members of TMHNU</h2>
-              <p className="tmhnu-heading-subtitle">
-                Distinguished members committed to shaping the future of education
-              </p>
-            </div>
+          <AnimatedSection variants={fadeInUp} className="tmhnu-section-header">
+            <span className="tmhnu-badge"><FaStar className="badge-icon" /> PERSONALITIES</span>
+            <h2>Prominent Personalities of NSCET</h2>
+            <p>Visionary leaders driving the mission and growth of the institution</p>
           </AnimatedSection>
 
-          <motion.div
-            className="tmhnu-committee-grid"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {committeeMembers.map((member, index) => (
-              <motion.div
-                className="tmhnu-member-chip"
-                key={index}
-                variants={fadeInUp}
-              >
-                <div className="tmhnu-member-icon">
-                  <FaUserTie />
-                </div>
-                <span className="tmhnu-member-name">{member}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Prominent Personalities */}
-      <section className="tmhnu-personalities-section">
-        <div className="tmhnu-container">
-          <AnimatedSection variants={fadeInUp}>
-            <div className="tmhnu-heading-center">
-              <div className="tmhnu-section-badge">
-                <FaStar className="badge-icon" />
-                Personalities
-              </div>
-              <h2 className="tmhnu-section-title">Prominent Personalities of NSCET</h2>
-              <p className="tmhnu-heading-subtitle">
-                Visionary leaders driving the mission and growth of the institution
-              </p>
-            </div>
-          </AnimatedSection>
-
-          <motion.div
-            className="tmhnu-personalities-grid"
+          <motion.div 
+            className="tmhnu-screenshot-grid-2"
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
             {prominentPersonalities.map((person, index) => (
-              <motion.div
-                className="tmhnu-personality-card"
-                key={index}
-                variants={scaleIn}
-              >
-                <div className="tmhnu-personality-img-wrap">
-                  <div className="tmhnu-personality-img-bg" />
-                  <div className="tmhnu-personality-avatar-ring">
-                    <img
-                      src={person.image}
-                      alt={person.name}
-                      className="tmhnu-personality-avatar"
-                      loading="lazy"
-                    />
-                  </div>
+              <motion.div className="tmhnu-screenshot-card-box" key={index} variants={scaleIn}>
+                <div className="screenshot-img-wrapper">
+                  <img src={person.image} alt={person.name} loading="lazy" />
                 </div>
-                <div className="tmhnu-personality-info">
-                  <div className="tmhnu-personality-role">{person.role}</div>
-                  <h3 className="tmhnu-personality-name">{person.name}</h3>
+                <div className="screenshot-text-box">
+                  <span className="screenshot-role-text">{person.role}</span>
+                  <h3 className="screenshot-name-text">{person.name}</h3>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
+
+      {/* --- SECTION 4: EXECUTIVE COMMITTEE --- */}
+      <section className="tmhnu-section tmhnu-bg-light">
+        <div className="tmhnu-container">
+          <AnimatedSection variants={fadeInUp} className="tmhnu-section-header">
+            <span className="tmhnu-badge"><FaUsers className="badge-icon" /> COMMITTEE</span>
+            <h2>Executive Committee Members of TMHNU</h2>
+            <p>Distinguished members committed to shaping the future of education</p>
+          </AnimatedSection>
+
+          <motion.div 
+            className="tmhnu-exec-grid-3x4"
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            {committeeMembers.map((member, index) => (
+              <motion.div className="exec-card-3x4" key={index} variants={scaleIn}>
+                <div className="exec-avatar-3x4">
+                  <FaUserCircle className="default-user-icon" />
+                </div>
+                <div className="exec-details-3x4">
+                  <h5 className="exec-name-3x4">{member.name}</h5>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
     </div>
   );
 }

@@ -484,7 +484,7 @@
 }
 
 /* ==========================================
-   Responsive Styles
+   Responsive Styles (Improved)
    ========================================== */
 @media (max-width: 1024px) {
   .tf-faculty-layout-wrapper {
@@ -492,20 +492,36 @@
   }
   .tf-hod-fixed-wrapper {
     width: 100%;
-    margin-bottom: 2rem;
+    max-width: 650px; /* Constrain width on tablet so it doesn't stretch awkwardly */
+    margin: 0 auto 2rem auto;
     box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Normal bottom shadow instead of right */
   }
   .tf-slider-wrapper {
     margin-left: 0;
     padding-left: 0;
+    padding-right: 0; /* Reset desktop right padding to avoid horizontal overflow */
+    width: 100%;
   }
   .tf-staff-section-header {
     margin-left: 0;
+    justify-content: center; /* Center header on smaller screens */
+  }
+  /* Keep slider arrows inside the viewport */
+  .tf-slider-btn.left {
+    left: 10px;
+  }
+  .tf-slider-btn.right {
+    right: 10px;
   }
 }
 
-
 @media (max-width: 768px) {
+  .tf-page-wrapper {
+    padding: 8rem 1.5rem 3rem; /* Adjust safe padding for mobile */
+  }
+  .tf-main-title {
+    font-size: 2rem; /* Scale down main title */
+  }
   .tf-pill-nav-container {
     flex-direction: column;
     border-radius: 12px;
@@ -516,19 +532,70 @@
   .tf-pill-btn {
     border-radius: 8px;
     margin-bottom: 4px;
+    width: 100%; /* Ensure full width in column format */
   }
   .tf-pill-btn.active {
     background-color: var(--tf-primary);
   }
   .tf-sub-nav-container {
-    flex-direction: column;
-    align-items: stretch;
+    /* Allow wrapping naturally rather than forced column stretch */
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
   .tf-sub-nav-btn {
     text-align: center;
+    flex: 1 1 auto; /* Allow buttons to grow slightly to fill space */
   }
   .tf-slider-btn {
     display: none; /* Hide arrows on mobile */
+  }
+  .tf-slider-wrapper {
+    /* Allow manual touch swipe on mobile since arrows are hidden */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tf-slider-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ==========================================
+   Small Mobile Enhancements
+   ========================================== */
+@media (max-width: 480px) {
+  .tf-page-wrapper {
+    padding: 6.5rem 1rem 2rem;
+  }
+  .tf-main-title {
+    font-size: 1.6rem;
+  }
+  .tf-scroll-track {
+    gap: 1.2rem; /* Reduce gap between cards for smaller screens */
+  }
+  .tf-staff-card {
+    width: 240px; /* Slightly shrink card width to fit better */
+    padding: 1.2rem;
+  }
+  .tf-staff-img {
+    width: 90px;
+    height: 90px;
+  }
+  .tf-staff-name {
+    font-size: 1.05rem;
+  }
+  .tf-section-title {
+    font-size: 1.25rem;
+  }
+  .tf-sub-nav-btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+  .tf-pill-btn {
+    font-size: 0.9rem;
+    padding: 10px;
   }
 }
 
