@@ -1459,9 +1459,7 @@ body.dark-mode .non-teaching-avatar {
    Requirement: Hide ALL hero/page banners across the entire project on mobile
    ========================================================================== */
 @media (max-width: 767px) {
-
-  .page-banner,
-  .hero {
+  .page-banner {
     display: none !important;
     height: 0 !important;
     min-height: 0 !important;
@@ -1473,140 +1471,7 @@ body.dark-mode .non-teaching-avatar {
 
   /* Add top offset to the first content section immediately after the hidden banner
      to compensate for the 60px fixed navbar on mobile */
-  .page-banner+*,
-  .hero+* {
+  .page-banner+* {
     margin-top: 60px !important;
-  }
-}
-
-/* ==========================================================================
-   MOBILE HOMEPAGE HERO
-   Requirement: Show a dedicated static mobile hero image on the Homepage 
-   instead of the hidden desktop banner.
-   ========================================================================== */
-.mobile-home-hero {
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .mobile-home-hero {
-    display: block !important;
-    width: 100%;
-    position: relative;
-    /* margin-top is handled by .hero + * (60px) to seamlessly attach to navbar */
-  }
-
-  .mobile-home-hero img {
-    width: 100%;
-    height: 55vh;
-    min-height: 440px;
-    /* Increased slightly to comfortably fit all text */
-    object-fit: cover;
-    display: block;
-    border-radius: 0 0 15px 15px;
-    /* optional aesthetic */
-  }
-
-  /* Mobile Hero Text Overlay Styles */
-  .mobile-hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.75) 100%);
-    border-radius: 0 0 15px 15px;
-    padding: 20px 15px;
-    text-align: center;
-    z-index: 2;
-  }
-
-  .mobile-hero-content {
-    width: 100%;
-    max-width: 340px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .mobile-hero-trust {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #FFD700;
-    /* Gold */
-    margin-bottom: 6px;
-    font-weight: 700;
-    font-family: var(--font-subtopic);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  }
-
-  .mobile-hero-title {
-    font-size: 22px;
-    font-weight: 700;
-    /* Match desktop Cinzel weight */
-    line-height: 1.2;
-    color: #ffffff;
-    margin-bottom: 6px;
-    font-family: "Cinzel", serif;
-    /* Match desktop font */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-  }
-
-  .mobile-hero-tagline {
-    font-size: 13px;
-    font-weight: 600;
-    color: #E0E7FF;
-    margin-bottom: 15px;
-    font-family: var(--font-body);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  }
-
-  .mobile-hero-approvals {
-    font-size: 9px;
-    line-height: 1.4;
-    color: #e5e7eb;
-    margin-bottom: 18px;
-    font-family: var(--font-body);
-  }
-
-  .mobile-hero-approvals p {
-    margin: 0 0 2px 0;
-    padding: 0;
-  }
-
-  .mobile-hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    width: 100%;
-  }
-
-  .mobile-hero-btn {
-    padding: 8px 16px;
-    font-size: 13px;
-    font-weight: 600;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    font-family: var(--font-body);
-    transition: 0.3s;
-  }
-
-  .mobile-hero-btn.primary {
-    background: #ff7a00;
-    color: white;
-    box-shadow: 0 4px 10px rgba(255, 122, 0, 0.3);
-  }
-
-  .mobile-hero-btn.secondary {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    color: white;
   }
 }

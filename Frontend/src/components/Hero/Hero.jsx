@@ -97,7 +97,7 @@ const Hero = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <div className="hero-brand">
-              <div className="badge">
+              <div className="hero-badge badge">
                 <FaStar />
                 <span>Theni Melapettai Hindu Nadargal Uravinmurai</span>
               </div>

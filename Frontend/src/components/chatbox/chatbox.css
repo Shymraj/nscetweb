@@ -70,11 +70,15 @@
   right: 48px;
   background-color: #1f2937;
   color: #ffffff;
-  padding: 6px 15px;
+  padding: 6px 16px;
   border-radius: 20px 20px 4px 20px;
   font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 6px 18px rgba(31, 41, 55, 0.25);
   animation: pulseBubble 2.5s ease-in-out infinite;
   z-index: 10;
@@ -729,53 +733,84 @@
   }
 
   .chat-window {
-    width: 290px;
-    /* Compressed width */
-    height: 380px;
-    /* Compressed height */
+    width: calc(100vw - 30px) !important;
+    max-width: 360px !important;
+    height: min(520px, 80vh) !important;
     bottom: 75px;
     right: 0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(31, 41, 55, 0.1);
   }
 
   .robot-model {
-    width: 60px;
-    /* Slightly smaller robot on mobile */
+    width: 60px !important;
+    height: 60px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
   }
 
   .lets-talk-bubble {
-    font-size: 12px;
-    left: -70px;
-    padding: 6px 12px;
+    font-size: 11.5px;
+    top: -24px;
+    right: 38px;
+    left: auto;
+    padding: 5px 14px;
+    border-radius: 20px 20px 4px 20px;
+    width: max-content;
+    white-space: nowrap;
+    display: inline-flex;
+    box-sizing: border-box;
   }
 
   .chat-header {
-    padding: 12px;
+    padding: 12px 16px;
     font-size: 14px;
   }
 
   .close-btn {
-    font-size: 24px !important;
-    right: 10px !important;
-    top: 5px !important;
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 13px !important;
+    right: 14px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    border-radius: 50% !important;
+  }
+
+  .chat-body {
+    padding: 12px;
+    gap: 10px;
   }
 
   .message-bubble {
     font-size: 13px;
-    padding: 8px 12px;
+    padding: 9px 12px;
+  }
+
+  .suggestions-wrapper {
+    padding: 8px 10px 9px 10px;
+  }
+
+  .suggestions-grid {
+    gap: 6px;
+  }
+
+  .suggestion-pill {
+    padding: 5px 8px;
+    font-size: 11px;
   }
 
   .chat-footer {
-    padding: 8px;
+    padding: 10px 12px 8px 12px;
   }
 
   .chat-footer input {
-    padding: 8px 12px;
     font-size: 13px;
   }
 
   .chat-footer .send-btn {
-    width: 35px;
-    height: 35px;
+    width: 34px;
+    height: 34px;
   }
 }

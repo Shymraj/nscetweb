@@ -130,5 +130,26 @@ body.dark-mode .marquee-separator {
   text-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
 }
 
+/* ==========================================
+   MOBILE VIEW (Right Below 60px Mobile Navbar)
+   ========================================== */
+@media (max-width: 768px) {
+  .marquee-container {
+    top: 60px;
+    height: 32px;
+  }
+
+  .marquee-badge {
+    font-size: 10.5px;
+    padding: 0 12px;
+    gap: 5px;
+  }
+
+  .marquee-item {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+}
+
 
 

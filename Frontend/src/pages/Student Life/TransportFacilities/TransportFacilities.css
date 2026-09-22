@@ -6,8 +6,26 @@
   padding-bottom: 0 !important;
 }
 
+.transportfacilities-page .common-hero-banner {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+}
+
+.transportfacilities-page .common-hero-banner img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .transportfacilities-page .common-hero-banner + .transport-container {
-  padding-top: 40px !important; /* Perfect neat gap before contents */
+  padding-top: 0 !important;
   margin-top: 0 !important;
 }
 
@@ -23,26 +41,37 @@
 .transport-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem; /* The top padding is overridden above for banner follow-up */
+  padding: 0 2rem 2.5rem !important;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 1.5rem;
 }
 
 @media (max-width: 768px) {
+  .transportfacilities-page {
+    padding-top: 0 !important;
+  }
+
+  .transportfacilities-page .common-hero-banner {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    margin-top: 36px !important; /* Comfortably lowered with perfect breathing space below navbar */
+  }
+
   .transportfacilities-page .common-hero-banner + .transport-container {
-    padding-top: 25px !important; /* Tighter gap for mobile */
+    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
 
   .transport-container {
-    padding: 2rem 1rem;
-    gap: 3rem;
+    padding: 0 1rem 1.5rem !important;
+    gap: 1.2rem !important;
   }
 }
 
 /* Section Common Styles */
 .transport-section-header {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -79,53 +108,106 @@
 /* Stats Section */
 .transport-stats-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
 }
 
 .transport-stat-card {
-  background: linear-gradient(135deg, var(--theme-primary-dark, #0284C7) 0%, #1e40af 100%);
-  border-radius: 20px;
-  padding: 2rem;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  color: white;
-  box-shadow: 0 15px 30px rgba(2, 132, 199, 0.2);
-  transition: transform 0.3s ease;
+  gap: 1.2rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
 }
 
 .transport-stat-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  border-color: #f97316;
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.12);
 }
 
 .stat-icon-wrapper {
-  background: rgba(255, 255, 255, 0.2);
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  color: #ea580c;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.4rem;
   flex-shrink: 0;
-  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.transport-stat-card:hover .stat-icon-wrapper {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #ffffff;
+  transform: scale(1.05);
 }
 
 .stat-info h2 {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 1.9rem;
   font-weight: 800;
-  margin: 0 0 0.2rem 0;
-  color: #f59e0b;
+  margin: 0 0 0.15rem 0;
+  color: #ea580c;
+  line-height: 1.1;
 }
 
 .stat-info p {
   font-family: var(--font-subtopic);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
   margin: 0;
-  opacity: 0.9;
+}
+
+/* Dark Mode Support for Transport Stat Cards */
+body.dark-mode .transport-stat-card {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+body.dark-mode .transport-stat-card .stat-info p {
+  color: #cbd5e1;
+}
+
+@media (max-width: 768px) {
+  .transport-stats-section {
+    gap: 0.85rem;
+  }
+
+  .transport-stat-card {
+    padding: 1rem 1.1rem;
+    border-radius: 14px;
+    gap: 1rem;
+  }
+
+  .stat-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+  }
+
+  .stat-info h2 {
+    font-size: 1.65rem;
+  }
+
+  .stat-info p {
+    font-size: 0.88rem;
+  }
 }
 
 /* About Section */
@@ -956,21 +1038,81 @@ body.dark-mode .marker-label {
 }
 
 @media (max-width: 768px) {
-  .transport-container {
-    padding: 2rem 1rem;
-    gap: 3rem;
-  }
-
   .transport-section-header h3 {
     font-size: 1.8rem;
   }
 
   .transport-features-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.85rem !important;
+  }
+
+  .transport-feature-item {
+    padding: 1.25rem 0.8rem !important;
+    border-radius: 14px !important;
+  }
+
+  .feature-item-icon-wrapper {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 1.3rem !important;
+    margin: 0 auto 0.8rem !important;
+  }
+
+  .transport-feature-item h4 {
+    font-size: 1rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .transport-feature-item p {
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .transport-app-content-grid {
+    gap: 1.25rem !important;
+  }
+
+  .transport-app-text-wrapper {
+    gap: 1.25rem !important;
+  }
+
+  .transport-app-text p {
+    padding: 1.5rem 1.25rem !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .transport-link-card {
+    padding: 1.25rem 1.5rem !important;
   }
 
   .transport-app-links-wrapper {
     grid-template-columns: 1fr;
+  }
+
+  .transport-app-visual {
+    min-height: 420px !important;
+    height: auto !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    z-index: 2;
+  }
+
+  .app-phone-mockup {
+    transform: scale(0.72) !important;
+    transform-origin: center center !important;
+    margin: -60px auto !important;
+  }
+
+  .app-glow-bg-animated {
+    width: 220px !important;
+    height: 220px !important;
   }
 }
 
@@ -1062,7 +1204,7 @@ body.dark-mode .skeleton-item {
 
 /* Transport Incharges Section */
 .transport-incharge-section {
-  padding: 4rem 1rem;
+  padding: 0 0 1rem;
   background: transparent;
 }
 
@@ -1077,6 +1219,37 @@ body.dark-mode .skeleton-item {
 @media (max-width: 768px) {
   .incharge-cards-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .incharge-card {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 1.8rem 1.2rem !important;
+    gap: 1.25rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .incharge-img-wrapper {
+    width: 140px !important;
+    height: 140px !important;
+    margin: 0 auto !important;
+  }
+
+  .incharge-info {
+    width: 100% !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .incharge-info h4 {
+    font-size: 1.3rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .incharge-info p {
+    font-size: 0.95rem !important;
   }
 }
 

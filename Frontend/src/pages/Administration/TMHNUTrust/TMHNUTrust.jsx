@@ -151,11 +151,14 @@ const prominentPersonalities = [
 /* ─── Component ─── */
 function TMHNUTrust() {
   return (
-    <div className="tmhnu-page-wrapper">
-      
-      {/* 🔥 NEW Custom Responsive Banner 🔥 */}
-      <div className="tmhnu-custom-banner">
-        <img src={bannerImg} alt="TMHNU Trust Banner" loading="lazy" />
+    <div className="common-page-wrapper tmhnu-page tmhnu-page-wrapper">
+      {/* Hero Banner */}
+      <div className="common-hero-banner tmhnu-custom-banner">
+        <img
+          src={bannerImg}
+          alt="TMHNU Trust Banner"
+          style={{ width: "100%", height: "auto", display: "block" }}
+        />
       </div>
 
       {/* --- SECTION 1: ABOUT --- */}
