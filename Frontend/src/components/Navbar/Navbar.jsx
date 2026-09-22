@@ -62,6 +62,7 @@ const searchData = [
   { name: "Grievance Redressal", path: "/student-life/grievance-redressal" },
   { name: "Anti-Ragging Cell", path: "/student-life/anti-ragging-cell" },
   { name: "Equal Opportunity Cell", path: "/student-life/equal-opportunity-cell" },
+  { name: "Women Empowerment Cell", path: "/student-life/women-empowerment-cell" },
   { name: "Health and Medical Facilities", path: "/student-life/health-medical-facilities" },
   { name: "Transport Facilities", path: "/student-life/transport-facilities" },
   { name: "SEDG", path: "/student-life/sedg" },
@@ -358,6 +359,7 @@ function Navbar() {
               <li><Link to="/student-life/grievance-redressal">Grievance Redressal</Link></li>
               <li><Link to="/student-life/anti-ragging-cell">Anti-Ragging Cell</Link></li>
               <li><Link to="/student-life/equal-opportunity-cell">Equal Opportunity Cell</Link></li>
+              <li><Link to="/student-life/women-empowerment-cell">Women Empowerment Cell</Link></li>
               <li><Link to="/student-life/health-medical-facilities">Health and Medical Facilities</Link></li>
               <li><Link to="/student-life/transport-facilities">Transport Facilities</Link></li>
               <li><Link to="/student-life/sedg">SEDG</Link></li>

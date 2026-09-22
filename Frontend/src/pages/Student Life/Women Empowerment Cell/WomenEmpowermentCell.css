@@ -1,0 +1,309 @@
+/* WomenEmpowermentCell.css */
+
+/* ==========================================================
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.wec-page .common-hero-banner + .wec-container {
+  padding-top: 40px !important; /* Perfect neat gap before contents */
+  margin-top: 0 !important;
+}
+
+/* Typography guidelines from AGENTS.md */
+.wec-page {
+  font-family: var(--font-body);
+  background: #f8fafc;
+  min-height: 100vh;
+  margin: 0 !important;
+}
+
+.wec-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+@media (max-width: 768px) {
+  .wec-page .common-hero-banner + .wec-container {
+    padding-top: 25px !important; /* Tighter gap for mobile */
+  }
+
+  .wec-container {
+    padding: 2rem 1rem;
+    gap: 3rem;
+  }
+  .duties-list {
+    grid-template-columns: 1fr;
+  }
+  .members-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Section Common Styles */
+.section-header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section-header h3 {
+  font-family: var(--font-section);
+  font-size: 2rem;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.header-line {
+  height: 4px;
+  width: 60px;
+  background: var(--nscet-accent, #f59e0b);
+  border-radius: 2px;
+}
+
+/* Intro Section */
+.intro-text {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1.8;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border-left: 4px solid var(--theme-primary-dark, #0284C7);
+  margin-bottom: 1.5rem;
+}
+
+/* Duties Section */
+.duties-section {
+  margin-bottom: 1rem;
+}
+
+.duties-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.duties-list li {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  font-family: var(--font-body);
+  color: #334155;
+  line-height: 1.6;
+}
+
+.duty-icon {
+  color: var(--theme-primary-dark, #0284C7);
+  font-size: 1.2rem;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* Members Table Section */
+.members-section {
+  margin-bottom: 1rem;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.member-card {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  border-left: 4px solid var(--theme-primary-dark, #0284C7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.coordinator-card {
+  border-left-color: #0369a1;
+  background: #f0f9ff;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.member-info h4 {
+  font-family: var(--font-subtopic);
+  font-size: 1.15rem;
+  color: #0f172a;
+  margin: 0 0 0.3rem 0;
+  font-weight: 700;
+}
+
+.member-info p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--theme-primary-dark, #0284C7);
+  font-weight: 600;
+  margin: 0 0 0.2rem 0;
+}
+
+.member-info span {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Documents Section */
+.docs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .docs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.doc-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border-top: 4px solid var(--theme-primary-dark, #0284C7);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.doc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.doc-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.doc-icon {
+  font-size: 1.5rem;
+  color: var(--theme-primary-dark, #0284C7);
+}
+
+.doc-header h4 {
+  font-family: var(--font-subtopic);
+  font-size: 1.25rem;
+  color: #0f172a;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* PDF Viewer */
+.pdf-viewer {
+  width: 100%;
+  height: 600px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: #f1f5f9;
+  position: relative;
+}
+
+.pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Transparent overlay just to prevent context menu outside the actual pdf contents if needed, 
+   but we need pointer events for scrolling inside the pdf.
+   We can disable pointer events on the iframe and rely on embed, but iframe scroll is better. */
+.pdf-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .wec-page {
+  background: var(--bg-primary);
+}
+
+body.dark-mode .intro-text,
+body.dark-mode .doc-card {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--theme-primary-dark, #0284C7);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .intro-text {
+  border-left-color: var(--theme-primary-dark, #0284C7);
+}
+
+body.dark-mode .section-header h3,
+body.dark-mode .doc-header h4,
+body.dark-mode .member-info h4,
+body.dark-mode .duties-list li,
+body.dark-mode .duties-list li span {
+  color: var(--text-primary);
+}
+
+body.dark-mode .intro-text,
+body.dark-mode .doc-card p,
+body.dark-mode .member-info p,
+body.dark-mode .member-info span {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .duties-list li,
+body.dark-mode .member-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--theme-primary-dark, #0284C7);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .member-card {
+  border-left-width: 4px;
+}
+
+body.dark-mode .coordinator-card {
+  background: rgba(2, 132, 199, 0.1);
+}
+
+body.dark-mode .pdf-viewer {
+  border-color: var(--border-color);
+  background: var(--bg-primary);
+}

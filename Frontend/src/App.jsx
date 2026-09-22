@@ -79,6 +79,7 @@ import AntiRaggingCell from "./pages/Student Life/AntiRaggingCell/AntiRaggingCel
 import EqualOpportunityCell from "./pages/Student Life/EqualOpportunityCell/EqualOpportunityCell";
 import HealthMedicalFacilities from "./pages/Student Life/HealthMedicalFacilities/HealthMedicalFacilities";
 import TransportFacilities from "./pages/Student Life/TransportFacilities/TransportFacilities";
+import WomenEmpowermentCell from "./pages/Student Life/Women Empowerment Cell/WomenEmpowermentCell";
 
 // SEDG MAIN & SUB-PAGES
 import SEDG from "./pages/Student Life/SEDG/SEDG";
@@ -100,6 +101,7 @@ const AppContent = () => {
   const hideGlobalNavAndFooter = isAdminRoute || isStandalonePortfolio;
 
   useEffect(() => {
+
     if (isAdminRoute || location.pathname === "/admin-login" || location.pathname === "/admin-dashboard") {
       document.title = "NSCET | Admin";
       updateMetaDescription("Administrative access portal for Nadar Saraswathi College of Engineering & Technology.");
@@ -195,6 +197,7 @@ const AppContent = () => {
         <Route path="/student-life/grievance-redressal" element={<GrievanceRedressal />} />
         <Route path="/student-life/anti-ragging-cell" element={<AntiRaggingCell />} />
         <Route path="/student-life/equal-opportunity-cell" element={<EqualOpportunityCell />} />
+        <Route path="/student-life/women-empowerment-cell" element={<WomenEmpowermentCell />} />
         <Route path="/student-life/health-medical-facilities" element={<HealthMedicalFacilities />} />
         <Route path="/student-life/transport-facilities" element={<TransportFacilities />} />
         
