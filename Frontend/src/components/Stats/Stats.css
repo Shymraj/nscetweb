@@ -220,8 +220,17 @@ body.dark-mode .spatial-card:hover .spatial-value {
 }
 
 /* =========================================
-   MOBILE RESPONSIVENESS for Stats Cards (2x2 Matrix Layout)
+   MOBILE RESPONSIVENESS for Stats Cards
+   Hide the bulky desktop 4 cards on mobile,
+   as they are replaced by the sleek mobile
+   hero stats ribbon with Counter animation.
    ========================================= */
+@media (max-width: 767px) {
+  .stats-section {
+    display: none !important;
+  }
+}
+
 body.dark-mode .spatial-label {
   color: #f8fafc !important;
 }
@@ -242,7 +251,7 @@ body.dark-mode .spatial-desc {
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .stats-section {
     padding: 35px 0 !important;
   }

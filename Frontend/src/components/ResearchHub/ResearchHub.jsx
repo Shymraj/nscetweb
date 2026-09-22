@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ResearchHub.css";
+import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBookOpen, FaRunning, FaBed, FaUsers, FaCoffee, FaArrowRight } from "react-icons/fa";
 
@@ -51,8 +52,40 @@ const campusData = [
 ];
 
 function CampusLife() {
+  const [coeList, setCoeList] = useState(campusData);
   const [activeTab, setActiveTab] = useState(campusData[0]);
   const [imageIndex, setImageIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchCOE = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/admin/home/coe");
+        if (res.data && res.data.data && res.data.data.length > 0) {
+          const icons = [<FaRunning />, <FaBed />, <FaUsers />, <FaCoffee />];
+          const mapped = res.data.data.map((item, idx) => {
+            const images = [
+              item.photo_url ? (item.photo_url.startsWith('http') ? item.photo_url : `http://localhost:5000${item.photo_url}`) : null,
+              item.photo_url2 ? (item.photo_url2.startsWith('http') ? item.photo_url2 : `http://localhost:5000${item.photo_url2}`) : null,
+            ].filter(Boolean);
+
+            return {
+              id: item.id,
+              title: item.title,
+              highlight: item.highlight,
+              description: item.description,
+              icon: icons[idx % icons.length] || <FaBookOpen />,
+              images: images.length > 0 ? images : [coeDrone3],
+            };
+          });
+          setCoeList(mapped);
+          setActiveTab(mapped[0]);
+        }
+      } catch (err) {
+        console.error("Failed to fetch COE items from server, using fallback:", err);
+      }
+    };
+    fetchCOE();
+  }, []);
 
   useEffect(() => {
     setImageIndex(0);
@@ -60,7 +93,7 @@ function CampusLife() {
 
   useEffect(() => {
     let interval;
-    if (activeTab.images && activeTab.images.length > 1) {
+    if (activeTab && activeTab.images && activeTab.images.length > 1) {
       interval = setInterval(() => {
         setImageIndex((prevIndex) => (prevIndex + 1) % activeTab.images.length);
       }, 3500);
@@ -89,15 +122,15 @@ function CampusLife() {
           
           {/* Left Vertical Tabs */}
           <div className="campus-tabs">
-            {campusData.map((item) => (
+            {coeList.map((item) => (
               <button
                 key={item.id}
-                className={`tab-btn ${activeTab.id === item.id ? "active" : ""}`}
+                className={`tab-btn ${activeTab && activeTab.id === item.id ? "active" : ""}`}
                 onClick={() => setActiveTab(item)}
               >
                 <span className="tab-icon">{item.icon}</span>
                 <span className="tab-text">{item.title}</span>
-                {activeTab.id === item.id && (
+                {activeTab && activeTab.id === item.id && (
                   <motion.div className="active-indicator" layoutId="activeTabIndicator" />
                 )}
               </button>
@@ -106,15 +139,16 @@ function CampusLife() {
 
           {/* Right Dynamic Display */}
           <div className="campus-display">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab.id}
-                className="display-content-wrapper"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              >
+            {activeTab && (
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab.id}
+                  className="display-content-wrapper"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
                 
                 {/* BACKGROUND MEDIA */}
                 <div className="display-media-container">
@@ -132,7 +166,7 @@ function CampusLife() {
                       {(() => {
                         const currentImage = activeTab.images[imageIndex];
                         // Identify if the current image is the rotated one
-                        const isRotatedImage = currentImage === iot2;
+                        const isRotatedImage = currentImage === iot2 || (typeof currentImage === 'string' && currentImage.includes('iot-2'));
 
                         return (
                           <motion.img 
@@ -170,6 +204,7 @@ function CampusLife() {
                 </div>
               </motion.div>
             </AnimatePresence>
+            )}
           </div>
 
         </div>

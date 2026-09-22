@@ -4,6 +4,7 @@ import GlassmorphismPortfolio from "./GlassmorphismPortfolio";
 import { getFacultyData, getDepartmentName } from "../../pages/Departments/facultyRegistry";
 import nscetLogo from "../../assets/Img/nscet-logo.png";
 import { ArrowLeft, Moon, Sun, ChevronLeft } from "lucide-react";
+import { updateMetaDescription } from "../../seo/seoConfig";
 import "./FacultyPortfolio.css";
 
 export default function FacultyPortfolio() {
@@ -92,11 +93,12 @@ export default function FacultyPortfolio() {
       .finally(() => setLoading(false));
   }, [deptId, facultyId, initialFaculty]);
 
-  // Scroll to top on mount and update document title
+  // Scroll to top on mount and update document title & meta description
   useEffect(() => {
     window.scrollTo(0, 0);
     if (faculty && faculty.name) {
       document.title = `${faculty.name} | Faculty Portfolio — ${departmentName} (NSCET)`;
+      updateMetaDescription(`${faculty.name} — ${faculty.desig || 'Faculty Member'}, Department of ${departmentName} at Nadar Saraswathi College of Engineering & Technology (NSCET), Theni.`);
     }
     return () => {
       document.title = "NSCET — Nadar Saraswathi College of Engineering & Technology";

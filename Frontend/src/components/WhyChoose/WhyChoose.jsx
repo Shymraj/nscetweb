@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './WhyChoose.css';
 import { useNavigate } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
@@ -57,6 +58,46 @@ const WhyChoose = () => {
     triggerOnce: true,
     threshold: 0.05,
   });
+
+  const [titlePrefix, setTitlePrefix] = useState("OUR");
+  const [titleHighlight, setTitleHighlight] = useState("INDUSTRY CONNECT");
+  const [subtitle, setSubtitle] = useState("A strong network of organizations shaping our students’ careers.");
+  const [topRow, setTopRow] = useState(topRowLogos);
+  const [bottomRow, setBottomRow] = useState(bottomRowLogos);
+
+  useEffect(() => {
+    const fetchRecruiterData = async () => {
+      try {
+        // Fetch Settings
+        const settingsRes = await axios.get("http://localhost:5000/api/admin/home/recruiter-settings");
+        if (settingsRes.data && settingsRes.data.data) {
+          if (settingsRes.data.data.title_prefix) setTitlePrefix(settingsRes.data.data.title_prefix);
+          if (settingsRes.data.data.title_highlight) setTitleHighlight(settingsRes.data.data.title_highlight);
+          if (settingsRes.data.data.subtitle) setSubtitle(settingsRes.data.data.subtitle);
+        }
+
+        // Fetch Recruiters
+        const recruiterRes = await axios.get("http://localhost:5000/api/admin/home/recruiter");
+        if (recruiterRes.data && recruiterRes.data.data && recruiterRes.data.data.length > 0) {
+          const mapped = recruiterRes.data.data.map(item => ({
+            name: item.company_name,
+            logo: item.logo_url.startsWith('http') ? item.logo_url : `http://localhost:5000${item.logo_url}`,
+            scale: 1.1
+          }));
+
+          const half = Math.ceil(mapped.length / 2);
+          const r1 = mapped.slice(0, half);
+          const r2 = mapped.slice(half);
+
+          setTopRow(r1.length > 0 ? r1 : mapped);
+          setBottomRow(r2.length > 0 ? r2 : mapped);
+        }
+      } catch (err) {
+        console.error("Error fetching dynamic recruiter data:", err);
+      }
+    };
+    fetchRecruiterData();
+  }, []);
 
   return (
     <>
@@ -158,7 +199,7 @@ const WhyChoose = () => {
         {/* Top Marquee Track (Smooth Infinite Scroll Left) */}
         <div className="partners-marquee-row top-row">
           <div className={`partners-marquee-inner scroll-left ${partnersInView ? 'is-animating' : ''}`}>
-            {[...topRowLogos, ...topRowLogos, ...topRowLogos].map((item, idx) => (
+            {[...topRow, ...topRow, ...topRow].map((item, idx) => (
               <div
                 key={`top-${idx}`}
                 className="partner-logo-wrap"
@@ -175,8 +216,8 @@ const WhyChoose = () => {
         {/* Big Bold Centered Heading */}
         <div className="partners-center-content">
           <h2 className="partners-main-title">
-            <span className="title-white">OUR </span>
-            <span className="title-gold">INDUSTRY CONNECT</span>
+            <span className="title-white">{titlePrefix} </span>
+            <span className="title-gold">{titleHighlight}</span>
           </h2>
 
           {/* Golden Ornamental Divider with Lotus Motif */}
@@ -205,14 +246,14 @@ const WhyChoose = () => {
           </div>
 
           <p className="partners-description">
-            A strong network of organizations shaping our students’ careers.
+            {subtitle}
           </p>
         </div>
 
         {/* Bottom Marquee Track (Smooth Infinite Scroll Right) */}
         <div className="partners-marquee-row bottom-row">
           <div className={`partners-marquee-inner scroll-right ${partnersInView ? 'is-animating' : ''}`}>
-            {[...bottomRowLogos, ...bottomRowLogos, ...bottomRowLogos].map((item, idx) => (
+            {[...bottomRow, ...bottomRow, ...bottomRow].map((item, idx) => (
               <div
                 key={`bot-${idx}`}
                 className="partner-logo-wrap"
