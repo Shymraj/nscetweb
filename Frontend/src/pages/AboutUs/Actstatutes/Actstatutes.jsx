@@ -2,7 +2,7 @@ import VisionMission from "./components/VisionMission";
 import QualityPolicy from "./components/QualityPolicy";
 import PolicyDocument from "./components/PolicyDocument";
 import OrganizationalChart from "./components/OrganizationalChart";
-import bannerImg from "./assets/images/act-statutes-hero-banner.png";
+import bannerImg from "./assets/images/act and statutes.png";
 import "./Actstatutes.css";
 
 const Actstatutes = () => {

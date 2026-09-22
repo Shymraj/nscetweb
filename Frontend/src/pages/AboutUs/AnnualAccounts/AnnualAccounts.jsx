@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { FaFilePdf, FaEye } from 'react-icons/fa';
 import '../AnnualReports/AnnualReports.css';
 import './AnnualAccounts.css';
-import bannerImage from './banner/AnnualAccounts.png';
+import bannerImage from './banner/ANNUAL REPORTS.png';
 import annualAccountsPdf from './assets/documents/annual-accounts.pdf';
 import annualReportPdf from './assets/documents/annual-report.pdf';
 
