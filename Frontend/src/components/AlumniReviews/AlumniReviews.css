@@ -305,8 +305,66 @@ body.dark-mode .placeholder-avatar { background: #0f172a; color: #475569; }
   }
 }
 
-@media (max-width: 600px) {
-  .alumni-section { padding: 40px 5%; }
-  .alumni-title { font-size: 28px; }
-  .stats-grid { grid-template-columns: 1fr; }
+@media (max-width: 768px) {
+  .alumni-section {
+    padding: 40px 16px;
+  }
+
+  .alumni-title {
+    font-size: 26px;
+  }
+
+  /* 2 Columns x 2 Rows Layout (2x2 Matrix) */
+  .stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 14px 12px;
+    gap: 10px;
+    border-radius: 14px;
+  }
+
+  .stat-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+  .stat-value {
+    font-size: 19px;
+    margin-bottom: 2px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .stats-grid {
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 12px 8px;
+    gap: 8px;
+  }
+
+  .stat-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .stat-value {
+    font-size: 16px;
+  }
+
+  .stat-label {
+    font-size: 9.5px;
+  }
 }

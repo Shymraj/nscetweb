@@ -30,23 +30,41 @@ body.dark-mode {
 }
 
 /* Prevent text cursor (I-beam) over typography and static elements */
-h1, h2, h3, h4, h5, h6, p, span, label, li, section, article {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+li,
+section,
+article {
   cursor: default;
 }
 
 /* Ensure form elements have correct cursors */
-input, textarea {
+input,
+textarea {
   cursor: text;
 }
 
 /* Ensure interactive elements keep their pointer cursor */
-a, button {
+a,
+button {
   cursor: pointer;
 }
 
+html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  position: relative;
   background: #ffffff;
   transition: background-color .3s ease, color .3s ease;
 }
@@ -64,7 +82,10 @@ body.dark-mode {
 
 #root {
   width: 100%;
+  max-width: 100%;
   min-height: 100vh;
+  overflow-x: hidden !important;
+  position: relative;
 }
 
 /* =========================================
@@ -1459,7 +1480,6 @@ body.dark-mode .non-teaching-avatar {
    Requirement: Hide ALL hero/page banners across the entire project on mobile
    ========================================================================== */
 @media (max-width: 767px) {
-
   .page-banner,
   .hero {
     display: none !important;
@@ -1472,17 +1492,20 @@ body.dark-mode .non-teaching-avatar {
   }
 
   /* Add top offset to the first content section immediately after the hidden banner
-     to compensate for the 60px fixed navbar on mobile */
+     to compensate for the 58px fixed navbar on mobile */
   .page-banner+*,
   .hero+* {
-    margin-top: 60px !important;
+    margin-top: 58px !important;
   }
 }
 
 /* ==========================================================================
    MOBILE HOMEPAGE HERO
-   Requirement: Show a dedicated static mobile hero image on the Homepage 
-   instead of the hidden desktop banner.
+   Requirement: Dedicated mobile hero matching reference mockup design:
+   - Full clear campus photo shifted down comfortably
+   - Professional bold typography in the sky area
+   - Apply Now & Explore Campus buttons on driveway
+   - Bottom 4-stats ribbon with Counter animation
    ========================================================================== */
 .mobile-home-hero {
   display: none;
@@ -1492,121 +1515,304 @@ body.dark-mode .non-teaching-avatar {
   .mobile-home-hero {
     display: block !important;
     width: 100%;
+    margin-top: 54px !important;
     position: relative;
-    /* margin-top is handled by .hero + * (60px) to seamlessly attach to navbar */
+    background: #ffffff;
+    overflow: hidden;
   }
 
-  .mobile-home-hero img {
+  .mobile-hero-wrapper {
+    position: relative;
     width: 100%;
-    height: 55vh;
-    min-height: 440px;
-    /* Increased slightly to comfortably fit all text */
-    object-fit: cover;
-    display: block;
-    border-radius: 0 0 15px 15px;
-    /* optional aesthetic */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
-  /* Mobile Hero Text Overlay Styles */
-  .mobile-hero-overlay {
+  .mobile-hero-img {
+    width: 100%;
+    height: 460px;
+    min-height: 430px;
+    object-fit: cover;
+    object-position: center 27%;
+    display: block;
+  }
+
+  /* Top Header Text Overlay (in the sky area) */
+  .mobile-hero-top-content {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.75) 100%);
-    border-radius: 0 0 15px 15px;
-    padding: 20px 15px;
+    right: 0;
+    padding: 18px 10px 6px;
     text-align: center;
-    z-index: 2;
-  }
-
-  .mobile-hero-content {
-    width: 100%;
-    max-width: 340px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 3;
+    /* Soft gradient vignette to ensure text readability against the sky */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.6) 65%, rgba(255, 255, 255, 0) 100%);
+    box-sizing: border-box;
   }
 
-  .mobile-hero-trust {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #FFD700;
-    /* Gold */
-    margin-bottom: 6px;
+  .mobile-hero-trust-tag {
+    font-size: clamp(8px, 2.5vw, 10px);
     font-weight: 700;
-    font-family: var(--font-subtopic);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    letter-spacing: 0.8px;
+    color: #475569;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-family: var(--font-body, 'Outfit', sans-serif);
+    max-width: 100%;
+    line-height: 1.2;
   }
 
   .mobile-hero-title {
-    font-size: 22px;
-    font-weight: 700;
-    /* Match desktop Cinzel weight */
-    line-height: 1.2;
-    color: #ffffff;
-    margin-bottom: 6px;
-    font-family: "Cinzel", serif;
-    /* Match desktop font */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    margin: 0 0 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.15;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 100%;
   }
 
-  .mobile-hero-tagline {
-    font-size: 13px;
+  .mobile-hero-title-main {
+    font-size: clamp(17px, 5.5vw, 22px);
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .mobile-hero-title-accent {
+    font-size: clamp(14px, 4.4vw, 18px);
+    font-weight: 900;
+    color: #ff7a00;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .mobile-hero-subtitle {
+    font-size: clamp(10.5px, 3vw, 12px);
     font-weight: 600;
-    color: #E0E7FF;
-    margin-bottom: 15px;
-    font-family: var(--font-body);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    color: #475569;
+    margin: 0 0 4px;
+    line-height: 1.3;
+    font-family: var(--font-body, 'Outfit', sans-serif);
+    text-align: center;
   }
 
-  .mobile-hero-approvals {
-    font-size: 9px;
-    line-height: 1.4;
-    color: #e5e7eb;
-    margin-bottom: 18px;
-    font-family: var(--font-body);
+  .mobile-hero-divider {
+    width: 40px;
+    height: 3px;
+    background: #ff7a00;
+    border-radius: 2px;
+    margin: 2px auto 0;
   }
 
-  .mobile-hero-approvals p {
-    margin: 0 0 2px 0;
-    padding: 0;
-  }
-
-  .mobile-hero-buttons {
+  /* Action Buttons (Apply Now & Explore Campus) */
+  .mobile-hero-actions {
+    position: absolute;
+    bottom: 56px;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: center;
-    gap: 12px;
-    width: 100%;
+    align-items: center;
+    gap: 8px;
+    z-index: 5;
+    padding: 0 8px;
+    box-sizing: border-box;
   }
 
   .mobile-hero-btn {
-    padding: 8px 16px;
-    font-size: 13px;
-    font-weight: 600;
-    border-radius: 25px;
     border: none;
+    border-radius: 30px;
+    padding: 8px 16px;
+    font-size: clamp(11px, 3.2vw, 13px);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     cursor: pointer;
-    font-family: var(--font-body);
-    transition: 0.3s;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: var(--font-body, 'Outfit', sans-serif);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
-  .mobile-hero-btn.primary {
+  .mobile-hero-btn.apply {
     background: #ff7a00;
-    color: white;
-    box-shadow: 0 4px 10px rgba(255, 122, 0, 0.3);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(255, 122, 0, 0.45);
   }
 
-  .mobile-hero-btn.secondary {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    color: white;
+  .mobile-hero-btn.explore {
+    background: rgba(30, 42, 35, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-hero-btn .btn-arrow {
+    font-size: 11px;
+    transition: transform 0.2s;
+  }
+
+  .mobile-hero-btn:active {
+    transform: scale(0.97);
+  }
+
+  @media (max-width: 360px) {
+    .mobile-hero-actions {
+      gap: 6px;
+      padding: 0 6px;
+      bottom: 52px;
+    }
+
+    .mobile-hero-btn {
+      padding: 7px 11px;
+      gap: 4px;
+      border-radius: 24px;
+    }
+
+    .mobile-hero-btn .btn-arrow {
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 290px) {
+    .mobile-hero-actions {
+      gap: 4px;
+      padding: 0 4px;
+      bottom: 48px;
+    }
+
+    .mobile-hero-btn {
+      padding: 6px 9px;
+      gap: 3px;
+      border-radius: 20px;
+    }
+
+    .mobile-hero-btn .btn-arrow {
+      font-size: 9px;
+    }
+  }
+
+  /* Bottom Stats Container overlapping the image */
+  .mobile-hero-stats-container {
+    position: relative;
+    margin-top: -42px;
+    padding: 0 14px 22px;
+    z-index: 6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mobile-hero-stats-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 13px 4px 11px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+    width: 100%;
+    max-width: 440px;
+    box-sizing: border-box;
+  }
+
+  .mobile-hero-stat-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 0;
+  }
+
+  .mobile-stat-icon {
+    width: clamp(20px, 5.5vw, 24px);
+    height: clamp(20px, 5.5vw, 24px);
+    color: #ff7a00;
+    stroke: #ff7a00;
+    margin-bottom: 3px;
+    flex-shrink: 0;
+  }
+
+  .mobile-stat-val {
+    font-size: clamp(13px, 4vw, 16px);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.15;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.3px;
+  }
+
+  .mobile-stat-lbl {
+    font-size: clamp(9px, 2.8vw, 11px);
+    font-weight: 500;
+    color: #64748b;
+    margin-top: 2px;
+    font-family: var(--font-body, sans-serif);
+  }
+
+  .mobile-stat-sep {
+    width: 1px;
+    height: 30px;
+    background: #e2e8f0;
+    flex-shrink: 0;
+  }
+
+  /* Dark Mode support */
+  body.dark-mode .mobile-home-hero {
+    background: #0f172a;
+  }
+
+  body.dark-mode .mobile-hero-top-content {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.5) 65%, rgba(15, 23, 42, 0) 100%);
+  }
+
+  body.dark-mode .mobile-hero-trust-tag {
+    color: #cbd5e1;
+  }
+
+  body.dark-mode .mobile-hero-title-main {
+    color: #f8fafc;
+  }
+
+  body.dark-mode .mobile-hero-title-accent {
+    color: #ff7a00;
+  }
+
+  body.dark-mode .mobile-hero-subtitle {
+    color: #cbd5e1;
+  }
+
+  body.dark-mode .mobile-hero-stats-card {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+  }
+
+  body.dark-mode .mobile-stat-val {
+    color: #f8fafc;
+  }
+
+  body.dark-mode .mobile-stat-lbl {
+    color: #94a3b8;
+  }
+
+  body.dark-mode .mobile-stat-sep {
+    background: rgba(255, 255, 255, 0.1);
   }
 }

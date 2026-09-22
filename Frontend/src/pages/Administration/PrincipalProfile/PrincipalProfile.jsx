@@ -4,6 +4,7 @@ import GlassmorphismPortfolio from "../../../components/FacultyPortfolio/Glassmo
 import defaultPrincipalImg from "../../../assets/administration/images/prinicipal.jpg";
 import nscetLogo from "../../../assets/Img/nscet-logo.png";
 import { ArrowLeft, Moon, Sun } from "lucide-react";
+import { updateMetaDescription } from "../../../seo/seoConfig";
 import "../../../components/FacultyPortfolio/FacultyPortfolio.css";
 
 export default function PrincipalProfile() {
@@ -50,6 +51,7 @@ export default function PrincipalProfile() {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = `Dr. C. Mathalai Sundaram | Principal Portfolio — NSCET`;
+    updateMetaDescription("Professional portfolio, qualifications, research publications, patents, and administrative leadership of Dr. C. Mathalai Sundaram, Principal of Nadar Saraswathi College of Engineering & Technology (NSCET).");
     return () => {
       document.title = "NSCET — Nadar Saraswathi College of Engineering & Technology";
     };

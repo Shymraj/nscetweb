@@ -11,6 +11,9 @@ router.get('/marquee', homeController.getMarquees);
 router.post('/marquee', homeController.addMarquee);
 router.put('/marquee/:id', homeController.updateMarquee);
 router.delete('/marquee/:id', homeController.deleteMarquee);
+router.get('/marquee-settings', homeController.getMarqueeSettings);
+router.put('/marquee-settings', homeController.updateMarqueeSettings);
+router.post('/marquee-settings', homeController.updateMarqueeSettings);
 
 // Hero
 router.get('/hero', homeController.getHeroes);
@@ -24,8 +27,25 @@ router.post('/timer', homeController.addTimer);
 router.put('/timer/:id', homeController.updateTimer);
 router.delete('/timer/:id', homeController.deleteTimer);
 
+// Centre of Excellence
+router.get('/coe', homeController.getCOE);
+router.post('/coe', upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'photo2', maxCount: 1 }]), homeController.addCOE);
+router.put('/coe/:id', upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'photo2', maxCount: 1 }]), homeController.updateCOE);
+router.delete('/coe/:id', homeController.deleteCOE);
 
-// News
+// Featured News (Campus News & Announcements Left Side)
+router.get('/featured-news', homeController.getFeaturedNews);
+router.post('/featured-news', upload.single('photo'), homeController.addFeaturedNews);
+router.put('/featured-news/:id', upload.single('photo'), homeController.updateFeaturedNews);
+router.delete('/featured-news/:id', homeController.deleteFeaturedNews);
+
+// Notice Board (Campus News & Announcements Right Side)
+router.get('/notice-board', homeController.getNoticeBoard);
+router.post('/notice-board', homeController.addNoticeBoard);
+router.put('/notice-board/:id', homeController.updateNoticeBoard);
+router.delete('/notice-board/:id', homeController.deleteNoticeBoard);
+
+// News (Legacy)
 router.get('/news', homeController.getNews);
 router.post('/news', homeController.addNews);
 router.put('/news/:id', homeController.updateNews);
@@ -71,5 +91,19 @@ router.get('/recruiter', homeController.getRecruiters);
 router.post('/recruiter', upload.single('photo'), homeController.addRecruiter);
 router.put('/recruiter/:id', upload.single('photo'), homeController.updateRecruiter);
 router.delete('/recruiter/:id', homeController.deleteRecruiter);
+
+// Recruiter Settings
+router.get('/recruiter-settings', homeController.getRecruiterSettings);
+router.put('/recruiter-settings', homeController.updateRecruiterSettings);
+
+// Reviews (Alumni / Testimonials)
+router.get('/reviews', homeController.getReviews);
+router.post('/reviews', upload.single('photo'), homeController.addReview);
+router.put('/reviews/:id', upload.single('photo'), homeController.updateReview);
+router.delete('/reviews/:id', homeController.deleteReview);
+
+// Reviews Settings
+router.get('/reviews-settings', homeController.getReviewsSettings);
+router.put('/reviews-settings', homeController.updateReviewsSettings);
 
 module.exports = router;

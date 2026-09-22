@@ -297,6 +297,14 @@ header.scrolled {
     z-index: 10;
 }
 
+.mobile-logo {
+    display: none;
+}
+
+.desktop-logo {
+    display: block;
+}
+
 .college-name {
     display: flex;
     flex-direction: column;
@@ -703,7 +711,7 @@ body.dark-mode .search-box input {
     position: relative;
 }
 
-.dropdown > a,
+.dropdown>a,
 .submenu-label {
     cursor: default !important;
 }
@@ -1258,6 +1266,26 @@ body.dark-mode .search-result-item:hover {
    ========================================================================== */
 @media screen and (max-width: 767px) {
 
+    /* Header & Nav-links containment */
+    header {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    body.dark-mode header {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .nav-links:not(.active) {
+        display: none !important;
+    }
+
     /* Keep header fixed at top without translating/hiding on scroll */
     header.scrolled {
         transform: none !important;
@@ -1268,39 +1296,85 @@ body.dark-mode .search-result-item:hover {
         display: none !important;
     }
 
-    /* 1. Main Navbar Container */
+    /* 1. Main Navbar Container - White Card with Curved Bottom Corners and Gold Border */
     .navbar {
         width: 100% !important;
         left: 0 !important;
-        border-radius: 0 0 15px 15px !important;
+        border-radius: 0 0 20px 20px !important;
         padding: 0 12px !important;
-        height: 60px !important;
-        border-left: none !important;
-        border-right: none !important;
-        border-top: none !important;
+        height: 58px !important;
+        box-sizing: border-box !important;
+        border: none !important;
+        border-bottom: 2px solid #f59e0b !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+        background: #ffffff !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    body.dark-mode .navbar {
+        background: #0f172a !important;
+        border-bottom: 2px solid #f59e0b !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
     }
 
     /* 2. Left Side: Logo & Brand */
     .logo-section {
         margin-left: 0 !important;
         gap: 6px !important;
-        flex: 1;
-        /* Allow it to take available space */
-        min-width: 0;
+        display: flex !important;
+        align-items: center !important;
+        flex-shrink: 1 !important;
+        min-width: 0 !important;
     }
 
-    .logo {
-        width: 50px !important;
-        height: 50px !important;
+    .logo-box {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        width: auto !important;
+        min-width: 0 !important;
+        height: 44px !important;
+    }
+
+    .desktop-logo {
+        display: none !important;
+    }
+
+    .mobile-logo,
+    .nav-logo-clean {
+        display: block !important;
+        height: 42px !important;
+        width: auto !important;
+        max-height: 42px !important;
+        max-width: 88px !important;
         object-fit: contain !important;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12)) !important;
+        flex-shrink: 0 !important;
+    }
+
+    .college-name {
+        display: flex !important;
+        flex-shrink: 1 !important;
+        min-width: 0 !important;
     }
 
     .nscet-text {
-        font-size: 16px !important;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 16.5px !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.6px !important;
+        white-space: nowrap !important;
         margin: 0 !important;
+        color: #0d3b8e !important;
+        line-height: 1 !important;
+    }
+
+    body.dark-mode .nscet-text {
+        color: #ffffff !important;
     }
 
     .college-name p {
@@ -1308,41 +1382,82 @@ body.dark-mode .search-result-item:hover {
         /* Hide full name to save space */
     }
 
-    /* 3. Right Side: Controls Container */
+    /* 3. Right Side: Controls Container (Search, Theme, NAAC, Hamburger Menu) */
     .nav-right {
         margin-right: 0 !important;
+        width: auto !important;
+        min-width: 0 !important;
+        height: 100% !important;
         gap: 6px !important;
-        flex-shrink: 0;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        flex-shrink: 0 !important;
     }
 
     .nav-desktop-elements {
+        display: flex !important;
+        align-items: center !important;
+        width: auto !important;
+        height: 100% !important;
         gap: 6px !important;
+        flex-shrink: 0 !important;
     }
 
-    /* 4. Scale Down Control Buttons */
+    /* 4. Uniform circular control buttons (Search, Theme, Hamburger) */
     .search-btn,
-    .theme-btn {
-        width: 30px !important;
-        height: 30px !important;
-        min-width: 30px !important;
-        min-height: 30px !important;
-        font-size: 14px !important;
-        border-radius: 50% !important;
-    }
-
-    /* 5. Scale Down NAAC Logo */
-    .naac-logo {
-        height: 28px !important;
-        max-width: 70px !important;
-        margin-left: 2px !important;
-        object-fit: contain !important;
-    }
-
-    /* 6. Mobile Menu Icon (More ⋮/Hamburger) */
+    .theme-btn,
     .mobile-menu-icon {
-        margin-left: 4px !important;
-        font-size: 20px !important;
-        padding: 4px !important;
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+        font-size: 12.5px !important;
+        border-radius: 50% !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: rgba(241, 245, 249, 0.95) !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        color: #1e293b !important;
+        box-sizing: border-box !important;
+        cursor: pointer !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+        transition: 0.2s ease !important;
+        flex-shrink: 0 !important;
+    }
+
+    body.dark-mode .search-btn,
+    body.dark-mode .theme-btn,
+    body.dark-mode .mobile-menu-icon {
+        background: rgba(30, 41, 59, 0.9) !important;
+        border-color: rgba(255, 255, 255, 0.15) !important;
+        color: #f8fafc !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .search-btn:active,
+    .theme-btn:active,
+    .mobile-menu-icon:active {
+        transform: scale(0.92) !important;
+    }
+
+    /* 5. Scale & Center NAAC Logo matching reference screenshot */
+    .naac-logo,
+    .naac-badge-img {
+        display: inline-block !important;
+        height: 28px !important;
+        width: auto !important;
+        max-width: 36px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        object-fit: contain !important;
+        vertical-align: middle !important;
+        align-self: center !important;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15)) !important;
+        flex-shrink: 0 !important;
     }
 
     /* 7. Hide TNEA Badge on Mobile View */
@@ -1363,35 +1478,89 @@ body.dark-mode .search-result-item:hover {
     }
 }
 
-/* Extra Small Mobile Devices (< 360px) */
-@media screen and (max-width: 360px) {
+/* Compact Mobile Devices (< 380px) */
+@media screen and (max-width: 380px) {
 
-    .search-btn,
-    .theme-btn {
-        width: 26px !important;
-        height: 26px !important;
-        min-width: 26px !important;
-        min-height: 26px !important;
-        font-size: 12px !important;
+    .navbar {
+        padding: 0 8px !important;
     }
 
-    .naac-logo {
-        height: 22px !important;
+    .mobile-logo,
+    .nav-logo-clean {
+        height: 36px !important;
         max-width: 55px !important;
     }
 
     .nscet-text {
-        font-size: 14px !important;
+        font-size: 13.5px !important;
     }
 
-    .logo {
-        width: 30px !important;
-        height: 30px !important;
+    .logo-section {
+        gap: 5px !important;
     }
 
-    .nav-desktop-elements,
-    .nav-right {
+    .nav-right,
+    .nav-desktop-elements {
         gap: 4px !important;
+    }
+
+    .search-btn,
+    .theme-btn,
+    .mobile-menu-icon {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        min-height: 28px !important;
+        font-size: 11px !important;
+    }
+
+    .naac-logo,
+    .naac-badge-img {
+        height: 24px !important;
+        max-width: 32px !important;
+    }
+}
+
+/* Ultra-compact Devices / Narrow Viewports (< 290px) */
+@media screen and (max-width: 290px) {
+
+    .navbar {
+        padding: 0 4px !important;
+    }
+
+    .mobile-logo,
+    .nav-logo-clean {
+        height: 28px !important;
+        max-width: 40px !important;
+    }
+
+    .nscet-text {
+        font-size: 11.5px !important;
+    }
+
+    .logo-section {
+        gap: 3px !important;
+    }
+
+    .nav-right,
+    .nav-desktop-elements {
+        gap: 3px !important;
+    }
+
+    .search-btn,
+    .theme-btn,
+    .mobile-menu-icon {
+        width: 24px !important;
+        height: 24px !important;
+        min-width: 24px !important;
+        min-height: 24px !important;
+        font-size: 10px !important;
+    }
+
+    .naac-logo,
+    .naac-badge-img {
+        height: 18px !important;
+        max-width: 24px !important;
     }
 }
 
@@ -1401,7 +1570,7 @@ body.dark-mode .search-result-item:hover {
 
 /* Navbar fixed/floating ah irundhaalum banner continuous ah navbar kku keela theriya padding-top 0 aakurrom */
 .common-page-wrapper {
-    padding-top: 0 !important; 
+    padding-top: 0 !important;
     width: 100%;
     overflow-x: hidden;
 }
@@ -1409,7 +1578,8 @@ body.dark-mode .search-result-item:hover {
 /* Common Banner Style for all pages */
 .common-hero-banner {
     width: 100%;
-    aspect-ratio: 8 / 3; /* Laptop la correct aana size */
+    aspect-ratio: 8 / 3;
+    /* Laptop la correct aana size */
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -1425,10 +1595,11 @@ body.dark-mode .search-result-item:hover {
 @media (max-width: 767px) {
     .common-page-wrapper {
         /* Mobile navbar is exactly 60px. Matching 60px eliminates white gap and prevents banner from getting hidden */
-        padding-top: 60px !important; 
+        padding-top: 60px !important;
     }
-    
+
     .common-hero-banner {
-        aspect-ratio: 16 / 9; /* Mobile la banner theliva theriya */
+        aspect-ratio: 16 / 9;
+        /* Mobile la banner theliva theriya */
     }
 }

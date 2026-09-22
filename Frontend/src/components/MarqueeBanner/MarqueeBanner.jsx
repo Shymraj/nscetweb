@@ -5,6 +5,7 @@ import './MarqueeBanner.css';
 
 const MarqueeBanner = () => {
   const [marquees, setMarquees] = useState([]);
+  const [speedSeconds, setSpeedSeconds] = useState(20);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,20 +22,27 @@ const MarqueeBanner = () => {
   }, []);
 
   useEffect(() => {
-    const fetchMarquees = async () => {
+    const fetchMarqueeData = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/admin/home/marquee');
-        if (res.data && res.data.success) {
-          // Filter only active ones
-          const activeMarquees = res.data.data.filter(mq => mq.is_active);
+        const [contentRes, settingsRes] = await Promise.allSettled([
+          axios.get('http://localhost:5000/api/admin/home/marquee'),
+          axios.get('http://localhost:5000/api/admin/home/marquee-settings')
+        ]);
+
+        if (contentRes.status === 'fulfilled' && contentRes.value.data?.success) {
+          const activeMarquees = contentRes.value.data.data.filter(mq => mq.is_active);
           setMarquees(activeMarquees);
         }
+
+        if (settingsRes.status === 'fulfilled' && settingsRes.value.data?.success && settingsRes.value.data.data?.speed_seconds) {
+          setSpeedSeconds(Number(settingsRes.value.data.data.speed_seconds));
+        }
       } catch (err) {
-        console.error('Error fetching marquees:', err);
+        console.error('Error fetching marquees or settings:', err);
       }
     };
 
-    fetchMarquees();
+    fetchMarqueeData();
   }, []);
 
   if (marquees.length === 0) return null;
@@ -50,7 +58,14 @@ const MarqueeBanner = () => {
       </div>
 
       <div className="marquee-track-wrapper">
-        <div className="marquee-content">
+        <div 
+          className="marquee-content"
+          style={{
+            animationDuration: `${speedSeconds}s`,
+            WebkitAnimationDuration: `${speedSeconds}s`,
+            '--marquee-duration': `${speedSeconds}s`
+          }}
+        >
           {displayMarquees.map((mq, index) => (
             <span key={`${mq.id}-${index}`} className="marquee-item">
               {mq.content}
