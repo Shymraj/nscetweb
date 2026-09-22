@@ -18,23 +18,7 @@
   padding-bottom: 0 !important;
 }
 
-.tmhnu-page .common-hero-banner {
-  aspect-ratio: auto !important;
-  height: auto !important;
-  min-height: 0 !important;
-  display: block !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  line-height: 0 !important;
-}
 
-.tmhnu-page .common-hero-banner img {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
 
 /* Continuous seamless banner layout */
 .tmhnu-page,
@@ -70,22 +54,7 @@
   }
 }
 
-/* 🔥 NEW CUSTOM BANNER STYLE 🔥 */
-.tmhnu-custom-banner {
-  width: 100%;
-  background-color: var(--th-bg-main);
-  display: block;
-  margin-top: 38px;
-}
 
-.tmhnu-custom-banner img {
-  width: 100%;
-  height: auto;
-  max-height: 450px;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
 
 .tmhnu-container {
   max-width: 1200px;

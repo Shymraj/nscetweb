@@ -153,7 +153,7 @@ function TMHNUTrust() {
   return (
     <div className="common-page-wrapper tmhnu-page tmhnu-page-wrapper">
       {/* Hero Banner */}
-      <div className="common-hero-banner tmhnu-custom-banner">
+      <div className="common-hero-banner">
         <img
           src={bannerImg}
           alt="TMHNU Trust Banner"

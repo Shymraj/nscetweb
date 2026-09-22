@@ -4,6 +4,7 @@ import { FaFilePdf, FaCheckCircle } from 'react-icons/fa';
 
 import handBook from './docs/HAND BOOK.pdf';
 import poshAct from './docs/POSH ACT 2013.pdf';
+import bannerImg from './banner/WEC.png';
 
 const WomenEmpowermentCell = () => {
   return (
@@ -11,7 +12,11 @@ const WomenEmpowermentCell = () => {
       
       {/* Banner Placeholder Div */}
       <div className="common-hero-banner">
-        {/* You can add the banner image here in the future */}
+        <img 
+          src={bannerImg} 
+          alt="Women Empowerment Cell Banner" 
+          style={{ width: '100%', height: 'auto', display: 'block' }} 
+        />
       </div>
 
       <div className="wec-container">
