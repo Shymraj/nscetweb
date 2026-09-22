@@ -6,10 +6,20 @@
 .common-hero-banner {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+  margin-top: 85px; /* Prevents hiding behind Desktop Navbar */
+  width: 100%;      
+  display: block;
+}
+
+.common-hero-banner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block; 
 }
 
 .rc-page .common-hero-banner + .rc-container {
-  padding-top: 40px !important; /* Perfect neat gap before content */
+  padding-top: 35px !important; /* 🔥 EXACT SPACE FOR DESKTOP 🔥 */
   margin-top: 0 !important;
 }
 
@@ -45,7 +55,7 @@ body.dark-mode .rc-page {
 .rc-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 3rem 2rem 5rem; /* Top padding is overridden above for banner follow-up */
+  padding: 3rem 2rem 5rem; 
 }
 
 /* Section Styles */
@@ -295,8 +305,12 @@ body.dark-mode .rc-patent-card {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .common-hero-banner {
+    margin-top: 70px; 
+  }
+
   .rc-page .common-hero-banner + .rc-container {
-    padding-top: 25px !important; /* Tighter gap for mobile */
+    padding-top: 0px !important; /* 🔥 EXACT SAME SPACE FOR MOBILE 🔥 */
   }
 
   .rc-container {

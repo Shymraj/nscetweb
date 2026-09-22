@@ -4,10 +4,21 @@
 .common-hero-banner {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+  margin-top: 85px; /* 🔥 ADDED: Prevents hiding behind the fixed Desktop Navbar */
+  width: 100%;      /* 🔥 ADDED: Responsive width */
+  display: block;
+}
+
+/* 🔥 MISSING BLOCK ADDED HERE: Completely removes the invisible gap under the image 🔥 */
+.common-hero-banner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block; 
 }
 
 .research-statistics-page .common-hero-banner + .rs-container {
-  padding-top: 0 !important; /* Space removed */
+  padding-top: 80px !important; /* Adjust this to 10px if you want it even tighter on Desktop */
   margin-top: 0 !important;
 }
 
@@ -23,28 +34,35 @@
 .rs-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 24px; /* This top padding is overridden above for banner follow-up */
+  padding: 20px 24px; /* This top padding is overridden above for banner follow-up */
 }
 
 .rs-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(280px, 1fr)); /* 🔥 ADDED: Responsive sizing */
+  justify-content: center; /* 🔥 ADDED: Perfectly centers cards */
   gap: 32px;
 }
 
 @media (max-width: 1024px) {
   .rs-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(280px, 1fr)); /* 🔥 ADDED: Responsive tablet sizing */
+    justify-content: center;
   }
 }
 
 @media (max-width: 768px) {
+  .common-hero-banner {
+    margin-top: 30px; /* 🔥 ADDED: Adjusts margin for Mobile Navbar */
+  }
+
   .research-statistics-page .common-hero-banner + .rs-container {
-    padding-top: 0 !important; /* Space removed */
+    padding-top: 0px !important; /* Perfect small gap for mobile */
   }
 
   .rs-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: min(100%, 420px); /* 🔥 ADDED: Perfect fluid center for mobile without stretching */
+    justify-content: center;
   }
   
   .rs-container {
