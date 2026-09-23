@@ -4,7 +4,7 @@ import { useDepartmentStaff } from "../../../hooks/useDepartmentStaff";
 import { Link } from "react-router-dom";
 import {
   FaBolt, FaMicrochip, FaUserTie, FaEnvelope, FaGraduationCap,
-  FaChalkboardTeacher, FaBookOpen, FaChartLine, FaDownload, FaPaperPlane,
+  FaChalkboardTeacher, FaBookOpen, FaChartLine, FaHandPointDown, FaPaperPlane,
   FaCalendarTimes, FaCalendarAlt, FaAward, FaLightbulb, FaCheckCircle,
   FaRobot, FaBroadcastTower
 } from "react-icons/fa";
@@ -144,7 +144,7 @@ const MEEmbedded = () => {
                 <FaPaperPlane /> Explore Facilities
               </a>
               <a href="#meembed-faculty" className="cse-btn cse-btn-secondary">
-                <FaDownload /> View Faculty
+                <FaHandPointDown /> View Faculty
               </a>
             </motion.div>
           </motion.div>

@@ -4,7 +4,7 @@ import { useDepartmentStaff } from "../../../hooks/useDepartmentStaff";
 import { Link } from "react-router-dom";
 import {
   FaCogs, FaIndustry, FaUserTie, FaEnvelope, FaGraduationCap,
-  FaChalkboardTeacher, FaBookOpen, FaChartLine, FaDownload, FaPaperPlane,
+  FaChalkboardTeacher, FaBookOpen, FaChartLine, FaHandPointDown, FaPaperPlane,
   FaCalendarTimes, FaCalendarAlt, FaAward, FaLightbulb, FaCheckCircle,
   FaRobot, FaTools
 } from "react-icons/fa";
@@ -145,7 +145,7 @@ const MEManufacturing = () => {
                 <FaPaperPlane /> Explore Facilities
               </a>
               <a href="#memanuf-faculty" className="cse-btn cse-btn-secondary">
-                <FaDownload /> View Faculty
+                <FaHandPointDown /> View Faculty
               </a>
             </motion.div>
           </motion.div>

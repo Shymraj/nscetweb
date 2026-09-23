@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import {
   FaLaptopCode, FaDatabase, FaShieldAlt, FaServer,
   FaUserTie, FaEnvelope, FaGraduationCap, FaChalkboardTeacher,
-  FaBookOpen, FaChartLine, FaDownload, FaPaperPlane, FaCalendarTimes,
+  FaBookOpen, FaChartLine, FaHandPointDown, FaPaperPlane, FaCalendarTimes,
   FaCalendarAlt, FaAward, FaLightbulb, FaCheckCircle, FaQuoteLeft, FaFileAlt
 } from "react-icons/fa";
 import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
@@ -173,7 +173,7 @@ const CSE = () => {
                 <FaPaperPlane /> Explore Facilities
               </a>
               <a href="#cse-faculty" className="cse-btn cse-btn-secondary">
-                <FaDownload /> View Faculty
+                <FaHandPointDown /> View Faculty
               </a>
             </motion.div>
           </motion.div>

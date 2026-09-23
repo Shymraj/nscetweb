@@ -4,7 +4,7 @@ import { useDepartmentStaff } from "../../../../hooks/useDepartmentStaff";
 import { Link } from "react-router-dom";
 import {
   FaBrain, FaNetworkWired, FaUserTie, FaEnvelope, FaGraduationCap,
-  FaChalkboardTeacher, FaBookOpen, FaChartLine, FaDownload, FaPaperPlane,
+  FaChalkboardTeacher, FaBookOpen, FaChartLine, FaHandPointDown, FaPaperPlane,
   FaCalendarTimes, FaCalendarAlt, FaAward, FaLightbulb, FaCheckCircle,
   FaRobot, FaDatabase, FaProjectDiagram
 } from "react-icons/fa";
@@ -165,7 +165,7 @@ const AIDS = () => {
                 <FaPaperPlane /> Explore Facilities
               </a>
               <a href="#aids-faculty" className="cse-btn cse-btn-secondary">
-                <FaDownload /> View Faculty
+                <FaHandPointDown /> View Faculty
               </a>
             </motion.div>
           </motion.div>
