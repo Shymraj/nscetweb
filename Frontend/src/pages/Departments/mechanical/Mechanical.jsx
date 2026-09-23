@@ -64,7 +64,7 @@ const Mechanical = () => {
   const stats = [
     { count: "86", label: "Mechanical Students", icon: <FaGraduationCap />, color: "#2563eb" },
     { count: "17", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
-    { count: "0", label: "Research Papers", icon: <FaBookOpen />, color: "#d97706" },
+
     { count: "90%", label: "Placement Track Record", icon: <FaChartLine />, color: "#ec4899" }
   ];
 

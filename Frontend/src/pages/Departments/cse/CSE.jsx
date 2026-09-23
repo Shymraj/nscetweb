@@ -64,8 +64,7 @@ const CSE = () => {
   const stats = [
     { count: "166", label: "Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
     { count: "9", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
-    { count: "0", label: "Research Papers", icon: <FaBookOpen />, color: "#d97706" },
-    { count: "0", label: "Specialized Labs", icon: <FaServer />, color: "#7c3aed" },
+
     { count: "90%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
   ];
 

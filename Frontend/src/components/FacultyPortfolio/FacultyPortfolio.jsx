@@ -154,8 +154,10 @@ export default function FacultyPortfolio() {
   return (
     <div className="faculty-portfolio-page shadcn-theme">
       {/* Ambient background glows */}
-      <div className="portfolio-ambient-glow portfolio-glow-1" />
-      <div className="portfolio-ambient-glow portfolio-glow-2" />
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="portfolio-ambient-glow portfolio-glow-1" />
+        <div className="portfolio-ambient-glow portfolio-glow-2" />
+      </div>
 
       {/* Minimal Floating Header */}
       <header className="portfolio-header">
