@@ -833,6 +833,6 @@
         margin-top: 40px !important; /* 👈 Mobile-la banner mela/keela poga intha 65px-ai adjust pannunga */
     }
     .common-page-wrapper {
-        padding-top: 0 !important;
+        padding-top: 35px !important;
     }
 }
