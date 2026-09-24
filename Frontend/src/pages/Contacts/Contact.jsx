@@ -79,69 +79,21 @@ const Contact = () => {
   });
 
   return (
-    /* 👇 Main container-ku common-page-wrapper add panniyachu 👇 */
     <div className="common-page-wrapper contacts-page-wrapper">
       
-      {/* 👇 PageBanner-ku bathila pudhu responsive Banner Div 👇 */}
+      {/* 1. HERO BANNER */}
       <div className="common-hero-banner">
         {customBanner && (
           <img 
             src={customBanner} 
             alt="Contact Banner" 
-            style={{ width: '100%', height: 'auto', display: 'block' }} 
           />
         )}
       </div>
 
       <main className="content-wrapper">
-        {/* BENTO GRID: CONTACT INFO */}
-        <motion.div
-          className="contact-bento"
-          initial="hidden" animate="visible" variants={staggerContainer}
-        >
-          <motion.div
-            className="contact-card primary"
-            variants={zoomIn}
-          >
-            <div className="contact-icon-wrapper">
-              <FaMapMarkerAlt className="contact-icon" />
-            </div>
-            <div className="contact-card-content">
-              <h3>Headquarters & Campus</h3>
-              <p><strong>Postbox No:</strong> 60</p>
-              <p>Annanji (P.O), Vadapudupatti,</p>
-              <p>Theni - 625531, Tamil Nadu, India.</p>
-            </div>
-          </motion.div>
-
-          <motion.div className="contact-card card-phone" variants={fadeInUp}>
-            <div className="contact-icon-wrapper">
-              <FaPhoneAlt className="contact-icon" />
-            </div>
-            <div className="contact-card-content">
-              <h3>General Contact</h3>
-              <p>04546 - 263900</p>
-              <p>04546 - 263901</p>
-              <p>04546 - 263902</p>
-            </div>
-          </motion.div>
-
-          <motion.div className="contact-card card-mobile" variants={fadeInUp}>
-            <div className="contact-icon-wrapper">
-              <FaMobileAlt className="contact-icon" />
-            </div>
-            <div className="contact-card-content">
-              <h3>Admissions & Mobile</h3>
-              <p>+91 90951 00235</p>
-              <p>+91 90951 00278</p>
-              <a href="mailto:admissions@nscet.org" className="admissions-email">
-                <FaEnvelope className="email-icon" /> admissions@nscet.org
-              </a>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* INTERCOM DIRECTORY SECTION */}
+        
+        {/* 2. DIRECTORY SECTION (AT TOP) */}
         <motion.div
           className="intercom-section"
           initial={{ opacity: 1, y: 0 }}
@@ -149,8 +101,9 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="directory-header">
-            <h2 className="glam-title">Phone & Intercom <span>Directory</span></h2>
-            <p className="directory-subtitle">Quick extension search and department contacts</p>
+            <h2 className="glam-title desktop-title">Phone & Intercom <span>Directory</span></h2>
+            <h2 className="mobile-section-title">Directory</h2>
+            <p className="directory-subtitle desktop-subtitle">Quick extension search and department contacts</p>
 
             {/* SEARCH AND FILTER BAR */}
             <div className="directory-controls">
@@ -158,7 +111,7 @@ const Contact = () => {
                 <FaSearch className="search-bar-icon" />
                 <input
                   type="text"
-                  placeholder="Search location, department, phone, or intercom extension..."
+                  placeholder="Search location, department, or intercom..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="directory-search-input"
@@ -174,7 +127,7 @@ const Contact = () => {
                       className={`cat-tab ${activeCategory === cat.name ? "active" : ""}`}
                       onClick={() => setActiveCategory(cat.name)}
                     >
-                      <Icon className="tab-icon" />
+                      <span className="tab-icon-wrap"><Icon /></span>
                       <span>{cat.name}</span>
                     </button>
                   );
@@ -183,8 +136,8 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* TABLE DISPLAY */}
-          <div className="table-responsive">
+          {/* DESKTOP TABLE DISPLAY */}
+          <div className="table-responsive desktop-table">
             <table className="intercom-table">
               <thead>
                 <tr>
@@ -227,16 +180,122 @@ const Contact = () => {
               </tbody>
             </table>
           </div>
+
+          {/* MOBILE PHONEBOOK LIST DISPLAY */}
+          <div className="mobile-phonebook-list">
+            {filteredData.length > 0 ? (
+              filteredData.map((row, index) => {
+                // Phone number illaathapodhu, Intercom Number-ai call seiyyum aadharavukkana Code (Optional fallback)
+                const callNumber = row.phone !== "-" ? `04546${row.phone}` : row.intercom[0];
+
+                return (
+                  <div key={index} className="phonebook-item">
+                    <div className="phonebook-info">
+                      <span className="pb-location">{row.location}</span>
+                      <span className="pb-details">
+                        Ext: <strong className="pb-highlight">{row.intercom.join(", ")}</strong> 
+                        {row.phone !== "-" && ` | Ph: ${row.phone}`}
+                      </span>
+                    </div>
+                    {/* Ellam Blue color-il theriya 'disabled' class-ai neekkiyullen */}
+                    <a 
+                      href={`tel:${callNumber}`} 
+                      className="pb-call-btn" 
+                    >
+                       <FaPhoneAlt />
+                    </a>
+                  </div>
+                );
+              })
+            ) : (
+               <div className="no-results-mobile">No records found.</div>
+            )}
+          </div>
         </motion.div>
 
-        {/* CAMPUS MAP SECTION */}
+        {/* 3. CONTACT CARDS (BELOW DIRECTORY) */}
+        
+        {/* DESKTOP BENTO GRID */}
+        <motion.div
+          className="contact-bento desktop-contact-bento"
+          initial="hidden" animate="visible" variants={staggerContainer}
+        >
+          <motion.div className="contact-card primary" variants={zoomIn}>
+            <div className="contact-icon-wrapper">
+              <FaMapMarkerAlt className="contact-icon" />
+            </div>
+            <div className="contact-card-content">
+              <h3>Headquarters & Campus</h3>
+              <p><strong>Postbox No:</strong> 60</p>
+              <p>Annanji (P.O), Vadapudupatti,</p>
+              <p>Theni - 625531, Tamil Nadu, India.</p>
+            </div>
+          </motion.div>
+
+          <motion.div className="contact-card card-phone" variants={fadeInUp}>
+            <div className="contact-icon-wrapper">
+              <FaPhoneAlt className="contact-icon" />
+            </div>
+            <div className="contact-card-content">
+              <h3>General Contact</h3>
+              <p>04546 - 263900</p>
+              <p>04546 - 263901</p>
+              <p>04546 - 263902</p>
+            </div>
+          </motion.div>
+
+          <motion.div className="contact-card card-mobile" variants={fadeInUp}>
+            <div className="contact-icon-wrapper">
+              <FaMobileAlt className="contact-icon" />
+            </div>
+            <div className="contact-card-content">
+              <h3>Admissions & Mobile</h3>
+              <p>+91 90951 00235</p>
+              <p>+91 90951 00278</p>
+              <a href="mailto:admissions@nscet.org" className="admissions-email">
+                <FaEnvelope className="email-icon" /> admissions@nscet.org
+              </a>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* MOBILE QUICK ACTION CARDS (With Heading & Circular Icons) */}
+        <div className="mobile-quick-actions-container">
+          <h2 className="mobile-section-title quick-contact-heading">Quick Contacts</h2>
+          <div className="mobile-quick-actions">
+             <div className="mobile-action-card">
+                <div className="mac-icon-box"><FaMapMarkerAlt /></div>
+                <div className="mac-text">
+                  <span className="mac-title">Campus Location</span>
+                  <span className="mac-desc">Vadapudupatti, Theni</span>
+                </div>
+             </div>
+             <a href="tel:04546263900" className="mobile-action-card">
+                <div className="mac-icon-box"><FaPhoneAlt /></div>
+                <div className="mac-text">
+                  <span className="mac-title">General Enquiry</span>
+                  <span className="mac-desc">04546 - 263900</span>
+                </div>
+             </a>
+             <a href="tel:+919095100235" className="mobile-action-card">
+                <div className="mac-icon-box"><FaMobileAlt /></div>
+                <div className="mac-text">
+                  <span className="mac-title">Admissions</span>
+                  <span className="mac-desc">+91 90951 00235</span>
+                </div>
+             </a>
+          </div>
+        </div>
+
+        {/* 4. CAMPUS MAP SECTION */}
         <motion.div
           className="map-section"
           initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="glam-title">Find Us on <span>Google Maps</span></h2>
+          <h2 className="glam-title desktop-title">Find Us on <span>Google Maps</span></h2>
+          <h2 className="mobile-section-title center-title">Location Map</h2>
           <div className="map-glow-wrapper">
             <div className="map-inner">
               <iframe
