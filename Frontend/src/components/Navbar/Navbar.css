@@ -1025,10 +1025,30 @@ body.dark-mode .has-submenu.active>.submenu-label {
     color: #ff7a00;
 }
 
+.dropdown-arrow {
+    display: none;
+}
+
 .submenu-arrow {
-    font-size: 16px;
-    margin-left: 10px;
-    transition: transform 0.2s ease;
+    font-size: 11px;
+    margin-left: auto;
+    color: #64748b;
+    transform: rotate(-90deg);
+    transition: transform 0.25s ease, color 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+body.dark-mode .submenu-arrow {
+    color: #94a3b8;
+}
+
+.has-submenu:hover > .submenu-label .submenu-arrow {
+    color: #ff7a00;
+}
+
+body.dark-mode .has-submenu:hover > .submenu-label .submenu-arrow {
+    color: #f59e0b;
 }
 
 .dropdown-menu:not(.has-active-submenu) .has-submenu:hover>.sub-dropdown-menu,
@@ -1163,12 +1183,126 @@ body.dark-mode .mobile-menu-icon {
 
     .nav-links li {
         width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     .nav-links a {
-        display: block;
-        width: 100%;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+        padding: 10px 14px !important;
+        font-size: 15px !important;
+        font-weight: 500 !important;
+        border-radius: 8px !important;
+        transition: all 0.25s ease !important;
+        color: #1f2937 !important;
+    }
+
+    .nav-links a::after {
+        display: none !important;
+    }
+
+    /* Mobile Dropdown Arrow */
+    .dropdown-arrow {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 12px !important;
+        color: #64748b !important;
+        margin-left: auto !important;
+        flex-shrink: 0 !important;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease !important;
+    }
+
+    .nav-links a.dropdown-toggle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        cursor: pointer !important;
+    }
+
+    /* Light Mode Active Dropdown */
+    .dropdown.active > a.dropdown-toggle {
+        background: #fff3e8 !important;
+        color: #ff7a00 !important;
+    }
+
+    .dropdown.active > a.dropdown-toggle .dropdown-arrow {
+        transform: rotate(180deg) !important;
+        color: #ff7a00 !important;
+    }
+
+    /* Dark Mode Mobile Menu & Dropdowns */
+    body.dark-mode .nav-links a {
+        color: #f1f5f9 !important;
+    }
+
+    body.dark-mode .dropdown-arrow {
+        color: #cbd5e1 !important;
+    }
+
+    body.dark-mode .dropdown.active > a.dropdown-toggle {
+        background: rgba(245, 158, 11, 0.15) !important;
+        color: #f59e0b !important;
+    }
+
+    body.dark-mode .dropdown.active > a.dropdown-toggle .dropdown-arrow {
+        transform: rotate(180deg) !important;
+        color: #f59e0b !important;
+    }
+
+    /* Submenus on Mobile */
+    .submenu-label {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        padding: 9px 14px !important;
+        font-size: 14px !important;
+        border-radius: 6px !important;
+        cursor: pointer !important;
+        color: #374151 !important;
+    }
+
+    .submenu-arrow {
+        transform: rotate(0deg) !important;
+        font-size: 11px !important;
+        color: #64748b !important;
+        margin-left: auto !important;
+        flex-shrink: 0 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        transition: transform 0.25s ease, color 0.25s ease !important;
+    }
+
+    .has-submenu.active > .submenu-label {
+        background: #fff3e8 !important;
+        color: #ff7a00 !important;
+    }
+
+    .has-submenu.active > .submenu-label .submenu-arrow {
+        transform: rotate(180deg) !important;
+        color: #ff7a00 !important;
+    }
+
+    body.dark-mode .submenu-label {
+        color: #e2e8f0 !important;
+    }
+
+    body.dark-mode .submenu-arrow {
+        color: #cbd5e1 !important;
+    }
+
+    body.dark-mode .has-submenu.active > .submenu-label {
+        background: rgba(245, 158, 11, 0.15) !important;
+        color: #f59e0b !important;
+    }
+
+    body.dark-mode .has-submenu.active > .submenu-label .submenu-arrow {
+        transform: rotate(180deg) !important;
+        color: #f59e0b !important;
     }
 
     .dropdown-menu {
@@ -1176,8 +1310,8 @@ body.dark-mode .mobile-menu-icon {
         top: 0;
         box-shadow: none;
         border: none;
-        padding-left: 15px;
-        display: none;
+        padding-left: 14px;
+        display: none !important;
     }
 
     .sub-dropdown-menu {
@@ -1186,16 +1320,47 @@ body.dark-mode .mobile-menu-icon {
         width: 100%;
         box-shadow: none;
         border: none;
-        padding-left: 15px;
-        display: none;
+        padding-left: 14px;
+        display: none !important;
     }
 
-    /* Change hover logic to allow tapping to open on mobile, overriding initial display none */
+    .dropdown-menu li a,
+    .sub-dropdown-menu li a {
+        padding: 8px 12px !important;
+        font-size: 13.5px !important;
+        font-weight: 400 !important;
+        color: #4b5563 !important;
+        border-radius: 6px !important;
+    }
+
+    .dropdown-menu li a:hover,
+    .sub-dropdown-menu li a:hover {
+        background: #fff3e8 !important;
+        color: #ff7a00 !important;
+    }
+
+    body.dark-mode .dropdown-menu li a,
+    body.dark-mode .sub-dropdown-menu li a {
+        color: #94a3b8 !important;
+    }
+
+    body.dark-mode .dropdown-menu li a:hover,
+    body.dark-mode .sub-dropdown-menu li a:hover {
+        background: rgba(245, 158, 11, 0.12) !important;
+        color: #f59e0b !important;
+    }
+
+    /* On mobile, strictly toggle display via .active class so clicking again closes the menu */
+    .dropdown .dropdown-menu,
     .dropdown:hover .dropdown-menu,
-    .dropdown-menu:not(.has-active-submenu) .has-submenu:hover .sub-dropdown-menu,
-    .dropdown.active .dropdown-menu,
-    .has-submenu.active .sub-dropdown-menu {
-        display: block;
+    .has-submenu .sub-dropdown-menu,
+    .has-submenu:hover .sub-dropdown-menu {
+        display: none !important;
+    }
+
+    .dropdown.active > .dropdown-menu,
+    .has-submenu.active > .sub-dropdown-menu {
+        display: block !important;
     }
 
     .mobile-menu-icon {

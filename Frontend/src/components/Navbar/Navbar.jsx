@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/Img/nscet-logo.png";
 import logoClean from "../../assets/Img/nscet-logo-clean.png";
-import { FaMoon, FaSun, FaSearch, FaTimes, FaBars, FaLinkedin, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaMoon, FaSun, FaSearch, FaTimes, FaBars, FaLinkedin, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaChevronDown } from "react-icons/fa";
 import annualAccountsPdf from "../../pages/AboutUs/AnnualAccounts/assets/documents/annual-accounts.pdf";
 import governingPdf from "../../pages/Administration/GoverningCouncil/governing.pdf";
 
@@ -89,6 +89,15 @@ function Navbar() {
     setActiveDropdown(null);
     setActiveSubmenu(null);
   }, [location.pathname]);
+
+  const toggleDropdown = (key) => {
+    setActiveDropdown((prev) => (prev === key ? null : key));
+    setActiveSubmenu(null);
+  };
+
+  const toggleSubmenu = (key) => {
+    setActiveSubmenu((prev) => (prev === key ? null : key));
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -192,12 +201,15 @@ function Navbar() {
           <li className={`dropdown ${activeDropdown === 'about' ? 'active' : ''}`}
             onMouseEnter={() => window.innerWidth > 1024 && setActiveDropdown('about')}
             onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="#" onClick={(e) => {
+            <Link to="#" className="dropdown-toggle" onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
-                setActiveDropdown(activeDropdown === 'about' ? null : 'about');
+                toggleDropdown('about');
               }
-            }}>About Us</Link>
+            }}>
+              <span>About Us</span>
+              <FaChevronDown className="dropdown-arrow" />
+            </Link>
             <ul className="dropdown-menu">
               <li><Link to="/about">About NSCET</Link></li>
               <li><Link to="/about/actstatutes">Act and Statutes</Link></li>
@@ -211,12 +223,15 @@ function Navbar() {
           <li className={`dropdown ${activeDropdown === 'admin' ? 'active' : ''}`}
             onMouseEnter={() => window.innerWidth > 1024 && setActiveDropdown('admin')}
             onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="#" onClick={(e) => {
+            <Link to="#" className="dropdown-toggle" onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
-                setActiveDropdown(activeDropdown === 'admin' ? null : 'admin');
+                toggleDropdown('admin');
               }
-            }}>Administration</Link>
+            }}>
+              <span>Administration</span>
+              <FaChevronDown className="dropdown-arrow" />
+            </Link>
             <ul className="dropdown-menu">
               <li><Link to="/administration/tmhnutrust">TMHNU Trust</Link></li>
               <li><Link to="/administration/academic-leadership">Academic Leadership</Link></li>
@@ -239,12 +254,15 @@ function Navbar() {
           <li className={`dropdown ${activeDropdown === 'academics' ? 'active' : ''}`}
             onMouseEnter={() => window.innerWidth > 1024 && setActiveDropdown('academics')}
             onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="#" onClick={(e) => {
+            <Link to="#" className="dropdown-toggle" onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
-                setActiveDropdown(activeDropdown === 'academics' ? null : 'academics');
+                toggleDropdown('academics');
               }
-            }}>Academics</Link>
+            }}>
+              <span>Academics</span>
+              <FaChevronDown className="dropdown-arrow" />
+            </Link>
             <ul className="dropdown-menu">
               <li><Link to="/academics/details-of-academic-programs">Details of Academic Programs</Link></li>
               <li><Link to="/academics/academic-calendar">Academic Calendar</Link></li>
@@ -252,8 +270,16 @@ function Navbar() {
               <li><Link to="/academics/teaching-faculty">Teaching Faculty</Link></li>
               <li><Link to="/academics/non-teaching-faculty">Non-Teaching Faculty</Link></li>
               <li><Link to="/academics/iqac">IQAC</Link></li>
-              <li className="has-submenu">
-                <span className="submenu-label">E-learning <span className="submenu-arrow">›</span></span>
+              <li className={`has-submenu ${activeSubmenu === 'elearning' ? 'active' : ''}`}>
+                <span className="submenu-label" onClick={(e) => {
+                  e.preventDefault();
+                  if (window.innerWidth <= 1024) {
+                    toggleSubmenu('elearning');
+                  }
+                }}>
+                  <span>E-learning</span>
+                  <FaChevronDown className="submenu-arrow" />
+                </span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/academics/e-learning/infosys-springboard">INFOSYS SPRINGBOARD</Link></li>
                   <li><Link to="/academics/e-learning/nptel">NPTEL</Link></li>
@@ -265,15 +291,21 @@ function Navbar() {
             </ul>
           </li>
           <li className={`dropdown ${activeDropdown === 'departments' ? 'active' : ''}`} onMouseLeave={() => { if (window.innerWidth > 1024) { setActiveDropdown(null); setActiveSubmenu(null); } }}>
-            <Link to="#" onClick={(e) => {
+            <Link to="#" className="dropdown-toggle" onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
-                setActiveDropdown(activeDropdown === 'departments' ? null : 'departments');
+                toggleDropdown('departments');
               }
-            }}>Departments</Link>
+            }}>
+              <span>Departments</span>
+              <FaChevronDown className="dropdown-arrow" />
+            </Link>
             <ul className={`dropdown-menu ${activeSubmenu ? 'has-active-submenu' : ''}`}>
               <li className={`has-submenu ${activeSubmenu === 'cse' ? 'active' : ''}`}>
-                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'cse' ? null : 'cse'); }}>Dept of Computer Science & Engineering <span className="submenu-arrow">›</span></span>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'cse' ? null : 'cse'); }}>
+                  <span>Dept of Computer Science & Engineering</span>
+                  <FaChevronDown className="submenu-arrow" />
+                </span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/cse">B.E Computer Science & Engineering</Link></li>
                   <li><Link to="/departments/me-cse">M.E Computer Science & Engineering</Link></li>
@@ -282,28 +314,40 @@ function Navbar() {
                 </ul>
               </li>
               <li className={`has-submenu ${activeSubmenu === 'civil' ? 'active' : ''}`}>
-                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'civil' ? null : 'civil'); }}>Dept of Civil Engineering <span className="submenu-arrow">›</span></span>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'civil' ? null : 'civil'); }}>
+                  <span>Dept of Civil Engineering</span>
+                  <FaChevronDown className="submenu-arrow" />
+                </span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/civil">B.E Civil Engineering</Link></li>
                   <li><Link to="/departments/me-structural">M.E Structural Engineering</Link></li>
                 </ul>
               </li>
               <li className={`has-submenu ${activeSubmenu === 'mech' ? 'active' : ''}`}>
-                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'mech' ? null : 'mech'); }}>Dept of Mechanical Engineering <span className="submenu-arrow">›</span></span>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'mech' ? null : 'mech'); }}>
+                  <span>Dept of Mechanical Engineering</span>
+                  <FaChevronDown className="submenu-arrow" />
+                </span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/mechanical">B.E Mechanical Engineering</Link></li>
                   <li><Link to="/departments/me-manufacturing">M.E Manufacturing Engineering</Link></li>
                 </ul>
               </li>
               <li className={`has-submenu ${activeSubmenu === 'eee' ? 'active' : ''}`}>
-                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'eee' ? null : 'eee'); }}>Dept of Electrical Engineering <span className="submenu-arrow">›</span></span>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'eee' ? null : 'eee'); }}>
+                  <span>Dept of Electrical Engineering</span>
+                  <FaChevronDown className="submenu-arrow" />
+                </span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/electrical">B.E Electrical & Electronics Engineering</Link></li>
                   <li><Link to="/departments/me-embedded">M.E Embedded System & Technology</Link></li>
                 </ul>
               </li>
               <li className={`has-submenu ${activeSubmenu === 'ece' ? 'active' : ''}`}>
-                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'ece' ? null : 'ece'); }}>Dept of Electronics Engineering <span className="submenu-arrow">›</span></span>
+                <span className="submenu-label" onClick={(e) => { e.preventDefault(); setActiveSubmenu(activeSubmenu === 'ece' ? null : 'ece'); }}>
+                  <span>Dept of Electronics Engineering</span>
+                  <FaChevronDown className="submenu-arrow" />
+                </span>
                 <ul className="sub-dropdown-menu">
                   <li><Link to="/departments/electronics">B.E Electronics & Communication Engineering</Link></li>
                 </ul>
@@ -314,12 +358,15 @@ function Navbar() {
             </ul>
           </li>
           <li className={`dropdown ${activeDropdown === 'research' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="#" onClick={(e) => {
+            <Link to="#" className="dropdown-toggle" onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
-                setActiveDropdown(activeDropdown === 'research' ? null : 'research');
+                toggleDropdown('research');
               }
-            }}>Research</Link>
+            }}>
+              <span>Research</span>
+              <FaChevronDown className="dropdown-arrow" />
+            </Link>
             <ul className="dropdown-menu">
               <li><Link to="/research/rnd-cell">Research and Development Cell</Link></li>
               <li><Link to="/research/statistics">Research Statistics</Link></li>
@@ -329,12 +376,15 @@ function Navbar() {
           </li>
           <li><Link to="/ispin">iSPIN</Link></li>
           <li className={`dropdown ${activeDropdown === 'gallery' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="#" onClick={(e) => {
+            <Link to="#" className="dropdown-toggle" onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
-                setActiveDropdown(activeDropdown === 'gallery' ? null : 'gallery');
+                toggleDropdown('gallery');
               }
-            }}>Gallery</Link>
+            }}>
+              <span>Gallery</span>
+              <FaChevronDown className="dropdown-arrow" />
+            </Link>
             <ul className="dropdown-menu">
               <li><Link to="/gallery/waves25">WAVES'26</Link></li>
               <li><Link to="/gallery/clubs-chapters">Clubs & Chapters</Link></li>
@@ -344,12 +394,15 @@ function Navbar() {
             </ul>
           </li>
           <li className={`dropdown ${activeDropdown === 'student-life' ? 'active' : ''}`} onMouseLeave={() => window.innerWidth > 1024 && setActiveDropdown(null)}>
-            <Link to="#" onClick={(e) => {
+            <Link to="#" className="dropdown-toggle" onClick={(e) => {
               e.preventDefault();
               if (window.innerWidth <= 1024) {
-                setActiveDropdown(activeDropdown === 'student-life' ? null : 'student-life');
+                toggleDropdown('student-life');
               }
-            }}>Student Life</Link>
+            }}>
+              <span>Student Life</span>
+              <FaChevronDown className="dropdown-arrow" />
+            </Link>
             <ul className="dropdown-menu">
               <li><Link to="/student-life/sports">Sports</Link></li>
               <li><Link to="/student-life/nss">NSS</Link></li>
