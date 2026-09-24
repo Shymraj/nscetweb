@@ -18,6 +18,18 @@
   padding-bottom: 0 !important;
 }
 
+<<<<<<< Updated upstream
+=======
+.tmhnu-page .common-hero-banner {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+  margin-top: 38px !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+}
+>>>>>>> Stashed changes
 
 
 /* Continuous seamless banner layout */
@@ -46,14 +58,24 @@
   }
 
   .tmhnu-page .common-hero-banner {
-    margin-top: 36px !important; /* Lowers banner comfortably below mobile navbar */
+    margin-top: 0px !important; /* Lowers banner comfortably below mobile navbar */
   }
 
   .tmhnu-page .common-hero-banner + .tmhnu-about-section {
-    padding-top: 15px !important;
+    padding-top: 65px !important;
   }
 }
 
+<<<<<<< Updated upstream
+=======
+/* 🔥 NEW CUSTOM BANNER STYLE 🔥 */
+.tmhnu-custom-banner {
+  width: 100%;
+  background-color: var(--th-bg-main);
+  display: block;
+  margin-top: 110px;
+}
+>>>>>>> Stashed changes
 
 
 .tmhnu-container {
@@ -397,10 +419,15 @@
   
   /* 🔥 PERFECT FLUID CENTER FOR MOBILE 🔥 */
   .tmhnu-screenshot-grid-4, 
-  .tmhnu-screenshot-grid-2,
-  .tmhnu-exec-grid-3x4 { 
+  .tmhnu-screenshot-grid-2 { 
     grid-template-columns: min(100%, 420px); 
     justify-content: center;
+  }
+
+  /* 🔥 EXEC COMMITTEE: 2 COLUMNS (6 ROWS) FOR MOBILE 🔥 */
+  .tmhnu-exec-grid-3x4 { 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1rem;
   }
 }
 
@@ -416,6 +443,11 @@
   } 
   
   .tmhnu-screenshot-card-box { padding: 1.5rem; }
+
+  /* Adjust gap slightly for smaller screens */
+  .tmhnu-exec-grid-3x4 { 
+    gap: 0.8rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -423,10 +455,25 @@
   .tmhnu-container { padding: 0 16px; }
   .tmhnu-bento-content p { font-size: 0.95rem; }
   
+  /* 🔥 Fit 2 columns beautifully on small screens without breaking 🔥 */
   .exec-card-3x4 { 
     flex-direction: column; 
     text-align: center; 
-    padding: 1.5rem; 
+    padding: 1rem 0.5rem; 
+    gap: 0.5rem;
+  }
+
+  .exec-avatar-3x4 {
+    width: 45px;
+    height: 45px;
+  }
+
+  .exec-name-3x4 {
+    font-size: 0.9rem;
+  }
+
+  .exec-title-3x4 {
+    font-size: 0.75rem;
   }
 }
 
@@ -453,4 +500,4 @@
 .dark-mode .screenshot-img-wrapper img {
     border-color: var(--th-bg-main);
     background-color: var(--th-bg-main);
-}
+} 

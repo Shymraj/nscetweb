@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap');
-
 :root {
   --premium-card-bg: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%) !important;
   --premium-card-border: 1px solid rgba(59, 130, 246, 0.15) !important;
@@ -23,17 +21,11 @@
 .act-statutes-page .common-hero-banner + * > section,
 .act-statutes-page .common-hero-banner + * .about-inner-container {
   margin-top: 0 !important; 
-  padding-top: 0 !important; /* 👈 Exact 0 gap */
+  padding-top: 0 !important; /* 👈 Gap-ai reduce panna 0 aakkiyachu */
 }
-
 
 /* Global and Container */
 .act-statutes-page {
-  --font-heading: 'Outfit', sans-serif;
-  --font-section: 'Outfit', sans-serif;
-  --font-subtopic: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
-
   --color-h1: #123B7A;
   --color-h2: #1E56A0;
   --color-h3: #234A7D;
@@ -42,7 +34,6 @@
   --color-accent-gold: #F5A400;
   --color-link: #2563EB;
 
-  font-family: var(--font-body);
   background-color: #f8fafc;
   color: var(--color-body);
   min-height: 100vh;
@@ -98,7 +89,6 @@
 
 /* Premium Section Headings */
 .about-section-heading {
-  font-family: var(--font-section);
   text-align: center;
   font-size: clamp(2rem, 4.5vw, 3.25rem);
   font-weight: 700;
@@ -155,7 +145,6 @@
 }
 
 .section-title {
-  font-family: var(--font-section);
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--color-h2);
@@ -225,7 +214,6 @@
 }
 
 .card-title {
-  font-family: var(--font-subtopic);
   font-size: 2rem;
   font-weight: 700;
   color: var(--color-h3);
@@ -250,7 +238,7 @@
 .vision-mission-compact-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 5rem;
   max-width: 800px;
   width: 100%;
 }
@@ -274,7 +262,6 @@
 }
 
 .elegant-card-title {
-  font-family: var(--font-subtopic);
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-h3);
@@ -295,7 +282,6 @@
 }
 
 .elegant-vision-text {
-  font-family: var(--font-body);
   font-size: 1.15rem;
   line-height: 1.7;
   font-weight: 400;
@@ -338,7 +324,6 @@
 }
 
 .elegant-mission-text {
-  font-family: var(--font-body);
   font-size: 1.05rem;
   line-height: 1.6;
   font-weight: 400;
@@ -348,7 +333,8 @@
 /* Quality Policy Grid */
 .quality-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* 🔥 FIX: Exact 3 columns forced for Desktop (3 top, 3 bottom) 🔥 */
+  grid-template-columns: repeat(3, minmax(0, 1fr)); 
   gap: 2rem;
   margin-bottom: 4rem;
 }
@@ -382,7 +368,6 @@
 }
 
 .quality-card-title {
-  font-family: var(--font-subtopic);
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-h3);
@@ -408,7 +393,6 @@
 }
 
 .quality-card-content {
-  font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.7;
   font-weight: 400;
@@ -435,7 +419,7 @@
   left: 20px;
   font-size: 15rem;
   color: rgba(255, 255, 255, 0.05);
-  font-family: Georgia, serif;
+  font-family: Georgia, serif; /* Maintained only for the big quotation mark character */
   line-height: 1;
   pointer-events: none;
 }
@@ -453,7 +437,6 @@
 }
 
 .commitment-title {
-  font-family: var(--font-subtopic);
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -463,7 +446,6 @@
 }
 
 .commitment-quote {
-  font-family: var(--font-body);
   font-size: 1.8rem;
   line-height: 1.6;
   font-weight: 400;
@@ -559,7 +541,6 @@
 }
 
 .document-title {
-  font-family: var(--font-subtopic);
   font-size: 2rem;
   font-weight: 800;
   color: var(--color-h3);
@@ -567,7 +548,6 @@
 }
 
 .document-description {
-  font-family: var(--font-body);
   font-size: 1.1rem;
   color: var(--color-body);
   font-weight: 400;
@@ -771,10 +751,13 @@
 @media (max-width: 1024px) {
   .about-inner-container { padding: 40px 30px; }
   .document-content { gap: 1.5rem; flex-wrap: wrap; }
+  
+  /* 🔥 FIX: Added tablet view layout (2 columns) for better spacing 🔥 */
+  .quality-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
-  .about-inner-container { padding: 20px 15px; } 
+  .about-inner-container { padding: 10px 15px; } 
   
   .about-section-heading { font-size: 1.8rem; line-height: 1.3; margin-bottom: 2.5rem; }
   .section-title { font-size: 1.8rem; }
@@ -799,6 +782,7 @@
   .commitment-quote { font-size: 1.2rem; line-height: 1.5; }
   .premium-quote-panel::before { font-size: 8rem; top: -10px; left: 10px; }
   
+  /* Mobile view remains 1 column perfectly */
   .quality-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .close-btn { top: 1rem; right: 1rem; width: 40px; height: 40px; font-size: 1.2rem; }
 }
@@ -845,7 +829,10 @@
 
 /* Mobile View Gap Adjustments */
 @media (max-width: 767px) {
+    .common-hero-banner {
+        margin-top: 40px !important; /* 👈 Mobile-la banner mela/keela poga intha 65px-ai adjust pannunga */
+    }
     .common-page-wrapper {
-        padding-top: 60px !important;
+        padding-top: 0 !important;
     }
 }

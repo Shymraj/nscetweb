@@ -1,11 +1,21 @@
 /* Internal Complaints Committee Page Styles */
 
 /* ==========================================================
-   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & RESPONSIVE 🔥
    ========================================================== */
 .common-hero-banner {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+  margin-top: 85px !important; /* Desktop Navbar Adjustment */
+  width: 100%;
+  display: block;
+}
+
+.common-hero-banner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }
 
 .icc-page .common-hero-banner + .icc-container {
@@ -596,6 +606,11 @@ body.dark-mode .icc-table tbody tr:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* 🔥 MOBILE BANNER FIX 🔥 */
+  .common-hero-banner {
+    margin-top: 70px !important;
+  }
+
   .icc-page .common-hero-banner + .icc-container {
     padding-top: 15px !important; /* Kept very tight for mobile */
   }
@@ -676,8 +691,15 @@ body.dark-mode .icc-table tbody tr:hover {
     color: var(--primary-accent);
   }
 
+  /* 🔥 COMPLAINT PROCEDURE MOBILE ALIGNMENT FIX 🔥 */
   .icc-steps-timeline {
     grid-template-columns: 1fr;
+  }
+
+  /* Removes the desktop column spans that were breaking the mobile order */
+  .icc-step-item.span-two,
+  .icc-step-item.span-three {
+    grid-column: span 1;
   }
 
   .icc-step-item {
