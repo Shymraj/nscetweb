@@ -123,7 +123,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 70px;
+  margin-bottom: 20px;
 }
 
 .hero-logo {
@@ -446,7 +446,7 @@ body.dark-mode .hero .btn-secondary:hover {
   }
 
   .hero-brand {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 }
 
