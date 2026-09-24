@@ -861,26 +861,42 @@ body.dark-mode .search-btn {
 }
 
 body.dark-mode .search-box {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(30, 41, 59, 0.95) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+    border-radius: 30px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
 }
 
 body.dark-mode .search-box:focus-within {
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: none;
+    border-color: #f59e0b !important;
+    box-shadow: 0 0 14px rgba(245, 158, 11, 0.3) !important;
+}
+
+body.dark-mode .search-box .search-icon {
+    color: #cbd5e1 !important;
 }
 
 body.dark-mode .search-box input {
-    background: transparent;
-    color: #ffffff;
-    border: none;
+    background: transparent !important;
+    color: #f8fafc !important;
+    border: none !important;
 }
 
 body.dark-mode .search-box input::placeholder {
-    color: #e2e8f0;
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .close-search {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid #f59e0b !important;
+    color: #f59e0b !important;
+}
+
+body.dark-mode .close-search:hover {
+    background: #f59e0b !important;
+    color: #0f172a !important;
 }
 
 body.dark-mode .search-btn:hover {
@@ -1409,21 +1425,22 @@ body.dark-mode .mobile-menu-icon {
 }
 
 body.dark-mode .search-results {
-    background: rgba(30, 35, 50, 0.95);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    background: #1e293b !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
 }
 
 body.dark-mode .search-result-item {
-    color: #e2e8f0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #f1f5f9 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 body.dark-mode .search-result-item:hover {
-    background: rgba(212, 175, 55, 0.12);
-    color: #D4AF37;
+    background: rgba(245, 158, 11, 0.15) !important;
+    color: #f59e0b !important;
 }
 
 /* ==========================================================================
@@ -1435,7 +1452,7 @@ body.dark-mode .search-result-item:hover {
     header {
         width: 100% !important;
         max-width: 100vw !important;
-        overflow-x: hidden !important;
+        overflow: visible !important;
         background: transparent !important;
         border: none !important;
         box-shadow: none !important;
@@ -1461,10 +1478,11 @@ body.dark-mode .search-result-item:hover {
         display: none !important;
     }
 
-    /* 1. Main Navbar Container - White Card with Curved Bottom Corners and Gold Border */
+    /* 1. Main Navbar Container - Full-width in both Light and Dark mode */
     .navbar {
         width: 100% !important;
         left: 0 !important;
+        margin: 0 !important;
         border-radius: 0 0 20px 20px !important;
         padding: 0 12px !important;
         height: 58px !important;
@@ -1481,9 +1499,19 @@ body.dark-mode .search-result-item:hover {
     }
 
     body.dark-mode .navbar {
-        background: #0f172a !important;
+        width: 100% !important;
+        left: 0 !important;
+        margin: 0 !important;
+        border-radius: 0 0 20px 20px !important;
+        padding: 0 12px !important;
+        height: 58px !important;
+        box-sizing: border-box !important;
+        border: none !important;
         border-bottom: 2px solid #f59e0b !important;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+        background: rgba(15, 23, 42, 0.88) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
     }
 
     /* 2. Left Side: Logo & Brand */
@@ -1494,6 +1522,10 @@ body.dark-mode .search-result-item:hover {
         align-items: center !important;
         flex-shrink: 1 !important;
         min-width: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
     }
 
     .logo-box {
@@ -1597,10 +1629,18 @@ body.dark-mode .search-result-item:hover {
     body.dark-mode .search-btn,
     body.dark-mode .theme-btn,
     body.dark-mode .mobile-menu-icon {
-        background: rgba(30, 41, 59, 0.9) !important;
-        border-color: rgba(255, 255, 255, 0.15) !important;
+        background: transparent !important;
+        border: none !important;
+        border-color: transparent !important;
         color: #f8fafc !important;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: none !important;
+    }
+
+    body.dark-mode .search-btn:hover,
+    body.dark-mode .theme-btn:hover,
+    body.dark-mode .mobile-menu-icon:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: #f59e0b !important;
     }
 
     .search-btn:active,
@@ -1630,16 +1670,61 @@ body.dark-mode .search-result-item:hover {
         display: none !important;
     }
 
-    /* 8. Search Box Overlay Centering on Mobile */
-    .search-box {
-        position: fixed !important;
-        top: 65px !important;
-        left: 10px !important;
-        right: 10px !important;
-        width: calc(100vw - 20px) !important;
-        max-width: none !important;
-        transform: none !important;
-        height: 44px !important;
+    /* 8. Mobile Search: Logo stays on the left; Search Bar takes only the right icons area (matching 2nd image) */
+    .navbar.search-active .logo-section {
+        display: flex !important;
+        flex-shrink: 0 !important;
+    }
+
+    .navbar.search-active .mobile-menu-icon {
+        display: none !important;
+    }
+
+    .navbar.search-active .nav-right {
+        width: auto !important;
+        flex: 1 !important;
+        max-width: 220px !important;
+        margin: 0 !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
+
+    .navbar.search-active .search-box {
+        position: relative !important;
+        top: 0 !important;
+        left: auto !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 215px !important;
+        height: 38px !important;
+        padding: 0 30px 0 10px !important;
+        margin: 0 !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .navbar.search-active .search-box input {
+        font-size: 13.5px !important;
+    }
+
+    .navbar.search-active .search-box .search-icon {
+        font-size: 15px !important;
+    }
+
+    .navbar.search-active .search-box .close-search {
+        width: 22px !important;
+        height: 22px !important;
+        font-size: 11px !important;
+        right: 6px !important;
+    }
+
+    .navbar.search-active .search-results {
+        position: absolute !important;
+        top: calc(100% + 8px) !important;
+        left: auto !important;
+        right: 0 !important;
+        width: 260px !important;
+        max-width: calc(100vw - 24px) !important;
+        z-index: 1002 !important;
     }
 }
 
