@@ -32,6 +32,7 @@ import ResearchStatistics from "./pages/Research/ResearchStatistics/ResearchStat
 import ResearchCentre from "./pages/Research/ResearchCentre/ResearchCentre";
 import EntrepreneurshipDevelopmentCell from "./pages/Research/EntrepreneurshipDevelopmentCell/EntrepreneurshipDevelopmentCell";
 import Ispin from "./pages/Ispin/Ispin";
+import SIH from "./pages/SIH/SIH";
 import Administration from "./pages/Administration/Administration/Administration";
 import TMHNUTrust from "./pages/Administration/TMHNUTrust/TMHNUTrust";
 import Principal from "./pages/Administration/Principal/Principal";
@@ -163,6 +164,7 @@ const AppContent = () => {
         <Route path="/research/centre" element={<ResearchCentre />} />
         <Route path="/research/entrepreneurship-cell" element={<EntrepreneurshipDevelopmentCell />} />
         <Route path="/ispin" element={<Ispin />} />
+        <Route path="/sih" element={<SIH />} />
         <Route path="/administration" element={<Administration />} />
         <Route path="/administration/tmhnutrust" element={<TMHNUTrust />} />
         <Route path="/administration/principal" element={<Principal />} />

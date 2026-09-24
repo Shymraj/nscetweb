@@ -846,6 +846,6 @@
 /* Mobile View Gap Adjustments */
 @media (max-width: 767px) {
     .common-page-wrapper {
-        padding-top: 60px !important;
+        padding-top: 35px !important;
     }
 }
