@@ -139,10 +139,21 @@
 }
 
 /* Dynamic Font Sizes for long titles */
-.banner-title.title-size-xl { font-size: 3.5rem; }
-.banner-title.title-size-lg { font-size: 3rem; }
-.banner-title.title-size-md { font-size: 2.5rem; }
-.banner-title.title-size-sm { font-size: 2rem; }
+.banner-title.title-size-xl {
+  font-size: 3.5rem;
+}
+
+.banner-title.title-size-lg {
+  font-size: 3rem;
+}
+
+.banner-title.title-size-md {
+  font-size: 2.5rem;
+}
+
+.banner-title.title-size-sm {
+  font-size: 2rem;
+}
 
 /* --- Premium Glass Breadcrumb --- */
 .banner-breadcrumb {
@@ -172,7 +183,8 @@
 }
 
 .breadcrumb-link:hover {
-  color: #60a5fa; /* Soft blue hover */
+  color: #60a5fa;
+  /* Soft blue hover */
 }
 
 .breadcrumb-icon {
@@ -200,11 +212,23 @@
   .page-banner {
     height: var(--custom-banner-height, 50vh);
   }
-  .banner-title.title-size-xl { font-size: 3rem; }
-  .banner-title.title-size-lg { font-size: 2.6rem; }
-  .banner-title.title-size-md { font-size: 2.2rem; }
-  .banner-title.title-size-sm { font-size: 1.8rem; }
-  
+
+  .banner-title.title-size-xl {
+    font-size: 3rem;
+  }
+
+  .banner-title.title-size-lg {
+    font-size: 2.6rem;
+  }
+
+  .banner-title.title-size-md {
+    font-size: 2.2rem;
+  }
+
+  .banner-title.title-size-sm {
+    font-size: 1.8rem;
+  }
+
   .page-banner-left {
     padding: 0 4% 0 6%;
   }
@@ -212,11 +236,33 @@
 
 @media (max-width: 768px) {
   .page-banner {
-    height: var(--custom-banner-height, 60vh);
+    height: var(--custom-banner-height, 45vh);
+    min-height: 250px;
   }
+
+  /* Override auto-height for mobile to ensure proper sizing */
+  .page-banner.auto-height,
+  .page-banner[style*="--custom-banner-height: auto"],
+  .page-banner[style*="--custom-banner-height:auto"] {
+    height: 45vh !important;
+    min-height: 250px !important;
+    max-height: 45vh !important;
+  }
+
+  .page-banner.auto-height .page-banner-main-img,
+  .page-banner[style*="--custom-banner-height: auto"] .page-banner-main-img,
+  .page-banner[style*="--custom-banner-height:auto"] .page-banner-main-img {
+    height: 45vh !important;
+    max-height: 45vh !important;
+    min-height: 250px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+
   .page-banner-right {
     width: 100%;
   }
+
   .page-banner-left {
     width: 100%;
     clip-path: none;
@@ -225,10 +271,12 @@
     justify-content: center;
     border-right: none;
   }
+
   .page-banner-content {
     align-items: center;
     text-align: center;
   }
+
   .banner-breadcrumb {
     font-size: 0.8rem;
     padding: 0.5rem 1.2rem;

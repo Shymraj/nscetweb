@@ -9,9 +9,8 @@ import cal1 from './images/REVISED Academic Calendar 2025-26.pdf';
 import cal2 from './images/Academic Calendar 2024 -25.pdf';
 import cal3 from './images/2023-24 EVEN SEM.pdf';
 
-// Auto-load custom banner image from ./banner/ (excluding svg icons)
-const bannerGlobs = import.meta.glob("./banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
-const heroImage = Object.values(bannerGlobs)[0] || null;
+// Directly import the banner image
+import heroImage from './banner/ChatGPT Image Jul 29, 2026, 12_59_27 PM.png';
 
 const academicCalendars = [
   { title: 'Academic Calendar 2025-2026 Even Sem', latest: true, revised: true, file: cal1 },
@@ -112,7 +111,7 @@ const AcademicCalendar = () => {
           <div className="ac-even-content">
             <div className="ac-even-card">
               <p>
-                <strong>Reopening for UG Sem II, IV, VI & VIII + PG Sem II & IV</strong> → 
+                <strong>Reopening for UG Sem II, IV, VI & VIII + PG Sem II & IV</strong> →
                 <span className="ac-even-date">05 January 2026</span>
               </p>
             </div>

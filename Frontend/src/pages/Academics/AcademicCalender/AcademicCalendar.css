@@ -6,6 +6,23 @@
   background-color: #f8fafc;
 }
 
+/* Mobile banner responsiveness */
+@media (max-width: 768px) {
+  .academic-calendar-page .page-banner {
+    height: 35vh !important;
+    min-height: 200px !important;
+    max-height: 35vh !important;
+  }
+
+  .academic-calendar-page .page-banner .page-banner-main-img {
+    height: 35vh !important;
+    max-height: 35vh !important;
+    min-height: 200px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
 /* Content container that sits after the PageBanner */
 .academic-calendar-content {
   max-width: 1400px;
@@ -474,6 +491,8 @@ body.dark-mode .ac-even-date {
 @media (max-width: 768px) {
   .academic-calendar-content {
     padding: 1.5rem 1rem 3rem;
+    width: 100%;
+    max-width: 100%;
   }
 
   .ac-about-section,
@@ -483,6 +502,8 @@ body.dark-mode .ac-even-date {
   .ac-holidays-section,
   .ac-even-section {
     padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .ac-section-header h2,
@@ -505,5 +526,18 @@ body.dark-mode .ac-even-date {
   .ac-dates-table th,
   .ac-dates-table td {
     padding: 0.75rem 0.5rem;
+  }
+
+  /* Mobile-specific calendar card adjustments */
+  .ac-calendar-card {
+    padding: 1.2rem;
+  }
+
+  .ac-calendar-info h3 {
+    font-size: 1rem;
+  }
+  .ac-view-btn {
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
   }
 }
