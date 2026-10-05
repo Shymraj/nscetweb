@@ -72,7 +72,11 @@ const searchData = [
 
 function Navbar() {
 
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem("nscet_theme");
+    if (saved !== null) return saved === "dark";
+    return true;
+  });
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
@@ -115,8 +119,10 @@ function Navbar() {
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark-mode");
+      localStorage.setItem("nscet_theme", "dark");
     } else {
       document.body.classList.remove("dark-mode");
+      localStorage.setItem("nscet_theme", "light");
     }
   }, [darkMode]);
 
@@ -126,8 +132,10 @@ function Navbar() {
     if (query.trim() === "") {
       setSearchResults([]);
     } else {
+      const q = query.toLowerCase().trim();
       const results = searchData.filter(item =>
-        item.name.toLowerCase().includes(query.toLowerCase())
+        item.name.toLowerCase().includes(q) ||
+        item.path.toLowerCase().replace(/[^a-z0-9]/g, '').includes(q.replace(/[^a-z0-9]/g, ''))
       );
       setSearchResults(results);
     }
@@ -181,7 +189,7 @@ function Navbar() {
         </div>
       </div>
 
-      <nav className="navbar">
+      <nav className={`navbar ${showSearch ? "search-active" : ""}`}>
 
         <Link to="/" className="logo-section" style={{ textDecoration: 'none' }}>
           <div className="logo-box">
