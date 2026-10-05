@@ -4,7 +4,6 @@ import Objectives from './components/Objectives';
 import Activities from './components/Activities';
 import NSSTeam from './components/NSSTeam';
 import NSSGallery from './components/NSSGallery';
-import ContactCard from './components/ContactCard';
 
 import nssBanner from './assets/banner/NSS banner.png';
 import './NSS.css';
@@ -31,7 +30,6 @@ const NSS = () => {
         <Activities />
         <NSSTeam />
         <NSSGallery />
-        <ContactCard />
       </div>
     </div>
   );

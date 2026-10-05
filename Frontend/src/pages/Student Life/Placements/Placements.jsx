@@ -6,7 +6,7 @@ import DepartmentFacultyCard from '../../../components/common/DepartmentFacultyC
 // Auto-load banner image inside ./images/banner/
 const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
 const bannerImg = Object.values(bannerGlobs)[0] || null;
-import { FaBuilding, FaUserTie, FaChalkboardTeacher, FaBriefcase, FaWifi, FaUsers, FaGraduationCap, FaIndustry, FaPhone, FaEnvelope, FaChevronLeft, FaChevronRight, FaCheckCircle, FaBullseye, FaHandshake, FaChartLine, FaUtensils, FaComments, FaBrain, FaRegLightbulb } from 'react-icons/fa';
+import { FaBuilding, FaUserTie, FaChalkboardTeacher, FaBriefcase, FaWifi, FaUsers, FaGraduationCap, FaIndustry, FaPhoneAlt, FaEnvelope, FaChevronLeft, FaChevronRight, FaCheckCircle, FaBullseye, FaHandshake, FaChartLine, FaUtensils, FaComments, FaBrain, FaRegLightbulb } from 'react-icons/fa';
 import { placementOfficerData, placementCoordinatorsData } from './facultyData';
 import poster1 from './images/1769520719_Placement Poster M&S 1.jpg.webp';
 import poster2 from './images/1769521126_Placement Poster 11-06-2025.webp';
@@ -610,7 +610,7 @@ const Placements = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="pl-section-header">
-            <FaPhone className="pl-header-icon" />
+            <FaPhoneAlt className="pl-header-icon" />
             <h2>Contact Details</h2>
           </div>
           <div className="pl-contact-card">
@@ -620,7 +620,7 @@ const Placements = () => {
             <p className="pl-contact-location">Vadapudupatti, Theni-625531</p>
             <p className="pl-contact-state">Tamil Nadu, India</p>
             <div className="pl-contact-details">
-              <p><FaPhone className="pl-contact-icon" /> TEL: 04546 – 253900, 901, 902</p>
+              <p><FaPhoneAlt className="pl-contact-icon" /> TEL: 04546 – 253900, 901, 902</p>
               <p><FaEnvelope className="pl-contact-icon" /> EMAIL: placement@nscet.org</p>
             </div>
           </div>

@@ -31,6 +31,11 @@ const ClubsAndChapters = () => {
       />
 
       <div className="clubs-chapters-container">
+        <div className="clubs-page-header text-center">
+          <h2 className="clubs-main-heading">CLUBS AND CHAPTERS</h2>
+          <div className="clubs-heading-line"></div>
+        </div>
+
         <div className="clubs-grid">
           {clubsData.map((club) => {
             const imageSrc = club.icon;

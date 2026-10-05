@@ -2,9 +2,17 @@ import { motion } from "framer-motion";
 import ReactCountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { statistics } from "./data";
+import { FaUserGraduate, FaChalkboardTeacher, FaBuilding, FaBriefcase } from "react-icons/fa";
 
 // Fix Vite CommonJS interop for react-countup
 const CountUp = ReactCountUp.default || ReactCountUp;
+
+const statIcons = {
+  1: FaUserGraduate,
+  2: FaChalkboardTeacher,
+  3: FaBuilding,
+  4: FaBriefcase,
+};
 
 const StatsSection = () => {
   const { ref: statsRef, inView: statsInView } = useInView({
@@ -15,24 +23,31 @@ const StatsSection = () => {
   return (
     <section ref={statsRef} className="overview-stats-section">
       <div className="overview-stats-grid">
-        {statistics.map((stat, index) => (
-          <motion.div
-            key={stat.id}
-            initial={{ y: 50, opacity: 0 }}
-            animate={statsInView ? { y: 0, opacity: 1 } : {}}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="overview-stat-card"
-          >
-            <div className="overview-stat-value">
-              {statsInView ? <CountUp end={stat.value} duration={2.5} preserveValue={true} /> : "0"}
-              {stat.suffix}
-            </div>
-            <div className="overview-stat-label">{stat.label}</div>
-          </motion.div>
-        ))}
+        {statistics.map((stat, index) => {
+          const IconComponent = statIcons[stat.id] || FaUserGraduate;
+          return (
+            <motion.div
+              key={stat.id}
+              initial={{ y: 30, opacity: 0 }}
+              animate={statsInView ? { y: 0, opacity: 1 } : {}}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="overview-stat-card"
+            >
+              <div className="overview-stat-icon-wrapper">
+                <IconComponent className="overview-stat-icon" />
+              </div>
+              <div className="overview-stat-value">
+                {statsInView ? <CountUp end={stat.value} duration={2.5} preserveValue={true} /> : "0"}
+                <span className="overview-stat-suffix">{stat.suffix}</span>
+              </div>
+              <div className="overview-stat-label">{stat.label}</div>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
 };
 
 export default StatsSection;
+

@@ -240,10 +240,37 @@
 }
 
 @media (max-width: 768px) {
-  .darkHeroSection { padding: 140px 6vw 60px 6vw !important; } 
-  .megaBentoGrid { grid-template-columns: 1fr !important; } 
+  .darkHeroSection { padding: 100px 16px 40px 16px !important; } 
+  .heroBadge { margin-bottom: 18px !important; padding: 6px 14px !important; }
+  .heroTitle { font-size: clamp(1.8rem, 6.5vw, 2.4rem) !important; margin-bottom: 24px !important; }
+  .heroStats { gap: 12px !important; width: 100% !important; justify-content: space-between !important; }
+  .statBox h4 { font-size: 1.6rem !important; }
+  .statBox p { font-size: 0.72rem !important; }
+
+  .bentoSection { padding: 30px 16px !important; }
+  .sectionHeader { margin-bottom: 24px !important; }
+  .sectionHeader h2 { font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important; }
+  .megaBentoGrid { grid-template-columns: 1fr !important; gap: 14px !important; } 
   .span2 { grid-column: span 1 !important; }
-  .heroTitle { font-size: 2.8rem !important; }
-  .flowCard { width: 320px !important; height: 460px !important; }
-  .cardInner { padding: 24px !important; }
+  .bentoBox { padding: 22px 18px !important; border-radius: 16px !important; }
+  .bentoTop { margin-bottom: 14px !important; }
+  .bentoTop h3 { font-size: 1.35rem !important; }
+  .bentoDesc { font-size: 0.92rem !important; margin-bottom: 16px !important; }
+  .bentoList p { font-size: 0.88rem !important; gap: 8px !important; margin-bottom: 8px !important; }
+  .pillarTitle { font-size: 1.15rem !important; margin-bottom: 6px !important; }
+  .pillarDesc { font-size: 0.88rem !important; }
+
+  .timelineSection { padding: 30px 16px 50px 16px !important; }
+  .coverflowArea { height: 440px !important; margin-top: 20px !important; }
+  .flowCard { width: min(88vw, 320px) !important; height: 420px !important; border-radius: 16px !important; }
+  .cardInner { padding: 22px 18px !important; }
+  .year { font-size: 2.2rem !important; }
+  .iconBox { width: 38px !important; height: 38px !important; font-size: 16px !important; }
+  .cardTitle { font-size: 1.25rem !important; margin-bottom: 8px !important; }
+  .cardDesc { font-size: 0.88rem !important; margin-bottom: 16px !important; }
+  .tagsGrid { gap: 6px !important; margin-bottom: 16px !important; }
+  .tagsGrid span { font-size: 0.68rem !important; padding: 4px 8px !important; }
+  .inspectBtn { padding: 12px !important; font-size: 0.88rem !important; }
+  .matrixControls { gap: 16px !important; margin-top: 16px !important; }
+  .ctrlBtn { width: 42px !important; height: 42px !important; font-size: 14px !important; }
 }

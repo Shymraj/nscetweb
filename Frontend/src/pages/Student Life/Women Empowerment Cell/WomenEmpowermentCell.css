@@ -1,5 +1,3 @@
-/* WomenEmpowermentCell.css */
-
 /* ==========================================================
    🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
    ========================================================== */
@@ -13,12 +11,16 @@
   margin-top: 0 !important;
 }
 
-/* Typography guidelines from AGENTS.md */
+/* ===== Women Empowerment Cell Page — Standardized Typography & Responsive Styles ===== */
+/* Typography: Uses centralized vars from AGENTS.md */
+
+/* ── Page Base ── */
 .wec-page {
   font-family: var(--font-body);
   background: #f8fafc;
   min-height: 100vh;
   margin: 0 !important;
+  /* Top padding is handled globally by .common-page-wrapper */
 }
 
 .wec-container {
@@ -27,226 +29,290 @@
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 4.5rem;
 }
 
-@media (max-width: 768px) {
-  .wec-page .common-hero-banner + .wec-container {
-    padding-top: 25px !important; /* Tighter gap for mobile */
-  }
-
-  .wec-container {
-    padding: 2rem 1rem;
-    gap: 3rem;
-  }
-  .duties-list {
-    grid-template-columns: 1fr;
-  }
-  .members-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Section Common Styles */
-.section-header {
-  margin-bottom: 2rem;
+/* ── Section Header (shared) ── */
+.wec-section-header {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
 }
 
-.section-header h3 {
+.wec-header-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.wec-header-icon-wrap.gradient-1 {
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+}
+.wec-header-icon-wrap.gradient-2 {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+}
+.wec-header-icon-wrap.gradient-3 {
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+}
+.wec-header-icon-wrap.gradient-4 {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.wec-section-header h3 {
   font-family: var(--font-section);
   font-size: 2rem;
   color: #0f172a;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.3rem 0;
+  line-height: 1.25;
 }
 
-.header-line {
+.wec-header-line {
   height: 4px;
-  width: 60px;
-  background: var(--nscet-accent, #f59e0b);
+  width: 50px;
+  background: linear-gradient(90deg, #ec4899, #f43f5e);
   border-radius: 2px;
 }
 
-/* Intro Section */
-.intro-text {
+/* ── Introduction Section ── */
+.wec-intro-card {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem 2.5rem 2.5rem 3rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #ec4899;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.wec-intro-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(236, 72, 153, 0.12);
+}
+
+.wec-intro-accent {
+  display: none;
+}
+
+.wec-intro-text {
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: #475569;
-  line-height: 1.8;
-  background: white;
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  border-left: 4px solid var(--theme-primary-dark, #0284C7);
-  margin-bottom: 1.5rem;
+  line-height: 1.85;
+  margin: 0;
+  font-weight: 400;
 }
 
-/* Duties Section */
-.duties-section {
-  margin-bottom: 1rem;
+/* ── Committee Members Table Section ── */
+.wec-table-wrapper {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  width: 100%;
+  transition: box-shadow 0.35s ease;
 }
 
-.duties-list {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1.5rem;
+.wec-table-wrapper:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
 }
 
-.duties-list li {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+.wec-members-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.wec-members-table thead {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+}
+
+.wec-members-table th {
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 1.2rem 1.5rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wec-members-table td {
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
   font-family: var(--font-body);
   color: #334155;
   line-height: 1.6;
+  font-weight: 400;
+  font-size: 0.95rem;
+  transition: background 0.25s ease;
 }
 
-.duty-icon {
-  color: var(--theme-primary-dark, #0284C7);
-  font-size: 1.2rem;
-  margin-top: 4px;
-  flex-shrink: 0;
+.wec-members-table tr:last-child td {
+  border-bottom: none;
 }
 
-/* Members Table Section */
-.members-section {
-  margin-bottom: 1rem;
+.wec-members-table tbody tr:hover {
+  background: #fdf2f8;
 }
 
-.members-grid {
+.wec-coordinator-row {
+  background: linear-gradient(90deg, #fdf2f8, #fce7f3);
+}
+
+.wec-coordinator-row td {
+  color: #9d174d;
+}
+
+.wec-role-badge {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-subtopic);
+  letter-spacing: 0.3px;
+}
+
+.wec-role-badge.coordinator {
+  background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+  color: #be185d;
+}
+
+.wec-role-badge.member {
+  background: linear-gradient(135deg, #f0fdf4, #bbf7d0);
+  color: #166534;
+}
+
+/* ── Duties & Responsibilities Section ── */
+.wec-duties-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
-.member-card {
-  background: white;
-  padding: 1.2rem;
-  border-radius: 12px;
+.wec-duty-card {
+  background: #ffffff;
+  padding: 1.6rem 1.8rem;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-  border-left: 4px solid var(--theme-primary-dark, #0284C7);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.member-card:hover {
+.wec-duty-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #ec4899;
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.1);
+  background: #fdf2f8;
 }
 
-.coordinator-card {
-  border-left-color: #0369a1;
-  background: #f0f9ff;
+.wec-duty-icon {
+  color: #ec4899;
+  font-size: 1.4rem;
+  margin-top: 2px;
+  flex-shrink: 0;
 }
 
-.member-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.member-info h4 {
-  font-family: var(--font-subtopic);
-  font-size: 1.15rem;
-  color: #0f172a;
-  margin: 0 0 0.3rem 0;
-  font-weight: 700;
-}
-
-.member-info p {
+.wec-duty-card p {
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--theme-primary-dark, #0284C7);
-  font-weight: 600;
-  margin: 0 0 0.2rem 0;
+  font-size: 1rem;
+  color: #334155;
+  line-height: 1.65;
+  margin: 0;
+  font-weight: 400;
 }
 
-.member-info span {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: #64748b;
-}
-
-/* Documents Section */
-.docs-grid {
+/* ── Documents Section ── */
+.wec-docs-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 
-@media (max-width: 992px) {
-  .docs-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.doc-card {
-  background: white;
-  border-radius: 15px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  border-top: 4px solid var(--theme-primary-dark, #0284C7);
+.wec-doc-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 1.8rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  transition: transform 0.3s ease;
+  gap: 1.2rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.doc-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+.wec-doc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
 }
 
-.doc-header {
+.wec-doc-header {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
-.doc-icon {
-  font-size: 1.5rem;
-  color: var(--theme-primary-dark, #0284C7);
+.wec-doc-icon-wrap {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 12px;
+  background: #fdf2f8;
+  color: #ec4899;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  border: 1px solid #fbcfe8;
 }
 
-.doc-header h4 {
+.wec-doc-header h4 {
   font-family: var(--font-subtopic);
   font-size: 1.25rem;
   color: #0f172a;
-  margin: 0;
+  margin: 0 0 0.2rem 0;
   font-weight: 700;
 }
 
-/* PDF Viewer */
-.pdf-viewer {
+.wec-doc-header p {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.wec-pdf-viewer {
   width: 100%;
-  height: 600px;
-  border-radius: 10px;
+  height: 520px;
+  border-radius: 12px;
   overflow: hidden;
   border: 1px solid #e2e8f0;
-  background: #f1f5f9;
+  background: #f8fafc;
   position: relative;
 }
 
-.pdf-iframe {
+.wec-pdf-iframe {
   width: 100%;
   height: 100%;
   border: none;
 }
 
-/* Transparent overlay just to prevent context menu outside the actual pdf contents if needed, 
-   but we need pointer events for scrolling inside the pdf.
-   We can disable pointer events on the iframe and rely on embed, but iframe scroll is better. */
-.pdf-overlay {
+.wec-pdf-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -256,54 +322,249 @@
   z-index: 10;
 }
 
-/* Dark Mode Overrides */
+.wec-doc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #fff;
+  padding: 0.85rem 1.5rem;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+  margin-top: auto;
+}
+
+.wec-doc-btn:hover {
+  background: linear-gradient(135deg, #0369a1, #075985);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================= */
+@media (max-width: 992px) {
+  .wec-container {
+    padding: 3rem 1.5rem;
+    gap: 3.5rem;
+  }
+  .wec-duties-grid {
+    grid-template-columns: 1fr;
+  }
+  .wec-docs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .wec-page .common-hero-banner + .wec-container {
+    padding-top: 20px !important;
+  }
+
+  .wec-container {
+    padding: 16px 14px 2.5rem !important;
+    gap: 2.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .wec-intro-section,
+  .wec-members-section,
+  .wec-duties-section,
+  .wec-documents-section {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Section Header */
+  .wec-section-header {
+    gap: 0.85rem !important;
+    margin-bottom: 1.2rem !important;
+    align-items: center !important;
+  }
+
+  .wec-header-icon-wrap {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    font-size: 1.2rem !important;
+    border-radius: 12px !important;
+  }
+
+  .wec-section-header h3 {
+    font-size: clamp(1.3rem, 5.2vw, 1.65rem) !important;
+    margin: 0 0 0.2rem 0 !important;
+    line-height: 1.25 !important;
+  }
+
+  .wec-header-line {
+    height: 3px !important;
+    width: 38px !important;
+  }
+
+  /* Intro Card */
+  .wec-intro-card {
+    padding: 1.5rem 1.25rem !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .wec-intro-text {
+    font-size: 0.92rem !important;
+    line-height: 1.7 !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+  }
+
+  /* Members Table */
+  .wec-table-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: 16px !important;
+    border: 1px solid #e2e8f0;
+    box-sizing: border-box !important;
+  }
+
+  .wec-members-table {
+    min-width: 480px !important;
+    width: 100% !important;
+  }
+
+  .wec-members-table th {
+    padding: 0.8rem 0.75rem !important;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.3px !important;
+  }
+
+  .wec-members-table td {
+    padding: 0.8rem 0.75rem !important;
+    font-size: 0.84rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .wec-role-badge {
+    padding: 0.25rem 0.65rem !important;
+    font-size: 0.72rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* Duties Cards */
+  .wec-duties-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+
+  .wec-duty-card {
+    padding: 1.1rem 1rem !important;
+    border-radius: 12px !important;
+    gap: 0.85rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .wec-duty-icon {
+    font-size: 1.2rem !important;
+    margin-top: 1px !important;
+  }
+
+  .wec-duty-card p {
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Document Cards */
+  .wec-docs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .wec-doc-card {
+    padding: 1.4rem 1.2rem !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .wec-doc-icon-wrap {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    font-size: 1.2rem !important;
+  }
+
+  .wec-doc-header h4 {
+    font-size: 1.1rem !important;
+  }
+
+  .wec-doc-header p {
+    font-size: 0.82rem !important;
+  }
+
+  .wec-pdf-viewer {
+    height: 380px !important;
+  }
+
+  .wec-doc-btn {
+    width: 100% !important;
+    padding: 0.8rem 1.25rem !important;
+    font-size: 0.88rem !important;
+    box-sizing: border-box !important;
+    border-radius: 10px !important;
+  }
+}
+
+/* ── Dark Mode Overrides ── */
 body.dark-mode .wec-page {
   background: var(--bg-primary);
 }
 
-body.dark-mode .intro-text,
-body.dark-mode .doc-card {
+body.dark-mode .wec-intro-card,
+body.dark-mode .wec-table-wrapper,
+body.dark-mode .wec-duty-card,
+body.dark-mode .wec-doc-card {
   background: var(--bg-secondary);
   color: var(--text-primary);
-  border-color: var(--theme-primary-dark, #0284C7);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  border-color: var(--border-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-body.dark-mode .intro-text {
-  border-left-color: var(--theme-primary-dark, #0284C7);
-}
-
-body.dark-mode .section-header h3,
-body.dark-mode .doc-header h4,
-body.dark-mode .member-info h4,
-body.dark-mode .duties-list li,
-body.dark-mode .duties-list li span {
+body.dark-mode .wec-section-header h3,
+body.dark-mode .wec-doc-header h4 {
   color: var(--text-primary);
 }
 
-body.dark-mode .intro-text,
-body.dark-mode .doc-card p,
-body.dark-mode .member-info p,
-body.dark-mode .member-info span {
+body.dark-mode .wec-intro-text,
+body.dark-mode .wec-duty-card p,
+body.dark-mode .wec-doc-header p,
+body.dark-mode .wec-members-table td {
   color: var(--text-secondary);
 }
 
-body.dark-mode .duties-list li,
-body.dark-mode .member-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--theme-primary-dark, #0284C7);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+body.dark-mode .wec-members-table thead {
+  background: linear-gradient(135deg, #1e293b, #334155);
 }
 
-body.dark-mode .member-card {
-  border-left-width: 4px;
+body.dark-mode .wec-members-table th {
+  color: var(--text-primary);
 }
 
-body.dark-mode .coordinator-card {
-  background: rgba(2, 132, 199, 0.1);
+body.dark-mode .wec-members-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
 }
 
-body.dark-mode .pdf-viewer {
+body.dark-mode .wec-coordinator-row {
+  background: rgba(236, 72, 153, 0.12) !important;
+}
+
+body.dark-mode .wec-coordinator-row td {
+  color: #f472b6;
+}
+
+body.dark-mode .wec-pdf-viewer {
   border-color: var(--border-color);
   background: var(--bg-primary);
 }

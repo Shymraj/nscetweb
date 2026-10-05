@@ -98,19 +98,19 @@ const BoysHostel = () => {
         {/* Administration Section */}
         <section className="hostel-section admin-split-section animate-slide-up-delay-1">
           <div className="admin-split-container">
-            <div className="admin-split-left">
-              <div className="admin-profile-full">
-                <img src="/ME MANUFACTURING/principle.png" alt={hostelData.chiefWarden.name} className="admin-profile-full-img" />
-                <h3 className="admin-profile-name">{hostelData.chiefWarden.name}</h3>
-                <p className="admin-profile-role">{hostelData.chiefWarden.role}</p>
-              </div>
-            </div>
             <div className="admin-split-right">
               <h2 className="bh-section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>Hostel Administration</h2>
               <div className="admin-divider" style={{ margin: '0 0 20px 0' }}></div>
               <p className="admin-description">
                 The Boys Hostel administration is dedicated to maintaining a disciplined, nurturing, and home-like environment. We focus on holistic student development, ensuring the highest standards of safety, hygiene, and academic support throughout their stay.
               </p>
+            </div>
+            <div className="admin-split-left">
+              <div className="admin-profile-full">
+                <img src="/ME MANUFACTURING/principle.png" alt={hostelData.chiefWarden.name} className="admin-profile-full-img" />
+                <h3 className="admin-profile-name">{hostelData.chiefWarden.name}</h3>
+                <p className="admin-profile-role">{hostelData.chiefWarden.role}</p>
+              </div>
             </div>
           </div>
         </section>

@@ -75,10 +75,14 @@ const TransportFacilities = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
         >
-          <div className="transport-section-header text-center">
-            <FaUserShield className="transport-header-icon" />
-            <h3>Transport Incharges</h3>
-            <div className="transport-header-line"></div>
+          <div className="transport-section-header">
+            <div className="transport-header-icon-wrap gradient-1">
+              <FaUserShield />
+            </div>
+            <div>
+              <h3>Transport Incharges</h3>
+              <div className="transport-header-line"></div>
+            </div>
           </div>
           
           <div className="incharge-cards-container">
@@ -108,10 +112,14 @@ const TransportFacilities = () => {
 
         {/* About Section */}
         <section className="transport-about-section">
-          <div className="transport-section-header text-center">
-            <FaBus className="transport-header-icon" />
-            <h3>About Transport</h3>
-            <div className="transport-header-line"></div>
+          <div className="transport-section-header">
+            <div className="transport-header-icon-wrap gradient-2">
+              <FaBus />
+            </div>
+            <div>
+              <h3>About Transport</h3>
+              <div className="transport-header-line"></div>
+            </div>
           </div>
           <div className="transport-about-grid">
             <div className="transport-about-content">
@@ -153,9 +161,13 @@ const TransportFacilities = () => {
         {/* App Section */}
         <section className="transport-app-section">
           <div className="transport-section-header">
-            <FaMobileAlt className="transport-header-icon" />
-            <h3>Bus Attendance Management Application</h3>
-            <div className="transport-header-line"></div>
+            <div className="transport-header-icon-wrap gradient-3">
+              <FaMobileAlt />
+            </div>
+            <div>
+              <h3>Bus Attendance Management Application</h3>
+              <div className="transport-header-line"></div>
+            </div>
           </div>
           
           <div className="transport-app-content-grid">

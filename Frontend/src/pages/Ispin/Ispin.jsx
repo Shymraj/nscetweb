@@ -276,17 +276,6 @@ export default function Ispin() {
         </div>
       </section>
 
-        {/* ================= CALL TO ACTION ================= */}
-        <section className="ispin-cta-section">
-          <div className="cta-box">
-            <h2>Partner with ISPIN or Learn More</h2>
-            <p>Connect with the ISPIN Development Team at Nadar Saraswathi College of Engineering and Technology.</p>
-            <a href="mailto:info@nscet.org" className="cta-btn">
-              Get in Touch <FaArrowRight />
-            </a>
-          </div>
-        </section>
-
       {/* ================= VIDEO MODAL ================= */}
       {isVideoExpanded && (
         <div className="ispin-video-modal-overlay" onClick={() => setIsVideoExpanded(false)}>

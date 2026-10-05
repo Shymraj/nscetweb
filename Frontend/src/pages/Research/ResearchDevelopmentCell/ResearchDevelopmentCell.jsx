@@ -87,16 +87,15 @@ const ResearchDevelopmentCell = () => {
     }
   ];
 
-  // 👇 IMAGE PROPERTY ADD PANNAPATTULLATHU 👇
   const members = [
-    { name: "Dr. C. Mathalai Sundaram", desig: "Principal & Professor", dept: "Department of Mechanical Engineering", dept: "MECH", image: imgMathalaiSundaram, img: "/ME MANUFACTURING/principle.png" }, // Path example: "/rdc/principal.jpg"
-    { name: "Dr. B. Radha Krishnan", desig: "Professor & Head", dept: "Department of Mechanical Engineering", dept: " MECH", image: imgRadhaKrishnan, img: "/MECH/radhakrishnan.jpg" },
-    { name: "Dr. Athilingam R", desig: "Professor & Head", dept: "Department of Electrical and Electronics Engineering", dept: "EEE", image: imgAthilingam, img: "/EEE/athilingam.jpg" },
-    { name: "Dr. T. Venish Kumar A", desig: "Professor & Head", dept: "Department of Electronics and Communication Engineering", dept: "ECE", image: imgVenishKumar, img: "/ECE/venishkumar.jpg" },
-    { name: "Dr. M. Sathya", desig: "Vice principal & Professor", dept: "Department of Computer Science and Engineering", image: imgSathya, img: "/ME CSE/sathya.jpeg" },
-    { name: "Dr. N. David Mathan", desig: "Professor", dept: "Department of Chemistry", dept: "S&H", image: imgDavidMathan, img: "/S&H/davidmathan.jpg" },
-    { name: "Dr. N. Mathavan", desig: "Professor", dept: "Department of Electronics and Communication Engineering", dept: "ECE", image: imgMathavan, img: "/ECE/Mathavan.jpg" },
-    { name: "Dr. Mathalai Raj", desig: "Professor & Head", dept: "Department of Computer Science and Engineering", dept: "CSE", image: imgMathalaiRaj, img: "/CSE/mathalairaj.jpg " }
+    { name: "Dr. C. Mathalai Sundaram", desig: "Principal & Professor", dept: "Department of Mechanical Engineering", image: imgMathalaiSundaram },
+    { name: "Dr. B. Radha Krishnan", desig: "Professor & Head", dept: "Department of Mechanical Engineering", image: imgRadhaKrishnan },
+    { name: "Dr. Athilingam R", desig: "Professor & Head", dept: "Department of Electrical & Electronics Engineering", image: imgAthilingam },
+    { name: "Dr. T. Venish Kumar A", desig: "Professor & Head", dept: "Department of Electronics & Communication Engineering", image: imgVenishKumar },
+    { name: "Dr. M. Sathya", desig: "Vice Principal & Professor", dept: "Department of Computer Science & Engineering", image: imgSathya },
+    { name: "Dr. N. David Mathan", desig: "Professor", dept: "Department of Chemistry (S&H)", image: imgDavidMathan },
+    { name: "Dr. N. Mathavan", desig: "Professor", dept: "Department of Electronics & Communication Engineering", image: imgMathavan },
+    { name: "Dr. Mathalai Raj", desig: "Professor & Head", dept: "Department of Computer Science & Engineering", image: imgMathalaiRaj }
   ];
 
   return (

@@ -90,12 +90,13 @@ const GirlsHostel = () => {
 
       <div className="gh-main-container">
         
-        <section className="gh-section gh-about-section gh-animate-slide-up" style={{ display: 'flex', gap: '40px', alignItems: 'center', textAlign: 'left', backgroundColor: '#ffffff' }}>
-          <div className="gh-about-text" style={{ flex: 1.5 }}>
+        {/* About Section */}
+        <section className="gh-section gh-about-section gh-animate-slide-up">
+          <div className="gh-about-text gh-content-card">
             <h2 className="gh-section-title">About Hostel</h2>
-            <p style={{ textAlign: 'justify', maxWidth: 'none', margin: '0' }}>{hostelData.about}</p>
+            <p>{hostelData.about}</p>
           </div>
-          <div className="gh-about-highlights" style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '15px', justifyContent: 'center' }}>
+          <div className="gh-about-highlights">
             <div className="gh-highlight-chip">
               <FaShieldAlt className="chip-icon" /> 24/7 Security
             </div>
@@ -111,63 +112,53 @@ const GirlsHostel = () => {
           </div>
         </section>
 
-        {/* UPDATED: Split Administration Section matching Boys Hostel */}
-        <section className="gh-section gh-animate-slide-up-delay-1" style={{ padding: '50px 6%' }}>
+        {/* Administration Section */}
+        <section className="gh-section gh-admin-split-section gh-animate-slide-up-delay-1">
           <div className="gh-admin-split-container">
+            <div className="gh-admin-split-right gh-content-card">
+              <h2 className="gh-section-title">Hostel Administration</h2>
+              <div className="gh-admin-divider"></div>
+              <p className="gh-admin-description">
+                The Girls Hostel administration is dedicated to maintaining a disciplined, nurturing, and home-like environment. We focus on holistic student development, ensuring the highest standards of safety, hygiene, and academic support throughout their stay.
+              </p>
+            </div>
             <div className="gh-admin-split-left">
               <div className="gh-admin-profile-full">
-                <img src="https://via.placeholder.com/150/ffffff/cccccc?text=Profile" alt={hostelData.administration[0].name} className="gh-admin-profile-full-img" onError={(e) => { e.target.src = 'https://via.placeholder.com/150'; }} />
+                <img src="/ME%20MANUFACTURING/principle.png" alt={hostelData.administration[0].name} className="gh-admin-profile-full-img" onError={(e) => { e.target.src = '/ME%20MANUFACTURING/principle.png'; }} />
                 <h3 className="gh-admin-profile-name">{hostelData.administration[0].name}</h3>
                 <p className="gh-admin-profile-role">{hostelData.administration[0].role}</p>
               </div>
-            </div>
-            <div className="gh-admin-split-right">
-              <h2 className="gh-section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>Hostel Administration</h2>
-              <div className="gh-admin-divider" style={{ width: '50px', height: '3px', background: '#e2e8f0', margin: '0 0 20px 0', borderRadius: '2px' }}></div>
-              <p className="gh-admin-description" style={{ textAlign: 'justify', color: '#475569', lineHeight: 1.8, fontSize: '1.05rem', margin: 0 }}>
-                The Girls Hostel administration is dedicated to maintaining a disciplined, nurturing, and home-like environment. We focus on holistic student development, ensuring the highest standards of safety, hygiene, and academic support throughout their stay.
-              </p>
             </div>
           </div>
         </section>
 
         {/* Combined Culture and Facilities Section */}
-        <section className="gh-section gh-culture-facilities-section gh-animate-slide-up-delay-2" style={{ background: 'white', padding: '35px 5%', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.03)', margin: '0 3% 30px 3%', width: '94%' }}>
-          <div className="gh-culture-facilities-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '25px' }}>
+        <section className="gh-section gh-culture-facilities-section gh-animate-slide-up-delay-2">
+          <div className="gh-culture-facilities-grid">
             
-            <div className="gh-culture-side" style={{ display: 'flex', flexDirection: 'column' }}>
+            <div className="gh-culture-side">
               <h2 className="gh-section-title">Cultural Activities</h2>
-              <div className="gh-events-card" style={{ height: '100%', minHeight: '280px', margin: 0, padding: 0, overflow: 'hidden', background: '#000', position: 'relative', border: 'none', borderRadius: '14px', flex: 1, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)' }}>
-                <div className="gh-event-image-wrapper" style={{ position: 'relative', width: '100%', height: '100%', minHeight: '280px', borderRadius: 0, boxShadow: 'none' }}>
+              <div className="gh-events-card">
+                <div className="gh-event-image-wrapper">
                   {hostelData.events.images.map((img, idx) => (
                     <img 
                       key={idx}
                       src={img} 
                       alt={`Hostel Event ${idx + 1}`} 
-                      className="gh-event-image" 
-                      style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        opacity: idx === currentEventSlide ? 1 : 0,
-                        transition: 'opacity 1s ease-in-out',
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover'
-                      }}
+                      className={`gh-event-image ${idx === currentEventSlide ? 'active' : ''}`} 
                     />
                   ))}
-                  <div className="gh-event-content" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px', background: 'linear-gradient(transparent, rgba(0, 0, 0, 0.9))', color: 'white', zIndex: 3, margin: 0 }}>
-                    <h3 className="gh-event-title" style={{ fontSize: '1rem', color: 'white', borderBottom: 'none', paddingBottom: 0, margin: '0 0 5px 0' }}>{hostelData.events.title}</h3>
-                    <p className="gh-event-desc" style={{ fontSize: '0.9rem', color: 'white', margin: 0, opacity: 0.9, lineHeight: 1.5 }}>Celebrating unity, talents, and memories.</p>
+                  <div className="gh-event-content">
+                    <h3 className="gh-event-title">{hostelData.events.title}</h3>
+                    <p className="gh-event-desc">Celebrating unity, talents, and memories.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="gh-facilities-side" style={{ display: 'flex', flexDirection: 'column' }}>
+            <div className="gh-facilities-side">
               <h2 className="gh-section-title">Facilities</h2>
-              <div className="gh-facilities-box" style={{ background: '#fdfdfd', border: '1px solid #eaeaea', borderRadius: '14px', padding: '20px', flex: 1, boxShadow: '0 4px 10px rgba(0, 0, 0, 0.02)', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%', margin: 0 }}>
+              <div className="gh-facilities-box">
                 <ul className="gh-facilities-list-new">
                   {hostelData.facilities.map((fac, idx) => (
                     <li key={idx} className="gh-zoom-hover">
@@ -182,19 +173,19 @@ const GirlsHostel = () => {
         </section>
 
         {/* Rules Section split into two boxes */}
-        <section className="gh-section gh-rules-section gh-animate-slide-up-delay-3" style={{ background: 'white', padding: '35px 5%', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.03)', margin: '0 3% 30px 3%', width: '94%' }}>
+        <section className="gh-section gh-rules-section gh-animate-slide-up-delay-3">
           <h2 className="gh-section-title">Rules & Regulations</h2>
-          <div className="gh-rules-two-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '25px' }}>
-            <div className="gh-rules-box" style={{ background: '#fdfdfd', border: '1px solid #eaeaea', borderRadius: '12px', padding: '25px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.02)' }}>
-              <h3 className="gh-rules-box-title" style={{ fontSize: '1.15rem', marginBottom: '15px', borderBottom: '2px solid #fff7ed', paddingBottom: '10px', color: '#1e3a8a' }}>General Rules</h3>
+          <div className="gh-rules-two-container">
+            <div className="gh-rules-box">
+              <h3 className="gh-rules-box-title">General Rules</h3>
               <ul className="gh-rules-list">
                 {hostelData.rules.slice(0, 3).map((rule, idx) => (
                   <li key={idx}>{rule}</li>
                 ))}
               </ul>
             </div>
-            <div className="gh-rules-box" style={{ background: '#fdfdfd', border: '1px solid #eaeaea', borderRadius: '12px', padding: '25px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.02)' }}>
-              <h3 className="gh-rules-box-title" style={{ fontSize: '1.15rem', marginBottom: '15px', borderBottom: '2px solid #fff7ed', paddingBottom: '10px', color: '#1e3a8a' }}>Timings & Restrictions</h3>
+            <div className="gh-rules-box">
+              <h3 className="gh-rules-box-title">Timings & Restrictions</h3>
               <ul className="gh-rules-list">
                 {hostelData.rules.slice(3).map((rule, idx) => (
                   <li key={idx}>{rule}</li>
@@ -204,7 +195,8 @@ const GirlsHostel = () => {
           </div>
         </section>
 
-        <section className="gh-section gh-gallery-section gh-animate-slide-up-delay-4" style={{ background: 'white', padding: '35px 5%', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.03)', margin: '0 3% 30px 3%', width: '94%' }}>
+        {/* Photo Gallery Section */}
+        <section className="gh-section gh-gallery-section gh-animate-slide-up-delay-4">
           <h2 className="gh-section-title">Photo Gallery</h2>
           <div className="gh-gallery-slider-container">
             <div className="gh-slider-images-wrapper">
@@ -221,8 +213,8 @@ const GirlsHostel = () => {
                 </div>
               ))}
             </div>
-            <button className="gh-slider-btn prev-btn" onClick={prevSlide}>&#10094;</button>
-            <button className="gh-slider-btn next-btn" onClick={nextSlide}>&#10095;</button>
+            <button className="gh-slider-btn prev-btn" onClick={prevSlide} aria-label="Previous Slide">&#10094;</button>
+            <button className="gh-slider-btn next-btn" onClick={nextSlide} aria-label="Next Slide">&#10095;</button>
           </div>
           
           <div className="gh-slider-dots-outside">

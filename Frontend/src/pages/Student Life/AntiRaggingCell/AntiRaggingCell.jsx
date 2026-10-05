@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaShieldAlt, FaBullhorn, FaUsers, FaGavel, FaPhone, FaExclamationTriangle, FaCheckCircle, FaFileAlt, FaExternalLinkAlt, FaHandPaper, FaEye } from 'react-icons/fa';
+import { FaShieldAlt, FaBullhorn, FaUsers, FaGavel, FaPhoneAlt, FaExclamationTriangle, FaCheckCircle, FaFileAlt, FaExternalLinkAlt, FaHandPaper, FaEye } from 'react-icons/fa';
 import './AntiRaggingCell.css';
 import minutesPdf from './images/Anti Ragging Committee.pdf';
 import bannerImg from './banner/ANTIRAG.png';
@@ -64,17 +64,23 @@ const AntiRaggingCell = () => {
         {/* About the Cell */}
         <section className="arc-about-section">
           <div className="arc-section-header">
-            <FaShieldAlt className="arc-header-icon" />
-            <h3>About the Cell</h3>
-            <div className="arc-header-line"></div>
+            <div className="arc-header-icon-wrap gradient-1">
+              <FaShieldAlt />
+            </div>
+            <div>
+              <h3>About the Cell</h3>
+              <div className="arc-header-line"></div>
+            </div>
           </div>
-          <div className="arc-about-content">
-            <p>
+          <div className="arc-about-card">
+            <div className="arc-about-accent"></div>
+            <p className="arc-about-text">
               NSCET maintains a <strong>Ragging-Free Campus</strong>. The Anti-Ragging Cell works to prevent, prohibit, and address any form of ragging.
             </p>
-            <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <a href={minutesPdf} target="_blank" rel="noopener noreferrer" className="arc-btn-primary" style={{ display: 'inline-flex', padding: '0.8rem 1.8rem', fontSize: '1rem', background: '#3b82f6' }}>
-                <FaEye /> View Minutes of Meeting
+            <div className="arc-btn-wrapper">
+              <a href={minutesPdf} target="_blank" rel="noopener noreferrer" className="arc-download-btn">
+                <span className="arc-btn-icon"><FaEye /></span>
+                <span>View Minutes of Meeting</span>
               </a>
             </div>
           </div>
@@ -83,9 +89,13 @@ const AntiRaggingCell = () => {
         {/* Main Objectives */}
         <section className="arc-objectives-section">
           <div className="arc-section-header">
-            <FaBullhorn className="arc-header-icon" />
-            <h3>Main Objectives</h3>
-            <div className="arc-header-line"></div>
+            <div className="arc-header-icon-wrap gradient-2">
+              <FaBullhorn />
+            </div>
+            <div>
+              <h3>Main Objectives</h3>
+              <div className="arc-header-line"></div>
+            </div>
           </div>
           <div className="arc-objectives-grid">
             {objectives.map((obj, index) => (
@@ -100,9 +110,13 @@ const AntiRaggingCell = () => {
         {/* Anti-Ragging Mechanism */}
         <section className="arc-mechanism-section">
           <div className="arc-section-header">
-            <FaGavel className="arc-header-icon" />
-            <h3>Anti-Ragging Mechanism</h3>
-            <div className="arc-header-line"></div>
+            <div className="arc-header-icon-wrap gradient-3">
+              <FaGavel />
+            </div>
+            <div>
+              <h3>Anti-Ragging Mechanism</h3>
+              <div className="arc-header-line"></div>
+            </div>
           </div>
           <div className="arc-mechanism-list">
             {mechanisms.map((item, index) => (
@@ -117,9 +131,13 @@ const AntiRaggingCell = () => {
         {/* Anti-Ragging Committee Table */}
         <section className="arc-committee-section">
           <div className="arc-section-header">
-            <FaUsers className="arc-header-icon" />
-            <h3>Anti-Ragging Committee</h3>
-            <div className="arc-header-line"></div>
+            <div className="arc-header-icon-wrap gradient-4">
+              <FaUsers />
+            </div>
+            <div>
+              <h3>Anti-Ragging Committee</h3>
+              <div className="arc-header-line"></div>
+            </div>
           </div>
           <div className="arc-table-wrapper">
             <table className="arc-committee-table">
@@ -135,7 +153,7 @@ const AntiRaggingCell = () => {
                 {committeeMembers.map((member) => (
                   <tr key={member.sno} className={member.position === 'Chair Person' ? 'arc-chair-row' : ''}>
                     <td>{member.sno}</td>
-                    <td>{member.name}</td>
+                    <td><strong>{member.name}</strong></td>
                     <td>{member.designation}</td>
                     <td>
                       <span className={`arc-position-badge ${member.position === 'Chair Person' ? 'arc-badge-chair' : member.position === 'Member / Convener' ? 'arc-badge-convener' : 'arc-badge-member'}`}>
@@ -152,9 +170,13 @@ const AntiRaggingCell = () => {
         {/* Procedure for Lodging Complaint */}
         <section className="arc-procedure-section">
           <div className="arc-section-header">
-            <FaFileAlt className="arc-header-icon" />
-            <h3>Procedure for Lodging Complaint</h3>
-            <div className="arc-header-line"></div>
+            <div className="arc-header-icon-wrap gradient-5">
+              <FaFileAlt />
+            </div>
+            <div>
+              <h3>Procedure for Lodging Complaint</h3>
+              <div className="arc-header-line"></div>
+            </div>
           </div>
           <div className="arc-procedure-content">
             <div className="arc-procedure-card">
@@ -169,9 +191,13 @@ const AntiRaggingCell = () => {
         {/* Instructions to Students */}
         <section className="arc-instructions-section">
           <div className="arc-section-header">
-            <FaHandPaper className="arc-header-icon" />
-            <h3>Instructions to Students</h3>
-            <div className="arc-header-line"></div>
+            <div className="arc-header-icon-wrap gradient-6">
+              <FaHandPaper />
+            </div>
+            <div>
+              <h3>Instructions to Students</h3>
+              <div className="arc-header-line"></div>
+            </div>
           </div>
           <ul className="arc-instructions-list">
             {instructions.map((item, index) => (
@@ -187,7 +213,9 @@ const AntiRaggingCell = () => {
         <section className="arc-complaint-section">
           <div className="arc-complaint-card">
             <div className="arc-complaint-header">
-              <FaPhone className="arc-complaint-icon" />
+              <div className="arc-complaint-icon-wrap">
+                <FaPhoneAlt className="arc-complaint-icon" />
+              </div>
               <h3>File a Complaint</h3>
             </div>
             <p className="arc-complaint-text">If you are a victim of ragging or witness ragging, do not hesitate — report immediately.</p>
@@ -196,13 +224,15 @@ const AntiRaggingCell = () => {
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdTa66gsDl3Fm6blkEUEQZD2TssDdc_5yPL3YLQOEan3NQgQw/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="arc-complaint-btn arc-btn-primary"
+                className="arc-complaint-btn"
               >
-                <FaExternalLinkAlt /> File a Complaint Online
+                <FaExternalLinkAlt /> <span>File a Complaint Online</span>
               </a>
               <div className="arc-helpline-box">
-                <FaPhone className="arc-helpline-icon" />
-                <div>
+                <div className="arc-helpline-icon-wrap">
+                  <FaPhoneAlt className="arc-helpline-icon" />
+                </div>
+                <div className="arc-helpline-details">
                   <span className="arc-helpline-label">National Anti-Ragging Helpline</span>
                   <span className="arc-helpline-number">1800-180-5522</span>
                   <span className="arc-helpline-info">24×7 Toll Free</span>
@@ -211,7 +241,7 @@ const AntiRaggingCell = () => {
             </div>
           </div>
         </section>
-       </div>
+      </div>
     </div>
   );
 };

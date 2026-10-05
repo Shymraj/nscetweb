@@ -5,9 +5,11 @@ import { milestones } from "./data";
 
 const TimelineItem = ({ milestone, index }) => {
   const { ref, inView } = useInView({ 
-    rootMargin: "0px 0px -50% 0px", 
+    rootMargin: "0px 0px -15% 0px", 
     triggerOnce: true 
   });
+  
+  const isLeft = index % 2 === 1; // 0=right, 1=left, 2=right, 3=left...
   
   return (
     <motion.div
@@ -15,7 +17,7 @@ const TimelineItem = ({ milestone, index }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6 }}
-      className="timeline-item"
+      className={`timeline-item ${isLeft ? 'timeline-item-left' : 'timeline-item-right'}`}
     >
       <div className={`timeline-dot ${inView ? 'glow-golden' : ''}`}></div>
       <div className={`timeline-content ${inView ? 'glow-golden' : ''}`}>
