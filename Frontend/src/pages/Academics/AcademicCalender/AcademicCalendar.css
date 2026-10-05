@@ -1,543 +1,639 @@
-/* Academic Calendar Page - uses shared PageBanner for banner */
-.academic-calendar-page {
-  width: 100%;
-  font-family: var(--font-body);
-  color: #212d44;
-  background-color: #f8fafc;
-}
-
-/* Mobile banner responsiveness */
-@media (max-width: 768px) {
-  .academic-calendar-page .page-banner {
-    height: 35vh !important;
-    min-height: 200px !important;
-    max-height: 35vh !important;
-  }
-
-  .academic-calendar-page .page-banner .page-banner-main-img {
-    height: 35vh !important;
-    max-height: 35vh !important;
-    min-height: 200px !important;
-    width: 100% !important;
-    object-fit: cover !important;
-  }
-}
-
-/* Content container that sits after the PageBanner */
-.academic-calendar-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 3rem 2rem 5rem;
-}
-
-/* Section Styles */
-.ac-about-section,
-.ac-calendars-section,
-.ac-highlights-section,
-.ac-dates-section,
-.ac-holidays-section,
-.ac-even-section {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 2.5rem;
-  margin-bottom: 2.5rem;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-}
-
-.ac-section-header,
-.ac-about-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #e2e8f0;
-}
-
-.ac-header-icon {
-  font-size: 2rem;
-  color: #0d3b8e;
-}
-
-.ac-section-header h2,
-.ac-about-header h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin: 0;
-}
-
-.ac-about-content p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #475569;
-  margin: 0;
-}
-
-/* Calendar Cards Grid */
-.ac-calendars-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
-
-.ac-calendar-card {
-  background: #ffffff;
-  padding: 1.8rem;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.ac-calendar-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
-  z-index: -1;
-  transition: width 0.4s ease;
-}
-
-.ac-calendar-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px -10px rgba(13, 59, 142, 0.15);
-  border-color: #cbd5e1;
-}
-
-.ac-calendar-card:hover::before {
-  width: 6px;
-}
-
-.ac-calendar-info h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0;
-  line-height: 1.4;
-}
-
-.ac-calendar-badges {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-  margin-top: 0.2rem;
-}
-
-.ac-badge {
-  padding: 0.35rem 0.8rem;
-  border-radius: 6px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.ac-badge-latest {
-  background: rgba(34, 197, 94, 0.1);
-  color: #16a34a;
-  border: 1px solid rgba(34, 197, 94, 0.2);
-}
-
-.ac-badge-revised {
-  background: rgba(245, 158, 11, 0.1);
-  color: #d97706;
-  border: 1px solid rgba(245, 158, 11, 0.2);
-}
-
-.ac-calendar-actions {
-  display: flex;
-  margin-top: auto;
-  padding-top: 0.5rem;
-}
-
-.ac-view-btn {
-  background: linear-gradient(135deg, #0d3b8e, #2563eb);
-  color: #ffffff;
-  border: none;
-  padding: 0.85rem 1.5rem;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-  text-decoration: none;
-  width: 100%;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-}
-
-.ac-view-btn:hover {
-  background: linear-gradient(135deg, #1e40af, #1d4ed8);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
-  color: #ffffff;
-}
-
-.ac-view-icon {
-  font-size: 1.1rem;
-}
-
-/* Highlights Section */
-.ac-highlights-content {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-}
-
-.ac-highlight-box h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 1rem;
-}
-
-.ac-highlight-box ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1rem 0;
-}
-
-.ac-highlight-box li {
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-  background: rgba(245, 158, 11, 0.1);
-  border-radius: 8px;
-  border-left: 3px solid #f59e0b;
-  font-size: 0.95rem;
-}
-
-.ac-highlight-box li strong {
-  color: #0d3b8e;
-}
-
-.ac-note {
-  background: rgba(245, 158, 11, 0.15);
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #f59e0b;
-  font-size: 0.9rem;
-  color: #854d0e;
-  margin: 0;
-}
-
-/* Dates Table */
-.ac-table-wrapper {
-  overflow-x: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-.ac-dates-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #ffffff;
-}
-
-.ac-dates-table thead {
-  background: #0d3b8e;
-  color: white;
-}
-
-.ac-dates-table th {
-  padding: 1rem;
-  text-align: left;
-  font-weight: 600;
-  font-size: 0.9rem;
-  white-space: nowrap;
-}
-
-.ac-dates-table td {
-  padding: 1rem;
-  border-bottom: 1px solid #e2e8f0;
-  font-size: 0.9rem;
-}
-
-.ac-dates-table tbody tr:hover {
-  background: rgba(13, 59, 142, 0.05);
-}
-
-/* Holidays Grid */
-.ac-holidays-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-}
-
-.ac-holiday-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.ac-holiday-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.ac-holiday-icon {
-  font-size: 1.5rem;
-  color: #f59e0b;
-  flex-shrink: 0;
-}
-
-.ac-holiday-info h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0 0 0.25rem 0;
-}
-
-.ac-holiday-info p {
-  font-size: 0.85rem;
-  color: #854d0e;
-  margin: 0;
-}
-
-/* Even Semester Section */
-.ac-even-content {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid rgba(13, 59, 142, 0.2);
-}
-
-.ac-even-card {
-  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-  padding: 1.5rem;
-  border-radius: 10px;
-  border-left: 4px solid #3b82f6;
-}
-
-.ac-even-card p {
-  font-size: 1rem;
-  color: #1f2937;
-  margin: 0;
-}
-
-.ac-even-date {
-  font-weight: 700;
-  color: #0d3b8e;
-  font-size: 1.1rem;
-}
-
-/* Dark Mode Support */
-body.dark-mode .academic-calendar-page {
-  background-color: #0f172a;
-  color: #f1f5f9;
-}
-
-body.dark-mode .ac-about-section,
-body.dark-mode .ac-calendars-section,
-body.dark-mode .ac-highlights-section,
-body.dark-mode .ac-dates-section,
-body.dark-mode .ac-holidays-section,
-body.dark-mode .ac-even-section {
-  background: #1e293b;
-  border-color: #334155;
-}
-
-body.dark-mode .ac-section-header h2,
-body.dark-mode .ac-about-header h2 {
-  color: #f1f5f9;
-}
-
-body.dark-mode .ac-header-icon {
-  color: #38bdf8;
-}
-
-body.dark-mode .ac-about-content p {
-  color: #cbd5e1;
-}
-
-body.dark-mode .ac-calendar-card {
-  background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
-  border-color: rgba(56, 189, 248, 0.3);
-}
-
-body.dark-mode .ac-calendar-info h3 {
-  color: #f1f5f9;
-}
-
-body.dark-mode .ac-view-btn {
-  background: linear-gradient(135deg, #1e293b, #334155);
-  color: #38bdf8;
-  border-color: #475569;
-}
-
-body.dark-mode .ac-view-btn:hover {
-  background: linear-gradient(135deg, #334155, #475569);
-  color: #38bdf8;
-}
-
-body.dark-mode .ac-download-btn {
-  background: linear-gradient(135deg, #38bdf8, #3b82f6);
-}
-
-body.dark-mode .ac-highlights-content {
-  background: rgba(30, 41, 59, 0.7);
-  border-color: rgba(245, 158, 11, 0.4);
-}
-
-body.dark-mode .ac-highlight-box h3 {
-  color: #f1f5f9;
-}
-
-body.dark-mode .ac-highlight-box li {
-  background: rgba(245, 158, 11, 0.2);
-  border-left-color: #f59e0b;
-}
-
-body.dark-mode .ac-highlight-box li strong {
-  color: #38bdf8;
-}
-
-body.dark-mode .ac-note {
-  background: rgba(245, 158, 11, 0.2);
-  color: #fef3c7;
-}
-
-body.dark-mode .ac-dates-table {
-  background: #1e293b;
-}
-
-body.dark-mode .ac-dates-table thead {
-  background: #0f172a;
-}
-
-body.dark-mode .ac-dates-table th {
-  color: #f1f5f9;
-  border-bottom: 1px solid #334155;
-}
-
-body.dark-mode .ac-dates-table tbody tr:hover {
-  background: rgba(56, 189, 248, 0.1);
-}
-
-body.dark-mode .ac-dates-table td {
-  color: #cbd5e1;
-  border-bottom: 1px solid #334155;
-}
-
-body.dark-mode .ac-holiday-card {
-  background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
-  border-color: rgba(245, 158, 11, 0.4);
-}
-
-body.dark-mode .ac-holiday-icon {
-  color: #f59e0b;
-}
-
-body.dark-mode .ac-holiday-info h4 {
-  color: #f1f5f9;
-}
-
-body.dark-mode .ac-holiday-info p {
-  color: #fef3c7;
-}
-
-body.dark-mode .ac-even-content {
-  background: rgba(30, 41, 59, 0.7);
-  border-color: rgba(56, 189, 248, 0.3);
-}
-
-body.dark-mode .ac-even-card {
-  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
-  border-left-color: #3b82f6;
-}
-
-body.dark-mode .ac-even-card p {
-  color: #f1f5f9;
-}
-
-body.dark-mode .ac-even-date {
-  color: #38bdf8;
-}
-
-/* Responsive Design */
-@media (max-width: 960px) {
-  .academic-calendar-content {
-    padding: 2rem 1.5rem 4rem;
-  }
-
-  .ac-calendars-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ac-holidays-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .academic-calendar-content {
-    padding: 1.5rem 1rem 3rem;
+  /* Academic Calendar Page - uses shared PageBanner for banner */
+  .academic-calendar-page {
     width: 100%;
-    max-width: 100%;
+    font-family: var(--font-body);
+    color: #212d44;
+    background-color: #f8fafc;
+    overflow-x: hidden; 
   }
 
+  /* ==========================================================
+    🔥 DESKTOP BANNER FIX 🔥
+    ========================================================== */
+  .academic-calendar-page .page-banner {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 85px !important;
+    width: 100% !important;
+    position: relative !important;
+    overflow: hidden !important; 
+    box-sizing: border-box !important;
+    margin-left: 0 !important; 
+  }
+
+  .academic-calendar-page .page-banner img,
+  .academic-calendar-page .page-banner .page-banner-main-img {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
+    object-position: center !important;
+
+  }
+
+  /* Content container that sits after the PageBanner */
+  .academic-calendar-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    padding-top: 60px !important;
+  }
+
+  /* Section Styles */
   .ac-about-section,
   .ac-calendars-section,
   .ac-highlights-section,
   .ac-dates-section,
   .ac-holidays-section,
   .ac-even-section {
-    padding: 1.5rem;
-    width: 100%;
-    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding-top: 25px !important;
+  }
+
+  .ac-section-header,
+  .ac-about-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+  }
+
+  .ac-header-icon {
+    font-size: 2rem;
+    color: #0d3b8e;
   }
 
   .ac-section-header h2,
   .ac-about-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
   }
 
-  .ac-header-icon {
-    font-size: 1.5rem;
+  .ac-about-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #475569;
+    margin: 0;
   }
 
-  .ac-holidays-grid {
-    grid-template-columns: 1fr;
+  /* Calendar Cards Grid */
+  .ac-calendars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
   }
 
-  .ac-dates-table {
-    font-size: 0.85rem;
-  }
-
-  .ac-dates-table th,
-  .ac-dates-table td {
-    padding: 0.75rem 0.5rem;
-  }
-
-  /* Mobile-specific calendar card adjustments */
   .ac-calendar-card {
-    padding: 1.2rem;
+    background: #ffffff;
+    padding: 1.8rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .ac-calendar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+    z-index: -1;
+    transition: width 0.4s ease;
+  }
+
+  .ac-calendar-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -10px rgba(13, 59, 142, 0.15);
+    border-color: #cbd5e1;
+  }
+
+  .ac-calendar-card:hover::before {
+    width: 6px;
   }
 
   .ac-calendar-info h3 {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    line-height: 1.4;
   }
+
+  .ac-calendar-badges {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 0.2rem;
+  }
+
+  .ac-badge {
+    padding: 0.35rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .ac-badge-latest {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+  }
+
+  .ac-badge-revised {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  .ac-calendar-actions {
+    display: flex;
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+
   .ac-view-btn {
-    padding: 0.7rem 1rem;
-    font-size: 0.85rem;
+    background: linear-gradient(135deg, #0d3b8e, #2563eb);
+    color: #ffffff;
+    border: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    text-decoration: none;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
   }
-}
+
+  .ac-view-btn:hover {
+    background: linear-gradient(135deg, #1e40af, #1d4ed8);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
+    color: #ffffff;
+  }
+
+  .ac-view-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Highlights Section */
+  .ac-highlights-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  .ac-highlight-box h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .ac-highlight-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+  }
+
+  .ac-highlight-box li {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #f59e0b;
+    font-size: 0.95rem;
+  }
+
+  .ac-highlight-box li strong {
+    color: #0d3b8e;
+  }
+
+  .ac-note {
+    background: rgba(245, 158, 11, 0.15);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #f59e0b;
+    font-size: 0.9rem;
+    color: #854d0e;
+    margin: 0;
+  }
+
+  /* Dates Table */
+  .ac-table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .ac-dates-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+  }
+
+  .ac-dates-table thead {
+    background: #0d3b8e;
+    color: white;
+  }
+
+  .ac-dates-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .ac-dates-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+  }
+
+  .ac-dates-table tbody tr:hover {
+    background: rgba(13, 59, 142, 0.05);
+  }
+
+  /* Holidays Grid */
+  .ac-holidays-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .ac-holiday-card {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ac-holiday-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .ac-holiday-icon {
+    font-size: 1.5rem;
+    color: #f59e0b;
+    flex-shrink: 0;
+  }
+
+  .ac-holiday-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .ac-holiday-info p {
+    font-size: 0.85rem;
+    color: #854d0e;
+    margin: 0;
+  }
+
+  /* Even Semester Section */
+  .ac-even-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(13, 59, 142, 0.2);
+  }
+
+  .ac-even-card {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #3b82f6;
+  }
+
+  .ac-even-card p {
+    font-size: 1rem;
+    color: #1f2937;
+    margin: 0;
+  }
+
+  .ac-even-date {
+    font-weight: 700;
+    color: #0d3b8e;
+    font-size: 1.1rem;
+  }
+
+  /* Dark Mode Support */
+  body.dark-mode .academic-calendar-page {
+    background-color: #0f172a;
+    color: #f1f5f9;
+  }
+
+  body.dark-mode .ac-about-section,
+  body.dark-mode .ac-calendars-section,
+  body.dark-mode .ac-highlights-section,
+  body.dark-mode .ac-dates-section,
+  body.dark-mode .ac-holidays-section,
+  body.dark-mode .ac-even-section {
+    background: #1e293b;
+    border-color: #334155;
+  }
+
+  body.dark-mode .ac-section-header h2,
+  body.dark-mode .ac-about-header h2 {
+    color: #f1f5f9;
+  }
+
+  body.dark-mode .ac-header-icon {
+    color: #38bdf8;
+  }
+
+  body.dark-mode .ac-about-content p {
+    color: #cbd5e1;
+  }
+
+  body.dark-mode .ac-calendar-card {
+    background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+    border-color: rgba(56, 189, 248, 0.3);
+  }
+
+  body.dark-mode .ac-calendar-info h3 {
+    color: #f1f5f9;
+  }
+
+  body.dark-mode .ac-view-btn {
+    background: linear-gradient(135deg, #1e293b, #334155);
+    color: #38bdf8;
+    border-color: #475569;
+  }
+
+  body.dark-mode .ac-view-btn:hover {
+    background: linear-gradient(135deg, #334155, #475569);
+    color: #38bdf8;
+  }
+
+  body.dark-mode .ac-download-btn {
+    background: linear-gradient(135deg, #38bdf8, #3b82f6);
+  }
+
+  body.dark-mode .ac-highlights-content {
+    background: rgba(30, 41, 59, 0.7);
+    border-color: rgba(245, 158, 11, 0.4);
+  }
+
+  body.dark-mode .ac-highlight-box h3 {
+    color: #f1f5f9;
+  }
+
+  body.dark-mode .ac-highlight-box li {
+    background: rgba(245, 158, 11, 0.2);
+    border-left-color: #f59e0b;
+  }
+
+  body.dark-mode .ac-highlight-box li strong {
+    color: #38bdf8;
+  }
+
+  body.dark-mode .ac-note {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fef3c7;
+  }
+
+  body.dark-mode .ac-dates-table {
+    background: #1e293b;
+  }
+
+  body.dark-mode .ac-dates-table thead {
+    background: #0f172a;
+  }
+
+  body.dark-mode .ac-dates-table th {
+    color: #f1f5f9;
+    border-bottom: 1px solid #334155;
+  }
+
+  body.dark-mode .ac-dates-table tbody tr:hover {
+    background: rgba(56, 189, 248, 0.1);
+  }
+
+  body.dark-mode .ac-dates-table td {
+    color: #cbd5e1;
+    border-bottom: 1px solid #334155;
+  }
+
+  body.dark-mode .ac-holiday-card {
+    background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+    border-color: rgba(245, 158, 11, 0.4);
+  }
+
+  body.dark-mode .ac-holiday-icon {
+    color: #f59e0b;
+  }
+
+  body.dark-mode .ac-holiday-info h4 {
+    color: #f1f5f9;
+  }
+
+  body.dark-mode .ac-holiday-info p {
+    color: #fef3c7;
+  }
+
+  body.dark-mode .ac-even-content {
+    background: rgba(30, 41, 59, 0.7);
+    border-color: rgba(56, 189, 248, 0.3);
+  }
+
+  body.dark-mode .ac-even-card {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+    border-left-color: #3b82f6;
+  }
+
+  body.dark-mode .ac-even-card p {
+    color: #f1f5f9;
+  }
+
+  body.dark-mode .ac-even-date {
+    color: #38bdf8;
+  }
+
+  /* ==========================================================
+    🔥 PERFECT MOBILE BANNER (LIKE ACADEMIC LEADERSHIP) 🔥
+    ========================================================== */
+  @media (max-width: 960px) {
+    .academic-calendar-content {
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .ac-calendars-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ac-holidays-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    
+    /* Keep the complete banner visible on narrow screens. */
+    .academic-calendar-page .page-banner {
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      margin-top: 40px !important; 
+      max-width: 100% !important;
+    }
+
+    .academic-calendar-page .page-banner-right {
+      position: relative !important;
+      height: auto !important;
+    }
+    
+    .academic-calendar-page .page-banner img,
+    .academic-calendar-page .page-banner .page-banner-main-img {
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      width: 100% !important;
+      object-fit: contain !important;
+      padding-top: 0 !important;
+    }
+
+    /* Safe container for text (Matches 20px left padding) */
+    .academic-calendar-page .page-banner > div,
+    .academic-calendar-page .page-banner > div > div {
+      left: 0 !important;
+      margin-left: 0 !important;
+      transform: none !important;
+      padding-top: 0px !important; 
+      padding-left: -20px !important; 
+      padding-right: 0px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Text scaling to match the reference image exactly */
+    .academic-calendar-page .page-banner h1,
+    .academic-calendar-page .page-banner h2 {
+      font-size: 1.8rem !important; 
+      line-height: 1.2 !important;
+      margin-left: 0 !important;
+      word-wrap: break-word !important;
+      white-space: normal !important;
+    }
+
+    .academic-calendar-page .page-banner p {
+      font-size: 0.85rem !important; 
+      margin-left: 0 !important;
+      word-wrap: break-word !important;
+      white-space: normal !important;
+    }
+
+    /* ---------------------------------------------------- */
+    /* Keeps the tables & cards safe below the banner */
+    .academic-calendar-content {
+      padding: 1.5rem 1rem 3rem;
+      width: 100%;
+      max-width: 100vw !important;
+      box-sizing: border-box !important;
+      padding-top: 0px !important;
+    }
+
+    .ac-about-section,
+    .ac-calendars-section,
+    .ac-highlights-section,
+    .ac-dates-section,
+    .ac-holidays-section,
+    .ac-even-section {
+      padding: 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+      padding-top: 30px !important;
+    }
+
+    .ac-section-header h2,
+    .ac-about-header h2 {
+      font-size: 1.5rem !important;
+    }
+
+    .ac-header-icon {
+      font-size: 1.5rem;
+    }
+
+    .ac-holidays-grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* Table Scroll Fix */
+    .ac-table-wrapper {
+      width: 100%;
+      overflow-x: auto !important; 
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .ac-dates-table {
+      font-size: 0.85rem;
+      min-width: 450px; 
+    }
+
+    .ac-dates-table th,
+    .ac-dates-table td {
+      padding: 0.75rem 0.5rem;
+    }
+
+    .ac-calendar-card {
+      padding: 1.2rem;
+    }
+
+    .ac-calendar-info h3 {
+      font-size: 1.15rem !important;
+    }
+    
+    .ac-view-btn {
+      padding: 0.7rem 1rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ac-section-header h2,
+    .ac-about-header h2 {
+      font-size: 1.35rem !important;
+    }
+    .ac-about-content p {
+      font-size: 0.95rem !important;
+    }
+    .ac-calendar-info h3 {
+      font-size: 1.05rem !important;
+    }
+  }

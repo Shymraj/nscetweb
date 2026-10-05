@@ -4,12 +4,39 @@
   font-family: var(--font-body, 'Inter', sans-serif);
   background-color: #f8fafc;
   padding-bottom: 60px;
+  overflow-x: hidden; 
+}
+
+/* ==========================================================
+   🔥 DESKTOP BANNER FIX 🔥
+   ========================================================== */
+.ic-page .page-banner {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-top: 38px !important;
+  width: 100% !important;
+  position: relative !important;
+  overflow: hidden !important; 
+  box-sizing: border-box !important;
+  margin-left: 0 !important; 
+}
+
+.ic-page .page-banner img,
+.ic-page .page-banner .page-banner-main-img {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; 
+  object-position: center !important;
 }
 
 /* Intro Section */
 .ic-intro-section {
   max-width: 1200px;
-  margin: 60px auto 40px; /* Replaced overlapping margin with a clean gap */
+  margin: 60px auto 40px; 
   padding: 40px;
   background: white;
   border-radius: 20px;
@@ -234,17 +261,173 @@
 .delay-2 { animation-delay: 0.4s; }
 .delay-3 { animation-delay: 0.6s; }
 
-/* Responsive */
+
+/* ==========================================================
+   🔥 ULTIMATE MOBILE BANNER FIX (TEXT CROP & FULL IMG) 🔥
+   ========================================================== */
 @media (max-width: 768px) {
-  .ic-intro-section {
-    padding: 30px 20px;
-    margin: 20px 20px;
+  
+  /* PERFECT BANNER FIX FOR MOBILE */
+  .ic-page .page-banner {
+    height: 220px !important; 
+    min-height: 220px !important;
+    max-height: 220px !important;
+    margin-top: 15px !important; 
+    background-color: transparent !important; 
+    width: 100vw !important; 
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important; 
+    padding: 0 !important;
+    left: 0 !important;
+    margin-left: 0 !important;
   }
+  
+  /* Ensures image doesn't zoom too much or shift */
+  .ic-page .page-banner img,
+  .ic-page .page-banner .page-banner-main-img {
+    height: 220px !important; 
+    min-height: 220px !important;
+    max-height: 220px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1 !important;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    transform: none !important; /* Removes any unwanted zoom/shift */
+  }
+
+  /* 🔥 FORCE ALL INNER TEXT TO STAY INSIDE THE BOX & ALIGN LEFT 🔥 */
+  .ic-page .page-banner > div,
+  .ic-page .page-banner > div > div,
+  .ic-page .page-banner > div > div > div {
+    position: relative !important;
+    z-index: 2 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0px !important; /* Removes negative margins causing the crop */
+    transform: none !important; /* Removes negative transforms causing the crop */
+    padding-left: 20px !important; /* Safe space on the left */
+    padding-right: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important; 
+    justify-content: center !important;
+    text-align: left !important;
+    margin-top: 20px !important; /* Removes any top margin pushing text out of view */
+  }
+
+  .ic-page .page-banner h1,
+  .ic-page .page-banner h2 {
+    font-size: 1.8rem !important; 
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    word-wrap: break-word !important;
+    white-space: normal !important;
+    text-align: left !important;
+    transform: none !important;
+  }
+
+  .ic-page .page-banner p {
+    font-size: 0.85rem !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+    word-wrap: break-word !important;
+    white-space: normal !important;
+    text-align: left !important;
+    transform: none !important;
+  }
+
+  /* ---------------------------------------------------- */
+  
+  /* Prevent Text Overflow */
+  .ic-page *,
+  .ic-intro-section h2,
+  .ic-intro-section p,
   .ic-table-section h2 {
-    font-size: 1.8rem;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
   }
+
+  /* Navbar Overlap Fix for Content */
+  .ic-page {
+    padding-top: 0 !important; /* Managed by banner margin-top */
+    width: 100vw !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ic-intro-section {
+    padding: 30px 20px !important;
+    margin: 30px 15px 20px 15px !important; 
+    width: calc(100% - 30px) !important;
+  }
+
+  .ic-intro-section h2 {
+    font-size: 1.6rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .ic-intro-section p {
+    font-size: 1rem !important;
+  }
+
+  .ic-table-section h2,
+  .ic-gallery-section h2 {
+    font-size: 1.8rem !important;
+  }
+
+  .ic-gallery-section,
+  .ic-table-section {
+    padding: 0 15px !important;
+  }
+
   .ic-main-img {
-    height: 250px;
+    height: 250px !important;
+  }
+
+  /* Table Scroll Fix */
+  .ic-table-container {
+    width: 100% !important;
+  }
+
+  .ic-table-wrapper {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px) {
+  .ic-intro-section h2,
+  .ic-table-section h2,
+  .ic-gallery-section h2 {
+    font-size: 1.4rem !important;
+  }
+  
+  .ic-intro-section p {
+    font-size: 0.95rem !important;
+  }
+  
+  .ic-main-img {
+    height: 200px !important;
+  }
+
+  /* Ensure gallery images fit small screens without breaking */
+  .ic-gallery-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 

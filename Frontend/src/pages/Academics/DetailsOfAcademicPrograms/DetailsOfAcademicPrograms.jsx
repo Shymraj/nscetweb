@@ -113,6 +113,7 @@ const AcademicPrograms = () => {
 
       {/* Hero Section */}
       <PageBanner
+        className="academic-programs-banner"
         hideBreadcrumb={true}
         showOverlay={false}
         showText={false}

@@ -6,6 +6,7 @@
   font-family: var(--font-body), sans-serif;
   transition: background-color 0.3s ease;
   padding-top: 115px; /* Push below navbar */
+  overflow-x: hidden; 
 }
 
 body.dark-mode .labs-page-container {
@@ -268,57 +269,6 @@ body.dark-mode .secondary-btn:hover {
 }
 
 /* =========================================
-   RESPONSIVE DESIGN
-   ========================================= */
-@media (max-width: 968px) {
-  .showcase-card {
-    padding: 3rem 2rem;
-    gap: 2rem;
-  }
-
-  .showcase-header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .showcase-content h2 {
-    font-size: 2rem;
-  }
-  
-  .showcase-content p {
-    margin: 0 auto 2rem;
-  }
-
-  .showcase-actions {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 640px) {
-  .tabs-container {
-    justify-content: flex-start;
-    border-radius: 1rem;
-    padding: 0.5rem;
-  }
-  
-  .tab-button {
-    padding: 0.6rem 1.2rem;
-  }
-  
-  .active-tab-indicator {
-    border-radius: 0.8rem;
-  }
-
-  .showcase-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .primary-btn, .secondary-btn {
-    width: 100%;
-    justify-content: center;
-  }
-}/* =========================================
    LABORATORIES LIST (NEW)
    ========================================= */
 .laboratories-container {
@@ -426,3 +376,110 @@ body.dark-mode .sub-lab-name {
   color: #f1f5f9;
 }
 
+/* =========================================
+   RESPONSIVE DESIGN (ENHANCED FOR ALL DEVICES)
+   ========================================= */
+@media (max-width: 968px) {
+  .labs-showcase-section {
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  .showcase-card {
+    padding: 3rem 2rem;
+    gap: 2rem;
+  }
+
+  .showcase-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .showcase-content h2 {
+    font-size: 2rem;
+  }
+  
+  .showcase-content p {
+    margin: 0 auto 2rem;
+    max-width: 100%;
+  }
+
+  .showcase-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .labs-page-container {
+    padding-top: 30px; 
+  }
+
+  /* 🔥 PERFECT MOBILE BANNER FIX FOR LABS 🔥 */
+  .labs-hero {
+    height: 220px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    width: 100vw !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    background-size: 100% 100% !important;
+  }
+
+  .showcase-icon-large {
+    width: 130px;
+    height: 130px;
+    font-size: 3.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .laboratories-grid {
+    grid-template-columns: 1fr; 
+  }
+}
+
+@media (max-width: 640px) {
+  .labs-showcase-section {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .showcase-card {
+    padding: 2rem 1.25rem;
+    border-radius: 1.5rem;
+  }
+
+  .tabs-container {
+    justify-content: flex-start;
+    border-radius: 1rem;
+    padding: 0.4rem;
+    width: 100%;
+  }
+  
+  .tab-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  
+  .active-tab-indicator {
+    border-radius: 0.8rem;
+  }
+
+  .showcase-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primary-btn, .secondary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .showcase-content h2 {
+    font-size: 1.65rem;
+  }
+
+  .showcase-content p {
+    font-size: 1rem;
+  }
+}

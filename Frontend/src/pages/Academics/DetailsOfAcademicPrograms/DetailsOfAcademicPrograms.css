@@ -735,39 +735,128 @@ body.dark-mode .color-yellow { background-color: rgba(234, 179, 8, 0.1); color: 
   .premium-section {
     padding: 60px 16px;
   }
-  
+
+  .premium-container,
+  .premium-header-content {
+    width: 100%;
+    min-width: 0;
+  }
+
   .premium-header-row {
     flex-direction: column;
     gap: 20px;
     margin-bottom: 40px;
   }
-  
-  .premium-title {
-    font-size: 2.2rem;
+
+  .premium-label {
+    flex-wrap: wrap;
+    gap: 12px;
   }
-  
+
+  .premium-label > span {
+    font-size: clamp(1.5rem, 7vw, 2.4rem);
+    line-height: 1.15;
+    letter-spacing: 0.05em;
+    white-space: normal;
+  }
+
+  .premium-duration-badge {
+    white-space: normal;
+  }
+
+  .premium-duration-badge span {
+    font-size: 1rem;
+  }
+
+  .duration-icon {
+    font-size: 1.4rem;
+  }
+
+  .premium-title {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+  }
+
   .premium-program-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     padding: 24px;
     flex-direction: column;
     gap: 20px;
   }
-  
+
+  .program-card-content {
+    min-width: 0;
+  }
+
+  .program-title,
+  .program-desc {
+    overflow-wrap: anywhere;
+  }
+
   .program-card-icon-container {
     width: 70px;
     height: 70px;
   }
-  
+
   .program-icon {
     font-size: 2rem;
   }
-  
+
   .program-desc {
     padding-right: 0;
     margin-bottom: 24px;
   }
-  
+
   .program-card-arrow-btn {
     position: static;
     margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .premium-section {
+    padding: 44px 12px;
+  }
+
+  .premium-header-row {
+    margin-bottom: 32px;
+  }
+
+  .premium-title {
+    font-size: 1.8rem;
+  }
+
+  .premium-program-card {
+    padding: 20px;
+  }
+
+  .program-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-banner.academic-programs-banner {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 8 / 3;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 38px 0 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .page-banner.academic-programs-banner .page-banner-main-img {
+    object-fit: contain !important;
+
+  }
+
+  .page-banner.academic-programs-banner + .premium-section {
+    margin-top: 0 !important;
   }
 }
