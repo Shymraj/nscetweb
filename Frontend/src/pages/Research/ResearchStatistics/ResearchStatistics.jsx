@@ -49,6 +49,11 @@ const ResearchStatistics = () => {
       </div>
 
       <div className="rs-container">
+        <div className="rs-header-section">
+          <h1 className="rs-main-heading">RESEARCH AND STATISTICS</h1>
+          <div className="rs-heading-underline"></div>
+        </div>
+
         <div className="rs-grid">
           {statisticsData.map((stat) => (
             <StatCard 

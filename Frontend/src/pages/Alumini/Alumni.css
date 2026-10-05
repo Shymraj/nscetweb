@@ -223,16 +223,20 @@ body.dark-mode .sidebar-link.active {
 .alumni-section { scroll-margin-top: 120px; width: 100%; }
 
 .section-title {
+    font-family: var(--font-section);
     font-size: 2.5rem;
-    font-weight: 800;
+    font-weight: 700;
     background: linear-gradient(135deg, var(--secondary-accent) 0%, var(--primary-accent) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
+    margin: 0 auto 1.5rem auto;
     position: relative;
-    display: inline-block;
+    display: block;
+    text-align: center;
+    width: 100%;
     max-width: 100%;
+    box-sizing: border-box;
 }
 
 body.dark-mode .section-title {
@@ -246,19 +250,24 @@ body.dark-mode .section-title {
     content: "";
     position: absolute;
     bottom: -8px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-accent), var(--primary-accent));
+    background: linear-gradient(90deg, var(--theme-primary, #0EA5E9), var(--theme-accent, #F59E0B));
     border-radius: 2px;
 }
 
 .section-intro {
+    font-family: var(--font-body);
     font-size: 1.15rem;
     line-height: 1.8;
     color: #475569;
     max-width: 900px;
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 body.dark-mode .section-intro { color: #94a3b8; }
@@ -454,9 +463,33 @@ body.dark-mode .impact-card p { color: #cbd5e1; }
 .alumni-hero-title { font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 800; letter-spacing: 3px; margin-bottom: 1rem; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); line-height: 1.2; }
 .alumni-hero-subtitle { font-size: 1.15rem; color: rgba(255, 255, 255, 0.9); line-height: 1.7; max-width: 650px; margin: 0 auto; font-weight: 400; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); }
 
-.glam-title { font-size: 2.2rem; font-weight: 800; text-align: center; margin-bottom: 2.5rem; color: var(--secondary-accent, #1e3a8a); position: relative; display: inline-block; word-wrap: break-word; max-width: 100%; }
+.glam-title {
+    font-family: var(--font-section);
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 auto 2.5rem auto;
+    color: var(--secondary-accent, #1e3a8a);
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
 body.dark-mode .glam-title { color: #f1f5f9; }
-.glam-title::after { content: ''; position: absolute; bottom: -8px; left: 10%; width: 60px; height: 4px; background: var(--primary-accent, var(--theme-accent, #F59E0B)); border-radius: 50px; }
+.glam-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-accent, var(--theme-accent, #F59E0B));
+    border-radius: 50px;
+}
 .glam-title span { color: var(--primary-accent, var(--theme-accent, #F59E0B)); }
 
 /* Modern Alumni Meets UI */
@@ -528,7 +561,7 @@ body.dark-mode .meet-card.standard-meet { background: linear-gradient(145deg, rg
 .archive { background: rgba(99, 102, 241, 0.1); color: var(--theme-primary-dark, #0369A1) !important; padding: 0.4rem 1rem; border-radius: 20px; }
 body.dark-mode .archive { background: rgba(99, 102, 241, 0.2); color: var(--theme-primary-light, #38BDF8) !important; }
 
-.glam-title::after { background: linear-gradient(90deg, var(--theme-primary, #0EA5E9), var(--theme-primary-dark, #0369A1), var(--theme-primary-light, #38BDF8)) !important; width: 80px !important; height: 5px !important; }
+.glam-title::after { background: linear-gradient(90deg, var(--theme-primary, #0EA5E9), var(--theme-primary-dark, #0369A1), var(--theme-primary-light, #38BDF8)) !important; width: 80px !important; height: 4px !important; left: 50% !important; transform: translateX(-50%) !important; }
 .glam-title span { background: linear-gradient(135deg, var(--theme-primary, #0EA5E9), var(--theme-primary-dark, #0369A1)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 
 @keyframes alumniGradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
@@ -635,7 +668,7 @@ body.dark-mode .sidebar-glass-card, body.dark-mode .overview-intro-card, body.da
         box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.5);
     }
 
-    /* 2. PREMIUM HORIZONTAL SCROLL NAV (App-style Pill Tabs) */
+    /* 2. WRAP TABS TO FIT SINGLE SCREEN (No Horizontal Scroll) */
     .alumni-sidebar-wrapper {
         margin-bottom: 1.5rem !important;
         position: relative !important;
@@ -668,14 +701,15 @@ body.dark-mode .sidebar-glass-card, body.dark-mode .overview-intro-card, body.da
     .sidebar-nav {
         display: flex !important;
         flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        overflow-x: hidden !important;
         gap: 0.5rem !important;
-        padding: 0.25rem 0.25rem 0.75rem 0.25rem !important; 
-        margin: 0 !important;
+        padding: 0.25rem 0 !important; 
+        margin: 0 auto !important;
         width: 100% !important;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: auto;
         scrollbar-width: none; 
     }
     .sidebar-nav::-webkit-scrollbar { display: none; } 
@@ -683,17 +717,17 @@ body.dark-mode .sidebar-glass-card, body.dark-mode .overview-intro-card, body.da
     .sidebar-nav li {
         list-style: none !important;
         flex-shrink: 0 !important;
-        scroll-snap-align: start;
         display: flex !important;
+        justify-content: center !important;
     }
 
     .sidebar-link {
         flex-shrink: 0;
         width: auto !important;
-        padding: 0.55rem 1.1rem !important;
+        padding: 0.45rem 0.9rem !important;
         border-radius: 9999px !important; 
         font-family: var(--font-body) !important;
-        font-size: 0.85rem !important;
+        font-size: 0.82rem !important;
         font-weight: 500 !important;
         white-space: nowrap !important;
         background: rgba(255, 255, 255, 0.85) !important;
@@ -1252,6 +1286,15 @@ body.dark-mode .sidebar-glass-card, body.dark-mode .overview-intro-card, body.da
 @media (max-width: 400px) {
     .alumni-page .common-hero-banner + .alumni-container {
         padding: 1rem 0.65rem 2.5rem 0.65rem !important;
+     }
+    
+    .sidebar-nav {
+        gap: 0.35rem !important;
+    }
+
+    .sidebar-link {
+        padding: 0.4rem 0.75rem !important;
+        font-size: 0.76rem !important;
     }
     
     .activities-grid {

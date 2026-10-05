@@ -11,7 +11,10 @@
   margin-top: 0 !important;
 }
 
-/* Typography guidelines from AGENTS.md */
+/* ===== Anti-Ragging Cell Page — Standardized Typography & Responsive Styles ===== */
+/* Typography: Uses centralized vars from AGENTS.md */
+
+/* ── Page Base ── */
 .antiraggingcell-page {
   font-family: var(--font-body);
   background: #f8fafc;
@@ -23,282 +26,409 @@
 .arc-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem; /* The top padding is overridden above for banner follow-up */
+  padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 4.5rem;
 }
 
-@media (max-width: 768px) {
-  .antiraggingcell-page .common-hero-banner + .arc-container {
-    padding-top: 25px !important; /* Tighter gap for mobile */
-  }
-
-  .arc-container {
-    padding: 2rem 1rem;
-    gap: 3rem;
-  }
-}
-
-/* Section Common Styles */
+/* ── Section Header (shared) ── */
 .arc-section-header {
-  margin-bottom: 2rem;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.arc-header-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.arc-header-icon-wrap.gradient-1 {
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+}
+.arc-header-icon-wrap.gradient-2 {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+.arc-header-icon-wrap.gradient-3 {
+  background: linear-gradient(135deg, #10b981, #34d399);
+}
+.arc-header-icon-wrap.gradient-4 {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+.arc-header-icon-wrap.gradient-5 {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+.arc-header-icon-wrap.gradient-6 {
+  background: linear-gradient(135deg, #ef4444, #f87171);
 }
 
 .arc-section-header h3 {
   font-family: var(--font-section);
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: #0f172a;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.arc-header-icon {
-  color: var(--theme-primary-dark, #0284C7);
-  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem 0;
+  line-height: 1.25;
 }
 
 .arc-header-line {
-  height: 5px;
-  width: 70px;
+  height: 4px;
+  width: 50px;
   background: linear-gradient(90deg, var(--nscet-accent, #f59e0b), #fbbf24);
-  border-radius: 3px;
-  margin-top: 0.5rem;
+  border-radius: 2px;
 }
 
-/* About Section */
-.arc-about-content p {
-  font-size: 1.2rem;
-  color: #334155;
-  line-height: 1.8;
-  background: white;
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border-left: 5px solid var(--theme-primary-dark, #0284C7);
+/* ── About Section ── */
+.arc-about-card {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem 2.5rem 2.5rem 3rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
 }
 
-.arc-about-content strong {
-  color: #0284C7;
+.arc-about-card:hover {
+  box-shadow: 0 16px 40px rgba(2, 132, 199, 0.12);
+  transform: translateY(-3px);
+}
+
+.arc-about-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, #0284c7, #3b82f6);
+  border-radius: 20px 0 0 20px;
+}
+
+.arc-about-text {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1.85;
+  margin-bottom: 1.8rem;
+  font-weight: 400;
+}
+
+.arc-about-text strong {
+  color: #0284c7;
   font-weight: 700;
 }
 
-/* Objectives Section */
+.arc-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #fff;
+  padding: 0.85rem 1.8rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.arc-download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.35);
+  background: linear-gradient(135deg, #0369a1, #075985);
+}
+
+.arc-btn-icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+/* ── Objectives Section ── */
 .arc-objectives-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 1.8rem;
 }
 
 .arc-objective-card {
-  background: white;
-  padding: 2.5rem 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  background: #fff;
+  padding: 2.2rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
   overflow: hidden;
   border-bottom: 4px solid #f59e0b;
 }
 
 .arc-objective-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(245, 158, 11, 0.12);
 }
 
 .arc-objective-number {
   position: absolute;
-  top: -15px;
-  right: -15px;
-  font-size: 6rem;
+  top: -10px;
+  right: 0px;
+  font-size: 5.5rem;
   font-weight: 900;
-  color: rgba(2, 132, 199, 0.05);
+  font-family: var(--font-heading);
+  color: rgba(2, 132, 199, 0.06);
   z-index: 0;
+  pointer-events: none;
+  line-height: 1;
 }
 
 .arc-objective-card p {
   position: relative;
   z-index: 1;
-  font-size: 1.1rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
   color: #475569;
-  line-height: 1.7;
+  line-height: 1.75;
+  margin: 0;
+  font-weight: 400;
 }
 
-/* Mechanism Section */
+/* ── Mechanism Section ── */
 .arc-mechanism-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
 }
 
 .arc-mechanism-item {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
+  background: #fff;
+  padding: 1.3rem 1.5rem;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
   display: flex;
   align-items: flex-start;
-  gap: 1.2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  gap: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
 }
 
 .arc-mechanism-item:hover {
-  transform: translateX(5px);
+  transform: translateX(4px);
   background: #f8fafc;
-  border-left: 4px solid var(--theme-primary-dark, #0284C7);
+  border-left: 4px solid #0284c7;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.08);
 }
 
 .arc-check-icon {
   color: #10b981;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   margin-top: 2px;
   flex-shrink: 0;
 }
 
 .arc-mechanism-item span {
-  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
   color: #334155;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-weight: 400;
 }
 
-/* Committee Section */
+/* ── Committee Section Table ── */
 .arc-table-wrapper {
-  overflow-x: auto;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  transition: box-shadow 0.35s ease;
+}
+
+.arc-table-wrapper:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
 .arc-committee-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 700px;
+  text-align: left;
+}
+
+.arc-committee-table thead {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
 }
 
 .arc-committee-table th {
-  background: linear-gradient(135deg, var(--theme-primary-dark, #0284C7), #1e3a8a);
-  color: white;
-  padding: 1.2rem 1.5rem;
-  text-align: left;
+  color: #fff;
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 1.1rem;
+  padding: 1.2rem 1.5rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .arc-committee-table td {
-  padding: 1.2rem 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
-  color: #475569;
-  font-size: 1.05rem;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-family: var(--font-body);
+  color: #334155;
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 0.95rem;
+  transition: background 0.25s ease;
 }
 
 .arc-committee-table tr:last-child td {
   border-bottom: none;
 }
 
-.arc-committee-table tr:hover {
-  background-color: #f8fafc;
+.arc-committee-table tbody tr {
+  transition: all 0.25s ease;
+}
+
+.arc-committee-table tbody tr:hover {
+  background: #f0f9ff;
 }
 
 .arc-chair-row {
-  background-color: #fffbeb !important;
+  background: linear-gradient(90deg, #fffbeb, #fef3c7);
 }
 
 .arc-chair-row td {
-  font-weight: 600;
-  color: #0f172a;
+  color: #92400e;
 }
 
+/* Position Badges */
 .arc-position-badge {
   display: inline-block;
-  padding: 0.4rem 1rem;
+  padding: 0.3rem 0.9rem;
   border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-subtopic);
+  letter-spacing: 0.3px;
 }
 
 .arc-badge-chair {
-  background: #fef3c7;
-  color: #b45309;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
 }
 
 .arc-badge-convener {
-  background: #e0e7ff;
-  color: #4338ca;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e40af;
 }
 
 .arc-badge-member {
-  background: #f1f5f9;
-  color: #475569;
+  background: linear-gradient(135deg, #f0fdf4, #bbf7d0);
+  color: #166534;
 }
 
-/* Procedure Section */
+/* ── Procedure Section ── */
 .arc-procedure-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 1.8rem;
 }
 
 .arc-procedure-card {
-  background: linear-gradient(145deg, #ffffff, #f8fafc);
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  border: 1px solid #e2e8f0;
+  background: #fff;
+  padding: 2.2rem 2rem;
+  border-radius: 18px;
+  border-left: 5px solid #7c3aed;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.arc-procedure-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.1);
 }
 
 .arc-procedure-card p {
-  font-size: 1.1rem;
-  color: #334155;
-  line-height: 1.7;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.75;
+  margin: 0;
+  font-weight: 400;
 }
 
-/* Instructions Section */
+/* ── Instructions Section ── */
 .arc-instructions-list {
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.1rem;
 }
 
 .arc-instructions-list li {
   background: #fff1f2;
   border: 1px solid #fecdd3;
-  padding: 1.5rem;
-  border-radius: 12px;
+  padding: 1.3rem 1.6rem;
+  border-radius: 14px;
   display: flex;
   align-items: flex-start;
-  gap: 1.2rem;
+  gap: 1.1rem;
   color: #9f1239;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  font-weight: 400;
+  transition: transform 0.3s ease;
+}
+
+.arc-instructions-list li:hover {
+  transform: translateX(4px);
+  background: #ffe4e6;
 }
 
 .arc-instruction-icon {
   color: #e11d48;
-  font-size: 1.5rem;
-  margin-top: 3px;
+  font-size: 1.35rem;
+  margin-top: 2px;
   flex-shrink: 0;
 }
 
-/* Complaint Section */
+.arc-instructions-list li span {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+/* ── Complaint Section ── */
 .arc-complaint-card {
-  background: linear-gradient(135deg, var(--theme-primary-dark, #0284C7), #1e40af);
-  border-radius: 20px;
-  padding: 3rem;
-  color: white;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-top: 5px solid #0284c7;
+  border-radius: 24px;
+  padding: 3.5rem 3rem;
+  color: #0f172a;
   text-align: center;
-  box-shadow: 0 20px 40px rgba(2, 132, 199, 0.2);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.arc-complaint-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 45px rgba(2, 132, 199, 0.1);
 }
 
 .arc-complaint-header {
@@ -306,194 +436,478 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.arc-complaint-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #eff6ff;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #bfdbfe;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12);
 }
 
 .arc-complaint-icon {
-  font-size: 2.5rem;
-  color: #f59e0b;
+  font-size: 1.4rem;
+  color: #0284c7;
 }
 
 .arc-complaint-header h3 {
   font-family: var(--font-section);
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
 }
 
 .arc-complaint-text {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2.5rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: #475569;
+  margin: 0 0 2.2rem 0;
+  line-height: 1.7;
 }
 
 .arc-complaint-actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.8rem;
   align-items: center;
 }
 
-.arc-btn-primary {
+.arc-complaint-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
-  background: #f59e0b;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #0284c7, #0369a1);
   color: #fff;
-  padding: 1.2rem 2.5rem;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 700;
+  padding: 0.95rem 2rem;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 500;
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.25);
 }
 
-.arc-btn-primary:hover {
-  background: #d97706;
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(245, 158, 11, 0.4);
+.arc-complaint-btn:hover {
+  background: linear-gradient(135deg, #0369a1, #075985);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.35);
 }
 
 .arc-helpline-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 0.85rem 1.8rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.arc-helpline-box:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.arc-helpline-icon-wrap {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 12px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem 2rem;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
 }
 
 .arc-helpline-icon {
-  font-size: 2.5rem;
-  color: #f59e0b;
+  font-size: 1.35rem;
+  color: #d97706;
 }
 
-.arc-helpline-box div {
+.arc-helpline-details {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .arc-helpline-label {
-  font-size: 0.9rem;
+  font-family: var(--font-subtopic);
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.8;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  margin-bottom: 2px;
 }
 
 .arc-helpline-number {
-  font-size: 2rem;
+  font-size: 1.55rem;
   font-weight: 800;
   font-family: var(--font-heading);
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  color: #0f172a;
+  line-height: 1.15;
 }
 
 .arc-helpline-info {
-  font-size: 0.9rem;
-  color: #f59e0b;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: #16a34a;
   font-weight: 600;
+  margin-top: 2px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================= */
+@media (max-width: 992px) {
   .arc-container {
-    padding: 2rem 1rem;
-    gap: 3rem;
+    padding: 3rem 1.5rem;
+    gap: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .antiraggingcell-page .common-hero-banner + .arc-container {
+    padding-top: 20px !important;
+  }
+
+  .arc-container {
+    padding: 16px 14px 2.5rem !important;
+    gap: 2.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .arc-about-section,
+  .arc-objectives-section,
+  .arc-mechanism-section,
+  .arc-committee-section,
+  .arc-procedure-section,
+  .arc-instructions-section,
+  .arc-complaint-section {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Section Header */
+  .arc-section-header {
+    gap: 0.85rem !important;
+    margin-bottom: 1.2rem !important;
+    align-items: center !important;
+  }
+
+  .arc-header-icon-wrap {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    font-size: 1.2rem !important;
+    border-radius: 12px !important;
   }
 
   .arc-section-header h3 {
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 5.2vw, 1.65rem) !important;
+    margin: 0 0 0.2rem 0 !important;
+    line-height: 1.25 !important;
   }
 
-  .arc-header-icon {
-    font-size: 1.8rem;
+  .arc-header-line {
+    height: 3px !important;
+    width: 38px !important;
   }
 
+  /* About Card */
+  .arc-about-card {
+    padding: 1.5rem 1.25rem !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .arc-about-accent {
+    width: 4px !important;
+  }
+
+  .arc-about-text {
+    font-size: 0.92rem !important;
+    line-height: 1.7 !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .arc-download-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.8rem 1.25rem !important;
+    font-size: 0.88rem !important;
+    box-sizing: border-box !important;
+    border-radius: 10px !important;
+  }
+
+  /* Objectives Grid */
+  .arc-objectives-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .arc-objective-card {
+    padding: 1.5rem 1.25rem !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .arc-objective-number {
+    font-size: 4rem !important;
+    top: -5px !important;
+    right: 5px !important;
+  }
+
+  .arc-objective-card p {
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+  }
+
+  /* Mechanism List */
+  .arc-mechanism-list {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+
+  .arc-mechanism-item {
+    padding: 1.1rem 1rem !important;
+    border-radius: 12px !important;
+    gap: 0.85rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .arc-check-icon {
+    font-size: 1.2rem !important;
+    margin-top: 1px !important;
+  }
+
+  .arc-mechanism-item span {
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Committee Table */
+  .arc-table-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: 16px !important;
+    border: 1px solid #e2e8f0;
+    box-sizing: border-box !important;
+  }
+
+  .arc-committee-table {
+    min-width: 480px !important;
+    width: 100% !important;
+  }
+
+  .arc-committee-table th {
+    padding: 0.8rem 0.75rem !important;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.3px !important;
+  }
+
+  .arc-committee-table td {
+    padding: 0.8rem 0.75rem !important;
+    font-size: 0.84rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .arc-position-badge {
+    padding: 0.25rem 0.65rem !important;
+    font-size: 0.72rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* Procedure Section */
+  .arc-procedure-content {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .arc-procedure-card {
+    padding: 1.4rem 1.2rem !important;
+    border-radius: 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  .arc-procedure-card p {
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+  }
+
+  /* Instructions List */
+  .arc-instructions-list {
+    gap: 0.85rem !important;
+  }
+
+  .arc-instructions-list li {
+    padding: 1.1rem 1rem !important;
+    border-radius: 12px !important;
+    gap: 0.85rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .arc-instruction-icon {
+    font-size: 1.25rem !important;
+  }
+
+  .arc-instructions-list li span {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Complaint Section */
   .arc-complaint-card {
-    padding: 2rem 1.5rem;
+    padding: 1.6rem 1.25rem !important;
+    border-radius: 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  .arc-complaint-header {
+    gap: 0.8rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .arc-complaint-icon-wrap {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+  }
+
+  .arc-complaint-icon {
+    font-size: 1.2rem !important;
   }
 
   .arc-complaint-header h3 {
-    font-size: 2rem;
+    font-size: clamp(1.3rem, 5.2vw, 1.65rem) !important;
+  }
+
+  .arc-complaint-text {
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.4rem !important;
   }
 
   .arc-complaint-actions {
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: column !important;
+    gap: 0.9rem !important;
+    width: 100% !important;
+  }
+
+  .arc-complaint-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.8rem 1.25rem !important;
+    font-size: 0.88rem !important;
+    box-sizing: border-box !important;
+    border-radius: 10px !important;
   }
 
   .arc-helpline-box {
-    width: 100%;
-    justify-content: center;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.85rem 1.1rem !important;
+    gap: 0.9rem !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    border-radius: 14px !important;
+  }
+
+  .arc-helpline-icon-wrap {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+  }
+
+  .arc-helpline-icon {
+    font-size: 1.15rem !important;
+  }
+
+  .arc-helpline-label {
+    font-size: 0.68rem !important;
+  }
+
+  .arc-helpline-number {
+    font-size: 1.35rem !important;
+  }
+
+  .arc-helpline-info {
+    font-size: 0.72rem !important;
   }
 }
 
-/* --- Dark Mode Support --- */
+/* ── Dark Mode Overrides ── */
 body.dark-mode .antiraggingcell-page {
-  background: var(--theme-bg, #0f172a);
+  background: var(--bg-primary);
 }
 
-body.dark-mode .arc-section-header h3 {
-  color: var(--theme-text, #f1f5f9);
-}
-
-body.dark-mode .arc-about-content p,
+body.dark-mode .arc-about-card,
 body.dark-mode .arc-objective-card,
 body.dark-mode .arc-mechanism-item,
 body.dark-mode .arc-table-wrapper,
 body.dark-mode .arc-procedure-card {
-  background: var(--theme-card, rgba(30, 41, 59, 0.7));
-  color: var(--theme-text, #e2e8f0);
-  border: 1px solid var(--theme-border, rgba(255, 255, 255, 0.1));
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-body.dark-mode .arc-about-content p {
-  border-left: 5px solid var(--theme-primary-dark, #38bdf8);
+body.dark-mode .arc-section-header h3 {
+  color: var(--text-primary);
 }
 
-body.dark-mode .arc-mechanism-item:hover {
-  background: rgba(51, 65, 85, 0.8);
+body.dark-mode .arc-about-text,
+body.dark-mode .arc-objective-card p,
+body.dark-mode .arc-procedure-card p,
+body.dark-mode .arc-committee-table td {
+  color: var(--text-secondary);
 }
 
 body.dark-mode .arc-mechanism-item span {
-  color: var(--theme-text, #e2e8f0);
+  color: var(--text-primary);
+}
+
+body.dark-mode .arc-committee-table thead {
+  background: linear-gradient(135deg, #1e293b, #334155);
 }
 
 body.dark-mode .arc-committee-table th {
-  background: linear-gradient(135deg, #1e3a8a, #0f172a);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: #f1f5f9;
+  color: var(--text-primary);
 }
 
-body.dark-mode .arc-committee-table td {
-  color: var(--theme-text, #cbd5e1);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .arc-committee-table tr:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+body.dark-mode .arc-committee-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
 }
 
 body.dark-mode .arc-chair-row {
-  background-color: rgba(245, 158, 11, 0.1) !important;
+  background: rgba(245, 158, 11, 0.12) !important;
 }
 
 body.dark-mode .arc-chair-row td {
-  color: #fcd34d;
-}
-
-body.dark-mode .arc-badge-member {
-  background: rgba(255, 255, 255, 0.1);
-  color: #cbd5e1;
-}
-
-body.dark-mode .arc-procedure-card p {
-  color: var(--theme-text, #e2e8f0);
+  color: #fbbf24;
 }
 
 body.dark-mode .arc-instructions-list li {
@@ -503,6 +917,40 @@ body.dark-mode .arc-instructions-list li {
 }
 
 body.dark-mode .arc-complaint-card {
-  background: linear-gradient(135deg, #1e3a8a, #0f172a);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-top: 5px solid #38bdf8;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+  color: var(--text-primary);
+}
+
+body.dark-mode .arc-complaint-header h3 {
+  color: var(--text-primary);
+}
+
+body.dark-mode .arc-complaint-text {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .arc-complaint-icon-wrap {
+  background: rgba(2, 132, 199, 0.15);
+  border-color: rgba(2, 132, 199, 0.3);
+  color: #38bdf8;
+}
+
+body.dark-mode .arc-complaint-icon {
+  color: #38bdf8;
+}
+
+body.dark-mode .arc-helpline-box {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .arc-helpline-number {
+  color: var(--text-primary);
+}
+
+body.dark-mode .arc-helpline-label {
+  color: var(--text-secondary);
 }

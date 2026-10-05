@@ -27,7 +27,7 @@ const AboutNSS = () => {
       <div className="nss-bg-decoration dec-1"></div>
       <div className="nss-container nss-intro-grid">
         <motion.div 
-          className="nss-intro-content"
+          className="nss-intro-card"
           initial="hidden" 
           whileInView="visible" 
           viewport={{ once: true, margin: "-80px" }}
@@ -55,14 +55,18 @@ const AboutNSS = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
+          {/* Ambient Glowing Background & Ripples */}
           <div className="nss-illustration-bg-glow"></div>
+          <div className="nss-illustration-ripple ripple-1"></div>
+          <div className="nss-illustration-ripple ripple-2"></div>
+          <div className="nss-orbit-track"></div>
 
           {/* Central Main Circle */}
           <div className="nss-illustration-circle main-circle">
             <FaHandsHelping className="nss-ill-icon main" />
           </div>
 
-          {/* Orbiting Icons */}
+          {/* Orbiting Floating Icons */}
           <div className="nss-illustration-circle orbit-1" title="Volunteer Service">
             <FaHandHoldingHeart className="nss-ill-icon" />
           </div>

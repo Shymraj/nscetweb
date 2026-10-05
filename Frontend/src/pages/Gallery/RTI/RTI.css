@@ -1,5 +1,5 @@
 /* ==========================================================
-   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
+   🔥 BANNER & CONTAINER SPACING FIX 🔥
    ========================================================== */
 .common-hero-banner {
   margin-bottom: 0 !important;
@@ -7,12 +7,11 @@
 }
 
 .rti-page .common-hero-banner + .rti-premium-container {
-  padding-top: 40px !important; /* Perfect neat gap before content */
+  padding-top: 40px !important;
   margin-top: 0 !important;
 }
 
 :root {
-  /* LIGHT MODE */
   --rti-bg-primary: #FFFFFF;
   --rti-container-bg: linear-gradient(160deg, #F8FBFF 0%, #EEF6FF 40%, #F5F9FF 80%, #FFFFFF 100%);
   --rti-heading: #0f172a;
@@ -21,14 +20,13 @@
   --rti-frame-border: rgba(226, 232, 240, 1);
   --rti-shadow: rgba(11, 60, 145, 0.08);
   --rti-shadow-hover: rgba(11, 60, 145, 0.15);
-  --rti-blob-1: #0B5ED7;
-  --rti-blob-2: #4F9CF9;
-  --rti-blob-3: #FF8A00;
+  --rti-blob-1: #0284c7;
+  --rti-blob-2: #38bdf8;
+  --rti-blob-3: #f59e0b;
 }
 
 body.dark-mode {
-  /* DARK MODE */
-  --rti-bg-primary: #0F172A;
+  --rti-bg-primary: #0B1121;
   --rti-container-bg: linear-gradient(160deg, #0B1121 0%, #0F172A 50%, #172554 100%);
   --rti-heading: #FFFFFF;
   --rti-subtitle: #CBD5E1;
@@ -36,9 +34,9 @@ body.dark-mode {
   --rti-frame-border: rgba(255, 255, 255, 0.1);
   --rti-shadow: rgba(0, 0, 0, 0.4);
   --rti-shadow-hover: rgba(0, 0, 0, 0.6);
-  --rti-blob-1: #60A5FA;
-  --rti-blob-2: #93C5FD;
-  --rti-blob-3: #FFB347;
+  --rti-blob-1: #38bdf8;
+  --rti-blob-2: #7dd3fc;
+  --rti-blob-3: #fbbf24;
 }
 
 /* Page Base Override */
@@ -48,14 +46,13 @@ body.dark-mode {
   font-family: var(--font-body);
   transition: background-color 0.3s ease;
   margin: 0 !important;
-  /* Top padding is handled globally by .common-page-wrapper */
 }
 
 .rti-premium-container {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5rem 2rem 8rem 2rem; /* The top padding is overridden above for banner follow-up */
+  padding: 0 2rem 5rem 2rem;
   background: var(--rti-container-bg);
   overflow: hidden;
   transition: background 0.3s ease;
@@ -68,22 +65,23 @@ body.dark-mode {
   filter: blur(140px);
   z-index: 0;
   opacity: 0.06;
+  pointer-events: none;
 }
 
 body.dark-mode .rti-bg-blob {
-  opacity: 0.08;
+  opacity: 0.1;
 }
 
-.blob-1 { top: 10%; left: 0%; width: 500px; height: 500px; background: var(--rti-blob-1); }
-.blob-2 { bottom: 10%; right: 0%; width: 600px; height: 600px; background: var(--rti-blob-2); }
-.blob-3 { top: 40%; left: 30%; width: 400px; height: 400px; background: var(--rti-blob-3); }
+.blob-1 { top: 10%; left: 0%; width: 450px; height: 450px; background: var(--rti-blob-1); }
+.blob-2 { bottom: 10%; right: 0%; width: 500px; height: 500px; background: var(--rti-blob-2); }
+.blob-3 { top: 40%; left: 30%; width: 350px; height: 350px; background: var(--rti-blob-3); }
 
 .rti-content-wrapper {
   position: relative;
   z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 /* SECTION 1 */
@@ -91,25 +89,33 @@ body.dark-mode .rti-bg-blob {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rti-main-title {
-  font-size: 3rem;
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
   font-weight: 800;
   color: var(--rti-heading);
-  letter-spacing: -1px;
-  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.8rem;
+  line-height: 1.25;
   transition: color 0.3s ease;
 }
 
 .rti-subtitle {
-  font-size: 1.15rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
   color: var(--rti-subtitle);
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
   transition: color 0.3s ease;
 }
 
-/* SECTION 2 */
+/* SECTION 2: Showcase Frame */
 .rti-certificate-container {
   display: flex;
   justify-content: center;
@@ -122,24 +128,25 @@ body.dark-mode .rti-bg-blob {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 24px;
-  padding: 2rem;
+  padding: 1.8rem;
   border: 1px solid var(--rti-frame-border);
   box-shadow: 0 15px 40px -10px var(--rti-shadow);
   cursor: pointer;
-  transition: all 0.4s ease;
-  max-width: 650px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  max-width: 680px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .certificate-glass-frame:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: 0 25px 50px -15px var(--rti-shadow-hover);
 }
 
 .certificate-image-wrapper {
   position: relative;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   background: #f1f5f9;
   border: 1px solid var(--rti-frame-border);
@@ -168,11 +175,11 @@ body.dark-mode .certificate-image-wrapper {
 }
 
 .image-placeholder::after {
-  content: 'Certificate Image Placeholder (Paste actual image to view)';
+  content: 'Certificate Image Placeholder';
   position: absolute;
   color: var(--rti-subtitle);
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .click-to-view-overlay {
@@ -191,16 +198,17 @@ body.dark-mode .certificate-image-wrapper {
 }
 
 .click-to-view-overlay span {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   color: #0f172a;
-  padding: 0.8rem 1.5rem;
+  padding: 0.7rem 1.4rem;
   border-radius: 30px;
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 1rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* MODAL */
+/* MODAL LIGHTBOX */
 .rti-lightbox-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -209,22 +217,22 @@ body.dark-mode .certificate-image-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .lightbox-close-btn {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255,255,255,0.2);
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: white;
-  width: 50px; height: 50px;
+  width: 46px; height: 46px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10000;
@@ -233,13 +241,13 @@ body.dark-mode .certificate-image-wrapper {
 .lightbox-close-btn:hover {
   background: white;
   color: black;
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .lightbox-content {
   position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 92vw;
+  max-height: 88vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -247,20 +255,62 @@ body.dark-mode .certificate-image-wrapper {
 
 .lightbox-img {
   max-width: 100%;
-  max-height: 90vh;
+  max-height: 88vh;
   object-fit: contain;
   border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
-/* RESPONSIVENESS */
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================= */
 @media (max-width: 768px) {
   .rti-page .common-hero-banner + .rti-premium-container {
-    padding-top: 25px !important; /* Tighter gap for mobile */
+    padding-top: 20px !important;
   }
 
-  .rti-premium-container { padding: 4rem 1rem; }
-  .rti-main-title { font-size: 2.2rem; }
-  .certificate-glass-frame { padding: 1rem; }
-  .lightbox-close-btn { top: 1rem; right: 1rem; width: 40px; height: 40px; font-size: 1.2rem; }
+  .rti-premium-container {
+    padding: 16px 14px 2.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .rti-content-wrapper {
+    gap: 1.8rem !important;
+  }
+
+  .rti-main-title {
+    font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
+    margin-bottom: 0.4rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .rti-subtitle {
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+    text-align: center !important;
+  }
+
+  .certificate-glass-frame {
+    padding: 0.85rem !important;
+    border-radius: 16px !important;
+    width: 100% !important;
+  }
+
+  .certificate-image-wrapper {
+    border-radius: 10px !important;
+  }
+
+  .click-to-view-overlay span {
+    font-size: 0.82rem !important;
+    padding: 0.5rem 1rem !important;
+  }
+
+  .lightbox-close-btn {
+    top: 1rem !important;
+    right: 1rem !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.1rem !important;
+  }
 }

@@ -495,7 +495,7 @@ function Navbar() {
               )}
             </div>
           )}
-          <button className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle Navigation">
             {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
@@ -505,6 +505,13 @@ function Navbar() {
           <span className="tnea-badge-number">5865</span>
         </div>
       </nav>
+
+      {/* Mobile Backdrop to close menu on click outside */}
+      <div
+        className={`mobile-nav-backdrop ${isMobileMenuOpen ? "active" : ""}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+        aria-hidden="true"
+      />
     </header>
   );
 }

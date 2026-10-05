@@ -16,11 +16,12 @@ const EdcIicGrid = () => {
 
 
   return (
-    <div className="edc-grid-wrapper">
+    <div className="common-page-wrapper edc-grid-wrapper">
       
       {/* Header & About Section */}
       <section className="edc-intro-section">
         <h1 className="edc-page-title">ENTREPRENEURSHIP DEVELOPMENT CELL (EDC) & IIC</h1>
+        <div className="edc-title-underline"></div>
         <div className="edc-about-box premium-card">
           <h2>About EDC & IIC</h2>
           <p>At Nadar Saraswathi College of Engineering and Technology (NSCET), the Entrepreneurship Development Cell (EDC) and the Institution's Innovation Council (IIC) function collaboratively to promote innovation, creativity, and entrepreneurial thinking among students and faculty.</p>
