@@ -25,7 +25,10 @@ export default function FacultyPortfolio() {
     }
 
     // Dynamic API fetch from database staff
-    fetch("http://localhost:5000/api/admin/staff")
+    const apiBase = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+      ? 'http://localhost:5000'
+      : '';
+    fetch(`${apiBase}/api/admin/staff`)
       .then(res => res.json())
       .then(data => {
         if (data.success && Array.isArray(data.data)) {

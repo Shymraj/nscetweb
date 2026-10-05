@@ -59,7 +59,7 @@ const Electrical = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const faculties = useDepartmentStaff(['electrical'], electricalFacultyData);
+  const faculties = useDepartmentStaff(['electrical', 'eee'], electricalFacultyData);
 
   const stats = [
     { count: "120", label: "EEE Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },

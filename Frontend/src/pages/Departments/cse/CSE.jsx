@@ -368,7 +368,7 @@ const CSE = () => {
           >
             {faculties.map((member, idx) => (
               <DepartmentFacultyCard 
-                key={idx} 
+                key={member.id || member.slug || `cse-staff-${idx}`} 
                 member={member} 
                 onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 

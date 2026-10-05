@@ -8,6 +8,7 @@ import imgTamilSelvi from "./images/tamilselvi.jpg";
 import imgShanthaDevi from "./images/shanthadevi.jpg";
 import imgGowthami from "./images/gowthami.jpg";
 import imgBharathiKannan from "./images/bharathikannan.jpg";
+import imgKalaivani from "./images/Kalaivani S.png";
 
 export const electronicsFacultyData = [
   {
@@ -188,6 +189,34 @@ export const electronicsFacultyData = [
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
+    ]
+  },
+  {
+    id: "mrs-s-kalaivani",
+    slug: "mrs-s-kalaivani",
+    name: "Mrs. S. Kalaivani",
+    desig: "Assistant Professor",
+    qual: "B.E - ECE, M.E - VLSI & Embedded System",
+    email: "kalaivani@nscet.org",
+    image: imgKalaivani,
+    spec: "VLSI Design, Communication Systems",
+    objectPosition: "center 10%",
+    linkedin: "https://www.linkedin.com/in/kalaivani",
+    about: "S. Kalaivani is a dedicated faculty member with over 10 years of teaching and research experience in the Department of Electronics and Communication Engineering. Her areas of specialization include VLSI Design and Communication Systems. She is passionate about semiconductor technologies, communication systems, research, and helping students develop strong technical knowledge through innovative and practical learning.",
+    publications: [
+      "2"
+    ],
+    projects: [
+      "14"
+    ],
+    patents: [
+      "1"
+    ],
+    awards: [
+      "2"
+    ],
+    experience: [
+      "10.5 Years"
     ]
   }
 ];

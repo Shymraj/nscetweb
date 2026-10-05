@@ -8,6 +8,7 @@ import imgAbirami from "./images/Abirami.jpg";
 import imgChitra from "./images/chitra.jpg";
 import imgJuriyaBanu from "./images/juriyabanu.jpg";
 import imgPandiSelvi from "./images/pandiselvi.jpeg";
+import imgGanesh from "./images/ganesh.jpg";
 export const electricalFacultyData = [
   {
     id: "dr-r-athilingam", slug: "dr-r-athilingam", name: "Dr. R. Athilingam", desig: "Associate Professor", qual: "B.E - EIE, M.E - Applied Electronics, Ph.D - Information & Communication", email: "athilingam@nscet.org", image: imgAthilingam, spec: "Image Processing, Internet of Things (IoT)", objectPosition: "center 10%",
@@ -196,6 +197,34 @@ export const electricalFacultyData = [
     ],
     experience: [
       "Assistant Professor, NSCET (2020 - Present)"
+    ]
+  },
+  {
+    id: "mr-k-ganesh",
+    slug: "mr-k-ganesh",
+    name: "Mr. K. Ganesh",
+    desig: "Assistant Professor",
+    qual: "B.E - EEE, M.Tech - Power Systems, (Ph.D)",
+    email: "ganeshk@nscet.org",
+    image: imgGanesh,
+    spec: "Power Systems, Smart Grid & Renewable Energy",
+    objectPosition: "center 10%",
+    linkedin: "https://www.linkedin.com/in/nscet",
+    about: "Mr. K. Ganesh is a dedicated Assistant Professor in the Department of Electrical and Electronics Engineering and Deputy Controller of Examinations. His areas of expertise include Power Systems, Electrical Machines, and Renewable Energy. He is committed to fostering academic excellence, practical learning, and mentoring students.",
+    publications: [
+      "4"
+    ],
+    projects: [
+      "2"
+    ],
+    patents: [
+      "1"
+    ],
+    awards: [
+      "2"
+    ],
+    experience: [
+      "10+ Years"
     ]
   }
 ];

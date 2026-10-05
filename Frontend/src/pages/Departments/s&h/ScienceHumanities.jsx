@@ -33,7 +33,6 @@ import imgArulvizhi from "./images/arulvizhi.jpg";
 import imgDhandayuthapani from "./images/dhandayuthapani.jpg";
 import imgRajaguru from "./images/rajaguru.jpg";
 import imgKrishnamoorthi from "./images/krishnamoorthy.jpg";
-import imgArunKumar from "./images/arunkumar.jpg";
 import imgSelvapriya from "./images/Selvapriya.jpg";
 import imgReka from "./images/Reka.jpg";
 import imgBuvaneshwari from "./images/Buvaneswarih.jpg";

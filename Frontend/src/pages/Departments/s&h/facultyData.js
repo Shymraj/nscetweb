@@ -30,7 +30,6 @@ import imgSrinithi from "./images/Chemistry - Srinithi.jpeg";
 import imgThisha from "./images/thisha.jpeg";
 import imgRamKumar from "./images/ramkumar.jpeg";
 import imgRajeshshree from "./images/Rajeshshree.jpeg";
-import imgArunKumar from "./images/arunkumar.jpg";
 import imgPremkumar from "./images/General Engg - Premkumar.jpg";
 import imgJenifer from "./images/Jenifer Daksh.jpg";
 
@@ -514,24 +513,6 @@ export const shFacultyData = [
     ],
     experience: [
       "2 Years"
-    ]},
-    {id: "mr-g-arun-kumar", slug: "mr-g-arun-kumar",  name: "Mr. G. Arunkumar", desig: "Assistant Professor", qual: "M.E.", email: "arunkumar@nscet.org", image: imgArunKumar, spec: "Manufacturing Engineering", objectPosition: "center 10%" ,
-    linkedin: "https://www.linkedin.com/in/arun-kumar-5433553b4",
-    about: "Arunkumar G is a dedicated faculty member with 9 years of teaching experience. His specialization is Manufacturing Engineering, and he is passionate about advancing engineering education through practical learning, research, and innovation. He is committed to equipping students with industry-relevant knowledge and technical skills.",
-    publications: [
-      "1"
-    ],
-    projects: [
-      "4"
-    ],
-    patents: [
-      "1"
-    ],
-    awards: [
-      "1"
-    ],
-    experience: [
-      "9 Years"
     ]},
     {
       id: "dr-premkumar-s",

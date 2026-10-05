@@ -46,9 +46,21 @@ export function GlassmorphismPortfolio({ faculty, departmentName }) {
     visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
   };
 
-  // Helper for Section rendering - always display heading/card, show placeholder if empty
+  const isRathimala = Boolean(
+    faculty?.name?.toLowerCase().includes('rathimala') ||
+    faculty?.slug?.toLowerCase().includes('rathimala') ||
+    String(faculty?.id || '').toLowerCase().includes('rathimala') ||
+    faculty?.email?.toLowerCase().includes('rathimala')
+  );
+
+  // Helper for Section rendering - hide empty sections for Rathimala as requested
   const renderSection = (title, icon, items) => {
-    const hasItems = Array.isArray(items) && items.length > 0;
+    const hasItems = Array.isArray(items) && items.length > 0 && items.some(it => it && String(it).trim().length > 0);
+    
+    if (!hasItems && isRathimala) {
+      return null;
+    }
+
     return (
       <motion.div
         variants={itemVariants}

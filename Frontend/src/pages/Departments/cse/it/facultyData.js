@@ -4,9 +4,7 @@ import imgUdhayakumar from "./images/udhayakumar.jpg";
 import imgKesavamoorthy from "./images/kesavamoorthy.jpg";
 import imgSaiSuganya from "./images/68060d94a3a65_sai suganya.jpg";
 import imgBhavani from "./images/Bhavani.jpg";
-import imgMahalakshmi from "./images/Mahalakshmi.jpg";
 import imgJasmineJose from "./images/jasminejose.jpg";
-import imgArulJothi from "./images/aruljothi.jpg";
 import imgMareeswari from "./images/Mareeswari M.jpg";
 
 export const itFacultyData = [
@@ -100,16 +98,6 @@ export const itFacultyData = [
     ]
   },
   {
-    id: "mrs-s-mahalakshmi", slug: "mrs-s-mahalakshmi", name: "Mrs. S. Mahalakshmi", desig: "Assistant Professor", qual: "B.Tech. - IT, M.E - CSE", email: "mahalakshmi@nscet.org", image: imgMahalakshmi, spec: "Python Systems & Analytics", objectPosition: "center 5%",
-    linkedin: "https://www.linkedin.com/in/nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
-    publications: [],
-    projects: [],
-    patents: [],
-    awards: [],
-    experience: []
-  },
-  {
     id: "mrs-p-jasmine-jose", slug: "mrs-p-jasmine-jose", name: "Mrs. P. Jasmine Jose", desig: "Assistant Professor", qual: "B.E - CSE, M.E - CSE", email: "jasminepercy16@gmail.com", image: imgJasmineJose, spec: "Data Science", objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/jasmine-jose-p",
     about: "P. Jasmine Jose is a dedicated faculty member with 5 years of teaching experience in the Department of Information Technology. Her specialization is Data Science, and she is passionate about research, data-driven technologies, and helping students develop analytical and problem-solving skills through practical learning.",
@@ -125,29 +113,6 @@ export const itFacultyData = [
     awards: [],
     experience: [
       "5 Years"
-    ]
-  },
-  {
-    id: "mrs-s-arul-jothi", slug: "mrs-s-arul-jothi", name: "Mrs. S. Arul Jothi", desig: "Assistant Professor", qual: "B.E - CSE, M.E - CSE", email: "aruljothi@nscet.org", image: imgArulJothi, spec: "Data Science & AI Systems", objectPosition: "center 10%",
-    linkedin: "https://www.linkedin.com/in/nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
-    publications: [
-      "Publication Title 1 — Journal of Engineering, 2024",
-      "Publication Title 2 — International Conference, 2023"
-    ],
-    projects: [
-      "Funded Project 1",
-      "Consultancy Project 2"
-    ],
-    patents: [
-      "Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Excellence Award - 2024",
-      "Best Researcher Award - 2023"
-    ],
-    experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
     ]
   },
   {

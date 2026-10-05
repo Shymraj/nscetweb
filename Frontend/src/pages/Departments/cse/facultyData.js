@@ -7,6 +7,8 @@ import imgVenkataLakshmi from "./images/Venkata Lakshmi M.jpg";
 import imgAnusuya from "./images/ANUSUYA VAIRAMUTHU.jpg";
 import imgVinothini from "./images/Vinothini.jpeg";
 import imgSnega from "./images/Snega Priyanka.png";
+import imgKarthick from "./images/karthick.jpeg";
+import imgRathimala from "./images/rathimala.jpg";
 
 export const cseFacultyData = [
   {
@@ -247,6 +249,46 @@ export const cseFacultyData = [
     experience: [
       "Assistant Professor, CSE, NSCET (2021 - Present)",
       "IoT Systems Engineer, SmartDev Labs (2019 - 2021)"
+    ]
+  },
+  {
+    id: "naveenkarthick-g-r",
+    slug: "naveenkarthick-g-r",
+    name: "Mr. J. R. Naveenkarthick",
+    desig: "Assistant Professor",
+    qual: "B.E - CSE, M.E - CSE (Networks)",
+    email: "naveenkarthick@nscet.org",
+    image: imgKarthick,
+    spec: "Distributed Systems & Algorithms",
+    objectPosition: "center 10%",
+    linkedin: "https://www.linkedin.com/in/naveen-karthick-8b713ab1/",
+    about: "Naveenkarthick G R is a dedicated faculty member with 5 years of teaching experience. He is passionate about web technologies and focuses on helping students build strong front-end development skills through practical and interactive learning.",
+    publications: [],
+    projects: [],
+    patents: [],
+    awards: [],
+    experience: [
+      "5 Years"
+    ]
+  },
+  {
+    id: "mrs-t-rathimala",
+    slug: "mrs-t-rathimala",
+    name: "Mrs. T. Rathimala",
+    desig: "Assistant Professor",
+    qual: "M.E. CSE",
+    email: "rathimala.cse@gmail.com",
+    image: imgRathimala,
+    spec: "Algorithms and Data Structures",
+    objectPosition: "center 10%",
+    linkedin: "https://www.linkedin.com/in/rathi-mala-44aba841b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    about: "Mrs. T. Rathimala is an Assistant Professor in the Department of Computer Science and Engineering with over 17 years of experience. Her area of specialization is Algorithms and Data Structures.",
+    publications: [],
+    projects: [],
+    patents: [],
+    awards: [],
+    experience: [
+      "17 Years"
     ]
   }
 ];

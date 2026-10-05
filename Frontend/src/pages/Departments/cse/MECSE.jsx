@@ -300,7 +300,7 @@ const MECSE = () => {
             {faculties.map((member, idx) => (
               <DepartmentFacultyCard
                 isHOD={idx === 0} 
-                key={idx} 
+                key={member.id || member.slug || `mecse-staff-${idx}`} 
                 member={member} 
                 onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 

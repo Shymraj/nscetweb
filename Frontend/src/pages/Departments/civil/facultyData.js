@@ -8,6 +8,9 @@ import imgNathirunSabinash from "./images/nathirunsabinash.jpg";
 import imgHariprasath from "./images/hariprasath.jpg";
 import imgManojPrabakar from "./images/Manoj_prabakar.jpg";
 import imgAadhitya from "./images/P. Aadhitya.jpg";
+import imgSindhu from "./images/sindhu.jpg";
+import imgBenita from "./images/Benita Photo.jpg";
+import imgPremkumar from "./images/General Engg - Premkumar.jpg";
 
 export const civilFacultyData = [
   {
@@ -394,6 +397,74 @@ export const civilFacultyData = [
     awards: [],
     experience: [
       "2 Months"
+    ]
+  },
+  {
+    id: "mrs-k-benita-merlin-isabella",
+    slug: "mrs-k-benita-merlin-isabella",
+    name: "Mrs. K. Benita Merlin Isabella",
+    desig: "Assistant Professor",
+    qual: "M.E",
+    email: "benitamerlin22@gmail.com",
+    image: imgBenita,
+    spec: "Structural Engineering (Structural Design & Analysis)",
+    objectPosition: "center 10%",
+    linkedin: "https://www.linkedin.com/in/benita-merlin-005b69242",
+    about: "Benita Merlin Isabella K is a dedicated faculty member in the Department of Civil Engineering. She brings a unique blend of 3 years of industry experience and 2.2 years of teaching experience. Her specialization is Structural Engineering, with a focus on Structural Design and Analysis, and she is committed to helping students develop strong technical knowledge through practical and industry-oriented learning.",
+    publications: [
+      "2"
+    ],
+    projects: [],
+    patents: [],
+    awards: [],
+    experience: [
+      "3 Years (Industry) & 2.2 Years (Teaching)"
+    ]
+  },
+  {
+    id: "mrs-m-sindhu",
+    slug: "mrs-m-sindhu",
+    name: "Mrs. M. Sindhu",
+    desig: "Assistant Professor",
+    qual: "M.E., (Ph.D)",
+    email: "sindhu@nscet.org",
+    image: imgSindhu,
+    spec: "Structural Engineering",
+    objectPosition: "center 10%",
+    linkedin: "https://www.linkedin.com/in/sindhu-m-19b495157",
+    about: "Sindhu M is a dedicated faculty member with 6 years of teaching experience in the Department of Civil Engineering. Her specialization is Structural Engineering, and she is passionate about structural analysis, innovative engineering practices, and helping students develop strong technical and practical skills through effective teaching and research.",
+    publications: [
+      "1"
+    ],
+    projects: [
+      "1"
+    ],
+    patents: [],
+    awards: [],
+    experience: [
+      "6 Years"
+    ]
+  },
+  {
+    id: "dr-premkumar-s",
+    slug: "dr-premkumar-s",
+    name: "Dr. S. Premkumar",
+    desig: "Assistant Professor",
+    qual: "B.E - Civil, M.E - Hydrology & Water Resources, Ph.D – Civil Engineering",
+    email: "premkumar@nscet.org",
+    image: imgPremkumar,
+    spec: "Water Resources, Hydrology",
+    objectPosition: "center 10%",
+    linkedin: "https://www.linkedin.com/in/dr-premkumar-s-06a70640",
+    about: "Dr. S. Premkumar is a dedicated faculty member with over 12 years of teaching and research experience in the Department of Civil Engineering. His area of specialization is Water Resources, and he is committed to advancing engineering education through academic excellence, research, and student mentorship.",
+    publications: [
+      "5"
+    ],
+    projects: [],
+    patents: [],
+    awards: [],
+    experience: [
+      "12.7 Years"
     ]
   }
 ];

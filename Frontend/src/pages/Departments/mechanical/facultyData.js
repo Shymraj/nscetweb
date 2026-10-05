@@ -7,6 +7,8 @@ import imgSurulimani from "./images/Surulimani.jpg";
 import imgHarikishore from "./images/harikishore.jpg";
 import imgChakravarthySamy from "./images/chakravarthysamydurai.jpg";
 import imgNagaraja from "./images/nagaraja.jpg";
+import imgArunKumar from "./images/arunkumar.jpg";
+import imgVembathuRajesh from "./images/vembathurajesh.png";
 
 
 export const mechanicalFacultyData = [
@@ -155,5 +157,61 @@ export const mechanicalFacultyData = [
     ],
     experience: [
       "13 Years"
-    ]}
+    ]},
+    {
+      id: "mr-g-arun-kumar",
+      slug: "mr-g-arun-kumar",
+      name: "Mr. G. Arunkumar",
+      desig: "Assistant Professor",
+      qual: "B.E - Mechanical, M.E - Manufacturing",
+      email: "arunkumar@nscet.org",
+      image: imgArunKumar,
+      spec: "Manufacturing Engineering",
+      objectPosition: "center 10%",
+      linkedin: "https://www.linkedin.com/in/arun-kumar-5433553b4",
+      about: "Arunkumar G is a dedicated faculty member with 9 years of teaching experience in the Department of Mechanical Engineering. His specialization is Manufacturing Engineering, and he is passionate about advancing engineering education through practical learning, research, and innovation. He is committed to equipping students with industry-relevant knowledge and technical skills.",
+      publications: [
+        "1"
+      ],
+      projects: [
+        "4"
+      ],
+      patents: [
+        "1"
+      ],
+      awards: [
+        "1"
+      ],
+      experience: [
+        "9 Years"
+      ]
+    },
+    {
+      id: "dr-a-vembathurajesh",
+      slug: "dr-a-vembathurajesh",
+      name: "Dr. A. Vembathurajesh",
+      desig: "Assistant Professor",
+      qual: "B.E - Mechanical, M.E - Thermal, Ph.D - Mechanical",
+      email: "vembathurajesh@nscet.org",
+      image: imgVembathuRajesh,
+      spec: "Materials, Thermal, Composites",
+      objectPosition: "center 10%",
+      linkedin: "https://www.linkedin.com/in/dr-vembathurajesh-a-192b50426/",
+      about: "Dr. A. Vembathurajesh is an Assistant Professor in the Department of Mechanical Engineering with over 16 years of teaching and research experience. His areas of expertise include Materials, Thermal, and Composite Engineering. With numerous publications, research projects, patents, and academic achievements, he is dedicated to fostering innovation and excellence in engineering education.",
+      publications: [
+        "18"
+      ],
+      projects: [
+        "15"
+      ],
+      patents: [
+        "4"
+      ],
+      awards: [
+        "3"
+      ],
+      experience: [
+        "16+ Years"
+      ]
+    }
   ];

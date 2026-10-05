@@ -674,13 +674,6 @@ const EventsManager = () => {
 const StaffManager = () => {
   const [staff, setStaff] = useState(() => {
     try {
-      const cached = localStorage.getItem('cached_admin_staff');
-      if (cached) {
-        const parsed = JSON.parse(cached);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      }
-    } catch (e) { }
-    try {
       return getAllStaticStaff();
     } catch (e) {
       return [];
@@ -815,18 +808,18 @@ const StaffManager = () => {
 
   const fetchStaff = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/staff');
+      const apiBase = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+        ? 'http://localhost:5000'
+        : '';
+      const res = await axios.get(`${apiBase}/api/admin/staff?_t=${Date.now()}`);
       if (res.data && res.data.success && Array.isArray(res.data.data) && res.data.data.length > 0) {
         setStaff(res.data.data);
         setIsBackendOnline(true);
-        try {
-          localStorage.setItem('cached_admin_staff', JSON.stringify(res.data.data));
-        } catch (e) { }
       }
     } catch (err) {
-      console.warn("Backend API offline or unreachable; using static/cached fallback staff:", err);
+      console.warn("Backend API offline or unreachable; using static fallback staff:", err);
       setIsBackendOnline(false);
-      setStaff(prev => (prev && prev.length > 0 ? prev : getAllStaticStaff()));
+      setStaff(getAllStaticStaff());
     }
   };
 
@@ -887,12 +880,29 @@ const StaffManager = () => {
   };
 
   const getStaffPhoto = (url, staffName) => {
-    if (!url) return `https://ui-avatars.com/api/?name=${encodeURIComponent(staffName || 'Faculty')}&background=1e3a8a&color=fff&size=200`;
+    if (!url) {
+      if (staffName && staffName.toLowerCase().includes('prathap') && (staffName.toLowerCase().includes('s.') || staffName.toLowerCase().includes('s '))) {
+        return '/ECE/prathap.jpg';
+      }
+      if (staffName && staffName.toLowerCase().includes('ganesh')) {
+        return '/EEE/ganesh.jpg';
+      }
+      return `https://ui-avatars.com/api/?name=${encodeURIComponent(staffName || 'Faculty')}&background=1e3a8a&color=fff&size=200`;
+    }
     if (typeof url === 'string') {
       if (url.startsWith('http') || url.startsWith('data:') || url.startsWith('blob:')) return url;
       if (url.startsWith('/uploads') || url.startsWith('uploads/')) {
         const clean = url.startsWith('/') ? url : `/${url}`;
-        return `http://localhost:5000${clean}`;
+        if (clean.includes('prathap')) {
+          return '/ECE/prathap.jpg';
+        }
+        if (clean.includes('ganesh')) {
+          return '/EEE/ganesh.jpg';
+        }
+        const apiBase = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+          ? `http://${window.location.hostname}:5000`
+          : '';
+        return `${apiBase}${clean}`;
       }
       return url;
     }
@@ -1141,6 +1151,18 @@ const StaffManager = () => {
                     style={{ width: '100%', height: '200px', objectFit: 'cover', borderBottom: '1px solid #e5e7eb', flexShrink: 0 }}
                     onError={(e) => {
                       e.target.onerror = null;
+                      if (st.name && st.name.toLowerCase().includes('prathap')) {
+                        e.target.src = '/ECE/prathap.jpg';
+                        return;
+                      }
+                      if (st.name && st.name.toLowerCase().includes('kalaivani')) {
+                        e.target.src = '/ECE/kalaivani.jpg';
+                        return;
+                      }
+                      if (st.name && st.name.toLowerCase().includes('ganesh')) {
+                        e.target.src = '/EEE/ganesh.jpg';
+                        return;
+                      }
                       e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name || 'Faculty')}&background=1e3a8a&color=fff&size=200`;
                     }}
                   />

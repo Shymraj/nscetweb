@@ -26,9 +26,7 @@ import imgUdhayakumar from "./images/udhayakumar.jpg";
 import imgKesavamoorthy from "./images/kesavamoorthy.jpg";
 import imgSaiSuganya from "./images/68060d94a3a65_sai suganya.jpg";
 import imgBhavani from "./images/Bhavani.jpg";
-import imgMahalakshmi from "./images/Mahalakshmi.jpg";
 import imgJasmineJose from "./images/jasminejose.jpg";
-import imgArulJothi from "./images/aruljothi.jpg";
 
 import "../../cse/CSE.css";
 import "./IT.css";
@@ -361,7 +359,7 @@ const IT = () => {
             {faculties.map((member, idx) => (
               <DepartmentFacultyCard
                 isHOD={idx === 0} 
-                key={idx} 
+                key={member.id || member.slug || `it-staff-${idx}`} 
                 member={member} 
                 onOpenProfile={handleOpenProfile} 
                 fadeInUp={fadeInUp} 
