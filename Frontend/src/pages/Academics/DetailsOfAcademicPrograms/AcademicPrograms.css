@@ -31,7 +31,6 @@
 .ap-hero-text h1 {
     font-size: 4rem;
     font-weight: 800;
-    
     line-height: 1.1;
     color: #20b01b;
     margin-bottom: 20px;
@@ -320,78 +319,101 @@
     box-shadow: 0 16px 30px rgba(255, 106, 0, 0.45);
 }
 
-/* ===== Responsive ===== */
-@media (max-width:1200px) {
-    .ap-card {
-        grid-template-columns: 280px 1fr;
-    }
+/* ==========================================================
+   🔥 DESKTOP & TABLET RESPONSIVE 🔥
+   ========================================================== */
 
-    .ap-grid {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 1200px) {
+    .ap-hero { padding: 140px 60px; }
+    .ap-card { grid-template-columns: 280px 1fr; }
+    .ap-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width:992px) {
-
-    .ap-hero-content,
-    .ap-card {
-        grid-template-columns: 1fr;
-    }
-
-    .ap-hero-text {
-        text-align: center;
-    }
-
-    .ap-line {
-        margin: 0 auto 24px;
-    }
-
-    .ap-hero-text h1 {
-        font-size: 3rem;
-    }
-
-    .ap-left {
-        padding: 40px 24px;
-    }
-
-    .ap-cta-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .ap-cta-left {
-        flex-direction: column;
-    }
+@media (max-width: 992px) {
+    .ap-hero { padding: 120px 40px; }
+    .ap-hero-content, .ap-card { grid-template-columns: 1fr; }
+    .ap-row { grid-template-columns: 1fr; }
+    .ap-hero-text { text-align: center; }
+    .ap-line { margin: 0 auto 24px; }
+    .ap-hero-text h1 { font-size: 3.2rem; }
+    .ap-left { padding: 40px 24px; }
+    .ap-cta-content { flex-direction: column; text-align: center; }
+    .ap-cta-left { flex-direction: column; }
 }
 
-@media (max-width:576px) {
-    .ap-hero {
-        padding: 60px 16px;
+/* ==========================================================
+   🔥 ULTIMATE MOBILE FIX (DO NOT REMOVE) 🔥
+   ========================================================== */
+@media (max-width: 768px) {
+    
+    /* 1. Navbar PUSH-DOWN (Ithu banner & text-ai navbar-kku keezhe kondu varum) */
+    .ap-page {
+        padding-top: 85px !important; 
+        overflow-x: hidden !important; /* Thadukkum horizontal scrolling */
+        width: 100vw !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    .ap-hero-text h1 {
-        font-size: 2.3rem;
+    /* 2. FORCE HERO BANNER TO SHOW */
+    .ap-hero, .common-hero-banner {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 250px !important;
+        padding: 40px 20px 40px 20px !important;
+        margin-top: 0 !important;
     }
 
-    .ap-right {
-        padding: 24px 18px;
+    .ap-hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .ap-hero-image img {
+        height: 250px !important; 
     }
 
-    .ap-item {
-        padding: 20px 18px;
+    /* 3. FIX TEXT OVERFLOW (Varthaigal Cut Aagama Wrap Aaga) */
+    .ap-page *, .ap-page h1, .ap-page h2, .ap-page h3, .ap-page p, .ap-page span {
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+        white-space: normal !important;
+        word-wrap: break-word !important; 
+        overflow-wrap: break-word !important;
     }
 
-    .ap-research-box {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
+    /* 4. REDUCE HUGE FONT SIZES ON MOBILE */
+    .ap-page h1, .ap-hero-text h1 { 
+        font-size: 2.2rem !important; 
+        line-height: 1.2 !important; 
+    }
+    
+    .ap-page h2 { 
+        font-size: 1.8rem !important; 
+        line-height: 1.3 !important; 
+    }
+    
+    .ap-page h3 { 
+        font-size: 1.5rem !important; 
+    }
+    
+    .ap-page p { 
+        font-size: 1rem !important; 
+        line-height: 1.5 !important; 
     }
 
-    .ap-cta {
-        padding: 26px 20px;
+    /* 5. FIX PADDING FOR CARDS */
+    .ap-right { padding: 32px 20px !important; }
+    .ap-item { padding: 20px 16px !important; }
+    .ap-research-box { 
+        flex-direction: column !important; 
+        text-align: center !important; 
+        align-items: center !important; 
+        padding: 24px 16px !important; 
     }
-
-    .ap-btn {
-        width: 100%;
-    }
+    .ap-cta { padding: 26px 20px !important; }
+    .ap-btn { width: 100% !important; }
 }

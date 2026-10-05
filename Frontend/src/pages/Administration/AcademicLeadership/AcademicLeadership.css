@@ -8,10 +8,18 @@
   padding-top: 0 !important; 
 }
 
-/* Banner gap illama irukka indha margin-ah add pannunga */
+/* ==========================================================
+   🔥 BANNER GAP & MARGIN FIX 🔥
+   ========================================================== */
 .common-hero-banner {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+}
+
+.al-page-container .common-hero-banner {
+  margin-top: 38px !important; /* PC / Desktop Banner Top Margin */
+  display: block !important;
+  width: 100%;
 }
 
 /* ================= ABOUT OUR ACADEMIC LEADERSHIP FEATURED CARD ================= */
@@ -27,6 +35,8 @@
   border: 1px solid #e2e8f0;
   min-height: 220px;
   align-items: stretch;
+  /* Responsive safe margin for desktop */
+  width: calc(100% - 40px); 
 }
 
 /* Left Section: Deep Navy with Curved Right Edge & Golden Arc Trim */
@@ -504,24 +514,36 @@
   background: linear-gradient(to right, transparent, #e2e8f0, transparent);
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= RESPONSIVE DESIGN FOR ALL DEVICES ================= */
+
 @media (max-width: 1024px) {
   .al-hod-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 cards for small laptops/tablets */
+  }
+}
+
+@media (max-width: 992px) {
+  .al-hod-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards for regular tablets */
   }
 }
 
 @media (max-width: 768px) {
   /* Page top padding to show banner below navbar */
   .al-page-container {
-      padding-top: 60px !important; 
+      padding-top: 0 !important; 
+  }
+
+  .al-page-container .common-hero-banner {
+    margin-top: 35px !important; /* Mobile Banner Top Margin Fix */
   }
 
   /* About Card layout fix */
   .al-about-card {
     flex-direction: column;
-    margin: 20px 15px 40px 15px;
+    margin: 20px auto 40px auto;
     align-items: center;
+    width: calc(100% - 30px);
   }
 
   /* Blue background section for Icon */
@@ -548,7 +570,7 @@
 
   /* Content area adjustment */
   .al-about-right-section {
-    padding: 30px 20px 30px 20px;
+    padding: 30px 20px;
     align-items: center;
     text-align: center;
   }
@@ -565,6 +587,19 @@
     justify-content: center;
   }
 
+  /* Typography scale down for mobile */
+  .al-section-title {
+    font-size: 1.5rem;
+  }
+
+  .al-about-title {
+    font-size: 1.35rem;
+  }
+
+  .al-about-text {
+    font-size: 0.9rem;
+  }
+
   /* Admin Cards stacked */
   .al-split-container {
     flex-direction: column;
@@ -574,13 +609,56 @@
 
   .al-split-container .al-admin-card {
     width: 100%;
-    max-width: 90%;
+    max-width: 100%;
   }
 }
 
 @media (max-width: 600px) {
   .al-hod-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 1 card per row for mobile */
+  }
+}
+
+/* 🔥 EXTRA FIX FOR VERY SMALL MOBILE SCREENS 🔥 */
+@media (max-width: 480px) {
+  .al-admin-card {
+    padding: 24px 16px;
+  }
+  
+  .al-hod-card {
+    padding: 20px 12px 16px 12px;
+  }
+
+  /* Avatars slightly smaller on mobile */
+  .al-avatar-ring {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .al-admin-card .al-avatar-ring {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .al-lib-card .al-avatar-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .al-name {
+    font-size: 1.05rem;
+  }
+
+  /* Stack department text in mobile if needed */
+  .al-dept-banner-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .al-dept-banner-text {
+    text-align: center;
   }
 }
 

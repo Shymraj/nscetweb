@@ -830,9 +830,9 @@
 /* Mobile View Gap Adjustments */
 @media (max-width: 767px) {
     .common-hero-banner {
-        margin-top: 40px !important; /* 👈 Mobile-la banner mela/keela poga intha 65px-ai adjust pannunga */
+        margin-top: 0px !important; /* 👈 Mobile-la banner mela/keela poga intha 65px-ai adjust pannunga */
     }
     .common-page-wrapper {
-        padding-top: 35px !important;
+        padding-top: 3px !important;
     }
 }

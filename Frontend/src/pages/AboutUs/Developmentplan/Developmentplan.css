@@ -22,19 +22,22 @@
   padding-right: 0 !important;
 }
 
-/* Mobile ku navbar 60px height-ku connect aaga */
-@media (max-width: 767px) {
-  .dev-plan-page {
-    padding-top: 60px !important;
-  }
-}
-
 /* ==========================================================
-   🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP 🔥
+   🔥 FIX: BANNER RESPONSIVE & UNWANTED WHITE GAP 🔥
    ========================================================== */
 .common-hero-banner {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+  margin-top: 35px !important; /* Desktop-kku banner space */
+  width: 100%;
+  display: block;
+}
+
+.common-hero-banner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }
 
 /* First section below banner-oda gap ah remove panrom */
@@ -881,10 +884,15 @@ body.dark-mode .table-container-card:hover {
 }
 
 @media (max-width: 768px) {
+  /* 🔥 MOBILE VIEW-KKU BANNER-AI KEELA NAGARTHA 🔥 */
+  .common-hero-banner {
+    margin-top: 35px !important; 
+  }
+
   /* Executive summary padding reduced explicitly for mobile to kill the gap */
   .dev-plan-page .common-hero-banner + * > div,
   .dev-plan-page .common-hero-banner + * .dev-inner-container {
-     padding-top: 15px !important;
+      padding-top: 15px !important;
   }
 
   /* Matha spacing fixes */
