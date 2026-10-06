@@ -59,23 +59,12 @@ const WhyChoose = () => {
     threshold: 0.05,
   });
 
-  const [titlePrefix, setTitlePrefix] = useState("OUR");
-  const [titleHighlight, setTitleHighlight] = useState("INDUSTRY CONNECT");
-  const [subtitle, setSubtitle] = useState("A strong network of organizations shaping our students’ careers.");
   const [topRow, setTopRow] = useState(topRowLogos);
   const [bottomRow, setBottomRow] = useState(bottomRowLogos);
 
   useEffect(() => {
     const fetchRecruiterData = async () => {
       try {
-        // Fetch Settings
-        const settingsRes = await axios.get("http://localhost:5000/api/admin/home/recruiter-settings");
-        if (settingsRes.data && settingsRes.data.data) {
-          if (settingsRes.data.data.title_prefix) setTitlePrefix(settingsRes.data.data.title_prefix);
-          if (settingsRes.data.data.title_highlight) setTitleHighlight(settingsRes.data.data.title_highlight);
-          if (settingsRes.data.data.subtitle) setSubtitle(settingsRes.data.data.subtitle);
-        }
-
         // Fetch Recruiters
         const recruiterRes = await axios.get("http://localhost:5000/api/admin/home/recruiter");
         if (recruiterRes.data && recruiterRes.data.data && recruiterRes.data.data.length > 0) {
@@ -216,8 +205,8 @@ const WhyChoose = () => {
         {/* Big Bold Centered Heading */}
         <div className="partners-center-content">
           <h2 className="partners-main-title">
-            <span className="title-white">{titlePrefix} </span>
-            <span className="title-gold">{titleHighlight}</span>
+            <span className="title-white">OUR </span>
+            <span className="title-gold">INDUSTRY CONNECT</span>
           </h2>
 
           {/* Golden Ornamental Divider with Lotus Motif */}
@@ -246,7 +235,7 @@ const WhyChoose = () => {
           </div>
 
           <p className="partners-description">
-            {subtitle}
+            A Strong network of organizations shaping our Student's careers
           </p>
         </div>
 

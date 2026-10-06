@@ -1,608 +1,655 @@
+/* ==========================================================================
+   TEACHING FACULTY - OFFICIAL VERIFICATION TABULAR DIRECTORY STYLES
+   ========================================================================== */
+
 :root {
-  --tf-bg: var(--theme-bg);
-  --tf-white: #ffffff;
-  --tf-text-dark: #1f2937;
-  --tf-text-muted: #6b7280;
-  --tf-primary: var(--theme-primary);
-  --tf-primary-light: var(--theme-primary-light);
-  --tf-border: var(--theme-border);
+  --tf-bg: #f8fafc;
+  --tf-card-bg: #ffffff;
+  --tf-text-dark: #0f172a;
+  --tf-text-muted: #64748b;
+  --tf-primary: #004d99;
+  --tf-primary-hover: #003366;
+  --tf-accent: #f59e0b;
+  --tf-border: #cbd5e1;
+  --tf-border-light: #e2e8f0;
+  --tf-header-bg: #f1f5f9;
+  --tf-hover-row: #f8fafc;
+}
+
+body.dark-mode {
+  --tf-bg: #0b1120;
+  --tf-card-bg: #1e293b;
+  --tf-text-dark: #f8fafc;
+  --tf-text-muted: #94a3b8;
+  --tf-primary: #38bdf8;
+  --tf-primary-hover: #0284c7;
+  --tf-border: #334155;
+  --tf-border-light: #1e293b;
+  --tf-header-bg: #0f172a;
+  --tf-hover-row: #1e293b;
 }
 
 .tf-page-wrapper {
   background-color: var(--tf-bg);
   min-height: 100vh;
-  font-family: var(--font-body);
-  padding: 10rem 2rem 4rem; /* 10rem top padding to safely clear the floating Navbar */
+  padding: 8.5rem 1.5rem 5rem;
   color: var(--tf-text-dark);
-  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  transition: background-color 0.3s ease;
 }
 
 .tf-container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
+/* ==========================================================================
+   HEADER & ORIGINAL PILL NAVIGATION
+   ========================================================================== */
 .tf-nav-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.tf-super-badge {
+  display: inline-block;
+  background: rgba(0, 77, 153, 0.1);
+  color: var(--tf-primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+body.dark-mode .tf-super-badge {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
 }
 
 .tf-main-title {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 800;
   color: var(--tf-text-dark);
-  margin: 0 0 2rem 0;
-  text-align: center;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.tf-subtitle {
+  font-size: 1.05rem;
+  color: var(--tf-text-muted);
+  margin: 0 0 1.75rem 0;
+  max-width: 650px;
 }
 
 /* ==========================================
-   Tier 1: Pill Navigation (Sliding Background)
+   SEARCH BAR
    ========================================== */
-.tf-pill-nav-container {
+.tf-search-wrapper {
   position: relative;
-  display: flex;
-  align-items: center; /* 🔥 ADDED FIX: Ithu thaan mela keela erangama theliva center pannum */
-  background-color: #e5e7eb;
-  border-radius: 999px;
-  padding: 6px;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
   width: 100%;
-  max-width: 950px; 
+  max-width: 680px;
+  margin-bottom: 2rem;
+}
+
+.tf-search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--tf-text-muted);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.tf-search-input {
+  width: 100%;
+  padding: 13px 45px 13px 48px;
+  font-size: 0.98rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--tf-border);
+  background: var(--tf-card-bg);
+  color: var(--tf-text-dark);
+  outline: none;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.tf-search-input:focus {
+  border-color: var(--tf-primary);
+  box-shadow: 0 0 0 4px rgba(0, 77, 153, 0.15);
+}
+
+body.dark-mode .tf-search-input:focus {
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
+}
+
+.tf-search-clear {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--tf-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.tf-search-clear:hover {
+  color: var(--tf-text-dark);
+}
+
+/* No Results Empty State */
+.tf-no-results-cell {
+  padding: 60px 20px !important;
+  text-align: center;
+  background: var(--tf-card-bg);
+}
+
+.tf-no-results-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
   margin: 0 auto;
 }
 
-.tf-pill-active-bg {
-  position: absolute;
-  top: 6px;
-  bottom: 6px;
-  left: 6px;
-  width: calc(25% - 3px); /* 🔥 ADDED FIX: Ph.D remove pannathala 20% la irunthu 25% aakiyachu (4 tabs) */
-  background-color:rgb(21, 27, 84);
-  border-radius: 999px;
-  transition: transform 0.4s cubic-bezier(0.25, 1.2, 0.5, 1);
-  z-index: 1;
+.tf-no-results-icon {
+  font-size: 2.8rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
 }
 
-.tf-pill-btn {
-  position: relative;
-  z-index: 2;
-  flex: 1;
-  flex-shrink: 0;
-  border: none;
-  background: transparent;
-  color: var(--tf-text-muted);
-  font-size: 0.95rem;
+.tf-no-results-title {
+  font-size: 1.3rem;
   font-weight: 700;
-  padding: 12px 10px;
-  margin: 0; /* 🔥 ADDED FIX: Default margins block panna */
-  cursor: pointer;
-  text-align: center;
-  transition: color 0.3s ease;
+  color: var(--tf-text-dark);
+  margin: 0 0 0.5rem 0;
 }
 
-.tf-pill-btn.active {
-  color: var(--tf-white);
-}
-
-/* ==========================================
-   Tier 2: Sub-Navigation for Departments
-   ========================================== */
-.tf-sub-nav-container {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 4rem;
-}
-
-/* Animated List Item Styles */
-.animated-list-item {
-  opacity: 0;
-  transform: translateY(15px);
-  animation: staggerFadeInUp 0.4s ease forwards;
-}
-
-@keyframes staggerFadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.tf-sub-nav-btn {
-  background: var(--tf-white);
-  border: 1px solid var(--tf-border);
-  padding: 0.6rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem;
+.tf-no-results-desc {
+  font-size: 0.92rem;
   color: var(--tf-text-muted);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-  flex-shrink: 0;
+  line-height: 1.5;
+  margin: 0 0 1.5rem 0;
 }
 
-.tf-sub-nav-btn:hover {
-  border-color: var(--tf-primary);
-  color: var(--tf-primary);
-  transform: translateY(-2px);
-}
-
-.tf-sub-nav-btn.active {
-  background: rgb(21, 27, 84);
-  color:white;
-  border-color: var(--tf-primary);
-}
-
-.fade-in {
-  animation: fadeIn 0.5s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* ==========================================
-   Combined Layout Wrapper
-   ========================================== */
-.tf-faculty-layout-wrapper {
-  display: flex;
-  position: relative;
-  align-items: stretch; /* So both sides stretch to same height if possible, or align-items: center */
-  overflow: visible;
-  margin-bottom: 4rem;
-  padding: 10px 0;
-}
-
-/* ==========================================
-   HOD Featured Card (Now Vertical on Left)
-   ========================================== */
-.tf-hod-fixed-wrapper {
-  position: relative;
-  z-index: 10;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  /* Add shadow to the right so it overlays the scrolling cards */
-  box-shadow: 15px 0 30px rgba(0,0,0,0.1);
-  border-radius: 16px;
-  background: white;
-}
-
-.tf-hod-special-card {
-  background: linear-gradient(145deg, #fff9e6, #fff) !important; /* Golden theme background */
-  border: 2px solid #d4af37 !important; /* Golden border */
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2) !important;
-  position: relative;
-}
-
-.tf-hod-special-card:hover {
-  transform: translateY(-8px) !important;
-  border: 4px solid #d4af37 !important;
-  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3), 0 12px 30px rgba(212, 175, 55, 0.15) !important;
-}
-
-.tf-hod-badge {
-  display: inline-block;
-  margin-bottom: 8px;
-  background: linear-gradient(90deg, #d4af37, #b8860b);
-  color: white;
-  padding: 4px 14px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  white-space: nowrap;
-  z-index: 10;
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
-}
-
-.tf-hod-img-small {
-  border: 4px solid #d4af37 !important;
-  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3) !important;
-}
-
-.tf-hod-pos {
-  color: #b8860b !important;
-}
-
-.tf-hod-badge-outline {
-  background: #d4af37 !important;
-  color: white !important;
-  border: none !important;
-}
-
-.tf-hod-icon {
-  color: #d4af37 !important;
-}
-
-.tf-qual-badges {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* 🔥 ADDED FIX: Exact hex color added instead of invalid text */
-.tf-badge-outline {
-  background: #0b2f9a; 
-  color: white;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.3rem 0.8rem;
-  border-radius: 50px;
-}
-
-.tf-hod-contact-col {
-  border-top: 1px solid var(--tf-border);
-  padding-top: 1.5rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.tf-contact-item {
-  color: var(--tf-text-muted);
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.tf-icon {
-  color: var(--tf-primary);
-  font-size: 1.1rem;
-}
-
-/* ==========================================
-   Faculty Members Header
-   ========================================== */
-.tf-staff-section-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  border-bottom: 2px solid var(--tf-primary);
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
-  margin-left: 2rem; /* Give some space from the HOD card */
-}
-
-.tf-section-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-.tf-scroll-hint {
-  color: var(--tf-primary);
-  font-size: 0.9rem;
-  margin: 0;
-  font-weight: 600;
-  animation: pulseText 2s infinite;
-}
-
-@keyframes pulseText {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
-}
-
-/* ==========================================
-   Slider Wrapper and Layout (Arrows added)
-   ========================================== */
-.tf-slider-wrapper {
-  flex-grow: 1;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-  margin-left: -30px; /* Pull the slider behind the HOD card */
-  padding-left: 50px; /* Ensure content starts visually after the HOD card */
-  padding-right: 40px; /* Provide space for the right arrow to avoid clipping */
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.tf-slider-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 0;
-}
-
-.tf-slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--tf-white);
-  color: var(--tf-primary);
-  border: 1px solid var(--tf-border);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  z-index: 10;
-  transition: all 0.3s ease;
-}
-
-.tf-slider-btn:hover {
+.tf-reset-search-btn {
   background: var(--tf-primary);
-  color: var(--tf-white);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.tf-slider-btn.left {
-  left: -20px;
-}
-
-.tf-slider-btn.right {
-  right: -20px;
-}
-
-/* ==========================================
-   MOVING TRACK (Seamless Cards Marquee)
-   ========================================== */
-.tf-scroll-track {
-  display: flex;
-  gap: 2rem;
-  width: max-content; 
-  padding: 1rem 0 20px 0;
-  -ms-overflow-style: none;  
-  scrollbar-width: none;  
-  /* React dynamically handles the animation speed now, so static animation line removed */
-}
-
-.tf-scroll-track::-webkit-scrollbar {
-  display: block;
-  height: 8px;
-}
-
-/* Track mela mouse vecha cards nikanum */
-.tf-scroll-track:hover,
-.tf-scroll-track:active,
-.tf-scroll-track:focus-within {
-  animation-play-state: paused !important;
-}
-
-
-/* ==========================================
-   CARDS STYLING
-   ========================================== */
-.tf-staff-card {
-  background: var(--tf-white);
-  height: fit-content;
-  border-radius: 16px;
-  padding: 1.5rem;
-  border: 1px solid var(--tf-border);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-  text-align: center;
-  position: relative;
-  width: 260px;
-  flex-shrink: 0;
-  cursor: default;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-top 0.3s ease-in-out;
-  border-top: 4px solid transparent;
-  padding-bottom: 15px;
-}
-
-.tf-staff-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 12px 30px rgba(90, 50, 250, 0.15);
-  border-color: var(--tf-primary-light);
-    border: 4px solid #0b2f9a  !important; 
-}
-
-/* ==========================================
-   Clean Zoom Animation
-   ========================================== */
-.card-zoom-animation {
-  animation: cleanZoom 0.4s ease forwards;
-  z-index: 10; 
-}
-
-@keyframes cleanZoom {
-  0% { transform: scale(1) translateX(0); }
-  50% { 
-    transform: scale(1.08) translateX(0); 
-    box-shadow: 0 15px 35px rgba(90, 50, 250, 0.2); 
-  }
-  100% { transform: scale(1) translateX(0); }
-}
-
-.tf-card-top {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: -1rem;
-}
-
-.tf-mail-icon-bg {
-  background: #6f74a4;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  color: var(--tf-primary);
-}
-
-.tf-staff-img {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 1rem auto;
-  border: 4px solid var(--tf-white);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  object-position: top;
-}
-
-.tf-staff-name {
-  font-size: 1.15rem;
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
   font-weight: 700;
-  margin: 0 0 0.3rem 0;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 77, 153, 0.25);
+  transition: all 0.2s ease;
 }
 
-.tf-staff-pos {
-  color: deep rgb(30, 30, 111) rgb(0, 9, 52);
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
+.tf-reset-search-btn:hover {
+  background: var(--tf-primary-hover);
+  transform: translateY(-1px);
 }
 
-.tf-center-badges {
-  justify-content: center;
-  margin-bottom: 1.5rem;
+/* ==========================================================================
+   SINGLE CONTINUOUS BOX FOR ALL TEACHING FACULTY
+   ========================================================================== */
+.tf-single-box {
+  background: var(--tf-card-bg);
+  border: 1.5px solid var(--tf-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
 }
 
-.tf-staff-contact {
-  text-align: left;
-  border-top: 1px solid var(--tf-border);
-  padding-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+body.dark-mode .tf-single-box {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
-.tf-contact-item-small {
-  color: var(--tf-text-muted);
-  font-size: 0.8rem;
+/* ==========================================================================
+   DEPARTMENT BANNER ROW (Colspan 4 Divider Row)
+   ========================================================================== */
+.tf-dept-banner-row {
+  border-top: 2px solid var(--tf-border);
+  border-bottom: 2px solid var(--tf-border);
+}
+
+.tf-dept-banner-cell {
+  padding: 12px 18px !important;
+  background: rgb(21, 27, 84) !important;
+  border: 1px solid rgb(15, 20, 65) !important;
+  color: #ffffff;
+}
+
+body.dark-mode .tf-dept-banner-cell {
+  background: #0284c7 !important;
+  border-color: #0369a1 !important;
+}
+
+.tf-dept-banner-inner {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-/* ==========================================
-   Responsive Styles (Improved)
-   ========================================== */
-@media (max-width: 1024px) {
-  .tf-faculty-layout-wrapper {
-    flex-direction: column;
-  }
-  .tf-hod-fixed-wrapper {
-    width: 100%;
-    max-width: 650px; /* Constrain width on tablet so it doesn't stretch awkwardly */
-    margin: 0 auto 2rem auto;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Normal bottom shadow instead of right */
-  }
-  .tf-slider-wrapper {
-    margin-left: 0;
-    padding-left: 0;
-    padding-right: 0; /* Reset desktop right padding to avoid horizontal overflow */
-    width: 100%;
-  }
-  .tf-staff-section-header {
-    margin-left: 0;
-    justify-content: center; /* Center header on smaller screens */
-  }
-  /* Keep slider arrows inside the viewport */
-  .tf-slider-btn.left {
-    left: 10px;
-  }
-  .tf-slider-btn.right {
-    right: 10px;
-  }
+.tf-dept-banner-badge {
+  background: #ffffff;
+  color: rgb(21, 27, 84);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
+body.dark-mode .tf-dept-banner-badge {
+  color: #0284c7;
+}
+
+.tf-dept-banner-title {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+}
+
+.tf-dept-banner-degree {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.tf-dept-banner-count {
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+
+/* ==========================================================================
+   OFFICIAL VERIFICATION TABLE (Matches Image 1 Format)
+   ========================================================================== */
+.tf-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tf-official-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid var(--tf-border);
+  background: var(--tf-card-bg);
+  font-size: 0.95rem;
+}
+
+/* TABLE HEADER */
+.tf-official-table thead tr {
+  background-color: var(--tf-header-bg);
+  border-bottom: 2px solid var(--tf-border);
+}
+
+.tf-official-table th {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: var(--tf-header-bg);
+  padding: 14px 16px;
+  font-weight: 700;
+  color: var(--tf-text-dark);
+  border: 1px solid var(--tf-border);
+  letter-spacing: 0.02em;
+  font-size: 0.92rem;
+  box-sizing: border-box;
+}
+
+.tf-th-sno {
+  width: 70px;
+  text-align: center;
+}
+
+.tf-th-aufin {
+  width: 150px;
+  text-align: center;
+}
+
+.tf-th-aicte {
+  width: 165px;
+  text-align: center;
+}
+
+.tf-th-name {
+  text-align: left;
+}
+
+.tf-th-photo {
+  width: 170px;
+  text-align: center;
+}
+
+/* TABLE BODY ROWS */
+.tf-official-table tbody tr {
+  border-bottom: 1px solid var(--tf-border-light);
+  transition: background-color 0.15s ease;
+}
+
+.tf-official-table tbody tr:hover {
+  background-color: var(--tf-hover-row);
+}
+
+.tf-official-table td {
+  padding: 12px 16px;
+  border: 1px solid var(--tf-border);
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+/* CELL 1: S. No */
+.tf-td-sno {
+  text-align: center;
+  font-weight: 700;
+  color: var(--tf-text-muted);
+  font-size: 0.95rem;
+}
+
+/* CELL 2: AU-FIN */
+.tf-td-aufin {
+  text-align: center;
+}
+
+.tf-aufin-code {
+  display: inline-block;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #004d99;
+  letter-spacing: 0.5px;
+}
+
+body.dark-mode .tf-aufin-code {
+  color: #38bdf8;
+}
+
+/* CELL 3: AICTE ID */
+.tf-td-aicte {
+  text-align: center;
+}
+
+.tf-aicte-code {
+  display: inline-block;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #0b5394;
+  letter-spacing: 0.5px;
+}
+
+body.dark-mode .tf-aicte-code {
+  color: #38bdf8;
+}
+
+.tf-aufin-dash {
+  color: var(--tf-text-muted);
+  font-weight: bold;
+}
+
+/* CELL 3: Name & Designation */
+.tf-td-name {
+  text-align: left;
+}
+
+.tf-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.tf-faculty-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--tf-text-dark);
+}
+
+.tf-hod-tag {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+body.dark-mode .tf-hod-tag {
+  background-color: #78350f;
+  color: #fef3c7;
+  border-color: #b45309;
+}
+
+.tf-faculty-desig {
+  font-size: 0.9rem;
+  color: #1e40af;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+body.dark-mode .tf-faculty-desig {
+  color: #60a5fa;
+}
+
+.tf-faculty-qual {
+  font-size: 0.82rem;
+  color: var(--tf-text-muted);
+  font-style: normal;
+}
+
+/* CELL 4: Photo (Passport Size) */
+.tf-td-photo {
+  text-align: center;
+  padding: 10px !important;
+}
+
+.tf-passport-frame {
+  width: 72px;
+  height: 90px;
+  border: 1.5px solid var(--tf-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 auto;
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .tf-passport-frame {
+  background-color: #0f172a;
+}
+
+.tf-passport-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+.tf-passport-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  color: #94a3b8;
+}
+
+body.dark-mode .tf-passport-placeholder {
+  background: #0f172a;
+  color: #475569;
+}
+
+.tf-placeholder-icon {
+  font-size: 2rem;
+}
+
+/* EMPTY STATE */
+.tf-empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--tf-text-muted);
+}
+
+.tf-empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: #cbd5e1;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
 @media (max-width: 768px) {
   .tf-page-wrapper {
-    padding: 8rem 1.5rem 3rem; /* Adjust safe padding for mobile */
+    padding: 7rem 1rem 3rem;
   }
+
   .tf-main-title {
-    font-size: 2rem; /* Scale down main title */
+    font-size: 1.8rem;
   }
+
   .tf-pill-nav-container {
     flex-direction: column;
     border-radius: 12px;
   }
+
   .tf-pill-active-bg {
-    display: none; 
+    display: none;
   }
+
   .tf-pill-btn {
     border-radius: 8px;
     margin-bottom: 4px;
-    width: 100%; /* Ensure full width in column format */
+    width: 100%;
   }
+
   .tf-pill-btn.active {
-    background-color: var(--tf-primary);
+    background-color: rgb(21, 27, 84);
+    color: #ffffff;
   }
+
   .tf-sub-nav-container {
-    /* Allow wrapping naturally rather than forced column stretch */
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
   }
+
   .tf-sub-nav-btn {
     text-align: center;
-    flex: 1 1 auto; /* Allow buttons to grow slightly to fill space */
-  }
-  .tf-slider-btn {
-    display: none; /* Hide arrows on mobile */
-  }
-  .tf-slider-wrapper {
-    /* Allow manual touch swipe on mobile since arrows are hidden */
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .tf-slider-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-/* ==========================================
-   Small Mobile Enhancements
-   ========================================== */
-@media (max-width: 480px) {
-  .tf-page-wrapper {
-    padding: 6.5rem 1rem 2rem;
-  }
-  .tf-main-title {
-    font-size: 1.6rem;
-  }
-  .tf-scroll-track {
-    gap: 1.2rem; /* Reduce gap between cards for smaller screens */
-  }
-  .tf-staff-card {
-    width: 240px; /* Slightly shrink card width to fit better */
-    padding: 1.2rem;
-  }
-  .tf-staff-img {
-    width: 90px;
-    height: 90px;
-  }
-  .tf-staff-name {
-    font-size: 1.05rem;
-  }
-  .tf-section-title {
-    font-size: 1.25rem;
-  }
-  .tf-sub-nav-btn {
+    flex: 1 1 auto;
     font-size: 0.85rem;
     padding: 0.5rem 1rem;
   }
-  .tf-pill-btn {
-    font-size: 0.9rem;
-    padding: 10px;
+
+  .tf-dept-section {
+    padding: 16px;
+  }
+
+  .tf-dept-title {
+    font-size: 1.15rem;
+  }
+
+  .tf-th-sno, .tf-td-sno {
+    width: 45px;
+    padding: 8px 4px;
+  }
+
+  .tf-th-aufin, .tf-td-aufin {
+    width: 120px;
+    padding: 8px 8px;
+  }
+
+  .tf-aufin-code {
+    font-size: 0.88rem;
+  }
+
+  .tf-th-photo, .tf-td-photo {
+    width: 90px;
+    padding: 8px 6px !important;
+  }
+
+  .tf-passport-frame {
+    width: 60px;
+    height: 75px;
+  }
+
+  .tf-faculty-name {
+    font-size: 0.95rem;
+  }
+
+  .tf-faculty-desig {
+    font-size: 0.82rem;
+  }
+
+  .tf-faculty-qual {
+    font-size: 0.75rem;
   }
 }
 
-/* ==========================================
-   SEAMLESS LOOP ANIMATION KEYFRAMES
-   ========================================== */
-@keyframes moveCardsOnly {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 1rem)); }
+@media print {
+  .tf-page-wrapper {
+    padding: 0;
+    background: #ffffff;
+  }
+
+  .tf-controls-wrapper,
+  .tf-header-section .tf-badge-pill {
+    display: none !important;
+  }
+
+  .tf-dept-section {
+    border: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    page-break-inside: avoid;
+  }
+
+  .tf-official-table {
+    border: 1px solid #000;
+  }
+
+  .tf-official-table th,
+  .tf-official-table td {
+    border: 1px solid #000;
+    color: #000 !important;
+  }
 }

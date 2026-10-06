@@ -1542,31 +1542,13 @@ const CourseManager = ({ type }) => {
 
 const RecruiterManager = () => {
   const [items, setItems] = useState([]);
+  const [editId, setEditId] = useState(null);
   const [companyName, setCompanyName] = useState('');
   const [photo, setPhoto] = useState(null);
-  const [showCompaniesView, setShowCompaniesView] = useState(false);
+  const [currentPhotoUrl, setCurrentPhotoUrl] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const fileInputRef = useRef(null);
-
-  // Section Header Text States
-  const [titlePrefix, setTitlePrefix] = useState('OUR');
-  const [titleHighlight, setTitleHighlight] = useState('INDUSTRY CONNECT');
-  const [subtitle, setSubtitle] = useState('A strong network of organizations shaping our students’ careers.');
-  const [savingSettings, setSavingSettings] = useState(false);
-  const [settingsMsg, setSettingsMsg] = useState('');
-
-  const fetchSettings = async () => {
-    try {
-      const res = await axios.get('http://localhost:5000/api/admin/home/recruiter-settings');
-      if (res.data && res.data.data) {
-        setTitlePrefix(res.data.data.title_prefix || 'OUR');
-        setTitleHighlight(res.data.data.title_highlight || 'INDUSTRY CONNECT');
-        setSubtitle(res.data.data.subtitle || '');
-      }
-    } catch (err) {
-      console.error('Failed to fetch recruiter settings:', err);
-    }
-  };
+  const formRef = useRef(null);
 
   const fetchItems = async () => {
     try {
@@ -1579,47 +1561,51 @@ const RecruiterManager = () => {
 
   useEffect(() => {
     fetchItems();
-    fetchSettings();
   }, []);
 
-  const handleSaveSettings = async (e) => {
-    e.preventDefault();
-    setSavingSettings(true);
-    try {
-      await axios.put('http://localhost:5000/api/admin/home/recruiter-settings', {
-        title_prefix: titlePrefix,
-        title_highlight: titleHighlight,
-        subtitle: subtitle,
-      });
-      setSettingsMsg('Section text saved successfully!');
-      setTimeout(() => setSettingsMsg(''), 3000);
-    } catch (error) {
-      console.error(error);
-      alert('Failed to save recruiter section header text.');
-    } finally {
-      setSavingSettings(false);
+  const resetForm = () => {
+    setEditId(null);
+    setCompanyName('');
+    setPhoto(null);
+    setCurrentPhotoUrl(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setCompanyName(item.company_name);
+    setCurrentPhotoUrl(item.logo_url);
+    setPhoto(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!photo) {
+    if (!editId && !photo) {
       alert("Please upload a company logo image.");
       return;
     }
     const formData = new FormData();
     formData.append('company_name', companyName);
-    formData.append('photo', photo);
+    if (photo) {
+      formData.append('photo', photo);
+    }
 
     try {
-      await axios.post(`http://localhost:5000/api/admin/home/recruiter`, formData);
-      setCompanyName('');
-      setPhoto(null);
-      if (fileInputRef.current) fileInputRef.current.value = '';
+      if (editId) {
+        await axios.put(`http://localhost:5000/api/admin/home/recruiter/${editId}`, formData);
+        alert("Company updated successfully.");
+      } else {
+        await axios.post(`http://localhost:5000/api/admin/home/recruiter`, formData);
+      }
+      resetForm();
       fetchItems();
     } catch (error) {
       console.error(error);
-      alert("Failed to save recruiter.");
+      alert(editId ? "Failed to update recruiter." : "Failed to save recruiter.");
     }
   };
 
@@ -1639,264 +1625,134 @@ const RecruiterManager = () => {
     item.company_name ? item.company_name.toLowerCase().includes(searchQuery.toLowerCase()) : true
   );
 
-  // SUB-VIEW: Entire Company Details & Logos Page
-  if (showCompaniesView) {
-    return (
-      <div style={{ background: '#ffffff', padding: '25px', borderRadius: '10px', boxShadow: '0 4px 20px rgba(0,0,0,0.06)', border: '1px solid #e2e8f0' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '15px' }}>
-          <span style={{ color: '#475569', fontWeight: '600', fontSize: '1.05em' }}>
-            Total Registered Companies: <strong style={{ color: '#004d99', fontSize: '1.15em', marginLeft: '4px' }}>{items.length}</strong>
-          </span>
-          <button
-            onClick={() => setShowCompaniesView(false)}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              background: '#004d99',
-              color: 'white',
-              border: 'none',
-              padding: '10px 20px',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-              fontSize: '0.95em'
-            }}
-          >
-            <FaArrowLeft /> Back to Home Page Manager
-          </button>
-        </div>
-
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '15px', borderBottom: '2px solid #f1f5f9', paddingBottom: '15px' }}>
-          <h3 style={{ ...sectionTitleStyle, margin: 0, fontSize: '1.3em' }}>All Recruiting Companies & Logos</h3>
-          <div style={{ position: 'relative', width: '280px' }}>
-            <input
-              type="text"
-              placeholder="Search company name..."
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              style={{ width: '100%', padding: '8px 12px 8px 32px', border: '1px solid #cbd5e1', borderRadius: '6px', boxSizing: 'border-box' }}
-            />
-            <FaSearch style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
-          </div>
-        </div>
-
-        {/* RECRUITERS TABLE */}
-        <table className="admin-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Company Name</th>
-              <th>Logo</th>
-              <th style={{ textAlign: 'center' }}>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredItems.map((item, idx) => (
-              <tr key={item.id}>
-                <td style={{ color: '#94a3b8', width: '40px' }}>{idx + 1}</td>
-                <td style={{ fontWeight: '600', fontSize: '1.02em' }}>{item.company_name}</td>
-                <td>
-                  {item.logo_url && (
-                    <div style={{ backgroundColor: '#1e293b', padding: '6px 14px', borderRadius: '6px', display: 'inline-block' }}>
-                      <img
-                        src={`http://localhost:5000${item.logo_url}`}
-                        alt={item.company_name}
-                        style={{ height: '36px', maxWidth: '130px', objectFit: 'contain' }}
-                      />
-                    </div>
-                  )}
-                </td>
-                <td style={{ textAlign: 'center', padding: '10px' }}>
-                  <button style={{ ...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box' }} onClick={() => handleDelete(item.id)}>Delete</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {/* ADD RECRUITER FORM */}
-        <div style={{ ...addTitleStyle, marginTop: '35px' }}>Add New Recruiter Logo</div>
-        <form onSubmit={handleSubmit}>
-          <div style={formRowStyle}>
-            <div style={labelStyle}>Company Name :</div>
-            <div style={inputGroupStyle}>
-              <input
-                type="text"
-                style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }}
-                placeholder="e.g. Tata Consultancy Services (TCS)"
-                value={companyName}
-                onChange={e => setCompanyName(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-          <div style={formRowStyle}>
-            <div style={labelStyle}>Logo Upload :</div>
-            <div style={inputGroupStyle}>
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="image/*"
-                style={{ flex: 1, padding: '5px', border: '1px solid #ccc', borderRadius: '4px' }}
-                onChange={e => setPhoto(e.target.files[0])}
-                required
-              />
-            </div>
-          </div>
-          <button type="submit" style={addBtnStyle}>Add</button>
-        </form>
-      </div>
-    );
-  }
-
-  // MAIN VIEW: Section Settings and "View Entire Company Details" button
   return (
     <div>
-      <h3 style={sectionTitleStyle}>10. Recruiter Section</h3>
-
-      {/* SECTION HEADER TEXT EDITOR */}
-      <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '20px', marginBottom: '20px' }}>
-        <h4 style={{ margin: '0 0 15px 0', color: '#1e40af', fontSize: '1.05em' }}>
-          Section Title & Subtitle Settings
-        </h4>
-        <form onSubmit={handleSaveSettings}>
-          <div style={formRowStyle}>
-            <div style={labelStyle}>Title Prefix :</div>
-            <div style={inputGroupStyle}>
-              <input
-                type="text"
-                style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }}
-                placeholder="e.g. OUR"
-                value={titlePrefix}
-                onChange={e => setTitlePrefix(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-
-          <div style={formRowStyle}>
-            <div style={labelStyle}>Title Highlight :</div>
-            <div style={inputGroupStyle}>
-              <input
-                type="text"
-                style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }}
-                placeholder="e.g. INDUSTRY CONNECT"
-                value={titleHighlight}
-                onChange={e => setTitleHighlight(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-
-          <div style={formRowStyle}>
-            <div style={labelStyle}>Subtitle / Description :</div>
-            <div style={inputGroupStyle}>
-              <textarea
-                style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px', minHeight: '60px' }}
-                placeholder="A strong network of organizations shaping our students' careers."
-                value={subtitle}
-                onChange={e => setSubtitle(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            <button type="submit" style={addBtnStyle} disabled={savingSettings}>
-              {savingSettings ? "Saving..." : "Save Section Header Text"}
-            </button>
-            {settingsMsg && <span style={{ color: '#16a34a', fontWeight: 'bold', fontSize: '0.9em' }}>{settingsMsg}</span>}
-          </div>
-        </form>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '15px' }}>
+        <h3 style={{ ...sectionTitleStyle, margin: 0 }}>10. Recruiter / Industry Connect Section</h3>
+        <span style={{ color: '#475569', fontWeight: '600', fontSize: '1.02em' }}>
+          Total Registered Companies: <strong style={{ color: '#004d99', fontSize: '1.15em', marginLeft: '4px' }}>{items.length}</strong>
+        </span>
       </div>
 
-      {/* VIEW ENTIRE COMPANY DETAILS BUTTON / CARD */}
-      <div
-        onClick={() => setShowCompaniesView(true)}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '18px 24px',
-          backgroundColor: '#ffffff',
-          border: '1px solid #cbd5e1',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
-          gap: '20px',
-          flexWrap: 'wrap',
-          transition: 'border-color 0.2s, box-shadow 0.2s',
-        }}
-        onMouseEnter={e => {
-          e.currentTarget.style.borderColor = '#004d99';
-          e.currentTarget.style.boxShadow = '0 3px 8px rgba(0, 77, 153, 0.08)';
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.borderColor = '#cbd5e1';
-          e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.04)';
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <div style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '8px',
-            backgroundColor: '#f0f7ff',
-            border: '1px solid #bfdbfe',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#004d99',
-            fontSize: '1.2em',
-            flexShrink: 0
-          }}>
-            <FaBuilding />
-          </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-              <span style={{ fontWeight: '700', fontSize: '1.05em', color: '#0f172a' }}>
-                View Entire Company Details & Logos
-              </span>
-              <span style={{
-                backgroundColor: '#eff6ff',
-                color: '#004d99',
-                fontSize: '0.8em',
-                padding: '2px 10px',
-                borderRadius: '12px',
-                fontWeight: '600',
-                border: '1px solid #bfdbfe'
-              }}>
-                {items.length} Companies
-              </span>
-            </div>
-            <p style={{ margin: '4px 0 0 0', fontSize: '0.88em', color: '#64748b' }}>
-              Click to manage all recruiting company logos, names, add new, or delete.
-            </p>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px', flexWrap: 'wrap', gap: '15px', borderBottom: '2px solid #f1f5f9', paddingBottom: '12px' }}>
+        <h4 style={{ margin: 0, color: '#334155', fontSize: '1.05em' }}>All Recruiting Companies & Logos</h4>
+        <div style={{ position: 'relative', width: '280px' }}>
+          <input
+            type="text"
+            placeholder="Search company name..."
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+            style={{ width: '100%', padding: '8px 12px 8px 32px', border: '1px solid #cbd5e1', borderRadius: '6px', boxSizing: 'border-box' }}
+          />
+          <FaSearch style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
+        </div>
+      </div>
+
+      {/* RECRUITERS TABLE */}
+      <table className="admin-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Company Name</th>
+            <th>Logo</th>
+            <th style={{ textAlign: 'center' }}>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredItems.map((item, idx) => (
+            <tr key={item.id}>
+              <td style={{ color: '#94a3b8', width: '40px' }}>{idx + 1}</td>
+              <td style={{ fontWeight: '600', fontSize: '1.02em' }}>{item.company_name}</td>
+              <td>
+                {item.logo_url && (
+                  <div style={{ backgroundColor: '#1e293b', padding: '6px 14px', borderRadius: '6px', display: 'inline-block' }}>
+                    <img
+                      src={`http://localhost:5000${item.logo_url}`}
+                      alt={item.company_name}
+                      style={{ height: '36px', maxWidth: '130px', objectFit: 'contain' }}
+                    />
+                  </div>
+                )}
+              </td>
+              <td style={{ textAlign: 'center', padding: '10px' }}>
+                <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
+                  <button
+                    style={{ ...addBtnStyle, padding: '5px 14px', margin: 0, width: '65px', boxSizing: 'border-box', fontSize: '0.88em' }}
+                    onClick={() => handleEdit(item)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    style={{ ...delBtnStyle, padding: '5px 14px', margin: 0, width: '65px', boxSizing: 'border-box', fontSize: '0.88em' }}
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </td>
+            </tr>
+          ))}
+          {filteredItems.length === 0 && (
+            <tr>
+              <td colSpan="4" style={{ textAlign: 'center', color: '#94a3b8', padding: '25px' }}>
+                No companies found.
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+
+      {/* ADD / EDIT RECRUITER FORM */}
+      <div ref={formRef} style={{ ...addTitleStyle, marginTop: '35px' }}>
+        {editId ? "Edit Company" : "Add New Recruiter Logo"}
+      </div>
+      <form onSubmit={handleSubmit}>
+        <div style={formRowStyle}>
+          <div style={labelStyle}>Company Name :</div>
+          <div style={inputGroupStyle}>
+            <input
+              type="text"
+              style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }}
+              placeholder="e.g. Tata Consultancy Services (TCS)"
+              value={companyName}
+              onChange={e => setCompanyName(e.target.value)}
+              required
+            />
           </div>
         </div>
-
-        <button
-          type="button"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            backgroundColor: '#004d99',
-            color: '#ffffff',
-            border: 'none',
-            padding: '9px 18px',
-            borderRadius: '6px',
-            fontWeight: '600',
-            fontSize: '0.9em',
-            boxShadow: '0 2px 4px rgba(0, 77, 153, 0.15)',
-            pointerEvents: 'none'
-          }}
-        >
-          <span>Open Company List</span>
-          <FaArrowRight size={12} />
-        </button>
-      </div>
+        <div style={formRowStyle}>
+          <div style={labelStyle}>{editId ? "Update Logo :" : "Logo Upload :"}</div>
+          <div style={inputGroupStyle}>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              style={{ flex: 1, padding: '5px', border: '1px solid #ccc', borderRadius: '4px' }}
+              onChange={e => setPhoto(e.target.files[0])}
+              required={!editId}
+            />
+            {currentPhotoUrl && (
+              <span style={{ fontSize: '0.85em', color: '#64748b', display: 'flex', alignItems: 'center' }}>
+                (Leave empty to keep existing logo)
+              </span>
+            )}
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+          <button type="submit" style={addBtnStyle}>
+            {editId ? "Update Company" : "Add Company"}
+          </button>
+          {editId && (
+            <button
+              type="button"
+              onClick={resetForm}
+              style={{ ...delBtnStyle, padding: '8px 20px', marginTop: '10px' }}
+            >
+              Cancel
+            </button>
+          )}
+        </div>
+      </form>
     </div>
   );
 };
