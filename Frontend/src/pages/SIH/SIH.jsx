@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FaLightbulb,
-  FaTrophy,
-  FaUsers,
   FaLaptopCode,
   FaMicrochip,
-  FaAward,
   FaCheckCircle,
   FaChevronDown,
   FaChevronUp,
+  FaChevronLeft,
+  FaChevronRight,
   FaExternalLinkAlt,
   FaCalendarAlt,
   FaShieldAlt,
@@ -22,15 +20,82 @@ import {
   FaUserTie,
   FaGraduationCap,
   FaCodeBranch,
-  FaRocket
+  FaRocket,
+  FaImages
 } from "react-icons/fa";
+import { LuUsers, LuLightbulb, LuAward, LuTrophy } from "react-icons/lu";
+import sihBanner from "../../assets/sih-banner.jpg";
+import sihPhoto1 from "../../assets/sih/sih-hackathon-1.jpg";
+import sihPhoto2 from "../../assets/sih/sih-hackathon-2.jpg";
+import sihPhoto3 from "../../assets/sih/sih-hackathon-3.jpg";
+import sihPhoto4 from "../../assets/sih/sih-hackathon-4.jpg";
+import sihPhoto5 from "../../assets/sih/sih-hackathon-5.jpg";
+import { useInView } from "react-intersection-observer";
 import "./SIH.css";
 
+// Crash-proof 60fps counter animation
+const AnimatedCounter = ({ end, decimals = 0, duration = 2, startAnimation = false }) => {
+  const [val, setVal] = useState(0);
+
+  useEffect(() => {
+    if (!startAnimation) return;
+    let startTime = null;
+    let frameId;
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      setVal(ease * end);
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(animate);
+      } else {
+        setVal(end);
+      }
+    };
+
+    frameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frameId);
+  }, [end, duration, startAnimation]);
+
+  if (!startAnimation) return "0";
+  return decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
+};
+
+const hackathonPhotos = [
+  {
+    src: sihPhoto1 || "/sih/sih-hackathon-1.jpg",
+    title: "Team Tech Vortex - Real-Time Air Quality Monitoring Mobile App",
+    tag: "Internal Screening Presentation"
+  },
+  {
+    src: sihPhoto2 || "/sih/sih-hackathon-2.jpg",
+    title: "Technical Approach & Cash-Flow Predictive AI Architecture",
+    tag: "Faculty Jury Evaluation"
+  },
+  {
+    src: sihPhoto3 || "/sih/sih-hackathon-3.jpg",
+    title: "Team Zyrion - Smart AI-Enabled Feed & Silage Quality Testing",
+    tag: "Agriculture & FoodTech Domain"
+  },
+  {
+    src: sihPhoto4 || "/sih/sih-hackathon-4.jpg",
+    title: "Synapse - Graph-Intelligence & NLP Framework for Security Databases",
+    tag: "Cybersecurity & Governance"
+  },
+  {
+    src: sihPhoto5 || "/sih/sih-hackathon-5.jpg",
+    title: "Cloud & Edge AI Inference Implementation Workflow",
+    tag: "Software Edition Demo"
+  }
+];
+
 const stats = [
-  { value: "50+", label: "Teams Registered", icon: <FaUsers /> },
-  { value: "120+", label: "Problem Statements", icon: <FaLightbulb /> },
-  { value: "10+", label: "National Finalists", icon: <FaAward /> },
-  { value: "₹2.5L+", label: "Prizes & Grants", icon: <FaTrophy /> },
+  { end: 50, suffix: "+", label: "Teams Registered", icon: <LuUsers size={32} /> },
+  { end: 120, suffix: "+", label: "Problem Statements", icon: <LuLightbulb size={32} /> },
+  { end: 10, suffix: "+", label: "National Finalists", icon: <LuAward size={32} /> },
+  { prefix: "₹", end: 2.5, decimals: 1, suffix: "L+", label: "Prizes & Grants", icon: <LuTrophy size={32} /> },
 ];
 
 const editionData = [
@@ -192,83 +257,143 @@ function SIH() {
   const [activeTab, setActiveTab] = useState("software");
   const [openFaq, setOpenFaq] = useState(null);
 
+  const { ref: statsRef, inView: statsInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.15,
+  });
+
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  // Auto-play slideshow every 4.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % hackathonPhotos.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setActiveSlide((prev) => (prev + 1) % hackathonPhotos.length);
+  };
+
+  const prevSlide = () => {
+    setActiveSlide((prev) => (prev - 1 + hackathonPhotos.length) % hackathonPhotos.length);
+  };
+
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
   return (
     <div className="common-page-wrapper sih-page-wrapper">
-      {/* ─── Hero Section ─── */}
+      {/* ─── Hero Section with Clean SIH Banner ─── */}
       <section className="sih-hero-section">
-        <div className="sih-hero-blob sih-hero-blob-1" />
-        <div className="sih-hero-blob sih-hero-blob-2" />
+        <div className="sih-hero-bg-container">
+          <img 
+            src={sihBanner || "/sih/sih-banner.jpg"} 
+            alt="Smart India Hackathon Banner Background" 
+            className="sih-hero-banner-image" 
+          />
+          <div className="sih-hero-overlay-gradient"></div>
+        </div>
+
         <div className="sih-container sih-hero-content">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="sih-hero-badge"
+            transition={{ duration: 0.5 }}
+            className="sih-hero-badge-row"
           >
-            <FaRocket className="sih-badge-icon" />
-            <span>Ministry of Education & AICTE Initiative</span>
+            <div className="sih-hero-badge sih-badge-gov">
+              <span className="sih-pulse-dot"></span>
+              <span>Ministry of Education & AICTE Initiative</span>
+            </div>
+            <div className="sih-hero-badge sih-badge-college">
+              <FaRocket className="sih-badge-icon" />
+              <span>NSCET Innovation Hub • TNEA 5865</span>
+            </div>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="sih-hero-title"
           >
-            Smart India Hackathon <span className="sih-gradient-text">(SIH)</span>
+            SIH Internal Hackathon
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="sih-hero-highlight-tag"
+          >
+            Smart India Hackathon • Campus Ideation & Screening Round
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="sih-hero-subtitle"
           >
-            World's biggest open innovation model fostering digital product development, out-of-the-box thinking, and multidisciplinary engineering problem solving at Nadar Saraswathi College of Engineering & Technology.
+            Empowering student innovators at Nadar Saraswathi College of Engineering & Technology to build transformative digital and hardware solutions for national recognition.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
             className="sih-hero-actions"
           >
             <a href="#about" className="sih-btn sih-btn-primary">
-              <FaLightbulb /> About SIH
+              <FaLaptopCode /> Explore Editions
             </a>
             <a href="#roadmap" className="sih-btn sih-btn-secondary">
               <FaCalendarAlt /> Selection Process
             </a>
-            <a href="#showcase" className="sih-btn sih-btn-outline">
-              <FaTrophy /> Project Showcase
+            <a 
+              href="https://www.sih.gov.in" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="sih-btn sih-btn-portal"
+              title="Visit Official National SIH Portal"
+            >
+              <span>Official SIH Portal</span>
+              <FaExternalLinkAlt className="sih-ext-icon" />
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* ─── Metrics Section ─── */}
-      <section className="sih-stats-section">
+      {/* ─── Metrics Section with Animated Counters ─── */}
+      <section ref={statsRef} className="sih-stats-section">
         <div className="sih-container">
-          <div className="sih-stats-grid">
+          <div className="sih-stats-bar-card">
             {stats.map((stat, idx) => (
-              <motion.div
-                key={idx}
-                className="sih-stat-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-              >
-                <div className="sih-stat-icon-wrap">{stat.icon}</div>
-                <div className="sih-stat-info">
-                  <span className="sih-stat-value">{stat.value}</span>
-                  <span className="sih-stat-label">{stat.label}</span>
-                </div>
-              </motion.div>
+              <React.Fragment key={idx}>
+                {idx > 0 && <div className="sih-stat-divider" aria-hidden="true" />}
+                <motion.div
+                  className="sih-stat-item"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                >
+                  <div className="sih-stat-icon-wrap">{stat.icon}</div>
+                  <div className="sih-stat-value">
+                    {stat.prefix || ""}
+                    <AnimatedCounter
+                      end={stat.end}
+                      decimals={stat.decimals || 0}
+                      duration={2.2}
+                      startAnimation={statsInView}
+                    />
+                    {stat.suffix || ""}
+                  </div>
+                  <div className="sih-stat-label">{stat.label}</div>
+                </motion.div>
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -358,6 +483,93 @@ function SIH() {
                 <p className="sih-step-desc">{step.desc}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SIH Internal Hackathon Live Moments & Evaluation (2-Column Layout) ─── */}
+      <section id="gallery" className="sih-section sih-gallery-section">
+        <div className="sih-container">
+          <div className="sih-split-grid">
+            
+            {/* Left Column: Slideshow */}
+            <div className="sih-split-col">
+              <h2 className="sih-col-heading">INTERNAL HACKATHON MOMENTS</h2>
+              <div className="sih-col-bar"></div>
+              
+              <div className="sih-slider-card">
+                <div className="sih-slider-inner">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeSlide}
+                      className="sih-slide-frame"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                    >
+                      <img
+                        src={hackathonPhotos[activeSlide].src}
+                        alt={hackathonPhotos[activeSlide].title}
+                        className="sih-slide-img"
+                      />
+                      <div className="sih-slide-caption-bar">
+                        <span className="sih-slide-tag">{hackathonPhotos[activeSlide].tag}</span>
+                        <h3 className="sih-slide-title">{hackathonPhotos[activeSlide].title}</h3>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Navigation Arrows */}
+                  <button
+                    className="sih-slider-arrow sih-arrow-prev"
+                    onClick={prevSlide}
+                    aria-label="Previous Slide"
+                  >
+                    <FaChevronLeft />
+                  </button>
+                  <button
+                    className="sih-slider-arrow sih-arrow-next"
+                    onClick={nextSlide}
+                    aria-label="Next Slide"
+                  >
+                    <FaChevronRight />
+                  </button>
+
+                  {/* Counter Badge */}
+                  <div className="sih-slide-counter">
+                    {activeSlide + 1} / {hackathonPhotos.length}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Highlights / Criteria */}
+            <div className="sih-split-col">
+              <h2 className="sih-col-heading">SCREENING & EVALUATION</h2>
+              <div className="sih-col-bar"></div>
+              
+              <div className="sih-highlights-box">
+                <ul className="sih-highlights-list">
+                  <li>
+                    <strong>Jury Evaluation:</strong> Expert interdepartmental jury panel evaluating problem statement clarity, design feasibility, and prototype progress.
+                  </li>
+                  <li>
+                    <strong>Technical Presentations:</strong> Multidisciplinary student teams pitch software architecture, AI/ML models, IoT circuits, and database schemas.
+                  </li>
+                  <li>
+                    <strong>Continuous Mentorship:</strong> Senior faculty mentors and domain specialists review algorithm efficiency, circuit components, and live demos.
+                  </li>
+                  <li>
+                    <strong>Mandatory Diversity:</strong> Every 6-member team incorporates multidisciplinary talent with mandatory female technologist representation.
+                  </li>
+                  <li>
+                    <strong>AICTE Portal Nomination:</strong> Top shortlisted internal hackathon teams officially advance to the National SIH Portal for grand finale selection.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

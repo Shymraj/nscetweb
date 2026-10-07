@@ -6,12 +6,7 @@ const VisionMission = () => {
   return (
     <section className="dev-section-wrapper bg-white">
       <div className="dev-inner-container">
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <h2 className="about-section-heading">VISION, MISSION & QUALITY POLICY</h2>
-          <p className="exec-text" style={{ maxWidth: '800px', margin: '0 auto' }}>
-            The guiding principles driving NSCET towards technological excellence and holistic student development.
-          </p>
-        </div>
+        <h2 className="about-section-heading">VISION, MISSION & QUALITY POLICY</h2>
         <div className="vmq-wrapper">
           <div className="vmq-top-row">
           
@@ -68,8 +63,8 @@ const VisionMission = () => {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="quality-info-card"
         >
-          <div className="vmq-header" style={{ justifyContent: 'center', marginBottom: '1rem' }}>
-            <FaCertificate className="vmq-header-icon" style={{ color: '#93c5fd' }} />
+          <div className="vmq-header" style={{ justifyContent: 'center', marginBottom: '0.75rem' }}>
+            <FaCertificate className="vmq-header-icon" style={{ color: 'var(--dev-accent-blue)' }} />
           </div>
           <h2 className="quality-title">QUALITY POLICY</h2>
           <p className="quality-text">{qualityPolicy.intro}</p>

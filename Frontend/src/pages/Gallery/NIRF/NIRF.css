@@ -143,7 +143,7 @@ body.dark-mode .bg-blob {
   flex: 1.1;
 }
 
-.premium-title {
+.nirf-page .premium-title {
   font-family: var(--font-heading);
   font-size: 2.8rem;
   font-weight: 800;
@@ -171,7 +171,7 @@ body.dark-mode .bg-blob {
   margin: 0.5rem auto 1.5rem;
 }
 
-.premium-subtitle {
+.nirf-page .premium-subtitle {
   font-family: var(--font-subtopic);
   font-size: 1.05rem;
   font-weight: 700;

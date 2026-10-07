@@ -12,8 +12,25 @@
   padding-bottom: 0 !important;
 }
 
+.affiliation-page .common-hero-banner {
+  margin-top: 38px !important; /* Pushes banner down below navbar */
+  display: block !important;
+  width: 100% !important;
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+}
+
+.affiliation-page .common-hero-banner img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
 .affiliation-page .common-hero-banner + * {
-  padding-top: 15px !important; /* Tiny neat gap before card */
+  padding-top: 0 !important;
   margin-top: 0 !important;
 }
 
@@ -279,43 +296,55 @@
 }
 
 .certification-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem 1rem;
+  margin-top: 1.75rem;
 }
 
 .cert-chip {
-  font-family: var(--font-body);
-  background: var(--premium-card-bg);
-  border: var(--premium-card-border);
-  padding: 0.5rem 1.25rem 0.5rem 0.75rem;
-  border-radius: 50px; 
+  font-family: var(--font-body, 'Inter', sans-serif);
+  background: #ffffff;
+  border: 1px solid rgba(30, 86, 160, 0.16);
+  padding: 0.55rem 0.9rem 0.55rem 0.7rem;
+  border-radius: 12px;
   font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--color-accent-gold);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  font-size: 0.92rem;
+  color: #1E56A0;
+  box-shadow: 0 2px 8px rgba(30, 86, 160, 0.04);
   cursor: default;
-  transition: all 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .cert-chip-img {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
   border-radius: 50%;
-  background: #ffffff;
+  background: #f8fafc;
   padding: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+}
+
+.cert-chip span {
+  font-family: var(--font-subtopic, 'Outfit', sans-serif);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cert-chip:hover {
-  border-color: var(--theme-primary-light, #38BDF8);
-  color: #2563eb;
-  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.15);
-  background: linear-gradient(to right, #ffffff, #f8fafc);
+  border-color: #3b82f6;
+  color: #0d3b8e;
+  box-shadow: 0 6px 16px rgba(30, 86, 160, 0.12);
+  transform: translateY(-2px);
+  background: #ffffff;
 }
 
 /* Background Effects */
@@ -365,39 +394,157 @@
 @media (max-width: 992px) {
   .affiliation-grid {
     flex-direction: column;
+    min-height: auto !important;
   }
   
   .affiliation-visual-col {
     flex: 0 0 100%;
+    min-height: auto !important;
     border-right: none;
     border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+    padding: 1.25rem 0.75rem !important;
   }
   
   .affiliation-content-col {
     flex: 0 0 100%;
-    padding: 3rem 2rem;
+    padding: 2.5rem 1.75rem;
   }
 }
 
 @media (max-width: 1024px) {
-  .about-inner-container { padding: 40px 30px; }
+  .about-inner-container { padding: 30px 20px; }
 }
 
 @media (max-width: 768px) {
-  .about-inner-container { padding: 20px 15px; }
+  .affiliation-page .common-hero-banner {
+    margin-top: 25px !important;
+    aspect-ratio: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 0 !important;
+  }
+
+  .affiliation-page .common-hero-banner img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .affiliation-page .common-hero-banner + * {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .about-inner-container { 
+    padding: 0 10px 20px !important; 
+    margin-top: 0 !important;
+  }
+
+  .affiliation-bg-blobs {
+    display: none !important;
+  }
+
+  .affiliation-premium-card {
+    border-radius: 18px;
+    margin-top: 0 !important;
+  }
+
   .affiliation-heading {
     font-weight: 700;
     font-family: var(--font-subtopic);
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   
   .affiliation-description {
-    font-size: 1rem;
+    font-size: 0.92rem;
+  }
+
+  .visual-bg-glow,
+  .particle {
+    display: none !important;
   }
   
   .affiliation-visual-col {
-    padding: 2rem 1rem;
-    margin-top: -10px !important;
+    padding: 1rem 0.75rem 0.9rem !important;
+    margin: 0 !important;
+    min-height: auto !important;
+    background: linear-gradient(180deg, rgba(240, 247, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 100%) !important;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.12) !important;
+    border-radius: 18px 18px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* 🔥 PROFESSIONAL ZERO-EMPTY-SPACE LOGO SHOWCASE ALIGNMENT 🔥 */
+  .premium-logos-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    gap: 10px 14px !important;
+    margin: 0 auto !important;
+    padding: 0.25rem 0 !important;
+  }
+
+  .iso-logo-wrapper {
+    grid-column: auto !important;
+  }
+
+  .glass-logo-card {
+    padding: 0.35rem !important;
+    border: 1px solid rgba(59, 130, 246, 0.18) !important;
+    box-shadow: 0 4px 12px rgba(30, 86, 160, 0.08) !important;
+  }
+
+  .nscet-card,
+  .naac-card,
+  .medium-logo-card,
+  .small-logo-card {
+    width: 68px !important;
+    height: 68px !important;
+  }
+
+  .affiliation-content-col {
+    padding: 1.5rem 1.15rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-inner-container { 
+    padding: 5px 6px 15px !important; 
+  }
+
+  .affiliation-visual-col {
+    padding: 0.85rem 0.5rem 0.75rem !important;
+  }
+
+  .premium-logos-container {
+    max-width: 320px !important;
+    gap: 8px 10px !important;
+    padding: 0 !important;
+  }
+
+  .nscet-card,
+  .naac-card,
+  .medium-logo-card,
+  .small-logo-card {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+  .glass-logo-card {
+    padding: 0.28rem !important;
+  }
+
+  .affiliation-content-col {
+    padding: 1.25rem 0.9rem !important;
   }
 }
 
@@ -420,5 +567,22 @@
 body.dark-mode .affiliation-page h2.affiliation-heading {
   color: #60a5fa !important;
   -webkit-text-fill-color: #60a5fa !important;
+}
+
+body.dark-mode .cert-chip {
+  background: rgba(30, 41, 59, 0.8) !important;
+  border-color: rgba(96, 165, 250, 0.25) !important;
+  color: #93c5fd !important;
+}
+
+body.dark-mode .cert-chip:hover {
+  border-color: #60a5fa !important;
+  color: #ffffff !important;
+  background: rgba(30, 41, 59, 1) !important;
+}
+
+body.dark-mode .cert-chip-img {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.1);
 }
 

@@ -714,7 +714,9 @@ const StaffManager = () => {
     try {
       const parsed = JSON.parse(val);
       if (Array.isArray(parsed)) return parsed.join('\n');
-    } catch (e) { }
+    } catch (e) {
+      /* ignore json parse error */
+    }
     return String(val);
   };
 

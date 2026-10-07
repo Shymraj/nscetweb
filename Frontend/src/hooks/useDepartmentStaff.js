@@ -125,7 +125,9 @@ export const useDepartmentStaff = (departmentMatchStrings, staticFallbackData) =
               try {
                 const p = JSON.parse(val);
                 if (Array.isArray(p)) return p;
-              } catch (e) { }
+              } catch (e) {
+                /* ignore json parse error */
+              }
               return String(val).split('\n').filter(Boolean);
             };
 

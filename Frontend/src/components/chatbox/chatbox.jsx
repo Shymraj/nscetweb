@@ -195,7 +195,7 @@ const ChatBot = () => {
         const sugLines = fullSugBlock
           .replace(/(?:💡\s*)?(?:\*\*)?(?:###\s*)?Suggested Questions:?(?:\*\*)?/i, '')
           .split('\n')
-          .map(line => line.replace(/^[•\-\*\d\.]+\s*/, '').trim())
+          .map(line => line.replace(/^[•\-*\d.]+\s*/, '').trim())
           .filter(Boolean);
 
         if (sugLines.length > 0) newSuggestions = sugLines;

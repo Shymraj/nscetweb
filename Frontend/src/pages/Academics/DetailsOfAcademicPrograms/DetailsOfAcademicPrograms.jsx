@@ -111,7 +111,7 @@ const AcademicPrograms = () => {
   return (
     <div className='ap-page'>
 
-      {/* Hero Section */}
+      {/* Hero Banner Section */}
       <PageBanner
         className="academic-programs-banner"
         hideBreadcrumb={true}
@@ -120,49 +120,51 @@ const AcademicPrograms = () => {
         backgroundImage={heroImg}
       />
 
-      {/* Premium UG Programs Section */}
-      <section className='premium-section'>
-        <div className='premium-container'>
+      {/* UG Programs Section */}
+      <section className='ap-section ap-ug-section'>
+        <div className='ap-container'>
           
-          <div className='premium-header-row'>
-            <div className='premium-header-content'>
-              <div className='premium-label'>
-                <div className='accent-line'></div>
-                <span>UG PROGRAMS</span>
-                <div className='premium-duration-badge'>
-                  <LuCalendarClock className='duration-icon' />
+          {/* Header Card */}
+          <div className='ap-header-card ap-ug-header'>
+            <div className='ap-header-top'>
+              <div className='ap-badge-group'>
+                <span className='ap-tag ap-ug-tag'>UG Programs</span>
+                <div className='ap-duration-badge ap-ug-duration'>
+                  <LuCalendarClock className='ap-duration-icon' />
                   <span>4 Years Duration</span>
                 </div>
               </div>
-              <h2 className='premium-title'>Programs Offered</h2>
-              <p className='premium-subtitle'>Choose from our industry-focused undergraduate programs designed to build your future.</p>
             </div>
+            <h2 className='ap-section-title'>Undergraduate Programs Offered</h2>
+            <p className='ap-section-subtitle'>
+              Choose from our industry-focused undergraduate engineering and technology programs designed to build your future.
+            </p>
           </div>
 
-          <div className='premium-grid'>
+          <div className='ap-grid'>
             {premiumUgPrograms.map((program, index) => {
               const IconComponent = program.icon;
               return (
                 <Link 
                   to={program.route} 
-                  className={`premium-program-card ${program.isFullWidth ? 'full-width' : ''}`} 
+                  className={`ap-program-card ${program.isFullWidth ? 'ap-card-full' : ''}`} 
                   key={index}
                 >
-                  <div className={`program-card-icon-container ${program.colorClass}`}>
-                    <IconComponent className='program-icon' />
+                  <div className={`ap-icon-box ${program.colorClass}`}>
+                    <IconComponent className='ap-icon' />
                   </div>
                   
-                  <div className='program-card-content'>
-                    <div className={`program-degree ${program.colorClass}`}>
+                  <div className='ap-card-body'>
+                    <div className={`ap-degree-chip ${program.colorClass}`}>
                       {program.degree}
                     </div>
-                    <h3 className='program-title'>{program.name}</h3>
-                    <div className='program-divider'></div>
-                    <p className='program-desc'>{program.desc}</p>
+                    <h3 className='ap-card-title'>{program.name}</h3>
+                    <div className='ap-card-divider'></div>
+                    <p className='ap-card-desc'>{program.desc}</p>
                   </div>
                   
-                  <div className='program-card-arrow-btn'>
-                    <FaChevronRight className='arrow-icon' />
+                  <div className='ap-arrow-btn'>
+                    <FaChevronRight className='ap-arrow-icon' />
                   </div>
                 </Link>
               );
@@ -172,49 +174,51 @@ const AcademicPrograms = () => {
         </div>
       </section>
 
-      {/* Premium PG Programs Section */}
-      <section className='premium-section pg-section'>
-        <div className='premium-container'>
+      {/* PG Programs Section */}
+      <section className='ap-section ap-pg-section'>
+        <div className='ap-container'>
           
-          <div className='premium-header-row'>
-            <div className='premium-header-content'>
-              <div className='premium-label'>
-                <div className='accent-line pg-accent-line'></div>
-                <span className='pg-label-text'>PG PROGRAMS</span>
-                <div className='premium-duration-badge pg-duration-badge'>
-                  <LuCalendarClock className='duration-icon pg-duration-icon' />
+          {/* Header Card */}
+          <div className='ap-header-card ap-pg-header'>
+            <div className='ap-header-top'>
+              <div className='ap-badge-group'>
+                <span className='ap-tag ap-pg-tag'>PG Programs</span>
+                <div className='ap-duration-badge ap-pg-duration'>
+                  <LuCalendarClock className='ap-duration-icon' />
                   <span>2 Years Duration</span>
                 </div>
               </div>
-              <h2 className='premium-title'>Postgraduate Programs</h2>
-              <p className='premium-subtitle'>Advance your expertise with our specialized master's degree programs.</p>
             </div>
+            <h2 className='ap-section-title'>Postgraduate Programs Offered</h2>
+            <p className='ap-section-subtitle'>
+              Advance your expertise and research acumen with our specialized master's degree engineering programs.
+            </p>
           </div>
 
-          <div className='premium-grid'>
+          <div className='ap-grid'>
             {premiumPgPrograms.map((program, index) => {
               const IconComponent = program.icon;
               return (
                 <Link 
                   to={program.route} 
-                  className={`premium-program-card`} 
+                  className='ap-program-card' 
                   key={index}
                 >
-                  <div className={`program-card-icon-container ${program.colorClass}`}>
-                    <IconComponent className='program-icon' />
+                  <div className={`ap-icon-box ${program.colorClass}`}>
+                    <IconComponent className='ap-icon' />
                   </div>
                   
-                  <div className='program-card-content'>
-                    <div className={`program-degree ${program.colorClass}`}>
+                  <div className='ap-card-body'>
+                    <div className={`ap-degree-chip ${program.colorClass}`}>
                       {program.degree}
                     </div>
-                    <h3 className='program-title'>{program.name}</h3>
-                    <div className='program-divider'></div>
-                    <p className='program-desc'>{program.desc}</p>
+                    <h3 className='ap-card-title'>{program.name}</h3>
+                    <div className='ap-card-divider'></div>
+                    <p className='ap-card-desc'>{program.desc}</p>
                   </div>
                   
-                  <div className='program-card-arrow-btn pg-arrow-btn'>
-                    <FaChevronRight className='arrow-icon' />
+                  <div className='ap-arrow-btn ap-pg-arrow'>
+                    <FaChevronRight className='ap-arrow-icon' />
                   </div>
                 </Link>
               );

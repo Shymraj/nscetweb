@@ -21,7 +21,7 @@ const KeyEnablers = () => {
                     </p>
                 </div>
                 
-                <div className="swot-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2.5rem' }}>
+                <div className="key-enablers-grid">
                     {keyEnablersData.enablers.map((enabler, index) => {
                         const Icon = iconMap[enabler.icon];
                         return (
@@ -31,17 +31,16 @@ const KeyEnablers = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="premium-glass-card"
-                                style={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}
+                                className="premium-glass-card key-enabler-card"
                             >
-                                <div className="feature-icon-wrapper" style={{ flexShrink: 0, width: '65px', height: '65px' }}>
-                                    {Icon && <Icon size={28} strokeWidth={2.5} />}
+                                <div className="feature-icon-wrapper key-enabler-icon">
+                                    {Icon && <Icon size={26} strokeWidth={2.5} />}
                                 </div>
-                                <div>
-                                    <h3 className="feature-title" style={{ fontSize: '1.3rem', marginBottom: '0.75rem', textAlign: 'left' }}>
+                                <div className="key-enabler-body">
+                                    <h3 className="feature-title key-enabler-title">
                                         {enabler.title}
                                     </h3>
-                                    <p className="exec-text" style={{ fontSize: '1.05rem', textAlign: 'left', margin: 0, lineHeight: 1.6 }}>
+                                    <p className="exec-text key-enabler-text">
                                         {enabler.description}
                                     </p>
                                 </div>

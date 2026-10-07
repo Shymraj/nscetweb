@@ -51,48 +51,63 @@ const AcademicCalendar = () => {
   return (
     <div className="academic-calendar-page">
       <PageBanner
+        className="academic-calendar-banner"
         title=""
         subtitle=""
         hideBreadcrumb={true}
+        showOverlay={false}
+        showText={false}
         {...(heroImage ? { backgroundImage: heroImage } : {})}
         height="auto"
       />
 
       <div className="academic-calendar-content">
         {/* About Section */}
-        <section className="ac-about-section">
-          <div className="ac-about-header">
-            <FaInfoCircle className="ac-header-icon" />
-            <h2>About Academic Calendar</h2>
+        <section className="ac-section ac-about-section">
+          <div className="ac-section-header">
+            <div className="ac-header-icon-box">
+              <FaInfoCircle className="ac-header-icon" />
+            </div>
+            <div>
+              <h2 className="ac-section-title">About Academic Calendar</h2>
+              <p className="ac-section-desc">Guidelines and scheduling overview</p>
+            </div>
           </div>
-          <div className="ac-about-content">
+          <div className="ac-about-body">
             <p>
-              The academic calendar provides a structured timeline of important dates including semester start/end dates, examination schedules, holidays, and other key academic events. It helps students and faculty plan activities efficiently.Regular updates ensure that any changes or additions are promptly communicated. The calendar serves as a guide for academic progress, assisting students in meeting deadlines and preparing for assessments. Stay updated to make the most of your academic journey.
+              The academic calendar provides a structured timeline of important dates including semester start/end dates, examination schedules, holidays, and other key academic events. It helps students and faculty plan activities efficiently. Regular updates ensure that any changes or additions are promptly communicated. The calendar serves as a guide for academic progress, assisting students in meeting deadlines and preparing for assessments.
             </p>
           </div>
         </section>
 
         {/* Important Dates Table */}
-        <section className="ac-dates-section">
+        <section className="ac-section ac-dates-section">
           <div className="ac-section-header">
-            <FaClock className="ac-header-icon" />
-            <h2>Important Dates (Odd Semester Focus – Higher Years)</h2>
+            <div className="ac-header-icon-box">
+              <FaClock className="ac-header-icon" />
+            </div>
+            <div>
+              <h2 className="ac-section-title">Important Dates (Odd Semester)</h2>
+              <p className="ac-section-desc">Key schedule and milestones for higher years</p>
+            </div>
           </div>
           <div className="ac-table-wrapper">
             <table className="ac-dates-table">
               <thead>
                 <tr>
-                  <th>Event</th>
-                  <th>Date</th>
-                  <th>Remarks</th>
+                  <th style={{ width: '52%' }}>Event</th>
+                  <th style={{ width: '28%' }}>Date</th>
+                  <th style={{ width: '20%' }}>Remarks</th>
                 </tr>
               </thead>
               <tbody>
                 {importantDates.map((item, index) => (
                   <tr key={index}>
-                    <td>{item.event}</td>
-                    <td>{item.date}</td>
-                    <td>{item.remarks}</td>
+                    <td className="ac-event-cell">{item.event}</td>
+                    <td className="ac-date-cell">
+                      <span className="ac-date-chip">{item.date}</span>
+                    </td>
+                    <td className="ac-remarks-cell">{item.remarks}</td>
                   </tr>
                 ))}
               </tbody>
@@ -100,46 +115,59 @@ const AcademicCalendar = () => {
           </div>
         </section>
 
-
-
         {/* Even Semester */}
-        <section className="ac-even-section">
+        <section className="ac-section ac-even-section">
           <div className="ac-section-header">
-            <FaCalendarAlt className="ac-header-icon" />
-            <h2>Even Semester (Tentative)</h2>
+            <div className="ac-header-icon-box">
+              <FaCalendarAlt className="ac-header-icon" />
+            </div>
+            <div>
+              <h2 className="ac-section-title">Even Semester (Tentative)</h2>
+              <p className="ac-section-desc">Tentative reopening schedule for next session</p>
+            </div>
           </div>
-          <div className="ac-even-content">
-            <div className="ac-even-card">
-              <p>
-                <strong>Reopening for UG Sem II, IV, VI & VIII + PG Sem II & IV</strong> →
-                <span className="ac-even-date">05 January 2026</span>
-              </p>
+          <div className="ac-even-card">
+            <div className="ac-even-left">
+              <span className="ac-even-label">Upcoming Reopening</span>
+              <p className="ac-even-text">Reopening for UG Sem II, IV, VI & VIII + PG Sem II & IV</p>
+            </div>
+            <div className="ac-even-date-badge">
+              <FaClock className="ac-badge-clock-icon" />
+              <span>05 January 2026</span>
             </div>
           </div>
         </section>
 
-
-
         {/* Available Academic Calendars */}
-        <section className="ac-calendars-section">
+        <section className="ac-section ac-calendars-section">
           <div className="ac-section-header">
-            <FaCalendarAlt className="ac-header-icon" />
-            <h2>Available Academic Calendars</h2>
+            <div className="ac-header-icon-box">
+              <FaCalendarAlt className="ac-header-icon" />
+            </div>
+            <div>
+              <h2 className="ac-section-title">Available Academic Calendars</h2>
+              <p className="ac-section-desc">Download and view official PDF schedules</p>
+            </div>
           </div>
           <div className="ac-calendars-grid">
             {academicCalendars.map((calendar, index) => (
               <div key={index} className="ac-calendar-card">
-                <div className="ac-calendar-info">
-                  <h3>{calendar.title}</h3>
+                <div className="ac-calendar-top">
+                  <div className="ac-calendar-icon-box">
+                    <FaCalendarAlt className="ac-card-cal-icon" />
+                  </div>
                   <div className="ac-calendar-badges">
                     {calendar.latest && <span className="ac-badge ac-badge-latest">Latest</span>}
                     {calendar.revised && <span className="ac-badge ac-badge-revised">Revised</span>}
                   </div>
                 </div>
+                <div className="ac-calendar-info">
+                  <h3 className="ac-calendar-title">{calendar.title}</h3>
+                </div>
                 <div className="ac-calendar-actions">
                   <a href={`${calendar.file}#toolbar=0`} target="_blank" rel="noopener noreferrer" className="ac-view-btn">
                     <FaEye className="ac-view-icon" />
-                    View
+                    <span>View Calendar</span>
                   </a>
                 </div>
               </div>

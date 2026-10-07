@@ -4,7 +4,7 @@ import { awards } from "./data";
 const Achievements = () => {
   return (
     <section className="achievements-section">
-      <h2 className="about-section-heading">ACHIEVEMENTS & AWARDS</h2>
+      <h2 className="overview-section-heading">ACHIEVEMENTS & AWARDS</h2>
       <div className="achievements-grid">
         {awards.map((achievement, index) => {
           return (

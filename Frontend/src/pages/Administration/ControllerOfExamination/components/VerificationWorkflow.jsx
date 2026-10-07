@@ -3,12 +3,11 @@
 import React from "react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 
-
 const Pin = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
+    width="20"
+    height="20"
     viewBox="0 0 24 24"
     fill="currentColor"
     className={className}
@@ -28,22 +27,22 @@ const Card = ({
 }) => {
   // NSCET blue/gold visual theme
   const bgColor = "bg-[#f0f7ff] dark:bg-neutral-950/80";
-  const textColor = "text-[#1E56A0] dark:text-[#F5A400]"; // Gold in dark mode for pop
+  const textColor = "text-[#1E56A0] dark:text-[#F5A400]";
   const numberColor = "text-[#F5A400] dark:text-[#F5A400]";
-  const borderColor = "border-[#1E56A0]/20 dark:border-[#F5A400]/30"; // Gold border in dark mode
+  const borderColor = "border-[#1E56A0]/20 dark:border-[#F5A400]/30";
 
   return (
     <div
-      className={`relative w-full md:w-[420px] lg:w-[480px] transition-transform duration-300 z-10 hover:z-30 hover:scale-105 ${rotate} ${className}`}
+      className={`relative w-full max-w-[340px] md:max-w-none md:w-[310px] lg:w-[340px] mx-auto md:mx-0 transition-transform duration-300 z-10 hover:z-30 hover:scale-[1.03] ${rotate} ${className}`}
     >
-      <div className="bg-white dark:bg-neutral-900 p-2 rounded-[25px] shadow-[0px_10px_20px_0px_#D3D3D3] dark:shadow-none border border-neutral-100 dark:border-neutral-800">
-        <Pin className={`w-8 h-8 ${textColor} z-20 mb-2 mx-auto relative`} />
+      <div className="bg-white dark:bg-neutral-900 p-1 md:p-1.5 rounded-[14px] shadow-[0px_3px_10px_0px_rgba(0,0,0,0.05)] dark:shadow-none border border-neutral-100 dark:border-neutral-800">
+        <Pin className={`w-4 h-4 ${textColor} z-20 mb-0.5 mx-auto relative`} />
         <div
-          className={`${bgColor} border ${borderColor} rounded-[15px] p-4 flex flex-row items-center gap-5 relative overflow-hidden`}
+          className={`${bgColor} border ${borderColor} rounded-[10px] p-2 md:p-2.5 flex flex-row items-center gap-2.5 relative overflow-hidden`}
         >
-          <div className="flex flex-col items-center justify-center min-w-[70px]">
+          <div className="flex flex-col items-center justify-center min-w-[42px]">
             <span
-              className={`${numberColor} text-4xl font-handwriting drop-shadow-sm leading-none mb-2`}
+              className={`${numberColor} text-lg md:text-xl font-handwriting drop-shadow-sm leading-none mb-0.5`}
               style={{
                 fontFamily: '"Comic Sans MS", "Chalkboard SE", sans-serif',
                 fontWeight: 'bold'
@@ -51,13 +50,19 @@ const Card = ({
             >
               {number}
             </span>
-            <Icon className={`w-8 h-8 ${textColor} opacity-90`} />
+            <Icon className={`w-4 h-4 md:w-5 md:h-5 ${textColor} opacity-90`} />
           </div>
-          <div className="flex flex-col border-l border-[#1E56A0]/20 dark:border-[#F5A400]/20 pl-4">
-            <h3 className="text-xl font-semibold text-neutral-800 dark:text-neutral-100 leading-tight mb-1">
+          <div className="flex flex-col border-l border-[#1E56A0]/20 dark:border-[#F5A400]/20 pl-2.5">
+            <h3 
+              className="text-xs md:text-sm font-bold text-neutral-800 dark:text-neutral-100 leading-tight mb-0.5"
+              style={{ fontFamily: 'var(--font-subtopic, inherit)', fontWeight: 700 }}
+            >
               {title}
             </h3>
-            <p className="text-neutral-600 dark:text-neutral-400 text-sm/5 tracking-tight">
+            <p 
+              className="text-neutral-600 dark:text-neutral-400 text-[11px] md:text-xs leading-snug tracking-tight"
+              style={{ fontFamily: 'var(--font-body, inherit)', fontWeight: 400 }}
+            >
               {description}
             </p>
           </div>
@@ -67,26 +72,26 @@ const Card = ({
   );
 };
 
-// 6-step alternating zig-zag layout with comfortable vertical spacing
+// 6-step alternating zig-zag layout with compact spacing
 const CARD_POSITIONS = [
-  { className: "md:absolute md:top-0 md:left-0", rotate: "md:rotate-2" },
-  { className: "md:absolute md:top-[170px] md:right-0", rotate: "md:-rotate-2" },
-  { className: "md:absolute md:top-[340px] md:left-0", rotate: "md:rotate-2" },
-  { className: "md:absolute md:top-[510px] md:right-0", rotate: "md:-rotate-2" },
-  { className: "md:absolute md:top-[680px] md:left-0", rotate: "md:rotate-2" },
-  { className: "md:absolute md:top-[850px] md:right-0", rotate: "md:-rotate-2" },
+  { className: "md:absolute md:top-0 md:left-0", rotate: "md:rotate-1" },
+  { className: "md:absolute md:top-[100px] md:right-0", rotate: "md:-rotate-1" },
+  { className: "md:absolute md:top-[200px] md:left-0", rotate: "md:rotate-1" },
+  { className: "md:absolute md:top-[300px] md:right-0", rotate: "md:-rotate-1" },
+  { className: "md:absolute md:top-[400px] md:left-0", rotate: "md:rotate-1" },
+  { className: "md:absolute md:top-[500px] md:right-0", rotate: "md:-rotate-1" },
 ];
 
 export default function VerificationWorkflow({
   features,
   className,
 }) {
-  const height = 1050; // Increased to accommodate new spacing without overlapping
+  const height = 640;
 
   return (
     <LazyMotion features={domAnimation}>
       <div
-        className={`bg-white dark:bg-[#0a0a0a] max-md:pt-10 max-md:pb-10 md:py-10 px-4 relative overflow-hidden rounded-3xl border border-gray-100 dark:border-neutral-900 ${className}`}
+        className={`bg-white dark:bg-[#0a0a0a] py-5 px-2.5 md:py-6 md:px-4 relative overflow-hidden rounded-2xl border border-gray-100 dark:border-neutral-900 ${className || ''}`}
       >
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.05] dark:opacity-[0.08]"
@@ -100,9 +105,9 @@ export default function VerificationWorkflow({
         <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r dark:from-[#0a0a0a]"></div>
         <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l dark:from-[#0a0a0a]"></div>
 
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-4xl mx-auto relative z-10">
           <div
-            className="relative w-full max-w-[1100px] mx-auto flex flex-col space-y-6 md:space-y-0 md:block h-auto md:h-[var(--md-height)]"
+            className="relative w-full max-w-[820px] mx-auto flex flex-col space-y-2.5 md:space-y-0 md:block h-auto md:h-[var(--md-height)]"
             style={{ "--md-height": `${height}px` }}
           >
             <svg
@@ -111,17 +116,17 @@ export default function VerificationWorkflow({
               preserveAspectRatio="none"
             >
               <m.path
-                d="M 250 70 C 500 70, 500 240, 750 240 C 500 240, 500 410, 250 410 C 500 410, 500 580, 750 580 C 500 580, 500 750, 250 750 C 500 750, 500 920, 750 920"
+                d="M 200 45 C 500 45, 500 145, 800 145 C 500 145, 500 245, 200 245 C 500 245, 500 345, 800 345 C 500 345, 500 445, 200 445 C 500 445, 500 545, 800 545"
                 stroke="currentColor"
                 className="text-blue-200 dark:text-[#F5A400]/40"
-                strokeWidth="2.5"
-                strokeDasharray="10 8"
+                strokeWidth="2"
+                strokeDasharray="8 6"
                 fill="none"
                 strokeLinecap="round"
                 vectorEffect="non-scaling-stroke"
                 initial={{ strokeDashoffset: 0 }}
                 animate={{
-                  strokeDashoffset: -180, // Multiple of 18 (10+8)
+                  strokeDashoffset: -140,
                 }}
                 transition={{
                   duration: 4,

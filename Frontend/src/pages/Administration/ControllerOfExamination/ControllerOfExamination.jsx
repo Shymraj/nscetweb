@@ -180,7 +180,6 @@ function ControllerOfExamination() {
             <h2>Co-ordinators of Exam Cell</h2>
           </div>
           <div className='coe-content'>
-            <h3>Co-ordinators</h3>
             <div className='coe-team-grid'>
               {deputyControllers.map((member) => (
                 <div key={member.id} className='coe-team-card'>
@@ -190,7 +189,7 @@ function ControllerOfExamination() {
                   <div className='coe-team-info'>
                     <h4>{member.name}</h4>
                     <p className='coe-qualification'>{member.qualification}</p>
-                    <p className='coe-role'>{member.role}</p>
+                    {member.role && <p className='coe-role'>{member.role}</p>}
                   </div>
                 </div>
               ))}
@@ -247,45 +246,55 @@ function ControllerOfExamination() {
             <h2>Documents</h2>
           </div>
           <div className='coe-content'>
-            <div className='coe-doc-card'>
-              <FaFileAlt className='doc-icon' />
-              <div className='doc-info'>
-                <h4>Exam Cell Constitution</h4>
-                <p>Official constitution document</p>
+            <div className='coe-docs-grid'>
+              <div className='coe-doc-card'>
+                <div className='doc-icon-wrap'>
+                  <FaFileAlt className='doc-icon' />
+                </div>
+                <div className='doc-info'>
+                  <h4>Exam Cell Constitution</h4>
+                  <p>Official constitution document</p>
+                </div>
+                <a href={`${examCellPdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+                  PDF
+                </a>
               </div>
-              <a href={`${examCellPdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
-                PDF
-              </a>
-            </div>
-            <div className='coe-doc-card'>
-              <FaFileAlt className='doc-icon' />
-              <div className='doc-info'>
-                <h4>Internal Assessment Mechanism</h4>
-                <p>Assessment process and criteria</p>
+              <div className='coe-doc-card'>
+                <div className='doc-icon-wrap'>
+                  <FaFileAlt className='doc-icon' />
+                </div>
+                <div className='doc-info'>
+                  <h4>Internal Assessment Mechanism</h4>
+                  <p>Assessment process and criteria</p>
+                </div>
+                <a href={`${internalAssessmentPdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+                  PDF
+                </a>
               </div>
-              <a href={`${internalAssessmentPdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
-                PDF
-              </a>
-            </div>
-            <div className='coe-doc-card'>
-              <FaFileAlt className='doc-icon' />
-              <div className='doc-info'>
-                <h4>Internal Examinations Grievance</h4>
-                <p>Grievance redressal for internal exams</p>
+              <div className='coe-doc-card'>
+                <div className='doc-icon-wrap'>
+                  <FaFileAlt className='doc-icon' />
+                </div>
+                <div className='doc-info'>
+                  <h4>Internal Examinations Grievance</h4>
+                  <p>Grievance redressal for internal exams</p>
+                </div>
+                <a href={`${ieGrievancePdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+                  PDF
+                </a>
               </div>
-              <a href={`${ieGrievancePdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
-                PDF
-              </a>
-            </div>
-            <div className='coe-doc-card'>
-              <FaFileAlt className='doc-icon' />
-              <div className='doc-info'>
-                <h4>External Examinations Grievances</h4>
-                <p>Grievance process for external exams</p>
+              <div className='coe-doc-card'>
+                <div className='doc-icon-wrap'>
+                  <FaFileAlt className='doc-icon' />
+                </div>
+                <div className='doc-info'>
+                  <h4>External Examinations Grievances</h4>
+                  <p>Grievance process for external exams</p>
+                </div>
+                <a href={`${eeGrievancesPdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
+                  PDF
+                </a>
               </div>
-              <a href={`${eeGrievancesPdf}#toolbar=0`} target='_blank' rel='noopener noreferrer' className='doc-download-btn'>
-                PDF
-              </a>
             </div>
           </div>
         </section>

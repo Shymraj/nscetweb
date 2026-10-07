@@ -16,34 +16,36 @@ const ExecutiveSummary = () => {
     <section className="dev-section-wrapper bg-white">
       <div className="dev-inner-container">
       <motion.div
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.6 }}
+        initial={{ y: 0, opacity: 1 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3 }}
         className="exec-summary-wrapper"
       >
         <div className="exec-left">
           <h2 className="about-section-heading">{executiveSummary.title}</h2>
-          <p className="exec-text">{executiveSummary.intro}</p>
           
-          <p className="exec-focus-intro">{executiveSummary.focusPrefix}</p>
-          <ul className="exec-focus-list">
-            {executiveSummary.focusPoints.map((point, index) => (
-              <motion.li
-                key={index}
-                initial={{ x: -20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="exec-focus-item"
-              >
-                <FaCheckCircle className="focus-bullet" />
-                <span>{point}</span>
-              </motion.li>
-            ))}
-          </ul>
-          
-          <p className="exec-conclusion">{executiveSummary.conclusion}</p>
+          <div className="premium-glass-card exec-content-card">
+            <p className="exec-text">{executiveSummary.intro}</p>
+            
+            <p className="exec-focus-intro">{executiveSummary.focusPrefix}</p>
+            <ul className="exec-focus-list">
+              {executiveSummary.focusPoints.map((point, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="exec-focus-item"
+                >
+                  <FaCheckCircle className="focus-bullet" />
+                  <span>{point}</span>
+                </motion.li>
+              ))}
+            </ul>
+            
+            <p className="exec-conclusion">{executiveSummary.conclusion}</p>
+          </div>
         </div>
 
         <div className="exec-right">

@@ -5,27 +5,29 @@ import { milestones } from "./data";
 
 const TimelineItem = ({ milestone, index }) => {
   const { ref, inView } = useInView({ 
-    rootMargin: "0px 0px -15% 0px", 
+    rootMargin: "0px 0px -10% 0px", 
     triggerOnce: true 
   });
   
   const isLeft = index % 2 === 1; // 0=right, 1=left, 2=right, 3=left...
   
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6 }}
       className={`timeline-item ${isLeft ? 'timeline-item-left' : 'timeline-item-right'}`}
     >
       <div className={`timeline-dot ${inView ? 'glow-golden' : ''}`}></div>
-      <div className={`timeline-content ${inView ? 'glow-golden' : ''}`}>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className={`timeline-content ${inView ? 'glow-golden' : ''}`}
+      >
         <div className="timeline-year">{milestone.year}</div>
         <h3 className="timeline-title">{milestone.title}</h3>
         <p className="timeline-description">{milestone.description}</p>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
@@ -41,7 +43,7 @@ const JourneyTimeline = React.memo(() => {
 
   return (
     <section className="journey-section">
-      <h2 className="about-section-heading">OUR JOURNEY</h2>
+      <h2 className="overview-section-heading">OUR JOURNEY</h2>
       <div className="timeline-container" ref={containerRef}>
         <div className="timeline-line"></div>
         <motion.div

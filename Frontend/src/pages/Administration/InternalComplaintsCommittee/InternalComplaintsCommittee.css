@@ -6,9 +6,13 @@
 .common-hero-banner {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
-  margin-top: 85px !important; /* Desktop Navbar Adjustment */
-  width: 100%;
-  display: block;
+}
+
+.icc-page .common-hero-banner {
+  margin-top: 38px !important; /* Pushes banner down below navbar */
+  width: 100% !important;
+  display: block !important;
+  line-height: 0 !important;
 }
 
 .common-hero-banner img {
@@ -19,7 +23,7 @@
 }
 
 .icc-page .common-hero-banner + .icc-container {
-  padding-top: 25px !important; /* Proper neat gap below banner */
+  padding-top: 20px !important; /* Proper neat gap below banner */
   margin-top: 0 !important;
 }
 
@@ -607,8 +611,8 @@ body.dark-mode .icc-table tbody tr:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
   /* 🔥 MOBILE BANNER FIX 🔥 */
-  .common-hero-banner {
-    margin-top: 70px !important;
+  .icc-page .common-hero-banner {
+    margin-top: 25px !important;
   }
 
   .icc-page .common-hero-banner + .icc-container {

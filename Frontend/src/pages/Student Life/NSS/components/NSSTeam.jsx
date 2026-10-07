@@ -72,7 +72,6 @@ const NSSTeam = () => {
     {
       name: "Mr. K. Rajaguru",
       role: "Member",
-      dept: "Assistant Professor / Physics",
       dept: "Assistant Professor / S&H",
       image: imgRajaguru,
       img: "/S&H/rajaguru.jpg"
@@ -87,7 +86,6 @@ const NSSTeam = () => {
     {
       name: "Mrs. M. Arulvizhi",
       role: "Member",
-      dept: "Assistant Professor / Mathematics",
       dept: "Assistant Professor / S&H",
       image: imgArulvizhi,
       img: "/S&H/arulvizhi.jpg"
