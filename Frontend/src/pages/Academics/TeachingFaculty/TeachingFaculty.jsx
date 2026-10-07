@@ -2,13 +2,12 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { FaSearch, FaUserTie } from 'react-icons/fa';
 import './TeachingFaculty.css';
 
-// Helper to normalize names by removing salutations and isolated initials
+// Helper to normalize names by removing salutations while keeping letters/initials
 const normalizeCore = (name) => {
   if (!name) return '';
   return name
     .toLowerCase()
     .replace(/dr\.|mr\.|mrs\.|ms\.|prof\./gi, ' ')
-    .replace(/\b[a-z]\b/g, ' ')
     .replace(/[^a-z0-9]/g, '');
 };
 
@@ -40,8 +39,7 @@ const matchesFaculty = (dept, facultyMember, query) => {
     dept.name,
     dept.badge,
     dept.degree,
-    dept.id,
-    facultyMember.isHOD ? 'hod head of the department' : ''
+    dept.id
   ].filter(Boolean).map(s => s.toLowerCase());
 
   const fullRawText = rawFields.join(' ');
@@ -83,17 +81,14 @@ export const departmentFacultyData = {
     degree: 'B.E.',
     badge: 'CE',
     faculty: [
-      { aufin: '2661821984', aicteId: '1-2493575923', name: 'Mr. N. Nagarathinam', designation: 'Assistant Professor & Head', qualification: 'M.E., M.I.S.T.E., (Ph.D)', photo: '/teaching_faculty/civil/nagarathinam.jpg', isHOD: true },
+      { aufin: '2661821984', aicteId: '1-2493575923', name: 'Mr. N. Nagarathinam', designation: 'Assistant Professor', qualification: 'M.E., M.I.S.T.E., (Ph.D)', photo: '/teaching_faculty/civil/nagarathinam.jpg' },
       { aufin: '2690911989', aicteId: '1-3543541864', name: 'Mrs. S. Gayathri', designation: 'Assistant Professor', qualification: 'M.E., M.I.S.T.E.', photo: '/teaching_faculty/civil/gayathri.jpg' },
       { aufin: '2620481994', aicteId: '1-4224126907', name: 'Mr. R. Shanmugapriyan', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/civil/shanmugapriyan.jpg' },
       { aufin: '2664111992', aicteId: '1-43476250635', name: 'Mrs. M. Kanimozhi', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/civil/kanimozhi.jpg' },
-      { aufin: '2696951994', aicteId: '-', name: 'Mr. P. Arul Jebaraj', designation: 'Assistant Professor', qualification: 'M.Tech', photo: '/teaching_faculty/civil/aruljebaraj.jpg' },
+      { aufin: '2696951994', aicteId: '1-4729291572', name: 'Mr. P. Arul Jebaraj', designation: 'Assistant Professor', qualification: 'M.Tech', photo: '/teaching_faculty/civil/aruljebaraj.jpg' },
       { aufin: '2686931994', aicteId: '1-44718497412', name: 'Mrs. R. Nathirun Sabinash', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/civil/nathirunsabinash.jpg' },
       { aufin: '2620741992', aicteId: '1-44812372894', name: 'Mr. T. Hariprasath', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/civil/hariprasath.jpg' },
-      { aufin: '2687271996', aicteId: '-', name: 'Mrs. P. Aadhitya', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/civil/aadhithya.jpg' },
-      { aufin: '2686711993', aicteId: '1-44745699211', name: 'Mrs. K. Benita Merlin Isabella', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/civil/Benita Photo.jpg' },
-      { aufin: '2629031997', aicteId: '1-9314598361', name: 'Mrs. M. Sindhu', designation: 'Assistant Professor', qualification: 'M.E., (Ph.D)', photo: '/teaching_faculty/civil/sindhu.jpg' },
-      { aufin: '2656021988', aicteId: '-', name: 'Dr. S. Premkumar', designation: 'Assistant Professor', qualification: 'B.E, M.E, Ph.D', photo: '/teaching_faculty/civil/General Engg - Premkumar.jpg' }
+      { aufin: '2687271996', aicteId: '-', name: 'Mrs. P. Aadhitya', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/civil/aadhithya.jpg' }
     ]
   },
 
@@ -116,15 +111,14 @@ export const departmentFacultyData = {
     degree: 'B.E.',
     badge: 'CSE',
     faculty: [
-      { aufin: '2666381985', aicteId: '1-2194745092', name: 'Dr. J. Mathalai Raj', designation: 'Assistant Professor & Head [I/C]', qualification: 'M.E , Ph.D', photo: '/teaching_faculty/cse/mathalairaj.jpg', isHOD: true },
+      { aufin: '2666381985', aicteId: '1-2194745092', name: 'Dr. J. Mathalai Raj', designation: 'Assistant Professor', qualification: 'M.E , Ph.D', photo: '/teaching_faculty/cse/mathalairaj.jpg' },
       { aufin: '2618151983', aicteId: '1-476934111', name: 'Dr. K. Velkumar', designation: 'Assistant Professor', qualification: 'M.E, Ph.D', photo: '/teaching_faculty/cse/velkumar.jpg' },
       { aufin: '2656391990', aicteId: '1-43491562074', name: 'Mrs. R. Archana', designation: 'Assistant Professor', qualification: 'M.E., (Ph.D)', photo: '/teaching_faculty/cse/archana.jpeg' },
       { aufin: '2637211999', aicteId: '1-44718722194', name: 'Ms. S. Abirami Kayathiri', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/cse/abirami.jpeg' },
       { aufin: '2672171998', aicteId: '1-43705048522', name: 'Mrs. M. Venkata Lakshmi', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/cse/venkatalakshmi.JPG' },
       { aufin: '2669711989', aicteId: '1-4803087809', name: 'Mrs. V. Anusuya', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE', photo: '/teaching_faculty/cse/ANUSUYA VAIRAMUTHU.jpg' },
-      { aufin: '2634261990', aicteId: '-', name: 'Mrs. V. Vinothini', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - Software', photo: '/teaching_faculty/cse/Vinothini.jpeg' },
-      { aufin: '2636791991', aicteId: '-', name: 'Mr. G. R. Naveenkarthick', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE', photo: '/teaching_faculty/cse/karthick.jpeg' },
-      { aufin: '2797121982', aicteId: '-', name: 'Mrs. T. Rathimala', designation: 'Assistant Professor', qualification: 'M.E. CSE', photo: '/teaching_faculty/cse/rathimala.jpg' },
+      { aufin: '2634261990', aicteId: '1-2296755341', name: 'Mrs. V. Vinothini', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - Software', photo: '/teaching_faculty/cse/Vinothini.jpeg' },
+      { aufin: '2797121982', aicteId: '1-3537552496', name: 'Mrs. T. Rathimala', designation: 'Assistant Professor', qualification: 'M.E. CSE', photo: '/teaching_faculty/cse/rathimala.jpg' },
       { aufin: '-', aicteId: '-', name: 'Ms. J. S. Snega Priyanka', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE', photo: '/teaching_faculty/cse/Snega Priyanka.png' }
     ]
   },
@@ -136,8 +130,8 @@ export const departmentFacultyData = {
     degree: 'M.E.',
     badge: 'ME CSE',
     faculty: [
-      { aufin: '2646141985', aicteId: '-', name: 'Dr. M. Sathya', designation: 'Vice Principal & Professor', qualification: 'B.E - CSE, M.Tech. - IT, Ph.D - Information & Communication', photo: '/teaching_faculty/mecse/sathya.jpeg' },
-      { aufin: '2636791991', aicteId: '-', name: 'Mr. G. R. Naveenkarthick', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE (Networks)', photo: '/teaching_faculty/mecse/karthick.jpeg' }
+      { aufin: '2646141985', aicteId: '1-7440543428', name: 'Dr. M. Sathya', designation: 'Professor', qualification: 'B.E - CSE, M.Tech. - IT, Ph.D - Information & Communication', photo: '/teaching_faculty/mecse/sathya.jpeg' },
+      { aufin: '2636791991', aicteId: '1-9367548821', name: 'Mr. G. R. Naveenkarthick', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE (Networks)', photo: '/teaching_faculty/mecse/karthick.jpeg' }
     ]
   },
 
@@ -148,16 +142,15 @@ export const departmentFacultyData = {
     degree: 'B.E.',
     badge: 'ECE',
     faculty: [
-      { aufin: '2688231988', aicteId: '1-2186295159', name: 'Dr. T. Venishkumar', designation: 'Professor & Head [I/C]', qualification: 'B.E - ECE, M.E - VLSI Design, Ph.D', photo: '/teaching_faculty/ece/venishkumar.jpg', isHOD: true },
-      { aufin: '2699641989', aicteId: '-', name: 'Dr. N. Mathavan', designation: 'Assistant Professor', qualification: 'B.Tech - ECE, M.E, Ph.D', photo: '/teaching_faculty/ece/Mathavan.jpg' },
+      { aufin: '2688231988', aicteId: '1-2186295159', name: 'Dr. T. Venishkumar', designation: 'Professor', qualification: 'B.E - ECE, M.E - VLSI Design, Ph.D', photo: '/teaching_faculty/ece/venishkumar.jpg' },
+      { aufin: '2699641989', aicteId: '1-2193394991', name: 'Dr. N. Mathavan', designation: 'Assistant Professor', qualification: 'B.Tech - ECE, M.E, Ph.D', photo: '/teaching_faculty/ece/Mathavan.jpg' },
       { aufin: '2619581984', aicteId: '1-1443212434', name: 'Mr. M. Idhayachandran', designation: 'Assistant Professor', qualification: 'B.E - ECE, M.E - VLSI Design', photo: '/teaching_faculty/ece/idhayachandran.jpg' },
-      { aufin: '2628941989', aicteId: '-', name: 'Mr. S. Prathap', designation: 'Assistant Professor', qualification: 'B.E - ECE, M.E - Communication Systems', photo: null },
+      { aufin: '2628941989', aicteId: '1-2194559091', name: 'Mr. S. Prathap', designation: 'Assistant Professor', qualification: 'B.E - ECE, M.E - Communication Systems', photo: '/teaching_faculty/ece/prathap.jpg' },
       { aufin: '2647591982', aicteId: '1-2649907763', name: 'Mr. R. Pradeep Kumar', designation: 'Assistant Professor', qualification: 'B.E - ECE, M.E - Applied Electronics', photo: '/teaching_faculty/ece/pradeepkumar.jpg' },
       { aufin: '2631871989', aicteId: '1-3360065352', name: 'Mrs. T. Tamilselvi', designation: 'Assistant Professor', qualification: 'B.E - ECE, M.Tech - VLSI Design', photo: '/teaching_faculty/ece/tamilselvi.jpg' },
       { aufin: '2669881993', aicteId: '1-7375205106', name: 'Mrs. P. Shantha Devi', designation: 'Assistant Professor', qualification: 'B.E - ECE, M.E - VLSI Design', photo: '/teaching_faculty/ece/shanthadevi.jpg' },
       { aufin: '2667011990', aicteId: '1-44033761346', name: 'Mrs. A. Gowthami', designation: 'Assistant Professor', qualification: 'B.E - ECE, M.E - Communication Systems', photo: '/teaching_faculty/ece/gowthami.jpg' },
-      { aufin: '2612721990', aicteId: '1-9321842836', name: 'Mr. K. Bharathi Kannan', designation: 'Assistant Professor', qualification: 'B.E - ECE, M.E - VLSI Design', photo: '/teaching_faculty/ece/bharathikannan.jpg' },
-      { aufin: '2688551984', aicteId: '1-2303358265', name: 'Mrs. S. Kalaivani', designation: 'Assistant Professor', qualification: 'B.E - ECE, M.E - VLSI & Embedded System', photo: '/teaching_faculty/ece/kalaivani.jpg' }
+      { aufin: '2612721990', aicteId: '1-9321842836', name: 'Mr. K. Bharathi Kannan', designation: 'Assistant Professor', qualification: 'B.E - ECE, M.E - VLSI Design', photo: '/teaching_faculty/ece/bharathikannan.jpg' }
     ]
   },
 
@@ -168,7 +161,7 @@ export const departmentFacultyData = {
     degree: 'M.E.',
     badge: 'ME EST',
     faculty: [
-      { aufin: '2698141984', aicteId: '1-3541523422', name: 'Dr. R. Athilingam', designation: 'Associate Professor & Head', qualification: 'B.E - EIE, M.E - Applied Electronics, Ph.D - Information & Communication', photo: '/teaching_faculty/embedded/athilingam.jpg', isHOD: true },
+      { aufin: '2698141984', aicteId: '1-3541523422', name: 'Dr. R. Athilingam', designation: 'Associate Professor', qualification: 'B.E - EIE, M.E - Applied Electronics, Ph.D - Information & Communication', photo: '/teaching_faculty/embedded/athilingam.jpg' },
       { aufin: '2688551984', aicteId: '1-2303358265', name: 'Mrs. S. Kalaivani', designation: 'Assistant Professor', qualification: 'B.E - ECE, M.E - VLSI & Embedded System', photo: '/teaching_faculty/embedded/kalaivani.jpg' }
     ]
   },
@@ -180,7 +173,6 @@ export const departmentFacultyData = {
     degree: 'B.E.',
     badge: 'EEE',
     faculty: [
-      { aufin: '2698141984', aicteId: '1-3541523422', name: 'Dr. R. Athilingam', designation: 'Associate Professor & Head', qualification: 'B.E, M.E - Applied Electronics, Ph.D', photo: '/teaching_faculty/eee/athilingam.jpg', isHOD: true },
       { aufin: '2656031988', aicteId: '1-10734369291', name: 'Mr. R. Raja Karthick', designation: 'Assistant Professor', qualification: 'B.E - ICE, M.E - Applied Electronics', photo: '/teaching_faculty/eee/raja_karthick.jpg' },
       { aufin: '2680041992', aicteId: '1-43491562001', name: 'Mrs. A. Nishetha Jeflin Nixon', designation: 'Assistant Professor', qualification: 'B.E - EEE, M.E - Power Electronics and Drives', photo: '/teaching_faculty/eee/Nishetha_jeflin_nixon.jpg' },
       { aufin: '2664041991', aicteId: '1-43843091721', name: 'Mrs. M. Vijayalakshmi', designation: 'Assistant Professor', qualification: 'B.E - EEE, M.E - Power Systems', photo: '/teaching_faculty/eee/Vijayalakshmi.jpg' },
@@ -199,16 +191,14 @@ export const departmentFacultyData = {
     degree: 'B.E.',
     badge: 'ME',
     faculty: [
-      { aufin: '2690451991', aicteId: '1-4224126611', name: 'Dr. B. Radha krishnan', designation: 'Professor & Head [I/C]', qualification: 'B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical', photo: '/teaching_faculty/mech/radhakrishnan.jpg', isHOD: true },
+      { aufin: '2690451991', aicteId: '1-4224126611', name: 'Dr. B. Radha krishnan', designation: 'Professor', qualification: 'B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical', photo: '/teaching_faculty/mech/radhakrishnan.jpg' },
       { aufin: '2659441989', aicteId: '1-7361556856', name: 'Mr. R. Nagaraja', designation: 'Assistant Professor', qualification: 'B.E - Mechanical, M.E - Engineering Design', photo: '/teaching_faculty/mech/nagaraja.jpg' },
       { aufin: '2633361985', aicteId: '1-3543273743', name: 'Mr. J. Chakaravarthy Samy Durai', designation: 'Assistant Professor', qualification: 'B.E - Mechanical, M.E - Manufacturing', photo: '/teaching_faculty/mech/chakravarthysamydurai.jpg' },
       { aufin: '2688911992', aicteId: '1-3180844435', name: 'Mr. S. Harikishore', designation: 'Assistant Professor', qualification: 'B.E - Mechanical, M.E - Manufacturing', photo: '/teaching_faculty/mech/harikishore.jpg' },
-      { aufin: '2649541986', aicteId: '1-7374451770', name: 'Mr. V. Sivaganesan', designation: 'Assistant Professor / Deputy COE', qualification: 'B.E - Mechanical, M.E - Engineering Design', photo: '/teaching_faculty/mech/sivaganesan.jpg' },
+      { aufin: '2649541986', aicteId: '1-7374451770', name: 'Mr. V. Sivaganesan', designation: 'Assistant Professor', qualification: 'B.E - Mechanical, M.E - Engineering Design', photo: '/teaching_faculty/mech/sivaganesan.jpg' },
       { aufin: '2612441990', aicteId: '1-735974194', name: 'Dr. B. Nagarajan', designation: 'Assistant Professor', qualification: 'B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical', photo: '/teaching_faculty/mech/nagarajan.jpg' },
       { aufin: '2653271987', aicteId: '1-2669069913', name: 'Mr. P. Surulimani', designation: 'Assistant Professor', qualification: 'B.E - Mechanical, M.E - Manufacturing', photo: '/teaching_faculty/mech/Surulimani.jpg' },
-      { aufin: '2661551985', aicteId: '1-461036221', name: 'Dr. A. Vembathurajesh', designation: 'Assistant Professor', qualification: 'B.E - Mechanical, M.E - Thermal, Ph.D - Mechanical', photo: '/teaching_faculty/mech/vembathurajesh.png' },
-      { aufin: '2625401991', aicteId: '1-4223735824', name: 'Mr. G. Arunkumar', designation: 'Assistant Professor', qualification: 'B.E - Mechanical, M.E - Manufacturing', photo: '/teaching_faculty/mech/arunkumar.jpg' },
-      { aufin: '2662271993', aicteId: '1-3362665526', name: 'Dr. A. Vennimalai Rajan', designation: 'Assistant Professor', qualification: 'B.E - Mechanical, M.E, Ph.D', photo: '/teaching_faculty/mech/Vennimalairajan.jpg' }
+      { aufin: '2661551985', aicteId: '1-461036221', name: 'Dr. A. Vembathurajesh', designation: 'Assistant Professor', qualification: 'B.E - Mechanical, M.E - Thermal, Ph.D - Mechanical', photo: '/teaching_faculty/mech/vembathurajesh.png' }
     ]
   },
 
@@ -219,7 +209,7 @@ export const departmentFacultyData = {
     degree: 'M.E.',
     badge: 'ME MFE',
     faculty: [
-      { aufin: '2615041979', aicteId: '1-459164159', name: 'Dr. C. Mathalai Sundaram', designation: 'Principal', qualification: 'B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical', photo: '/teaching_faculty/manufacturing/mathalai sundharam.png' },
+      { aufin: '2615041979', aicteId: '1-459164159', name: 'Dr. C. Mathalai Sundaram', designation: 'Professor', qualification: 'B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical', photo: '/teaching_faculty/manufacturing/mathalai sundharam.png' },
       { aufin: '2662271993', aicteId: '1-3362665526', name: 'Dr. A. Vennimalai Rajan', designation: 'Assistant Professor', qualification: 'B.E - Mechanical, M.E - Manufacturing, Ph.D - Mechanical', photo: '/teaching_faculty/manufacturing/Vennimalairajan.jpg' }
     ]
   },
@@ -231,14 +221,13 @@ export const departmentFacultyData = {
     degree: 'B.Tech.',
     badge: 'AI & DS',
     faculty: [
-      { aufin: '2655811988', aicteId: '1-7450454038', name: 'Dr. L. S. Vignesh', designation: 'Assistant Professor & Head [I/C]', qualification: 'B.E - CSE, M.E - CSE, Ph.D', photo: '/teaching_faculty/aids/vignesh.jpg', isHOD: true },
+      { aufin: '2655811988', aicteId: '1-7450454038', name: 'Mr. L. S. Vignesh', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE, (Ph.D)', photo: '/teaching_faculty/aids/vignesh.jpg' },
       { aufin: '2662281995', aicteId: '1-10532725594', name: 'Mr. J. Vinoth Kumar', designation: 'Assistant Professor', qualification: 'M.E., (Ph.D)', photo: '/teaching_faculty/aids/vinothkumar.jpg' },
       { aufin: '2642661998', aicteId: '1-44732668686', name: 'Mrs. G. Geerthiga', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/aids/Geerthiga.jpg' },
       { aufin: '2621001994', aicteId: '1-44885345874', name: 'Mrs. M. Pavithra', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/aids/Pavithra.jpg' },
       { aufin: '2644391988', aicteId: '1-9539338208', name: 'Mrs. S. Sunitha', designation: 'Assistant Professor', qualification: 'B.Tech. - IT, M.E - CSE', photo: '/teaching_faculty/aids/sunitha.jpg' },
       { aufin: '2656071990', aicteId: '1-47942661062', name: 'Mr. S. Kodeeswaran', designation: 'Assistant Professor', qualification: 'B.Tech. - IT, M.Tech. - IT', photo: '/teaching_faculty/aids/Kodeeswaran.jpeg' },
-      { aufin: '2798201993', aicteId: '1-47948380662', name: 'Mrs. V. Nithyapriya', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/aids/Nithyapriya.png' },
-      { aufin: '2696041986', aicteId: '-', name: 'Mrs. K. Jenifer', designation: 'Assistant Professor', qualification: 'B.E, M.E', photo: '/teaching_faculty/aids/Jenifer.jpeg' }
+      { aufin: '2798201993', aicteId: '1-47948380662', name: 'Mrs. V. Nithyapriya', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/aids/Nithyapriya.png' }
     ]
   },
 
@@ -249,7 +238,7 @@ export const departmentFacultyData = {
     degree: 'B.Tech.',
     badge: 'IT',
     faculty: [
-      { aufin: '2626711985', aicteId: '1-2651552423', name: 'Dr. C. Prathap', designation: 'Assistant Professor & Head', qualification: 'B.E - CSE, M.Tech - CSE', photo: '/teaching_faculty/it/prathap c.jpg', isHOD: true },
+      { aufin: '2626711985', aicteId: '1-2651552423', name: 'Dr. C. Prathap', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.Tech - CSE', photo: '/teaching_faculty/it/prathap c.jpg' },
       { aufin: '2649351987', aicteId: '1-1471752431', name: 'Mr. R. Udhayakumar', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE, M.B.A - ITM', photo: '/teaching_faculty/it/udhayakumar.jpg' },
       { aufin: '2647541984', aicteId: '1-453158406', name: 'Mr. N. Kesavamoorthy', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE', photo: '/teaching_faculty/it/kesavamoorthy.jpg' },
       { aufin: '2691151990', aicteId: '1-44728767777', name: 'Mrs. B. Sai Suganya', designation: 'Assistant Professor', qualification: 'B.Tech. - IT, M.Tech. - IT', photo: '/teaching_faculty/it/sai suganya.jpg' },
@@ -266,26 +255,28 @@ export const departmentFacultyData = {
     degree: 'First Year & S&H',
     badge: 'S&H',
     faculty: [
-      { aufin: '2661551985', aicteId: '1-461036221', name: 'Dr. A. Vembathurajesh', designation: 'Assistant Professor & Head [I/C] / S&H', qualification: 'B.E, M.E, Ph.D', photo: '/teaching_faculty/sh/vembathurajesh.png', isHOD: true },
-      { aufin: '2670801974', aicteId: '1-9507814168', name: 'Dr. C. Chithra', designation: 'Professor & Co-Ordinator (Mathematics)', qualification: 'M.Sc, Ph.D', photo: '/teaching_faculty/sh/CHITHRA.jpg' },
       { aufin: '2613491985', aicteId: '1-3589577843', name: 'Dr. N. David Mathan', designation: 'Professor (Chemistry)', qualification: 'M.Sc, Ph.D', photo: '/teaching_faculty/sh/davidmathan.jpg' },
-      { aufin: '2666891976', aicteId: '1-44891333634', name: 'Dr. R. Valarmathi', designation: 'Assistant Professor (English)', qualification: 'Ph.D', photo: '/teaching_faculty/sh/Valar Mathi.jpg' },
-      { aufin: '2659891982', aicteId: '1-11316396283', name: 'Dr. S. R. Krishnamoorthi', designation: 'Associate Professor (Physics)', qualification: 'M.Sc., M.Phil., Ph.D., MISTE', photo: '/teaching_faculty/sh/krishnamoorthy.jpg' },
-      { aufin: '2653291992', aicteId: '-', name: 'Mr. M. Murugan', designation: 'Assistant Professor (Mathematics)', qualification: 'B.Sc., M.Sc – Maths (SET)', photo: '/teaching_faculty/sh/Murugan.jpeg' },
-      { aufin: '2623691995', aicteId: '1-47942834113', name: 'Dr. S. Srinithi', designation: 'Assistant Professor (Chemistry)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/Srinithi.jpeg' },
-      { aufin: '2664061993', aicteId: '1-47942834092', name: 'Dr. P. Diana', designation: 'Assistant Professor (Physics)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/diana.jpg' },
-      { aufin: '2688901963', aicteId: '1-44888641004', name: 'Dr. P. Malarvizhi', designation: 'Assistant Professor (English)', qualification: 'M.A., M.Phil., Ph.D.', photo: '/teaching_faculty/sh/malarvizhi.jpg' },
       { aufin: '2672851975', aicteId: '1-10958035723', name: 'Dr. R. Saravanakumar', designation: 'Associate Professor (Chemistry)', qualification: 'M.Sc., Ph.D.', photo: '/teaching_faculty/sh/Saravanakumar.png' },
-      { aufin: '2642401996', aicteId: '1-44811041756', name: 'Mrs. S. Rajeshshree', designation: 'Assistant Professor (General Engg)', qualification: 'B.E - ECE, M.E', photo: '/teaching_faculty/sh/Rajeshshree.jpeg' },
-      { aufin: '2680081992', aicteId: '1-45331256145', name: 'Mrs. N. Thisha', designation: 'Assistant Professor (General Engg)', qualification: 'B.A., M.A., NET', photo: '/teaching_faculty/sh/thisha.jpeg' },
-      { aufin: '2666051973', aicteId: '1-736760530', name: 'Dr. B. Mallaiyasamy', designation: 'Associate Professor (Mathematics)', qualification: 'M.Sc, M.Phil', photo: '/teaching_faculty/sh/mailysamy.jpg' },
-      { aufin: '2696611982', aicteId: '1-44811622064', name: 'Dr. S. Selvapriya', designation: 'Assistant Professor (English)', qualification: 'M.A., M.Phil., Ph.D.', photo: '/teaching_faculty/sh/Selvapriya.jpg' },
-      { aufin: '2632101992', aicteId: '-', name: 'Dr. M. Sumathra', designation: 'Assistant Professor (Chemistry)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/Sumathra.jpeg' },
-      { aufin: '2675711985', aicteId: '-', name: 'Mrs. V. Sangeetha', designation: 'Assistant Professor (English)', qualification: 'B.A., M.A., English (NET)', photo: '/teaching_faculty/sh/Sangeetha.jpeg' },
-      { aufin: '2655231992', aicteId: '-', name: 'Dr. M. Easwari', designation: 'Assistant Professor (Physics)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/Easwari.jpeg' },
+      { aufin: '2623691995', aicteId: '1-47942834113', name: 'Dr. S. Srinithi', designation: 'Assistant Professor (Chemistry)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/Srinithi.jpeg' },
       { aufin: '2657821983', aicteId: '1-44811029123', name: 'Dr. S. Devimeenakshmi', designation: 'Assistant Professor (Chemistry)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/DEVI MEENAKSHI.jpg' },
+      { aufin: '2632101992', aicteId: '1-43485777861', name: 'Dr. M. Sumathra', designation: 'Assistant Professor (Chemistry)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/Sumathra.jpeg' },
+      { aufin: '2688901963', aicteId: '1-44888641004', name: 'Dr. P. Malarvizhi', designation: 'Assistant Professor (English)', qualification: 'M.A., M.Phil., Ph.D.', photo: '/teaching_faculty/sh/malarvizhi.jpg' },
+      { aufin: '2696611982', aicteId: '1-44811622064', name: 'Dr. S. Selvapriya', designation: 'Assistant Professor (English)', qualification: 'M.A., M.Phil., Ph.D.', photo: '/teaching_faculty/sh/Selvapriya.jpg' },
+      { aufin: '-', aicteId: '-', name: 'Mrs. S. Rekha', designation: 'Assistant Professor (English)', qualification: 'M.A., M.Phil.', photo: '/teaching_faculty/sh/Reka.jpg' },
+      { aufin: '2675711985', aicteId: '-', name: 'Mrs. V. Sangeetha', designation: 'Assistant Professor (English)', qualification: 'B.A., M.A., English (NET)', photo: '/teaching_faculty/sh/Sangeetha.jpeg' },
+      { aufin: '2670801974', aicteId: '1-9507814168', name: 'Dr. C. Chithra', designation: 'Professor (Mathematics)', qualification: 'M.Sc, Ph.D', photo: '/teaching_faculty/sh/CHITHRA.jpg' },
+      { aufin: '2666051973', aicteId: '1-736760530', name: 'Dr. B. Mallaiyasamy', designation: 'Associate Professor (Mathematics)', qualification: 'M.Sc, M.Phil', photo: '/teaching_faculty/sh/mailysamy.jpg' },
+      { aufin: '2653291992', aicteId: '1-43378082839', name: 'Mr. M. Murugan', designation: 'Assistant Professor (Mathematics)', qualification: 'B.Sc., M.Sc – Maths (SET)', photo: '/teaching_faculty/sh/Murugan.jpeg' },
       { aufin: '2681241993', aicteId: '1-44811622826', name: 'Dr. R. Bhuvaneshwari', designation: 'Assistant Professor (Physics)', qualification: 'B.Sc., M.Sc., Ph.D.', photo: '/teaching_faculty/sh/Buvaneswarih.jpg' },
-      { aufin: '2684071994', aicteId: '1-47439259952', name: 'Mr. K. Ram Kumar', designation: 'Assistant Professor (General Engg)', qualification: 'B.E - EEE, M.B.A', photo: '/teaching_faculty/sh/ramkumar.jpeg' }
+      { aufin: '2664061993', aicteId: '1-47942834092', name: 'Dr. P. Diana', designation: 'Assistant Professor (Physics)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/diana.jpg' },
+      { aufin: '2655231992', aicteId: '-', name: 'Dr. M. Easwari', designation: 'Assistant Professor (Physics)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/Easwari.jpeg' },
+      { aufin: '2659891982', aicteId: '1-11316396283', name: 'Dr. S. R. Krishnamoorthi', designation: 'Associate Professor (Physics)', qualification: 'M.Sc., M.Phil., Ph.D., MISTE', photo: '/teaching_faculty/sh/krishnamoorthy.jpg' },
+      { aufin: '2680081992', aicteId: '1-45331256145', name: 'Mrs. N. Thisha', designation: 'Assistant Professor (Tamil)', qualification: 'B.A., M.A., NET', photo: '/teaching_faculty/sh/thisha.jpeg' },
+      { aufin: '2656021988', aicteId: '1-4847769805', name: 'Dr. S. Premkumar', designation: 'Assistant Professor (General Engg)', qualification: 'B.E, M.E, Ph.D', photo: '/teaching_faculty/sh/General Engg - Premkumar.jpg' },
+      { aufin: '2684071994', aicteId: '1-47439259952', name: 'Mr. K. Ram Kumar', designation: 'Assistant Professor (General Engg)', qualification: 'B.E - EEE, M.B.A', photo: '/teaching_faculty/sh/ramkumar.jpeg' },
+      { aufin: '2642401996', aicteId: '1-44811041756', name: 'Mrs. S. Rajeshshree', designation: 'Assistant Professor (General Engg)', qualification: 'B.E - ECE, M.E', photo: '/teaching_faculty/sh/Rajeshshree.jpeg' },
+      { aufin: '2625401991', aicteId: '1-4223735824', name: 'Mr. G. Arunkumar', designation: 'Assistant Professor (General Engg)', qualification: 'B.E - Mechanical, M.E - Manufacturing', photo: '/teaching_faculty/sh/arunkumar.jpg' },
+      { aufin: '2696041986', aicteId: '1-3719243094', name: 'Mrs. K. Jenifer', designation: 'Assistant Professor (General Engg)', qualification: 'B.E, M.E', photo: '/teaching_faculty/sh/Jenifer.jpeg' }
     ]
   }
 };
@@ -323,7 +314,7 @@ const TeachingFaculty = () => {
           setDynamicStaff(data.data);
         }
       })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   // Enrich static verified faculty data with DB photo updates and clean deduplication
@@ -339,17 +330,19 @@ const TeachingFaculty = () => {
 
         const dbMatch = dynamicStaff.find(st => {
           if (!st || !st.name) return false;
+          // Exact AU-FIN match if available
+          if (f.aufin && f.aufin !== '-' && st.aufin && st.aufin !== '-' && st.aufin === f.aufin) return true;
+          
           const normDb = normalizeCore(st.name);
           if (!normStatic || !normDb) return false;
-          // Exact match or strict AU-FIN match
-          if (normStatic === normDb) return true;
-          if (f.aufin && f.aufin !== '-' && st.aufin && st.aufin === f.aufin) return true;
-          // Exact equality without initials
-          const staticParts = normStatic.split(/\s+/).filter(p => p.length > 2);
-          const dbParts = normDb.split(/\s+/).filter(p => p.length > 2);
-          if (staticParts.length > 0 && dbParts.length > 0 && staticParts.join('') === dbParts.join('')) {
-            return true;
-          }
+          
+          // Verify department if present on the DB record
+          const deptMatches = !st.department || 
+            st.department.toLowerCase().includes(dept.name.toLowerCase()) || 
+            dept.name.toLowerCase().includes(st.department.toLowerCase()) ||
+            st.department.toLowerCase().includes(dept.id.toLowerCase());
+
+          if (normStatic === normDb && deptMatches) return true;
           return false;
         });
 
@@ -554,9 +547,6 @@ const TeachingFaculty = () => {
                               <td className="tf-td-name">
                                 <div className="tf-name-row">
                                   <span className="tf-faculty-name">{member.name}</span>
-                                  {member.isHOD && (
-                                    <span className="tf-hod-tag">HOD</span>
-                                  )}
                                 </div>
                                 <div className="tf-faculty-desig">{member.designation}</div>
                                 {member.qualification && (

@@ -533,87 +533,167 @@ body.dark-mode .tf-passport-placeholder {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN SYSTEM
    ========================================================================== */
-@media (max-width: 768px) {
+
+/* Medium Screens & Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
   .tf-page-wrapper {
-    padding: 7rem 1rem 3rem;
+    padding: 7.5rem 1.25rem 4rem;
   }
 
   .tf-main-title {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
-  .tf-pill-nav-container {
-    flex-direction: column;
-    border-radius: 12px;
+  .tf-subtitle {
+    font-size: 1rem;
   }
 
-  .tf-pill-active-bg {
-    display: none;
+  .tf-official-table th,
+  .tf-official-table td {
+    padding: 10px 12px;
   }
 
-  .tf-pill-btn {
-    border-radius: 8px;
-    margin-bottom: 4px;
-    width: 100%;
+  .tf-th-aufin, .tf-td-aufin {
+    width: 130px;
   }
 
-  .tf-pill-btn.active {
-    background-color: rgb(21, 27, 84);
-    color: #ffffff;
+  .tf-th-aicte, .tf-td-aicte {
+    width: 140px;
   }
 
-  .tf-sub-nav-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    margin-bottom: 2rem;
+  .tf-th-photo, .tf-td-photo {
+    width: 130px;
+  }
+}
+
+/* Tablets and Mobile Landscape (max-width: 768px) */
+@media (max-width: 768px) {
+  .tf-page-wrapper {
+    padding: 6.5rem 0.85rem 3.5rem;
   }
 
-  .tf-sub-nav-btn {
-    text-align: center;
-    flex: 1 1 auto;
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
+  .tf-super-badge {
+    font-size: 0.75rem;
+    padding: 3px 12px;
   }
 
-  .tf-dept-section {
-    padding: 16px;
+  .tf-main-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
   }
 
-  .tf-dept-title {
-    font-size: 1.15rem;
+  .tf-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+    padding: 0 0.5rem;
+  }
+
+  .tf-search-wrapper {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .tf-search-input {
+    padding: 11px 40px 11px 42px;
+    font-size: 0.9rem;
+  }
+
+  .tf-search-icon {
+    left: 14px;
+    font-size: 1rem;
+  }
+
+  .tf-single-box {
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  /* Table scroll container */
+  .tf-table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--tf-primary) transparent;
+  }
+
+  .tf-table-responsive::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .tf-table-responsive::-webkit-scrollbar-track {
+    background: var(--tf-header-bg);
+    border-radius: 3px;
+  }
+
+  .tf-table-responsive::-webkit-scrollbar-thumb {
+    background: var(--tf-primary);
+    border-radius: 3px;
+  }
+
+  .tf-official-table {
+    min-width: 640px;
+    font-size: 0.88rem;
+  }
+
+  .tf-dept-banner-cell {
+    padding: 10px 12px !important;
+  }
+
+  .tf-dept-banner-title {
+    font-size: 0.98rem;
+  }
+
+  .tf-dept-banner-degree {
+    font-size: 0.82rem;
+  }
+
+  .tf-dept-banner-count {
+    font-size: 0.75rem;
+    padding: 2px 9px;
+  }
+
+  .tf-official-table th {
+    padding: 10px 8px;
+    font-size: 0.82rem;
+  }
+
+  .tf-official-table td {
+    padding: 8px 8px;
   }
 
   .tf-th-sno, .tf-td-sno {
-    width: 45px;
+    width: 48px;
+    font-size: 0.85rem;
     padding: 8px 4px;
   }
 
   .tf-th-aufin, .tf-td-aufin {
-    width: 120px;
-    padding: 8px 8px;
+    width: 115px;
   }
 
   .tf-aufin-code {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
   }
 
-  .tf-th-photo, .tf-td-photo {
-    width: 90px;
-    padding: 8px 6px !important;
+  .tf-th-aicte, .tf-td-aicte {
+    width: 125px;
   }
 
-  .tf-passport-frame {
-    width: 60px;
-    height: 75px;
+  .tf-aicte-code {
+    font-size: 0.82rem;
   }
 
   .tf-faculty-name {
     font-size: 0.95rem;
+  }
+
+  .tf-hod-tag {
+    font-size: 0.65rem;
+    padding: 1px 5px;
   }
 
   .tf-faculty-desig {
@@ -623,6 +703,118 @@ body.dark-mode .tf-passport-placeholder {
   .tf-faculty-qual {
     font-size: 0.75rem;
   }
+
+  .tf-th-photo, .tf-td-photo {
+    width: 90px;
+    padding: 6px 4px !important;
+  }
+
+  .tf-passport-frame {
+    width: 58px;
+    height: 72px;
+  }
+
+  .tf-placeholder-icon {
+    font-size: 1.5rem;
+  }
+}
+
+/* Small Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .tf-page-wrapper {
+    padding: 5.8rem 0.5rem 2.5rem;
+  }
+
+  .tf-main-title {
+    font-size: 1.45rem;
+  }
+
+  .tf-subtitle {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .tf-search-input {
+    padding: 10px 36px 10px 38px;
+    font-size: 0.85rem;
+  }
+
+  .tf-single-box {
+    padding: 4px;
+    border-radius: 8px;
+    border-width: 1px;
+  }
+
+  .tf-dept-banner-inner {
+    gap: 6px;
+  }
+
+  .tf-dept-banner-title {
+    font-size: 0.9rem;
+  }
+
+  .tf-dept-banner-count {
+    font-size: 0.7rem;
+    padding: 2px 7px;
+  }
+
+  .tf-official-table {
+    min-width: 580px;
+  }
+
+  .tf-th-sno, .tf-td-sno {
+    width: 40px;
+    font-size: 0.8rem;
+  }
+
+  .tf-th-aufin, .tf-td-aufin {
+    width: 105px;
+  }
+
+  .tf-aufin-code {
+    font-size: 0.8rem;
+  }
+
+  .tf-th-aicte, .tf-td-aicte {
+    width: 110px;
+  }
+
+  .tf-aicte-code {
+    font-size: 0.78rem;
+  }
+
+  .tf-faculty-name {
+    font-size: 0.88rem;
+  }
+
+  .tf-faculty-desig {
+    font-size: 0.78rem;
+  }
+
+  .tf-faculty-qual {
+    font-size: 0.72rem;
+  }
+
+  .tf-passport-frame {
+    width: 50px;
+    height: 64px;
+  }
+
+  .tf-no-results-cell {
+    padding: 40px 12px !important;
+  }
+
+  .tf-no-results-icon {
+    font-size: 2.2rem;
+  }
+
+  .tf-no-results-title {
+    font-size: 1.1rem;
+  }
+
+  .tf-no-results-desc {
+    font-size: 0.82rem;
+  }
 }
 
 @media print {
@@ -631,16 +823,15 @@ body.dark-mode .tf-passport-placeholder {
     background: #ffffff;
   }
 
-  .tf-controls-wrapper,
-  .tf-header-section .tf-badge-pill {
+  .tf-search-wrapper,
+  .tf-super-badge {
     display: none !important;
   }
 
-  .tf-dept-section {
+  .tf-single-box {
     border: none;
     padding: 0;
-    margin-bottom: 2rem;
-    page-break-inside: avoid;
+    box-shadow: none;
   }
 
   .tf-official-table {
@@ -651,5 +842,12 @@ body.dark-mode .tf-passport-placeholder {
   .tf-official-table td {
     border: 1px solid #000;
     color: #000 !important;
+  }
+
+  .tf-dept-banner-cell {
+    background: #004d99 !important;
+    color: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
