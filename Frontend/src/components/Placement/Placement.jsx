@@ -11,22 +11,22 @@ import {
 
 /* ================= EXACT RECRUITER LOGOS ================= */
 // Folder paths unified to lowercase "recruiters" for safety
-import tcs1 from "../../assets/recruiters/tcs.png";
-import schneider from "../../assets/recruiters/schneider.jpeg";
-import webberax from "../../assets/recruiters/webberax.png";
-import rds from "../../assets/recruiters/rds.jpeg";
-import wgtech from "../../assets/recruiters/wgtech.png";
-import alpha from "../../assets/recruiters/alpha.png";
-import mssoftware from "../../assets/recruiters/M&S software.png";
-import wipro from "../../assets/recruiters/wipro.png";
-import tesla1 from "../../assets/recruiters/tesla.png";
-import logoOg from "../../assets/recruiters/logo-og.png";
+import tcs1 from "../../assets/Recruiters/tcs.png";
+import schneider from "../../assets/Recruiters/schneider.jpeg";
+import webberax from "../../assets/Recruiters/webberax.png";
+import rds from "../../assets/Recruiters/rds.jpeg";
+import wgtech from "../../assets/Recruiters/wgtech.png";
+import alpha from "../../assets/Recruiters/alpha.png";
+import mssoftware from "../../assets/Recruiters/M&S software.png";
+import wipro from "../../assets/Recruiters/wipro.png";
+import tesla1 from "../../assets/Recruiters/tesla.png";
+import logoOg from "../../assets/Recruiters/logo-og.png";
 
 // Set 2 (New 5 Logos)
-import ftl from "../../assets/recruiters/company.png";
-import hcl from "../../assets/recruiters/HCL.png";
-import infosys from "../../assets/recruiters/Infosys_logo.svg.png";
-import tcs2 from "../../assets/recruiters/tcs.png";
+import ftl from "../../assets/Recruiters/company.png";
+import hcl from "../../assets/Recruiters/hcl.png";
+import infosys from "../../assets/Recruiters/Infosys_logo.svg.png";
+import tcs2 from "../../assets/Recruiters/tcs.png";
 import nardil from "../../assets/Recruiters/NaRdil-Logo-270.webp";
 import crewLogo from "../../assets/Recruiters/chennai_ratha_engineering_works_logo-removebg-preview.png";
 import rainbow from "../../assets/Recruiters/rainbow.png";

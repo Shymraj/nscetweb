@@ -5,13 +5,13 @@ import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 // Images Import (Check paths as per your folder structure)
-import cse from "../../assets/departments/cse.jpg";
-import it from "../../assets/departments/it.jpg";
-import aids from "../../assets/departments/aids.jpg";
-import ece from "../../assets/departments/ece.jpg";
-import eee from "../../assets/departments/eee.jpg";
-import mech from "../../assets/departments/mech.jpg";
-import civil from "../../assets/departments/civil.jpg";
+import cse from "../../assets/Departments/cse.jpg";
+import it from "../../assets/Departments/it.jpg";
+import aids from "../../assets/Departments/aids.jpg";
+import ece from "../../assets/Departments/ece.jpg";
+import eee from "../../assets/Departments/eee.jpg";
+import mech from "../../assets/Departments/mech.jpg";
+import civil from "../../assets/Departments/civil.jpg";
 
 const allDepartments = [
   // ================= B.E PROGRAMS =================

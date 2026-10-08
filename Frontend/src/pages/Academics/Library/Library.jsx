@@ -8,7 +8,7 @@ import {
   FaLayerGroup, 
   FaImages
 } from 'react-icons/fa';
-import './Library.css'; 
+import './library.css'; 
 import bannerImage from './Banner/NSCET_LIBRARY.png';
 
 const AnimatedNumber = ({ value }) => {

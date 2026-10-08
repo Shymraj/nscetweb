@@ -10,7 +10,7 @@
 /* ===== Hero Section ===== */
 .ap-hero {
     position: relative;
-    background: url('/background.jpeg');
+    background: url('/library/background.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
