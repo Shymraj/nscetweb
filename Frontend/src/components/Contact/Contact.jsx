@@ -159,11 +159,14 @@ const Contact = () => {
               </div>
 
               <div className="cyber-action-row">
-                <a href="tel:+919876543210" className="action-pill call-pill">
-                  <FaPhoneAlt /> Call Desk
+                <a href="tel:04546263900" className="action-pill call-pill full-span">
+                  <FaPhoneAlt /> Call Desk (04546-263900)
                 </a>
-                <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="action-pill wa-pill">
-                  <FaWhatsapp /> WhatsApp
+                <a href="https://wa.me/919095100278" target="_blank" rel="noopener noreferrer" className="action-pill wa-pill">
+                  <FaWhatsapp /> WhatsApp (9095100278)
+                </a>
+                <a href="https://wa.me/919095100235" target="_blank" rel="noopener noreferrer" className="action-pill wa-pill">
+                  <FaWhatsapp /> WhatsApp (9095100235)
                 </a>
               </div>
             </div>

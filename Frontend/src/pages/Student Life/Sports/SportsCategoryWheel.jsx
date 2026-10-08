@@ -129,7 +129,7 @@ const parseAchievements = (achievementsData) => {
     return parsedStudents;
 };
 
-const StudentCard = ({ student, index, side, photo }) => (
+const StudentCard = ({ student, index, side, photo, onMouseEnter, onMouseLeave }) => (
     <motion.div
         layout
         initial={{ opacity: 0, scale: 0.9, x: side === 'left' ? 20 : -20 }}
@@ -137,6 +137,10 @@ const StudentCard = ({ student, index, side, photo }) => (
         exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
         transition={{ duration: 0.4, delay: index * 0.05 }}
         className="achiever-card"
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        onTouchStart={onMouseEnter}
+        onTouchEnd={onMouseLeave}
     >
         <div className="achiever-avatar-full">
             {photo ? <img src={photo} alt={student.name} /> : <FaUserGraduate size={32} />}
@@ -177,6 +181,16 @@ const SportsCategoryWheel = ({ achievementsData, studentPhotos = {} }) => {
         return baseStudents.filter(s => s.tags.includes(selectedCategory));
     }, [selectedCategory, allStudents, studentPhotos]);
 
+    const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' ? window.innerWidth < 992 : false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 992);
+        };
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const halfLength = Math.ceil(filteredStudents.length / 2);
     const leftStudents = filteredStudents.slice(0, halfLength);
     const rightStudents = filteredStudents.slice(halfLength);
@@ -184,52 +198,94 @@ const SportsCategoryWheel = ({ achievementsData, studentPhotos = {} }) => {
     const sectionRef = useRef(null);
     const leftInnerRef = useRef(null);
     const rightInnerRef = useRef(null);
+    const mobileInnerRef = useRef(null);
     const scrollProgress = useRef(0);
     const requestRef = useRef(null);
+    const isPausedRef = useRef(false);
     const [isAnimating, setIsAnimating] = useState(false);
     const direction = useRef(1);
 
-    // Reset scroll progress when category changes
+    const handleMouseEnter = () => {
+        isPausedRef.current = true;
+    };
+
+    const handleMouseLeave = () => {
+        isPausedRef.current = false;
+    };
+
+    // Reset scroll progress when category or mobile mode changes
     useEffect(() => {
         scrollProgress.current = 0;
         if (leftInnerRef.current) leftInnerRef.current.style.transform = 'translateY(0px)';
         if (rightInnerRef.current) rightInnerRef.current.style.transform = 'translateY(0px)';
+        if (mobileInnerRef.current) mobileInnerRef.current.style.transform = 'translateY(0px)';
         setIsAnimating(false);
-    }, [selectedCategory]);
+    }, [selectedCategory, isMobile]);
 
     const animate = () => {
-        const leftInner = leftInnerRef.current;
-        const rightInner = rightInnerRef.current;
-        if (!leftInner || !rightInner) return;
-
-        const viewportHeight = leftInner.parentElement.clientHeight || 520;
-        const leftMax = Math.max(0, leftInner.scrollHeight - viewportHeight);
-        const rightMax = Math.max(0, rightInner.scrollHeight - viewportHeight);
-        
-        if (leftMax === 0 && rightMax === 0) {
-            setIsAnimating(false);
+        if (isPausedRef.current) {
+            requestRef.current = requestAnimationFrame(animate);
             return;
         }
 
-        const maxScrollPixels = Math.max(leftMax, rightMax);
-        
-        // Use a constant pixel speed so all categories (e.g. All Sports vs Chess) scroll at the exact same visual speed
-        const PIXELS_PER_FRAME = 0.8; 
-        scrollProgress.current += direction.current * (PIXELS_PER_FRAME / maxScrollPixels);
-        
-        if (scrollProgress.current >= 1) {
-            scrollProgress.current = 1;
-            direction.current = -1; // Reverse direction
-        } else if (scrollProgress.current <= 0) {
-            scrollProgress.current = 0;
-            direction.current = 1; // Reverse direction
-        }
+        if (isMobile) {
+            const mobileInner = mobileInnerRef.current;
+            if (!mobileInner) return;
+            const viewportHeight = mobileInner.parentElement?.clientHeight || 440;
+            const maxScroll = Math.max(0, mobileInner.scrollHeight - viewportHeight);
+            
+            if (maxScroll === 0) {
+                mobileInner.style.transform = 'translateY(0px)';
+                setIsAnimating(false);
+                return;
+            }
 
-        const leftTransform = scrollProgress.current * leftMax;
-        const rightTransform = scrollProgress.current * rightMax;
-        
-        leftInner.style.transform = `translateY(-${leftTransform}px)`;
-        rightInner.style.transform = `translateY(-${rightTransform}px)`;
+            const PIXELS_PER_FRAME = 0.8;
+            scrollProgress.current += direction.current * (PIXELS_PER_FRAME / maxScroll);
+
+            if (scrollProgress.current >= 1) {
+                scrollProgress.current = 1;
+                direction.current = -1;
+            } else if (scrollProgress.current <= 0) {
+                scrollProgress.current = 0;
+                direction.current = 1;
+            }
+
+            const transform = scrollProgress.current * maxScroll;
+            mobileInner.style.transform = `translateY(-${transform}px)`;
+        } else {
+            const leftInner = leftInnerRef.current;
+            const rightInner = rightInnerRef.current;
+            if (!leftInner || !rightInner) return;
+
+            const viewportHeight = leftInner.parentElement?.clientHeight || 520;
+            const leftMax = Math.max(0, leftInner.scrollHeight - viewportHeight);
+            const rightMax = Math.max(0, rightInner.scrollHeight - viewportHeight);
+            
+            if (leftMax === 0 && rightMax === 0) {
+                setIsAnimating(false);
+                return;
+            }
+
+            const maxScrollPixels = Math.max(leftMax, rightMax);
+            
+            const PIXELS_PER_FRAME = 0.8; 
+            scrollProgress.current += direction.current * (PIXELS_PER_FRAME / maxScrollPixels);
+            
+            if (scrollProgress.current >= 1) {
+                scrollProgress.current = 1;
+                direction.current = -1;
+            } else if (scrollProgress.current <= 0) {
+                scrollProgress.current = 0;
+                direction.current = 1;
+            }
+
+            const leftTransform = scrollProgress.current * leftMax;
+            const rightTransform = scrollProgress.current * rightMax;
+            
+            leftInner.style.transform = `translateY(-${leftTransform}px)`;
+            rightInner.style.transform = `translateY(-${rightTransform}px)`;
+        }
 
         requestRef.current = requestAnimationFrame(animate);
     };
@@ -239,7 +295,7 @@ const SportsCategoryWheel = ({ achievementsData, studentPhotos = {} }) => {
             requestRef.current = requestAnimationFrame(animate);
         }
         return () => cancelAnimationFrame(requestRef.current);
-    }, [isAnimating, selectedCategory, filteredStudents]);
+    }, [isAnimating, selectedCategory, filteredStudents, isMobile]);
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -249,7 +305,7 @@ const SportsCategoryWheel = ({ achievementsData, studentPhotos = {} }) => {
             } else {
                 setIsAnimating(false);
             }
-        }, { threshold: 0.5 }); // Start animation when 50% of the section is visible
+        }, { threshold: 0.3 });
 
         const container = sectionRef.current;
         if (container) {
@@ -260,7 +316,7 @@ const SportsCategoryWheel = ({ achievementsData, studentPhotos = {} }) => {
             if (container) observer.unobserve(container);
             cancelAnimationFrame(requestRef.current);
         };
-    }, [selectedCategory, filteredStudents]);
+    }, [selectedCategory, filteredStudents, isMobile]);
     
     return (
         <section ref={sectionRef} className="sports-wheel-section">
@@ -290,18 +346,34 @@ const SportsCategoryWheel = ({ achievementsData, studentPhotos = {} }) => {
 
                 <div className="sports-wheel-layout">
                     
-                    {/* LEFT SIDE: First half of achievers */}
-                    <div className="achiever-column left-column">
-                        <div className="achiever-grid single-col">
-                            <div className="achiever-grid-inner" ref={leftInnerRef}>
-                                <AnimatePresence mode="popLayout">
-                                    {leftStudents.map((student, i) => (
-                                        <StudentCard key={student.id} student={student} index={i} side="left" photo={studentPhotos[student.name]} />
-                                    ))}
-                                </AnimatePresence>
+                    {/* On Desktop: Left Column */}
+                    {!isMobile && (
+                        <div 
+                            className="achiever-column left-column"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                            onTouchStart={handleMouseEnter}
+                            onTouchEnd={handleMouseLeave}
+                        >
+                            <div className="achiever-grid single-col">
+                                <div className="achiever-grid-inner" ref={leftInnerRef}>
+                                    <AnimatePresence mode="popLayout">
+                                        {leftStudents.map((student, i) => (
+                                            <StudentCard 
+                                                key={student.id} 
+                                                student={student} 
+                                                index={i} 
+                                                side="left" 
+                                                photo={studentPhotos[student.name]}
+                                                onMouseEnter={handleMouseEnter}
+                                                onMouseLeave={handleMouseLeave}
+                                            />
+                                        ))}
+                                    </AnimatePresence>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    )}
 
                     {/* CENTER: The Wheel */}
                     <div className="wheel-column">
@@ -351,18 +423,63 @@ const SportsCategoryWheel = ({ achievementsData, studentPhotos = {} }) => {
                         </div>
                     </div>
 
-                    {/* RIGHT SIDE: Second half of achievers */}
-                    <div className="achiever-column right-column">
-                        <div className="achiever-grid single-col">
-                            <div className="achiever-grid-inner" ref={rightInnerRef}>
-                                <AnimatePresence mode="popLayout">
-                                    {rightStudents.map((student, i) => (
-                                        <StudentCard key={student.id} student={student} index={i} side="right" photo={studentPhotos[student.name]} />
-                                    ))}
-                                </AnimatePresence>
+                    {/* On Desktop: Right Column */}
+                    {!isMobile && (
+                        <div 
+                            className="achiever-column right-column"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                            onTouchStart={handleMouseEnter}
+                            onTouchEnd={handleMouseLeave}
+                        >
+                            <div className="achiever-grid single-col">
+                                <div className="achiever-grid-inner" ref={rightInnerRef}>
+                                    <AnimatePresence mode="popLayout">
+                                        {rightStudents.map((student, i) => (
+                                            <StudentCard 
+                                                key={student.id} 
+                                                student={student} 
+                                                index={i} 
+                                                side="right" 
+                                                photo={studentPhotos[student.name]}
+                                                onMouseEnter={handleMouseEnter}
+                                                onMouseLeave={handleMouseLeave}
+                                            />
+                                        ))}
+                                    </AnimatePresence>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    )}
+
+                    {/* On Mobile: Unified Single Continuous Column */}
+                    {isMobile && (
+                        <div 
+                            className="achiever-column mobile-column"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                            onTouchStart={handleMouseEnter}
+                            onTouchEnd={handleMouseLeave}
+                        >
+                            <div className="achiever-grid single-col">
+                                <div className="achiever-grid-inner" ref={mobileInnerRef}>
+                                    <AnimatePresence mode="popLayout">
+                                        {filteredStudents.map((student, i) => (
+                                            <StudentCard 
+                                                key={student.id} 
+                                                student={student} 
+                                                index={i} 
+                                                side="center" 
+                                                photo={studentPhotos[student.name]}
+                                                onMouseEnter={handleMouseEnter}
+                                                onMouseLeave={handleMouseLeave}
+                                            />
+                                        ))}
+                                    </AnimatePresence>
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                 </div>
 

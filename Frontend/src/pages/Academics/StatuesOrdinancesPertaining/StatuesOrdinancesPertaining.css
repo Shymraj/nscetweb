@@ -1,689 +1,1135 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
-/* StatuesOrdinancesPertaining.css */
+/* =========================================================
+   STATUTES & ORDINANCES PERTAINING PAGE STYLES
+   Adheres strictly to NSCET Official Centralized Typography:
+   - var(--font-heading)  -> H1 / Main Headings (font-weight: 800)
+   - var(--font-section)  -> H2 / Section Titles (font-weight: 700)
+   - var(--font-subtopic) -> H3, H4, Badges, Labels, Card Titles (font-weight: 700)
+   - var(--font-body)     -> Body, Paragraphs, Buttons, Links (font-weight: 400/500)
+   ========================================================= */
 
 .statutes-page-wrapper {
-  background-color: #f8fafc;
+  background-color: var(--theme-bg, #f8fafc);
   min-height: 100vh;
-  font-family: var(--font-body, 'Inter', sans-serif);
-  padding-top: 140px; /* Push below the global floating navbar */
-  padding-bottom: 60px;
+  font-family: var(--font-body);
+  color: #1e293b;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding-top: 125px !important; /* Slightly reduced gap below navbar for desktop view */
+  padding-bottom: 70px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 1. Page Header */
-.statutes-portal-header {
-  background: white;
-  padding: 30px 20px 25px;
+/* =========================================================
+   1. HERO BANNER / HEADER SECTION
+   ========================================================= */
+.statutes-hero-section {
+  position: relative;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 0 auto 32px auto;
+  padding: 44px 28px 36px;
   text-align: center;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-  margin-bottom: 35px;
-}
-
-.portal-icon-wrapper {
-  width: 55px;
-  height: 55px;
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(30, 64, 175, 0.15));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 15px;
-}
-
-.portal-icon {
-  font-size: 1.6rem;
-  color: #1e40af;
-}
-
-.portal-title {
-  font-family: var(--font-heading, 'Manrope', sans-serif);
-  font-size: 1.8rem;
-  font-weight: 800;
   color: #0f172a;
-  line-height: 1.2;
-  margin-bottom: 15px;
-  letter-spacing: -0.5px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  border: 1px solid #e2e8f0;
+  box-sizing: border-box;
 }
 
-.portal-divider {
-  width: 50px;
-  height: 4px;
-  background: linear-gradient(90deg, #1e40af, #d97706);
-  margin: 0 auto 15px;
-  border-radius: 2px;
+.statutes-hero-glow {
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.06) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  filter: blur(30px);
 }
 
-.portal-subtitle {
-  max-width: 700px;
+.statutes-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
   margin: 0 auto;
-  color: #475569;
-  font-size: 1.05rem;
-  line-height: 1.5;
-}
-
-/* Main Content */
-.statutes-portal-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.portal-section {
-  margin-bottom: 50px;
-}
-
-.statutes-section-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  margin-bottom: 35px;
-}
-
-.statutes-section-icon-box {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
-  margin-top: 3px;
-}
-
-.statutes-section-icon {
-  font-size: 1.25rem;
-  color: white;
-}
-
-.statutes-section-header-text {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-/* Premium Display Heading */
-.statutes-section-title {
-  font-family: 'Bebas Neue', var(--font-section, sans-serif);
-  font-size: 3rem;
-  font-weight: 400; /* Bebas Neue is naturally thick and uses 400 */
-  color: #1e3a8a; /* Deep NSCET navy */
-  letter-spacing: 1px;
-  margin: 0 0 14px 0;
-  padding-bottom: 12px;
-  line-height: 1;
-  position: relative;
-  display: inline-block;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* very subtle shadow for depth */
-  background: none;
-  -webkit-text-fill-color: initial;
+.statutes-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-family: var(--font-subtopic);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0284c7;
+  margin-bottom: 16px;
 }
 
-/* Integrated Accent Line */
-.statutes-section-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 70px;
-  height: 5px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, #1e3a8a, #38bdf8);
-  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.25);
-  transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.statutes-badge-icon {
+  font-size: 0.95rem;
+  color: #0284c7;
 }
 
-.statutes-section-header:hover .statutes-section-title::after {
-  width: 110px;
+.statutes-hero-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
 
-.statutes-section-desc {
+.statutes-title-highlight {
+  color: #0284c7;
+  background: linear-gradient(90deg, #0284c7, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.statutes-hero-divider {
+  width: 55px;
+  height: 4px;
+  background: linear-gradient(90deg, #0284c7, #d97706);
+  border-radius: 2px;
+  margin: 6px 0 16px 0;
+}
+
+.statutes-hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 400;
   color: #475569;
-  font-size: 1.1rem;
-  font-weight: 500;
+  line-height: 1.65;
+  margin: 0 0 24px 0;
+  max-width: 820px;
+}
+
+/* =========================================================
+   🔥 QUICK STATS 3-CARDS HORIZONTAL ALIGNMENT 🔥
+   ========================================================= */
+.statutes-quick-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 850px;
+  margin: 8px auto 0 auto;
+  box-sizing: border-box;
+}
+
+.stat-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  padding: 16px 14px;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.stat-pill:hover {
+  transform: translateY(-2px);
+  border-color: #0284c7 !important;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.12);
+}
+
+.stat-pill-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-pill-icon {
+  color: #0284c7 !important;
+  font-size: 1.35rem;
+}
+
+.stat-pill-icon.check-icon {
+  color: #16a34a !important;
+}
+
+.stat-pill-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+/* 🔥 GUARANTEED HIGH CONTRAST TEXT - NO WASHED OUT WHITE 🔥 */
+.stat-num {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800 !important;
+  color: #0284c7 !important;
+  -webkit-text-fill-color: #0284c7 !important;
+  line-height: 1;
+}
+
+.stat-label,
+.stat-label-full {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  line-height: 1.25;
+}
+
+/* =========================================================
+   2. MAIN CONTENT & CARDS
+   ========================================================= */
+.statutes-content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.statutes-portal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.04);
+  padding: 36px 36px 40px;
+  margin-bottom: 32px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* Card Header */
+.statutes-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.statutes-card-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.statutes-card-icon-box.prog-icon-box {
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+}
+
+.statutes-card-icon {
+  font-size: 1.25rem;
+}
+
+.statutes-card-header-text {
+  flex: 1;
+}
+
+.statutes-card-title {
+  font-family: var(--font-section);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+}
+
+.statutes-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: #64748b;
   margin: 0;
 }
 
-/* 2. Academic Regulations Rows */
-.document-list {
+/* =========================================================
+   3. ACCORDION STYLES
+   ========================================================= */
+.statutes-accordions-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px;
 }
 
-/* Accordion Styles */
-.accordion-group {
-  background: white;
+.statutes-accordion-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
-  border: 1px solid rgba(0,0,0,0.04);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
   overflow: hidden;
-  transition: all 0.3s ease;
-  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
 }
 
-.accordion-group::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 4px;
-  height: 100%;
-  background: #1e40af; /* blue accent */
-  opacity: 0.8;
+.statutes-accordion-card:hover {
+  border-color: #cbd5e1;
 }
 
-.accordion-header {
+.statutes-accordion-card.open {
+  border-color: #93c5fd;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.08);
+}
+
+.statutes-acc-btn {
+  width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 25px 30px;
-  cursor: default !important;
-  user-select: none;
-  background: white;
-  transition: background 0.3s ease;
-}
-
-.accordion-header h3, 
-.accordion-header p, 
-.accordion-header span {
-  cursor: default !important;
-}
-
-.accordion-header:hover {
+  gap: 16px;
+  padding: 20px 24px;
   background: #f8fafc;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.25s ease;
+  box-sizing: border-box;
 }
 
-.accordion-title-box {
+.statutes-accordion-card.open .statutes-acc-btn {
+  background: #f0f7ff;
+  border-bottom: 1px solid #dbeafe;
+}
+
+.statutes-acc-btn:hover {
+  background: #f1f5f9;
+}
+
+.statutes-accordion-card.open .statutes-acc-btn:hover {
+  background: #e6f2fe;
+}
+
+.statutes-acc-btn-left {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 18px;
+  flex: 1;
 }
 
-.accordion-number {
-  font-family: var(--font-heading, 'Manrope', sans-serif);
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #cbd5e1;
-  transition: color 0.3s ease;
+.statutes-acc-index {
+  font-family: var(--font-subtopic);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.1);
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
-.accordion-group.open .accordion-number,
-.accordion-header:hover .accordion-number {
-  color: #94a3b8;
+.statutes-acc-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
-.accordion-icon {
-  font-size: 1.2rem;
+.statutes-acc-heading {
+  font-family: var(--font-subtopic);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.statutes-acc-subtext {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
   color: #64748b;
-  transition: transform 0.3s ease;
-  cursor: pointer;
+  margin: 0;
 }
 
-.accordion-group.open .accordion-icon {
-  color: #1e40af;
+.statutes-acc-btn-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
 }
 
-.accordion-content {
+.statutes-count-badge {
+  font-family: var(--font-subtopic);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #1d4ed8;
+  background: #dbeafe;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.statutes-chevron {
+  font-size: 0.95rem;
+  color: #64748b;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.statutes-chevron.rotated {
+  transform: rotate(180deg);
+  color: #2563eb;
+}
+
+/* Accordion Content */
+.statutes-acc-collapse {
   max-height: 0;
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s ease, opacity 0.3s ease, visibility 0.5s ease;
-  background: #f8fafc;
-  padding: 0 30px;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s ease;
+  background: #ffffff;
+  padding: 0 24px;
+  box-sizing: border-box;
 }
 
-.accordion-group.open .accordion-content {
-  max-height: 1200px;
+.statutes-acc-collapse.show {
+  max-height: 1600px;
   opacity: 1;
   visibility: visible;
-  padding: 20px 30px 30px;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  padding: 22px 24px 26px;
 }
 
-.document-row {
+/* =========================================================
+   4. DOCUMENT ITEM CARDS / ROWS
+   ========================================================= */
+.statutes-docs-grid {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.statutes-doc-item {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 20px 25px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.04);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.document-row.phd-row {
-  padding: 25px 30px;
-  border-radius: 16px;
-}
-
-.document-row::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 4px;
-  height: 100%;
-  background: #d97706; /* gold accent */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.document-row:hover {
-  transform: translateX(5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-  border-color: rgba(30, 64, 175, 0.1);
-}
-
-.document-row:hover::before {
-  opacity: 1;
-}
-
-.doc-left {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-.doc-number {
-  font-family: var(--font-heading, 'Manrope', sans-serif);
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #f1f5f9;
-  transition: color 0.3s ease;
-}
-
-.document-row:hover .doc-number {
-  color: #e2e8f0;
-}
-
-.doc-info {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.doc-title {
-  font-family: var(--font-subtopic, 'Manrope', sans-serif);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0;
-  transition: color 0.3s ease;
-}
-
-.document-row:hover .doc-title {
-  color: #1e40af;
-}
-
-.doc-meta {
-  color: #64748b;
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-.doc-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.doc-action {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #3b82f6;
-  letter-spacing: 1px;
-}
-
-.doc-arrow {
-  color: #3b82f6;
-  font-size: 1rem;
-  transition: transform 0.3s ease;
-}
-
-.document-row:hover .doc-arrow {
-  transform: translateX(4px);
-  color: #1e40af;
-}
-
-.document-row:hover .doc-action {
-  color: #1e40af;
-}
-
-/* 3. Programmes Offered */
-.programmes-container {
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-  border: 1px solid rgba(0,0,0,0.03);
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.programme-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.group-title {
-  font-family: var(--font-subtopic, 'Manrope', sans-serif);
-  font-size: 1.1rem;
-  color: #1e40af;
-  margin: 0 0 15px 0;
-  letter-spacing: 1px;
-}
-
-.group-divider {
-  width: 100%;
-  height: 1px;
-  background: #e2e8f0;
-  margin-bottom: 25px;
-}
-
-.chip-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.prog-chip {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
-  background: #f8fafc;
+  gap: 16px;
+  background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 30px;
-  color: #334155;
-  font-weight: 600;
-  font-size: 0.95rem;
+  border-radius: 12px;
+  padding: 14px 18px;
   text-decoration: none;
-  cursor: pointer !important;
-  transition: all 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
 }
 
-.prog-chip span, .prog-chip .chip-icon {
-  cursor: pointer !important;
+.statutes-doc-item:hover {
+  background: #f8fafc;
+  border-color: #3b82f6;
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
 }
 
-.prog-chip:hover {
-  background: #1e40af;
-  color: white;
-  border-color: #1e40af;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(30, 64, 175, 0.2);
+.statutes-doc-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
 }
 
-.chip-icon {
+.statutes-dept-badge {
+  font-family: var(--font-subtopic);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1e40af;
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border: 1px solid #bfdbfe;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.statutes-dept-badge.pg-badge {
+  color: #0369a1;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-color: #bae6fd;
+}
+
+.statutes-dept-badge.phd-badge {
+  color: #b45309;
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border-color: #fde68a;
+}
+
+.statutes-doc-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.statutes-doc-title {
+  font-family: var(--font-subtopic);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+  word-break: break-word;
+}
+
+.statutes-doc-item:hover .statutes-doc-title {
+  color: #2563eb;
+}
+
+.statutes-doc-sub {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
   color: #64748b;
-  transition: color 0.3s ease;
+  margin: 0;
 }
 
-.prog-chip:hover .chip-icon {
-  color: #fbbf24; /* gold accent on hover */
+.statutes-doc-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f9;
+  color: #2563eb;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
 }
 
-/* Animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.statutes-doc-item:hover .statutes-doc-action {
+  background: #2563eb;
+  color: #ffffff;
 }
 
-.fade-up {
-  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
+.pdf-icon {
+  font-size: 0.95rem;
+  color: #ef4444;
+  transition: color 0.2s ease;
 }
 
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
+.statutes-doc-item:hover .pdf-icon {
+  color: #ffffff;
+}
 
-/* Dark Mode Support */
+.action-arrow {
+  font-size: 0.78rem;
+  transition: transform 0.2s ease;
+}
+
+.statutes-doc-item:hover .action-arrow {
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   5. PROGRAMMES OFFERED CARDS & GRIDS
+   ========================================================= */
+.programmes-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.prog-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.prog-block-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.prog-level-tag {
+  font-family: var(--font-subtopic);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #dbeafe;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+.prog-level-tag.pg-tag {
+  background: #f0fdf4;
+  color: #16a34a;
+  border-color: #dcfce7;
+}
+
+.prog-block-title {
+  font-family: var(--font-subtopic);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.programmes-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.programme-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.programme-card:hover {
+  transform: translateY(-3px);
+  border-color: #2563eb;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.1);
+  background: #f8faff;
+}
+
+.prog-card-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(37, 99, 235, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.prog-card-icon-wrap.pg-icon-wrap {
+  background: rgba(14, 165, 233, 0.08);
+  color: #0284c7;
+}
+
+.programme-card:hover .prog-card-icon-wrap {
+  background: #2563eb;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.programme-card:hover .prog-card-icon-wrap.pg-icon-wrap {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.prog-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.prog-card-code {
+  font-family: var(--font-subtopic);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.prog-card-full {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prog-card-arrow {
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.programme-card:hover .prog-card-arrow {
+  color: #2563eb;
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   6. DARK MODE STYLES
+   ========================================================= */
 body.dark-mode .statutes-page-wrapper {
-  background-color: #0f172a;
-}
-
-body.dark-mode .statutes-portal-header {
-  background: #1e293b;
-  border-bottom: 1px solid #334155;
-}
-
-body.dark-mode .portal-icon-wrapper {
-  background: rgba(56, 189, 248, 0.1);
-}
-
-body.dark-mode .portal-icon {
-  color: #38bdf8;
-}
-
-body.dark-mode .portal-title {
+  background-color: #0a1128;
   color: #f1f5f9;
 }
 
-body.dark-mode .portal-divider {
-  background: linear-gradient(90deg, #38bdf8, #fbbf24);
-}
-
-body.dark-mode .portal-subtitle {
-  color: #94a3b8;
-}
-
-body.dark-mode .statutes-section-title {
-  color: #38bdf8;
-}
-
-body.dark-mode .statutes-section-title::after {
-  background: linear-gradient(90deg, #38bdf8, #fbbf24);
-}
-
-body.dark-mode .statutes-section-desc {
-  color: #94a3b8;
-}
-
-body.dark-mode .accordion-group {
-  background: #1e293b;
-  border-color: #334155;
-}
-
-body.dark-mode .accordion-group::before {
-  background: #38bdf8;
-}
-
-body.dark-mode .accordion-header {
-  background: #1e293b;
-}
-
-body.dark-mode .accordion-header:hover {
-  background: #0f172a;
-}
-
-body.dark-mode .accordion-number {
-  color: #334155;
-}
-
-body.dark-mode .accordion-group.open .accordion-number,
-body.dark-mode .accordion-header:hover .accordion-number {
-  color: #475569;
-}
-
-body.dark-mode .accordion-icon {
-  color: #94a3b8;
-}
-
-body.dark-mode .accordion-group.open .accordion-icon {
-  color: #38bdf8;
-}
-
-body.dark-mode .accordion-content {
-  background: #0f172a;
-  border-top-color: #334155;
-}
-
-body.dark-mode .document-row {
-  background: #1e293b;
-  border-color: #334155;
-}
-
-body.dark-mode .document-row::before {
-  background: #fbbf24;
-}
-
-body.dark-mode .document-row:hover {
-  border-color: rgba(56, 189, 248, 0.4);
-}
-
-body.dark-mode .doc-number {
-  color: #334155;
-}
-
-body.dark-mode .document-row:hover .doc-number {
-  color: #475569;
-}
-
-body.dark-mode .doc-title {
+body.dark-mode .statutes-hero-section {
+  background: linear-gradient(135deg, #0d152a 0%, #111a33 100%);
+  border-color: #1e294a;
   color: #f1f5f9;
 }
 
-body.dark-mode .document-row:hover .doc-title {
-  color: #38bdf8;
+body.dark-mode .statutes-hero-title {
+  color: #f8fafc;
 }
 
-body.dark-mode .doc-meta {
+body.dark-mode .statutes-hero-subtitle {
   color: #94a3b8;
 }
 
-body.dark-mode .doc-action {
-  color: #38bdf8;
+body.dark-mode .stat-pill {
+  background: #0d152a !important;
+  border-color: #1e294a !important;
+  color: #e2e8f0 !important;
 }
 
-body.dark-mode .doc-arrow {
-  color: #38bdf8;
+body.dark-mode .stat-label,
+body.dark-mode .stat-label-full {
+  color: #f1f5f9 !important;
+  -webkit-text-fill-color: #f1f5f9 !important;
 }
 
-body.dark-mode .document-row:hover .doc-arrow,
-body.dark-mode .document-row:hover .doc-action {
+body.dark-mode .stat-num {
+  color: #38bdf8 !important;
+  -webkit-text-fill-color: #38bdf8 !important;
+}
+
+body.dark-mode .stat-pill-icon {
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .statutes-portal-card {
+  background: #111a33;
+  border-color: #1e294a;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .statutes-card-header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode .statutes-card-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .statutes-card-desc {
+  color: #94a3b8;
+}
+
+body.dark-mode .statutes-accordion-card {
+  background: #111a33;
+  border-color: #1e294a;
+}
+
+body.dark-mode .statutes-accordion-card.open {
+  border-color: #2563eb;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .statutes-acc-btn {
+  background: #0d152a;
+}
+
+body.dark-mode .statutes-accordion-card.open .statutes-acc-btn {
+  background: #142247;
+  border-bottom-color: #1e3a68;
+}
+
+body.dark-mode .statutes-acc-btn:hover {
+  background: #142042;
+}
+
+body.dark-mode .statutes-acc-heading {
+  color: #f8fafc;
+}
+
+body.dark-mode .statutes-acc-subtext {
+  color: #94a3b8;
+}
+
+body.dark-mode .statutes-acc-index {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+body.dark-mode .statutes-count-badge {
+  background: rgba(37, 99, 235, 0.25);
+  color: #93c5fd;
+}
+
+body.dark-mode .statutes-acc-collapse {
+  background: #111a33;
+}
+
+body.dark-mode .statutes-doc-item {
+  background: #0d152a;
+  border-color: #1e294a;
+}
+
+body.dark-mode .statutes-doc-item:hover {
+  background: #132042;
+  border-color: #3b82f6;
+}
+
+body.dark-mode .statutes-dept-badge {
+  background: rgba(37, 99, 235, 0.2);
+  border-color: rgba(59, 130, 246, 0.35);
+  color: #93c5fd;
+}
+
+body.dark-mode .statutes-dept-badge.pg-badge {
+  background: rgba(2, 132, 199, 0.2);
+  border-color: rgba(14, 165, 233, 0.35);
   color: #7dd3fc;
 }
 
-body.dark-mode .programmes-container {
-  background: #1e293b;
-  border-color: #334155;
+body.dark-mode .statutes-dept-badge.phd-badge {
+  background: rgba(217, 119, 6, 0.2);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fcd34d;
 }
 
-body.dark-mode .group-title {
-  color: #38bdf8;
+body.dark-mode .statutes-doc-title {
+  color: #f8fafc;
 }
 
-body.dark-mode .group-divider {
-  background: #334155;
+body.dark-mode .statutes-doc-item:hover .statutes-doc-title {
+  color: #60a5fa;
 }
 
-body.dark-mode .prog-chip {
-  background: #0f172a;
-  border-color: #334155;
-  color: #e2e8f0;
-}
-
-body.dark-mode .prog-chip:hover {
-  background: #38bdf8;
-  border-color: #38bdf8;
-  color: #0f172a;
-}
-
-body.dark-mode .chip-icon {
+body.dark-mode .statutes-doc-sub {
   color: #94a3b8;
 }
 
-body.dark-mode .prog-chip:hover .chip-icon {
-  color: #0f172a;
+body.dark-mode .statutes-doc-action {
+  background: rgba(255, 255, 255, 0.05);
+  color: #60a5fa;
 }
 
-/* Responsive */
+body.dark-mode .statutes-doc-item:hover .statutes-doc-action {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+body.dark-mode .prog-block-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .prog-level-tag {
+  background: rgba(37, 99, 235, 0.2);
+  color: #93c5fd;
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+body.dark-mode .prog-level-tag.pg-tag {
+  background: rgba(22, 163, 74, 0.2);
+  color: #86efac;
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+body.dark-mode .programme-card {
+  background: #0d152a;
+  border-color: #1e294a;
+}
+
+body.dark-mode .programme-card:hover {
+  background: #142247;
+  border-color: #3b82f6;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .prog-card-code {
+  color: #f8fafc;
+}
+
+body.dark-mode .prog-card-full {
+  color: #94a3b8;
+}
+
+body.dark-mode .prog-card-icon-wrap {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+body.dark-mode .prog-card-icon-wrap.pg-icon-wrap {
+  background: rgba(14, 165, 233, 0.15);
+  color: #38bdf8;
+}
+
+/* =========================================================
+   7. TABLET RESPONSIVENESS (max-width: 992px)
+   ========================================================= */
+@media (max-width: 992px) {
+  .statutes-page-wrapper {
+    padding-top: 155px !important;
+    padding-bottom: 50px;
+  }
+
+  .statutes-hero-section {
+    padding: 38px 24px 32px;
+    margin-bottom: 24px;
+    border-radius: 18px;
+  }
+
+  .statutes-hero-title {
+    font-size: 2.15rem;
+  }
+
+  .statutes-portal-card {
+    padding: 28px 24px 32px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+  }
+
+  .programmes-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================================
+   8. MOBILE RESPONSIVENESS (max-width: 768px)
+   ========================================================= */
 @media (max-width: 768px) {
   .statutes-page-wrapper {
-    padding-top: 100px; /* Adjusted for mobile navbar height */
-  }
-  
-  .statutes-portal-header {
-    padding: 20px 15px 15px;
-    margin-bottom: 25px;
-  }
-  
-  .portal-icon-wrapper {
-    width: 45px;
-    height: 45px;
-    margin-bottom: 10px;
+    padding-top: 115px !important; /* Clears mobile navbar comfortably */
+    padding-bottom: 40px;
   }
 
-  .portal-icon {
-    font-size: 1.3rem;
+  .statutes-content-container {
+    padding: 0 12px;
   }
 
-  .portal-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .portal-subtitle {
-    font-size: 0.95rem;
+  .statutes-hero-section {
+    padding: 28px 12px 24px;
+    margin-bottom: 20px;
+    border-radius: 16px;
   }
 
-  .statutes-section-title {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-  }
-  
-  .statutes-section-title::after {
-    height: 4px;
-    width: 50px;
-  }
-  
-  .statutes-section-header:hover .statutes-section-title::after {
-    width: 80px;
+  .statutes-badge-pill {
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    margin-bottom: 12px;
   }
 
-  .portal-section {
-    margin-bottom: 35px;
+  .statutes-hero-title {
+    font-size: 1.65rem;
+    gap: 2px;
   }
 
-  .document-row {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-    gap: 15px;
+  .statutes-hero-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 18px;
   }
-  
-  .doc-left {
+
+  /* 🔥 3 Cards Side-by-Side in Mobile View 🔥 */
+  .statutes-quick-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .stat-pill {
+    padding: 12px 6px !important;
+    gap: 6px !important;
+    border-radius: 12px !important;
+  }
+
+  .stat-pill-icon {
+    font-size: 1.15rem !important;
+  }
+
+  .stat-num {
+    font-size: 1rem !important;
+  }
+
+  .stat-label,
+  .stat-label-full {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+  }
+
+  .statutes-portal-card {
+    padding: 20px 14px 24px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+  }
+
+  .statutes-card-header {
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+  }
+
+  .statutes-card-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .statutes-card-icon {
+    font-size: 1.05rem;
+  }
+
+  .statutes-card-title {
+    font-size: 1.15rem;
+  }
+
+  .statutes-card-desc {
+    font-size: 0.78rem;
+  }
+
+  /* Accordion Header */
+  .statutes-acc-btn {
+    padding: 14px 14px;
+    gap: 10px;
+  }
+
+  .statutes-acc-btn-left {
     gap: 12px;
   }
-  
-  .doc-number {
-    font-size: 1.8rem;
+
+  .statutes-acc-index {
+    width: 32px;
+    height: 32px;
+    font-size: 0.95rem;
+    border-radius: 8px;
   }
-  
-  .doc-right {
-    align-self: flex-end;
+
+  .statutes-acc-heading {
+    font-size: 0.98rem;
   }
-  
-  .programmes-container {
-    padding: 20px;
-    gap: 25px;
+
+  .statutes-acc-subtext {
+    font-size: 0.75rem;
   }
-  
-  .chip-grid {
-    gap: 8px;
+
+  .statutes-count-badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
   }
-  
-  .prog-chip {
-    padding: 8px 14px;
-    font-size: 0.85rem;
+
+  .statutes-acc-collapse.show {
+    padding: 14px 12px 18px;
+  }
+
+  /* Document Items on Mobile */
+  .statutes-doc-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px 14px;
+  }
+
+  .statutes-doc-left {
+    gap: 12px;
+  }
+
+  .statutes-dept-badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+
+  .statutes-doc-title {
+    font-size: 0.92rem;
+  }
+
+  .statutes-doc-sub {
+    font-size: 0.75rem;
+  }
+
+  .statutes-doc-action {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* Programmes Grid on Mobile */
+  .programmes-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .programme-card {
+    padding: 12px 14px;
+  }
+
+  .prog-card-code {
+    font-size: 0.9rem;
+  }
+
+  .prog-card-full {
+    font-size: 0.75rem;
   }
 }
 
+/* =========================================================
+   9. SMALL MOBILE RESPONSIVENESS (max-width: 480px)
+   ========================================================= */
+@media (max-width: 480px) {
+  .statutes-page-wrapper {
+    padding-top: 105px !important;
+  }
+
+  .statutes-hero-title {
+    font-size: 1.45rem;
+  }
+
+  .stat-pill {
+    padding: 10px 4px !important;
+  }
+
+  .stat-label,
+  .stat-label-full {
+    font-size: 0.65rem !important;
+  }
+
+  .statutes-acc-btn-right {
+    gap: 8px;
+  }
+
+  .statutes-count-badge {
+    display: none;
+  }
+}

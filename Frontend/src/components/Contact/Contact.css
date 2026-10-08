@@ -353,8 +353,13 @@
   border-radius: 12px;
   font-size: 13px;
   font-weight: 800;
+  font-family: var(--font-body, inherit);
   text-decoration: none;
   transition: all 0.3s ease;
+}
+
+.action-pill.full-span {
+  grid-column: 1 / -1;
 }
 
 .call-pill {

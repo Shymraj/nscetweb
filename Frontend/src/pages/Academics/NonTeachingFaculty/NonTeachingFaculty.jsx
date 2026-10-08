@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaCogs, 
@@ -7,11 +7,15 @@ import {
   FaBolt, 
   FaLaptopCode, 
   FaBrain, 
-  FaEnvelope, 
-  FaPhoneAlt, 
-  FaSearch,
   FaUserCog,
-  FaThList
+  FaThList,
+  FaTools,
+  FaShieldAlt,
+  FaNetworkWired,
+  FaCheckCircle,
+  FaUsers,
+  FaUniversity,
+  FaIdCardAlt
 } from 'react-icons/fa';
 import './NonTeachingFaculty.css';
 
@@ -60,8 +64,21 @@ const deptIcons = {
   "AI & DS": <FaBrain />
 };
 
+const deptShortCodes = {
+  "Mechanical": "ME",
+  "Civil": "CE",
+  "ECE": "EC",
+  "EEE": "EE",
+  "CSE": "CS",
+  "AI & DS": "AD"
+};
+
 const NonTeachingFaculty = () => {
   const [activeDept, setActiveDept] = useState("All");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Flatten staff list for "All" view or filter by active department
   const allStaff = Object.entries(departmentData).flatMap(([deptKey, staffList]) => 
@@ -72,110 +89,198 @@ const NonTeachingFaculty = () => {
     return activeDept === "All" || staff.deptKey === activeDept;
   });
 
-  const totalStaffCount = allStaff.length;
-
   return (
     <div className="non-teaching-page">
       <div className="ntf-container">
         
-        {/* R&D CELL STYLE HEADER SHOWCASE */}
-        <motion.div 
-          className="ntf-header-section"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="ntf-badge">Technical & Administrative Support</span>
-          <h1 className="ntf-title">Non-Teaching Faculty Directory</h1>
-          <p className="ntf-lead">
-            Meet the dedicated technical assistants, workshop instructors, and system administrators who maintain our laboratories, manage workshops, and ensure smooth academic operations across NSCET.
-          </p>
-        </motion.div>
-
-        {/* EXECUTIVE SUMMARY PLAIN */}
-        <motion.div 
-          className="ntf-exec-plain"
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <div className="ntf-exec-plain-grid">
-            <div className="ntf-exec-plain-left">
-              <h3 className="ntf-exec-plain-heading">Technical Backbone of Practical Education</h3>
-              <p className="ntf-exec-plain-desc">
-                Our non-teaching technical staff play a vital role in providing hands-on laboratory experiences, maintaining advanced testing equipment, ensuring workshop safety compliance, and assisting students during practical sessions.
-              </p>
+        {/* 1. HERO HEADER CARD */}
+        <section className="ntf-hero-card">
+          <div className="ntf-hero-glow"></div>
+          <div className="ntf-hero-inner">
+            <div className="ntf-badge-pill">
+              <FaUserCog className="ntf-badge-icon" />
+              <span>Technical & Administrative Support</span>
             </div>
-            <div className="ntf-exec-plain-right">
-              <div className="ntf-principal-strip">
-                <div className="ntf-principal-info">
-                  <h4>Technical Operations</h4>
-                  <p className="p-deg">NSCET Campus</p>
-                  <p className="p-role">Vadapudupatti, Theni</p>
+
+            <h1 className="ntf-title">
+              NON-TEACHING FACULTY
+              <span className="ntf-title-highlight">DIRECTORY</span>
+            </h1>
+
+            <div className="ntf-hero-divider"></div>
+
+            <p className="ntf-lead">
+              Meet the dedicated technical assistants, workshop instructors, and system administrators who maintain our laboratories, manage workshops, and ensure smooth academic operations across NSCET.
+            </p>
+
+            {/* Quick Stats Grid */}
+            <div className="ntf-stats-grid">
+              <div className="ntf-stat-card">
+                <div className="stat-card-icon-box">
+                  <FaUsers className="stat-card-icon" />
+                </div>
+                <div className="stat-card-info">
+                  <span className="stat-card-number">20</span>
+                  <span className="stat-card-label">Technical Staff</span>
+                </div>
+              </div>
+
+              <div className="ntf-stat-card">
+                <div className="stat-card-icon-box">
+                  <FaUniversity className="stat-card-icon" />
+                </div>
+                <div className="stat-card-info">
+                  <span className="stat-card-number">6</span>
+                  <span className="stat-card-label">Departments</span>
+                </div>
+              </div>
+
+              <div className="ntf-stat-card">
+                <div className="stat-card-icon-box">
+                  <FaTools className="stat-card-icon" />
+                </div>
+                <div className="stat-card-info">
+                  <span className="stat-card-number">100%</span>
+                  <span className="stat-card-label">Lab Uptime</span>
+                </div>
+              </div>
+
+              <div className="ntf-stat-card">
+                <div className="stat-card-icon-box">
+                  <FaCheckCircle className="stat-card-icon check" />
+                </div>
+                <div className="stat-card-info">
+                  <span className="stat-card-number">Active</span>
+                  <span className="stat-card-label">Hands-on Support</span>
                 </div>
               </div>
             </div>
           </div>
-        </motion.div>
+        </section>
 
-        {/* INTERACTIVE CONTROLS: SEARCH & DEPARTMENT TABS */}
-        <div className="ntf-controls-wrapper">
+        {/* 2. EXECUTIVE OVERVIEW CARD */}
+        <section className="ntf-overview-card">
+          <div className="ntf-overview-grid">
+            <div className="ntf-overview-left">
+              <span className="ntf-section-tag">Role & Responsibilities</span>
+              <h2 className="ntf-overview-heading">Technical Backbone of Practical Education</h2>
+              <p className="ntf-overview-desc">
+                Our non-teaching technical staff play a vital role in providing hands-on laboratory experiences, maintaining advanced testing equipment, ensuring workshop safety compliance, and assisting students during practical sessions.
+              </p>
 
-
-          {/* DEPARTMENT TABS */}
-          <div className="ntf-tabs-row">
-            {["All", ...Object.keys(departmentData)].map((dept) => (
-              <button
-                key={dept}
-                className={`ntf-tab-chip ${activeDept === dept ? 'active' : ''}`}
-                onClick={() => setActiveDept(dept)}
-              >
-                <span className="tab-icon">{deptIcons[dept]}</span>
-                <span className="tab-name">{dept === "All" ? "All Departments" : dept}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* STAFF CARDS GRID */}
-        <motion.div 
-          className="ntf-staff-grid"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.05 } }
-          }}
-        >
-          {filteredStaff.length > 0 ? (
-            filteredStaff.map((staff, index) => (
-              <motion.div 
-                key={`${staff.name}-${index}`} 
-                className="ntf-staff-card"
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                whileHover={{ y: -6, boxShadow: "0 15px 35px rgba(2, 132, 199, 0.12)" }}
-              >
-                {/* Staff Details */}
-                <div className="ntf-staff-details">
-                  <h3 className="ntf-staff-name"><span className="ntf-bullet">•</span> {staff.name}</h3>
-                  <div className="ntf-meta-row">
-                    <span className="ntf-pos-chip">{staff.position}</span>
-                    <span className="ntf-dept-tag">{staff.dept}</span>
-                  </div>
+              <div className="ntf-pillars-list">
+                <div className="ntf-pillar-item">
+                  <FaShieldAlt className="pillar-icon" />
+                  <span>Lab Safety & Calibration</span>
                 </div>
-              </motion.div>
-            ))
-          ) : (
-            <div className="ntf-no-results">
-              <FaUserCog className="no-res-icon" />
-              <h3>No matching staff records found</h3>
-              <p>Try clearing your search or selecting a different department tab.</p>
+                <div className="ntf-pillar-item">
+                  <FaTools className="pillar-icon" />
+                  <span>Workshop Tooling Support</span>
+                </div>
+                <div className="ntf-pillar-item">
+                  <FaNetworkWired className="pillar-icon" />
+                  <span>System Administration</span>
+                </div>
+              </div>
             </div>
-          )}
-        </motion.div>
+
+            <div className="ntf-overview-right">
+              <div className="ntf-location-box">
+                <div className="location-icon-box">
+                  <FaUniversity className="location-icon" />
+                </div>
+                <div className="location-text">
+                  <h3>Technical Operations</h3>
+                  <p className="loc-sub">Central Laboratories & Workshops</p>
+                  <span className="loc-campus">NSCET Campus, Theni</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. DIRECTORY & STAFF GRID CARD */}
+        <section className="ntf-directory-card">
+          <div className="ntf-dir-header">
+            <div className="ntf-dir-icon-box">
+              <FaIdCardAlt className="ntf-dir-icon" />
+            </div>
+            <div className="ntf-dir-header-text">
+              <h2 className="ntf-dir-title">STAFF DIRECTORY</h2>
+              <p className="ntf-dir-desc">Select a department to filter laboratory and technical staff members</p>
+            </div>
+          </div>
+
+          {/* Department Filter Tabs */}
+          <div className="ntf-tabs-wrapper">
+            <div className="ntf-tabs-row">
+              {["All", ...Object.keys(departmentData)].map((dept) => {
+                const count = dept === "All" ? allStaff.length : departmentData[dept]?.length;
+                return (
+                  <button
+                    key={dept}
+                    type="button"
+                    className={`ntf-tab-chip ${activeDept === dept ? 'active' : ''}`}
+                    onClick={() => setActiveDept(dept)}
+                  >
+                    <span className="tab-icon">{deptIcons[dept]}</span>
+                    <span className="tab-name">{dept === "All" ? "All Departments" : dept}</span>
+                    <span className="tab-count">{count}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Staff Cards Grid */}
+          <motion.div 
+            className="ntf-staff-grid"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.04 } }
+            }}
+          >
+            {filteredStaff.length > 0 ? (
+              filteredStaff.map((staff, index) => {
+                const shortCode = deptShortCodes[staff.dept] || "TS";
+                return (
+                  <motion.div 
+                    key={`${staff.name}-${index}`} 
+                    className="ntf-staff-card"
+                    variants={{
+                      hidden: { opacity: 0, y: 15 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                  >
+                    {/* Staff Avatar Initials Badge */}
+                    <div className="ntf-avatar-circle">
+                      <span>{shortCode}</span>
+                    </div>
+
+                    {/* Staff Details */}
+                    <div className="ntf-staff-details">
+                      <h3 className="ntf-staff-name">{staff.name}</h3>
+                      <div className="ntf-meta-row">
+                        <span className={`ntf-pos-chip ${staff.position === "System Admin" ? 'admin' : staff.position === "Workshop Instructor" ? 'instructor' : ''}`}>
+                          {staff.position}
+                        </span>
+                        <span className="ntf-dept-tag">{staff.dept}</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })
+            ) : (
+              <div className="ntf-no-results">
+                <FaUserCog className="no-res-icon" />
+                <h3>No matching staff records found</h3>
+                <p>Try selecting a different department tab.</p>
+              </div>
+            )}
+          </motion.div>
+        </section>
 
       </div>
     </div>
@@ -183,3 +288,4 @@ const NonTeachingFaculty = () => {
 };
 
 export default NonTeachingFaculty;
+

@@ -1,9 +1,7 @@
 
 import React from 'react';
 import './AcademicCalendar.css';
-import calendarIcon from './banner/calendar-icon.svg';
-import PageBanner from '../../../components/common/PageBanner/PageBanner';
-import { FaCalendarAlt, FaDownload, FaInfoCircle, FaStar, FaGift, FaClock, FaEye } from 'react-icons/fa';
+import { FaInfoCircle, FaClock, FaEye, FaCalendarAlt } from 'react-icons/fa';
 
 import cal1 from './images/REVISED Academic Calendar 2025-26.pdf';
 import cal2 from './images/Academic Calendar 2024 -25.pdf';
@@ -49,17 +47,17 @@ const holidays = [
 
 const AcademicCalendar = () => {
   return (
-    <div className="academic-calendar-page">
-      <PageBanner
-        className="academic-calendar-banner"
-        title=""
-        subtitle=""
-        hideBreadcrumb={true}
-        showOverlay={false}
-        showText={false}
-        {...(heroImage ? { backgroundImage: heroImage } : {})}
-        height="auto"
-      />
+    <div className="common-page-wrapper academic-calendar-page">
+      {/* Responsive Banner */}
+      <div className="common-hero-banner">
+        {heroImage && (
+          <img 
+            src={heroImage} 
+            alt="Academic Calendar Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       <div className="academic-calendar-content">
         {/* About Section */}

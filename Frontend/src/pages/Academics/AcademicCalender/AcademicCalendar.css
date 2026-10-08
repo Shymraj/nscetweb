@@ -18,31 +18,43 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* =========================================
-   PAGE BANNER
-   ========================================= */
-.academic-calendar-banner {
-  width: 100%;
-  position: relative;
+/* ==========================================================
+   🔥 BANNER & CONTAINER CONTINUOUS SEAMLESS FIX 🔥
+   ========================================================== */
+.common-hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
-@media (max-width: 767px) {
-  .page-banner.academic-calendar-banner {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+.academic-calendar-page .common-hero-banner {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+  margin-top: 35px !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  width: 100%;
+}
+
+.academic-calendar-page .common-hero-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .academic-calendar-page .common-hero-banner {
+    margin-top: 25px !important;
     width: 100% !important;
     height: auto !important;
-    aspect-ratio: 8 / 3;
-    min-height: 0 !important;
-    max-height: none !important;
-    margin: 38px 0 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
+    display: block !important;
   }
 
-  .page-banner.academic-calendar-banner .page-banner-main-img {
-    object-fit: contain !important;
+  .academic-calendar-page .common-hero-banner img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
   }
 }
 
