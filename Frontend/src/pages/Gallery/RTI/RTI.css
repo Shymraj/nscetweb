@@ -101,33 +101,80 @@ body.dark-mode .rti-bg-blob {
   gap: 3rem;
 }
 
-/* SECTION 1 */
-.rti-header-section {
-  text-align: center;
-  max-width: 800px;
+/* SECTION 1: Header Card */
+.rti-header-card {
+  position: relative;
+  background: var(--rti-frame-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--rti-frame-border);
+  border-radius: 20px;
+  padding: 2.2rem 2.5rem;
+  box-shadow: 0 10px 30px var(--rti-shadow);
+  max-width: 850px;
+  width: 100%;
   margin: 0 auto;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.rti-header-card:hover {
+  box-shadow: 0 16px 40px var(--rti-shadow-hover);
+  border-color: rgba(2, 132, 199, 0.3);
+}
+
+.rti-header-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.25);
+  margin-bottom: 0.2rem;
+}
+
+.rti-header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .rti-main-title {
   font-family: var(--font-heading);
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--rti-heading);
   letter-spacing: -0.5px;
-  margin-bottom: 0.8rem;
+  margin: 0 0 0.4rem 0;
   line-height: 1.25;
   transition: color 0.3s ease;
 }
 
+.rti-title-line {
+  height: 3px;
+  width: 50px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  border-radius: 2px;
+  margin-bottom: 0.8rem;
+}
+
 .rti-subtitle {
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   color: var(--rti-subtitle);
-  line-height: 1.7;
-  max-width: 700px;
+  line-height: 1.65;
+  max-width: 680px;
   margin: 0 auto;
   transition: color 0.3s ease;
 }
@@ -314,18 +361,40 @@ body.dark-mode .certificate-image-wrapper {
   }
 
   .rti-content-wrapper {
-    gap: 1.8rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .rti-header-card {
+    padding: 1.4rem 1.15rem !important;
+    border-radius: 16px !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .rti-header-icon-wrap {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.2rem !important;
+    border-radius: 12px !important;
+    margin-bottom: 0 !important;
   }
 
   .rti-main-title {
-    font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
-    margin-bottom: 0.4rem !important;
+    font-size: clamp(1.25rem, 5.2vw, 1.6rem) !important;
+    margin: 0 0 0.35rem 0 !important;
     line-height: 1.25 !important;
   }
 
+  .rti-title-line {
+    height: 3px !important;
+    width: 40px !important;
+    margin-bottom: 0.6rem !important;
+  }
+
   .rti-subtitle {
-    font-size: 0.92rem !important;
-    line-height: 1.65 !important;
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
     text-align: center !important;
   }
 

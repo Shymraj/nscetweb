@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaTimes } from 'react-icons/fa';
+import { FaTimes, FaShieldAlt } from 'react-icons/fa';
 import './RTI.css';
 import RTICertificate from './assets/certificate/RTI.jpg';
 
@@ -42,18 +42,24 @@ const RTI = () => {
         <div className="rti-bg-blob blob-3"></div>
 
         <div className="rti-content-wrapper">
-          {/* SECTION 1: Heading */}
+          {/* SECTION 1: Heading Card */}
           <motion.div 
-            className="rti-header-section"
+            className="rti-header-card"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h1 className="rti-main-title">RIGHT TO INFORMATION ACT</h1>
-            <p className="rti-subtitle">
-              Ensuring transparency and accountability in administration. 
-              View our official RTI compliance certificate below.
-            </p>
+            <div className="rti-header-icon-wrap">
+              <FaShieldAlt />
+            </div>
+            <div className="rti-header-text">
+              <h1 className="rti-main-title">RIGHT TO INFORMATION ACT</h1>
+              <div className="rti-title-line"></div>
+              <p className="rti-subtitle">
+                Ensuring transparency and accountability in administration. 
+                View our official RTI compliance certificate below.
+              </p>
+            </div>
           </motion.div>
 
           {/* SECTION 2: Premium Certificate Showcase */}

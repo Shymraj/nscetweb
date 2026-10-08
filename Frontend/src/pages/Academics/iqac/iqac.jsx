@@ -118,12 +118,12 @@ const getInitials = (name) => {
 
 const IQAC = () => {
   return (
-    <div className="iqac-page">
+    <div className="common-page-wrapper iqac-page">
       <div className="iqac-container">
 
-        {/* R&D CELL STYLE HEADER SHOWCASE */}
+        {/* HEADER HERO CARD */}
         <motion.div 
-          className="iqac-header-section"
+          className="iqac-hero-card"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -135,40 +135,40 @@ const IQAC = () => {
           </p>
         </motion.div>
 
-        {/* EXECUTIVE SUMMARY PLAIN */}
+        {/* EXECUTIVE OVERVIEW CARD (WITHOUT COLOR LINE) */}
         <motion.div 
-          className="iqac-exec-plain"
-          initial={{ opacity: 0, scale: 0.96 }}
+          className="iqac-overview-card"
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <div className="iqac-exec-plain-grid">
-            <div className="iqac-exec-plain-left">
-              <h3 className="iqac-exec-plain-heading">Catalytic Institutional Enhancement</h3>
-              <p className="iqac-exec-plain-desc">
+          <div className="iqac-overview-grid">
+            <div className="iqac-overview-left">
+              <h2 className="iqac-overview-heading">Catalytic Institutional Enhancement</h2>
+              <p className="iqac-overview-desc">
                 The primary objective of IQAC is to promote measures for institutional functioning towards quality enhancement through internalization of quality culture and institutionalization of best academic practices.
               </p>
             </div>
-            <div className="iqac-exec-plain-right">
-              <div className="iqac-principal-strip">
-                <div className="iqac-principal-avatar">
+            <div className="iqac-overview-right">
+              {/* Coordinator 1 */}
+              <div className="iqac-person-card">
+                <div className="iqac-person-avatar">
                   <img src={udhayakumarImg} alt="Mr. R. Udhaya Kumar" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', borderRadius: '50%' }} />
                 </div>
-                <div className="iqac-principal-info">
+                <div className="iqac-person-info">
                   <h4>Mr. R. Udhaya Kumar</h4>
                   <p className="p-deg">Assistant Professor M.E (CSE), MBA (ITM), (Ph.D)</p>
                 </div>
               </div>
 
-              {/* Box 2 - IQAC Coordinator */}
-              <div className="iqac-principal-strip iqac-coordinator-strip">
-                <div className="iqac-principal-avatar iqac-coordinator-avatar">
+              {/* Coordinator 2 */}
+              <div className="iqac-person-card">
+                <div className="iqac-person-avatar">
                   <img src={davidmathanImg} alt="Dr. N. David Mathan" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', borderRadius: '50%' }} />
                 </div>
-                <div className="iqac-principal-info">
+                <div className="iqac-person-info">
                   <h4>Dr. N. David Mathan</h4>
                   <p className="p-deg">Professor M.Sc., Ph.D.</p>
-                  <p className="p-role"></p>
                 </div>
               </div>
             </div>

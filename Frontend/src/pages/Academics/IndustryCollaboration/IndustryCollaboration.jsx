@@ -70,14 +70,14 @@ const previousMous = [
 
 function IndustryCollaboration() {
   return (
-    <div className="ic-page">
-      {/* Hero Section */}
-      <PageBanner
-        title="Industry Collaboration"
-        subtitle="Bridging the gap between academia and industry through strategic MOUs, internships, and dynamic partnerships."
-        hideBreadcrumb={true}
-        backgroundImage={bannerImg}
-      />
+    <div className="common-page-wrapper ic-page">
+      {/* Responsive Hero Banner */}
+      <div className="common-hero-banner">
+        <img 
+          src={bannerImg} 
+          alt="Industry Collaboration Banner" 
+        />
+      </div>
 
       {/* Introduction Section */}
       <section className="ic-intro-section ic-fade-in delay-1">

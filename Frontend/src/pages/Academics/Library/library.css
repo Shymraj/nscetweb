@@ -1,73 +1,211 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-/* MODEL 1 - MODERN LANDING PAGE CSS (ROYAL BLUE FIXED VERSION) */
+/* ==========================================================
+   CENTRAL LIBRARY - PAGE STYLING & RESPONSIVE DESIGN SYSTEM
+   ========================================================== */
 
 :root {
-  --m1-bg-main: #f8fafc; 
-  --m1-white: #ffffff;
-  --m1-text-dark: #0f172a;
-  --m1-text-muted: #334155;
-  --m1-accent: #004aad; /* Bright Royal Blue for a fresh look */
-  --m1-border: #cbd5e1;
+  --lib-bg-main: #f8fafc;
+  --lib-card-bg: #ffffff;
+  --lib-text-dark: #0f172a;
+  --lib-text-muted: #475569;
+  --lib-accent: #0284c7;
+  --lib-accent-hover: #0369a1;
+  --lib-border: #e2e8f0;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
+.library-page,
+.common-page-wrapper.library-page,
 .model1-landing-wrapper {
-  background-color: var(--m1-bg-main);
+  background-color: var(--lib-bg-main);
   min-height: 100vh;
-  color: var(--m1-text-dark);
-  padding-top: 0; 
+  color: var(--lib-text-dark);
+  padding-top: 0 !important; /* Raised banner up so SPACE FOR NAVBAR is hidden behind navbar on desktop */
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif; /* Font style applied here */
+  font-family: var(--font-body);
 }
 
+.library-page *,
 .model1-landing-wrapper * {
   box-sizing: border-box;
+}
+
+/* --- Hero Banner --- */
+.library-hero-banner {
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.library-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: bottom;
 }
 
 /* --- Main Container --- */
 .m1-main-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3.5rem 2rem 6rem;
+  padding: 2.25rem 2rem 6rem;
+  box-sizing: border-box;
 }
 
 .m1-section {
-  margin-bottom: 4.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .section-title-wrap {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.25rem;
 }
 
 .section-subtitle-badge {
+  font-family: var(--font-subtopic);
   font-size: 0.85rem;
-  font-weight: 800;
-  color: #475569;
+  font-weight: 700;
+  color: var(--lib-accent);
   letter-spacing: 2px;
   text-transform: uppercase;
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .m1-section-title {
   text-align: center;
-  font-size: 2.3rem;
-  font-weight: 800;
-  color: #0f172a !important;
+  font-family: var(--font-section);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--lib-text-dark);
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 0.75rem;
+  line-height: 1.3;
 }
 
-/* --- About Section Cards --- */
+/* =========================================
+   1. TOP HIGHLIGHT SECTION (CHIEF LIBRARIAN & WORKING HOURS)
+   ========================================= */
+.m1-top-info {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.m1-info-card {
+  background: var(--lib-card-bg);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--lib-border);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.m1-info-title {
+  font-family: var(--font-section);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--lib-text-dark);
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.m1-info-title svg {
+  color: var(--lib-accent);
+}
+
+/* Chief Librarian */
+.m1-lib-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.m1-lib-img {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0f2fe;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+  flex-shrink: 0;
+}
+
+.m1-lib-details h4 {
+  font-family: var(--font-subtopic);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--lib-text-dark);
+  margin: 0 0 0.2rem 0;
+}
+
+.m1-lib-details span {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--lib-accent);
+  font-weight: 600;
+}
+
+.m1-lib-quote {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--lib-text-muted);
+  line-height: 1.7;
+  margin: 0;
+  background: #f8fafc;
+  padding: 1.1rem;
+  border-radius: 12px;
+  border-left: 3px solid var(--lib-accent);
+  font-size: 0.92rem;
+  font-weight: 400;
+}
+
+/* Working Hours */
+.m1-time-row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.9rem;
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+}
+
+.m1-time-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.m1-time-day {
+  color: var(--lib-text-muted);
+  font-weight: 500;
+}
+
+.m1-time-hours {
+  font-weight: 700;
+  color: var(--lib-text-dark);
+}
+
+.m1-closed {
+  color: #ef4444 !important;
+}
+
+/* =========================================
+   2. ABOUT SECTION DUAL CARDS
+   ========================================= */
 .m1-about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -75,151 +213,130 @@ body {
 }
 
 .m1-about-card {
-  background: #ffffff !important;
+  background: var(--lib-card-bg);
   padding: 2.5rem;
-  border-radius: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
-  border: 1px solid #cbd5e1 !important;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--lib-border);
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .m1-about-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 74, 173, 0.15) !important;
-  border-color: var(--m1-accent) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.1);
+  border-color: rgba(2, 132, 199, 0.3);
 }
 
 .about-card-header {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.25rem;
 }
 
 .about-icon-bg {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
-  background: rgba(0, 74, 173, 0.12); /* Light Royal Blue bg */
-  color: var(--m1-accent);
+  border-radius: 12px;
+  background: rgba(2, 132, 199, 0.1);
+  color: var(--lib-accent);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   flex-shrink: 0;
 }
 
 .about-icon-bg.teal {
-  background: rgba(0, 74, 173, 0.12);
-  color: var(--m1-accent);
+  background: rgba(2, 132, 199, 0.1);
+  color: var(--lib-accent);
 }
 
 .m1-about-title {
-  color: var(--m1-accent) !important;
-  font-size: 1.45rem;
-  font-weight: 800;
+  font-family: var(--font-section);
+  color: var(--lib-text-dark);
+  font-size: 1.4rem;
+  font-weight: 700;
   margin: 0;
 }
 
 .m1-about-text {
-  color: #334155 !important; /* Readable dark grey for paragraph */
-  line-height: 1.8;
-  font-size: 1.03rem;
+  font-family: var(--font-body);
+  color: var(--lib-text-muted);
+  line-height: 1.75;
+  font-size: 1rem;
   margin: 0;
-  font-weight: 500;
+  font-weight: 400;
 }
 
-/* --- Collections Spotlight Grid --- */
+/* =========================================
+   3. STATS & COLLECTIONS GRID (3 STAT CARDS)
+   ========================================= */
 .m1-stats-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 .m1-stat-card {
-  width: 280px;
-  background-color: #cbd5e1;
+  background: var(--lib-card-bg);
   border-radius: 20px;
-  padding: 2px;
-  position: relative;
-  cursor: default;
+  border: 1px solid var(--lib-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.m1-stat-card * {
-  cursor: default !important;
-}
-
-.m1-stat-card::before {
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-    rgba(0, 74, 173, 0.8), 
-    transparent 40%
-  );
-  border-radius: inherit;
-  content: "";
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  transition: opacity 500ms;
-  width: 100%;
-  z-index: 1;
+  box-sizing: border-box;
 }
 
 .m1-stat-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 74, 173, 0.25);
-}
-
-.m1-stat-card:hover::before {
-  opacity: 1;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.12);
+  border-color: rgba(2, 132, 199, 0.35);
 }
 
 .m1-stat-card-inner {
-  background: #ffffff !important;
-  border-radius: 18px;
-  height: 100%;
-  width: 100%;
-  padding: 2rem 1.2rem;
+  padding: 2.25rem 1.5rem;
   text-align: center;
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #e2e8f0;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .stat-card-icon {
-  font-size: 1.6rem;
-  color: var(--m1-accent);
-  margin-bottom: 0.8rem;
+  font-size: 1.75rem;
+  color: var(--lib-accent);
+  margin-bottom: 0.75rem;
 }
 
 .m1-stat-num {
   display: block;
-  font-size: 1.85rem;
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
   font-weight: 800;
-  color: #0f172a !important;
-  margin-bottom: 0.4rem;
+  color: var(--lib-text-dark);
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
 }
 
 .m1-stat-label {
+  display: block;
+  font-family: var(--font-subtopic);
   font-size: 0.85rem;
-  color: var(--m1-accent) !important;
+  color: var(--lib-accent);
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
 }
 
-/* --- Explore Library Tabs --- */
+/* =========================================
+   4. EXPLORE LIBRARY TABS (OBJECTIVES/FACILITIES/RULES)
+   ========================================= */
 .m1-tabs-wrapper {
   max-width: 950px;
   margin: 0 auto;
@@ -228,7 +345,7 @@ body {
 .m1-tabs-nav {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.85rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
@@ -236,48 +353,41 @@ body {
 .ntf-tab-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.8rem 1.8rem;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
   border-radius: 999px;
-  border: 1px solid #cbd5e1;
-  background: #ffffff;
-  color: #334155;
+  border: 1px solid var(--lib-border);
+  background: var(--lib-card-bg);
+  color: var(--lib-text-muted);
+  font-family: var(--font-subtopic);
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
   flex-shrink: 0;
 }
 
-.ntf-tab-chip .tab-icon {
-  color: var(--m1-accent);
-  font-size: 1.1rem;
-}
-
 .ntf-tab-chip:hover {
-  border-color: var(--m1-accent);
-  color: var(--m1-accent);
+  border-color: var(--lib-accent);
+  color: var(--lib-accent);
   transform: translateY(-2px);
 }
 
 .ntf-tab-chip.active {
-  background: linear-gradient(135deg, var(--m1-accent) 0%, #002e70 100%) !important;
+  background: linear-gradient(135deg, var(--lib-accent) 0%, var(--lib-accent-hover) 100%) !important;
   color: #ffffff !important;
   border-color: transparent !important;
-  box-shadow: 0 8px 20px rgba(0, 74, 173, 0.35) !important;
-}
-
-.ntf-tab-chip.active .tab-icon {
-  color: #ffffff !important;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.3) !important;
 }
 
 .m1-tab-content-card {
-  background: #ffffff !important;
-  padding: 3rem;
-  border-radius: 24px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04) !important;
-  border: 1px solid #cbd5e1 !important;
+  background: var(--lib-card-bg);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--lib-border);
+  box-sizing: border-box;
 }
 
 .m1-tab-text ul {
@@ -289,13 +399,14 @@ body {
 .m1-tab-text li {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1.2rem;
-  color: #0f172a !important;
+  gap: 0.85rem;
+  margin-bottom: 1.1rem;
+  color: var(--lib-text-dark);
   line-height: 1.7;
-  font-size: 1.05rem;
-  font-weight: 500;
-  transition: transform 0.25s ease;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: var(--font-body);
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .m1-tab-text li:last-child {
@@ -303,11 +414,13 @@ body {
 }
 
 .m1-tab-text li:hover {
-  transform: translateX(6px);
-  color: var(--m1-accent) !important;
+  transform: translateX(4px);
+  color: var(--lib-accent);
 }
 
-/* --- Gallery Grid --- */
+/* =========================================
+   5. GALLERY GRID
+   ========================================= */
 .m1-gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -317,200 +430,322 @@ body {
 .m1-gallery-item-wrapper {
   position: relative;
   overflow: hidden;
-  border-radius: 18px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
   cursor: default;
-  height: 280px; 
-  background-color: #ffffff;
-  border: 1px solid #cbd5e1;
+  height: 250px;
+  background-color: var(--lib-card-bg);
+  border: 1px solid var(--lib-border);
 }
 
 .m1-gallery-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
 .m1-gallery-item-wrapper:hover .m1-gallery-img {
-  transform: scale(1.08);
-}
-
-/* --- Bottom Info Cards --- */
-.m1-bottom-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.m1-info-card {
-  background: #ffffff !important;
-  padding: 2.5rem;
-  border-radius: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
-  border: 1px solid #cbd5e1 !important;
-}
-
-.m1-info-title {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #0f172a !important;
-  margin: 0 0 1.8rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.m1-info-title svg {
-  color: var(--m1-accent);
-}
-
-/* Working Hours */
-.m1-time-row {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #f1f5f9;
-  font-size: 1rem;
-}
-
-.m1-time-row:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.m1-time-day {
-  color: #475569 !important;
-  font-weight: 600;
-}
-
-.m1-time-hours {
-  font-weight: 800;
-  color: #0f172a !important;
-}
-
-.m1-closed {
-  color: #dc2626 !important;
-}
-
-/* Librarian */
-.m1-lib-profile {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.m1-lib-img {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #e0f2fe;
-  box-shadow: 0 4px 12px rgba(0, 74, 173, 0.2);
-}
-
-.m1-lib-details h4 {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #0f172a !important;
-  margin: 0 0 0.2rem 0;
-}
-
-.m1-lib-details span {
-  font-size: 0.9rem;
-  color: var(--m1-accent) !important;
-  font-weight: 700;
-}
-
-.m1-lib-quote {
-  font-style: italic;
-  color: #334155 !important;
-  line-height: 1.7;
-  margin: 0;
-  background: #f8fafc !important;
-  padding: 1.2rem;
-  border-radius: 12px;
-  border-left: 4px solid var(--m1-accent) !important;
-  font-size: 0.98rem;
-  font-weight: 500;
+  transform: scale(1.06);
 }
 
 /* =========================================
-   RESPONSIVE ADJUSTMENTS (FIXED BANNER & GALLERY)
+   TABLET RESPONSIVE (<= 1024px)
    ========================================= */
-
 @media (max-width: 1024px) {
-  .m1-gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .library-page,
+  .common-page-wrapper.library-page,
+  .model1-landing-wrapper {
+    padding-top: 0 !important;
+  }
+
+  .m1-top-info {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .m1-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .m1-main-container {
+    padding: 2rem 1.5rem 4rem;
+  }
 }
 
+/* =========================================
+   MOBILE RESPONSIVE (<= 768px)
+   STRICTLY REDUCING CARD, IMAGE & FONT SIZES
+   AND ARRANGING 3 STAT CARDS HORIZONTALLY IN 1 ROW
+   ========================================= */
 @media (max-width: 768px) {
+  .library-page,
+  .common-page-wrapper.library-page,
   .model1-landing-wrapper {
-    padding-top: 35px !important; 
-  }
-  
-  /* 👇 BANNER ZOOM FIX FOR TABLET 👇 */
-  .model1-landing-wrapper > div:first-child {
-    min-height: auto !important; 
-    background-size: cover !important;
-    background-position: center !important;
+    padding-top: 45px !important; /* Lowers banner slightly so title is cleanly visible below navbar */
   }
 
-  .m1-main-container { padding: 1.5rem 1.5rem 4rem; } 
-  .m1-section-title { font-size: 1.8rem; }
-  .m1-about-grid { grid-template-columns: 1fr; }
-  
-  /* GALLERY FIX FOR TAB: 2 Columns */
-  .m1-gallery-grid { grid-template-columns: repeat(2, 1fr) !important; } 
-  
-  .m1-bottom-info { grid-template-columns: 1fr; }
-  .m1-about-card, .m1-tab-content-card, .m1-info-card { padding: 1.8rem; }
+  .library-hero-banner {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .m1-main-container {
+    padding: 1.25rem 0.85rem 3.5rem !important;
+  }
+
+  .m1-section {
+    margin-bottom: 2rem !important;
+  }
+
+  .section-title-wrap {
+    margin-bottom: 1.25rem !important;
+  }
+
+  .section-subtitle-badge {
+    font-size: 0.72rem !important;
+    letter-spacing: 1.2px !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .m1-section-title {
+    font-size: 1.25rem !important;
+    gap: 0.45rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* 1. Top Info Section (Chief Librarian & Hours) - Mobile Reduction */
+  .m1-top-info {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .m1-info-card {
+    padding: 1.2rem 1rem !important;
+    border-radius: 14px !important;
+  }
+
+  .m1-info-title {
+    font-size: 1.08rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .m1-time-row {
+    font-size: 0.82rem !important;
+    padding-bottom: 0.65rem !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .m1-lib-profile {
+    gap: 0.85rem !important;
+    margin-bottom: 0.85rem !important;
+  }
+
+  .m1-lib-img {
+    width: 50px !important;
+    height: 50px !important;
+    border-width: 2px !important;
+  }
+
+  .m1-lib-details h4 {
+    font-size: 0.95rem !important;
+  }
+
+  .m1-lib-details span {
+    font-size: 0.78rem !important;
+  }
+
+  .m1-lib-quote {
+    padding: 0.85rem !important;
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+    border-radius: 10px !important;
+  }
+
+  /* 2. About Dual Cards - Mobile Reduction */
+  .m1-about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+
+  .m1-about-card {
+    padding: 1.2rem 1rem !important;
+    border-radius: 14px !important;
+  }
+
+  .about-card-header {
+    gap: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .about-icon-bg {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1.1rem !important;
+    border-radius: 10px !important;
+  }
+
+  .m1-about-title {
+    font-size: 1.05rem !important;
+  }
+
+  .m1-about-text {
+    font-size: 0.85rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* 3. 🌟 3 STAT CARDS HORIZONTAL SINGLE ROW ALIGNMENT (MOBILE ONLY) 🌟 */
+  .m1-stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .m1-stat-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+  }
+
+  .m1-stat-card-inner {
+    padding: 0.75rem 0.25rem !important;
+    border-radius: 12px !important;
+  }
+
+  .stat-card-icon {
+    font-size: 1.05rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .m1-stat-num {
+    font-size: clamp(0.88rem, 3.8vw, 1.15rem) !important;
+    margin-bottom: 0.15rem !important;
+    white-space: nowrap !important;
+  }
+
+  .m1-stat-label {
+    font-size: clamp(0.6rem, 2.2vw, 0.7rem) !important;
+    letter-spacing: 0.2px !important;
+    white-space: nowrap !important;
+  }
+
+  /* 4. Explore Tabs - Mobile Reduction */
+  .m1-tabs-nav {
+    gap: 0.45rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .ntf-tab-chip {
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.8rem !important;
+    border-radius: 999px !important;
+  }
+
+  .m1-tab-content-card {
+    padding: 1.2rem 1rem !important;
+    border-radius: 14px !important;
+  }
+
+  .m1-tab-text li {
+    font-size: 0.85rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0.65rem !important;
+    gap: 0.6rem !important;
+  }
+
+  /* 5. Gallery Grid - Mobile Reduction */
+  .m1-gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+  }
+
+  .m1-gallery-item-wrapper {
+    height: 110px !important;
+    border-radius: 10px !important;
+  }
 }
 
-@media (max-width: 576px) {
+/* =========================================
+   EXTRA SMALL MOBILE (<= 480px)
+   ========================================= */
+@media (max-width: 480px) {
+  .library-page,
+  .common-page-wrapper.library-page,
   .model1-landing-wrapper {
-    padding-top: 38px !important; 
+    padding-top: 40px !important;
   }
 
-  /* 👇 BANNER ZOOM FIX FOR MOBILE (CSS ONLY) 👇 */
-  /* Ithu antha React file la irukka inline 'minHeight: 350px' ah force panni thadukkum */
-  .model1-landing-wrapper > div:first-child {
-    min-height: auto !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center top !important;
+  .library-hero-banner {
+    margin-top: 0 !important;
   }
 
-  .m1-main-container { padding: 1rem 1rem 3rem; }
-  .m1-section-title { font-size: 1.5rem; flex-direction: column; text-align: center; } 
-  
-  /* GALLERY FIX FOR MOBILE: 1 Column and proper aspect ratio */
-  .m1-gallery-grid { grid-template-columns: 1fr !important; } 
-  .m1-gallery-item-wrapper { 
-    height: auto !important; 
-    aspect-ratio: 4 / 3; 
+  .m1-main-container {
+    padding: 1rem 0.65rem 3rem !important;
   }
-  
-  .ntf-tab-chip { width: 100%; justify-content: center; }
-  .m1-stats-grid { flex-direction: column; align-items: center; }
-  .m1-stat-card { width: 100%; max-width: 300px; }
-  .about-card-header { flex-direction: column; text-align: center; }
-  .m1-lib-profile { flex-direction: column; text-align: center; }
-  .m1-about-card, .m1-tab-content-card, .m1-info-card { padding: 1.2rem; }
+
+  .m1-about-card,
+  .m1-tab-content-card,
+  .m1-info-card {
+    padding: 1rem 0.85rem !important;
+  }
+
+  .m1-stat-card-inner {
+    padding: 0.65rem 0.2rem !important;
+  }
+
+  .m1-stat-num {
+    font-size: clamp(0.82rem, 3.4vw, 1rem) !important;
+  }
+
+  .m1-stat-label {
+    font-size: clamp(0.55rem, 2vw, 0.65rem) !important;
+  }
+
+  .m1-gallery-item-wrapper {
+    height: 95px !important;
+  }
+
+  .m1-lib-img {
+    width: 46px !important;
+    height: 46px !important;
+  }
 }
 
 /* =========================================
    DARK MODE OVERRIDES FOR CENTRAL LIBRARY
    ========================================= */
-
 body.dark-mode .model1-landing-wrapper,
-.dark .model1-landing-wrapper {
+.dark .model1-landing-wrapper,
+body.dark-mode .library-page,
+.dark .library-page,
+body.dark-mode .common-page-wrapper.library-page,
+.dark .common-page-wrapper.library-page {
   background-color: #0b1329 !important;
 }
 
+/* Dark Mode Cards */
+body.dark-mode .m1-about-card,
+.dark .m1-about-card,
+body.dark-mode .m1-stat-card,
+.dark .m1-stat-card,
+body.dark-mode .m1-tab-content-card,
+.dark .m1-tab-content-card,
+body.dark-mode .m1-info-card,
+.dark .m1-info-card,
+body.dark-mode .m1-gallery-item-wrapper,
+.dark .m1-gallery-item-wrapper {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Dark Mode Headings */
 body.dark-mode .m1-section-title,
 .dark .m1-section-title,
 body.dark-mode .m1-about-title,
@@ -526,10 +761,9 @@ body.dark-mode .m1-lib-details h4,
   color: #f8fafc !important;
 }
 
+/* Dark Mode Descriptions & Body */
 body.dark-mode .m1-about-text,
 .dark .m1-about-text,
-body.dark-mode .m1-stat-label,
-.dark .m1-stat-label,
 body.dark-mode .m1-tab-text li,
 .dark .m1-tab-text li,
 body.dark-mode .m1-time-day,
@@ -539,19 +773,17 @@ body.dark-mode .m1-lib-quote,
   color: #cbd5e1 !important;
 }
 
-body.dark-mode .m1-about-card,
-.dark .m1-about-card,
-body.dark-mode .m1-stat-card-inner,
-.dark .m1-stat-card-inner,
-body.dark-mode .m1-tab-content-card,
-.dark .m1-tab-content-card,
-body.dark-mode .m1-info-card,
-.dark .m1-info-card {
-  background: #1e293b !important;
-  border-color: #334155 !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+/* Dark Mode Subtitle Badge & Labels */
+body.dark-mode .section-subtitle-badge,
+.dark .section-subtitle-badge,
+body.dark-mode .m1-stat-label,
+.dark .m1-stat-label,
+body.dark-mode .m1-lib-details span,
+.dark .m1-lib-details span {
+  color: #38bdf8 !important;
 }
 
+/* Dark Mode Inner & Interactive Elements */
 body.dark-mode .ntf-tab-chip,
 .dark .ntf-tab-chip {
   background: #1e293b !important;
@@ -561,11 +793,22 @@ body.dark-mode .ntf-tab-chip,
 
 body.dark-mode .ntf-tab-chip.active,
 .dark .ntf-tab-chip.active {
-  background: linear-gradient(135deg, #021219 0%, #0d0d3a 100%) !important;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
   color: #ffffff !important;
 }
 
 body.dark-mode .m1-lib-quote,
 .dark .m1-lib-quote {
   background: #0f172a !important;
+  border-left-color: #0284c7 !important;
+}
+
+body.dark-mode .m1-time-row,
+.dark .m1-time-row {
+  border-bottom-color: #334155 !important;
+}
+
+body.dark-mode .m1-lib-img,
+.dark .m1-lib-img {
+  border-color: #334155 !important;
 }

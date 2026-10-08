@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaLaptopCode, FaMicrochip, FaCogs, FaBolt, FaFlask, FaBuilding, FaArrowRight } from 'react-icons/fa';
 import './Labs.css';
+import bannerImg from './banner/Labs.png';
 
 const labData = [
   {
@@ -111,12 +112,14 @@ const Labs = () => {
   const activeLab = labData.find(lab => lab.id === activeTab);
 
   return (
-    <div className="labs-page-container">
-      {/* =========================================
-          HERO SECTION (UPDATED) 
-          ========================================= */}
-      <section className="labs-hero">
-      </section>
+    <div className="common-page-wrapper labs-page-container">
+      {/* Responsive Hero Banner */}
+      <div className="common-hero-banner">
+        <img 
+          src={bannerImg} 
+          alt="NSCET Laboratories Banner" 
+        />
+      </div>
 
       {/* =========================================
           PREMIUM DYNAMIC TABBED SHOWCASE SECTION 

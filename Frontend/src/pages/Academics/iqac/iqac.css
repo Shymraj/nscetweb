@@ -1,14 +1,14 @@
-
 /* =========================================
-   IQAC - R&D CELL STYLE SHOWCASE STYLING
+   IQAC - PAGE STYLING & CLEAN CARD ARCHITECTURE
    ========================================= */
 
-.iqac-page {
+.iqac-page,
+.common-page-wrapper.iqac-page {
   width: 100%;
   font-family: var(--font-body);
   background-color: #f8fafc;
   min-height: 100vh;
-  padding-top: 140px !important; /* Push down below the 110px floating navbar + topbar */
+  padding-top: 155px !important;
   padding-bottom: 80px;
   box-sizing: border-box;
 }
@@ -17,12 +17,22 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  box-sizing: border-box;
 }
 
-/* Header Section */
-.iqac-header-section {
+/* =========================================
+   1. HERO CARD (WITHOUT COLOR LINE)
+   ========================================= */
+.iqac-hero-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2.75rem 2.25rem;
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: relative;
+  box-sizing: border-box;
 }
 
 .iqac-badge {
@@ -33,261 +43,166 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .iqac-title {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   font-weight: 800;
   color: #0f172a;
   margin: 0 0 1rem 0;
   letter-spacing: -0.5px;
+  line-height: 1.25;
 }
 
 .iqac-lead {
-  font-size: 1.1rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 400;
   color: #475569;
   max-width: 850px;
   margin: 0 auto;
   line-height: 1.7;
 }
 
-/* Executive Plain — No Box */
-.iqac-exec-plain {
+/* =========================================
+   2. OVERVIEW CARD (WITHOUT COLOR LINE)
+   ========================================= */
+.iqac-overview-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2.5rem 2.25rem;
   margin-bottom: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
 }
 
-.iqac-exec-plain-grid {
+.iqac-overview-grid {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 3rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
   align-items: center;
 }
 
-.iqac-exec-plain-left {
-  flex: 1;
+.iqac-overview-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.iqac-exec-plain-right {
+.iqac-overview-heading {
+  font-family: var(--font-section);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.iqac-overview-desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: #475569;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.iqac-overview-right {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-items: stretch;
   justify-content: center;
-  flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-  .iqac-exec-plain-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .iqac-exec-plain-right {
-    justify-content: flex-start;
-  }
-}
-
-.exec-badge-wrap {
+/* Individual Person / Coordinator Cards (Inside Overview) */
+.iqac-person-card {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-}
-
-.iqac-exec-badge-plain {
-  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  color: #1d4ed8;
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.iqac-exec-badge-plain.gold {
-  background: #fffbeb;
-  border-color: #fde68a;
-  color: #b45309;
-}
-
-.iqac-exec-plain-heading {
-  font-family: var(--font-section);
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 1rem 0 0.75rem;
-}
-
-.iqac-exec-plain-desc {
-  font-size: 1.05rem;
-  color: #475569;
-  line-height: 1.8;
-  max-width: 800px;
-  margin-bottom: 1.5rem;
-}
-
-/* Principal Strip — outside the dark card */
-.iqac-principal-strip {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.2rem;
-  margin-bottom: 0;
-  padding: 1.2rem 1.8rem;
-  background: #ffffff;
+  gap: 1.25rem;
+  padding: 1.1rem 1.4rem;
+  background: #f8fafc;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.1);
-  border: 1px solid rgba(2, 132, 199, 0.15);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.iqac-principal-strip:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.15);
-  border-color: rgba(2, 132, 199, 0.3);
-}
-
-.iqac-principal-strip::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5px;
-  height: 100%;
-  background: linear-gradient(to bottom, #0284c7, #0369a1);
-}
-
-.iqac-principal-avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #0284c7, #0369a1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  color: #ffffff;
-  flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
-}
-
-.iqac-principal-info h4 {
-  font-family: var(--font-subtopic);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #222c67 !important;
-  margin: 0 0 2px 0;
-}
-
-.iqac-principal-info .p-deg {
-  font-size: 0.85rem;
-  color: #0f3849 !important;
-  font-weight: 600;
-  margin: 0 0 2px 0;
-}
-
-.iqac-principal-info .p-loc {
-  font-size: 0.8rem;
-  color: #64748b;
-  margin: 0;
-  font-weight: 500;
-}
-
-/* IQAC Coordinator Box - Green Accent */
-.iqac-coordinator-strip {
-  border-color: rgba(5, 150, 105, 0.25);
-}
-
-.iqac-coordinator-strip::before {
-  background: linear-gradient(to bottom, #059669, #047857);
-}
-
-.iqac-coordinator-strip:hover {
-  border-color: rgba(5, 150, 105, 0.45);
-  box-shadow: 0 15px 35px rgba(5, 150, 105, 0.15);
-}
-
-.iqac-coordinator-avatar {
-  background: linear-gradient(135deg, #059669, #047857);
-  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.35);
-}
-
-.iqac-principal-info .p-role {
-  font-size: 0.8rem;
-  color: #0f386e !important;
-  font-weight: 500;
-  margin: 0;
-}
-
-/* Search Controls */
-.iqac-search-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 650px;
-  margin: 0 auto 3rem auto;
-}
-
-.iqac-search-icon {
-  position: absolute;
-  left: 1.2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #0284c7;
-  font-size: 1.1rem;
-}
-
-.iqac-search-input {
-  width: 100%;
-  padding: 1rem 1rem 1rem 3.2rem;
-  border-radius: 999px;
   border: 1px solid #e2e8f0;
-  background: #ffffff;
-  font-size: 1rem;
-  color: #0f172a;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
   box-sizing: border-box;
 }
 
-.iqac-search-input:focus {
-  outline: none;
-  border-color: #0284c7;
-  box-shadow: 0 4px 25px rgba(2, 132, 199, 0.18);
+.iqac-person-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
 }
 
-/* Committee Grid */
+.iqac-person-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 2px solid #ffffff;
+}
+
+.iqac-person-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.iqac-person-info {
+  flex: 1;
+}
+
+.iqac-person-info h4 {
+  font-family: var(--font-subtopic);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 3px 0;
+}
+
+.iqac-person-info .p-deg {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #475569;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* =========================================
+   3. COMMITTEE GRID & CARDS
+   ========================================= */
 .iqac-committee-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 1.8rem;
-  margin-bottom: 4rem;
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
 }
 
 .iqac-category-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 20px;
-  padding: 1.8rem;
+  padding: 1.75rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .iqac-category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(2, 132, 199, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.08);
   border-color: rgba(2, 132, 199, 0.3);
 }
 
-/* Wide Cards for specific sections */
 .wide-category-card {
   grid-column: 1 / -1;
 }
@@ -308,15 +223,15 @@
 }
 
 .category-icon-bg {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
   background: rgba(2, 132, 199, 0.1);
   color: #0284c7;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   flex-shrink: 0;
 }
 
@@ -329,7 +244,8 @@
 }
 
 .count-pill {
-  font-size: 0.78rem;
+  font-family: var(--font-subtopic);
+  font-size: 0.75rem;
   font-weight: 700;
   color: #0369a1;
   background: #e0f2fe;
@@ -340,27 +256,32 @@
 .category-members-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .category-member-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.9rem;
   padding: 0.7rem 0.9rem;
   background: #f8fafc;
   border-radius: 12px;
   border: 1px solid #f1f5f9;
+  transition: all 0.2s ease;
+}
+
+.category-member-item:hover {
+  background: #f1f5f9;
 }
 
 .iqac-avatar-circle {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: linear-gradient(135deg, #0284c7, #0369a1);
   color: #ffffff;
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -369,96 +290,38 @@
 }
 
 .iqac-avatar-circle.sm {
-  width: 38px;
-  height: 38px;
-  font-size: 0.85rem;
+  width: 36px;
+  height: 36px;
+  font-size: 0.82rem;
 }
 
 .item-text strong {
   display: block;
   font-family: var(--font-subtopic);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: #0f172a;
 }
 
 .item-text span {
   display: block;
-  font-size: 0.82rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
   color: #0284c7;
-  font-weight: 600;
+  font-weight: 500;
   margin-top: 1px;
 }
 
-/* Search Flat Grid */
-.iqac-search-results {
-  margin-bottom: 4rem;
-}
-
-.iqac-section-title {
-  font-family: var(--font-section);
-  font-size: 1.4rem;
-  color: #0f172a;
-  margin-bottom: 1.5rem;
-}
-
-.iqac-member-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.2rem;
-}
-
-.iqac-member-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-}
-
-.iqac-member-info {
-  flex: 1;
-}
-
-.iqac-member-info h4 {
-  font-family: var(--font-subtopic);
-  font-size: 1rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 4px 0;
-}
-
-.iqac-detail-badge {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #0369a1;
-  background: #e0f2fe;
-  padding: 2px 8px;
-  border-radius: 6px;
-  margin-right: 6px;
-}
-
-.iqac-category-tag {
-  font-size: 0.75rem;
-  color: #64748b;
-}
-
-.iqac-check-icon {
-  color: #0284c7;
-  font-size: 1.2rem;
-}
-
-/* IQAC Annual Meeting Records Section */
+/* =========================================
+   4. ANNUAL MEETING RECORDS SECTION
+   ========================================= */
 .iqac-records-section {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 24px;
+  border-radius: 20px;
   padding: 2.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
 }
 
 .records-header {
@@ -468,16 +331,18 @@
 
 .records-header h2 {
   font-family: var(--font-section);
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #0f172a;
   margin: 0 0 0.5rem 0;
 }
 
 .records-header p {
+  font-family: var(--font-body);
   color: #64748b;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  font-weight: 400;
 }
 
 .iqac-records-grid {
@@ -489,7 +354,7 @@
 .iqac-record-card {
   border: 1px solid #e2e8f0;
   border-radius: 16px;
-  padding: 1.2rem 1.5rem;
+  padding: 1.1rem 1.3rem;
   background: #f8fafc;
   display: flex;
   align-items: center;
@@ -498,6 +363,7 @@
   text-align: left;
   transition: all 0.3s ease;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .iqac-record-card * {
@@ -505,15 +371,15 @@
 }
 
 .record-card-icon {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 12px;
   background: rgba(2, 132, 199, 0.1);
   color: #0284c7;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   flex-shrink: 0;
 }
 
@@ -524,14 +390,15 @@
 
 .record-year {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: #0f172a;
 }
 
 .record-action {
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
   color: #0284c7;
   margin-top: 2px;
 }
@@ -542,84 +409,332 @@
 .iqac-record-purple .record-card-icon { background: rgba(139, 92, 246, 0.12); color: #8b5cf6; }
 .iqac-record-teal .record-card-icon { background: rgba(20, 184, 166, 0.12); color: #14b8a6; }
 
-/* Responsive Adjustments */
-@media (max-width: 900px) {
-  /* removed .exec-grid */
-}
-
-@media (max-width: 640px) {
-  .iqac-page {
+/* =========================================
+   TABLET RESPONSIVE (<= 1024px)
+   ========================================= */
+@media (max-width: 1024px) {
+  .iqac-page,
+  .common-page-wrapper.iqac-page {
     padding-top: 120px !important;
   }
-  .iqac-title {
-    font-size: 1.8rem;
+  .iqac-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE (<= 768px)
+   STRICTLY REDUCING CARD & FONT SIZES ON MOBILE ONLY
+   ========================================= */
+@media (max-width: 768px) {
+  .iqac-page,
+  .common-page-wrapper.iqac-page {
+    padding-top: 72px !important;
+    padding-bottom: 40px;
   }
 
+  .iqac-container {
+    padding: 0 1rem;
+  }
+
+  /* 1. Hero Card - Mobile Reduction */
+  .iqac-hero-card {
+    padding: 1.4rem 1.1rem;
+    border-radius: 14px;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  }
+
+  .iqac-badge {
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.4rem;
+  }
+
+  .iqac-title {
+    font-size: 1.35rem;
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+
+  .iqac-lead {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  /* 2. Overview Card - Mobile Reduction */
+  .iqac-overview-card {
+    padding: 1.35rem 1.1rem;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  }
+
+  .iqac-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .iqac-overview-heading {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .iqac-overview-desc {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  .iqac-overview-right {
+    gap: 0.75rem;
+  }
+
+  .iqac-person-card {
+    padding: 0.75rem 0.9rem;
+    gap: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .iqac-person-avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .iqac-person-info h4 {
+    font-size: 0.92rem;
+    margin-bottom: 2px;
+  }
+
+  .iqac-person-info .p-deg {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  /* 3. Committee Grid - Mobile Reduction */
   .iqac-committee-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .iqac-category-card {
+    padding: 1.15rem 1rem;
+    border-radius: 14px;
+  }
+
+  .wide-category-card .category-members-list {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .category-header {
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .category-icon-bg {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+  }
+
+  .category-header h3 {
+    font-size: 1.02rem;
+  }
+
+  .count-pill {
+    font-size: 0.7rem;
+    padding: 2px 7px;
+  }
+
+  .category-members-list {
+    gap: 0.65rem;
+  }
+
+  .category-member-item {
+    padding: 0.55rem 0.75rem;
+    gap: 0.75rem;
+    border-radius: 10px;
+  }
+
+  .iqac-avatar-circle,
+  .iqac-avatar-circle.sm {
+    width: 34px;
+    height: 34px;
+    font-size: 0.78rem;
+  }
+
+  .item-text strong {
+    font-size: 0.85rem;
+  }
+
+  .item-text span {
+    font-size: 0.75rem;
+  }
+
+  /* 4. Records Section - Mobile Reduction */
+  .iqac-records-section {
+    padding: 1.35rem 1.1rem;
+    border-radius: 14px;
+  }
+
+  .records-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .records-header h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .records-header p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .iqac-records-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .iqac-record-card {
+    padding: 0.85rem 1rem;
+    gap: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .record-card-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+  }
+
+  .record-year {
+    font-size: 0.95rem;
+  }
+
+  .record-action {
+    font-size: 0.75rem;
+  }
+}
+
+/* =========================================
+   EXTRA SMALL MOBILE (<= 480px)
+   ========================================= */
+@media (max-width: 480px) {
+  .iqac-page,
+  .common-page-wrapper.iqac-page {
+    padding-top: 68px !important;
+  }
+
+  .iqac-container {
+    padding: 0 0.75rem;
+  }
+
+  .iqac-hero-card,
+  .iqac-overview-card,
+  .iqac-category-card,
+  .iqac-records-section {
+    padding: 1.15rem 0.9rem;
+  }
+
+  .iqac-title {
+    font-size: 1.25rem;
+  }
+
+  .iqac-lead,
+  .iqac-overview-desc {
+    font-size: 0.82rem;
+  }
+
+  .iqac-person-avatar {
+    width: 44px;
+    height: 44px;
   }
 }
 
 /* =========================================
    DARK MODE OVERRIDES FOR IQAC PAGE
    ========================================= */
-
 body.dark-mode .iqac-page,
-.dark .iqac-page {
+.dark .iqac-page,
+body.dark-mode .common-page-wrapper.iqac-page,
+.dark .common-page-wrapper.iqac-page {
   background-color: #0b1329 !important;
 }
 
-body.dark-mode .iqac-title,
-.dark .iqac-title,
-body.dark-mode .records-header h2,
-.dark .records-header h2,
-body.dark-mode .iqac-section-title,
-.dark .iqac-section-title {
-  color: #f8fafc !important;
-}
-
-body.dark-mode .iqac-lead,
-.dark .iqac-lead,
-body.dark-mode .records-header p,
-.dark .records-header p {
-  color: #cbd5e1 !important;
-}
-
-body.dark-mode .iqac-search-input,
-.dark .iqac-search-input {
-  background: #1e293b !important;
-  border-color: #334155 !important;
-  color: #f8fafc !important;
-}
-
+/* Cards Dark Mode */
+body.dark-mode .iqac-hero-card,
+.dark .iqac-hero-card,
+body.dark-mode .iqac-overview-card,
+.dark .iqac-overview-card,
 body.dark-mode .iqac-category-card,
 .dark .iqac-category-card,
 body.dark-mode .iqac-records-section,
-.dark .iqac-records-section,
-body.dark-mode .iqac-member-card,
-.dark .iqac-member-card {
+.dark .iqac-records-section {
   background: #1e293b !important;
   border-color: #334155 !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
 }
 
+/* Headings Dark Mode */
+body.dark-mode .iqac-title,
+.dark .iqac-title,
+body.dark-mode .iqac-overview-heading,
+.dark .iqac-overview-heading,
 body.dark-mode .category-header h3,
 .dark .category-header h3,
+body.dark-mode .records-header h2,
+.dark .records-header h2,
 body.dark-mode .item-text strong,
 .dark .item-text strong,
+body.dark-mode .iqac-person-info h4,
+.dark .iqac-person-info h4,
 body.dark-mode .record-year,
-.dark .record-year,
-body.dark-mode .iqac-member-info h4,
-.dark .iqac-member-info h4 {
+.dark .record-year {
   color: #f8fafc !important;
 }
 
+/* Subtext / Descriptions Dark Mode */
+body.dark-mode .iqac-lead,
+.dark .iqac-lead,
+body.dark-mode .iqac-overview-desc,
+.dark .iqac-overview-desc,
+body.dark-mode .records-header p,
+.dark .records-header p,
+body.dark-mode .iqac-person-info .p-deg,
+.dark .iqac-person-info .p-deg {
+  color: #cbd5e1 !important;
+}
+
+/* Inner Person & Member Cards Dark Mode */
+body.dark-mode .iqac-person-card,
+.dark .iqac-person-card,
 body.dark-mode .category-member-item,
 .dark .category-member-item,
 body.dark-mode .iqac-record-card,
 .dark .iqac-record-card {
   background: #0f172a !important;
   border-color: #1e293b !important;
+}
+
+body.dark-mode .iqac-person-avatar,
+.dark .iqac-person-avatar {
+  border-color: #1e293b !important;
+}
+
+body.dark-mode .category-header,
+.dark .category-header {
+  border-bottom-color: #334155 !important;
+}
+
+body.dark-mode .category-member-item:hover,
+.dark .category-member-item:hover {
+  background: #1e293b !important;
 }
 
 body.dark-mode .item-text span,
@@ -629,28 +744,8 @@ body.dark-mode .record-action,
   color: #38bdf8 !important;
 }
 
-/* Executive / Principal Strip Dark Mode */
-body.dark-mode .iqac-exec-plain-heading,
-.dark .iqac-exec-plain-heading,
-body.dark-mode .iqac-principal-info h4,
-.dark .iqac-principal-info h4 {
-  color: #f8fafc !important;
-}
-
-body.dark-mode .iqac-exec-plain-desc,
-.dark .iqac-exec-plain-desc,
-body.dark-mode .iqac-principal-info .p-deg,
-.dark .iqac-principal-info .p-deg,
-body.dark-mode .iqac-principal-info .p-role,
-.dark .iqac-principal-info .p-role,
-body.dark-mode .iqac-principal-info .p-loc,
-.dark .iqac-principal-info .p-loc {
-  color: #cbd5e1 !important;
-}
-
-body.dark-mode .iqac-principal-strip,
-.dark .iqac-principal-strip {
-  background: #1e293b !important;
-  border-color: #334155 !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+body.dark-mode .count-pill,
+.dark .count-pill {
+  background: #0369a1 !important;
+  color: #e0f2fe !important;
 }

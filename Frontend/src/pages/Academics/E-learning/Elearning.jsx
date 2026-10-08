@@ -208,7 +208,7 @@ const Elearning = () => {
   const activeTab = location.pathname.includes('nptel') ? 'nptel' : 'infosys';
 
   return (
-    <div className="el-page-container">
+    <div className="common-page-wrapper el-page-container">
       {activeTab === 'infosys' && <InfosysContent />}
       {activeTab === 'nptel' && <NptelContent />}
     </div>

@@ -94,19 +94,52 @@ const Library = () => {
   };
 
   return (
-    <div className="model1-landing-wrapper">
+    <div className="common-page-wrapper model1-landing-wrapper library-page">
       
-      {/* 👇 FIX PANNAPPATTA BANNER: Background image-ku bathila direct Image tag potruken. Ippo cut aagathu! 👇 */}
-      <div style={{ width: '100%', overflow: 'hidden' }}>
+      {/* Central Library Hero Banner */}
+      <div className="library-hero-banner">
         <img 
           src={bannerImage} 
           alt="NSCET Central Library Banner" 
-          style={{ width: '100%', height: 'auto', display: 'block' }} 
+          className="library-banner-img"
         />
       </div>
 
       <main className="m1-main-container">
         
+        {/* CHIEF LIBRARIAN & WORKING HOURS (TOP HIGHLIGHT SECTION) */}
+        <section className="m1-section m1-top-info">
+          <div className="m1-info-card m1-librarian-card">
+            <h3 className="m1-info-title"><FaUserGraduate /> Chief Librarian</h3>
+            <div className="m1-lib-profile">
+              <img src="/library/Sinthan.jpg" alt="Dr. S. Sinthan" className="m1-lib-img" />
+              <div className="m1-lib-details">
+                <h4>Dr. S. Sinthan</h4>
+                <span>Chief Librarian</span>
+              </div>
+            </div>
+            <p className="m1-lib-quote">
+              "Our library vows to shape future engineering leaders by providing unlimited access to global technical knowledge and cutting-edge digital resources."
+            </p>
+          </div>
+
+          <div className="m1-info-card m1-hours-card">
+            <h3 className="m1-info-title"><FaClock /> Working Hours</h3>
+            <div className="m1-time-row">
+              <span className="m1-time-day">Monday - Friday</span>
+              <span className="m1-time-hours">8:30 AM - 5:30 PM</span>
+            </div>
+            <div className="m1-time-row">
+              <span className="m1-time-day">Saturday</span>
+              <span className="m1-time-hours">9:00 AM - 4:00 PM</span>
+            </div>
+            <div className="m1-time-row">
+              <span className="m1-time-day">Sunday & Public Holidays</span>
+              <span className="m1-time-hours m1-closed">Closed</span>
+            </div>
+          </div>
+        </section>
+
         {/* ABOUT LIBRARY & E-LIBRARY DUAL CARDS */}
         <section className="m1-section m1-about-section" id="elibrary">
           <div className="m1-about-grid">
@@ -248,41 +281,6 @@ const Library = () => {
               </motion.div>
             ))}
           </div>
-        </section>
-
-        {/* BOTTOM INFO: WORKING HOURS & LIBRARIAN */}
-        <section className="m1-section m1-bottom-info">
-          
-          <div className="m1-info-card">
-            <h3 className="m1-info-title"><FaClock /> Working Hours</h3>
-            <div className="m1-time-row">
-              <span className="m1-time-day">Monday - Friday</span>
-              <span className="m1-time-hours">8:30 AM - 5:30 PM</span>
-            </div>
-            <div className="m1-time-row">
-              <span className="m1-time-day">Saturday</span>
-              <span className="m1-time-hours">9:00 AM - 4:00 PM</span>
-            </div>
-            <div className="m1-time-row">
-              <span className="m1-time-day">Sunday & Public Holidays</span>
-              <span className="m1-time-hours m1-closed">Closed</span>
-            </div>
-          </div>
-
-          <div className="m1-info-card">
-            <h3 className="m1-info-title"><FaUserGraduate /> Chief Librarian</h3>
-            <div className="m1-lib-profile">
-              <img src="/library/Sinthan.jpg" alt="Dr. S. Sinthan" className="m1-lib-img" />
-              <div className="m1-lib-details">
-                <h4>Dr. S. Sinthan</h4>
-                <span>Chief Librarian</span>
-              </div>
-            </div>
-            <p className="m1-lib-quote">
-              "Our library vows to shape future engineering leaders by providing unlimited access to global technical knowledge and cutting-edge digital resources."
-            </p>
-          </div>
-
         </section>
 
       </main>

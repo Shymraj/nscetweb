@@ -90,7 +90,7 @@ const NonTeachingFaculty = () => {
   });
 
   return (
-    <div className="non-teaching-page">
+    <div className="common-page-wrapper non-teaching-page">
       <div className="ntf-container">
         
         {/* 1. HERO HEADER CARD */}

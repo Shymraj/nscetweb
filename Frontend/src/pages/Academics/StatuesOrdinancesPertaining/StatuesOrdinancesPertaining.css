@@ -722,6 +722,9 @@ body.dark-mode .stat-pill {
 
 body.dark-mode .stat-label,
 body.dark-mode .stat-label-full {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
   color: #f1f5f9 !important;
   -webkit-text-fill-color: #f1f5f9 !important;
 }
@@ -928,7 +931,7 @@ body.dark-mode .prog-card-icon-wrap.pg-icon-wrap {
    ========================================================= */
 @media (max-width: 768px) {
   .statutes-page-wrapper {
-    padding-top: 115px !important; /* Clears mobile navbar comfortably */
+    padding-top: 72px !important; /* Seamlessly sits below mobile navbar without empty gap */
     padding-bottom: 40px;
   }
 
@@ -937,8 +940,8 @@ body.dark-mode .prog-card-icon-wrap.pg-icon-wrap {
   }
 
   .statutes-hero-section {
-    padding: 28px 12px 24px;
-    margin-bottom: 20px;
+    padding: 22px 14px 20px !important;
+    margin: 0 12px 18px 12px !important;
     border-radius: 16px;
   }
 
@@ -1109,7 +1112,7 @@ body.dark-mode .prog-card-icon-wrap.pg-icon-wrap {
    ========================================================= */
 @media (max-width: 480px) {
   .statutes-page-wrapper {
-    padding-top: 105px !important;
+    padding-top: 68px !important;
   }
 
   .statutes-hero-title {

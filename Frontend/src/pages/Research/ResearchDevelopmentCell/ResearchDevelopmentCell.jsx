@@ -105,10 +105,14 @@ const ResearchDevelopmentCell = () => {
         <div className="rdc-bg-decoration dec-1"></div>
         <div className="rdc-container rdc-intro-grid">
           <motion.div 
-            className="rdc-intro-content"
+            className="rdc-intro-card"
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
+            <div className="rdc-intro-accent-bar"></div>
+            <div className="rdc-intro-header-icon-wrap">
+              <FaLightbulb />
+            </div>
             <motion.h1 variants={fadeUp} className="rdc-heading">Research & Development Cell</motion.h1>
             <motion.div variants={fadeUp} className="rdc-accent-line"></motion.div>
             <motion.h3 variants={fadeUp} className="rdc-subheading">About the R&D Cell</motion.h3>
