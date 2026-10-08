@@ -12,7 +12,7 @@ import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import { aidsFacultyData } from "./facultyData";
 
 import FacultyProfileModal from "../../../../components/common/FacultyProfileModal/FacultyProfileModal";
-import DepartmentFacultyCard from "../../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
+import DepartmentFacultySlider from "../../../../components/common/DepartmentFacultySlider/DepartmentFacultySlider";
 
 // Auto-load banner image inside ./banner/
 const bannerGlobs = import.meta.glob("./banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
@@ -352,21 +352,10 @@ const AIDS = () => {
             <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
-          <motion.div 
-            className="cse-faculty-grid"
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-          >
-            {faculties.map((member, idx) => (
-              <DepartmentFacultyCard
-                isHOD={idx === 0} 
-                key={idx} 
-                member={member} 
-                onOpenProfile={handleOpenProfile} 
-                fadeInUp={fadeInUp} 
-              />
-            ))}
-          </motion.div>
+          <DepartmentFacultySlider
+            faculties={faculties}
+            onOpenProfile={handleOpenProfile}
+          />
         </div>
       </section>
 

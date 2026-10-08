@@ -1,3 +1,4 @@
+import { getApiUrl, getUploadUrl } from '@/config/api';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Hero.css";
@@ -28,7 +29,7 @@ const Hero = () => {
   useEffect(() => {
     const fetchHeroes = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/admin/home/hero");
+        const response = await axios.get(getApiUrl('/api/admin/home/hero'));
         if (response.data && response.data.data) {
           setHeroes(response.data.data);
         }
@@ -48,8 +49,8 @@ const Hero = () => {
     }
   }, [heroes.length]);
 
-  const currentHeroImg = heroes.length > 0 && heroes[currentIndex].photo_url 
-    ? `http://localhost:5000${heroes[currentIndex].photo_url}` 
+  const currentHeroImg = heroes.length > 0 && heroes[currentIndex].photo_url
+    ? getUploadUrl(heroes[currentIndex].photo_url)
     : heroImage;
 
   const scrollToEnquiry = () => {
@@ -61,7 +62,7 @@ const Hero = () => {
 
   return (
     <section className="hero">
-      
+
       {/* =======================================================
           1. BLUR & CROSSFADE BACKGROUND ENGINE (Like Video)
       ======================================================== */}
@@ -83,12 +84,12 @@ const Hero = () => {
       <div className="hero-overlay"></div>
 
       <div className="hero-container">
-        
+
         {/* =======================================================
             2. DYNAMIC TEXT ANIMATION (Fresh entry on every slide)
         ======================================================== */}
         <AnimatePresence mode="wait">
-          <motion.div 
+          <motion.div
             key={currentIndex}
             className="hero-left-content"
             initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
@@ -119,8 +120,8 @@ const Hero = () => {
 
                 <div className="hero-buttons">
                   {heroes[currentIndex].button_name && (
-                    <button 
-                      className="btn-primary" 
+                    <button
+                      className="btn-primary"
                       onClick={() => {
                         if (heroes[currentIndex].url) {
                           window.open(heroes[currentIndex].url, '_blank');
@@ -158,9 +159,10 @@ const Hero = () => {
                 <p className="college-tagline">Empowering Minds, Shaping the Future</p>
 
                 <p className="left-description">
-                  Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai<br/>
-                  Accredited by NAAC with 'A' Grade <br />Recognized under 2(f) of the UGC Act, 1956 <br />
-                  An ISO 9001:2015 Certified Institution <br />
+                  Approved by AICTE, New Delhi &amp; Affiliated to Anna University, Chennai<br />
+                  Accredited by NAAC with 'A' Grade<br />
+                  Recognized under 2(f) of the UGC Act, 1956<br />
+                  An ISO 9001:2015 Certified Institution<br />
                   Vadapudupatti, Annanji (PO), Theni - 625531.
                 </p>
 
@@ -217,7 +219,7 @@ const Hero = () => {
       {/* Professional Coming Soon Toast */}
       <AnimatePresence>
         {showComingSoon && (
-          <motion.div 
+          <motion.div
             className="coming-soon-toast"
             initial={{ opacity: 0, x: "-50%", y: "calc(-50% + 50px)", scale: 0.95 }}
             animate={{ opacity: 1, x: "-50%", y: "-50%", scale: 1 }}
@@ -238,4 +240,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Hero;

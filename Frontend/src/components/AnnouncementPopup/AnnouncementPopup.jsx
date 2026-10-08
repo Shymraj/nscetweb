@@ -1,3 +1,4 @@
+import { getApiUrl, getUploadUrl } from '@/config/api';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AnnouncementPopup.css';
@@ -10,7 +11,7 @@ const AnnouncementPopup = () => {
   useEffect(() => {
     const fetchAnnouncements = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/admin/home/announcement');
+        const res = await axios.get(getApiUrl('/api/admin/home/announcement'));
         if (res.data.success && res.data.data.length > 0) {
           setAnnouncements(res.data.data);
           setIsVisible(true);
@@ -34,7 +35,7 @@ const AnnouncementPopup = () => {
           <FaTimes />
         </button>
         <img 
-          src={`http://localhost:5000${latestAnnouncement.photo_url}`} 
+          src={getUploadUrl(latestAnnouncement.photo_url)} 
           alt="Announcement" 
           className="announcement-image"
         />

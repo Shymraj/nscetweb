@@ -12,7 +12,7 @@ import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import { shFacultyData } from "./facultyData";
 
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
-import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
+import DepartmentFacultySlider from "../../../components/common/DepartmentFacultySlider/DepartmentFacultySlider";
 
 // Auto-load banner image inside ./images/banner/
 const bannerGlobs = import.meta.glob("./images/banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
@@ -34,7 +34,6 @@ import imgDhandayuthapani from "./images/dhandayuthapani.jpg";
 import imgRajaguru from "./images/rajaguru.jpg";
 import imgKrishnamoorthi from "./images/krishnamoorthy.jpg";
 import imgSelvapriya from "./images/Selvapriya.jpg";
-import imgReka from "./images/Reka.jpg";
 import imgBuvaneshwari from "./images/Buvaneswarih.jpg";
 import imgDeviMeenakshi from "./images/1778918990_Chemistry - Devi Meenakshi.jpg";
 import imgMalarvizhi from "./images/malarvizhi.jpg";
@@ -85,7 +84,7 @@ const ScienceHumanities = () => {
 
   const stats = [
     { count: "600+", label: "First Year Students", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "33+", label: "Dedicated S&H Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "24", label: "Dedicated S&H Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
     { count: "90+", label: "Research Publications", icon: <FaBookOpen />, color: "#d97706" },
     { count: "6+", label: "Science & Language Labs", icon: <FaFlask />, color: "#7c3aed" },
     { count: "95%", label: "First Year Pass Rate", icon: <FaChartLine />, color: "#ec4899" }
@@ -377,21 +376,10 @@ const ScienceHumanities = () => {
             <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
-          <motion.div 
-            className="cse-faculty-grid"
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-          >
-            {faculties.map((member, idx) => (
-              <DepartmentFacultyCard
-                isHOD={idx === 0} 
-                key={idx} 
-                member={member} 
-                onOpenProfile={handleOpenProfile} 
-                fadeInUp={fadeInUp} 
-              />
-            ))}
-          </motion.div>
+          <DepartmentFacultySlider
+            faculties={faculties}
+            onOpenProfile={handleOpenProfile}
+          />
         </div>
       </section>
 

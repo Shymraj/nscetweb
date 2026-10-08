@@ -67,7 +67,6 @@ function Home() {
             <p className="mobile-hero-subtitle">
               Empowering Minds, Shaping the Future
             </p>
-            <div className="mobile-hero-divider"></div>
           </div>
 
           {/* Action Buttons (Apply Now & Explore Campus) */}

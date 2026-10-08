@@ -1,3 +1,4 @@
+import { getApiUrl, getUploadUrl } from '@/config/api';
 import React, { useState, useEffect } from "react";
 import "./ResearchHub.css";
 import axios from "axios";
@@ -59,13 +60,13 @@ function CampusLife() {
   useEffect(() => {
     const fetchCOE = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/admin/home/coe");
+        const res = await axios.get(getApiUrl('/api/admin/home/coe'));
         if (res.data && res.data.data && res.data.data.length > 0) {
           const icons = [<FaRunning />, <FaBed />, <FaUsers />, <FaCoffee />];
           const mapped = res.data.data.map((item, idx) => {
             const images = [
-              item.photo_url ? (item.photo_url.startsWith('http') ? item.photo_url : `http://localhost:5000${item.photo_url}`) : null,
-              item.photo_url2 ? (item.photo_url2.startsWith('http') ? item.photo_url2 : `http://localhost:5000${item.photo_url2}`) : null,
+              item.photo_url ? (item.photo_url.startsWith('http') ? item.photo_url : getUploadUrl(item.photo_url)) : null,
+              item.photo_url2 ? (item.photo_url2.startsWith('http') ? item.photo_url2 : getUploadUrl(item.photo_url2)) : null,
             ].filter(Boolean);
 
             return {

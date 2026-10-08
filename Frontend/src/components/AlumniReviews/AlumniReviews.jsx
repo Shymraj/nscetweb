@@ -1,3 +1,4 @@
+import { getApiUrl, getUploadUrl } from '@/config/api';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AlumniReviews.css";
@@ -86,8 +87,8 @@ const AlumniReviews = () => {
     const fetchData = async () => {
       try {
         const [reviewsRes, settingsRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/admin/home/reviews").catch(() => null),
-          axios.get("http://localhost:5000/api/admin/home/reviews-settings").catch(() => null)
+          axios.get(getApiUrl('/api/admin/home/reviews')).catch(() => null),
+          axios.get(getApiUrl('/api/admin/home/reviews-settings')).catch(() => null)
         ]);
 
         if (reviewsRes && reviewsRes.data && reviewsRes.data.data && reviewsRes.data.data.length > 0) {
@@ -156,7 +157,7 @@ const AlumniReviews = () => {
             {doubleReviews.map((review, idx) => {
               const starsCount = Math.min(5, Math.max(1, review.rating || 5));
               const imgSrc = review.image_url
-                ? (review.image_url.startsWith("http") ? review.image_url : `http://localhost:5000${review.image_url}`)
+                ? (review.image_url.startsWith("http") ? review.image_url : getUploadUrl(review.image_url))
                 : null;
 
               return (

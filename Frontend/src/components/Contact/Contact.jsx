@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Contact.css";
+import { getApiUrl } from "../../config/api.js";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaPaperPlane, FaCheckCircle, FaUser, FaEnvelope, 
@@ -20,7 +21,7 @@ const Contact = () => {
     e.preventDefault();
     setStatus("loading");
     try {
-      await axios.post('http://localhost:5000/api/admin/home/enquiry', formData);
+      await axios.post(getApiUrl('/api/admin/home/enquiry'), formData);
       setStatus("success");
       setFormData({ fullName: "", email: "", mobile: "", whatsapp: "", city: "", subject: "", message: "" });
       setTimeout(() => setStatus("idle"), 5000);

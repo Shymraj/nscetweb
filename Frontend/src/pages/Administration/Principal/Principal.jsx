@@ -1,3 +1,4 @@
+import { getApiUrl, getUploadUrl } from '@/config/api';
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
@@ -21,7 +22,7 @@ function Principal({ hideBreadcrumb = false }) {
   useEffect(() => {
     const fetchPrincipal = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/home/principal');
+        const response = await axios.get(getApiUrl('/api/admin/home/principal'));
         if (response.data && response.data.data && response.data.data.length > 0) {
           setPrincipalData(response.data.data[0]);
         }
@@ -70,7 +71,7 @@ function Principal({ hideBreadcrumb = false }) {
           <div className="pr-hero-left">
             <div className="pr-image-frame">
               <img 
-                src={principalData?.photo_url ? `http://localhost:5000${principalData.photo_url}` : defaultPrincipalImg} 
+                src={principalData?.photo_url ? getUploadUrl(principalData.photo_url) : defaultPrincipalImg} 
                 alt={principalData?.name || "Dr. C. Mathalai Sundaram - Principal"} 
                 className="pr-portrait-img"
               />

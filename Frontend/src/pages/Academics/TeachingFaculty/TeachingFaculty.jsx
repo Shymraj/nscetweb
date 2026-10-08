@@ -1,3 +1,4 @@
+import { API_BASE_URL, getUploadUrl } from '@/config/api';
 import React, { useState, useEffect, useMemo } from 'react';
 import { FaSearch, FaUserTie } from 'react-icons/fa';
 import './TeachingFaculty.css';
@@ -54,6 +55,26 @@ const matchesFaculty = (dept, facultyMember, query) => {
     if (normTok && fullNormText.includes(normTok)) return true;
     return false;
   });
+};
+
+const doesStaffMatchDept = (st, deptKey) => {
+  if (!st || !st.department) return false;
+  const sDept = st.department.toLowerCase().trim();
+  const isStaffME = sDept.includes('m.e') || sDept.includes('embedded') || sDept.includes('manufacturing') || sDept.includes('structural');
+
+  if (deptKey === 'civil') return sDept === 'civil engineering' || (!isStaffME && sDept.includes('civil'));
+  if (deptKey === 'structural') return sDept.includes('structural');
+  if (deptKey === 'cse') return (sDept === 'computer science and engineering' || sDept === 'cse') && !isStaffME;
+  if (deptKey === 'mecse') return isStaffME && (sDept.includes('computer') || sDept.includes('cse'));
+  if (deptKey === 'ece') return (sDept.includes('electronics and communication') || sDept.includes('ece')) && !isStaffME;
+  if (deptKey === 'embedded') return sDept.includes('embedded');
+  if (deptKey === 'eee') return sDept.includes('electrical') || sDept.includes('eee');
+  if (deptKey === 'mech') return (sDept === 'mechanical engineering' || sDept.includes('mech')) && !isStaffME;
+  if (deptKey === 'manufacturing') return sDept.includes('manufacturing');
+  if (deptKey === 'aids') return sDept.includes('artificial') || sDept.includes('aids') || sDept.includes('ai & ds') || sDept.includes('data science');
+  if (deptKey === 'it') return sDept.includes('information technology') || sDept === 'it';
+  if (deptKey === 'sh') return sDept.includes('science and humanities') || sDept.includes('s&h') || sDept.includes('first year');
+  return false;
 };
 
 // ============================================================================
@@ -118,8 +139,7 @@ export const departmentFacultyData = {
       { aufin: '2672171998', aicteId: '1-43705048522', name: 'Mrs. M. Venkata Lakshmi', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/cse/venkatalakshmi.JPG' },
       { aufin: '2669711989', aicteId: '1-4803087809', name: 'Mrs. V. Anusuya', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE', photo: '/teaching_faculty/cse/ANUSUYA VAIRAMUTHU.jpg' },
       { aufin: '2634261990', aicteId: '1-2296755341', name: 'Mrs. V. Vinothini', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - Software', photo: '/teaching_faculty/cse/Vinothini.jpeg' },
-      { aufin: '2797121982', aicteId: '1-3537552496', name: 'Mrs. T. Rathimala', designation: 'Assistant Professor', qualification: 'M.E. CSE', photo: '/teaching_faculty/cse/rathimala.jpg' },
-      { aufin: '-', aicteId: '-', name: 'Ms. J. S. Snega Priyanka', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE', photo: '/teaching_faculty/cse/Snega Priyanka.png' }
+      { aufin: '2797121982', aicteId: '1-3537552496', name: 'Mrs. T. Rathimala', designation: 'Assistant Professor', qualification: 'M.E. CSE', photo: '/teaching_faculty/cse/rathimala.jpg' }
     ]
   },
 
@@ -225,6 +245,7 @@ export const departmentFacultyData = {
       { aufin: '2662281995', aicteId: '1-10532725594', name: 'Mr. J. Vinoth Kumar', designation: 'Assistant Professor', qualification: 'M.E., (Ph.D)', photo: '/teaching_faculty/aids/vinothkumar.jpg' },
       { aufin: '2642661998', aicteId: '1-44732668686', name: 'Mrs. G. Geerthiga', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/aids/Geerthiga.jpg' },
       { aufin: '2621001994', aicteId: '1-44885345874', name: 'Mrs. M. Pavithra', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/aids/Pavithra.jpg' },
+      { aufin: '2633171999', aicteId: '1-39738919031', name: 'Ms. P. Nagajothi', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E. - Software', photo: '/teaching_faculty/aids/Nagajothi.jpg' },
       { aufin: '2644391988', aicteId: '1-9539338208', name: 'Mrs. S. Sunitha', designation: 'Assistant Professor', qualification: 'B.Tech. - IT, M.E - CSE', photo: '/teaching_faculty/aids/sunitha.jpg' },
       { aufin: '2656071990', aicteId: '1-47942661062', name: 'Mr. S. Kodeeswaran', designation: 'Assistant Professor', qualification: 'B.Tech. - IT, M.Tech. - IT', photo: '/teaching_faculty/aids/Kodeeswaran.jpeg' },
       { aufin: '2798201993', aicteId: '1-47948380662', name: 'Mrs. V. Nithyapriya', designation: 'Assistant Professor', qualification: 'M.E.', photo: '/teaching_faculty/aids/Nithyapriya.png' }
@@ -243,8 +264,7 @@ export const departmentFacultyData = {
       { aufin: '2647541984', aicteId: '1-453158406', name: 'Mr. N. Kesavamoorthy', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE', photo: '/teaching_faculty/it/kesavamoorthy.jpg' },
       { aufin: '2691151990', aicteId: '1-44728767777', name: 'Mrs. B. Sai Suganya', designation: 'Assistant Professor', qualification: 'B.Tech. - IT, M.Tech. - IT', photo: '/teaching_faculty/it/sai suganya.jpg' },
       { aufin: '2675141990', aicteId: '1-11340852810', name: 'Mr. M. Bhavani', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.Tech - CSE', photo: '/teaching_faculty/it/Bhavani.jpg' },
-      { aufin: '2626451991', aicteId: '1-9593345041', name: 'Mrs. P. Jasmine Jose', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE', photo: '/teaching_faculty/it/jasminejose.png' },
-      { aufin: '-', aicteId: '-', name: 'Mrs. M. Mareeswari', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE', photo: '/teaching_faculty/it/Mareeswari M.jpg' }
+      { aufin: '2626451991', aicteId: '1-9593345041', name: 'Mrs. P. Jasmine Jose', designation: 'Assistant Professor', qualification: 'B.E - CSE, M.E - CSE', photo: '/teaching_faculty/it/jasminejose.png' }
     ]
   },
 
@@ -262,8 +282,8 @@ export const departmentFacultyData = {
       { aufin: '2632101992', aicteId: '1-43485777861', name: 'Dr. M. Sumathra', designation: 'Assistant Professor (Chemistry)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/Sumathra.jpeg' },
       { aufin: '2688901963', aicteId: '1-44888641004', name: 'Dr. P. Malarvizhi', designation: 'Assistant Professor (English)', qualification: 'M.A., M.Phil., Ph.D.', photo: '/teaching_faculty/sh/malarvizhi.jpg' },
       { aufin: '2696611982', aicteId: '1-44811622064', name: 'Dr. S. Selvapriya', designation: 'Assistant Professor (English)', qualification: 'M.A., M.Phil., Ph.D.', photo: '/teaching_faculty/sh/Selvapriya.jpg' },
-      { aufin: '-', aicteId: '-', name: 'Mrs. S. Rekha', designation: 'Assistant Professor (English)', qualification: 'M.A., M.Phil.', photo: '/teaching_faculty/sh/Reka.jpg' },
       { aufin: '2675711985', aicteId: '-', name: 'Mrs. V. Sangeetha', designation: 'Assistant Professor (English)', qualification: 'B.A., M.A., English (NET)', photo: '/teaching_faculty/sh/Sangeetha.jpeg' },
+      { aufin: '2666891976', aicteId: '1-44891333634', name: 'Dr. R. Valarmathi', designation: 'Assistant Professor (English)', qualification: 'B.A., M.A., Ph.D - English', photo: '/teaching_faculty/sh/valarmathi.jpg' },
       { aufin: '2670801974', aicteId: '1-9507814168', name: 'Dr. C. Chithra', designation: 'Professor (Mathematics)', qualification: 'M.Sc, Ph.D', photo: '/teaching_faculty/sh/CHITHRA.jpg' },
       { aufin: '2666051973', aicteId: '1-736760530', name: 'Dr. B. Mallaiyasamy', designation: 'Associate Professor (Mathematics)', qualification: 'M.Sc, M.Phil', photo: '/teaching_faculty/sh/mailysamy.jpg' },
       { aufin: '2653291992', aicteId: '1-43378082839', name: 'Mr. M. Murugan', designation: 'Assistant Professor (Mathematics)', qualification: 'B.Sc., M.Sc – Maths (SET)', photo: '/teaching_faculty/sh/Murugan.jpeg' },
@@ -271,6 +291,7 @@ export const departmentFacultyData = {
       { aufin: '2664061993', aicteId: '1-47942834092', name: 'Dr. P. Diana', designation: 'Assistant Professor (Physics)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/diana.jpg' },
       { aufin: '2655231992', aicteId: '-', name: 'Dr. M. Easwari', designation: 'Assistant Professor (Physics)', qualification: 'B.Sc., M.Sc., Ph.D', photo: '/teaching_faculty/sh/Easwari.jpeg' },
       { aufin: '2659891982', aicteId: '1-11316396283', name: 'Dr. S. R. Krishnamoorthi', designation: 'Associate Professor (Physics)', qualification: 'M.Sc., M.Phil., Ph.D., MISTE', photo: '/teaching_faculty/sh/krishnamoorthy.jpg' },
+      { aufin: '2738191991', aicteId: '-', name: 'Dr. P. Anto Christy', designation: 'Assistant Professor (Physics)', qualification: 'M.Sc., Ph.D.', photo: '/teaching_faculty/sh/antochristy.jpg' },
       { aufin: '2680081992', aicteId: '1-45331256145', name: 'Mrs. N. Thisha', designation: 'Assistant Professor (Tamil)', qualification: 'B.A., M.A., NET', photo: '/teaching_faculty/sh/thisha.jpeg' },
       { aufin: '2656021988', aicteId: '1-4847769805', name: 'Dr. S. Premkumar', designation: 'Assistant Professor (General Engg)', qualification: 'B.E, M.E, Ph.D', photo: '/teaching_faculty/sh/General Engg - Premkumar.jpg' },
       { aufin: '2684071994', aicteId: '1-47439259952', name: 'Mr. K. Ram Kumar', designation: 'Assistant Professor (General Engg)', qualification: 'B.E - EEE, M.B.A', photo: '/teaching_faculty/sh/ramkumar.jpeg' },
@@ -303,9 +324,7 @@ const TeachingFaculty = () => {
 
   // Fetch dynamic staff from database for updating photos dynamically
   useEffect(() => {
-    const apiBase = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-      ? 'http://localhost:5000'
-      : '';
+    const apiBase = API_BASE_URL;
 
     fetch(`${apiBase}/api/admin/staff`)
       .then(res => res.json())
@@ -317,72 +336,98 @@ const TeachingFaculty = () => {
       .catch(() => { });
   }, []);
 
-  // Enrich static verified faculty data with DB photo updates and clean deduplication
+  // Enrich static verified faculty data with DB photo updates, edits, additions, and deletions
   const enrichedDepartments = useMemo(() => {
     const result = {};
+    const hasDynamicData = Array.isArray(dynamicStaff) && dynamicStaff.length > 0;
 
     departmentOrder.forEach(deptKey => {
       const dept = departmentFacultyData[deptKey];
       if (!dept) return;
 
-      const updatedFaculty = dept.faculty.map(f => {
+      const matchedDbStaffIds = new Set();
+      const updatedFaculty = [];
+
+      dept.faculty.forEach(f => {
         const normStatic = normalizeCore(f.name);
 
-        const dbMatch = dynamicStaff.find(st => {
+        const dbMatch = hasDynamicData ? dynamicStaff.find(st => {
           if (!st || !st.name) return false;
-          // Exact AU-FIN match if available
           if (f.aufin && f.aufin !== '-' && st.aufin && st.aufin !== '-' && st.aufin === f.aufin) return true;
-          
           const normDb = normalizeCore(st.name);
           if (!normStatic || !normDb) return false;
-          
-          // Verify department if present on the DB record
-          const deptMatches = !st.department || 
-            st.department.toLowerCase().includes(dept.name.toLowerCase()) || 
-            dept.name.toLowerCase().includes(st.department.toLowerCase()) ||
-            st.department.toLowerCase().includes(dept.id.toLowerCase());
+          return normStatic === normDb && doesStaffMatchDept(st, deptKey);
+        }) : null;
 
-          if (normStatic === normDb && deptMatches) return true;
-          return false;
-        });
+        // If dynamic database data has loaded and this staff is deleted from the DB, exclude them
+        if (hasDynamicData && !dbMatch) {
+          return;
+        }
+
+        if (dbMatch) {
+          matchedDbStaffIds.add(dbMatch.id);
+        }
 
         const staticPhoto = f.photo || null;
         let photo = f.photo || null;
 
-        if (f.photo) {
-          const rawImg = dbMatch ? (dbMatch.photo_url || dbMatch.image_url) : null;
-          if (rawImg && typeof rawImg === 'string' && rawImg.trim() !== '') {
-            const trimmed = rawImg.trim();
-            if (trimmed.startsWith('/uploads/')) {
-              // Uploaded staff photo served by backend
-              const apiBase = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-                ? 'http://localhost:5000'
-                : '';
-              photo = `${apiBase}${trimmed}`;
-            } else if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
-              photo = trimmed;
-            }
+        const rawImg = dbMatch ? (dbMatch.photo_url || dbMatch.image_url) : null;
+        if (rawImg && typeof rawImg === 'string' && rawImg.trim() !== '') {
+          const trimmed = rawImg.trim();
+          if (trimmed.startsWith('/uploads/')) {
+            const apiBase = API_BASE_URL;
+            photo = `${apiBase}${trimmed}`;
+          } else {
+            photo = trimmed;
           }
         }
 
-        return { ...f, photo, staticPhoto };
+        updatedFaculty.push({
+          ...f,
+          name: dbMatch?.name || f.name,
+          designation: dbMatch?.designation || f.designation,
+          qualification: dbMatch?.qualifications || f.qualification,
+          photo,
+          staticPhoto
+        });
       });
 
-      // Strict Deduplication within department
+      // Append newly added DB staff who belong to this department
+      if (hasDynamicData) {
+        const newDeptStaff = dynamicStaff.filter(st => doesStaffMatchDept(st, deptKey) && !matchedDbStaffIds.has(st.id));
+        newDeptStaff.forEach(st => {
+          let photo = null;
+          const rawImg = st.photo_url || st.image_url;
+          if (rawImg && typeof rawImg === 'string' && rawImg.trim() !== '') {
+            const trimmed = rawImg.trim();
+            if (trimmed.startsWith('/uploads/')) {
+              const apiBase = API_BASE_URL;
+              photo = `${apiBase}${trimmed}`;
+            } else {
+              photo = trimmed;
+            }
+          }
+
+          updatedFaculty.push({
+            aufin: st.aufin || '-',
+            aicteId: st.aicteId || st.aicte_id || '-',
+            name: st.name,
+            designation: st.designation || 'Assistant Professor',
+            qualification: st.qualifications || '',
+            photo,
+            staticPhoto: null
+          });
+        });
+      }
+
+      // Deduplication within department
       const seenNames = new Set();
-      const seenAufins = new Set();
       const uniqueFaculty = [];
 
       updatedFaculty.forEach(member => {
         const norm = normalizeCore(member.name);
         if (norm && seenNames.has(norm)) return;
         if (norm) seenNames.add(norm);
-
-        if (member.aufin && member.aufin !== '-') {
-          if (seenAufins.has(member.aufin)) return;
-          seenAufins.add(member.aufin);
-        }
-
         uniqueFaculty.push(member);
       });
 

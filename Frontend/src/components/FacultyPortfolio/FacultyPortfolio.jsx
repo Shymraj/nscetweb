@@ -1,3 +1,4 @@
+import { API_BASE_URL, getUploadUrl } from '@/config/api';
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import GlassmorphismPortfolio from "./GlassmorphismPortfolio";
@@ -25,9 +26,7 @@ export default function FacultyPortfolio() {
     }
 
     // Dynamic API fetch from database staff
-    const apiBase = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-      ? 'http://localhost:5000'
-      : '';
+    const apiBase = API_BASE_URL;
     fetch(`${apiBase}/api/admin/staff`)
       .then(res => res.json())
       .then(data => {
@@ -68,7 +67,7 @@ export default function FacultyPortfolio() {
               qual: matchedStaff.qualifications || (isSamePerson ? (base.qual || "") : ""),
               email: matchedStaff.email || (isSamePerson ? (base.email || "") : ""),
               image: matchedStaff.photo_url 
-                ? (matchedStaff.photo_url.startsWith('http') ? matchedStaff.photo_url : `http://localhost:5000${matchedStaff.photo_url}`) 
+                ? (matchedStaff.photo_url.startsWith('http') ? matchedStaff.photo_url : getUploadUrl(matchedStaff.photo_url)) 
                 : (isSamePerson ? (base.image || "") : ""),
               spec: (matchedStaff.spec !== undefined && matchedStaff.spec !== null && matchedStaff.spec !== '') 
                 ? matchedStaff.spec 
@@ -86,7 +85,7 @@ export default function FacultyPortfolio() {
               awards: parseList(matchedStaff.awards, isSamePerson ? (base.awards || []) : []),
               experience: parseList(matchedStaff.experience, isSamePerson ? (base.experience || []) : []),
               profile_pdf: matchedStaff.profile_pdf 
-                ? (matchedStaff.profile_pdf.startsWith('http') ? matchedStaff.profile_pdf : `http://localhost:5000${matchedStaff.profile_pdf}`) 
+                ? (matchedStaff.profile_pdf.startsWith('http') ? matchedStaff.profile_pdf : getUploadUrl(matchedStaff.profile_pdf)) 
                 : (isSamePerson ? (base.profile_pdf || null) : null),
               profile_url: matchedStaff.profile_url || (isSamePerson ? (base.profile_url || null) : null),
               _detectedDept: deptId

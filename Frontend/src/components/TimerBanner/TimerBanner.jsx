@@ -1,3 +1,4 @@
+import { getApiUrl } from '@/config/api';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './TimerBanner.css';
@@ -9,7 +10,7 @@ const TimerBanner = () => {
   useEffect(() => {
     const fetchTimer = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/home/timer');
+        const response = await axios.get(getApiUrl('/api/admin/home/timer'));
         if (response.data && response.data.data && response.data.data.length > 0) {
           // Just take the first timer
           setTimerData(response.data.data[0]);

@@ -1,3 +1,4 @@
+import { getApiUrl } from '@/config/api';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaBullhorn } from 'react-icons/fa';
@@ -25,8 +26,8 @@ const MarqueeBanner = () => {
     const fetchMarqueeData = async () => {
       try {
         const [contentRes, settingsRes] = await Promise.allSettled([
-          axios.get('http://localhost:5000/api/admin/home/marquee'),
-          axios.get('http://localhost:5000/api/admin/home/marquee-settings')
+          axios.get(getApiUrl('/api/admin/home/marquee')),
+          axios.get(getApiUrl('/api/admin/home/marquee-settings'))
         ]);
 
         if (contentRes.status === 'fulfilled' && contentRes.value.data?.success) {

@@ -1,3 +1,4 @@
+import { getApiUrl, getUploadUrl } from '@/config/api';
 import { useParams, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -18,12 +19,12 @@ const EventGallery = () => {
   useEffect(() => {
     const fetchEventFromBackend = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/admin/events", { timeout: 2000 });
+        const res = await axios.get(getApiUrl('/api/admin/events'), { timeout: 2000 });
         const allEvents = res.data?.data || [];
         const backendEvent = allEvents.find((e) => e.slug === eventSlug);
         
         if (backendEvent) {
-          backendEvent.images = backendEvent.images ? backendEvent.images.map(img => `http://localhost:5000${img}`) : [];
+          backendEvent.images = backendEvent.images ? backendEvent.images.map(img => getUploadUrl(img)) : [];
           setSelectedEvent(backendEvent);
         }
       } catch (err) {

@@ -1,3 +1,4 @@
+import { getApiUrl, getUploadUrl } from '@/config/api';
 import { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -29,12 +30,12 @@ const Events = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/admin/events");
+        const res = await axios.get(getApiUrl('/api/admin/events'));
         if (res.data && res.data.data && res.data.data.length > 0) {
           const formattedEvents = res.data.data.map(ev => ({
             ...ev,
-            coverImage: ev.coverImage ? `http://localhost:5000${ev.coverImage}` : null,
-            images: ev.images ? ev.images.map(img => `http://localhost:5000${img}`) : []
+            coverImage: ev.coverImage ? getUploadUrl(ev.coverImage) : null,
+            images: ev.images ? ev.images.map(img => getUploadUrl(img)) : []
           }));
           setEventsData(formattedEvents);
         }

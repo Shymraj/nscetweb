@@ -13,7 +13,7 @@ import { memanufacturingFacultyData } from "./memanufacturing/facultyData";
 
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
-import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
+import DepartmentFacultySlider from "../../../components/common/DepartmentFacultySlider/DepartmentFacultySlider";
 
 // Auto-load banner image inside ./images/manufacturing_eng/
 const bannerGlobs = import.meta.glob("./images/manufacturing_eng/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
@@ -54,7 +54,7 @@ const MEManufacturing = () => {
 
   const stats = [
     { count: "30+", label: "PG Manufacturing Scholars", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "4+", label: "Senior Manufacturing Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "2", label: "Senior Manufacturing Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
     { count: "25+", label: "Scopus Research Papers", icon: <FaBookOpen />, color: "#d97706" },
     { count: "3+", label: "Advanced CNC & Additive Labs", icon: <FaIndustry />, color: "#7c3aed" },
     { count: "100%", label: "Thesis Completion Rate", icon: <FaChartLine />, color: "#ec4899" }
@@ -292,21 +292,10 @@ const MEManufacturing = () => {
             <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
-          <motion.div 
-            className="cse-faculty-grid"
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-          >
-            {faculties.map((member, idx) => (
-              <DepartmentFacultyCard
-                isHOD={idx === 0} 
-                key={idx} 
-                member={member} 
-                onOpenProfile={handleOpenProfile} 
-                fadeInUp={fadeInUp} 
-              />
-            ))}
-          </motion.div>
+          <DepartmentFacultySlider
+            faculties={faculties}
+            onOpenProfile={handleOpenProfile}
+          />
         </div>
       </section>
 

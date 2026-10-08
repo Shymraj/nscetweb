@@ -835,7 +835,408 @@ body.dark-mode .cse-quote-text { color: #cbd5e1; }
   gap: 1rem;
 }
 
-/* ================= SECTION 7: Faculty Grid ================= */
+/* ================= SECTION 7: Faculty Layout & Slider ================= */
+.cse-faculty-layout-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+  position: relative;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.cse-hod-fixed-wrapper {
+  width: 260px;
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+}
+
+/* CARDS STYLING - Exact Teaching Faculty Design & Dimensions */
+.cse-staff-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  position: relative;
+  width: 260px;
+  min-width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: all 0.35s ease;
+}
+
+body.dark-mode .cse-staff-card {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cse-staff-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 12px 30px rgba(11, 47, 154, 0.15);
+  border: 3px solid #0b2f9a !important;
+}
+
+body.dark-mode .cse-staff-card:hover {
+  border-color: #38bdf8 !important;
+}
+
+/* HOD Special Golden Card */
+.cse-hod-special-card {
+  background: linear-gradient(145deg, #fff9e6, #ffffff) !important;
+  border: 2px solid #d4af37 !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2) !important;
+  width: 100%;
+  height: 100%;
+}
+
+body.dark-mode .cse-hod-special-card {
+  background: linear-gradient(145deg, #2a2415, #1e293b) !important;
+  border-color: #d4af37 !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25) !important;
+}
+
+.cse-hod-special-card:hover {
+  transform: translateY(-8px) !important;
+  border: 3px solid #d4af37 !important;
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3), 0 12px 30px rgba(212, 175, 55, 0.15) !important;
+}
+
+.cse-staff-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 0.8rem auto;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  object-position: center 15%;
+  display: block;
+  background: #f1f5f9;
+}
+
+body.dark-mode .cse-staff-img {
+  border-color: #1e293b;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cse-card-info-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.cse-staff-name {
+  font-family: var(--font-subtopic, 'Outfit', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.3rem 0;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+body.dark-mode .cse-staff-name {
+  color: #f8fafc;
+}
+
+.cse-hod-badge {
+  display: inline-block;
+  margin-bottom: 6px;
+  background: linear-gradient(90deg, #d4af37, #b8860b);
+  color: #ffffff;
+  padding: 3px 12px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.cse-staff-pos {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin: 0 0 0.8rem 0;
+  min-height: 22px;
+  text-align: center;
+}
+
+body.dark-mode .cse-staff-pos {
+  color: #38bdf8;
+}
+
+.cse-hod-pos {
+  color: #92400e;
+}
+
+body.dark-mode .cse-hod-pos {
+  color: #fbbf24;
+}
+
+.cse-qual-badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 52px;
+  align-content: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.cse-badge-outline {
+  background: #0b2f9a;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.cse-hod-badge-outline {
+  background: #d4af37 !important;
+  color: #ffffff !important;
+}
+
+.cse-spec-badges {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.cse-spec-tag {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+body.dark-mode .cse-spec-tag {
+  background: rgba(37, 99, 235, 0.2);
+  color: #93c5fd;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.cse-contact-item-small {
+  color: #64748b;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.4rem 0 0.8rem 0;
+  padding: 0 4px;
+  width: 100%;
+}
+
+body.dark-mode .cse-contact-item-small {
+  color: #94a3b8;
+}
+
+.cse-contact-icon {
+  font-size: 0.85rem;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.cse-hod-icon {
+  color: #d4af37 !important;
+}
+
+.cse-contact-item-small a {
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cse-contact-item-small a:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+body.dark-mode .cse-contact-item-small a:hover {
+  color: #38bdf8;
+}
+
+/* Academic Profile Button */
+.cse-card-profile-btn {
+  background: #0b2f9a;
+  color: #ffffff;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  margin-top: auto;
+  transition: all 0.25s ease;
+}
+
+.cse-card-profile-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11, 47, 154, 0.3);
+}
+
+.cse-hod-profile-btn {
+  background: #b8860b;
+}
+
+.cse-hod-profile-btn:hover {
+  background: #d4af37;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+/* Slider Track & Container */
+.cse-slider-wrapper {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 10px;
+}
+
+.cse-slider-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.cse-scroll-track {
+  display: flex;
+  gap: 1.6rem;
+  overflow-x: auto;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 4px 20px 4px;
+  width: 100%;
+}
+
+.cse-scroll-track::-webkit-scrollbar {
+  display: none;
+}
+
+.cse-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  color: #0b2f9a;
+  border: 1px solid #e2e8f0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .cse-slider-btn {
+  background: #1e293b;
+  color: #38bdf8;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.cse-slider-btn:hover {
+  background: #0b2f9a;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 18px rgba(11, 47, 154, 0.35);
+}
+
+body.dark-mode .cse-slider-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+.cse-slider-btn.left {
+  left: -12px;
+}
+
+.cse-slider-btn.right {
+  right: -12px;
+}
+
+@media (max-width: 1080px) {
+  .cse-faculty-layout-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .cse-hod-fixed-wrapper {
+    width: 260px;
+    margin: 0 auto;
+  }
+
+  .cse-slider-wrapper {
+    width: 100%;
+    padding: 0;
+  }
+
+  .cse-slider-btn.left {
+    left: 4px;
+  }
+
+  .cse-slider-btn.right {
+    right: 4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cse-staff-card {
+    width: 240px;
+    min-width: 240px;
+    padding: 1.2rem;
+  }
+
+  .cse-staff-img {
+    width: 95px;
+    height: 95px;
+  }
+
+  .cse-slider-btn {
+    display: none;
+  }
+}
+
 .cse-faculty-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

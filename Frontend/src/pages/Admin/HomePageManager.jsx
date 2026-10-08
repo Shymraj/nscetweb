@@ -1,3 +1,4 @@
+import { API_BASE_URL, getApiUrl, getUploadUrl } from '@/config/api';
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { FaArrowRight, FaArrowLeft, FaSearch, FaBuilding, FaStar, FaUserAlt } from 'react-icons/fa';
@@ -61,7 +62,7 @@ const MarqueeManager = () => {
 
   const fetchItems = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/home/marquee');
+      const res = await axios.get(getApiUrl('/api/admin/home/marquee'));
       if (res.data?.success && Array.isArray(res.data.data)) {
         setItems(res.data.data);
       }
@@ -72,7 +73,7 @@ const MarqueeManager = () => {
 
   const fetchSettings = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/home/marquee-settings');
+      const res = await axios.get(getApiUrl('/api/admin/home/marquee-settings'));
       if (res.data?.success && res.data.data) {
         const sec = Math.min(30, Math.max(6, Number(res.data.data.speed_seconds) || 20));
         const mode = res.data.data.speed_mode || 'normal';
@@ -133,7 +134,7 @@ const MarqueeManager = () => {
     const sec = Math.max(6, Math.min(30, Number(speedSeconds) || 20));
     setIsSavingSpeed(true);
     try {
-      const res = await axios.put('http://localhost:5000/api/admin/home/marquee-settings', {
+      const res = await axios.put(getApiUrl('/api/admin/home/marquee-settings'), {
         speed_mode: speedMode,
         speed_seconds: sec
       });
@@ -157,9 +158,9 @@ const MarqueeManager = () => {
     e.preventDefault();
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/home/marquee/${editId}`, { content });
+        await axios.put(getApiUrl(`/api/admin/home/marquee/${editId}`), { content });
       } else {
-        await axios.post(`http://localhost:5000/api/admin/home/marquee`, { content });
+        await axios.post(getApiUrl('/api/admin/home/marquee'), { content });
       }
       setContent('');
       setEditId(null);
@@ -182,7 +183,7 @@ const MarqueeManager = () => {
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this marquee item?")) {
-      await axios.delete(`http://localhost:5000/api/admin/home/marquee/${id}`);
+      await axios.delete(getApiUrl(`/api/admin/home/marquee/${id}`));
       fetchItems();
     }
   };
@@ -378,7 +379,7 @@ const HeroManager = () => {
   const [photo, setPhoto] = useState(null);
 
   const fetchItems = async () => {
-    const res = await axios.get('http://localhost:5000/api/admin/home/hero');
+    const res = await axios.get(getApiUrl('/api/admin/home/hero'));
     setItems(res.data.data);
   };
   useEffect(() => { fetchItems(); }, []);
@@ -394,9 +395,9 @@ const HeroManager = () => {
     if (photo) formData.append('photo', photo);
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/home/hero/${editId}`, formData);
+        await axios.put(getApiUrl(`/api/admin/home/hero/${editId}`), formData);
       } else {
-        await axios.post(`http://localhost:5000/api/admin/home/hero`, formData);
+        await axios.post(getApiUrl('/api/admin/home/hero'), formData);
       }
       setHeading(''); setSubHeading(''); setParagraph(''); setButtonName(''); setUrl(''); setPhoto(null); setEditId(null);
       fetchItems();
@@ -418,7 +419,7 @@ const HeroManager = () => {
     setHeading(''); setSubHeading(''); setParagraph(''); setButtonName(''); setUrl(''); setPhoto(null); setEditId(null);
   };
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/admin/home/hero/${id}`);
+    await axios.delete(getApiUrl(`/api/admin/home/hero/${id}`));
     fetchItems();
   };
 
@@ -435,7 +436,7 @@ const HeroManager = () => {
               <td>{item.paragraph}</td>
               <td>{item.button_name}</td>
               <td>{item.url}</td>
-              <td>{item.photo_url && <img src={`http://localhost:5000${item.photo_url}`} alt="hero" style={{ width: '50px' }} />}</td>
+              <td>{item.photo_url && <img src={getUploadUrl(item.photo_url)} alt="hero" style={{ width: '50px' }} />}</td>
               <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
                 <button style={{ ...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box' }} onClick={() => handleEdit(item)}>Edit</button>
                 <button style={{ ...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box' }} onClick={() => handleDelete(item.id)}>Delete</button>
@@ -482,7 +483,7 @@ const TimerManager = () => {
   const [targetDate, setTargetDate] = useState('');
 
   const fetchItems = async () => {
-    const res = await axios.get('http://localhost:5000/api/admin/home/timer');
+    const res = await axios.get(getApiUrl('/api/admin/home/timer'));
     setItems(res.data.data);
   };
   useEffect(() => { fetchItems(); }, []);
@@ -491,9 +492,9 @@ const TimerManager = () => {
     e.preventDefault();
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/home/timer/${editId}`, { event_name: eventName, target_date: targetDate });
+        await axios.put(getApiUrl(`/api/admin/home/timer/${editId}`), { event_name: eventName, target_date: targetDate });
       } else {
-        await axios.post(`http://localhost:5000/api/admin/home/timer`, { event_name: eventName, target_date: targetDate });
+        await axios.post(getApiUrl('/api/admin/home/timer'), { event_name: eventName, target_date: targetDate });
       }
       setEventName(''); setTargetDate(''); setEditId(null);
       fetchItems();
@@ -518,7 +519,7 @@ const TimerManager = () => {
   };
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/home/timer/${id}`);
+      await axios.delete(getApiUrl(`/api/admin/home/timer/${id}`));
       fetchItems();
     } catch (error) {
       console.error("Delete failed:", error);
@@ -572,7 +573,7 @@ const CenterOfExcellenceManager = () => {
 
   const fetchItems = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/home/coe');
+      const res = await axios.get(getApiUrl('/api/admin/home/coe'));
       setItems(res.data.data || []);
     } catch (err) {
       console.error('Failed to fetch COE items:', err);
@@ -594,9 +595,9 @@ const CenterOfExcellenceManager = () => {
 
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/home/coe/${editId}`, formData);
+        await axios.put(getApiUrl(`/api/admin/home/coe/${editId}`), formData);
       } else {
-        await axios.post('http://localhost:5000/api/admin/home/coe', formData);
+        await axios.post(getApiUrl('/api/admin/home/coe'), formData);
       }
       cancelEdit();
       fetchItems();
@@ -627,7 +628,7 @@ const CenterOfExcellenceManager = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this Centre of Excellence item?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/home/coe/${id}`);
+        await axios.delete(getApiUrl(`/api/admin/home/coe/${id}`));
         fetchItems();
       } catch (error) {
         console.error(error);
@@ -663,14 +664,14 @@ const CenterOfExcellenceManager = () => {
                 <div style={{ display: 'flex', gap: '6px', alignItems: 'center', flexWrap: 'wrap' }}>
                   {item.photo_url && (
                     <img
-                      src={`http://localhost:5000${item.photo_url}`}
+                      src={getUploadUrl(item.photo_url)}
                       alt="coe 1"
                       style={{ width: '55px', height: '40px', objectFit: 'cover', borderRadius: '4px', border: '1px solid #ddd' }}
                     />
                   )}
                   {item.photo_url2 && (
                     <img
-                      src={`http://localhost:5000${item.photo_url2}`}
+                      src={getUploadUrl(item.photo_url2)}
                       alt="coe 2"
                       style={{ width: '55px', height: '40px', objectFit: 'cover', borderRadius: '4px', border: '1px solid #ddd' }}
                     />
@@ -795,7 +796,7 @@ const CampusNewsManager = () => {
 
   const fetchItems = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/home/featured-news');
+      const res = await axios.get(getApiUrl('/api/admin/home/featured-news'));
       setItems(res.data.data || []);
     } catch (err) {
       console.error('Failed to fetch featured news:', err);
@@ -818,9 +819,9 @@ const CampusNewsManager = () => {
 
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/home/featured-news/${editId}`, formData);
+        await axios.put(getApiUrl(`/api/admin/home/featured-news/${editId}`), formData);
       } else {
-        await axios.post('http://localhost:5000/api/admin/home/featured-news', formData);
+        await axios.post(getApiUrl('/api/admin/home/featured-news'), formData);
       }
       cancelEdit();
       fetchItems();
@@ -853,7 +854,7 @@ const CampusNewsManager = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this featured news story?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/home/featured-news/${id}`);
+        await axios.delete(getApiUrl(`/api/admin/home/featured-news/${id}`));
         fetchItems();
       } catch (error) {
         console.error(error);
@@ -882,7 +883,7 @@ const CampusNewsManager = () => {
               <td>
                 {item.photo_url && (
                   <img
-                    src={`http://localhost:5000${item.photo_url}`}
+                    src={getUploadUrl(item.photo_url)}
                     alt="Featured"
                     style={{ width: '80px', height: '55px', objectFit: 'cover', borderRadius: '4px', border: '1px solid #ddd' }}
                   />
@@ -1027,7 +1028,7 @@ const NoticeBoardManager = () => {
 
   const fetchItems = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/home/notice-board');
+      const res = await axios.get(getApiUrl('/api/admin/home/notice-board'));
       setItems(res.data.data || []);
     } catch (err) {
       console.error('Failed to fetch notice board:', err);
@@ -1042,14 +1043,14 @@ const NoticeBoardManager = () => {
     e.preventDefault();
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/home/notice-board/${editId}`, {
+        await axios.put(getApiUrl(`/api/admin/home/notice-board/${editId}`), {
           title,
           date,
           type,
           link_url: linkUrl,
         });
       } else {
-        await axios.post('http://localhost:5000/api/admin/home/notice-board', {
+        await axios.post(getApiUrl('/api/admin/home/notice-board'), {
           title,
           date,
           type,
@@ -1083,7 +1084,7 @@ const NoticeBoardManager = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this notice?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/home/notice-board/${id}`);
+        await axios.delete(getApiUrl(`/api/admin/home/notice-board/${id}`));
         fetchItems();
       } catch (error) {
         console.error(error);
@@ -1229,7 +1230,7 @@ const AnnouncementManager = () => {
   const [photo, setPhoto] = useState(null);
 
   const fetchItems = async () => {
-    const res = await axios.get('http://localhost:5000/api/admin/home/announcement');
+    const res = await axios.get(getApiUrl('/api/admin/home/announcement'));
     setItems(res.data.data);
   };
   useEffect(() => { fetchItems(); }, []);
@@ -1239,7 +1240,7 @@ const AnnouncementManager = () => {
     const formData = new FormData();
     if (photo) formData.append('photo', photo);
     try {
-      await axios.post(`http://localhost:5000/api/admin/home/announcement`, formData);
+      await axios.post(getApiUrl('/api/admin/home/announcement'), formData);
       setPhoto(null);
       fetchItems();
     } catch (error) {
@@ -1249,7 +1250,7 @@ const AnnouncementManager = () => {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/admin/home/announcement/${id}`);
+    await axios.delete(getApiUrl(`/api/admin/home/announcement/${id}`));
     fetchItems();
   };
 
@@ -1261,7 +1262,7 @@ const AnnouncementManager = () => {
         <tbody>
           {items.map(item => (
             <tr key={item.id}>
-              <td>{item.photo_url && <img src={`http://localhost:5000${item.photo_url}`} alt="announcement" style={{ width: '120px', borderRadius: '4px' }} />}</td>
+              <td>{item.photo_url && <img src={getUploadUrl(item.photo_url)} alt="announcement" style={{ width: '120px', borderRadius: '4px' }} />}</td>
               <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
                 <button style={{ ...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box' }} onClick={() => handleDelete(item.id)}>Delete</button>
               </td>
@@ -1291,7 +1292,7 @@ const ImageManager = () => {
   const [photo, setPhoto] = useState(null);
 
   const fetchItems = async () => {
-    const res = await axios.get('http://localhost:5000/api/admin/home/image');
+    const res = await axios.get(getApiUrl('/api/admin/home/image'));
     setItems(res.data.data);
   };
   useEffect(() => { fetchItems(); }, []);
@@ -1303,9 +1304,9 @@ const ImageManager = () => {
     if (photo) formData.append('photo', photo);
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/home/image/${editId}`, formData);
+        await axios.put(getApiUrl(`/api/admin/home/image/${editId}`), formData);
       } else {
-        await axios.post(`http://localhost:5000/api/admin/home/image`, formData);
+        await axios.post(getApiUrl('/api/admin/home/image'), formData);
       }
       setCaption(''); setPhoto(null); setEditId(null);
       fetchItems();
@@ -1323,7 +1324,7 @@ const ImageManager = () => {
     setCaption(''); setPhoto(null); setEditId(null);
   };
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/admin/home/image/${id}`);
+    await axios.delete(getApiUrl(`/api/admin/home/image/${id}`));
     fetchItems();
   };
 
@@ -1335,7 +1336,7 @@ const ImageManager = () => {
         <tbody>
           {items.map(item => (
             <tr key={item.id}>
-              <td>{item.photo_url && <img src={`http://localhost:5000${item.photo_url}`} alt="img" style={{ width: '80px', borderRadius: '4px' }} />}</td>
+              <td>{item.photo_url && <img src={getUploadUrl(item.photo_url)} alt="img" style={{ width: '80px', borderRadius: '4px' }} />}</td>
               <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
                 <button style={{ ...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box' }} onClick={() => handleEdit(item)}>Edit</button>
                 <button style={{ ...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box' }} onClick={() => handleDelete(item.id)}>Delete</button>
@@ -1369,7 +1370,7 @@ const PrincipalManager = () => {
   const [photo, setPhoto] = useState(null);
 
   const fetchItems = async () => {
-    const res = await axios.get('http://localhost:5000/api/admin/home/principal');
+    const res = await axios.get(getApiUrl('/api/admin/home/principal'));
     setItems(res.data.data);
   };
   useEffect(() => { fetchItems(); }, []);
@@ -1382,9 +1383,9 @@ const PrincipalManager = () => {
     if (photo) formData.append('photo', photo);
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/home/principal/${editId}`, formData);
+        await axios.put(getApiUrl(`/api/admin/home/principal/${editId}`), formData);
       } else {
-        await axios.post(`http://localhost:5000/api/admin/home/principal`, formData);
+        await axios.post(getApiUrl('/api/admin/home/principal'), formData);
       }
       setName(''); setMessage(''); setPhoto(null); setEditId(null);
       fetchItems();
@@ -1403,7 +1404,7 @@ const PrincipalManager = () => {
     setName(''); setMessage(''); setPhoto(null); setEditId(null);
   };
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/admin/home/principal/${id}`);
+    await axios.delete(getApiUrl(`/api/admin/home/principal/${id}`));
     fetchItems();
   };
 
@@ -1417,7 +1418,7 @@ const PrincipalManager = () => {
             <tr key={item.id}>
               <td>{item.name}</td>
               <td>{item.message}</td>
-              <td>{item.photo_url && <img src={`http://localhost:5000${item.photo_url}`} alt="principal" style={{ width: '50px' }} />}</td>
+              <td>{item.photo_url && <img src={getUploadUrl(item.photo_url)} alt="principal" style={{ width: '50px' }} />}</td>
               <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
                 <button style={{ ...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box' }} onClick={() => handleEdit(item)}>Edit</button>
                 <button style={{ ...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box' }} onClick={() => handleDelete(item.id)}>Delete</button>
@@ -1451,7 +1452,7 @@ const PrincipalManager = () => {
 
 const CourseManager = ({ type }) => {
   const title = type === 'ug_course' ? '8. UG Course Section' : '9. PG Course Section';
-  const apiPath = `http://localhost:5000/api/admin/home/${type}`;
+  const apiPath = getApiUrl(`/api/admin/home/${type}`);
 
   const [items, setItems] = useState([]);
   const [editId, setEditId] = useState(null);
@@ -1508,7 +1509,7 @@ const CourseManager = ({ type }) => {
             <tr key={item.id}>
               <td>{item.course_name}</td>
               <td>{item.description}</td>
-              <td>{item.photo_url && <img src={`http://localhost:5000${item.photo_url}`} alt="course" style={{ width: '50px' }} />}</td>
+              <td>{item.photo_url && <img src={getUploadUrl(item.photo_url)} alt="course" style={{ width: '50px' }} />}</td>
               <td style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', alignItems: 'center' }}>
                 <button style={{ ...addBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box' }} onClick={() => handleEdit(item)}>Edit</button>
                 <button style={{ ...delBtnStyle, padding: '6px 15px', margin: 0, width: '80px', boxSizing: 'border-box' }} onClick={() => handleDelete(item.id)}>Delete</button>
@@ -1552,7 +1553,7 @@ const RecruiterManager = () => {
 
   const fetchItems = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/home/recruiter');
+      const res = await axios.get(getApiUrl('/api/admin/home/recruiter'));
       setItems(res.data.data || []);
     } catch (err) {
       console.error('Failed to fetch recruiters:', err);
@@ -1596,10 +1597,10 @@ const RecruiterManager = () => {
 
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/home/recruiter/${editId}`, formData);
+        await axios.put(getApiUrl(`/api/admin/home/recruiter/${editId}`), formData);
         alert("Company updated successfully.");
       } else {
-        await axios.post(`http://localhost:5000/api/admin/home/recruiter`, formData);
+        await axios.post(getApiUrl('/api/admin/home/recruiter'), formData);
       }
       resetForm();
       fetchItems();
@@ -1612,7 +1613,7 @@ const RecruiterManager = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this recruiter logo?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/home/recruiter/${id}`);
+        await axios.delete(getApiUrl(`/api/admin/home/recruiter/${id}`));
         fetchItems();
       } catch (error) {
         console.error(error);
@@ -1667,7 +1668,7 @@ const RecruiterManager = () => {
                 {item.logo_url && (
                   <div style={{ backgroundColor: '#1e293b', padding: '6px 14px', borderRadius: '6px', display: 'inline-block' }}>
                     <img
-                      src={`http://localhost:5000${item.logo_url}`}
+                      src={getUploadUrl(item.logo_url)}
                       alt={item.company_name}
                       style={{ height: '36px', maxWidth: '130px', objectFit: 'contain' }}
                     />
@@ -1788,7 +1789,7 @@ const ReviewManager = () => {
 
   const fetchItems = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/home/reviews');
+      const res = await axios.get(getApiUrl('/api/admin/home/reviews'));
       setItems(res.data.data || []);
     } catch (err) {
       console.error('Failed to fetch reviews:', err);
@@ -1797,7 +1798,7 @@ const ReviewManager = () => {
 
   const fetchSettings = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/home/reviews-settings');
+      const res = await axios.get(getApiUrl('/api/admin/home/reviews-settings'));
       if (res.data && res.data.data) {
         setSettings(res.data.data);
       }
@@ -1815,7 +1816,7 @@ const ReviewManager = () => {
     e.preventDefault();
     setSavingSettings(true);
     try {
-      await axios.put('http://localhost:5000/api/admin/home/reviews-settings', settings);
+      await axios.put(getApiUrl('/api/admin/home/reviews-settings'), settings);
       setSettingsMsg('Placement section settings saved successfully!');
       setTimeout(() => setSettingsMsg(''), 3000);
     } catch (err) {
@@ -1840,9 +1841,9 @@ const ReviewManager = () => {
 
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/home/reviews/${editId}`, formData);
+        await axios.put(getApiUrl(`/api/admin/home/reviews/${editId}`), formData);
       } else {
-        await axios.post('http://localhost:5000/api/admin/home/reviews', formData);
+        await axios.post(getApiUrl('/api/admin/home/reviews'), formData);
       }
       resetForm();
       fetchItems();
@@ -1886,7 +1887,7 @@ const ReviewManager = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this review card?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/home/reviews/${id}`);
+        await axios.delete(getApiUrl(`/api/admin/home/reviews/${id}`));
         fetchItems();
       } catch (err) {
         console.error(err);
@@ -2080,7 +2081,7 @@ const ReviewManager = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   {item.image_url ? (
                     <img
-                      src={`http://localhost:5000${item.image_url}`}
+                      src={getUploadUrl(item.image_url)}
                       alt={item.name}
                       style={{ width: '36px', height: '36px', borderRadius: '50%', objectFit: 'cover', border: '1px solid #e2e8f0' }}
                     />
@@ -2232,7 +2233,7 @@ const ReviewManager = () => {
             {currentPhotoUrl && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <img
-                  src={`http://localhost:5000${currentPhotoUrl}`}
+                  src={getUploadUrl(currentPhotoUrl)}
                   alt="Current"
                   style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover' }}
                 />

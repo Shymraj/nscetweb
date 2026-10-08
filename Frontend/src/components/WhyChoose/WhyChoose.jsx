@@ -1,3 +1,4 @@
+import { getApiUrl, getUploadUrl } from '@/config/api';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './WhyChoose.css';
@@ -66,11 +67,11 @@ const WhyChoose = () => {
     const fetchRecruiterData = async () => {
       try {
         // Fetch Recruiters
-        const recruiterRes = await axios.get("http://localhost:5000/api/admin/home/recruiter");
+        const recruiterRes = await axios.get(getApiUrl('/api/admin/home/recruiter'));
         if (recruiterRes.data && recruiterRes.data.data && recruiterRes.data.data.length > 0) {
           const mapped = recruiterRes.data.data.map(item => ({
             name: item.company_name,
-            logo: item.logo_url.startsWith('http') ? item.logo_url : `http://localhost:5000${item.logo_url}`,
+            logo: item.logo_url.startsWith('http') ? item.logo_url : getUploadUrl(item.logo_url),
             scale: 1.1
           }));
 

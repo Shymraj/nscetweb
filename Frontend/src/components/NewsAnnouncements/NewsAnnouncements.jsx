@@ -1,3 +1,4 @@
+import { getApiUrl, getUploadUrl } from '@/config/api';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./NewsAnnouncements.css";
@@ -69,7 +70,7 @@ function NewsAnnouncements() {
     // Fetch Featured News (Left Side)
     const fetchFeaturedNews = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/admin/home/featured-news");
+        const res = await axios.get(getApiUrl('/api/admin/home/featured-news'));
         if (res.data && res.data.data && res.data.data.length > 0) {
           const item = res.data.data[0];
           setFeatured({
@@ -77,7 +78,7 @@ function NewsAnnouncements() {
             title: item.title,
             description: item.description,
             news_date: item.news_date,
-            photo_url: item.photo_url ? (item.photo_url.startsWith('http') ? item.photo_url : `http://localhost:5000${item.photo_url}`) : featuredImage,
+            photo_url: item.photo_url ? (item.photo_url.startsWith('http') ? item.photo_url : getUploadUrl(item.photo_url)) : featuredImage,
             link_url: item.link_url || "#"
           });
         }
@@ -89,7 +90,7 @@ function NewsAnnouncements() {
     // Fetch Notice Board (Right Side)
     const fetchNoticeBoard = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/admin/home/notice-board");
+        const res = await axios.get(getApiUrl('/api/admin/home/notice-board'));
         if (res.data && res.data.data && res.data.data.length > 0) {
           setAnnouncements(res.data.data);
         }

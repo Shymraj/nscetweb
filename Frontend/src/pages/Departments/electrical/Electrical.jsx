@@ -12,7 +12,7 @@ import { GiEyeTarget, GiStairsGoal } from "react-icons/gi";
 import { electricalFacultyData } from "./facultyData";
 
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
-import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
+import DepartmentFacultySlider from "../../../components/common/DepartmentFacultySlider/DepartmentFacultySlider";
 
 // Auto-load banner image inside ./images/be_banner/
 const bannerGlobs = import.meta.glob("./images/be_banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
@@ -63,7 +63,7 @@ const Electrical = () => {
 
   const stats = [
     { count: "120", label: "EEE Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "11", label: "Expert EEE Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "8", label: "Expert EEE Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
     { count: "15", label: "Power Research Papers", icon: <FaBookOpen />, color: "#d97706" },
     { count: "100%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
   ];
@@ -354,21 +354,11 @@ const Electrical = () => {
             <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
-          <motion.div 
-            className="cse-faculty-grid"
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-          >
-            {faculties.map((member, idx) => (
-              <DepartmentFacultyCard
-                isHOD={idx === 0} 
-                key={idx} 
-                member={member} 
-                onOpenProfile={handleOpenProfile} 
-                fadeInUp={fadeInUp} 
-              />
-            ))}
-          </motion.div>
+          <DepartmentFacultySlider
+            faculties={faculties}
+            onOpenProfile={handleOpenProfile}
+            showHOD={false}
+          />
         </div>
       </section>
 

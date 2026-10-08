@@ -371,8 +371,19 @@ async function retrieveContext(userMessage, db) {
         contextParts.push(`${header}\n${formattedStaff}`);
 
         // Query-aware summary for direct response/fallback
-        const isWhoQuery = /\b(who is|who's|name of|hod of|head of)\b/i.test(queryLower);
-        if (isWhoQuery && staffRows.length >= 1) {
+        const isHODQuery = /\b(hod|head of|department head|dept head)\b/i.test(queryLower);
+        const isWhoQuery = /\b(who is|who's|name of)\b/i.test(queryLower);
+
+        if (isHODQuery) {
+          const hod = staffRows.find(s => s.is_hod === 1 || /head|hod/i.test(s.designation)) || staffRows[0];
+          if (hod) {
+            let hodText = `The Head of the Department (HOD) for ${hod.department} is ${hod.name}`;
+            if (hod.qualifications) hodText += `, ${hod.qualifications}`;
+            hodText += ".";
+            summaryParts.length = 0;
+            summaryParts.push(hodText);
+          }
+        } else if (isWhoQuery && staffRows.length >= 1) {
           const s = staffRows[0];
           let brief = `${s.name} is the ${s.designation} in the Department of ${s.department}`;
           if (s.qualifications) brief += ` (${s.qualifications})`;
@@ -381,7 +392,7 @@ async function retrieveContext(userMessage, db) {
         } else {
           summaryParts.push(`${header}\n${formattedStaff}`);
         }
-        suggestions = ["UG Courses", "Admission Enquiry", "Campus Facilities", "Contact Details"];
+        suggestions = ["Faculty List", "UG Courses", "Admission Enquiry", "Contact Details"];
       }
     } catch (err) {
       console.error("Database query error in knowledgeService (staff):", err.message);

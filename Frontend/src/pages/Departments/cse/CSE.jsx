@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useDepartmentStaff } from "../../../hooks/useDepartmentStaff";
 import { Link } from "react-router-dom";
@@ -13,6 +13,7 @@ import { cseFacultyData } from "./facultyData";
 
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
+import DepartmentFacultySlider from "../../../components/common/DepartmentFacultySlider/DepartmentFacultySlider";
 
 // Auto-load banner image inside ./CSE_banner/
 const bannerGlobs = import.meta.glob("./CSE_banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
@@ -29,7 +30,6 @@ import imgAbirami from "./images/abirami gayathri.jpeg";
 import imgVenkataLakshmi from "./images/Venkata Lakshmi M.jpg";
 import imgAnusuya from "./images/ANUSUYA VAIRAMUTHU.jpg";
 import imgVinothini from "./images/Vinothini.jpeg";
-import imgSnega from "./images/Snega Priyanka.png";
 
 import "./CSE.css";
 
@@ -63,7 +63,7 @@ const CSE = () => {
 
   const stats = [
     { count: "166", label: "Students Enrolled", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "9", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "8", label: "Expert Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
 
     { count: "90%", label: "Placement Success", icon: <FaChartLine />, color: "#ec4899" }
   ];
@@ -361,21 +361,10 @@ const CSE = () => {
             <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
-          <motion.div 
-            className="cse-faculty-grid"
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-          >
-            {faculties.map((member, idx) => (
-              <DepartmentFacultyCard 
-                key={member.id || member.slug || `cse-staff-${idx}`} 
-                member={member} 
-                onOpenProfile={handleOpenProfile} 
-                fadeInUp={fadeInUp} 
-                isHOD={idx === 0}
-              />
-            ))}
-          </motion.div>
+          <DepartmentFacultySlider
+            faculties={faculties}
+            onOpenProfile={handleOpenProfile}
+          />
         </div>
       </section>
 

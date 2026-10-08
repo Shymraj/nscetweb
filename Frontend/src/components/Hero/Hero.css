@@ -176,30 +176,36 @@ body.dark-mode .hero-brand .badge {
 /* College Name Styling matching reference design */
 .hero-college-name,
 body.dark-mode .hero-college-name {
-  font-family: "Cinzel", serif;
-  font-size: 46px;
-  line-height: 1.15;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(28px, 3.2vw, 46px);
+  line-height: 1.14;
   font-weight: 700;
   color: #ffffff;
   -webkit-text-fill-color: #ffffff;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
+  margin-top: 0;
   margin-bottom: 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .hero-college-name .accent-text,
 body.dark-mode .hero-college-name .accent-text {
-  color: #f59e0b;
-  -webkit-text-fill-color: #f59e0b;
+  color: #e59b2b;
+  -webkit-text-fill-color: #e59b2b;
   display: block;
 }
 
 /* Accent separator line */
 .hero .premium-line {
-  width: 80px;
+  display: block !important;
+  width: 75px;
   height: 4px;
-  background: #f59e0b;
+  background: #e59b2b;
   margin: 16px 0 14px 0;
   border-radius: 4px;
 }
@@ -208,24 +214,29 @@ body.dark-mode .hero-college-name .accent-text {
 .hero .college-tagline,
 body.dark-mode .hero .college-tagline {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 22px;
+  font-size: clamp(16px, 1.6vw, 21px);
   font-weight: 700;
-  color: #f59e0b !important;
-  -webkit-text-fill-color: #f59e0b !important;
+  color: #e59b2b !important;
+  -webkit-text-fill-color: #e59b2b !important;
   margin-bottom: 12px;
   letter-spacing: 0.2px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  max-width: 100%;
 }
 
-.hero .left-description {
+.hero .left-description,
+body.dark-mode .hero .left-description {
   color: #ffffff;
-  font-size: 15px;
-  line-height: 1.6;
+  -webkit-text-fill-color: #ffffff;
+  font-size: clamp(12.5px, 1.1vw, 15px);
+  line-height: 1.65;
   margin-bottom: 28px;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 900;
+  font-weight: 700;
   max-width: 580px;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Action Buttons */
@@ -436,17 +447,18 @@ body.dark-mode .hero .btn-secondary:hover {
    ========================================================================== */
 @media (max-width: 1200px) {
   .hero-container {
-    padding: 90px 40px 40px;
-    grid-template-columns: 56% 44%;
-    gap: 30px;
+    padding: 110px 32px 40px;
+    grid-template-columns: 58% 42%;
+    gap: 24px;
   }
 
-  .hero-college-name {
-    font-size: 38px;
+  .hero-college-name,
+  body.dark-mode .hero-college-name {
+    font-size: clamp(26px, 3.2vw, 36px) !important;
   }
 
   .hero-brand {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 }
 
@@ -454,25 +466,37 @@ body.dark-mode .hero .btn-secondary:hover {
   .hero {
     height: auto;
     min-height: 100vh;
-    padding: 90px 0 50px;
+    padding: 100px 0 50px;
   }
 
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 36px;
-    padding: 0 30px;
+    gap: 28px;
+    padding: 0 24px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .hero-left-content {
     align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero-brand {
-    margin-bottom: 28px;
+    margin-bottom: 16px;
+  }
+
+  .hero-college-name,
+  body.dark-mode .hero-college-name {
+    font-size: clamp(24px, 3.8vw, 32px) !important;
+    line-height: 1.15;
   }
 
   .hero-right-cards {
-    align-items: stretch;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 480px;
   }
 
   .floating-card {
@@ -486,154 +510,6 @@ body.dark-mode .hero .btn-secondary:hover {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .hero {
-    min-height: auto;
-    display: flex;
-    align-items: flex-start;
-    padding: 66px 0 35px;
-  }
-
-  .hero-container {
-    padding: 0 20px;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .hero-left-content {
-    align-items: flex-start;
-  }
-
-  .hero-brand {
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-
-  .hero-badge,
-  .badge,
-  .hero-brand .badge {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    padding: 7px 14px !important;
-    font-size: 12px !important;
-    gap: 6px !important;
-  }
-
-  .hero-college-name {
-    font-size: 30px;
-    line-height: 1.18;
-  }
-
-  .hero .premium-line {
-    width: 60px;
-    height: 3.5px;
-    margin: 14px 0 12px 0;
-  }
-
-  .hero .college-tagline {
-    font-size: 17px;
-    margin-bottom: 12px;
-  }
-
-  .hero .left-description {
-    font-size: 13.5px;
-    line-height: 1.55;
-    margin-bottom: 22px;
-    font-weight: 700;
-  }
-
-  .hero-buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    gap: 12px;
-  }
-
-  .hero .btn-primary,
-  .hero .btn-secondary,
-  .hero-buttons .btn-primary,
-  .hero-buttons .btn-secondary {
-    padding: 11px 22px;
-    font-size: 14.5px;
-    width: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 64px 0 25px;
-  }
-
-  .hero-container {
-    padding: 0 16px;
-    gap: 14px;
-  }
-
-  .hero-brand {
-    margin-top: 0;
-    margin-bottom: 8px;
-  }
-
-  .hero-badge,
-  .badge,
-  .hero-brand .badge {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    padding: 6px 12px !important;
-    font-size: 11px !important;
-  }
-
-  .hero-college-name {
-    font-size: 26px;
-    line-height: 1.16;
-  }
-
-  .hero .college-tagline {
-    font-size: 15.5px;
-    margin-bottom: 10px;
-  }
-
-  .hero .left-description {
-    font-size: 12.5px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-
-  .hero-buttons {
-    gap: 10px;
-  }
-
-  .hero .btn-primary,
-  .hero .btn-secondary,
-  .hero-buttons .btn-primary,
-  .hero-buttons .btn-secondary {
-    padding: 10px 18px;
-    font-size: 13.5px;
-  }
-
-  .floating-card {
-    padding: 12px 14px;
-  }
-
-  .feature-icon {
-    width: 38px;
-    height: 38px;
-    font-size: 16px;
-  }
-
-  .card-info h3 {
-    font-size: 14px;
-  }
-
-  .card-info p {
-    font-size: 12px;
-  }
-}
 
 /* ==========================================================================
    COMING SOON TOAST (PROFESSIONAL & CLEAN)

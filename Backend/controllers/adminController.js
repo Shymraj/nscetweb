@@ -118,13 +118,13 @@ const deleteStaff = (req, res) => {
   const { id } = req.params;
   db.query("SELECT photo_url, profile_pdf FROM staff WHERE id = ?", [id], (err, results) => {
     if (results && results.length > 0) {
-      if (results[0].photo_url) {
+      if (results[0].photo_url && results[0].photo_url.startsWith('/uploads/')) {
         const filePath = path.join(__dirname, "..", results[0].photo_url);
         if (fs.existsSync(filePath)) {
           try { fs.unlinkSync(filePath); } catch (e) { }
         }
       }
-      if (results[0].profile_pdf) {
+      if (results[0].profile_pdf && results[0].profile_pdf.startsWith('/uploads/')) {
         const pdfPath = path.join(__dirname, "..", results[0].profile_pdf);
         if (fs.existsSync(pdfPath)) {
           try { fs.unlinkSync(pdfPath); } catch (e) { }

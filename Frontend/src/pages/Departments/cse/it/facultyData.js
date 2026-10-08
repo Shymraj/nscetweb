@@ -5,11 +5,10 @@ import imgKesavamoorthy from "./images/kesavamoorthy.jpg";
 import imgSaiSuganya from "./images/68060d94a3a65_sai suganya.jpg";
 import imgBhavani from "./images/Bhavani.jpg";
 import imgJasmineJose from "./images/jasminejose.jpg";
-import imgMareeswari from "./images/Mareeswari M.jpg";
 
 export const itFacultyData = [
   {
-    id: "dr-c-prathap", slug: "dr-c-prathap", name: "Dr. C. Prathap", desig: "Assistant Professor", qual: "B.E - CSE, M.Tech - CSE", email: "prathapc@nscet.org", image: imgPrathap, spec: "IoT and Image Processing", objectPosition: "center 10%",
+    id: "hod", slug: "dr-c-prathap", name: "Dr. C. Prathap", desig: "Assistant Professor & Head [I/C]", qual: "B.E - CSE, M.Tech - CSE", email: "prathapc@nscet.org", image: imgPrathap, spec: "IoT and Image Processing", objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/prathap-c-9302283b7/",
     about: "Prathap C serves as the Head of the Department of Information Technology with over 16 years of teaching and research experience. His areas of expertise include IoT and Image Processing. With significant contributions in research, patents, and academic projects, he is committed to fostering innovation, industry-oriented learning, and academic excellence.",
     publications: [
@@ -82,7 +81,7 @@ export const itFacultyData = [
     ]
   },
   {
-    id: "mrs-m-bhavani", slug: "mrs-m-bhavani", name: "Mrs. M. Bhavani", desig: "Assistant Professor", qual: "B.E - CSE, M.Tech - CSE", email: "bhavani@nscet.org", image: imgBhavani, spec: "UI/UX", objectPosition: "center 10%",
+    id: "mrs-m-bhavani", slug: "mrs-m-bhavani", name: "Mr. M. Bhavani", desig: "Assistant Professor", qual: "B.E - CSE, M.Tech - CSE", email: "bhavani@nscet.org", image: imgBhavani, spec: "UI/UX", objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/bhavani-m-54332471",
     about: "",
     publications: [
@@ -113,20 +112,6 @@ export const itFacultyData = [
     awards: [],
     experience: [
       "5 Years"
-    ]
-  },
-  {
-    id: "ms-mareeswari-m", slug: "ms-mareeswari-m", name: "Mrs. M. Mareeswari", desig: "Assistant Professor", qual: "M.E.", email: "mareeswarim@nscet.org", image: imgMareeswari, spec: "Image Processing", objectPosition: "center 10%",
-    linkedin: "http://www.linkedin.com/in/mareeswari-m-a08767426",
-    about: "Mareeswari M is a faculty member in the Department of Information Technology specializing in Image Processing.",
-    publications: [
-      "6"
-    ],
-    projects: [],
-    patents: [],
-    awards: [],
-    experience: [
-      "1 year"
     ]
   }
 ];

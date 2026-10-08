@@ -1,203 +1,138 @@
-import electroblitzLogo from "./images/Electroblitz.png";
-import imgAthilingam from "./images/Dr_athilingam.jpg";
 import imgRajaKarthick from "./images/raja_karthick.jpg";
 import imgNishetha from "./images/Nishetha_jeflin_nixon.jpg";
 import imgVijayalakshmi from "./images/Vijayalakshmi.jpg";
 import imgShiva from "./images/shiva.jpg";
-import imgAbirami from "./images/Abirami.jpg";
 import imgChitra from "./images/chitra.jpg";
 import imgJuriyaBanu from "./images/juriyabanu.jpg";
 import imgPandiSelvi from "./images/pandiselvi.jpeg";
 import imgGanesh from "./images/ganesh.jpg";
+
 export const electricalFacultyData = [
   {
-    id: "dr-r-athilingam", slug: "dr-r-athilingam", name: "Dr. R. Athilingam", desig: "Associate Professor", qual: "B.E - EIE, M.E - Applied Electronics, Ph.D - Information & Communication", email: "athilingam@nscet.org", image: imgAthilingam, spec: "Image Processing, Internet of Things (IoT)", objectPosition: "center 10%",
-    linkedin: "https://www.linkedin.com/in/dr-athilingam-r-750b31146",
-    about: "Dr. R. Athilingam serves as the Head of the Department with over 13 years of teaching and research experience. His areas of specialization include Image Processing and the Internet of Things (IoT). With significant contributions in research, patents, funded projects, and academic excellence, he is committed to fostering innovation, promoting industry-oriented learning, and mentoring students to excel in emerging technologies.",
-    publications: [
-      "22"
-    ],
-    projects: [
-      "10"
-    ],
-    patents: [
-      "6"
-    ],
-    awards: [
-      "4"
-    ],
-    experience: [
-      "13.6 Years"
-    ]
-  },
-  {
-    id: "mr-r-raja-karthick", slug: "mr-r-raja-karthick", name: "Mr. R. Raja Karthick", desig: "Assistant Professor", qual: "B.E - ICE, M.E - Applied Electronics", email: "rajakarthick@nscet.org", image: imgRajaKarthick, spec: "Process Control & Industrial Instrumentation", objectPosition: "center 10%",
+    id: "mr-r-raja-karthick",
+    slug: "mr-r-raja-karthick",
+    name: "Mr. R. Raja Karthick",
+    desig: "Assistant Professor",
+    qual: "B.E - ICE, M.E - Applied Electronics",
+    email: "rajakarthick@nscet.org",
+    image: imgRajaKarthick,
+    spec: "Process Control & Industrial Instrumentation",
+    objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/rajakarthick-ramaraj-263a6546",
     about: "R. Rajakarthick is a faculty member specializing in Process Control and Industrial Instrumentation, with 4 years and 4 months of professional experience. His academic interests include industrial process control and instrumentation technologies.",
-    publications: [
-      "2"
-    ],
-    projects: [
-      "1"
-    ],
-    patents: [
-      "1"
-    ],
-    awards: [
-      "1"
-    ],
-    experience: [
-      "4 Years 4 Months"
-    ]
+    publications: ["2"],
+    projects: ["1"],
+    patents: ["1"],
+    awards: ["1"],
+    experience: ["4 Years 4 Months"]
   },
   {
-    id: "mrs-a-nishetha-jeflin-nixon", slug: "mrs-a-nishetha-jeflin-nixon", name: "Mrs. A. Nishetha Jeflin Nixon", desig: "Assistant Professor", qual: "B.E - EEE, M.E - Power Electronics and Drives", email: "nishethajeflinnixon@nscet.org", image: imgNishetha, spec: "Control Systems & Embedded Microcontrollers", objectPosition: "center 10%",
+    id: "mrs-a-nishetha-jeflin-nixon",
+    slug: "mrs-a-nishetha-jeflin-nixon",
+    name: "Mrs. A. Nishetha Jeflin Nixon",
+    desig: "Assistant Professor",
+    qual: "B.E - EEE, M.E - Power Electronics and Drives",
+    email: "nishethajeflinnixon@nscet.org",
+    image: imgNishetha,
+    spec: "Control Systems & Embedded Microcontrollers",
+    objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
-    publications: [
-      "Publication Title 1 — Journal of Engineering, 2024",
-      "Publication Title 2 — International Conference, 2023"
-    ],
-    projects: [
-      "Funded Project 1",
-      "Consultancy Project 2"
-    ],
-    patents: [
-      "Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Excellence Award - 2024",
-      "Best Researcher Award - 2023"
-    ],
-    experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
-    ]
+    about: "Mrs. A. Nishetha Jeflin Nixon is an Assistant Professor in the Department of Electrical and Electronics Engineering specializing in Power Electronics and Drives.",
+    publications: ["1"],
+    projects: ["1"],
+    patents: [],
+    awards: [],
+    experience: ["3 Years"]
   },
   {
-    id: "mrs-m-vijayalakshmi", slug: "mrs-m-vijayalakshmi", name: "Mrs. M. Vijayalakshmi", desig: "Assistant Professor", qual: "B.E - EEE, M.E - Power Systems", email: "vijayalakshmi@nscet.org", image: imgVijayalakshmi, spec: "Power Systems, Electrical Machines, Internet of Things (IoT), Electric Vehicles, Renewable Energy Systems, Power Market Restructuring", objectPosition: "center 10%",
+    id: "mrs-m-vijayalakshmi",
+    slug: "mrs-m-vijayalakshmi",
+    name: "Mrs. M. Vijayalakshmi",
+    desig: "Assistant Professor",
+    qual: "B.E - EEE, M.E - Power Systems",
+    email: "vijayalakshmi@nscet.org",
+    image: imgVijayalakshmi,
+    spec: "Power Systems, Electrical Machines, Internet of Things (IoT), Electric Vehicles, Renewable Energy Systems, Power Market Restructuring",
+    objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/vijayalakshmi-paranthaman-b527263b8",
     about: "Vijayalakshmi M is a dedicated faculty member with 2.5 years of teaching experience in the Department of Electrical and Electronics Engineering. Her areas of specialization include Power Systems, Electrical Machines, Internet of Things (IoT), Electric Vehicles, Renewable Energy Systems, and Power Market Restructuring. She is passionate about sustainable energy technologies, smart power systems, and mentoring students through practical, research-oriented learning.",
-    publications: [
-      "1"
-    ],
-    projects: [
-      "1"
-    ],
-    patents: [
-      "1"
-    ],
-    awards: [
-      "1"
-    ],
-    experience: [
-      "2.5 Years"
-    ]
+    publications: ["1"],
+    projects: ["1"],
+    patents: ["1"],
+    awards: ["1"],
+    experience: ["2.5 Years"]
   },
   {
-    id: "mr-c-shiva", slug: "mr-c-shiva", name: "Mr. C. Shiva", desig: "Assistant Professor", qual: "B.E - EEE, M.E - Power Electronics and Drives", email: "shiva@nscet.org", image: imgShiva, spec: "Renewable Energy Systems, Power Electronics, Solar Cell Technology", objectPosition: "center 10%",
+    id: "mr-c-shiva",
+    slug: "mr-c-shiva",
+    name: "Mr. C. Shiva",
+    desig: "Assistant Professor",
+    qual: "B.E - EEE, M.E - Power Electronics and Drives",
+    email: "shiva@nscet.org",
+    image: imgShiva,
+    spec: "Renewable Energy Systems, Power Electronics, Solar Cell Technology",
+    objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/shiva-c-536421109/",
     about: "Shiva C is a dedicated faculty member with 8 years of teaching and research experience in the Department of Electrical and Electronics Engineering. His areas of specialization include Renewable Energy Systems, Power Electronics, and Solar Cell Technology. He is passionate about sustainable energy solutions, innovation, and mentoring students through practical, industry-oriented learning.",
-    publications: [
-      "4"
-    ],
-    projects: [
-      "2"
-    ],
-    patents: [
-      "3"
-    ],
-    awards: [
-      "2"
-    ],
-    experience: [
-      "8 Years"
-    ]
+    publications: ["2"],
+    projects: ["3"],
+    patents: ["1"],
+    awards: ["1"],
+    experience: ["8 Years"]
   },
   {
-    id: "mrs-n-abirami", slug: "mrs-n-abirami", name: "Mrs. N. Abirami", desig: "Assistant Professor", qual: "B.E - EEE, M.E - VLSI Design", email: "abiramin@nscet.org", image: imgAbirami, spec: "Electrical Machines & Special Drives", objectPosition: "center 10%",
+    id: "mrs-r-chitra",
+    slug: "mrs-r-chitra",
+    name: "Mrs. R. Chitra",
+    desig: "Assistant Professor",
+    qual: "M.E.",
+    email: "chitra@nscet.org",
+    image: imgChitra,
+    spec: "Renewable Energy Systems",
+    objectPosition: "center 10%",
+    linkedin: "https://www.linkedin.com/in/chitra-r-3665243b7",
+    about: "Chitra R is a dedicated faculty member with 7 years of teaching experience in the Department of Electrical and Electronics Engineering. Her specialization is Renewable Energy Systems, and she is passionate about sustainable power generation, energy efficiency, and helping students develop strong technical and analytical skills through practical, industry-oriented learning.",
+    publications: ["1"],
+    projects: [],
+    patents: [],
+    awards: ["1"],
+    experience: ["7 Years"]
+  },
+  {
+    id: "mrs-h-juriya-banu",
+    slug: "mrs-h-juriya-banu",
+    name: "Mrs. H. Juriya Banu",
+    desig: "Assistant Professor",
+    qual: "B.E - EEE, M.E - Power Systems",
+    email: "juriyabanu@nscet.org",
+    image: imgJuriyaBanu,
+    spec: "Special Electrical Machines",
+    objectPosition: "center 10%",
+    linkedin: "https://www.linkedin.com/in/juriya-banu-h-b789123b7",
+    about: "Juriya Banu H is a faculty member in the Department of Electrical and Electronics Engineering with a specialization in Special Electrical Machines. She is passionate about electrical machines, power systems, research, and helping students build strong fundamental and practical engineering skills through interactive and application-oriented teaching.",
+    publications: ["1"],
+    projects: [],
+    patents: [],
+    awards: [],
+    experience: ["1.5 Years"]
+  },
+  {
+    id: "dr-n-pandi-selvi",
+    slug: "dr-n-pandi-selvi",
+    name: "Dr. N. Pandi Selvi",
+    desig: "Assistant Professor",
+    qual: "B.E - EEE, M.E - Power Systems, Ph.D",
+    email: "pandiselvi@nscet.org",
+    image: imgPandiSelvi,
+    spec: "Smart Grids & Renewable Energy",
+    objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
-    publications: [
-      "Publication Title 1 — Journal of Engineering, 2024",
-      "Publication Title 2 — International Conference, 2023"
-    ],
-    projects: [
-      "Funded Project 1",
-      "Consultancy Project 2"
-    ],
-    patents: [
-      "Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Excellence Award - 2024",
-      "Best Researcher Award - 2023"
-    ],
-    experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
-    ]
-  },
-  {
-    id: "mrs-r-chitra", slug: "mrs-r-chitra", name: "Mrs. R. Chitra", desig: "Associate Professor", qual: "M.E.", email: "chitrar@nscet.org", image: imgChitra, spec: "Digital Electronics, Smart Grid, Linear Integrated Circuits", objectPosition: "center 10%",
-    linkedin: "https://www.linkedin.com/in/chitra-rajendran-04a206229",
-    about: "Chitra R is a dedicated faculty member with over 9 years of teaching and research experience in the Department of Electrical and Electronics Engineering. Her areas of specialization include Digital Electronics, Smart Grid, and Linear Integrated Circuits. She is passionate about innovation, practical learning, and mentoring students to build strong technical and analytical skills in modern electrical engineering.",
-    publications: [
-      "3"
-    ],
-    projects: [
-      "6"
-    ],
-    patents: [
-      "1"
-    ],
-    awards: [
-      "1"
-    ],
-    experience: [
-      "9.4 Years"
-    ]
-  },
-  {
-    id: "mrs-h-juriya-banu", slug: "mrs-h-juriya-banu", name: "Mrs. H. Juriya Banu", desig: "Assistant Professor", qual: "B.E - EEE, M.E - Power Systems", email: "juriyabanu@nscet.org", image: imgJuriyaBanu, spec: "Power Systems", objectPosition: "center 10%",
-    linkedin: "https://www.linkedin.com/in/juriyabanu-habeeb-82925810a",
-    about: "H. Juriya Banu is a dedicated faculty member with 2 years of teaching experience in the Department of Electrical and Electronics Engineering. Her specialization is Power Systems, and she is passionate about electrical engineering, sustainable energy solutions, and helping students build strong technical knowledge through practical and application-oriented learning.",
-    publications: [
-      "1"
-    ],
-    projects: [
-      "2"
-    ],
-    patents: [
-      "1"
-    ],
-    awards: [
-      "1"
-    ],
-    experience: [
-      "2 Years"
-    ]
-  },
-  {
-    id: "dr-n-pandi-selvi", slug: "dr-n-pandi-selvi", name: "Dr. N. Pandi Selvi", desig: "Assistant Professor", qual: "B.E - EEE, M.E - Power Systems", email: "pandiselvi@nscet.org", image: imgPandiSelvi, spec: "Renewable Energy Integration", objectPosition: "center 10%",
-    linkedin: "https://www.linkedin.com/in/nscet",
-    about: "This is a placeholder professional summary. The actual academic and professional details will be updated shortly.",
-    publications: [
-      "Publication Title 1 — Journal of Engineering, 2024",
-      "Publication Title 2 — International Conference, 2023"
-    ],
-    projects: [
-      "Funded Project 1",
-      "Consultancy Project 2"
-    ],
-    patents: [
-      "Patent Application (Published - 2023)"
-    ],
-    awards: [
-      "Excellence Award - 2024",
-      "Best Researcher Award - 2023"
-    ],
-    experience: [
-      "Assistant Professor, NSCET (2020 - Present)"
-    ]
+    about: "Dr. N. Pandi Selvi is an Assistant Professor in the Department of Electrical and Electronics Engineering specializing in Power Systems and Smart Grids.",
+    publications: ["5"],
+    projects: ["2"],
+    patents: ["1"],
+    awards: ["1"],
+    experience: ["8 Years"]
   },
   {
     id: "mr-k-ganesh",
@@ -205,26 +140,16 @@ export const electricalFacultyData = [
     name: "Mr. K. Ganesh",
     desig: "Assistant Professor",
     qual: "B.E - EEE, M.Tech - Power Systems, (Ph.D)",
-    email: "ganeshk@nscet.org",
+    email: "ganesh@nscet.org",
     image: imgGanesh,
-    spec: "Power Systems, Smart Grid & Renewable Energy",
+    spec: "Power Systems & Electrical Drives",
     objectPosition: "center 10%",
     linkedin: "https://www.linkedin.com/in/nscet",
-    about: "Mr. K. Ganesh is a dedicated Assistant Professor in the Department of Electrical and Electronics Engineering and Deputy Controller of Examinations. His areas of expertise include Power Systems, Electrical Machines, and Renewable Energy. He is committed to fostering academic excellence, practical learning, and mentoring students.",
-    publications: [
-      "4"
-    ],
-    projects: [
-      "2"
-    ],
-    patents: [
-      "1"
-    ],
-    awards: [
-      "2"
-    ],
-    experience: [
-      "10+ Years"
-    ]
+    about: "Mr. K. Ganesh is an Assistant Professor in the Department of Electrical and Electronics Engineering specializing in Power Systems and Drives.",
+    publications: ["3"],
+    projects: ["2"],
+    patents: [],
+    awards: [],
+    experience: ["6 Years"]
   }
 ];

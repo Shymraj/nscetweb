@@ -3,13 +3,14 @@ import imgVignesh from "./images/vignesh.jpg";
 import imgVinothKumar from "./images/vinothkumar.jpg";
 import imgGeerthiga from "./images/68060bda58c98_Geerthiga.jpg";
 import imgPavithra from "./images/Pavithra.jpg";
+import imgNagajothi from "./images/Nagajothi.jpg";
 import imgSunitha from "./images/Sunitha.jfif";
 import imgKodeeswaran from "./images/1778918812_ADS - Kodeeswaran.jpeg";
 import imgNithyapriya from "./images/Nithyapriya.png";
 
 export const aidsFacultyData = [
   {
-    id: "mr-l-s-vignesh", slug: "mr-l-s-vignesh", name: "Mr. L. S. Vignesh", desig: "Assistant Professor & Head [I/C]", qual: "M.E., (Ph.D)", email: "vigneshls@nscet.org", image: imgVignesh, spec: "Artificial Intelligence & Machine Learning", objectPosition: "center 10%",
+    id: "hod", slug: "mr-l-s-vignesh", name: "Mr. L. S. Vignesh", desig: "Assistant Professor & Head [I/C]", qual: "B.E - CSE, M.E - CSE, (Ph.D)", email: "vigneshls@nscet.org", image: imgVignesh, spec: "Artificial Intelligence & Machine Learning", objectPosition: "center 10%",
     linkedin: "http://www.linkedin.com/in/vignesh-l-s-213b01a8",
     about: "Vignesh L S is the Head of the Department of Artificial Intelligence and Data Science with 16 years of experience in the field of Artificial Intelligence and Machine Learning. He is actively involved in research and innovation, with 6 publications, 4 patents, 15 projects, and 2 awards to his credit.",
     publications: [
@@ -82,6 +83,24 @@ export const aidsFacultyData = [
     experience: [
       "4 Years"
     ]
+  },
+  {
+    id: "ms-p-nagajothi",
+    slug: "ms-p-nagajothi",
+    name: "Ms. P. Nagajothi",
+    desig: "Assistant Professor",
+    qual: "B.E - CSE, M.E. - Software",
+    email: "nagajothi@nscet.org",
+    image: imgNagajothi,
+    spec: "Machine Learning & Data Science",
+    objectPosition: "center 10%",
+    linkedin: "https://www.linkedin.com/in/nscet",
+    about: "Ms. P. Nagajothi is an Assistant Professor in the Department of Artificial Intelligence and Data Science.",
+    publications: [],
+    projects: [],
+    patents: [],
+    awards: [],
+    experience: []
   },
   {
     id: "sunitha-s", slug: "sunitha-s", name: "Mrs. S. Sunitha", desig: "Assistant Professor", qual: "M.E.", email: "sunitha.sagee@gmail.com", image: imgSunitha, spec: "Machine Learning", objectPosition: "center 12%",

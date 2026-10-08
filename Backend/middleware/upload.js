@@ -4,22 +4,22 @@ const fs = require("fs");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    let destFolder = "uploads/";
+    let destFolder = path.join(__dirname, "../uploads");
     
     // Determine subdirectory based on the route
     if (req.originalUrl.includes("/staff")) {
-      destFolder += "staff/";
+      destFolder = path.join(destFolder, "staff");
     } else if (req.originalUrl.includes("/events")) {
-      destFolder += "events/";
+      destFolder = path.join(destFolder, "events");
     } else if (req.originalUrl.includes("/departments")) {
-      destFolder += "departments/";
+      destFolder = path.join(destFolder, "departments");
     } else if (req.originalUrl.includes("/home")) {
-      destFolder += "home/";
+      destFolder = path.join(destFolder, "home");
     } else if (req.originalUrl.includes("/placements")) {
-      destFolder += "placements/";
+      destFolder = path.join(destFolder, "placements");
     }
 
-    // Ensure the folder exists, though we created them manually
+    // Ensure the folder exists
     if (!fs.existsSync(destFolder)) {
       fs.mkdirSync(destFolder, { recursive: true });
     }

@@ -1,3 +1,4 @@
+import { API_BASE_URL, getApiUrl, getUploadUrl } from '@/config/api';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -26,7 +27,7 @@ const AdminDashboard = () => {
 
   const fetchUnreadEnquiries = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/enquiries');
+      const res = await axios.get(getApiUrl('/api/admin/enquiries'));
       if (res.data.success) {
         const count = res.data.data.filter(eq => !eq.is_read).length;
         setUnreadEnquiries(count);
@@ -178,7 +179,7 @@ const EnquiriesManager = ({ updateUnreadCount }) => {
 
   const fetchEnquiries = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/enquiries');
+      const res = await axios.get(getApiUrl('/api/admin/enquiries'));
       if (res.data.success) {
         setEnquiries(res.data.data);
       }
@@ -194,7 +195,7 @@ const EnquiriesManager = ({ updateUnreadCount }) => {
   const handleMarkRead = async (id, e) => {
     if (e) e.stopPropagation();
     try {
-      await axios.put(`http://localhost:5000/api/admin/enquiries/${id}/read`);
+      await axios.put(getApiUrl(`/api/admin/enquiries/${id}/read`));
       await fetchEnquiries(); // Refresh the list from backend
       if (updateUnreadCount) updateUnreadCount();
       if (selectedEnquiry && selectedEnquiry.id === id) {
@@ -209,7 +210,7 @@ const EnquiriesManager = ({ updateUnreadCount }) => {
     if (e) e.stopPropagation();
     if (window.confirm("Are you sure you want to delete this enquiry?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/enquiries/${id}`);
+        await axios.delete(getApiUrl(`/api/admin/enquiries/${id}`));
         fetchEnquiries();
         if (updateUnreadCount) updateUnreadCount();
         if (selectedEnquiry && selectedEnquiry.id === id) {
@@ -479,7 +480,7 @@ const EventsManager = () => {
 
   const fetchEvents = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/events');
+      const res = await axios.get(getApiUrl('/api/admin/events'));
       // Filter out Gallery events as they are managed in the Gallery section
       const departmentEvents = (res.data.data || []).filter(ev => ev.department !== 'Gallery');
       setEvents(departmentEvents);
@@ -502,10 +503,10 @@ const EventsManager = () => {
 
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/admin/events/${editingId}`, formData);
+        await axios.put(getApiUrl(`/api/admin/events/${editingId}`), formData);
         alert('Event updated successfully.');
       } else {
-        await axios.post('http://localhost:5000/api/admin/events', formData);
+        await axios.post(getApiUrl('/api/admin/events'), formData);
         alert('Event created successfully.');
       }
       resetForm();
@@ -534,7 +535,7 @@ const EventsManager = () => {
   const handleDeleteEvent = async (id) => {
     if (window.confirm("Are you sure you want to delete this event?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/events/${id}`);
+        await axios.delete(getApiUrl(`/api/admin/events/${id}`));
         fetchEvents();
       } catch (error) {
         console.error(error);
@@ -649,7 +650,7 @@ const EventsManager = () => {
                   <tr key={ev.id} style={{ borderBottom: '1px solid #e5e7eb' }}>
                     <td style={{ padding: '12px 16px', fontSize: '14px', color: '#111827', fontWeight: '500' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        {ev.image_url ? <img src={`http://localhost:5000${ev.image_url}`} alt={ev.title} style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} /> : <div style={{ width: '40px', height: '40px', backgroundColor: '#e5e7eb', borderRadius: '4px' }} />}
+                        {ev.image_url ? <img src={getUploadUrl(ev.image_url)} alt={ev.title} style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} /> : <div style={{ width: '40px', height: '40px', backgroundColor: '#e5e7eb', borderRadius: '4px' }} />}
                         {ev.title}
                       </div>
                     </td>
@@ -792,7 +793,8 @@ const StaffManager = () => {
         formData.append('profile_pdf', acadPdfFile);
       }
 
-      const res = await axios.put(`http://localhost:5000/api/admin/staff/${academicStaff.id}/academic-profile`, formData);
+      const apiBase = API_BASE_URL;
+      const res = await axios.put(`${apiBase}/api/admin/staff/${academicStaff.id}/academic-profile`, formData);
       if (res.data.success) {
         alert('Academic Profile updated successfully!');
         setAcademicStaff(null);
@@ -810,9 +812,7 @@ const StaffManager = () => {
 
   const fetchStaff = async () => {
     try {
-      const apiBase = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-        ? 'http://localhost:5000'
-        : '';
+      const apiBase = API_BASE_URL;
       const res = await axios.get(`${apiBase}/api/admin/staff?_t=${Date.now()}`);
       if (res.data && res.data.success && Array.isArray(res.data.data) && res.data.data.length > 0) {
         setStaff(res.data.data);
@@ -843,11 +843,12 @@ const StaffManager = () => {
     formData.append('is_hod', false); // Optional for now
     if (photo) formData.append('photo', photo);
 
+    const apiBase = API_BASE_URL;
     if (editingStaffId) {
-      await axios.put(`http://localhost:5000/api/admin/staff/${editingStaffId}`, formData);
+      await axios.put(`${apiBase}/api/admin/staff/${editingStaffId}`, formData);
       alert('Staff details updated successfully!');
     } else {
-      await axios.post('http://localhost:5000/api/admin/staff', formData);
+      await axios.post(`${apiBase}/api/admin/staff`, formData);
       alert('Staff added successfully!');
     }
 
@@ -869,7 +870,8 @@ const StaffManager = () => {
 
   const handleDeleteStaff = async (id) => {
     if (window.confirm("Are you sure?")) {
-      await axios.delete(`http://localhost:5000/api/admin/staff/${id}`);
+      const apiBase = API_BASE_URL;
+      await axios.delete(`${apiBase}/api/admin/staff/${id}`);
       alert('Staff deleted successfully!');
       fetchStaff();
     }
@@ -901,9 +903,7 @@ const StaffManager = () => {
         if (clean.includes('ganesh')) {
           return '/EEE/ganesh.jpg';
         }
-        const apiBase = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-          ? `http://${window.location.hostname}:5000`
-          : '';
+        const apiBase = API_BASE_URL;
         return `${apiBase}${clean}`;
       }
       return url;
@@ -1519,7 +1519,7 @@ const StaffManager = () => {
                             <div>
                               <div style={{ fontSize: '13px', fontWeight: '600', color: '#1e293b' }}>Current Attached PDF</div>
                               <a
-                                href={`http://localhost:5000${existingPdfUrl}`}
+                                href={getUploadUrl(existingPdfUrl)}
                                 target="_blank"
                                 rel="noreferrer"
                                 style={{ fontSize: '12px', color: '#4f46e5', textDecoration: 'underline' }}
@@ -1761,7 +1761,7 @@ const GalleryManager = () => {
 
   const fetchEvents = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/events');
+      const res = await axios.get(getApiUrl('/api/admin/events'));
       // Filter only Gallery events
       const galleryEvents = (res.data.data || []).filter(ev => ev.department === 'Gallery');
       setEvents(galleryEvents);
@@ -1791,7 +1791,7 @@ const GalleryManager = () => {
     formData.append('image', thumbnail); // 'image' is the field name in multer
 
     try {
-      await axios.post('http://localhost:5000/api/admin/events', formData);
+      await axios.post(getApiUrl('/api/admin/events'), formData);
       setEventName('');
       setThumbnail(null);
       fetchEvents();
@@ -1811,7 +1811,7 @@ const GalleryManager = () => {
       for (let i = 0; i < eventImages.length; i++) {
         const formData = new FormData();
         formData.append('photo', eventImages[i]);
-        await axios.post(`http://localhost:5000/api/admin/events/${selectedEventId}/photo`, formData);
+        await axios.post(getApiUrl(`/api/admin/events/${selectedEventId}/photo`), formData);
       }
       setEventImages(null);
       const fileInput = document.getElementById('galleryImagesInput');
@@ -1827,7 +1827,7 @@ const GalleryManager = () => {
   const handleDeleteEvent = async (id) => {
     if (window.confirm("Are you sure you want to delete this event and all its photos?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/events/${id}`);
+        await axios.delete(getApiUrl(`/api/admin/events/${id}`));
         if (viewingEvent && viewingEvent.id === id) setViewingEvent(null);
         fetchEvents();
       } catch (e) {
@@ -1840,7 +1840,7 @@ const GalleryManager = () => {
   const handleDeletePhoto = async (photoId) => {
     if (window.confirm("Are you sure you want to delete this photo?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/events/photo/${photoId}`);
+        await axios.delete(getApiUrl(`/api/admin/events/photo/${photoId}`));
         fetchEvents();
       } catch (e) {
         console.error(e);
@@ -2030,9 +2030,9 @@ const GalleryManager = () => {
               ) : (
                 viewingEvent.photosList.map((photo, i) => (
                   <div key={i} className="photo-card">
-                    <img src={`http://localhost:5000${photo.url}`} alt={`${viewingEvent.title} - ${i}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={getUploadUrl(photo.url)} alt={`${viewingEvent.title} - ${i}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     <div className="photo-card-overlay">
-                      <button className="photo-action-btn" onClick={() => setPreviewImage(`http://localhost:5000${photo.url}`)}>
+                      <button className="photo-action-btn" onClick={() => setPreviewImage(getUploadUrl(photo.url))}>
                         <FaEye /> View
                       </button>
                       <button className="photo-action-btn" onClick={() => handleDeletePhoto(photo.id)} style={{ color: '#fca5a5' }}>
@@ -2069,7 +2069,7 @@ const DepartmentsManager = () => {
   const [photo, setPhoto] = useState(null);
 
   const fetchDepartments = async () => {
-    const res = await axios.get('http://localhost:5000/api/admin/departments');
+    const res = await axios.get(getApiUrl('/api/admin/departments'));
     setDepartments(res.data.data);
   };
 
@@ -2081,14 +2081,14 @@ const DepartmentsManager = () => {
     formData.append('name', name);
     formData.append('description', description);
     if (photo) formData.append('photo', photo);
-    await axios.post('http://localhost:5000/api/admin/departments', formData);
+    await axios.post(getApiUrl('/api/admin/departments'), formData);
     setName(''); setDescription(''); setPhoto(null);
     fetchDepartments();
   };
 
   const handleDeleteDepartment = async (id) => {
     if (window.confirm("Are you sure?")) {
-      await axios.delete(`http://localhost:5000/api/admin/departments/${id}`);
+      await axios.delete(getApiUrl(`/api/admin/departments/${id}`));
       fetchDepartments();
     }
   };

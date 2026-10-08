@@ -13,7 +13,7 @@ import { mecseFacultyData } from "./mecse/facultyData";
 
 import PageBanner from "../../../components/common/PageBanner/PageBanner";
 import FacultyProfileModal from "../../../components/common/FacultyProfileModal/FacultyProfileModal";
-import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
+import DepartmentFacultySlider from "../../../components/common/DepartmentFacultySlider/DepartmentFacultySlider";
 
 // Auto-load banner image inside ./meCSE_banner/
 const bannerGlobs = import.meta.glob("./meCSE_banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
@@ -54,7 +54,7 @@ const MECSE = () => {
 
   const stats = [
     { count: "40+", label: "PG Research Scholars", icon: <FaGraduationCap />, color: "#2563eb" },
-    { count: "5+", label: "Senior PG Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
+    { count: "2", label: "Senior PG Faculty", icon: <FaChalkboardTeacher />, color: "#059669" },
     { count: "30+", label: "Scopus Research Papers", icon: <FaBookOpen />, color: "#d97706" },
     { count: "3+", label: "Advanced Computing Labs", icon: <FaServer />, color: "#7c3aed" },
     { count: "100%", label: "Research Thesis Success", icon: <FaChartLine />, color: "#ec4899" }
@@ -292,21 +292,10 @@ const MECSE = () => {
             <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
-          <motion.div 
-            className="cse-faculty-grid"
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-          >
-            {faculties.map((member, idx) => (
-              <DepartmentFacultyCard
-                isHOD={idx === 0} 
-                key={member.id || member.slug || `mecse-staff-${idx}`} 
-                member={member} 
-                onOpenProfile={handleOpenProfile} 
-                fadeInUp={fadeInUp} 
-              />
-            ))}
-          </motion.div>
+          <DepartmentFacultySlider
+            faculties={faculties}
+            onOpenProfile={handleOpenProfile}
+          />
         </div>
       </section>
 

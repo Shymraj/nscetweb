@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './chatbox.css';
+import { getApiUrl } from '../../config/api.js';
+import { getClientFallbackAnswer } from './chatFallback.js';
 
 const DEFAULT_SUGGESTIONS = [
   'College Name',
@@ -171,20 +173,37 @@ const ChatBot = () => {
 
     try {
       const startTime = Date.now();
-      const response = await fetch('http://localhost:5000/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: userMessage }),
-      });
+      let replyText = "";
+      let newSuggestions = DEFAULT_SUGGESTIONS;
 
-      const data = await response.json();
+      try {
+        const response = await fetch(getApiUrl('/api/chat'), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message: userMessage }),
+        });
 
-      let replyText = data.reply || "Sorry, I couldn't retrieve an answer right now.";
-      let newSuggestions = data.suggestions && data.suggestions.length > 0
-        ? data.suggestions
-        : DEFAULT_SUGGESTIONS;
+        if (response.ok) {
+          const data = await response.json();
+          if (data && data.reply) {
+            replyText = data.reply;
+            if (data.suggestions && data.suggestions.length > 0) {
+              newSuggestions = data.suggestions;
+            }
+          }
+        }
+      } catch (netErr) {
+        console.warn("Backend chat fetch unreachable, engaging client-side fallback knowledge:", netErr);
+      }
+
+      // If backend was unreachable or returned empty, use instant client fallback
+      if (!replyText || replyText.trim().length === 0) {
+        const fallback = getClientFallbackAnswer(userMessage);
+        replyText = fallback.reply;
+        newSuggestions = fallback.suggestions || DEFAULT_SUGGESTIONS;
+      }
 
       // Fallback regex parsing to extract suggestions & strip any Suggested Questions text block from replyText
       const sugMatch = replyText.match(/(?:💡\s*)?(?:\*\*)?(?:###\s*)?Suggested Questions:?(?:\*\*)?[\s\S]*/i);
@@ -202,21 +221,21 @@ const ChatBot = () => {
         replyText = replyText.substring(0, sugIdx).trim();
       }
 
-      // Natural loading & thinking delay (at least 1.1 - 1.3s) so it doesn't answer abruptly / tak-nu
+      // Natural loading & thinking delay (at least 1.0s) so it feels responsive and natural
       const elapsed = Date.now() - startTime;
-      const minThinkingTime = 1200; // 1.2 seconds natural thinking delay
+      const minThinkingTime = 1000;
       if (elapsed < minThinkingTime) {
         await new Promise(resolve => setTimeout(resolve, minThinkingTime - elapsed));
       }
 
-      // 3. Remove 3 Dots and initialize ChatGPT Typewriter Stream
+      // 3. Remove 3 Dots and initialize Typewriter Stream
       setMessages(prev => {
         const filtered = prev.filter(m => !m.isTyping);
         return [...filtered, { sender: 'ai', text: '', isStreaming: true }];
       });
 
       let charIndex = 0;
-      const speed = replyText.length > 250 ? 18 : 25;
+      const speed = replyText.length > 250 ? 16 : 22;
       const step = replyText.length > 300 ? 2 : 1;
 
       typingIntervalRef.current = setInterval(() => {
@@ -234,7 +253,7 @@ const ChatBot = () => {
             return updated;
           });
           setCurrentSuggestions(newSuggestions);
-          setIsSuggestionsCollapsed(false); // Open new suggestions by default
+          setIsSuggestionsCollapsed(false);
           setIsBotBusy(false);
         } else {
           const currentChunk = replyText.slice(0, charIndex);
@@ -250,16 +269,17 @@ const ChatBot = () => {
       }, speed);
 
     } catch (error) {
-      console.error("Chat error:", error);
+      console.error("Chat rendering error:", error);
       clearTypingAnimation();
+      const fallback = getClientFallbackAnswer(userMessage);
       setMessages(prev => {
         const filtered = prev.filter(m => !m.isTyping && !m.isStreaming);
         return [...filtered, {
           sender: 'ai',
-          text: 'Sorry, server error. Please try again!'
+          text: fallback.reply
         }];
       });
-      setCurrentSuggestions(DEFAULT_SUGGESTIONS);
+      setCurrentSuggestions(fallback.suggestions || DEFAULT_SUGGESTIONS);
       setIsBotBusy(false);
     }
   };

@@ -1,3 +1,4 @@
+import { API_BASE_URL, getUploadUrl } from '@/config/api';
 import { useState, useEffect, useRef } from 'react';
 
 // Normalization stripping salutations, single isolated initials, and non-alphanumeric chars
@@ -79,9 +80,7 @@ export const useDepartmentStaff = (departmentMatchStrings, staticFallbackData) =
     const staticData = staticRef.current || [];
     const matchArray = Array.isArray(departmentMatchStrings) ? departmentMatchStrings : [departmentMatchStrings];
 
-    const apiBase = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-      ? 'http://localhost:5000'
-      : '';
+    const apiBase = API_BASE_URL;
 
     fetch(`${apiBase}/api/admin/staff`)
       .then(res => res.json())
@@ -93,6 +92,13 @@ export const useDepartmentStaff = (departmentMatchStrings, staticFallbackData) =
             const cl = String(s).toLowerCase();
             return cl.includes('m.e') || cl.includes('me ') || cl.includes('me-');
           });
+
+          const isRequestingEEE = matchArray.some(s => {
+            const cl = String(s).toLowerCase();
+            return cl === 'eee' || cl === 'electrical';
+          });
+
+          const shouldDisableHOD = isRequestingME || isRequestingEEE;
 
           const apiDeptStaff = data.data.filter(s => {
             if (!s.department) return false;
@@ -175,22 +181,15 @@ export const useDepartmentStaff = (departmentMatchStrings, staticFallbackData) =
                 experience: parseList(staff.experience, localMatch ? localMatch.experience : []),
                 profile_pdf: staff.profile_pdf ? (staff.profile_pdf.startsWith('http') ? staff.profile_pdf : `${apiBase}${staff.profile_pdf.startsWith('/') ? '' : '/'}${staff.profile_pdf}`) : null,
                 profile_url: staff.profile_url || null,
-                isHOD: staff.is_hod === 1 || staff.is_hod === true || staff.is_hod === '1' || staff.is_hod === 'true' || localMatch?.id === 'hod' || (localMatch?.desig && localMatch.desig.toLowerCase().includes('head'))
+                isHOD: shouldDisableHOD
+                  ? false
+                  : (staff.is_hod === 1 || staff.is_hod === true || staff.is_hod === '1' || staff.is_hod === 'true' || localMatch?.id === 'hod' || (localMatch?.desig && localMatch.desig.toLowerCase().includes('head')))
               };
             });
 
-            // Append unmatched static fallback faculty (e.g. static faculty members not yet in the DB)
-            const unmatchedStatic = staticData
-              .filter((_, idx) => !matchedStaticIndices.has(idx))
-              .map((st, idx) => ({
-                ...st,
-                id: st.id || `static-${idx}`,
-                slug: st.slug || st.id || `static-${idx}`,
-                fallbackImage: st.image || null,
-                isHOD: st.id === 'hod' || st.isHOD || (st.desig && st.desig.toLowerCase().includes('head'))
-              }));
-
-            const combined = [...formattedApiData, ...unmatchedStatic];
+            // If the database has records for this department, formattedApiData is our live dynamic source of truth.
+            // This ensures that faculties added, edited, or deleted in Admin reflect on the department page immediately.
+            const combined = formattedApiData.length > 0 ? formattedApiData : staticData;
             // Sort so HOD is first
             combined.sort((a, b) => (b.isHOD ? 1 : 0) - (a.isHOD ? 1 : 0));
             setFaculties(combined);

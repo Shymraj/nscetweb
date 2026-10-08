@@ -1,16 +1,11 @@
 import imgNagarathinam from "./images/nagarathinam.jpg";
 import imgGayathri from "./images/gayathri.jpg";
 import imgShanmugapriyan from "./images/shanmugapriyan.jpg";
-import imgSowmiya from "./images/sowmiya.jpg";
 import imgKanimozhi from "./images/kanimozhi.jpg";
 import imgAruljebaraj from "./images/aruljebaraj.jpg";
 import imgNathirunSabinash from "./images/nathirunsabinash.jpg";
 import imgHariprasath from "./images/hariprasath.jpg";
-import imgManojPrabakar from "./images/Manoj_prabakar.jpg";
 import imgAadhitya from "./images/P. Aadhitya.jpg";
-import imgSindhu from "./images/sindhu.jpg";
-import imgBenita from "./images/Benita Photo.jpg";
-import imgPremkumar from "./images/General Engg - Premkumar.jpg";
 
 export const civilFacultyData = [
   {
@@ -39,21 +34,11 @@ export const civilFacultyData = [
     ],
     linkedin: "https://www.linkedin.com/in/naga-rathinam-02a65474",
     about: "Nagarathinam N serves as the Head of the Department of Civil Engineering with over 15 years of teaching and research experience. His areas of specialization include Structural Engineering and Building Materials. With valuable contributions in research, patents, academic projects, and engineering education, he is committed to fostering innovation, promoting practical learning, and mentoring students to become skilled civil engineers.",
-    publications: [
-      "3"
-    ],
-    projects: [
-      "4"
-    ],
-    patents: [
-      "2"
-    ],
-    awards: [
-      "2"
-    ],
-    experience: [
-      "15 Years"
-    ]
+    publications: ["3"],
+    projects: ["4"],
+    patents: ["2"],
+    awards: ["2"],
+    experience: ["15 Years"]
   },
   {
     id: "gayathri",
@@ -77,17 +62,11 @@ export const civilFacultyData = [
     ],
     linkedin: "http://www.linkedin.com/in/gayathri-sermakani-b309a519",
     about: "S. Gayathri is a faculty member specializing in Hydraulic Engineering, with 9 years of professional experience. Her academic and research interests focus on hydraulic engineering and related areas.",
-    publications: [
-      "1"
-    ],
+    publications: ["1"],
     projects: [],
     patents: [],
-    awards: [
-      "1"
-    ],
-    experience: [
-      "9 Years"
-    ]
+    awards: ["1"],
+    experience: ["9 Years"]
   },
   {
     id: "shanmugapriyan",
@@ -115,67 +94,11 @@ export const civilFacultyData = [
     ],
     linkedin: "https://www.linkedin.com/in/shanmugapriyan-r-civil-6434bb399/",
     about: "R. Shanmugapriyan is a dedicated faculty member with 8 years of teaching experience in the Department of Civil Engineering. His specialization is Structural Engineering, and he is passionate about structural analysis, innovative engineering practices, and helping students develop strong technical and practical skills for the construction industry.",
-    publications: [
-      "1"
-    ],
-    projects: [
-      "1"
-    ],
-    patents: [
-      "2"
-    ],
-    awards: [
-      "1"
-    ],
-    experience: [
-      "8 Years"
-    ]
-  },
-  {
-    id: "sowmiya",
-    slug: "sowmiya",
-    name: "Mrs. B. Sowmiya",
-    desig: "Assistant Professor",
-    qual: "M.E.",
-    email: "sowmiya@nscet.org",
-    image: imgSowmiya,
-    spec: "Environmental Engineering",
-    objectPosition: "center 10%",
-    highlights: [
-      {
-        title: "Academic Qualification",
-        description: "M.E. specializing in Environmental Engineering and Sustainable Development.",
-      },
-      {
-        title: "Focus Areas",
-        description: "Water treatment analysis, waste management, and environmental impact assessment.",
-      },
-      {
-        title: "Contact",
-        description: "Email: sowmiya@nscet.org · NSCET Civil Department.",
-      },
-    ],
-    linkedin: "https://www.linkedin.com/in/sowmiya-nscet",
-    about: "Mrs. B. Sowmiya specializes in Environmental Engineering with a strong commitment to sustainable development and ecological balance. Her expertise covers water and wastewater treatment, solid waste management, and environmental impact assessments. She actively engages students in environmental awareness programs and green initiatives, striving to develop engineering solutions that protect and preserve natural resources.",
-    publications: [
-      "Advanced Oxidation Processes for Industrial Wastewater Treatment — Environmental Engineering Science, 2024",
-      "Assessment of Groundwater Quality in Industrial Belts — Journal of Water Resources, 2023"
-    ],
-    projects: [
-      "Design of Decentralized Wastewater Treatment System for Rural Areas",
-      "Solid Waste Management and Recycling Strategies for Campuses"
-    ],
-    patents: [
-      "Low-Cost Bio-Filter Design for Greywater Treatment (Published - 2022)"
-    ],
-    awards: [
-      "Green Campus Initiative Leadership Award - 2023",
-      "Excellence in Environmental Research - 2021"
-    ],
-    experience: [
-      "Assistant Professor, Civil Engineering, NSCET (2017 - Present)",
-      "Environmental Consultant, EcoVision Solutions (2014 - 2017)"
-    ]
+    publications: ["1"],
+    projects: ["1"],
+    patents: ["2"],
+    awards: ["1"],
+    experience: ["8 Years"]
   },
   {
     id: "kanimozhi",
@@ -207,14 +130,12 @@ export const civilFacultyData = [
     projects: [],
     patents: [],
     awards: [],
-    experience: [
-      "4 Years"
-    ]
+    experience: ["4 Years"]
   },
   {
     id: "aruljebaraj",
     slug: "aruljebaraj",
-    name: "Mr. Arul Jebaraj P",
+    name: "Mr. P. Arul Jebaraj",
     desig: "Assistant Professor",
     qual: "M.Tech",
     email: "aruljebaraj@nscet.org",
@@ -240,12 +161,8 @@ export const civilFacultyData = [
     publications: [],
     projects: [],
     patents: [],
-    awards: [
-      "2"
-    ],
-    experience: [
-      "7.8 Years"
-    ]
+    awards: ["2"],
+    experience: ["7.8 Years"]
   },
   {
     id: "nathirunsabinash",
@@ -277,9 +194,7 @@ export const civilFacultyData = [
     projects: [],
     patents: [],
     awards: [],
-    experience: [
-      "2.2 Years"
-    ]
+    experience: ["2.2 Years"]
   },
   {
     id: "hariprasath",
@@ -307,74 +222,18 @@ export const civilFacultyData = [
     ],
     linkedin: "https://www.linkedin.com/in/hariprasath/",
     about: "Hariprasath T is a dedicated faculty member with 7 years of teaching and research experience in the Department of Civil Engineering. His specialization is Construction and Management. He is passionate about modern construction practices, project management, and mentoring students through practical, industry-oriented learning to build strong engineering competencies.",
-    publications: [
-      "1"
-    ],
-    projects: [
-      "1"
-    ],
-    patents: [
-      "1"
-    ],
-    awards: [
-      "1"
-    ],
-    experience: [
-      "7 Years"
-    ]
-  },
-  {
-    id: "manojprabakar",
-    slug: "manojprabakar",
-    name: "Mr. R. Manoj Prabakar",
-    desig: "Assistant Professor",
-    qual: "M.E.",
-    email: "manojprabakar@nscet.org",
-    image: imgManojPrabakar,
-    spec: "Steel Structures & Surveying",
-    objectPosition: "center 10%",
-    highlights: [
-      {
-        title: "Academic Qualification",
-        description: "M.E. specializing in Design of Steel Structures and Land Surveying.",
-      },
-      {
-        title: "Student Mentorship",
-        description: "Student association guidance and site layout field work.",
-      },
-      {
-        title: "Contact",
-        description: "Email: manojprabakar@nscet.org · NSCET Civil Department.",
-      },
-    ],
-    linkedin: "https://www.linkedin.com/in/manojprabakar-nscet",
-    about: "Mr. R. Manoj Prabakar is proficient in the Design of Steel Structures and Advanced Surveying methodologies. His expertise lies in steel connection design, industrial shed modeling, and pre-engineered buildings (PEB). Known for his energetic student mentorship, he frequently organizes field camps and site visits to provide hands-on surveying and construction experience, fostering practical engineering skills.",
-    publications: [
-      "Behavior of Bolted Connections in Pre-Engineered Buildings — Steel Structures Journal, 2024",
-      "Optimization of Cold-Formed Steel Sections under Compression — International Steel Design Conference, 2023"
-    ],
-    projects: [
-      "Design of Long-Span Steel Truss Bridges for Rural Connectivity",
-      "Topographical Surveying and Route Alignment for State Highways"
-    ],
-    patents: [
-      "Lightweight High-Strength Steel Connection Node (Filed - 2024)"
-    ],
-    awards: [
-      "Excellence in Student Mentorship - 2023",
-      "Best Paper on Steel Structure Design - 2021"
-    ],
-    experience: [
-      "Assistant Professor, Civil Engineering, NSCET (2018 - Present)",
-      "Steel Detailer and Design Engineer, PEB Solutions (2015 - 2018)"
-    ]
+    publications: ["1"],
+    projects: ["1"],
+    patents: ["1"],
+    awards: ["1"],
+    experience: ["7 Years"]
   },
   {
     id: "aadhitya",
     slug: "aadhitya",
     name: "Mrs. P. Aadhitya",
     desig: "Assistant Professor",
-    qual: "",
+    qual: "M.E.",
     email: "aadhitya@nscet.org",
     image: imgAadhitya,
     spec: "Structural",
@@ -395,77 +254,7 @@ export const civilFacultyData = [
     projects: [],
     patents: [],
     awards: [],
-    experience: [
-      "2 Months"
-    ]
-  },
-  {
-    id: "mrs-k-benita-merlin-isabella",
-    slug: "mrs-k-benita-merlin-isabella",
-    name: "Mrs. K. Benita Merlin Isabella",
-    desig: "Assistant Professor",
-    qual: "M.E",
-    email: "benitamerlin22@gmail.com",
-    image: imgBenita,
-    spec: "Structural Engineering (Structural Design & Analysis)",
-    objectPosition: "center 10%",
-    linkedin: "https://www.linkedin.com/in/benita-merlin-005b69242",
-    about: "Benita Merlin Isabella K is a dedicated faculty member in the Department of Civil Engineering. She brings a unique blend of 3 years of industry experience and 2.2 years of teaching experience. Her specialization is Structural Engineering, with a focus on Structural Design and Analysis, and she is committed to helping students develop strong technical knowledge through practical and industry-oriented learning.",
-    publications: [
-      "2"
-    ],
-    projects: [],
-    patents: [],
-    awards: [],
-    experience: [
-      "3 Years (Industry) & 2.2 Years (Teaching)"
-    ]
-  },
-  {
-    id: "mrs-m-sindhu",
-    slug: "mrs-m-sindhu",
-    name: "Mrs. M. Sindhu",
-    desig: "Assistant Professor",
-    qual: "M.E., (Ph.D)",
-    email: "sindhu@nscet.org",
-    image: imgSindhu,
-    spec: "Structural Engineering",
-    objectPosition: "center 10%",
-    linkedin: "https://www.linkedin.com/in/sindhu-m-19b495157",
-    about: "Sindhu M is a dedicated faculty member with 6 years of teaching experience in the Department of Civil Engineering. Her specialization is Structural Engineering, and she is passionate about structural analysis, innovative engineering practices, and helping students develop strong technical and practical skills through effective teaching and research.",
-    publications: [
-      "1"
-    ],
-    projects: [
-      "1"
-    ],
-    patents: [],
-    awards: [],
-    experience: [
-      "6 Years"
-    ]
-  },
-  {
-    id: "dr-premkumar-s",
-    slug: "dr-premkumar-s",
-    name: "Dr. S. Premkumar",
-    desig: "Assistant Professor",
-    qual: "B.E - Civil, M.E - Hydrology & Water Resources, Ph.D – Civil Engineering",
-    email: "premkumar@nscet.org",
-    image: imgPremkumar,
-    spec: "Water Resources, Hydrology",
-    objectPosition: "center 10%",
-    linkedin: "https://www.linkedin.com/in/dr-premkumar-s-06a70640",
-    about: "Dr. S. Premkumar is a dedicated faculty member with over 12 years of teaching and research experience in the Department of Civil Engineering. His area of specialization is Water Resources, and he is committed to advancing engineering education through academic excellence, research, and student mentorship.",
-    publications: [
-      "5"
-    ],
-    projects: [],
-    patents: [],
-    awards: [],
-    experience: [
-      "12.7 Years"
-    ]
+    experience: ["2 Months"]
   }
 ];
 
