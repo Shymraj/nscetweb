@@ -1,13 +1,30 @@
 /* ==========================================================
    🔥 BANNER & CONTAINER SPACING FIX 🔥
    ========================================================== */
-.common-hero-banner {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+.rti-page .common-hero-banner {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  z-index: 1;
+}
+
+.rti-page .common-hero-banner img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: bottom;
 }
 
 .rti-page .common-hero-banner + .rti-premium-container {
-  padding-top: 40px !important;
+  padding-top: 30px !important;
   margin-top: 0 !important;
 }
 
@@ -265,12 +282,33 @@ body.dark-mode .certificate-image-wrapper {
    RESPONSIVE DESIGN (MOBILE & TABLET)
    ========================================= */
 @media (max-width: 768px) {
+  .rti-page .common-hero-banner {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .rti-page .common-hero-banner img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: bottom !important;
+  }
+
   .rti-page .common-hero-banner + .rti-premium-container {
-    padding-top: 20px !important;
+    padding-top: 10px !important;
+    margin-top: 0 !important;
   }
 
   .rti-premium-container {
-    padding: 16px 14px 2.5rem !important;
+    padding: 0 14px 2.5rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }

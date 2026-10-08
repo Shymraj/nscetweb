@@ -1,13 +1,30 @@
 /* ==========================================================
    🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
    ========================================================== */
-.common-hero-banner {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+.antiraggingcell-page .common-hero-banner {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  z-index: 1;
+}
+
+.antiraggingcell-page .common-hero-banner img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: bottom;
 }
 
 .antiraggingcell-page .common-hero-banner + .arc-container {
-  padding-top: 40px !important; /* Perfect neat gap before content */
+  padding-top: 30px !important; /* Perfect neat gap before content */
   margin-top: 0 !important;
 }
 
@@ -583,12 +600,33 @@
 }
 
 @media (max-width: 768px) {
+  .antiraggingcell-page .common-hero-banner {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .antiraggingcell-page .common-hero-banner img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: bottom !important;
+  }
+
   .antiraggingcell-page .common-hero-banner + .arc-container {
-    padding-top: 20px !important;
+    padding-top: 10px !important;
+    margin-top: 0 !important;
   }
 
   .arc-container {
-    padding: 16px 14px 2.5rem !important;
+    padding: 0 14px 2.5rem !important;
     gap: 2.25rem !important;
     width: 100% !important;
     box-sizing: border-box !important;

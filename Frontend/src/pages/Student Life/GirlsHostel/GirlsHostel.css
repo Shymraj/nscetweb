@@ -3,9 +3,26 @@
    ========================================================== */
 
 /* Banner Spacing */
-.common-hero-banner {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+.modern-girls-hostel-page .common-hero-banner {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  z-index: 1;
+}
+
+.modern-girls-hostel-page .common-hero-banner img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: bottom;
 }
 
 .modern-girls-hostel-page .common-hero-banner + .gh-main-container {
@@ -612,8 +629,33 @@ body.dark-mode .gh-content-card {
 }
 
 @media (max-width: 768px) {
+  .modern-girls-hostel-page .common-hero-banner {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .modern-girls-hostel-page .common-hero-banner img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: bottom !important;
+  }
+
   .modern-girls-hostel-page .common-hero-banner + .gh-main-container {
-    padding-top: 15px !important;
+    padding-top: 10px !important;
+    margin-top: 0 !important;
+  }
+
+  .gh-main-container {
+    margin-top: 0 !important;
   }
 
   .gh-section {

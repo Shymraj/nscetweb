@@ -1,13 +1,30 @@
 /* ==========================================================
    🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
    ========================================================== */
-.common-hero-banner {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+.placements-page .common-hero-banner {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  z-index: 1;
+}
+
+.placements-page .common-hero-banner img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: bottom;
 }
 
 .placements-page .common-hero-banner + .placements-content {
-  padding-top: 40px !important; /* Perfect neat gap before cards */
+  padding-top: 30px !important;
   margin-top: 0 !important;
 }
 
@@ -1271,12 +1288,34 @@ body.dark-mode .pl-recruiter-name {
 }
 
 @media (max-width: 768px) {
+  .placements-page .common-hero-banner {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .placements-page .common-hero-banner img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: bottom !important;
+  }
+
   .placements-page .common-hero-banner + .placements-content {
-    padding-top: 18px !important;
+    padding-top: 10px !important;
+    margin-top: 0 !important;
   }
 
   .placements-content {
-    padding: 16px 12px 3rem !important;
+    padding: 0 12px 3rem !important;
+    margin-top: 0 !important;
     max-width: 100% !important;
   }
 

@@ -114,21 +114,12 @@ const GirlsHostel = () => {
 
         {/* Administration Section */}
         <section className="gh-section gh-admin-split-section gh-animate-slide-up-delay-1">
-          <div className="gh-admin-split-container">
-            <div className="gh-admin-split-right gh-content-card">
-              <h2 className="gh-section-title">Hostel Administration</h2>
-              <div className="gh-admin-divider"></div>
-              <p className="gh-admin-description">
-                The Girls Hostel administration is dedicated to maintaining a disciplined, nurturing, and home-like environment. We focus on holistic student development, ensuring the highest standards of safety, hygiene, and academic support throughout their stay.
-              </p>
-            </div>
-            <div className="gh-admin-split-left">
-              <div className="gh-admin-profile-full">
-                <img src="/ME%20MANUFACTURING/principle.png" alt={hostelData.administration[0].name} className="gh-admin-profile-full-img" onError={(e) => { e.target.src = '/ME%20MANUFACTURING/principle.png'; }} />
-                <h3 className="gh-admin-profile-name">{hostelData.administration[0].name}</h3>
-                <p className="gh-admin-profile-role">{hostelData.administration[0].role}</p>
-              </div>
-            </div>
+          <div className="gh-content-card">
+            <h2 className="gh-section-title">Hostel Administration</h2>
+            <div className="gh-admin-divider"></div>
+            <p className="gh-admin-description">
+              The Girls Hostel administration is dedicated to maintaining a disciplined, nurturing, and home-like environment. We focus on holistic student development, ensuring the highest standards of safety, hygiene, and academic support throughout their stay.
+            </p>
           </div>
         </section>
 

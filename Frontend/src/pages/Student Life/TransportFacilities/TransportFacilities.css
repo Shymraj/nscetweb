@@ -1,13 +1,30 @@
 /* ==========================================================
    🔥 BANNER & CONTAINER SPACING FIX 🔥
    ========================================================== */
-.common-hero-banner {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+.transportfacilities-page .common-hero-banner {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  z-index: 1;
+}
+
+.transportfacilities-page .common-hero-banner img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: bottom;
 }
 
 .transportfacilities-page .common-hero-banner + .transport-container {
-  padding-top: 40px !important;
+  padding-top: 30px !important;
   margin-top: 0 !important;
 }
 
@@ -838,12 +855,33 @@
 }
 
 @media (max-width: 768px) {
+  .transportfacilities-page .common-hero-banner {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .transportfacilities-page .common-hero-banner img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: bottom !important;
+  }
+
   .transportfacilities-page .common-hero-banner + .transport-container {
-    padding-top: 20px !important;
+    padding-top: 10px !important;
+    margin-top: 0 !important;
   }
 
   .transport-container {
-    padding: 16px 14px 2.5rem !important;
+    padding: 0 14px 2.5rem !important;
     gap: 2.25rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -883,32 +921,49 @@
     width: 38px !important;
   }
 
-  /* Stats Section */
+  /* Stats Section - Horizontal 3 Column Layout on Mobile */
   .transport-stats-section {
-    grid-template-columns: 1fr !important;
-    gap: 0.85rem !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
   }
 
   .transport-stat-card {
-    padding: 1.1rem 1.2rem !important;
-    border-radius: 14px !important;
-    gap: 1rem !important;
+    padding: 0.85rem 0.35rem !important;
+    border-radius: 12px !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
     box-sizing: border-box !important;
+    border-left-width: 1px !important;
+    border-top: 3.5px solid #f97316 !important;
   }
 
   .stat-icon-wrapper {
-    width: 46px !important;
-    height: 46px !important;
-    font-size: 1.25rem !important;
-    border-radius: 12px !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    font-size: 1.05rem !important;
+    border-radius: 10px !important;
+    margin: 0 auto !important;
+  }
+
+  .stat-info {
+    text-align: center !important;
+    width: 100% !important;
   }
 
   .stat-info h2 {
-    font-size: 1.65rem !important;
+    font-size: clamp(1.05rem, 4.2vw, 1.35rem) !important;
+    line-height: 1.15 !important;
+    margin: 0 !important;
   }
 
   .stat-info p {
-    font-size: 0.9rem !important;
+    font-size: clamp(0.68rem, 2.3vw, 0.78rem) !important;
+    line-height: 1.25 !important;
+    margin: 2px 0 0 !important;
   }
 
   /* Incharge Cards */

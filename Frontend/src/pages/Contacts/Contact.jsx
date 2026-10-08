@@ -10,7 +10,8 @@ import {
   FaGraduationCap,
   FaHeadset,
   FaShieldAlt,
-  FaThList
+  FaThList,
+  FaExternalLinkAlt
 } from "react-icons/fa";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import "./Contact.css";
@@ -296,8 +297,30 @@ const Contact = () => {
         >
           <h2 className="glam-title desktop-title">Find Us on <span>Google Maps</span></h2>
           <h2 className="mobile-section-title center-title">Location Map</h2>
-          <div className="map-glow-wrapper">
-            <div className="map-inner">
+          
+          <div className="contact-map-card">
+            <div className="map-card-header">
+              <div className="map-header-info">
+                <div className="map-header-icon-box">
+                  <FaMapMarkerAlt />
+                </div>
+                <div className="map-header-text">
+                  <h3 className="map-card-title">NSCET Main Campus</h3>
+                  <span className="map-card-subtitle">Vadapudupatti, Theni - 625531</span>
+                </div>
+              </div>
+              <a 
+                href="https://maps.google.com/?q=Nadar+Saraswathi+College+of+Engineering+and+Technology+Theni" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="map-directions-btn"
+                aria-label="Open in Google Maps"
+              >
+                <FaExternalLinkAlt /> <span>Open in Maps</span>
+              </a>
+            </div>
+
+            <div className="map-frame-wrap">
               <iframe
                 width="100%"
                 height="100%"
@@ -310,6 +333,12 @@ const Contact = () => {
                 style={{ border: 0 }}
                 allowFullScreen
               ></iframe>
+            </div>
+
+            <div className="map-card-footer">
+              <span className="map-address-text">
+                <FaMapMarkerAlt className="map-pin-small" /> Nadar Saraswathi College of Engineering & Technology, Vadapudupatti, Theni
+              </span>
             </div>
           </div>
         </motion.div>

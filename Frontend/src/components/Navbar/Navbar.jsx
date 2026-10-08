@@ -49,7 +49,7 @@ const searchData = [
   { name: "Research Centre", path: "/research/centre" },
   { name: "Entrepreneurship Development Cell", path: "/research/entrepreneurship-cell" },
   { name: "iSPIN", path: "/ispin" },
-  { name: "WAVES'26", path: "/gallery/waves25" },
+  // { name: "WAVES'26", path: "/gallery/waves25" },
   { name: "Clubs & Chapters", path: "/gallery/clubs-chapters" },
   { name: "NIRF", path: "/gallery/nirf" },
   { name: "RTI", path: "/gallery/rti" },
@@ -394,7 +394,7 @@ function Navbar() {
               <FaChevronDown className="dropdown-arrow" />
             </Link>
             <ul className="dropdown-menu">
-              <li><Link to="/gallery/waves25">WAVES'26</Link></li>
+              {/* <li><Link to="/gallery/waves25">WAVES'26</Link></li> */}
               <li><Link to="/gallery/clubs-chapters">Clubs & Chapters</Link></li>
               <li><Link to="/gallery/nirf">NIRF</Link></li>
               <li><Link to="/gallery/rti">RTI</Link></li>

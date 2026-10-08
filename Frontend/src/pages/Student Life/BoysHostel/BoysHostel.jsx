@@ -75,7 +75,7 @@ const BoysHostel = () => {
 
         {/* About Section */}
         <section className="hostel-section about-section animate-slide-up">
-          <div className="about-text">
+          <div className="about-text bh-content-card">
             <h2 className="bh-section-title">About the Hostel</h2>
             <p>{hostelData.about}</p>
           </div>
@@ -98,7 +98,7 @@ const BoysHostel = () => {
         {/* Administration Section */}
         <section className="hostel-section admin-split-section animate-slide-up-delay-1">
           <div className="admin-split-container">
-            <div className="admin-split-right">
+            <div className="admin-split-right bh-content-card">
               <h2 className="bh-section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>Hostel Administration</h2>
               <div className="admin-divider" style={{ margin: '0 0 20px 0' }}></div>
               <p className="admin-description">

@@ -1,24 +1,66 @@
 /* ==========================================================
    🔥 FIX: BANNER KEEZHA VARA UNWANTED WHITE GAP & ZERO PADDING 🔥
    ========================================================== */
-.common-hero-banner {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+.modern-hostel-page .common-hero-banner {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  z-index: 1;
+}
+
+.modern-hostel-page .common-hero-banner img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: bottom;
 }
 
 .modern-hostel-page .common-hero-banner + .hostel-main-container {
-  padding-top: 25px !important; /* Adjust gap to fit content */
+  padding-top: 25px !important;
   margin-top: 0 !important;
 }
 
 /* Base style overrides */
 .modern-hostel-page {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-body);
   background-color: #f4f7f6;
   color: #2c3e50;
   padding-bottom: 60px;
   overflow-x: hidden;
   margin: 0 !important; /* Global margin reset */
+}
+
+/* =========================================
+   BH CONTENT CARDS
+   ========================================= */
+.bh-content-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #1e3a8a;
+  border-radius: 20px;
+  padding: 2.25rem;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.bh-content-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(30, 58, 138, 0.08);
+}
+
+body.dark-mode .bh-content-card {
+  background: linear-gradient(145deg, #1e293b 0%, #172033 100%) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-left: 5px solid #38bdf8 !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35) !important;
 }
 
 /* --- ANIMATIONS --- */
@@ -349,31 +391,7 @@
   text-align: justify;
 }
 
-@media (max-width: 768px) {
-  .about-section {
-    flex-direction: column;
-    padding: 40px 5%;
-  }
-  .admin-split-container {
-    flex-direction: column;
-    gap: 30px;
-  }
-  .admin-split-left {
-    flex: none;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  .admin-split-right {
-    text-align: center;
-  }
-  .admin-split-right .bh-section-title {
-    text-align: center !important;
-  }
-  .admin-divider {
-    margin: 0 auto 20px auto !important;
-  }
-}
+
 
 /* ----------------------------------------------- */
 
@@ -489,15 +507,22 @@
 }
 
 .facilities-box {
-  background: #fdfdfd;
-  border: 1px solid #eaeaea;
-  border-radius: 14px;
-  padding: 20px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #1e3a8a;
+  border-radius: 16px;
+  padding: 24px;
   flex: 1;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.facilities-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(30, 58, 138, 0.08);
 }
 
 .facilities-list {
@@ -507,10 +532,11 @@
 }
 
 .facilities-list li {
-  font-size: 0.88rem;
-  color: #444;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: #475569;
   margin-bottom: 12px;
-  line-height: 1.5;
+  line-height: 1.6;
   position: relative;
   padding-left: 18px;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -534,7 +560,7 @@
 .facilities-list li:hover {
   transform: scale(1.02);
   color: #f97316;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .facilities-list li:hover::before {
@@ -549,18 +575,28 @@
 }
 
 .rules-box {
-  background: #fdfdfd;
-  border: 1px solid #eaeaea;
-  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #1e3a8a;
+  border-radius: 16px;
   padding: 25px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rules-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(30, 58, 138, 0.08);
 }
 
 .rules-box-title {
+  font-family: var(--font-subtopic);
   font-size: 1.15rem;
+  font-weight: 700;
   margin-bottom: 15px;
   border-bottom: 2px solid #fff7ed;
   padding-bottom: 10px;
+  color: #0f172a;
 }
 
 .rules-list {
@@ -827,67 +863,245 @@
   }
 }
 
-@media (max-width: 767px) {
-  .modern-hostel-page .common-hero-banner + .hostel-main-container {
-    padding-top: 15px !important;
+@media (max-width: 768px) {
+  /* Banner & Top Spacing */
+  .modern-hostel-page .common-hero-banner {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  .hostel-hero {
-    /* Keep banner image visible and act as positioning container */
-    align-items: stretch;
-    padding-top: 0;
-    /* Increased height to make the banner extend further down */
-    min-height: 380px;
-    border-radius: 0;
+  .modern-hostel-page .common-hero-banner img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: bottom !important;
+  }
+
+  .modern-hostel-page .common-hero-banner + .hostel-main-container {
+    padding-top: 10px !important;
+    margin-top: 0 !important;
   }
 
   .hostel-main-container {
-    margin-top: 20px;
-    /* Reduced gap below the banner */
+    margin-top: 0 !important;
+    padding: 0 8px !important;
   }
 
-  .hostel-hero .hero-content {
-    /* Center the text and make the overlay slightly more transparent to show the image clearly */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Move text to the center */
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Added a slightly stronger dark gradient to ensure the text shadow stands out clearly */
-    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.15) 100%);
-    border-radius: 0;
-    padding: 20px 15px;
-    margin: 0;
-    max-width: 100%;
-    box-sizing: border-box;
-    z-index: 2;
+  /* Section Containers (Cards) */
+  .hostel-section {
+    width: 100% !important;
+    margin: 0 0 16px 0 !important;
+    padding: 20px 14px !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
   }
 
-  .hostel-hero h1 {
-    /* Larger size, Golden and White mixed combo */
-    font-size: clamp(32px, 9vw, 42px);
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 0;
-    font-family: "Cinzel", serif;
-    text-transform: uppercase;
-    text-align: center;
+  /* Section Titles */
+  .bh-section-title {
+    font-size: 1.35rem !important;
+    margin-bottom: 16px !important;
+  }
 
-    /* Golden and White gradient text effect */
-    background: linear-gradient(135deg, #FFDF00 0%, #FFFFFF 50%, #D4AF37 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    /* Fallback */
+  .bh-section-title::after {
+    width: 40px !important;
+    height: 3px !important;
+    bottom: -6px !important;
+  }
 
-    /* Intense drop shadow to create a strong background shadow effect behind the text */
-    filter: drop-shadow(2px 4px 5px rgba(0, 0, 0, 0.9)) drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
+  /* Content Cards (About & Admin) */
+  .bh-content-card {
+    padding: 1.15rem 1rem !important;
+    border-radius: 14px !important;
+    border-left-width: 4px !important;
+  }
+
+  .about-section {
+    flex-direction: column !important;
+    padding: 18px 14px !important;
+    gap: 16px !important;
+  }
+
+  .about-text p,
+  .admin-description {
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Highlights Chips */
+  .about-highlights {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .highlight-chip {
+    padding: 8px 10px !important;
+    font-size: 0.78rem !important;
+    border-radius: 8px !important;
+    gap: 6px !important;
+  }
+
+  .chip-icon {
+    font-size: 0.95rem !important;
+  }
+
+  /* Administration Section & Images */
+  .admin-split-container {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .admin-split-left {
+    flex: none !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+
+  .admin-split-right {
+    text-align: center !important;
+  }
+
+  .admin-split-right .bh-section-title {
+    text-align: center !important;
+    margin-bottom: 12px !important;
+  }
+
+  .admin-divider {
+    margin: 0 auto 12px auto !important;
+  }
+
+  .admin-profile-full {
+    padding: 18px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .admin-profile-full-img {
+    width: 85px !important;
+    height: 85px !important;
+    margin-bottom: 10px !important;
+    border-width: 3px !important;
+  }
+
+  .admin-profile-name {
+    font-size: 1.05rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .admin-profile-role {
+    font-size: 0.78rem !important;
+  }
+
+  /* Culture & Facilities Section */
+  .culture-facilities-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .culture-image-card,
+  .culture-slider-wrapper {
+    min-height: 190px !important;
+    height: 190px !important;
+    border-radius: 12px !important;
+  }
+
+  .culture-overlay {
+    padding: 12px 14px !important;
+  }
+
+  .culture-overlay h3 {
+    font-size: 0.95rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .culture-overlay p {
+    font-size: 0.78rem !important;
+  }
+
+  .facilities-box {
+    padding: 16px 14px !important;
+    border-radius: 14px !important;
+    border-left-width: 3.5px !important;
+  }
+
+  .facilities-list li {
+    font-size: 0.84rem !important;
+    margin-bottom: 8px !important;
+    line-height: 1.5 !important;
+    padding-left: 16px !important;
+  }
+
+  .facilities-list li::before {
+    font-size: 1.1rem !important;
+    top: -1px !important;
+  }
+
+  /* Rules & Regulations Section */
+  .rules-two-container {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .rules-box {
+    padding: 16px 14px !important;
+    border-radius: 14px !important;
+    border-left-width: 3.5px !important;
+  }
+
+  .rules-box-title {
+    font-size: 1rem !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .rules-list li {
+    font-size: 0.84rem !important;
+    margin-bottom: 8px !important;
+    line-height: 1.5 !important;
+    padding-left: 18px !important;
+  }
+
+  .rules-list li::before {
+    font-size: 1.1rem !important;
+    top: -1px !important;
+  }
+
+  /* Photo Gallery Slider */
+  .gallery-slider-container {
+    border-radius: 12px !important;
+  }
+
+  .slider-images-wrapper {
+    height: 200px !important;
+  }
+
+  .slider-btn {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .slider-dots-outside {
+    margin-top: 12px !important;
+    gap: 6px !important;
+  }
+
+  .slider-dots-outside .dot {
+    width: 7px !important;
+    height: 7px !important;
+  }
+
+  .slider-dots-outside .dot.active {
+    width: 18px !important;
   }
 }
 

@@ -1935,10 +1935,10 @@ body.dark-mode .search-result-item:hover {
 }
 
 /* Mobile View (Responsive) */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .common-page-wrapper {
-        /* Mobile navbar is exactly 60px. Matching 60px eliminates white gap and prevents banner from getting hidden */
-        padding-top: 60px !important;
+        /* Mobile navbar padding adjusted so banner sits right under the navbar curve without large gap */
+        padding-top: 40px !important;
     }
 
     .common-hero-banner {

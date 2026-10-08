@@ -2,8 +2,8 @@
    🔥 STRICT FIX: NO GAP BELOW BANNER 🔥
    ========================================================== */
 .common-page-wrapper {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
 }
 
 .common-hero-banner {
@@ -183,10 +183,181 @@ body.dark-mode .contact-card-content p { color: #cbd5e1; }
 /* ==========================================================================
    3. GOOGLE MAPS SECTION (DESKTOP)
    ========================================================================== */
-.map-section { margin-top: 2rem; margin-bottom: 2rem; }
-.map-glow-wrapper { width: 100%; height: 480px; border-radius: 24px; padding: 10px; background: var(--card-bg); border: 1px solid var(--border-color); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06); box-sizing: border-box; }
-body.dark-mode .map-glow-wrapper { box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); }
-.map-inner { width: 100%; height: 100%; border-radius: 16px; overflow: hidden; }
+.map-section { 
+  margin-top: 3rem; 
+  margin-bottom: 2.5rem; 
+}
+
+.contact-map-card {
+  width: 100%;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .contact-map-card {
+  background: var(--card-bg);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.contact-map-card:hover {
+  box-shadow: 0 16px 45px rgba(13, 59, 142, 0.1);
+  border-color: rgba(13, 59, 142, 0.2);
+}
+
+body.dark-mode .contact-map-card:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6);
+}
+
+.map-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--card-bg);
+}
+
+.map-header-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.map-header-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(13, 59, 142, 0.08);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+body.dark-mode .map-header-icon-box {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
+
+.map-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-card-title {
+  font-family: var(--font-subtopic);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.map-card-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+body.dark-mode .map-card-subtitle {
+  color: #94a3b8;
+}
+
+.map-directions-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 99px;
+  background: var(--primary-blue);
+  color: #ffffff !important;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(13, 59, 142, 0.2);
+}
+
+.map-directions-btn:hover {
+  transform: translateY(-2px);
+  background: var(--secondary-blue, #092c6b);
+  box-shadow: 0 6px 16px rgba(13, 59, 142, 0.3);
+}
+
+body.dark-mode .map-directions-btn {
+  background: #38bdf8;
+  color: #0f172a !important;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+}
+
+body.dark-mode .map-directions-btn:hover {
+  background: #7dd3fc;
+}
+
+.map-frame-wrap {
+  width: 100%;
+  height: 420px;
+  position: relative;
+  background: #e2e8f0;
+}
+
+body.dark-mode .map-frame-wrap {
+  background: #0f172a;
+}
+
+.map-frame-wrap iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.map-card-footer {
+  padding: 1rem 1.75rem;
+  background: rgba(0, 0, 0, 0.015);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body.dark-mode .map-card-footer {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.map-address-text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #64748b;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body.dark-mode .map-address-text {
+  color: #cbd5e1;
+}
+
+.map-pin-small {
+  color: var(--primary-blue);
+  font-size: 1rem;
+}
+
+body.dark-mode .map-pin-small {
+  color: #38bdf8;
+}
 
 
 /* ==========================================================================
@@ -218,7 +389,9 @@ body.dark-mode .map-glow-wrapper { box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); }
     display: block;
   }
   
+  .common-page-wrapper,
   .contacts-page-wrapper {
+    padding-top: 40px !important;
     background-color: var(--card-bg) !important;
   }
 
@@ -345,8 +518,59 @@ body.dark-mode .map-glow-wrapper { box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); }
   .mac-desc { font-size: 1.05rem; color: var(--text-color); font-weight: 700; }
 
 
-  /* MOBILE EDGE-TO-EDGE MAP */
-  .map-section { margin-top: 0; }
-  .map-glow-wrapper { height: 280px; border-radius: 0; padding: 0; border: none; box-shadow: none; margin: 0 -1.25rem; width: calc(100% + 2.5rem); }
-  .map-inner { border-radius: 0; }
+  /* MOBILE CARD MAP */
+  .map-section { 
+    margin-top: 1rem; 
+    margin-bottom: 2.5rem; 
+  }
+
+  .contact-map-card {
+    border-radius: 18px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.5rem;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .map-card-header {
+    padding: 0.95rem 1.15rem;
+    gap: 0.75rem;
+  }
+
+  .map-header-icon-box {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+  }
+
+  .map-card-title {
+    font-size: 0.98rem;
+  }
+
+  .map-card-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .map-directions-btn {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+
+  .map-frame-wrap {
+    height: 280px;
+  }
+
+  .map-card-footer {
+    padding: 0.85rem 1.15rem;
+  }
+
+  .map-address-text {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
 }

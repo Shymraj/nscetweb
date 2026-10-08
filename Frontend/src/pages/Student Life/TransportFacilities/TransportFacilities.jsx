@@ -36,37 +36,6 @@ const TransportFacilities = () => {
       </div>
 
       <div className="transport-container">
-        {/* Stats Section */}
-        <motion.section 
-          className="transport-stats-section"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <motion.div className="transport-stat-card" variants={fadeInUp}>
-            <div className="stat-icon-wrapper"><FaBus /></div>
-            <div className="stat-info">
-              <h2>20+</h2>
-              <p>College Buses</p>
-            </div>
-          </motion.div>
-          <motion.div className="transport-stat-card" variants={fadeInUp}>
-            <div className="stat-icon-wrapper"><FaMapMarkedAlt /></div>
-            <div className="stat-info">
-              <h2>30+</h2>
-              <p>Routes Covered</p>
-            </div>
-          </motion.div>
-          <motion.div className="transport-stat-card" variants={fadeInUp}>
-            <div className="stat-icon-wrapper"><FaUsers /></div>
-            <div className="stat-info">
-              <h2>800+</h2>
-              <p>Daily Commuters</p>
-            </div>
-          </motion.div>
-        </motion.section>
-
         {/* Transport Incharges Section */}
         <motion.section 
           className="transport-incharge-section"
@@ -108,6 +77,37 @@ const TransportFacilities = () => {
               </div>
             </motion.div>
           </div>
+        </motion.section>
+
+        {/* Stats Section */}
+        <motion.section 
+          className="transport-stats-section"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <motion.div className="transport-stat-card" variants={fadeInUp}>
+            <div className="stat-icon-wrapper"><FaBus /></div>
+            <div className="stat-info">
+              <h2>20+</h2>
+              <p>College Buses</p>
+            </div>
+          </motion.div>
+          <motion.div className="transport-stat-card" variants={fadeInUp}>
+            <div className="stat-icon-wrapper"><FaMapMarkedAlt /></div>
+            <div className="stat-info">
+              <h2>30+</h2>
+              <p>Routes Covered</p>
+            </div>
+          </motion.div>
+          <motion.div className="transport-stat-card" variants={fadeInUp}>
+            <div className="stat-icon-wrapper"><FaUsers /></div>
+            <div className="stat-info">
+              <h2>800+</h2>
+              <p>Daily Commuters</p>
+            </div>
+          </motion.div>
         </motion.section>
 
         {/* About Section */}
