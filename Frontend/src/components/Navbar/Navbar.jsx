@@ -73,9 +73,19 @@ const searchData = [
 function Navbar() {
 
   const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem("nscet_theme");
-    if (saved !== null) return saved === "dark";
-    return true;
+    try {
+      // Clean up legacy localStorage that previously defaulted to dark mode
+      if (localStorage.getItem("nscet_theme")) {
+        localStorage.removeItem("nscet_theme");
+      }
+      const savedSession = sessionStorage.getItem("nscet_theme");
+      if (savedSession !== null) {
+        return savedSession === "dark";
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    return false; // Default is always LIGHT MODE on initial website open
   });
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
@@ -119,11 +129,21 @@ function Navbar() {
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark-mode");
-      localStorage.setItem("nscet_theme", "dark");
+      try {
+        sessionStorage.setItem("nscet_theme", "dark");
+      } catch (e) {}
     } else {
       document.body.classList.remove("dark-mode");
-      localStorage.setItem("nscet_theme", "light");
+      try {
+        sessionStorage.setItem("nscet_theme", "light");
+      } catch (e) {}
     }
+    // Ensure legacy localStorage doesn't override
+    try {
+      if (localStorage.getItem("nscet_theme")) {
+        localStorage.removeItem("nscet_theme");
+      }
+    } catch (e) {}
   }, [darkMode]);
 
   const handleSearchChange = (e) => {

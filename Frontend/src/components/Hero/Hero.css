@@ -97,12 +97,12 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1460px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 58% 42%;
   align-items: center;
-  padding: 110px 60px 40px;
+  padding: 110px 50px 40px 40px;
   /* Increased top padding slightly to clear marquee */
   gap: 40px;
 }
@@ -115,6 +115,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: relative;
+  left: -35px;
   /* Removed CSS static animation because Framer Motion controls it now dynamically */
 }
 
@@ -452,6 +454,10 @@ body.dark-mode .hero .btn-secondary:hover {
     gap: 24px;
   }
 
+  .hero-left-content {
+    left: -10px;
+  }
+
   .hero-college-name,
   body.dark-mode .hero-college-name {
     font-size: clamp(26px, 3.2vw, 36px) !important;
@@ -481,6 +487,7 @@ body.dark-mode .hero .btn-secondary:hover {
     align-items: flex-start;
     width: 100%;
     max-width: 100%;
+    left: 0;
   }
 
   .hero-brand {
