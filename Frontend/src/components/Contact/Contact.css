@@ -139,6 +139,9 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+body.dark-mode .cyber-form {
   color-scheme: dark;
 }
 
@@ -160,11 +163,13 @@
   overflow: hidden;
 }
 
-.cyber-input-wrap:has(.cyber-input:-webkit-autofill) {
+body.dark-mode .cyber-input-wrap:has(.cyber-input:-webkit-autofill),
+body.dark-mode .cyber-input-wrap:has(.cyber-input:autofill) {
   background: #141d30;
 }
 
-.cyber-input-wrap:has(.cyber-input:-webkit-autofill):focus-within {
+body.dark-mode .cyber-input-wrap:has(.cyber-input:-webkit-autofill):focus-within,
+body.dark-mode .cyber-input-wrap:has(.cyber-input:autofill):focus-within {
   background: #0f172a;
 }
 
@@ -194,12 +199,17 @@
   color: #ffffff;
   font-family: inherit;
   font-weight: 500;
+}
+
+body.dark-mode .cyber-input {
   color-scheme: dark;
 }
 
-/* Chrome / Safari / Edge Autofill Fix */
-.cyber-input:-webkit-autofill,
-.cyber-input:-webkit-autofill:hover {
+/* Chrome / Safari / Edge Autofill Fix (Dark Mode) */
+body.dark-mode .cyber-input:-webkit-autofill,
+body.dark-mode .cyber-input:-webkit-autofill:hover,
+body.dark-mode .cyber-input:autofill,
+body.dark-mode .cyber-input:autofill:hover {
   -webkit-text-fill-color: #ffffff !important;
   -webkit-box-shadow: 0 0 0 1000px #141d30 inset !important;
   box-shadow: 0 0 0 1000px #141d30 inset !important;
@@ -207,8 +217,10 @@
   caret-color: #ffffff !important;
 }
 
-.cyber-input:-webkit-autofill:focus,
-.cyber-input:-webkit-autofill:active {
+body.dark-mode .cyber-input:-webkit-autofill:focus,
+body.dark-mode .cyber-input:-webkit-autofill:active,
+body.dark-mode .cyber-input:autofill:focus,
+body.dark-mode .cyber-input:autofill:active {
   -webkit-text-fill-color: #ffffff !important;
   -webkit-box-shadow: 0 0 0 1000px #0f172a inset !important;
   box-shadow: 0 0 0 1000px #0f172a inset !important;
@@ -419,13 +431,84 @@ body:not(.dark-mode) .floating-island {
   background: rgba(255, 255, 255, 0.85);
   border-color: rgba(15, 23, 42, 0.08);
 }
-body:not(.dark-mode) .cyber-title, body:not(.dark-mode) .island-header h3 { color: #0f172a; }
-body:not(.dark-mode) .cyber-subtitle, body:not(.dark-mode) .cyber-info-card p { color: #64748b; }
-body:not(.dark-mode) .cyber-input-wrap { background: #ffffff; border-color: #cbd5e1; }
-body:not(.dark-mode) .cyber-input { color: #0f172a; }
-body:not(.dark-mode) .cyber-info-card { background: #f8fafc; border-color: #e2e8f0; }
-body:not(.dark-mode) .cyber-info-card strong { color: #0f172a; }
-body:not(.dark-mode) .holographic-map-box iframe { filter: contrast(1.1) saturation(1.1); }
+body:not(.dark-mode) .island-header {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+body:not(.dark-mode) .cyber-title, 
+body:not(.dark-mode) .island-header h3 { 
+  color: #0f172a; 
+}
+body:not(.dark-mode) .cyber-subtitle, 
+body:not(.dark-mode) .cyber-info-card p { 
+  color: #64748b; 
+}
+
+body:not(.dark-mode) .cyber-form {
+  color-scheme: light;
+}
+
+body:not(.dark-mode) .cyber-input-wrap { 
+  background: #ffffff !important; 
+  border-color: #cbd5e1 !important; 
+}
+
+body:not(.dark-mode) .cyber-input-wrap:focus-within {
+  background: #ffffff !important;
+  border-color: #f97316 !important;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.15) !important;
+}
+
+body:not(.dark-mode) .cyber-input { 
+  color: #0f172a !important; 
+  color-scheme: light;
+}
+
+body:not(.dark-mode) .cyber-input::placeholder {
+  color: #94a3b8;
+}
+
+/* Light Mode Autofill Overrides - keep white background & dark text */
+body:not(.dark-mode) .cyber-input-wrap:has(.cyber-input:-webkit-autofill),
+body:not(.dark-mode) .cyber-input-wrap:has(.cyber-input:autofill) {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+body:not(.dark-mode) .cyber-input-wrap:has(.cyber-input:-webkit-autofill):focus-within,
+body:not(.dark-mode) .cyber-input-wrap:has(.cyber-input:autofill):focus-within {
+  background: #ffffff !important;
+  border-color: #f97316 !important;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.15) !important;
+}
+
+body:not(.dark-mode) .cyber-input:-webkit-autofill,
+body:not(.dark-mode) .cyber-input:-webkit-autofill:hover,
+body:not(.dark-mode) .cyber-input:-webkit-autofill:focus,
+body:not(.dark-mode) .cyber-input:-webkit-autofill:active,
+body:not(.dark-mode) .cyber-input:autofill,
+body:not(.dark-mode) .cyber-input:autofill:hover,
+body:not(.dark-mode) .cyber-input:autofill:focus,
+body:not(.dark-mode) .cyber-input:autofill:active {
+  -webkit-text-fill-color: #0f172a !important;
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: #0f172a !important;
+}
+
+body:not(.dark-mode) .cyber-info-card { 
+  background: #f8fafc; 
+  border-color: #e2e8f0; 
+}
+body:not(.dark-mode) .cyber-info-card strong { 
+  color: #0f172a; 
+}
+body:not(.dark-mode) .holographic-map-box {
+  border-color: rgba(15, 23, 42, 0.08);
+}
+body:not(.dark-mode) .holographic-map-box iframe { 
+  filter: contrast(1.05) saturation(1.05); 
+}
 
 /* ======================================================
    RESPONSIVE DESIGN
