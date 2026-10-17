@@ -101,18 +101,18 @@ const MEStructural = () => {
   ];
 
   return (
-    <div className="cse-redesign-page">
+    <div className="common-page-wrapper cse-redesign-page">
 
-      {/* Page Banner (Preserved Untouched) */}
-      <PageBanner
-        title="Department of M.E. Structural Engineering"
-        subtitle="Mastering High-Rise Towers, Seismic Resilience, Advanced Concrete Science, and Finite Element Modeling"
-        hideBreadcrumb={true}
-        backgroundImage={bannerImg}
-        height="auto"
-        className="me-structural-banner"
-        style={{ paddingTop: "95px" }}
-      />
+      {/* Responsive Hero Banner */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Department of M.E. Structural Engineering Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       {/* SECTION 1: Introduction */}
       <section className="cse-section cse-intro-section" id="mestructural-intro">
@@ -295,6 +295,7 @@ const MEStructural = () => {
           <DepartmentFacultySlider
             faculties={faculties}
             onOpenProfile={handleOpenProfile}
+            autoScroll={false}
           />
         </div>
       </section>
@@ -311,7 +312,6 @@ const MEStructural = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Program <span className="cse-text-accent">Achievements</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
           <div className="cse-timeline">
@@ -350,7 +350,6 @@ const MEStructural = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Program <span className="cse-text-accent">Events</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
           <motion.div 
