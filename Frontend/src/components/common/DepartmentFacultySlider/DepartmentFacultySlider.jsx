@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { FaEnvelope, FaFileAlt } from "react-icons/fa";
 import "./DepartmentFacultySlider.css";
 
-const DepartmentFacultySlider = ({ faculties = [], onOpenProfile, showHOD = true }) => {
+const DepartmentFacultySlider = ({ faculties = [], onOpenProfile, showHOD = true, autoScroll = true }) => {
   if (!faculties || faculties.length === 0) return null;
 
   const hasExplicitHOD = showHOD && faculties.some(f => Boolean(f.isHOD));
@@ -10,62 +10,101 @@ const DepartmentFacultySlider = ({ faculties = [], onOpenProfile, showHOD = true
   const regularStaffs = hod ? faculties.filter(f => f !== hod) : faculties;
 
   const scrollRef = useRef(null);
-  const scrollInterval = useRef(null);
   const scrollTimeout = useRef(null);
   const isPausedRef = useRef(false);
 
-  const shouldAnimate = regularStaffs.length > 3;
-  const loopStaffs = shouldAnimate ? [...regularStaffs, ...regularStaffs] : regularStaffs;
+  // If autoScroll is false, do not animate automatically
+  const shouldAnimate = autoScroll && regularStaffs.length > 1;
+  const hasMultiple = regularStaffs.length > 1;
+
+  // Repeat sufficiently to ensure infinite seamless scrolling on large desktop screens only when auto-scrolling
+  const repeatCount = shouldAnimate ? Math.max(4, Math.ceil(16 / regularStaffs.length)) : 1;
+  const loopStaffs = shouldAnimate 
+    ? Array.from({ length: repeatCount }, () => regularStaffs).flat()
+    : regularStaffs;
 
   useEffect(() => {
     const track = scrollRef.current;
     if (!track || !shouldAnimate) return;
 
-    const startScroll = () => {
-      clearInterval(scrollInterval.current);
-      scrollInterval.current = setInterval(() => {
-        if (track && !isPausedRef.current) {
-          track.scrollLeft += 1;
-          if (track.scrollLeft >= track.scrollWidth / 2) {
-            track.scrollLeft = 0;
-          }
+    let animId;
+    let lastTimestamp = performance.now();
+    const speed = 1.35; // Fast, silky smooth auto-scroll speed for both Desktop & Mobile
+
+    const animateScroll = (currentTimestamp) => {
+      if (track && !isPausedRef.current) {
+        const delta = (currentTimestamp - lastTimestamp) / 16.67;
+        const moveBy = speed * Math.min(Math.max(delta, 0.5), 2.5);
+        track.scrollLeft += moveBy;
+
+        const singleSetWidth = track.scrollWidth / repeatCount;
+        if (track.scrollLeft >= singleSetWidth) {
+          track.scrollLeft -= singleSetWidth;
         }
-      }, 25);
+      }
+      lastTimestamp = currentTimestamp;
+      animId = requestAnimationFrame(animateScroll);
     };
 
-    startScroll();
+    animId = requestAnimationFrame(animateScroll);
 
     return () => {
-      clearInterval(scrollInterval.current);
+      cancelAnimationFrame(animId);
       clearTimeout(scrollTimeout.current);
     };
-  }, [shouldAnimate, regularStaffs.length]);
+  }, [shouldAnimate, regularStaffs.length, repeatCount]);
 
   const pauseScroll = () => {
-    isPausedRef.current = true;
+    if (shouldAnimate) {
+      isPausedRef.current = true;
+    }
   };
 
   const resumeScroll = () => {
-    isPausedRef.current = false;
+    if (shouldAnimate) {
+      isPausedRef.current = false;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (shouldAnimate) {
+      clearTimeout(scrollTimeout.current);
+      scrollTimeout.current = setTimeout(() => {
+        isPausedRef.current = false;
+      }, 1800);
+    }
   };
 
   const slideCards = (direction) => {
     if (scrollRef.current) {
       const card = scrollRef.current.querySelector(".cse-staff-card");
-      const scrollAmount = card ? (card.offsetWidth + 20) : 280;
-      isPausedRef.current = true;
-      clearTimeout(scrollTimeout.current);
+      const scrollAmount = card ? (card.offsetWidth + 24) : 260;
+
+      if (shouldAnimate) {
+        isPausedRef.current = true;
+        clearTimeout(scrollTimeout.current);
+
+        const singleSetWidth = scrollRef.current.scrollWidth / repeatCount;
+        if (direction === "left" && scrollRef.current.scrollLeft <= 10) {
+          scrollRef.current.scrollLeft += singleSetWidth;
+        }
+      }
 
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth"
       });
 
-      scrollTimeout.current = setTimeout(() => {
-        isPausedRef.current = false;
-      }, 1500);
+      if (shouldAnimate) {
+        // Resume auto scroll after 2.5 seconds of manual clicking
+        scrollTimeout.current = setTimeout(() => {
+          isPausedRef.current = false;
+        }, 2500);
+      }
     }
   };
+
+  const isCompactNoScroll = !shouldAnimate && regularStaffs.length <= 4;
 
   return (
     <div className="cse-faculty-layout-wrapper">
@@ -137,9 +176,13 @@ const DepartmentFacultySlider = ({ faculties = [], onOpenProfile, showHOD = true
 
       {/* Regular Faculty Slider Track */}
       {regularStaffs.length > 0 && (
-        <div className="cse-slider-wrapper">
+        <div 
+          className={`cse-slider-wrapper ${isCompactNoScroll ? "no-autoscroll-compact" : ""}`}
+          onMouseEnter={pauseScroll}
+          onMouseLeave={resumeScroll}
+        >
           <div className="cse-slider-container">
-            {shouldAnimate && (
+            {hasMultiple && (
               <button
                 className="cse-slider-btn left"
                 onClick={() => slideCards("left")}
@@ -154,10 +197,8 @@ const DepartmentFacultySlider = ({ faculties = [], onOpenProfile, showHOD = true
               className="cse-scroll-track"
               ref={scrollRef}
               style={{ justifyContent: shouldAnimate ? "flex-start" : (!hod ? "center" : "flex-start") }}
-              onMouseEnter={pauseScroll}
-              onMouseLeave={resumeScroll}
               onTouchStart={pauseScroll}
-              onTouchEnd={resumeScroll}
+              onTouchEnd={handleTouchEnd}
             >
               {loopStaffs.map((staff, index) => (
                 <div
@@ -223,7 +264,7 @@ const DepartmentFacultySlider = ({ faculties = [], onOpenProfile, showHOD = true
               ))}
             </div>
 
-            {shouldAnimate && (
+            {hasMultiple && (
               <button
                 className="cse-slider-btn right"
                 onClick={() => slideCards("right")}

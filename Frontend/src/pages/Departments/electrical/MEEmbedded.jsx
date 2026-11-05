@@ -98,20 +98,18 @@ const MEEmbedded = () => {
   ];
 
   return (
-    <div className="cse-redesign-page">
+    <div className="common-page-wrapper cse-redesign-page">
 
-      {/* Page Banner (Preserved Untouched) */}
-      <PageBanner
-        title="Department of M.E. Embedded System Technologies"
-        subtitle="Architecting Smart Hardware — Microcontrollers, Real-Time Operating Systems, Industrial IoT, and Edge Computing"
-        hideBreadcrumb={false}
-        breadcrumb={[
-          { label: "Academics", link: "#" },
-          { label: "Departments", link: "#" },
-          { label: "M.E. Embedded Systems" }
-        ]}
-        backgroundImage={bannerImg}
-      />
+      {/* Responsive Hero Banner */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Department of M.E. Embedded Systems Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       {/* SECTION 1: Introduction */}
       <section className="cse-section cse-intro-section" id="meembed-intro">
@@ -294,6 +292,7 @@ const MEEmbedded = () => {
           <DepartmentFacultySlider
             faculties={faculties}
             onOpenProfile={handleOpenProfile}
+            autoScroll={false}
           />
         </div>
       </section>
@@ -310,7 +309,6 @@ const MEEmbedded = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Program <span className="cse-text-accent">Achievements</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
           <div className="cse-timeline">
@@ -349,7 +347,6 @@ const MEEmbedded = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Program <span className="cse-text-accent">Events</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
           <motion.div 

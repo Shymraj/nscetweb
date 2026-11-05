@@ -99,20 +99,18 @@ const MEManufacturing = () => {
   ];
 
   return (
-    <div className="cse-redesign-page">
+    <div className="common-page-wrapper cse-redesign-page">
 
-      {/* Page Banner (Preserved Untouched) */}
-      <PageBanner
-        title="Department of M.E. Manufacturing Engineering"
-        subtitle="Advancing Industry 4.0 — Smart Manufacturing, Additive Production, Precision Machining, and Automation"
-        hideBreadcrumb={false}
-        breadcrumb={[
-          { label: "Academics", link: "#" },
-          { label: "Departments", link: "#" },
-          { label: "M.E. Manufacturing" }
-        ]}
-        backgroundImage={bannerImg}
-      />
+      {/* Responsive Hero Banner */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Department of M.E. Manufacturing Engineering Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       {/* SECTION 1: Introduction */}
       <section className="cse-section cse-intro-section" id="memanuf-intro">
@@ -295,6 +293,7 @@ const MEManufacturing = () => {
           <DepartmentFacultySlider
             faculties={faculties}
             onOpenProfile={handleOpenProfile}
+            autoScroll={false}
           />
         </div>
       </section>
@@ -311,7 +310,6 @@ const MEManufacturing = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Program <span className="cse-text-accent">Achievements</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
           <div className="cse-timeline">
@@ -350,7 +348,6 @@ const MEManufacturing = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Program <span className="cse-text-accent">Events</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
           <motion.div 

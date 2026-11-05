@@ -99,20 +99,18 @@ const MECSE = () => {
   ];
 
   return (
-    <div className="cse-redesign-page">
+    <div className="common-page-wrapper cse-redesign-page">
 
-      {/* Page Banner (Preserved Untouched) */}
-      <PageBanner
-        title="Department of M.E. Computer Science & Engineering"
-        subtitle="Driving the Next Generation of Computing Through Advanced Research, Scalable Architecture, and Intelligent Systems"
-        hideBreadcrumb={false}
-        breadcrumb={[
-          { label: "Academics", link: "#" },
-          { label: "Departments", link: "#" },
-          { label: "M.E. CSE" }
-        ]}
-        backgroundImage={bannerImg}
-      />
+      {/* Responsive Hero Banner */}
+      <div className="common-hero-banner">
+        {bannerImg && (
+          <img 
+            src={bannerImg} 
+            alt="Department of M.E. Computer Science & Engineering Banner" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+        )}
+      </div>
 
       {/* SECTION 1: Introduction */}
       <section className="cse-section cse-intro-section" id="mecse-intro">
@@ -131,7 +129,6 @@ const MECSE = () => {
             <motion.h1 variants={fadeInUp} className="cse-heading">
               Advanced Research in <span className="cse-text-accent">Computer Science & Systems</span>
             </motion.h1>
-            <motion.div variants={fadeInUp} className="cse-accent-bar"></motion.div>
             
             <motion.p variants={fadeInUp} className="cse-body-text">
               The M.E. Computer Science and Engineering program at Nadar Saraswathi College of Engineering and Technology (NSCET) focuses on advanced computing paradigms, distributed software architectures, and intelligent algorithms.
@@ -207,7 +204,6 @@ const MECSE = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Vision & <span className="cse-text-accent">Mission</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
           <motion.div 
@@ -257,7 +253,6 @@ const MECSE = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Excellence & <span className="cse-text-accent">Facilities</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
           <motion.div 
@@ -289,12 +284,12 @@ const MECSE = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Faculty <span className="cse-text-accent">Members</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
           <DepartmentFacultySlider
             faculties={faculties}
             onOpenProfile={handleOpenProfile}
+            autoScroll={false}
           />
         </div>
       </section>
@@ -311,7 +306,6 @@ const MECSE = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Program <span className="cse-text-accent">Achievements</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
           <div className="cse-timeline">
@@ -350,7 +344,6 @@ const MECSE = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Program <span className="cse-text-accent">Events</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
           </motion.div>
 
           <motion.div 

@@ -1,5 +1,6 @@
 import { getApiUrl, getUploadUrl } from '@/config/api';
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./NewsAnnouncements.css";
 import { motion } from "framer-motion";
@@ -63,6 +64,7 @@ const defaultAnnouncements = [
 ];
 
 function NewsAnnouncements() {
+  const navigate = useNavigate();
   const [featured, setFeatured] = useState(defaultFeatured);
   const [announcements, setAnnouncements] = useState(defaultAnnouncements);
 
@@ -113,7 +115,10 @@ function NewsAnnouncements() {
             <p className="news-subtitle">STAY UPDATED</p>
             <h2 className="news-main-title">Campus News & Announcements</h2>
           </div>
-          <button className="view-all-btn">
+          <button 
+            className="view-all-btn"
+            onClick={() => navigate('/gallery/events')}
+          >
             View All Updates <FaArrowRight />
           </button>
         </div>

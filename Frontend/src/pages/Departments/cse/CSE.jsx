@@ -15,9 +15,7 @@ import FacultyProfileModal from "../../../components/common/FacultyProfileModal/
 import DepartmentFacultyCard from "../../../components/common/DepartmentFacultyCard/DepartmentFacultyCard";
 import DepartmentFacultySlider from "../../../components/common/DepartmentFacultySlider/DepartmentFacultySlider";
 
-// Auto-load banner image inside ./CSE_banner/
-const bannerGlobs = import.meta.glob("./CSE_banner/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true, import: "default" });
-const bannerImg = Object.values(bannerGlobs)[0] || null;
+import bannerImg from "./CSE_banner/CSE.png";
 
 import fistLogo from "./images/fist.png";
 import rightSideImg from "./Theme Img/CSE.png";
@@ -144,60 +142,64 @@ const CSE = () => {
       {/* SECTION 1: Department Introduction */}
       <section className="cse-section cse-intro-section" id="cse-intro">
         <div className="cse-bg-glow glow-1"></div>
-        <div className="cse-container cse-intro-grid">
-          <motion.div 
-            className="cse-intro-content"
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-          >
-            <motion.div variants={fadeInUp}>
-              <span className="cse-badge-pill">
-                <FaLaptopCode /> Department of CSE
-              </span>
-            </motion.div>
-            <motion.h1 variants={fadeInUp} className="cse-heading">
-              Engineering the Future of <span className="cse-text-accent">Software & Intelligence</span>
-            </motion.h1>
-            <motion.div variants={fadeInUp} className="cse-accent-bar"></motion.div>
-            
-            <motion.p variants={fadeInUp} className="cse-body-text">
-              The Department of Computer Science and Engineering at Nadar Saraswathi College of Engineering and Technology (NSCET) aims to produce engineers who are lifelong learners, pursuing professional development and thriving in a multidisciplinary, systems-oriented work environment.
-            </motion.p>
-            <motion.p variants={fadeInUp} className="cse-body-text">
-              We train students to solve complex technical problems in the software industry, equipping them with deep expertise in software engineering, artificial intelligence, data systems, and cyber security while upholding strong ethical values, leadership, and tolerance.
-            </motion.p>
+        <div className="cse-container">
+          <div className="cse-intro-card">
+            <div className="cse-intro-grid">
+              <motion.div 
+                className="cse-intro-content"
+                initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+                variants={staggerContainer}
+              >
+                <motion.div variants={fadeInUp}>
+                  <span className="cse-badge-pill">
+                    <FaLaptopCode /> Department of CSE
+                  </span>
+                </motion.div>
+                <motion.h1 variants={fadeInUp} className="cse-heading">
+                  Engineering the Future of <span className="cse-text-accent">Software & Intelligence</span>
+                </motion.h1>
 
-            <motion.div variants={fadeInUp} className="cse-action-buttons">
-              <a href="#cse-facilities" className="cse-btn cse-btn-primary">
-                <FaPaperPlane /> Explore Facilities
-              </a>
-              <a href="#cse-faculty" className="cse-btn cse-btn-secondary">
-                <FaHandPointDown /> View Faculty
-              </a>
-            </motion.div>
-          </motion.div>
+                
+                <motion.p variants={fadeInUp} className="cse-body-text">
+                  The Department of Computer Science and Engineering at Nadar Saraswathi College of Engineering and Technology (NSCET) aims to produce engineers who are lifelong learners, pursuing professional development and thriving in a multidisciplinary, systems-oriented work environment.
+                </motion.p>
+                <motion.p variants={fadeInUp} className="cse-body-text">
+                  We train students to solve complex technical problems in the software industry, equipping them with deep expertise in software engineering, artificial intelligence, data systems, and cyber security while upholding strong ethical values, leadership, and tolerance.
+                </motion.p>
 
-          <motion.div 
-            className="cse-intro-media"
-            initial="hidden" whileInView="visible" viewport={{ once: true }}
-            variants={scaleUp}
-          >
-            <div className="cse-media-card">
-              {rightSideImg ? (
-                <img src={rightSideImg} alt="CSE Department" className="cse-media-img" />
-              ) : (
-                <div className="cse-media-placeholder">
-                  <FaLaptopCode className="cse-placeholder-icon" />
-                  <span>Computer Science & Engineering</span>
+                <motion.div variants={fadeInUp} className="cse-action-buttons">
+                  <a href="#cse-facilities" className="cse-btn cse-btn-primary">
+                    <FaPaperPlane /> Explore Facilities
+                  </a>
+                  <a href="#cse-faculty" className="cse-btn cse-btn-secondary">
+                    <FaHandPointDown /> View Faculty
+                  </a>
+                </motion.div>
+              </motion.div>
+
+              <motion.div 
+                className="cse-intro-media"
+                initial="hidden" whileInView="visible" viewport={{ once: true }}
+                variants={scaleUp}
+              >
+                <div className="cse-media-card">
+                  {rightSideImg ? (
+                    <img src={rightSideImg} alt="CSE Department" className="cse-media-img" />
+                  ) : (
+                    <div className="cse-media-placeholder">
+                      <FaLaptopCode className="cse-placeholder-icon" />
+                      <span>Computer Science & Engineering</span>
+                    </div>
+                  )}
+                  <div className="cse-media-overlay">
+                    <div className="cse-stat-tag">
+                      <FaCheckCircle className="cse-check-icon" /> NAAC 'A' Grade Excellence
+                    </div>
+                  </div>
                 </div>
-              )}
-              <div className="cse-media-overlay">
-                <div className="cse-stat-tag">
-                  <FaCheckCircle className="cse-check-icon" /> NAAC 'A' Grade Excellence
-                </div>
-              </div>
+              </motion.div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -234,7 +236,7 @@ const CSE = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Vision & <span className="cse-text-accent">Mission</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+
           </motion.div>
 
           <motion.div 
@@ -284,7 +286,7 @@ const CSE = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Excellence & <span className="cse-text-accent">Facilities</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+
           </motion.div>
 
           <motion.div 
@@ -316,7 +318,7 @@ const CSE = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Department <span className="cse-text-accent">Association</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+
           </motion.div>
 
           <motion.div 
@@ -358,7 +360,7 @@ const CSE = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Faculty <span className="cse-text-accent">Members</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+
           </motion.div>
 
           <DepartmentFacultySlider
@@ -380,7 +382,7 @@ const CSE = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Department <span className="cse-text-accent">Achievements</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+
           </motion.div>
 
           <div className="cse-timeline">
@@ -419,7 +421,7 @@ const CSE = () => {
             <motion.h2 variants={fadeInUp} className="cse-section-title">
               Department <span className="cse-text-accent">Events</span>
             </motion.h2>
-            <motion.div variants={fadeInUp} className="cse-accent-bar center"></motion.div>
+
           </motion.div>
 
           <motion.div 
