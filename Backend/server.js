@@ -883,12 +883,12 @@ Conclude with 3-4 suggestions under "Suggested Questions:" without emojis or ast
 });
 // --- CHATBOT CODE END ---
 
-// Client-side SPA routing fallback (React Router support)
-app.get('*', (req, res, next) => {
+// Client-side SPA routing fallback (React Router support - Express 5 compatible)
+app.use((req, res, next) => {
   if (req.originalUrl.startsWith('/api') || req.originalUrl.startsWith('/uploads')) {
     return next();
   }
-  if (fs.existsSync(frontendDistPath)) {
+  if (req.method === 'GET' && fs.existsSync(frontendDistPath)) {
     return res.sendFile(path.join(frontendDistPath, 'index.html'));
   }
   res.status(404).send("Not Found");

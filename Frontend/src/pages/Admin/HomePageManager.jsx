@@ -22,7 +22,7 @@ const HomePageManager = () => {
         {/* <CourseManager type="ug_course" /> */}
         {/* <CourseManager type="pg_course" /> */}
         <RecruiterManager />
-        <ReviewManager />
+        {/* <ReviewManager /> */}
       </div>
     </div>
   );
