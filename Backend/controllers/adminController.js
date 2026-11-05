@@ -210,7 +210,7 @@ const deleteEvent = (req, res) => {
   db.query("SELECT image_url FROM events WHERE id = ?", [id], (err, results) => {
     if (results && results.length > 0 && results[0].image_url) {
       const filePath = path.join(__dirname, "..", results[0].image_url);
-      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+      try { if (fs.existsSync(filePath)) fs.unlinkSync(filePath); } catch (e) { }
     }
 
     // Then delete extra photos
@@ -218,7 +218,7 @@ const deleteEvent = (req, res) => {
       if (photoResults) {
         photoResults.forEach(row => {
           const fp = path.join(__dirname, "..", row.photo_url);
-          if (fs.existsSync(fp)) fs.unlinkSync(fp);
+          try { if (fs.existsSync(fp)) fs.unlinkSync(fp); } catch (e) { }
         });
       }
 
@@ -237,7 +237,7 @@ const deleteEventPhoto = (req, res) => {
     if (err) return res.status(500).json({ success: false, message: "Database Error" });
     if (results && results.length > 0 && results[0].photo_url) {
       const filePath = path.join(__dirname, "..", results[0].photo_url);
-      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+      try { if (fs.existsSync(filePath)) fs.unlinkSync(filePath); } catch (e) { }
     }
     db.query("DELETE FROM event_photos WHERE id = ?", [id], (err) => {
       if (err) return res.status(500).json({ success: false, message: err.message });
@@ -269,7 +269,7 @@ const deleteDepartment = (req, res) => {
   db.query("SELECT photo_url FROM departments WHERE id = ?", [id], (err, results) => {
     if (results && results.length > 0 && results[0].photo_url) {
       const filePath = path.join(__dirname, "..", results[0].photo_url);
-      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+      try { if (fs.existsSync(filePath)) fs.unlinkSync(filePath); } catch (e) { }
     }
     db.query("DELETE FROM departments WHERE id = ?", [id], (err) => {
       if (err) return res.status(500).json({ success: false, message: err.message });
@@ -306,7 +306,7 @@ const deletePlacement = (req, res) => {
   const { id } = req.params;
   const filePath = path.join(__dirname, "..", "uploads", "placements", id);
   if (fs.existsSync(filePath)) {
-    fs.unlinkSync(filePath);
+    try { fs.unlinkSync(filePath); } catch (e) { }
     res.json({ success: true, message: "Placement image deleted" });
   } else {
     res.status(404).json({ success: false, message: "Image not found" });
@@ -314,6 +314,18 @@ const deletePlacement = (req, res) => {
 };
 
 // --- FORM ENQUIRIES ---
+const addEnquiry = (req, res) => {
+  const { fullName, email, mobile, whatsapp, city, subject, message } = req.body;
+  db.query(
+    "INSERT INTO form_enquiries (fullName, email, mobile, whatsapp, city, subject, message) VALUES (?, ?, ?, ?, ?, ?, ?)",
+    [fullName, email, mobile, whatsapp, city, subject, message],
+    (err, result) => {
+      if (err) return res.status(500).json({ success: false, message: err.message });
+      res.json({ success: true, message: "Enquiry submitted successfully", id: result.insertId });
+    }
+  );
+};
+
 const getEnquiries = (req, res) => {
   db.query("SELECT * FROM form_enquiries ORDER BY created_at DESC", (err, results) => {
     if (err) return res.status(500).json({ success: false, message: "Database Error" });
@@ -343,5 +355,5 @@ module.exports = {
   getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent, deleteEventPhoto,
   getDepartments, addDepartment, deleteDepartment,
   getPlacements, addPlacement, deletePlacement,
-  getEnquiries, markEnquiryRead, deleteEnquiry
+  getEnquiries, addEnquiry, markEnquiryRead, deleteEnquiry
 };

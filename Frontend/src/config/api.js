@@ -2,12 +2,17 @@
 // Automatically switches between Localhost and Live Production environments
 
 const getBaseUrl = () => {
-  // 1. If explicit Vite environment variable is set (e.g., in Vercel/Netlify/Hosting build settings)
+  // 1. Explicit environment variable set at Vite build time
   if (import.meta.env.VITE_API_URL) {
     return import.meta.env.VITE_API_URL.replace(/\/+$/, '');
   }
 
-  // 2. Localhost development detection
+  // 2. Global runtime variable from window (allows changing without rebuilding Vite)
+  if (typeof window !== 'undefined' && (window.__API_URL__ || window.__NSCET_API_URL__ || window.API_URL)) {
+    return (window.__API_URL__ || window.__NSCET_API_URL__ || window.API_URL).replace(/\/+$/, '');
+  }
+
+  // 3. Localhost development detection
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
     if (hostname === 'localhost' || hostname === '127.0.0.1') {
@@ -15,8 +20,8 @@ const getBaseUrl = () => {
     }
   }
 
-  // 3. In live production, if no VITE_API_URL is provided:
-  // Default to same origin / relative path (works with reverse proxy like Nginx or unified server)
+  // 4. In live production:
+  // Default to same origin / relative path (works with reverse proxy like Nginx or unified Express server)
   return '';
 };
 
@@ -37,17 +42,19 @@ export const getApiUrl = (endpoint) => {
  * Automatically handles:
  * - Localhost vs Live URLs
  * - Relative upload paths (/uploads/staff/...)
- * - Database records that accidentally saved hardcoded 'http://localhost:5000'
+ * - Database records that accidentally saved hardcoded localhost/127.0.0.1
  */
 export const getUploadUrl = (path) => {
   if (!path) return '';
 
-  // If path was mistakenly saved with hardcoded localhost:5000 in database
-  if (typeof path === 'string' && path.includes('http://localhost:5000')) {
-    if (API_BASE_URL) {
-      return path.replace('http://localhost:5000', API_BASE_URL);
+  if (typeof path === 'string') {
+    // If path was mistakenly saved with hardcoded localhost or 127.0.0.1 in database
+    if (/https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/i.test(path)) {
+      if (API_BASE_URL) {
+        return path.replace(/https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/i, API_BASE_URL);
+      }
+      return path.replace(/https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/i, '');
     }
-    return path.replace('http://localhost:5000', '');
   }
 
   // If already a valid absolute URL (http/https/blob/data)

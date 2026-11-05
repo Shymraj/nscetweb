@@ -5,6 +5,7 @@ const upload = require('../middleware/upload'); // we can reuse the upload middl
 
 // Form Enquiries
 router.post('/enquiry', homeController.addEnquiry);
+router.post('/enquiries', homeController.addEnquiry);
 
 // Marquee
 router.get('/marquee', homeController.getMarquees);

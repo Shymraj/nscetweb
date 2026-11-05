@@ -9,21 +9,62 @@ require('dotenv').config();
 
 const app = express();
 
-console.log("🔥 THIS IS THE CORRECT SERVER.JS");
+console.log("THIS IS THE CORRECT SERVER.JS");
 
-app.use(cors());
+// Auto-create required upload directories
+const uploadDirs = [
+  path.join(__dirname, "uploads"),
+  path.join(__dirname, "uploads/staff"),
+  path.join(__dirname, "uploads/events"),
+  path.join(__dirname, "uploads/departments"),
+  path.join(__dirname, "uploads/home"),
+  path.join(__dirname, "uploads/placements")
+];
+uploadDirs.forEach((dir) => {
+  if (!fs.existsSync(dir)) {
+    try {
+      fs.mkdirSync(dir, { recursive: true });
+    } catch (e) {
+      console.warn("Could not create upload directory:", dir, e.message);
+    }
+  }
+});
+
+app.use(cors({
+  origin: true,
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
+}));
 app.use(express.json());
 
 app.use("/api/admin", adminRoutes);
 app.use("/api/admin/home", homeRoutes);
 
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+const homeController = require("./controllers/homeController");
+app.post("/api/enquiry", homeController.addEnquiry);
+app.post("/api/enquiries", homeController.addEnquiry);
+app.post("/api/admin/enquiries", homeController.addEnquiry);
+
+app.use("/uploads", (req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
+  next();
+}, express.static(path.join(__dirname, "uploads")));
+
+const frontendDistPath = path.join(__dirname, "../Frontend/dist");
+if (fs.existsSync(frontendDistPath)) {
+  app.use(express.static(frontendDistPath));
+}
 
 app.get("/api/admin/test", (req, res) => {
     res.send("Admin Route Working");
 });
 
 app.get('/', (req, res) => {
+    if (fs.existsSync(frontendDistPath)) {
+      return res.sendFile(path.join(frontendDistPath, 'index.html'));
+    }
     res.send("Backend server is running Successfully");
 });
 
@@ -841,6 +882,17 @@ Conclude with 3-4 suggestions under "Suggested Questions:" without emojis or ast
   }
 });
 // --- CHATBOT CODE END ---
+
+// Client-side SPA routing fallback (React Router support)
+app.get('*', (req, res, next) => {
+  if (req.originalUrl.startsWith('/api') || req.originalUrl.startsWith('/uploads')) {
+    return next();
+  }
+  if (fs.existsSync(frontendDistPath)) {
+    return res.sendFile(path.join(frontendDistPath, 'index.html'));
+  }
+  res.status(404).send("Not Found");
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -14,7 +14,7 @@ const {
   getEvents, addEvent, updateEvent, addEventPhoto, deleteEvent, deleteEventPhoto,
   getDepartments, addDepartment, deleteDepartment,
   getPlacements, addPlacement, deletePlacement,
-  getEnquiries, markEnquiryRead, deleteEnquiry
+  getEnquiries, addEnquiry, markEnquiryRead, deleteEnquiry
 } = require("../controllers/adminController");
 
 router.post("/login", loginAdmin);
@@ -46,6 +46,8 @@ router.delete("/placements/:id", deletePlacement);
 
 // Form Enquiries Routes
 router.get("/enquiries", getEnquiries);
+router.post("/enquiries", addEnquiry);
+router.post("/enquiry", addEnquiry);
 router.put("/enquiries/:id/read", markEnquiryRead);
 router.delete("/enquiries/:id", deleteEnquiry);
 

@@ -14,14 +14,14 @@ import Departments from "./components/Departments/Departments";
 import CSE from "./pages/Departments/cse/CSE";
 import IT from "./pages/Departments/cse/it/IT";
 import AIDS from "./pages/Departments/cse/aids/AIDS";
-import MECSE from "./pages/Departments/cse/MECSE";
+import MECSE from "./pages/Departments/cse/MECSE.jsx";
 import Civil from "./pages/Departments/civil/Civil";
 import SharedFacultyPortfolio from "./components/FacultyPortfolio/FacultyPortfolio";
-import MEStructural from "./pages/Departments/civil/MEStructural";
+import MEStructural from "./pages/Departments/civil/MEStructural.jsx";
 import Mechanical from "./pages/Departments/mechanical/Mechanical";
-import MEManufacturing from "./pages/Departments/mechanical/MEManufacturing";
+import MEManufacturing from "./pages/Departments/mechanical/MEManufacturing.jsx";
 import Electrical from "./pages/Departments/electrical/Electrical";
-import MEEmbedded from "./pages/Departments/electrical/MEEmbedded";
+import MEEmbedded from "./pages/Departments/electrical/MEEmbedded.jsx";
 import Electronics from "./pages/Departments/electronics/Electronics";
 import ScienceHumanities from "./pages/Departments/s&h/ScienceHumanities";
 

@@ -5,8 +5,10 @@ Frontend/node_modules/
 # Environment files
 Backend/.env
 
-# Uploads
-Backend/uploads/
+# Uploads (ignore files but preserve folders)
+Backend/uploads/*
+!Backend/uploads/.gitkeep
+!Backend/uploads/*/.gitkeep
 
 # Logs
 *.log

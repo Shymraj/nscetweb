@@ -894,6 +894,9 @@ const StaffManager = () => {
       return `https://ui-avatars.com/api/?name=${encodeURIComponent(staffName || 'Faculty')}&background=1e3a8a&color=fff&size=200`;
     }
     if (typeof url === 'string') {
+      if (url.includes('http://localhost:5000') || url.includes('http://127.0.0.1:5000')) {
+        url = url.replace(/https?:\/\/(localhost|127\.0\.0\.1):5000/g, API_BASE_URL || '');
+      }
       if (url.startsWith('http') || url.startsWith('data:') || url.startsWith('blob:')) return url;
       if (url.startsWith('/uploads') || url.startsWith('uploads/')) {
         const clean = url.startsWith('/') ? url : `/${url}`;
