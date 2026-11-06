@@ -19,6 +19,7 @@ import Civil from "./pages/Departments/civil/Civil";
 import SharedFacultyPortfolio from "./components/FacultyPortfolio/FacultyPortfolio";
 import MEStructural from "./pages/Departments/civil/MEStructural.jsx";
 import Mechanical from "./pages/Departments/mechanical/Mechanical";
+import AMPSE from "./pages/Departments/mechanical/ampse/AMPSE";
 import MEManufacturing from "./pages/Departments/mechanical/MEManufacturing.jsx";
 import Electrical from "./pages/Departments/electrical/Electrical";
 import MEEmbedded from "./pages/Departments/electrical/MEEmbedded.jsx";
@@ -151,6 +152,7 @@ const AppContent = () => {
         <Route path="/departments/:deptId/faculty/:facultyId" element={<SharedFacultyPortfolio />} />
         <Route path="/departments/me-structural" element={<MEStructural />} />
         <Route path="/departments/mechanical" element={<Mechanical />} />
+        <Route path="/departments/mechanical/ampse" element={<AMPSE />} />
         <Route path="/departments/me-manufacturing" element={<MEManufacturing />} />
         <Route path="/departments/electrical" element={<Electrical />} />
         <Route path="/departments/me-embedded" element={<MEEmbedded />} />

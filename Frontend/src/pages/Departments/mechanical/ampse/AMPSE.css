@@ -1,0 +1,3089 @@
+/* =========================================================
+   AMPSE - 2K26 INTERNATIONAL CONFERENCE STYLES
+   Department of Mechanical Engineering, NSCET
+   ========================================================= */
+
+.ampse-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: var(--body-color, #1e293b);
+  overflow-x: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ampse-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* =========================================================
+   HERO SECTION (PROFESSIONAL BANNER REPLACEMENT)
+   ========================================================= */
+.ampse-hero {
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+  color: #ffffff;
+  margin: 0 !important;
+  padding: 135px 0 3.75rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: #090e17;
+}
+
+.ampse-hero-banner-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.ampse-hero-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.85) contrast(1.05);
+  transform: scale(1.02);
+}
+
+.ampse-hero-banner-scrim {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 50% 45%, rgba(9, 14, 23, 0.72) 0%, rgba(9, 14, 23, 0.88) 70%, rgba(6, 10, 18, 0.96) 100%),
+    linear-gradient(180deg, rgba(9, 14, 23, 0.45) 0%, rgba(6, 10, 18, 0.92) 100%);
+  pointer-events: none;
+}
+
+.ampse-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ampse-hero-tagline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.ampse-pill-badge {
+  font-family: var(--font-subtopic);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(250, 204, 21, 0.12);
+  color: #fef08a;
+  border: 1px solid rgba(250, 204, 21, 0.35);
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(8px);
+}
+
+.ampse-sparkle-icon {
+  color: #facc15;
+}
+
+.ampse-host-tag {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.ampse-hero-h1 {
+  font-family: var(--font-heading);
+  font-size: 2.85rem;
+  font-weight: 800;
+  line-height: 1.18;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  max-width: 920px;
+  letter-spacing: -0.3px;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.6);
+}
+
+.ampse-gradient-text {
+  background: linear-gradient(135deg, #fef08a 0%, #facc15 50%, #eab308 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(234, 179, 8, 0.3));
+  display: inline-block;
+}
+
+.ampse-acronym-banner {
+  margin-bottom: 1.5rem;
+}
+
+.ampse-acronym-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1.5px solid rgba(250, 204, 21, 0.5);
+  backdrop-filter: blur(14px);
+  padding: 0.65rem 1.75rem;
+  border-radius: 50px;
+  box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.ampse-acronym-letters {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #facc15;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 20px rgba(250, 204, 21, 0.35);
+}
+
+.ampse-acronym-date {
+  font-family: var(--font-subtopic);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  padding-left: 1.25rem;
+}
+
+.ampse-hero-desc {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #e2e8f0;
+  max-width: 800px;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.ampse-hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* Common Button Styles */
+.ampse-btn {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ampse-btn-primary {
+  background: linear-gradient(135deg, #facc15 0%, #eab308 100%);
+  color: #0b1528;
+  font-weight: 600;
+  box-shadow: 0 4px 18px rgba(234, 179, 8, 0.35);
+  border: none;
+}
+
+.ampse-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(234, 179, 8, 0.45);
+  background: linear-gradient(135deg, #fef08a 0%, #facc15 100%);
+  color: #0b1528;
+}
+
+.ampse-btn-outline {
+  background: rgba(15, 23, 42, 0.65);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.ampse-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.ampse-btn-subtle {
+  background: rgba(15, 23, 42, 0.55);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.ampse-btn-subtle:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.ampse-btn-gold {
+  background: #f59e0b;
+  color: #0b1f44;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.ampse-btn-gold:hover {
+  background: #fbbf24;
+  color: #0b1f44;
+  transform: translateY(-2px);
+}
+
+.ampse-btn-full {
+  width: 100%;
+}
+
+/* Metric Cards Grid */
+.ampse-hero-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.ampse-metric-card {
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.15rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  backdrop-filter: blur(12px);
+  text-align: left;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.ampse-metric-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(250, 204, 21, 0.55);
+  background: rgba(15, 23, 42, 0.88);
+}
+
+.ampse-metric-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #93c5fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ampse-metric-icon-wrap.highlight {
+  background: rgba(250, 204, 21, 0.15);
+  color: #facc15;
+  border-color: rgba(250, 204, 21, 0.3);
+}
+
+.ampse-metric-label {
+  font-family: var(--font-subtopic);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8;
+  display: block;
+  letter-spacing: 0.4px;
+  margin-bottom: 2px;
+}
+
+.ampse-metric-val {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: block;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================================
+   QUICK SUB-NAVIGATION
+   ========================================================= */
+.ampse-quick-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+}
+
+.ampse-nav-scroll {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0.65rem 1.5rem;
+  scrollbar-width: none;
+}
+
+.ampse-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.ampse-nav-link {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: #475569;
+  text-decoration: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.ampse-nav-link:hover {
+  color: #123f86;
+  background: #eff6ff;
+}
+
+.ampse-nav-link.ampse-nav-highlight {
+  color: #b45309;
+  background: #fef3c7;
+  font-weight: 600;
+}
+
+.ampse-nav-link.ampse-nav-highlight:hover {
+  background: #fde68a;
+  color: #92400e;
+}
+
+/* =========================================================
+   GENERIC SECTION HEADERS
+   ========================================================= */
+.ampse-section {
+  padding: 4.5rem 0;
+}
+
+.ampse-section-light {
+  background-color: #ffffff;
+}
+
+.ampse-section-alt {
+  background-color: #f8fafc;
+}
+
+.ampse-section-dark {
+  background: linear-gradient(135deg, #091a38 0%, #0f2b5c 100%);
+  color: #ffffff;
+}
+
+.ampse-section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.ampse-section-badge {
+  font-family: var(--font-subtopic);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #123f86;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.ampse-badge-gold {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.ampse-section-h2 {
+  font-family: var(--font-section);
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.ampse-text-white {
+  color: #ffffff !important;
+}
+
+.ampse-text-light {
+  color: #cbd5e1 !important;
+}
+
+.ampse-section-sub {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =========================================================
+   SECTION 1: ABOUT INSTITUTION & FEATURES
+   ========================================================= */
+.ampse-quote-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  margin-top: 1rem;
+}
+
+.ampse-quote-icon {
+  color: #d97706;
+}
+
+.ampse-quote-text {
+  font-family: var(--font-subtopic);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #92400e;
+  font-style: italic;
+  margin: 0;
+}
+
+.ampse-institution-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.ampse-institution-narrative p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: #334155;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.ampse-host-dept-box {
+  background: #f1f5f9;
+  border-left: 4px solid #123f86;
+  border-radius: 0 10px 10px 0;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.ampse-dept-box-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #123f86;
+  margin-bottom: 0.5rem;
+}
+
+.ampse-dept-box-header h3 {
+  font-family: var(--font-subtopic);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.ampse-host-dept-box p {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ampse-features-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.07);
+}
+
+.ampse-features-title {
+  font-family: var(--font-subtopic);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.ampse-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.ampse-features-list li {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #334155;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  line-height: 1.5;
+}
+
+.ampse-check-icon {
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* =========================================================
+   SECTION 2: SCOPE OF THE CONFERENCE
+   ========================================================= */
+.ampse-scope-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.ampse-scope-body p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #334155;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.ampse-scope-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.ampse-scope-highlight-item {
+  position: relative;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ampse-scope-highlight-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.ampse-highlight-num {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #93c5fd;
+  opacity: 0.6;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.ampse-scope-highlight-item h4 {
+  font-family: var(--font-subtopic);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.ampse-scope-highlight-item p {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =========================================================
+   SECTION 3: CALL FOR PAPERS & TOPICS
+   ========================================================= */
+.ampse-topics-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.ampse-filter-label {
+  font-family: var(--font-subtopic);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 0.5rem;
+}
+
+.ampse-filter-btn {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ampse-filter-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.ampse-filter-btn.active {
+  background: #123f86;
+  color: #ffffff;
+  border-color: #123f86;
+}
+
+.ampse-topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.ampse-topic-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.4rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.ampse-topic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+  border-color: #3b82f6;
+}
+
+.ampse-topic-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.ampse-topic-tag {
+  font-family: var(--font-subtopic);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+
+.ampse-topic-icon {
+  color: #cbd5e1;
+}
+
+.ampse-topic-card:hover .ampse-topic-icon {
+  color: #f59e0b;
+}
+
+.ampse-topic-title {
+  font-family: var(--font-subtopic);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.45rem;
+  line-height: 1.35;
+}
+
+.ampse-topic-desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ampse-note-banner {
+  background: #fefce8;
+  border: 1.5px dashed #facc15;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.ampse-note-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: #fde047;
+  color: #854d0e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ampse-note-title {
+  font-family: var(--font-subtopic);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #713f12;
+  margin-bottom: 0.25rem;
+}
+
+.ampse-note-text {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #854d0e;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   SECTION 4: PUBLICATIONS & PROCEEDINGS
+   ========================================================= */
+.ampse-pub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.ampse-pub-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 2.25rem;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.ampse-pub-card.ampse-pub-highlight {
+  border-color: rgba(245, 158, 11, 0.5);
+  background: linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+.ampse-pub-tag {
+  font-family: var(--font-subtopic);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fbbf24;
+  margin-bottom: 0.5rem;
+}
+
+.ampse-pub-title {
+  font-family: var(--font-subtopic);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+.ampse-isbn-badge {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(250, 204, 21, 0.4);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.ampse-isbn-badge span {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.ampse-isbn-badge strong {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #facc15;
+  letter-spacing: 1px;
+}
+
+.ampse-pub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.ampse-pub-list li {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #cbd5e1;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  line-height: 1.5;
+}
+
+.ampse-pub-list li svg {
+  color: #22c55e;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ampse-pub-author-rule {
+  margin-top: auto;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #93c5fd;
+  text-align: center;
+}
+
+.ampse-pub-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.ampse-publisher-badges-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.ampse-publisher-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.ampse-publisher-box:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.ampse-publisher-logo-text .ampse-pub-sub {
+  font-family: var(--font-subtopic);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.ampse-publisher-logo-text h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0.35rem 0;
+  letter-spacing: 0.5px;
+}
+
+.ampse-publisher-logo-text.springer h4 {
+  color: #f59e0b;
+}
+
+.ampse-publisher-logo-text .ampse-pub-tiny {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.ampse-pub-fee-badge {
+  margin-top: auto;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #fbbf24;
+}
+
+/* =========================================================
+   SECTION 5: REGISTRATION FEES
+   ========================================================= */
+.ampse-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  align-items: stretch;
+  margin-bottom: 3rem;
+}
+
+.ampse-pricing-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.ampse-pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.1);
+}
+
+.ampse-pricing-popular {
+  border: 2px solid #123f86;
+  box-shadow: 0 8px 25px -5px rgba(18, 63, 134, 0.15);
+}
+
+.ampse-popular-ribbon {
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  background: #123f86;
+  color: #ffffff;
+  font-family: var(--font-subtopic);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.25rem 0.85rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.ampse-pricing-header {
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.ampse-pricing-tier {
+  font-family: var(--font-subtopic);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.ampse-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.ampse-currency {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.ampse-amount {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.ampse-pricing-popular .ampse-amount {
+  color: #123f86;
+}
+
+.ampse-per {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.ampse-pricing-target {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 1.25rem;
+  min-height: 42px;
+}
+
+.ampse-pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ampse-pricing-features li {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: #334155;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  line-height: 1.45;
+}
+
+.ampse-pricing-features li svg {
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ampse-pricing-features li.ampse-muted-feat {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.ampse-pricing-features li.ampse-muted-feat svg {
+  color: #cbd5e1;
+}
+
+.ampse-pricing-footer {
+  margin-top: auto;
+}
+
+.ampse-pricing-btn {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  background: #f1f5f9;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  transition: all 0.2s ease;
+}
+
+.ampse-pricing-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.ampse-popular-btn {
+  background: #123f86;
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(18, 63, 134, 0.3);
+}
+
+.ampse-popular-btn:hover {
+  background: #0b2f68;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(18, 63, 134, 0.4);
+}
+
+/* Submission Guide Card */
+.ampse-submission-guide-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.ampse-guide-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.ampse-guide-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #eff6ff;
+  color: #123f86;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ampse-guide-h4 {
+  font-family: var(--font-subtopic);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.35rem;
+}
+
+.ampse-guide-text {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.ampse-email-copy-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+}
+
+.ampse-email-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #123f86;
+}
+
+.ampse-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 0.25rem 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ampse-copy-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* =========================================================
+   SECTION 6: IMPORTANT DATES
+   ========================================================= */
+.ampse-dates-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.ampse-date-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ampse-date-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.09);
+}
+
+.ampse-date-card.highlighted {
+  border-color: #f59e0b;
+  background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%);
+}
+
+.ampse-date-badge {
+  font-family: var(--font-subtopic);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #d97706;
+  background: #fef3c7;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.ampse-date-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.ampse-date-icon {
+  color: #123f86;
+}
+
+.ampse-date-day {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.ampse-date-card.highlighted .ampse-date-day {
+  color: #b45309;
+}
+
+.ampse-date-title {
+  font-family: var(--font-subtopic);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.ampse-date-desc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ampse-speakers-banner {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #d97706;
+  border-radius: 14px;
+  padding: 1.75rem 2.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ampse-speakers-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+}
+
+.ampse-speakers-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fef3c7;
+  color: #d97706;
+  border: 1px solid #fde68a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ampse-speaker-badge {
+  font-family: var(--font-subtopic);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  color: #b45309;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.ampse-speakers-title {
+  font-family: var(--font-subtopic);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.ampse-speakers-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #475569;
+  margin: 0;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   SECTION 7: ORGANIZING COMMITTEE
+   ========================================================= */
+.ampse-committee-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.ampse-comm-tab {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ampse-comm-tab:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.ampse-comm-tab.active {
+  background: #123f86;
+  color: #ffffff;
+  border-color: #123f86;
+}
+
+.ampse-committee-group {
+  margin-bottom: 3.5rem;
+}
+
+.ampse-comm-group-heading {
+  font-family: var(--font-subtopic);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* Chief Patrons Grid */
+.ampse-chief-patrons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.15rem;
+}
+
+.ampse-patron-chip {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.ampse-patron-chip:hover {
+  transform: translateY(-2px);
+  border-color: #3b82f6;
+}
+
+.ampse-patron-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #123f86;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ampse-patron-name {
+  font-family: var(--font-subtopic);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+
+.ampse-patron-role {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #64748b;
+  display: block;
+}
+
+/* Core Leaders & Chairs */
+.ampse-core-leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.ampse-leader-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.75rem 1.25rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ampse-leader-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+}
+
+.ampse-leader-card.patron-special {
+  border-color: #f59e0b;
+  background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%);
+}
+
+.ampse-leader-img-box {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 1.35rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ampse-leader-img {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3.5px solid #123f86;
+  box-shadow: 0 4px 14px rgba(18, 63, 134, 0.15);
+  background: #f8fafc;
+  display: block;
+}
+
+.ampse-leader-card.patron-special .ampse-leader-img {
+  border-color: #f59e0b;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.22);
+}
+
+.ampse-leader-avatar-icon {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: #eff6ff;
+  border: 3.5px solid #123f86;
+  color: #123f86;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.35rem auto;
+  position: relative;
+}
+
+.ampse-leader-tag {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-subtopic);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: #123f86;
+  padding: 0.22rem 0.65rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  border: 2px solid #ffffff;
+  z-index: 2;
+}
+
+.ampse-leader-card.patron-special .ampse-leader-tag {
+  background: #d97706;
+}
+
+.ampse-leader-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.ampse-leader-name {
+  font-family: var(--font-subtopic);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.ampse-leader-qual {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: #64748b;
+  display: block;
+  margin-bottom: 0.45rem;
+  line-height: 1.35;
+}
+
+.ampse-leader-post {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #123f86;
+  display: block;
+  line-height: 1.35;
+  margin-top: auto;
+}
+
+/* Convenors & Coordinators */
+.ampse-convenors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.ampse-team-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.75rem 1.25rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ampse-team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+}
+
+.ampse-team-img-box {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 1.35rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ampse-team-img {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3.5px solid #123f86;
+  box-shadow: 0 4px 14px rgba(18, 63, 134, 0.15);
+  background: #f8fafc;
+  display: block;
+}
+
+.ampse-team-card:nth-child(n+3) .ampse-team-img {
+  border-color: #059669;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.16);
+}
+
+.ampse-team-badge {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-subtopic);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: #123f86;
+  padding: 0.22rem 0.65rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  border: 2px solid #ffffff;
+  z-index: 2;
+}
+
+.ampse-team-badge.coord {
+  background: #059669;
+}
+
+.ampse-team-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  flex-grow: 1;
+  padding: 0;
+}
+
+.ampse-team-name {
+  font-family: var(--font-subtopic);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.ampse-team-qual {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: #64748b;
+  display: block;
+  margin-bottom: 0.45rem;
+  line-height: 1.35;
+}
+
+.ampse-team-role {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #475569;
+  line-height: 1.35;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+/* Advisory Committee Grid */
+.ampse-advisory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.15rem;
+}
+
+.ampse-advisory-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.1rem 1.35rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.ampse-advisory-item:hover {
+  border-color: #3b82f6;
+  transform: translateX(4px);
+}
+
+.ampse-advisory-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3b82f6;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.ampse-advisory-name {
+  font-family: var(--font-subtopic);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+
+.ampse-advisory-role {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #123f86;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ampse-advisory-inst {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   SECTION 8: PLACES TO VISIT (TOURISM)
+   ========================================================= */
+.ampse-places-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.25rem;
+}
+
+.ampse-place-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ampse-place-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.ampse-place-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.ampse-place-type {
+  font-family: var(--font-subtopic);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+.ampse-distance-pill {
+  font-family: var(--font-subtopic);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.ampse-place-name {
+  font-family: var(--font-subtopic);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.35rem;
+}
+
+.ampse-place-desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* =========================================================
+   SECTION 9: REGISTRATION, CONTACT & LOCATION
+   ========================================================= */
+.ampse-contact-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+  align-items: start;
+}
+
+.ampse-registration-box {
+  background: #ffffff;
+  border: 1.5px solid #123f86;
+  border-radius: 16px;
+  padding: 2.25rem;
+  box-shadow: 0 10px 30px -10px rgba(18, 63, 134, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ampse-qr-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #123f86;
+  margin-bottom: 0.5rem;
+}
+
+.ampse-qr-header h3 {
+  font-family: var(--font-subtopic);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.ampse-qr-instruction {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.ampse-qr-container {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ampse-qr-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.ampse-qr-caption {
+  font-family: var(--font-subtopic);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+  margin-top: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ampse-form-link-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  word-break: break-all;
+}
+
+.ampse-form-link-label {
+  font-family: var(--font-subtopic);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ampse-form-link-url {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #123f86;
+  text-decoration: underline;
+}
+
+/* Direct Contacts Box */
+.ampse-direct-contact-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ampse-contact-heading {
+  font-family: var(--font-subtopic);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.ampse-coordinator-row {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.ampse-coordinator-row:hover {
+  transform: translateY(-2px);
+  border-color: #3b82f6;
+}
+
+.ampse-coord-avatar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ampse-coord-avatar img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2.5px solid #123f86;
+  box-shadow: 0 4px 12px rgba(18, 63, 134, 0.12);
+  background: #ffffff;
+  display: block;
+}
+
+.ampse-coord-name {
+  font-family: var(--font-subtopic);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+
+.ampse-coord-designation {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #64748b;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.ampse-coord-phone {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #123f86;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.ampse-coord-phone:hover {
+  text-decoration: underline;
+}
+
+.ampse-official-email-card {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 1.15rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.ampse-email-card-icon {
+  color: #123f86;
+  flex-shrink: 0;
+}
+
+.ampse-email-label {
+  font-family: var(--font-subtopic);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  display: block;
+}
+
+.ampse-email-address {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #123f86;
+  text-decoration: none;
+}
+
+.ampse-email-address:hover {
+  text-decoration: underline;
+}
+
+.ampse-copy-small {
+  margin-left: auto;
+}
+
+.ampse-venue-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+
+.ampse-venue-icon {
+  color: #ef4444;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.ampse-venue-label {
+  font-family: var(--font-subtopic);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ampse-venue-name {
+  font-family: var(--font-subtopic);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+
+.ampse-venue-address {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ampse-venue-address a {
+  color: #123f86;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* Map Wrapper */
+.ampse-map-wrapper {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.05);
+}
+
+.ampse-map-header {
+  padding: 0.85rem 1.25rem;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+.ampse-map-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.ampse-map-direct-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1e40af;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ampse-map-direct-link:hover {
+  background: #dbeafe;
+  color: #1d4ed8;
+  border-color: #93c5fd;
+}
+
+.ampse-map-frame-container iframe {
+  display: block;
+}
+
+/* =========================================================
+   BOTTOM BANNER
+   ========================================================= */
+.ampse-bottom-banner {
+  background: linear-gradient(135deg, #0b1f44 0%, #123f86 100%);
+  color: #ffffff;
+  padding: 2.5rem 0;
+  border-top: 3px solid #f59e0b;
+}
+
+.ampse-bottom-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.ampse-bottom-h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.35rem;
+}
+
+.ampse-bottom-p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+/* =========================================================
+   DARK MODE SUPPORT
+   ========================================================= */
+body.dark-mode .ampse-page {
+  background-color: #0b1120;
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-section-light {
+  background-color: #0f172a;
+}
+
+body.dark-mode .ampse-section-alt {
+  background-color: #0b1120;
+}
+
+body.dark-mode .ampse-quick-nav {
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .ampse-nav-link {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-nav-link:hover {
+  color: #f8fafc;
+  background: #1e293b;
+}
+
+body.dark-mode .ampse-nav-link.ampse-nav-highlight {
+  color: #facc15;
+  background: rgba(250, 204, 21, 0.15);
+}
+
+body.dark-mode .ampse-section-h2 {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-section-sub {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-section-badge {
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+body.dark-mode .ampse-quote-card {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+body.dark-mode .ampse-quote-text {
+  color: #fde047;
+}
+
+body.dark-mode .ampse-institution-narrative p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .ampse-host-dept-box {
+  background: #1e293b;
+  border-left-color: #3b82f6;
+}
+
+body.dark-mode .ampse-dept-box-header {
+  color: #60a5fa;
+}
+
+body.dark-mode .ampse-dept-box-header h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-host-dept-box p {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-features-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .ampse-features-title {
+  color: #f8fafc;
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .ampse-features-list li {
+  color: #cbd5e1;
+}
+
+body.dark-mode .ampse-scope-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 8px 25px -4px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .ampse-scope-body p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .ampse-scope-highlights-grid {
+  border-top-color: #334155;
+}
+
+body.dark-mode .ampse-scope-highlight-item {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+body.dark-mode .ampse-scope-highlight-item:hover {
+  border-color: #60a5fa;
+}
+
+body.dark-mode .ampse-scope-highlight-item h4 {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-scope-highlight-item p {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-filter-label {
+  color: #cbd5e1;
+}
+
+body.dark-mode .ampse-filter-btn {
+  background: #1e293b;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+body.dark-mode .ampse-filter-btn:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+body.dark-mode .ampse-filter-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+body.dark-mode .ampse-topic-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .ampse-topic-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .ampse-topic-tag {
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.2);
+}
+
+body.dark-mode .ampse-topic-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-topic-desc {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-note-banner {
+  background: rgba(234, 179, 8, 0.1);
+  border-color: rgba(234, 179, 8, 0.35);
+}
+
+body.dark-mode .ampse-note-icon-wrap {
+  background: rgba(234, 179, 8, 0.25);
+  color: #facc15;
+}
+
+body.dark-mode .ampse-note-title {
+  color: #fde047;
+}
+
+body.dark-mode .ampse-note-text {
+  color: #fef08a;
+}
+
+body.dark-mode .ampse-pricing-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .ampse-pricing-popular {
+  border-color: #3b82f6;
+  box-shadow: 0 10px 30px -5px rgba(59, 130, 246, 0.35);
+}
+
+body.dark-mode .ampse-pricing-header {
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .ampse-pricing-tier {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-currency {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-amount {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-pricing-popular .ampse-amount {
+  color: #60a5fa;
+}
+
+body.dark-mode .ampse-per {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-pricing-target {
+  color: #cbd5e1;
+}
+
+body.dark-mode .ampse-pricing-features li {
+  color: #cbd5e1;
+}
+
+body.dark-mode .ampse-pricing-features li.ampse-muted-feat {
+  color: #64748b;
+}
+
+body.dark-mode .ampse-pricing-btn {
+  background: #334155;
+  color: #f8fafc;
+  border-color: #475569;
+}
+
+body.dark-mode .ampse-pricing-btn:hover {
+  background: #475569;
+  color: #ffffff;
+}
+
+body.dark-mode .ampse-popular-btn {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+}
+
+body.dark-mode .ampse-popular-btn:hover {
+  background: #1d4ed8;
+}
+
+body.dark-mode .ampse-submission-guide-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode .ampse-guide-icon-box {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+body.dark-mode .ampse-guide-h4 {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-guide-text {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-email-copy-bar {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+body.dark-mode .ampse-email-text {
+  color: #93c5fd;
+}
+
+body.dark-mode .ampse-copy-btn {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+body.dark-mode .ampse-copy-btn:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+body.dark-mode .ampse-date-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .ampse-date-card.highlighted {
+  border-color: rgba(245, 158, 11, 0.5);
+  background: linear-gradient(180deg, rgba(245, 158, 11, 0.12) 0%, #1e293b 100%);
+}
+
+body.dark-mode .ampse-date-badge {
+  color: #fde047;
+  background: rgba(245, 158, 11, 0.2);
+}
+
+body.dark-mode .ampse-date-icon {
+  color: #60a5fa;
+}
+
+body.dark-mode .ampse-date-day {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-date-card.highlighted .ampse-date-day {
+  color: #facc15;
+}
+
+body.dark-mode .ampse-date-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-date-desc {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-speakers-banner {
+  background: #1e293b;
+  border-color: #334155;
+  border-left: 5px solid #f59e0b;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .ampse-speakers-icon {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+body.dark-mode .ampse-speaker-badge {
+  color: #fbbf24;
+}
+
+body.dark-mode .ampse-speakers-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-speakers-desc {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-comm-tab {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+body.dark-mode .ampse-comm-tab:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+body.dark-mode .ampse-comm-tab.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+body.dark-mode .ampse-comm-group-heading {
+  color: #f8fafc;
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .ampse-patron-chip {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .ampse-patron-chip:hover {
+  border-color: #3b82f6;
+}
+
+body.dark-mode .ampse-patron-avatar {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+body.dark-mode .ampse-patron-name {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-patron-role {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-leader-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .ampse-leader-card.patron-special {
+  border-color: rgba(245, 158, 11, 0.5);
+  background: linear-gradient(180deg, rgba(245, 158, 11, 0.12) 0%, #1e293b 100%);
+}
+
+body.dark-mode .ampse-leader-img {
+  border-color: #3b82f6;
+  background: #0f172a;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .ampse-leader-card.patron-special .ampse-leader-img {
+  border-color: #f59e0b;
+}
+
+body.dark-mode .ampse-leader-tag {
+  background: #1d4ed8;
+  border-color: #1e293b;
+  color: #ffffff;
+}
+
+body.dark-mode .ampse-leader-card.patron-special .ampse-leader-tag {
+  background: #d97706;
+}
+
+body.dark-mode .ampse-leader-avatar-icon {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border-color: #3b82f6;
+}
+
+body.dark-mode .ampse-leader-name {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-leader-qual {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-leader-post {
+  color: #93c5fd;
+}
+
+body.dark-mode .ampse-team-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .ampse-team-img {
+  border-color: #3b82f6;
+  background: #0f172a;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .ampse-team-card:nth-child(n+3) .ampse-team-img {
+  border-color: #10b981;
+}
+
+body.dark-mode .ampse-team-badge {
+  color: #ffffff;
+  background: #1d4ed8;
+  border-color: #1e293b;
+}
+
+body.dark-mode .ampse-team-badge.coord {
+  color: #ffffff;
+  background: #059669;
+  border-color: #1e293b;
+}
+
+body.dark-mode .ampse-team-name {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-team-qual {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-team-role {
+  color: #cbd5e1;
+}
+
+body.dark-mode .ampse-advisory-item {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode .ampse-advisory-item:hover {
+  border-color: #3b82f6;
+}
+
+body.dark-mode .ampse-advisory-name {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-advisory-role {
+  color: #93c5fd;
+}
+
+body.dark-mode .ampse-advisory-inst {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-place-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .ampse-place-card:hover {
+  border-color: #3b82f6;
+}
+
+body.dark-mode .ampse-place-type {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-distance-pill {
+  color: #38bdf8;
+  background: rgba(2, 132, 199, 0.2);
+}
+
+body.dark-mode .ampse-place-name {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-place-desc {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-registration-box {
+  background: #1e293b;
+  border-color: #3b82f6;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .ampse-qr-header {
+  color: #60a5fa;
+}
+
+body.dark-mode .ampse-qr-header h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-qr-instruction {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-qr-caption {
+  color: #64748b;
+}
+
+body.dark-mode .ampse-form-link-box {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+body.dark-mode .ampse-form-link-label {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-form-link-url {
+  color: #93c5fd;
+}
+
+body.dark-mode .ampse-contact-heading {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-coordinator-row {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .ampse-coord-avatar img {
+  border-color: #3b82f6;
+  background: #0f172a;
+}
+
+body.dark-mode .ampse-coord-name {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-coord-designation {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-coord-phone {
+  color: #93c5fd;
+}
+
+body.dark-mode .ampse-official-email-card {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+body.dark-mode .ampse-email-card-icon {
+  color: #60a5fa;
+}
+
+body.dark-mode .ampse-email-label {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-email-address {
+  color: #93c5fd;
+}
+
+body.dark-mode .ampse-venue-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode .ampse-venue-name {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-venue-address {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-venue-address a {
+  color: #93c5fd;
+}
+
+body.dark-mode .ampse-map-wrapper {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode .ampse-map-header {
+  background: #0f172a;
+  border-bottom-color: #334155;
+  color: #cbd5e1;
+}
+
+body.dark-mode .ampse-map-header-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .ampse-map-direct-link {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+body.dark-mode .ampse-map-direct-link:hover {
+  background: rgba(59, 130, 246, 0.25);
+  color: #bfdbfe;
+}
+
+/* =========================================================
+   RESPONSIVE MEDIA QUERIES (DESKTOP, TABLET & MOBILE)
+   ========================================================= */
+@media (max-width: 1024px) {
+  .ampse-hero-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ampse-institution-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .ampse-scope-highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ampse-core-leaders-grid,
+  .ampse-convenors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ampse-pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ampse-pub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ampse-contact-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .ampse-dates-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .ampse-submission-guide-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .ampse-hero {
+    min-height: auto;
+    padding: 105px 0 2.75rem;
+  }
+
+  .ampse-hero-h1 {
+    font-size: 1.95rem;
+    line-height: 1.25;
+  }
+
+  .ampse-acronym-chip {
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .ampse-acronym-letters {
+    font-size: 1.35rem;
+  }
+
+  .ampse-acronym-date {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 0.4rem;
+    font-size: 0.95rem;
+  }
+
+  .ampse-hero-desc {
+    font-size: 0.95rem;
+  }
+
+  .ampse-hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .ampse-hero-cta-group .ampse-btn {
+    width: 100%;
+  }
+
+  .ampse-hero-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .ampse-section {
+    padding: 3.25rem 0;
+  }
+
+  .ampse-section-h2 {
+    font-size: 1.75rem;
+  }
+
+  .ampse-scope-card {
+    padding: 1.5rem;
+  }
+
+  .ampse-scope-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .ampse-topics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ampse-advisory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ampse-core-leaders-grid,
+  .ampse-convenors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ampse-chief-patrons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ampse-places-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ampse-bottom-banner-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ampse-bottom-cta .ampse-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .ampse-container {
+    padding: 0 1rem;
+  }
+
+  .ampse-hero {
+    padding: 95px 0 2.25rem;
+  }
+
+  .ampse-hero-h1 {
+    font-size: 1.65rem;
+  }
+
+  .ampse-section-h2 {
+    font-size: 1.5rem;
+  }
+
+  .ampse-pill-badge {
+    font-size: 0.75rem;
+  }
+
+  .ampse-host-tag {
+    font-size: 0.78rem;
+  }
+
+  .ampse-coordinator-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .ampse-coord-avatar img {
+    margin: 0 auto;
+  }
+
+  .ampse-qr-image {
+    width: 170px;
+    height: 170px;
+  }
+
+  .ampse-publisher-badges-row {
+    grid-template-columns: 1fr;
+  }
+}
