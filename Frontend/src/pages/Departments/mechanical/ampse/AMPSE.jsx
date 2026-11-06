@@ -26,10 +26,17 @@ import {
   Copy,
   ChevronRight,
   ShieldCheck,
-  Check
+  Check,
+  Globe,
+  Cog,
+  FlaskConical,
+  Lightbulb,
+  Leaf,
+  Handshake
 } from "lucide-react";
 
 import "./AMPSE.css";
+import AMPSERegistrationModal from "./AMPSERegistrationModal";
 
 // Assets
 import patronPrincipal from "../images/mathalai sundharam.png";
@@ -47,18 +54,46 @@ const AMPSE = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [selectedCommitteeTab, setSelectedCommitteeTab] = useState("all");
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [selectedRegTier, setSelectedRegTier] = useState("tier2");
 
   React.useEffect(() => {
-    document.title = "AMPSE - 2K26 | 3rd International Conference | NSCET Theni";
+    document.title = "AMPSE - 2K27 | 3rd International Conference | NSCET Theni";
     window.scrollTo(0, 0);
+
+    if (window.location.hash === "#register") {
+      setIsRegisterModalOpen(true);
+    }
   }, []);
 
-  const registrationUrl = "https://forms.gle/3F7BrUrb79o5JgQCA";
+  const handleOpenRegister = (tier = "tier2") => {
+    setSelectedRegTier(tier);
+    setIsRegisterModalOpen(true);
+  };
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("ampse@nscet.org");
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
+  };
+
+  const handleEmailPaper = (e) => {
+    if (e) e.preventDefault();
+    const email = "ampse@nscet.org";
+    const subject = encodeURIComponent("AMPSE-2K27 Abstract / Paper Submission");
+    const body = encodeURIComponent(
+      `Dear Conference Secretariat,\n\nI would like to submit my research paper / abstract for the 3rd International Conference on Advanced Material Processing & Sustainable Energy (AMPSE-2K27) at Nadar Saraswathi College of Engineering and Technology, Theni.\n\n----------------------------------------\nPaper Title:\nPrimary Author Name:\nDesignation & Department:\nCollege / Institution Name:\nMobile / WhatsApp Number:\nConference Track / Domain:\nCo-Author Details (if any):\n----------------------------------------\n\nPlease find my manuscript file attached.\n\nThank you,\n[Author Name]`
+    );
+    const mailtoUrl = `mailto:${email}?subject=${subject}&body=${body}`;
+
+    // 1. Trigger desktop/default mail application
+    window.location.href = mailtoUrl;
+
+    // 2. Also open Gmail web compose in a new tab as guaranteed fallback
+    setTimeout(() => {
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+      window.open(gmailUrl, "_blank");
+    }, 350);
   };
 
   const topics = [
@@ -81,21 +116,21 @@ const AMPSE = () => {
 
   const importantDates = [
     {
-      date: "12th April 2026",
+      date: "25th February 2027",
       title: "Full Paper Submission Deadline",
       desc: "Last date for submitting complete manuscript for review & proceedings",
       badge: "Full Paper"
     },
     {
-      date: "26th April 2026",
+      date: "2nd March 2027",
       title: "Last Date of Abstract Submission",
       desc: "Final deadline to submit abstracts for presentation acceptance",
       badge: "Abstract Deadline",
       highlight: true
     },
     {
-      date: "30th April 2026",
-      title: "Conference Date (AMPSE-2K26)",
+      date: "12th & 13th March 2027",
+      title: "Conference Date (AMPSE-2K27)",
       desc: "Inaugural keynote, plenary guest talks, and oral research presentations",
       badge: "Event Day",
       highlight: true
@@ -170,49 +205,60 @@ const AMPSE = () => {
     <div className="ampse-page">
       {/* HERO SECTION */}
       <section className="ampse-hero">
-        <div className="ampse-hero-banner-wrap">
-          <img src={heroBannerImg} alt="AMPSE - 2K26 Conference Banner" className="ampse-hero-banner-img" />
-          <div className="ampse-hero-banner-scrim"></div>
+        <div className="ampse-hero-bg" aria-hidden="true">
+          <img
+            src={heroBannerImg}
+            alt=""
+            className="ampse-hero-bg-img"
+          />
+          <div className="ampse-hero-overlay" />
         </div>
+
         <div className="ampse-container ampse-hero-content">
+          {/* Top Tagline Badges */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="ampse-hero-tagline"
           >
             <span className="ampse-pill-badge">
-              <Sparkles size={14} className="ampse-sparkle-icon" /> 3rd International Conference
+              <Sparkles size={14} className="ampse-sparkle-icon" /> 3RD INTERNATIONAL CONFERENCE
             </span>
-            <span className="ampse-host-tag">Organized by Department of Mechanical Engineering</span>
+            <span className="ampse-host-tag">
+              Organized by Department of Mechanical Engineering
+            </span>
           </motion.div>
 
+          {/* Main Title */}
           <motion.h1
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="ampse-hero-h1"
           >
-            Advanced Material Processing &<br />
-            <span className="ampse-gradient-text">Sustainable Energy</span>
+            ADVANCED MATERIAL PROCESSING &<br />
+            <span className="ampse-gradient-text">SUSTAINABLE ENERGY</span>
           </motion.h1>
 
+          {/* Central Acronym & Date Capsule */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="ampse-acronym-banner"
           >
             <div className="ampse-acronym-chip">
-              <span className="ampse-acronym-letters">AMPSE - 2K26</span>
+              <span className="ampse-acronym-letters">AMPSE - 2K27</span>
               <span className="ampse-acronym-date">
-                <Calendar size={18} /> 30th April 2026
+                <Calendar size={18} /> 12th & 13th March 2027
               </span>
             </div>
           </motion.div>
 
+          {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="ampse-hero-desc"
@@ -220,20 +266,20 @@ const AMPSE = () => {
             A premier international forum uniting researchers, academicians, scientists, and industry leaders across the globe to exchange breakthrough ideas and explore next-generation technologies in materials engineering and green energy.
           </motion.p>
 
+          {/* 3 CTA Buttons Row */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="ampse-hero-cta-group"
           >
-            <a
-              href={registrationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => handleOpenRegister("tier2")}
               className="ampse-btn ampse-btn-primary"
             >
               <ExternalLink size={18} /> Register via Google Form
-            </a>
+            </button>
             <a href="#call-for-papers" className="ampse-btn ampse-btn-outline">
               <FileText size={18} /> Call for Papers
             </a>
@@ -249,8 +295,8 @@ const AMPSE = () => {
                 <Calendar size={22} />
               </div>
               <div>
-                <span className="ampse-metric-label">Conference Date</span>
-                <span className="ampse-metric-val">30th April 2026</span>
+                <span className="ampse-metric-label">CONFERENCE DATE</span>
+                <span className="ampse-metric-val">12th & 13th March 2027</span>
               </div>
             </div>
 
@@ -259,8 +305,8 @@ const AMPSE = () => {
                 <Clock size={22} />
               </div>
               <div>
-                <span className="ampse-metric-label">Abstract Deadline</span>
-                <span className="ampse-metric-val">26th April 2026</span>
+                <span className="ampse-metric-label">ABSTRACT DEADLINE</span>
+                <span className="ampse-metric-val">2nd March 2027</span>
               </div>
             </div>
 
@@ -269,7 +315,7 @@ const AMPSE = () => {
                 <BookOpen size={22} />
               </div>
               <div>
-                <span className="ampse-metric-label">ISBN Book Chapter</span>
+                <span className="ampse-metric-label">ISBN BOOK CHAPTER</span>
                 <span className="ampse-metric-val">978-93-6128-639-1</span>
               </div>
             </div>
@@ -279,7 +325,7 @@ const AMPSE = () => {
                 <GraduationCap size={22} />
               </div>
               <div>
-                <span className="ampse-metric-label">Invited Keynotes</span>
+                <span className="ampse-metric-label">INVITED KEYNOTES</span>
                 <span className="ampse-metric-val">Foreign Univ, IIT & NIT</span>
               </div>
             </div>
@@ -290,15 +336,33 @@ const AMPSE = () => {
       {/* QUICK SUB-NAVIGATION */}
       <nav className="ampse-quick-nav">
         <div className="ampse-container ampse-nav-scroll">
-          <a href="#about-institution" className="ampse-nav-link">About College</a>
-          <a href="#scope" className="ampse-nav-link">Scope & Theme</a>
-          <a href="#call-for-papers" className="ampse-nav-link">Call for Papers</a>
-          <a href="#publications" className="ampse-nav-link">Publications</a>
-          <a href="#registration-fee" className="ampse-nav-link">Registration Fee</a>
-          <a href="#important-dates" className="ampse-nav-link">Important Dates</a>
-          <a href="#committee" className="ampse-nav-link">Organizing Committee</a>
-          <a href="#tourist-spots" className="ampse-nav-link">Places to Visit</a>
-          <a href="#register-contact" className="ampse-nav-link ampse-nav-highlight">Register & Contact</a>
+          <a href="#about-institution" className="ampse-nav-link">
+            <Building size={14} className="ampse-mini-nav-icon" /> About College
+          </a>
+          <a href="#scope" className="ampse-nav-link">
+            <Compass size={14} className="ampse-mini-nav-icon" /> Scope & Theme
+          </a>
+          <a href="#call-for-papers" className="ampse-nav-link">
+            <FileText size={14} className="ampse-mini-nav-icon" /> Call for Papers
+          </a>
+          <a href="#publications" className="ampse-nav-link">
+            <BookOpen size={14} className="ampse-mini-nav-icon" /> Publications
+          </a>
+          <a href="#registration-fee" className="ampse-nav-link">
+            <Award size={14} className="ampse-mini-nav-icon" /> Registration Fee
+          </a>
+          <a href="#important-dates" className="ampse-nav-link">
+            <Calendar size={14} className="ampse-mini-nav-icon" /> Important Dates
+          </a>
+          <a href="#committee" className="ampse-nav-link">
+            <Users size={14} className="ampse-mini-nav-icon" /> Organizing Committee
+          </a>
+          <a href="#tourist-spots" className="ampse-nav-link">
+            <MapPin size={14} className="ampse-mini-nav-icon" /> Places to Visit
+          </a>
+          <a href="#register-contact" className="ampse-nav-link ampse-nav-highlight">
+            <CheckCircle size={14} className="ampse-mini-nav-icon" /> Register & Contact
+          </a>
         </div>
       </nav>
 
@@ -444,7 +508,7 @@ const AMPSE = () => {
             <span className="ampse-section-badge">Author Guidelines</span>
             <h2 className="ampse-section-h2">Call for Papers</h2>
             <p className="ampse-section-sub">
-              Full paper submissions are invited for the International Conference on Multidisciplinary Research to be held in Nadar Saraswathi College of Engineering and Technology, Theni on or before <strong>12th April 2026</strong>.
+              Full paper submissions are invited for the International Conference on Multidisciplinary Research to be held in Nadar Saraswathi College of Engineering and Technology, Theni on or before <strong>25th February 2027</strong>.
             </p>
           </div>
 
@@ -510,12 +574,12 @@ const AMPSE = () => {
       </section>
 
       {/* SECTION 4: PUBLICATIONS & PROCEEDINGS */}
-      <section id="publications" className="ampse-section ampse-section-dark">
+      <section id="publications" className="ampse-section ampse-section-alt">
         <div className="ampse-container">
-          <div className="ampse-section-header ampse-dark-header">
-            <span className="ampse-section-badge ampse-badge-gold">Indexed Publications</span>
-            <h2 className="ampse-section-h2 ampse-text-white">Publication & Proceedings</h2>
-            <p className="ampse-section-sub ampse-text-light">
+          <div className="ampse-section-header">
+            <span className="ampse-section-badge">Indexed Publications</span>
+            <h2 className="ampse-section-h2">Publication & Proceedings</h2>
+            <p className="ampse-section-sub">
               High-impact publication avenues with international indexing, ISBN allocation, and global visibility.
             </p>
           </div>
@@ -615,9 +679,13 @@ const AMPSE = () => {
                 </ul>
               </div>
               <div className="ampse-pricing-footer">
-                <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="ampse-pricing-btn">
+                <button
+                  type="button"
+                  onClick={() => handleOpenRegister("tier1")}
+                  className="ampse-pricing-btn"
+                >
                   Select Participant
-                </a>
+                </button>
               </div>
             </div>
 
@@ -635,7 +703,7 @@ const AMPSE = () => {
               <div className="ampse-pricing-body">
                 <p className="ampse-pricing-target">For UG, PG, Scholars, Faculty & Industry (Max 4 Authors).</p>
                 <ul className="ampse-pricing-features">
-                  <li><Check size={16} /> <strong>Oral Presentation Slot</strong> at AMPSE-2K26</li>
+                  <li><Check size={16} /> <strong>Oral Presentation Slot</strong> at AMPSE-2K27</li>
                   <li><Check size={16} /> <strong>Published with ISBN</strong> in Book Chapter</li>
                   <li><Check size={16} /> ISBN: <strong>978-93-6128-639-1</strong></li>
                   <li><Check size={16} /> Maximum 4 Authors (1 Author / 3 Co-Authors)</li>
@@ -644,9 +712,13 @@ const AMPSE = () => {
                 </ul>
               </div>
               <div className="ampse-pricing-footer">
-                <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="ampse-pricing-btn ampse-popular-btn">
+                <button
+                  type="button"
+                  onClick={() => handleOpenRegister("tier2")}
+                  className="ampse-pricing-btn ampse-popular-btn"
+                >
                   Register for ₹1,000
-                </a>
+                </button>
               </div>
             </div>
 
@@ -663,7 +735,7 @@ const AMPSE = () => {
               <div className="ampse-pricing-body">
                 <p className="ampse-pricing-target">For authors seeking publication in Atlantis Press / Springer Nature.</p>
                 <ul className="ampse-pricing-features">
-                  <li><Check size={16} /> Oral Presentation at AMPSE-2K26</li>
+                  <li><Check size={16} /> Oral Presentation at AMPSE-2K27</li>
                   <li><Check size={16} /> <strong>Indexed Journal Publication</strong> channel</li>
                   <li><Check size={16} /> <strong>Atlantis Press / Springer Nature</strong></li>
                   <li><Check size={16} /> Global digital indexing & DOI allocation</li>
@@ -671,9 +743,13 @@ const AMPSE = () => {
                 </ul>
               </div>
               <div className="ampse-pricing-footer">
-                <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="ampse-pricing-btn">
+                <button
+                  type="button"
+                  onClick={() => handleOpenRegister("tier3")}
+                  className="ampse-pricing-btn"
+                >
                   Select Publications Tier
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -700,10 +776,13 @@ const AMPSE = () => {
             </div>
             <div className="ampse-guide-right">
               <a
-                href="mailto:ampse@nscet.org?subject=AMPSE-2K26%20Abstract/Paper%20Submission"
-                className="ampse-btn ampse-btn-primary"
+                href="mailto:ampse@nscet.org?subject=AMPSE-2K27%20Abstract/Paper%20Submission"
+                onClick={handleEmailPaper}
+                className="ampse-btn ampse-btn-primary ampse-btn-email-paper"
+                title="Send Abstract or Paper directly to ampse@nscet.org"
               >
-                <Send size={16} /> Email Your Paper
+                <Send size={16} />
+                <span>Email Your Paper</span>
               </a>
             </div>
           </div>
@@ -717,7 +796,7 @@ const AMPSE = () => {
             <span className="ampse-section-badge">Timeline</span>
             <h2 className="ampse-section-h2">Important Dates</h2>
             <p className="ampse-section-sub">
-              Mark these critical milestones in your calendar to secure your slot at AMPSE-2K26.
+              Mark these critical milestones in your calendar to secure your slot at AMPSE-2K27.
             </p>
           </div>
 
@@ -758,7 +837,7 @@ const AMPSE = () => {
             <span className="ampse-section-badge">Leadership & Mentors</span>
             <h2 className="ampse-section-h2">Organizing Committee Members</h2>
             <p className="ampse-section-sub">
-              Distinguished patrons, convenors, and advisory council guiding AMPSE-2K26.
+              Distinguished patrons, convenors, and advisory council guiding AMPSE-2K27.
             </p>
           </div>
 
@@ -1015,34 +1094,32 @@ const AMPSE = () => {
                 <h3>Online Registration</h3>
               </div>
               <p className="ampse-qr-instruction">
-                Scan the QR code below using your mobile phone camera or click the direct button to register on Google Forms:
+                Scan the QR code below using your mobile phone camera or click the direct button to register online for AMPSE - 2K27:
               </p>
 
               <div className="ampse-qr-container">
                 <img src={qrCodeImg} alt="Registration QR Code" className="ampse-qr-image" />
-                <span className="ampse-qr-caption">Scan to Register for AMPSE - 2K26</span>
+                <span className="ampse-qr-caption">Scan to Register for AMPSE - 2K27</span>
               </div>
 
               <div className="ampse-form-link-box">
                 <span className="ampse-form-link-label">Registration Link:</span>
-                <a
-                  href={registrationUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ampse-form-link-url"
+                <button
+                  type="button"
+                  onClick={() => handleOpenRegister("tier2")}
+                  className="ampse-form-link-url ampse-form-link-btn"
                 >
-                  {registrationUrl}
-                </a>
+                  <FileText size={15} /> Open Official Registration Form (AMPSE - 2K27)
+                </button>
               </div>
 
-              <a
-                href={registrationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={() => handleOpenRegister("tier2")}
                 className="ampse-btn ampse-btn-primary ampse-btn-full"
               >
-                <ExternalLink size={18} /> Open Google Registration Form
-              </a>
+                <FileText size={18} /> Open Conference Registration Form
+              </button>
             </div>
 
             {/* Right Box: Direct Contacts & Venue */}
@@ -1147,27 +1224,12 @@ const AMPSE = () => {
         </div>
       </section>
 
-      {/* FOOTER CALLOUT BANNER */}
-      <div className="ampse-bottom-banner">
-        <div className="ampse-container ampse-bottom-banner-inner">
-          <div>
-            <h3 className="ampse-bottom-h3">Ready to Present Your Breakthrough Research?</h3>
-            <p className="ampse-bottom-p">
-              Join leading minds from academia and industry at AMPSE-2K26 on 30th April 2026.
-            </p>
-          </div>
-          <div className="ampse-bottom-cta">
-            <a
-              href={registrationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ampse-btn ampse-btn-gold"
-            >
-              <ExternalLink size={18} /> Register Now
-            </a>
-          </div>
-        </div>
-      </div>
+      {/* Interactive Conference Registration Modal */}
+      <AMPSERegistrationModal
+        isOpen={isRegisterModalOpen}
+        onClose={() => setIsRegisterModalOpen(false)}
+        initialTier={selectedRegTier}
+      />
     </div>
   );
 };
