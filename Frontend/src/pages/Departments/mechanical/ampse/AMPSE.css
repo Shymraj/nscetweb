@@ -1632,8 +1632,9 @@ body.dark-mode .ampse-btn-email-paper {
 /* Core Leaders & Chairs */
 .ampse-core-leaders-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  width: 100%;
 }
 
 .ampse-leader-card {
@@ -1647,6 +1648,9 @@ body.dark-mode .ampse-btn-email-paper {
   align-items: center;
   box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.05);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .ampse-leader-card:hover {
@@ -1765,8 +1769,9 @@ body.dark-mode .ampse-btn-email-paper {
 /* Convenors & Coordinators */
 .ampse-convenors-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  width: 100%;
 }
 
 .ampse-team-card {
@@ -1780,6 +1785,9 @@ body.dark-mode .ampse-btn-email-paper {
   align-items: center;
   box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.05);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .ampse-team-card:hover {
@@ -3186,10 +3194,16 @@ body.dark-mode .ampse-map-direct-link:hover {
     gap: 1.25rem;
   }
 
-  .ampse-core-leaders-grid,
-  .ampse-convenors-grid {
+  .ampse-core-leaders-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
+    width: 100%;
+  }
+
+  .ampse-convenors-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    width: 100%;
   }
 
   .ampse-pricing-grid {
@@ -3350,6 +3364,8 @@ body.dark-mode .ampse-map-direct-link:hover {
   .ampse-core-leaders-grid,
   .ampse-convenors-grid {
     grid-template-columns: 1fr;
+    gap: 1.15rem;
+    width: 100%;
   }
 
   .ampse-chief-patrons-grid {
@@ -3401,7 +3417,7 @@ body.dark-mode .ampse-map-direct-link:hover {
   }
 
   .ampse-hero {
-    padding: 95px 0 2rem;
+    padding: 110px 0 1.75rem;
   }
 
   .ampse-hero-tagline {

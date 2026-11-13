@@ -40,9 +40,7 @@ import AMPSERegistrationModal from "./AMPSERegistrationModal";
 
 // Assets
 import patronPrincipal from "../images/mathalai sundharam.png";
-import chairMathavan from "../images/Mathavan.jpg";
 import chairSathya from "../images/sathya.jpeg";
-import chairKarthikeyan from "../images/dr_karthikeyan.png";
 import convenorRadha from "../images/radhakrishnan.jpg";
 import convenorVembathu from "../images/vembathurajesh.png";
 import coordinatorSanthaseelan from "../images/santhaseelan.jpg";
@@ -165,24 +163,10 @@ const AMPSE = () => {
 
   const conferenceChairs = [
     {
-      name: "Dr. N. Mathavan",
-      qual: "M.E., MBA., Ph.D., MISTE.",
-      role: "Vice Principal, NSCET",
-      image: chairMathavan,
-      objectPosition: "center 20%"
-    },
-    {
       name: "Dr. M. Sathya",
       qual: "M.Tech., MBA., Ph.D.",
       role: "Vice Principal & HOD - IT, NSCET",
       image: chairSathya,
-      objectPosition: "center 15%"
-    },
-    {
-      name: "Dr. C. Karthikeyan",
-      qual: "M.A., B.Ed., CELTA., Ph.D.",
-      role: "Placement Officer, NSCET",
-      image: chairKarthikeyan,
       objectPosition: "center 15%"
     }
   ];
@@ -971,51 +955,33 @@ const AMPSE = () => {
                   <div className="ampse-team-img-box">
                     <img
                       src={convenorVembathu}
-                      alt="Mr. A. Vembathurajesh"
+                      alt="Dr. A. Vembathurajesh"
                       className="ampse-team-img"
                       style={{ objectPosition: "center top" }}
                     />
                     <span className="ampse-team-badge">Convenor</span>
                   </div>
                   <div className="ampse-team-info">
-                    <h4 className="ampse-team-name">Mr. A. Vembathurajesh</h4>
-                    <span className="ampse-team-qual">M.E., MISTE., (Ph.D.)</span>
-                    <p className="ampse-team-role">Head Incharge - Manufacturing Engineering</p>
+                    <h4 className="ampse-team-name">Dr. A. Vembathurajesh</h4>
+                    <span className="ampse-team-qual">M.E., MISTE., Ph.D.</span>
+                    <p className="ampse-team-role">Asst. Professor - Manufacturing Engineering</p>
                   </div>
                 </div>
 
-                {/* Organizing Committee 1 */}
-                <div className="ampse-team-card">
-                  <div className="ampse-team-img-box">
-                    <img
-                      src={coordinatorSanthaseelan}
-                      alt="Mr. R. Santhaseelan"
-                      className="ampse-team-img"
-                      style={{ objectPosition: "center top" }}
-                    />
-                    <span className="ampse-team-badge coord">Organizing Committee</span>
-                  </div>
-                  <div className="ampse-team-info">
-                    <h4 className="ampse-team-name">Mr. R. Santhaseelan</h4>
-                    <span className="ampse-team-qual">M.E., (Ph.D.)</span>
-                    <p className="ampse-team-role">Asst. Professor - Mechanical Engg.</p>
-                  </div>
-                </div>
-
-                {/* Organizing Committee 2 */}
+                {/* Organizing Committee */}
                 <div className="ampse-team-card">
                   <div className="ampse-team-img-box">
                     <img
                       src={coordinatorVennimalai}
-                      alt="Mr. A. Vennimalai Rajan"
+                      alt="Dr. A. Vennimalai Rajan"
                       className="ampse-team-img"
                       style={{ objectPosition: "center top" }}
                     />
                     <span className="ampse-team-badge coord">Organizing Committee</span>
                   </div>
                   <div className="ampse-team-info">
-                    <h4 className="ampse-team-name">Mr. A. Vennimalai Rajan</h4>
-                    <span className="ampse-team-qual">M.E., (Ph.D.)</span>
+                    <h4 className="ampse-team-name">Dr. A. Vennimalai Rajan</h4>
+                    <span className="ampse-team-qual">M.E., Ph.D.</span>
                     <p className="ampse-team-role">Asst. Professor - Mechanical Engg.</p>
                   </div>
                 </div>
@@ -1149,12 +1115,12 @@ const AMPSE = () => {
                 <div className="ampse-coord-avatar">
                   <img
                     src={coordinatorVennimalai}
-                    alt="Mr. A. Vennimalai Rajan"
+                    alt="Dr. A. Vennimalai Rajan"
                     style={{ objectPosition: "center top" }}
                   />
                 </div>
                 <div className="ampse-coord-info">
-                  <h4 className="ampse-coord-name">Mr. A. Vennimalai Rajan, M.E., (Ph.D.)</h4>
+                  <h4 className="ampse-coord-name">Dr. A. Vennimalai Rajan, M.E., Ph.D.</h4>
                   <span className="ampse-coord-designation">Assistant Professor, Department of Mechanical Engineering</span>
                   <a href="tel:9566585541" className="ampse-coord-phone">
                     <Phone size={15} /> <strong>9566585541</strong>
