@@ -16,7 +16,7 @@ const SEDG = () => {
     { sNo: 1, name: "Dr. C. Mathalai Sundaram", designation: "Principal", position: "Chair Person", category: "Others / Male", phone: "9443488999", email: "principal@nscet.org" },
     { sNo: 2, name: "Dr. M. Sathya", designation: "Vice Principal", position: "Member", category: "Others / Female", phone: "9884854043", email: "vpacademic@nscet.org" },
     { sNo: 3, name: "Dr. J. Mathalai Raj", designation: "HOD / CSE", position: "Member", category: "Others / Male", phone: "9095100228", email: "hodcse@nscet.org" },
-    { sNo: 4, name: "Mr. A. Vembathu Rajesh", designation: "HOD / S&H", position: "Member", category: "Others / Male", phone: "9443487999", email: "hods_h@nscet.org" },
+    { sNo: 4, name: "Mr. A. Vembathu Rajesh", designation: "HOD / S&H", position: "Member", category: "Others / Male", phone: "9976412468", email: "hods_h@nscet.org" },
     { sNo: 5, name: "Mrs. B. Sowmiya", designation: "AP / Civil", position: "Member", category: "SC / Female", phone: "9629264297", email: "sowmiya@nscet.org" },
     { sNo: 6, name: "Mr. N. Kesavamoorthy", designation: "AP / IT", position: "Member", category: "SC / Male", phone: "9942390288", email: "kesavamoorthy@nscet.org" },
     { sNo: 7, name: "Mrs. M. Shobana", designation: "LA / CSE", position: "Member", category: "SC / Female", phone: "9095100233", email: "shobana13mm@gmail.com" }

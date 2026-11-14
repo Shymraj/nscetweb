@@ -1009,6 +1009,10 @@
   margin-bottom: 1.75rem;
 }
 
+.ampse-publisher-badges-row.single {
+  grid-template-columns: 1fr;
+}
+
 .ampse-publisher-box {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -1016,6 +1020,23 @@
   padding: 1.25rem 1rem;
   text-align: center;
   transition: all 0.25s ease;
+}
+
+.ampse-publisher-box-single {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85px;
+}
+
+.ampse-pub-tbd {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 0.5px;
+  margin: 0;
 }
 
 .ampse-publisher-box:hover {
@@ -1145,6 +1166,25 @@
   display: flex;
   align-items: baseline;
   gap: 0.25rem;
+}
+
+.ampse-price-apc {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+.ampse-apc-text {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  line-height: 1.35;
+  letter-spacing: 0.2px;
+}
+
+.ampse-pricing-popular .ampse-apc-text {
+  color: #0f172a;
 }
 
 .ampse-currency {
@@ -2653,6 +2693,10 @@ body.dark-mode .ampse-publisher-logo-text h4 {
   color: #f8fafc;
 }
 
+body.dark-mode .ampse-pub-tbd {
+  color: #60a5fa;
+}
+
 body.dark-mode .ampse-publisher-logo-text.atlantis h4 {
   color: #60a5fa;
 }
@@ -2704,6 +2748,11 @@ body.dark-mode .ampse-amount {
 
 body.dark-mode .ampse-pricing-popular .ampse-amount {
   color: #60a5fa;
+}
+
+body.dark-mode .ampse-apc-text,
+body.dark-mode .ampse-pricing-popular .ampse-apc-text {
+  color: #93c5fd;
 }
 
 body.dark-mode .ampse-per {

@@ -644,26 +644,16 @@ const AMPSE = () => {
                 Authors opting for presentation and journal publication will have their peer-reviewed manuscripts routed through prestigious indexed publication partners:
               </p>
 
-              <div className="ampse-publisher-badges-row">
-                <div className="ampse-publisher-box">
-                  <div className="ampse-publisher-logo-text atlantis">
-                    <span className="ampse-pub-sub">Partner Publisher</span>
-                    <h4>ATLANTIS PRESS</h4>
-                    <span className="ampse-pub-tiny">Part of Springer Nature</span>
-                  </div>
-                </div>
-
-                <div className="ampse-publisher-box">
-                  <div className="ampse-publisher-logo-text springer">
-                    <span className="ampse-pub-sub">International Indexing</span>
-                    <h4>SPRINGER NATURE</h4>
-                    <span className="ampse-pub-tiny">Indexed in Leading Databases</span>
+              <div className="ampse-publisher-badges-row single">
+                <div className="ampse-publisher-box ampse-publisher-box-single">
+                  <div className="ampse-publisher-logo-text">
+                    <h4 className="ampse-pub-tbd">Yet to be decided</h4>
                   </div>
                 </div>
               </div>
 
               <div className="ampse-pub-fee-badge">
-                <span>Presentation & Publications: <strong>₹7,500 /-</strong></span>
+                <span><strong>As Per the Publications Article Processing Charges</strong></span>
               </div>
             </div>
           </div>
@@ -750,18 +740,16 @@ const AMPSE = () => {
             <div className="ampse-pricing-card">
               <div className="ampse-pricing-header">
                 <span className="ampse-pricing-tier">Presentation & Publications</span>
-                <div className="ampse-price">
-                  <span className="ampse-currency">₹</span>
-                  <span className="ampse-amount">7,500</span>
-                  <span className="ampse-per">/- per paper</span>
+                <div className="ampse-price ampse-price-apc">
+                  <span className="ampse-apc-text">As Per the Publications Article Processing Charges</span>
                 </div>
               </div>
               <div className="ampse-pricing-body">
-                <p className="ampse-pricing-target">For authors seeking publication in Atlantis Press / Springer Nature.</p>
+                <p className="ampse-pricing-target">For authors seeking publication in Scopus indexed journals.</p>
                 <ul className="ampse-pricing-features">
                   <li><Check size={16} /> Oral Presentation at AMPSE-2K27</li>
                   <li><Check size={16} /> <strong>Indexed Journal Publication</strong> channel</li>
-                  <li><Check size={16} /> <strong>Atlantis Press / Springer Nature</strong></li>
+                  <li><Check size={16} /> <strong>Scopus indexed journals</strong></li>
                   <li><Check size={16} /> Global digital indexing & DOI allocation</li>
                   <li><Check size={16} /> Presentation & Author Certificates</li>
                 </ul>
@@ -1118,8 +1106,8 @@ const AMPSE = () => {
                 <div className="ampse-coord-info">
                   <h4 className="ampse-coord-name">Dr. A. Vembathurajesh, M.E., MISTE., Ph.D.</h4>
                   <span className="ampse-coord-designation">Assistant Professor, Department of Mechanical Engineering</span>
-                  <a href="tel:9443487999" className="ampse-coord-phone">
-                    <Phone size={15} /> <strong>9443487999</strong>
+                  <a href="tel:9976412468" className="ampse-coord-phone">
+                    <Phone size={15} /> <strong>9976412468</strong>
                   </a>
                 </div>
               </div>

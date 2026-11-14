@@ -103,7 +103,7 @@ const AMPSERegistrationModal = ({ isOpen, onClose, initialTier = "tier2" }) => {
     coAuthor3: "",
     manuscriptTitle: "",
     track: "Composite Materials",
-    targetChannel: "Atlantis Press / Springer Nature Proceedings",
+    targetChannel: "Scopus Indexed Journals",
     presentationMode: "physical",
     structuredAbstract: "",
     keywords: "",
@@ -270,7 +270,7 @@ Co-Author 3         : ${scopusData.coAuthor3 || "None"}
 Manuscript Title    : ${scopusData.manuscriptTitle}
 Subject Domain/Track: ${scopusData.track}
 Presentation Mode   : ${scopusData.presentationMode === "physical" ? "Physical On-Campus Oral Presentation at NSCET Theni" : "Online Virtual Oral Presentation"}
-Indexing Channel    : Atlantis Press / Springer Nature Indexed Proceedings (DOI Included)
+Indexing Channel    : Scopus Indexed Journals (DOI Included)
 Keywords            : ${scopusData.keywords || "Not Specified"}
 Originality Status  : Certified Original & Unpublished Research
 
@@ -501,7 +501,7 @@ Bank                : Canara Bank, Theni Branch (A/C: 5013101000305, IFSC: CNRB0
               <p className="ampse-modal-sub">
                 {activeTier === "tier1" && "For delegates attending keynote sessions, workshops, and technical events (₹500 / Head)."}
                 {activeTier === "tier2" && "Includes oral presentation slot and publication in registered ISBN: 978-93-6128-639-1 (₹1,000 / Paper)."}
-                {activeTier === "tier3" && "Oral presentation + Indexed journal publication channel in Atlantis Press / Springer Nature (₹7,500 / Paper)."}
+                {activeTier === "tier3" && "Oral presentation + Indexed journal publication channel in Scopus indexed journals (₹7,500 / Paper)."}
               </p>
             </div>
             <button
@@ -1111,11 +1111,9 @@ Bank                : Canara Bank, Theni Branch (A/C: 5013101000305, IFSC: CNRB0
                           <p><strong>Bank:</strong> Canara Bank, Theni Branch</p>
                           <p><strong>Account Number:</strong> <code>5013101000305</code></p>
                           <p><strong>IFSC Code:</strong> <code>CNRB0005013</code></p>
-                          <p className="ampse-pay-note">Scan UPI QR Code for <strong>₹1,000</strong> per paper (covers all 4 authors).</p>
                         </div>
                         <div className="ampse-payment-qr-col">
                           <img src={paymentQrImg} alt="Canara Bank UPI QR Code" className="ampse-form-qr-img" />
-                          <span>Scan to Pay ₹1,000</span>
                         </div>
                       </div>
 
@@ -1155,8 +1153,8 @@ Bank                : Canara Bank, Theni Branch (A/C: 5013101000305, IFSC: CNRB0
                     <div className="ampse-tier-info-banner tier3-info">
                       <Award size={18} className="ampse-info-icon" />
                       <div>
-                        <strong>Scopus / Springer Nature Indexed Publication Tier (₹7,500 / Paper):</strong>
-                        <p>Includes oral presentation slot, proceedings indexed publication channel via <strong>Atlantis Press / Springer Nature</strong>, digital DOI allocation, and author certificates.</p>
+                        <strong>Scopus Indexed Publication Tier (₹7,500 / Paper):</strong>
+                        <p>Includes oral presentation slot, publication channel via <strong>Scopus indexed journals</strong>, digital DOI allocation, and author certificates.</p>
                       </div>
                     </div>
 
@@ -1432,7 +1430,7 @@ Bank                : Canara Bank, Theni Branch (A/C: 5013101000305, IFSC: CNRB0
                           <p><strong>Bank:</strong> Canara Bank, Theni Branch</p>
                           <p><strong>Account Number:</strong> <code>5013101000305</code></p>
                           <p><strong>IFSC Code:</strong> <code>CNRB0005013</code></p>
-                          <p className="ampse-pay-note">Scan UPI QR Code for <strong>₹7,500</strong> for Atlantis Press / Springer Nature publication channel.</p>
+                          <p className="ampse-pay-note">Scan UPI QR Code for <strong>₹7,500</strong> for Scopus indexed journals publication channel.</p>
                         </div>
                         <div className="ampse-payment-qr-col">
                           <img src={paymentQrImg} alt="Canara Bank UPI QR Code" className="ampse-form-qr-img" />
