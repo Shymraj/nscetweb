@@ -32,7 +32,9 @@ import {
   FlaskConical,
   Lightbulb,
   Leaf,
-  Handshake
+  Handshake,
+  User,
+  UserCheck
 } from "lucide-react";
 
 import "./AMPSE.css";
@@ -43,9 +45,9 @@ import patronPrincipal from "../images/mathalai sundharam.png";
 import chairSathya from "../images/sathya.jpeg";
 import convenorRadha from "../images/radhakrishnan.jpg";
 import convenorVembathu from "../images/vembathurajesh.png";
-import coordinatorSanthaseelan from "../images/santhaseelan.jpg";
 import coordinatorVennimalai from "../images/Vennimalairajan.jpg";
 import qrCodeImg from "./ampse_qr.png";
+import QRCode from "qrcode";
 import heroBannerImg from "./ampse_banner.jpg";
 
 const AMPSE = () => {
@@ -54,10 +56,25 @@ const AMPSE = () => {
   const [selectedCommitteeTab, setSelectedCommitteeTab] = useState("all");
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [selectedRegTier, setSelectedRegTier] = useState("tier2");
+  const [dynamicQrUrl, setDynamicQrUrl] = useState(qrCodeImg);
 
   React.useEffect(() => {
     document.title = "AMPSE - 2K27 | 3rd International Conference | NSCET Theni";
     window.scrollTo(0, 0);
+
+    // Official Registration Portal URL (never localhost)
+    const regUrl = "https://www.nscet.org/departments/mechanical/ampse/register";
+
+    QRCode.toDataURL(regUrl, {
+      width: 480,
+      margin: 2,
+      color: {
+        dark: '#0f172a',
+        light: '#ffffff'
+      }
+    })
+      .then((url) => setDynamicQrUrl(url))
+      .catch(() => setDynamicQrUrl(qrCodeImg));
 
     if (window.location.hash === "#register") {
       setIsRegisterModalOpen(true);
@@ -152,20 +169,43 @@ const AMPSE = () => {
   ];
 
   const chiefPatrons = [
-    { name: "Mr. T. Rajamohan", qual: "B.Sc.", role: "President, TMHNU" },
-    { name: "Mr. P. P. Ganesh", qual: "B.Sc.", role: "Vice President, TMHNU" },
-    { name: "Mr. M. M. Anandavel", qual: "M.B.A.", role: "General Secretary, TMHNU" },
-    { name: "Mr. M. Palaniappan", qual: "", role: "Treasurer, TMHNU" },
-    { name: "Mr. A. Rajkumar", qual: "B.B.A.", role: "Secretary, NSCET" },
-    { name: "Mr. A. S. R. Maheswaran", qual: "B.Sc.", role: "Secretary, NSCET" },
-    { name: "Er. S. Naveen Ram", qual: "B.E., MBA.", role: "Joint Secretary, NSCET" }
+    {
+      name: "Mr. A. S. G. Dharmarajan, B.A",
+      role: "President",
+      org: "TMHNU"
+    },
+    {
+      name: "Mr. A. S. Jeevagan",
+      role: "Vice President",
+      org: "TMHNU"
+    },
+    {
+      name: "Mr. M.M. Anandhavel, M.B.A",
+      role: "General Secretary",
+      org: "TMHNU"
+    },
+    {
+      name: "Mr. B. Ramachandran, M.B.A",
+      role: "Treasurer",
+      org: "TMHNU"
+    },
+    {
+      name: "Er. A.S.S.S. Soma Sundaram, B.E.",
+      role: "Secretary",
+      org: "NSCET"
+    },
+    {
+      name: "Mr. T. Subramani, B.C.A., M.B.A.",
+      role: "Joint Secretary",
+      org: "NSCET"
+    }
   ];
 
   const conferenceChairs = [
     {
       name: "Dr. M. Sathya",
       qual: "M.Tech., MBA., Ph.D.",
-      role: "Vice Principal & HOD - IT, NSCET",
+      role: "Vice Principal",
       image: chairSathya,
       objectPosition: "center 15%"
     }
@@ -863,13 +903,14 @@ const AMPSE = () => {
                 {chiefPatrons.map((person, idx) => (
                   <div key={idx} className="ampse-patron-chip">
                     <div className="ampse-patron-avatar">
-                      <GraduationCap size={18} />
+                      <User size={22} />
                     </div>
-                    <div>
-                      <h4 className="ampse-patron-name">
-                        {person.name}{person.qual && `, ${person.qual}`}
-                      </h4>
-                      <span className="ampse-patron-role">{person.role}</span>
+                    <div className="ampse-patron-info">
+                      <div className="ampse-patron-meta">
+                        <span className="ampse-patron-badge">{person.role}</span>
+                        <span className="ampse-patron-org">{person.org}</span>
+                      </div>
+                      <h4 className="ampse-patron-name">{person.name}</h4>
                     </div>
                   </div>
                 ))}
@@ -886,32 +927,20 @@ const AMPSE = () => {
               <div className="ampse-core-leaders-grid">
                 {/* Patron Card */}
                 <div className="ampse-leader-card patron-special">
-                  <div className="ampse-leader-img-box">
-                    <img
-                      src={patronPrincipal}
-                      alt="Dr. C. Mathalai Sundaram"
-                      className="ampse-leader-img"
-                      style={{ objectPosition: "center 15%" }}
-                    />
+                  <div className="ampse-leader-role-wrap">
                     <span className="ampse-leader-tag">Patron</span>
                   </div>
                   <div className="ampse-leader-details">
                     <h4 className="ampse-leader-name">Dr. C. Mathalai Sundaram</h4>
                     <span className="ampse-leader-qual">M.E., MBA., Ph.D., MISTE.</span>
-                    <span className="ampse-leader-post">Principal, NSCET</span>
+                    <span className="ampse-leader-post">Principal</span>
                   </div>
                 </div>
 
                 {/* Conference Chairs */}
                 {conferenceChairs.map((chair, idx) => (
                   <div key={idx} className="ampse-leader-card">
-                    <div className="ampse-leader-img-box">
-                      <img
-                        src={chair.image}
-                        alt={chair.name}
-                        className="ampse-leader-img"
-                        style={{ objectPosition: chair.objectPosition || "center 20%" }}
-                      />
+                    <div className="ampse-leader-role-wrap">
                       <span className="ampse-leader-tag">Conference Chair</span>
                     </div>
                     <div className="ampse-leader-details">
@@ -934,13 +963,7 @@ const AMPSE = () => {
               <div className="ampse-convenors-grid">
                 {/* Convenor 1 */}
                 <div className="ampse-team-card">
-                  <div className="ampse-team-img-box">
-                    <img
-                      src={convenorRadha}
-                      alt="Dr. B. Radha Krishnan"
-                      className="ampse-team-img"
-                      style={{ objectPosition: "center top" }}
-                    />
+                  <div className="ampse-team-role-wrap">
                     <span className="ampse-team-badge">Convenor</span>
                   </div>
                   <div className="ampse-team-info">
@@ -952,37 +975,25 @@ const AMPSE = () => {
 
                 {/* Convenor 2 */}
                 <div className="ampse-team-card">
-                  <div className="ampse-team-img-box">
-                    <img
-                      src={convenorVembathu}
-                      alt="Dr. A. Vembathurajesh"
-                      className="ampse-team-img"
-                      style={{ objectPosition: "center top" }}
-                    />
+                  <div className="ampse-team-role-wrap">
                     <span className="ampse-team-badge">Convenor</span>
                   </div>
                   <div className="ampse-team-info">
                     <h4 className="ampse-team-name">Dr. A. Vembathurajesh</h4>
                     <span className="ampse-team-qual">M.E., MISTE., Ph.D.</span>
-                    <p className="ampse-team-role">Asst. Professor - Manufacturing Engineering</p>
+                    <p className="ampse-team-role">Asst. Professor - Mechanical Engineering</p>
                   </div>
                 </div>
 
                 {/* Organizing Committee */}
                 <div className="ampse-team-card">
-                  <div className="ampse-team-img-box">
-                    <img
-                      src={coordinatorVennimalai}
-                      alt="Dr. A. Vennimalai Rajan"
-                      className="ampse-team-img"
-                      style={{ objectPosition: "center top" }}
-                    />
+                  <div className="ampse-team-role-wrap">
                     <span className="ampse-team-badge coord">Organizing Committee</span>
                   </div>
                   <div className="ampse-team-info">
                     <h4 className="ampse-team-name">Dr. A. Vennimalai Rajan</h4>
                     <span className="ampse-team-qual">M.E., Ph.D.</span>
-                    <p className="ampse-team-role">Asst. Professor - Mechanical Engg.</p>
+                    <p className="ampse-team-role">Asst. Professor - Mechanical Engineering</p>
                   </div>
                 </div>
               </div>
@@ -1064,28 +1075,38 @@ const AMPSE = () => {
               </p>
 
               <div className="ampse-qr-container">
-                <img src={qrCodeImg} alt="Registration QR Code" className="ampse-qr-image" />
+                <Link to="/departments/mechanical/ampse/register" title="Click to open registration form">
+                  <img src={dynamicQrUrl || qrCodeImg} alt="Registration QR Code" className="ampse-qr-image" />
+                </Link>
                 <span className="ampse-qr-caption">Scan to Register for AMPSE - 2K27</span>
               </div>
 
               <div className="ampse-form-link-box">
                 <span className="ampse-form-link-label">Registration Link:</span>
+                <Link
+                  to="/departments/mechanical/ampse/register"
+                  className="ampse-form-link-url ampse-form-link-btn"
+                >
+                  <FileText size={15} /> Open Official Registration Portal (AMPSE - 2K27)
+                </Link>
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.65rem", width: "100%" }}>
+                <Link
+                  to="/departments/mechanical/ampse/register"
+                  className="ampse-btn ampse-btn-gold ampse-btn-full"
+                  style={{ textDecoration: "none" }}
+                >
+                  <FileText size={18} /> Open Online Registration Page
+                </Link>
                 <button
                   type="button"
                   onClick={() => handleOpenRegister("tier2")}
-                  className="ampse-form-link-url ampse-form-link-btn"
+                  className="ampse-btn ampse-btn-primary ampse-btn-full"
                 >
-                  <FileText size={15} /> Open Official Registration Form (AMPSE - 2K27)
+                  <Layers size={18} /> Open Quick Modal Form
                 </button>
               </div>
-
-              <button
-                type="button"
-                onClick={() => handleOpenRegister("tier2")}
-                className="ampse-btn ampse-btn-primary ampse-btn-full"
-              >
-                <FileText size={18} /> Open Conference Registration Form
-              </button>
             </div>
 
             {/* Right Box: Direct Contacts & Venue */}
@@ -1094,31 +1115,17 @@ const AMPSE = () => {
 
               {/* Coordinator 1 */}
               <div className="ampse-coordinator-row">
-                <div className="ampse-coord-avatar">
-                  <img
-                    src={coordinatorSanthaseelan}
-                    alt="Mr. R. Santhaseelan"
-                    style={{ objectPosition: "center top" }}
-                  />
-                </div>
                 <div className="ampse-coord-info">
-                  <h4 className="ampse-coord-name">Mr. R. Santhaseelan, M.E., (Ph.D.)</h4>
+                  <h4 className="ampse-coord-name">Dr. A. Vembathurajesh, M.E., MISTE., Ph.D.</h4>
                   <span className="ampse-coord-designation">Assistant Professor, Department of Mechanical Engineering</span>
-                  <a href="tel:9003398111" className="ampse-coord-phone">
-                    <Phone size={15} /> <strong>9003398111</strong>
+                  <a href="tel:9443487999" className="ampse-coord-phone">
+                    <Phone size={15} /> <strong>9443487999</strong>
                   </a>
                 </div>
               </div>
 
               {/* Coordinator 2 */}
               <div className="ampse-coordinator-row">
-                <div className="ampse-coord-avatar">
-                  <img
-                    src={coordinatorVennimalai}
-                    alt="Dr. A. Vennimalai Rajan"
-                    style={{ objectPosition: "center top" }}
-                  />
-                </div>
                 <div className="ampse-coord-info">
                   <h4 className="ampse-coord-name">Dr. A. Vennimalai Rajan, M.E., Ph.D.</h4>
                   <span className="ampse-coord-designation">Assistant Professor, Department of Mechanical Engineering</span>

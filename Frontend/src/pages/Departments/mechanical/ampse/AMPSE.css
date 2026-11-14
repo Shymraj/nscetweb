@@ -1580,45 +1580,89 @@ body.dark-mode .ampse-btn-email-paper {
 /* Chief Patrons Grid */
 .ampse-chief-patrons-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.15rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  width: 100%;
 }
 
 .ampse-patron-chip {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  padding: 1.15rem 1.35rem;
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 1.15rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .ampse-patron-chip:hover {
   transform: translateY(-2px);
-  border-color: #3b82f6;
+  border-color: #2563eb;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
 }
 
 .ampse-patron-avatar {
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background: #eff6ff;
-  color: #123f86;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 1.5px solid #bfdbfe;
+  color: #1d4ed8;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
+.ampse-patron-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.ampse-patron-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.ampse-patron-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1d4ed8;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  line-height: 1.2;
+}
+
+.ampse-patron-org {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.03em;
+}
+
 .ampse-patron-name {
   font-family: var(--font-subtopic);
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 700;
   color: #0f172a;
-  margin: 0 0 2px;
+  margin: 0;
+  line-height: 1.35;
 }
 
 .ampse-patron-role {
@@ -1627,6 +1671,7 @@ body.dark-mode .ampse-btn-email-paper {
   font-weight: 400;
   color: #64748b;
   display: block;
+  margin-top: 3px;
 }
 
 /* Core Leaders & Chairs */
@@ -1634,6 +1679,8 @@ body.dark-mode .ampse-btn-email-paper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  max-width: 760px;
+  margin: 0 auto;
   width: 100%;
 }
 
@@ -1641,21 +1688,22 @@ body.dark-mode .ampse-btn-email-paper {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 14px;
-  padding: 1.75rem 1.25rem 1.5rem;
+  padding: 1.6rem 1.4rem 1.5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.05);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
 }
 
 .ampse-leader-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  border-color: #2563eb;
+  box-shadow: 0 10px 22px -4px rgba(37, 99, 235, 0.12);
 }
 
 .ampse-leader-card.patron-special {
@@ -1663,69 +1711,47 @@ body.dark-mode .ampse-btn-email-paper {
   background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%);
 }
 
-.ampse-leader-img-box {
-  position: relative;
-  width: 104px;
-  height: 104px;
-  margin: 0 auto 1.35rem auto;
+.ampse-leader-card.patron-special:hover {
+  border-color: #d97706;
+  box-shadow: 0 10px 22px -4px rgba(217, 119, 6, 0.18);
+}
+
+.ampse-leader-role-wrap,
+.ampse-team-role-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
-.ampse-leader-img {
-  width: 104px;
-  height: 104px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3.5px solid #123f86;
-  box-shadow: 0 4px 14px rgba(18, 63, 134, 0.15);
-  background: #f8fafc;
-  display: block;
-}
-
-.ampse-leader-card.patron-special .ampse-leader-img {
-  border-color: #f59e0b;
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.22);
-}
-
-.ampse-leader-avatar-icon {
-  width: 104px;
-  height: 104px;
-  border-radius: 50%;
-  background: #eff6ff;
-  border: 3.5px solid #123f86;
-  color: #123f86;
-  display: flex;
-  flex-direction: column;
+.ampse-leader-tag,
+.ampse-team-badge {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.35rem auto;
-  position: relative;
-}
-
-.ampse-leader-tag {
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
   font-family: var(--font-subtopic);
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: #ffffff;
-  background: #123f86;
-  padding: 0.22rem 0.65rem;
+  background: #1d4ed8;
+  padding: 0.32rem 1rem;
   border-radius: 9999px;
   white-space: nowrap;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-  border: 2px solid #ffffff;
-  z-index: 2;
+  box-shadow: 0 2px 6px rgba(29, 78, 216, 0.2);
+  line-height: 1.2;
 }
 
 .ampse-leader-card.patron-special .ampse-leader-tag {
   background: #d97706;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.25);
+}
+
+.ampse-team-badge.coord {
+  background: #059669;
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
 }
 
 .ampse-leader-details {
@@ -1739,16 +1765,16 @@ body.dark-mode .ampse-btn-email-paper {
 
 .ampse-leader-name {
   font-family: var(--font-subtopic);
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   font-weight: 700;
   color: #0f172a;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.3rem;
   line-height: 1.3;
 }
 
 .ampse-leader-qual {
   font-family: var(--font-body);
-  font-size: 0.76rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #64748b;
   display: block;
@@ -1758,12 +1784,16 @@ body.dark-mode .ampse-btn-email-paper {
 
 .ampse-leader-post {
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   font-weight: 600;
-  color: #123f86;
+  color: #1d4ed8;
   display: block;
   line-height: 1.35;
   margin-top: auto;
+}
+
+.ampse-leader-card.patron-special .ampse-leader-post {
+  color: #b45309;
 }
 
 /* Convenors & Coordinators */
@@ -1771,6 +1801,8 @@ body.dark-mode .ampse-btn-email-paper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  max-width: 1140px;
+  margin: 0 auto;
   width: 100%;
 }
 
@@ -1778,71 +1810,22 @@ body.dark-mode .ampse-btn-email-paper {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 14px;
-  padding: 1.75rem 1.25rem 1.5rem;
+  padding: 1.6rem 1.4rem 1.5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.05);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
 }
 
 .ampse-team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
-}
-
-.ampse-team-img-box {
-  position: relative;
-  width: 104px;
-  height: 104px;
-  margin: 0 auto 1.35rem auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ampse-team-img {
-  width: 104px;
-  height: 104px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3.5px solid #123f86;
-  box-shadow: 0 4px 14px rgba(18, 63, 134, 0.15);
-  background: #f8fafc;
-  display: block;
-}
-
-.ampse-team-card:nth-child(n+3) .ampse-team-img {
-  border-color: #059669;
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.16);
-}
-
-.ampse-team-badge {
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-subtopic);
-  font-size: 0.62rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #ffffff;
-  background: #123f86;
-  padding: 0.22rem 0.65rem;
-  border-radius: 9999px;
-  white-space: nowrap;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-  border: 2px solid #ffffff;
-  z-index: 2;
-}
-
-.ampse-team-badge.coord {
-  background: #059669;
+  transform: translateY(-3px);
+  border-color: #2563eb;
+  box-shadow: 0 10px 22px -4px rgba(37, 99, 235, 0.12);
 }
 
 .ampse-team-info {
@@ -1857,16 +1840,16 @@ body.dark-mode .ampse-btn-email-paper {
 
 .ampse-team-name {
   font-family: var(--font-subtopic);
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   font-weight: 700;
   color: #0f172a;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.3rem;
   line-height: 1.3;
 }
 
 .ampse-team-qual {
   font-family: var(--font-body);
-  font-size: 0.76rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #64748b;
   display: block;
@@ -1876,12 +1859,17 @@ body.dark-mode .ampse-btn-email-paper {
 
 .ampse-team-role {
   font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: #475569;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  display: block;
   line-height: 1.35;
   margin-top: auto;
   margin-bottom: 0;
+}
+
+.ampse-team-card:last-child .ampse-team-role {
+  color: #059669;
 }
 
 /* Advisory Committee Grid */
@@ -2133,36 +2121,23 @@ body.dark-mode .ampse-btn-email-paper {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-  padding: 1.25rem;
+  padding: 1.25rem 1.4rem;
   display: flex;
-  align-items: center;
-  gap: 1.25rem;
+  flex-direction: column;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .ampse-coordinator-row:hover {
   transform: translateY(-2px);
-  border-color: #3b82f6;
+  border-color: #2563eb;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.1);
 }
 
-.ampse-coord-avatar {
-  flex-shrink: 0;
+.ampse-coord-info {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ampse-coord-avatar img {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
-  border: 2.5px solid #123f86;
-  box-shadow: 0 4px 12px rgba(18, 63, 134, 0.12);
-  background: #ffffff;
-  display: block;
+  flex-direction: column;
+  width: 100%;
 }
 
 .ampse-coord-name {
@@ -2897,11 +2872,23 @@ body.dark-mode .ampse-patron-chip {
 
 body.dark-mode .ampse-patron-chip:hover {
   border-color: #3b82f6;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.18);
 }
 
 body.dark-mode .ampse-patron-avatar {
-  background: rgba(59, 130, 246, 0.2);
-  color: #60a5fa;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.5) 0%, rgba(30, 64, 175, 0.3) 100%);
+  border-color: #3b82f6;
+  color: #93c5fd;
+}
+
+body.dark-mode .ampse-patron-badge {
+  color: #93c5fd;
+  background: rgba(30, 58, 138, 0.45);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+body.dark-mode .ampse-patron-org {
+  color: #94a3b8;
 }
 
 body.dark-mode .ampse-patron-name {
@@ -2923,30 +2910,19 @@ body.dark-mode .ampse-leader-card.patron-special {
   background: linear-gradient(180deg, rgba(245, 158, 11, 0.12) 0%, #1e293b 100%);
 }
 
-body.dark-mode .ampse-leader-img {
-  border-color: #3b82f6;
-  background: #0f172a;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-}
-
-body.dark-mode .ampse-leader-card.patron-special .ampse-leader-img {
-  border-color: #f59e0b;
-}
-
-body.dark-mode .ampse-leader-tag {
+body.dark-mode .ampse-leader-tag,
+body.dark-mode .ampse-team-badge {
   background: #1d4ed8;
-  border-color: #1e293b;
   color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .ampse-leader-card.patron-special .ampse-leader-tag {
   background: #d97706;
 }
 
-body.dark-mode .ampse-leader-avatar-icon {
-  background: rgba(59, 130, 246, 0.2);
-  color: #60a5fa;
-  border-color: #3b82f6;
+body.dark-mode .ampse-team-badge.coord {
+  background: #059669;
 }
 
 body.dark-mode .ampse-leader-name {
@@ -2965,16 +2941,6 @@ body.dark-mode .ampse-team-card {
   background: #1e293b;
   border-color: #334155;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-}
-
-body.dark-mode .ampse-team-img {
-  border-color: #3b82f6;
-  background: #0f172a;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-}
-
-body.dark-mode .ampse-team-card:nth-child(n+3) .ampse-team-img {
-  border-color: #10b981;
 }
 
 body.dark-mode .ampse-team-badge {
@@ -2998,7 +2964,11 @@ body.dark-mode .ampse-team-qual {
 }
 
 body.dark-mode .ampse-team-role {
-  color: #cbd5e1;
+  color: #93c5fd;
+}
+
+body.dark-mode .ampse-team-card:last-child .ampse-team-role {
+  color: #6ee7b7;
 }
 
 body.dark-mode .ampse-advisory-item {
@@ -3094,9 +3064,9 @@ body.dark-mode .ampse-coordinator-row {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-body.dark-mode .ampse-coord-avatar img {
+body.dark-mode .ampse-coordinator-row:hover {
   border-color: #3b82f6;
-  background: #0f172a;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.2);
 }
 
 body.dark-mode .ampse-coord-name {
@@ -3197,12 +3167,22 @@ body.dark-mode .ampse-map-direct-link:hover {
   .ampse-core-leaders-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
+    max-width: 680px;
+    margin: 0 auto;
     width: 100%;
   }
 
   .ampse-convenors-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 1.15rem;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .ampse-chief-patrons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.15rem;
     width: 100%;
   }
 
@@ -3365,11 +3345,15 @@ body.dark-mode .ampse-map-direct-link:hover {
   .ampse-convenors-grid {
     grid-template-columns: 1fr;
     gap: 1.15rem;
+    max-width: 440px;
+    margin: 0 auto;
     width: 100%;
   }
 
   .ampse-chief-patrons-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
   }
 
   .ampse-places-grid {
@@ -3510,6 +3494,25 @@ body.dark-mode .ampse-map-direct-link:hover {
     padding: 0.35rem 0.8rem;
   }
 
+  .ampse-patron-chip {
+    padding: 0.95rem 1.05rem;
+    gap: 0.85rem;
+  }
+
+  .ampse-patron-avatar {
+    width: 42px;
+    height: 42px;
+  }
+
+  .ampse-patron-name {
+    font-size: 0.92rem;
+  }
+
+  .ampse-leader-card,
+  .ampse-team-card {
+    padding: 1.25rem 1rem 1.15rem;
+  }
+
   .ampse-note-banner {
     flex-direction: column;
     text-align: center;
@@ -3539,13 +3542,8 @@ body.dark-mode .ampse-map-direct-link:hover {
   }
 
   .ampse-coordinator-row {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.75rem;
-  }
-
-  .ampse-coord-avatar img {
-    margin: 0 auto;
+    padding: 1.15rem 1.15rem;
+    text-align: left;
   }
 
   .ampse-qr-image {
@@ -4559,6 +4557,12 @@ body.dark-mode .ampse-bottom-banner {
 }
 
 @media (max-width: 640px) {
+  .ampse-chief-patrons-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    width: 100%;
+  }
+
   .ampse-modal-tier-tabs {
     grid-template-columns: 1fr;
   }
@@ -4581,5 +4585,238 @@ body.dark-mode .ampse-bottom-banner {
 
   .ampse-footer-buttons .ampse-btn {
     width: 100%;
+  }
+}
+
+/* =========================================================================
+   DEDICATED AMPSE REGISTRATION PAGE STYLING
+   ========================================================================= */
+.ampse-registration-page-wrapper {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding-bottom: 5rem;
+}
+
+.ampse-reg-page-topbar {
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  padding: 0.85rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ampse-reg-page-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ampse-reg-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #93c5fd;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.ampse-reg-back-link:hover {
+  color: #fbbf24;
+  transform: translateX(-3px);
+}
+
+.ampse-reg-page-secretariat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #cbd5e1;
+  font-size: 0.88rem;
+}
+
+.ampse-reg-page-secretariat strong {
+  color: #f59e0b;
+}
+
+.ampse-reg-page-container {
+  max-width: 960px;
+  margin: 2rem auto 0 auto;
+  padding: 0 1.25rem;
+}
+
+.ampse-reg-header-card {
+  background: linear-gradient(135deg, #123f86 0%, #0d2856 100%);
+  border-radius: 18px;
+  padding: 2.25rem 2rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(18, 63, 134, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.ampse-reg-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ampse-reg-h1 {
+  font-family: var(--font-topic, sans-serif);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  margin: 0.75rem 0 0.5rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.ampse-reg-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: #cbd5e1;
+  max-width: 680px;
+  margin: 0 0 1.25rem 0;
+  line-height: 1.5;
+}
+
+.ampse-reg-meta-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.ampse-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f1f5f9;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+}
+
+.ampse-page-tier-tabs {
+  margin-bottom: 1.5rem;
+}
+
+.ampse-reg-main-box {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2.25rem 2.25rem 2.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.ampse-reg-page-submit-wrap {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.ampse-form-disclaimer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  text-align: center;
+  margin: 0;
+}
+
+.ampse-form-disclaimer strong {
+  color: #123f86;
+}
+
+.ampse-success-delivery-actions {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ampse-delivery-note {
+  font-size: 0.9rem;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  text-align: center;
+}
+
+.ampse-delivery-btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Dark Mode for Registration Page */
+body.dark-mode .ampse-registration-page-wrapper {
+  background: #090e17;
+}
+
+body.dark-mode .ampse-reg-page-topbar {
+  background: #0b111e;
+  border-bottom-color: #1e293b;
+}
+
+body.dark-mode .ampse-reg-main-box {
+  background: #0f172a;
+  border-color: #1e293b;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .ampse-form-disclaimer {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-form-disclaimer strong {
+  color: #93c5fd;
+}
+
+body.dark-mode .ampse-delivery-note {
+  color: #94a3b8;
+}
+
+body.dark-mode .ampse-success-delivery-actions {
+  border-top-color: #334155;
+}
+
+@media (max-width: 768px) {
+  .ampse-reg-main-box {
+    padding: 1.5rem 1.25rem 2rem;
+  }
+
+  .ampse-reg-header-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .ampse-delivery-btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ampse-delivery-btn-group .ampse-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

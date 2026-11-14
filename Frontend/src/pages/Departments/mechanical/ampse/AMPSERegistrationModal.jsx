@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { getApiUrl } from "@/config/api";
 import qrCodeImg from "./ampse_qr.png";
+import paymentQrImg from "./payment_qr.png";
 
 const AMPSERegistrationModal = ({ isOpen, onClose, initialTier = "tier2" }) => {
   const [activeTier, setActiveTier] = useState(initialTier);
@@ -400,7 +401,31 @@ Bank                : Canara Bank, Theni Branch (A/C: 5013101000305, IFSC: CNRB0
     const fullSummary = buildSummary(generatedId);
     setSubmittedSummary(fullSummary);
 
-    // 1. Save to Backend Database
+    // 1. Direct form-to-email service to ampse@nscet.org
+    try {
+      await fetch("https://formsubmit.co/ajax/ampse@nscet.org", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: emailSubject,
+          _replyto: senderEmail,
+          registration_id: generatedId,
+          applicant_name: senderName,
+          applicant_email: senderEmail,
+          applicant_phone: senderMobile,
+          institution: senderInstitution,
+          tier: activeTier,
+          complete_registration_details: fullSummary
+        })
+      });
+    } catch (err) {
+      console.warn("Direct form-to-email service note:", err);
+    }
+
+    // 2. Save to Backend Database
     try {
       await axios.post(getApiUrl("/api/admin/home/enquiry"), {
         fullName: senderName,
@@ -415,13 +440,13 @@ Bank                : Canara Bank, Theni Branch (A/C: 5013101000305, IFSC: CNRB0
       console.warn("Backend enquiry fallback:", err);
     }
 
-    // 2. Dispatch structured email via mailto to ampse@nscet.org
+    // 3. Dispatch structured email via mailto to ampse@nscet.org
     const mailtoSubject = encodeURIComponent(emailSubject);
     const mailtoBody = encodeURIComponent(fullSummary);
     const mailtoUrl = `mailto:ampse@nscet.org?subject=${mailtoSubject}&body=${mailtoBody}`;
 
     try {
-      window.open(mailtoUrl, "_blank");
+      window.location.href = mailtoUrl;
     } catch (e) {
       console.warn("Mail client popup fallback:", e);
     }
@@ -440,6 +465,12 @@ Bank                : Canara Bank, Theni Branch (A/C: 5013101000305, IFSC: CNRB0
     const subject = encodeURIComponent(`[AMPSE-2K27 Registration ${regId}] Details`);
     const body = encodeURIComponent(submittedSummary);
     window.location.href = `mailto:ampse@nscet.org?subject=${subject}&body=${body}`;
+  };
+
+  const handleOpenGmail = () => {
+    const subject = encodeURIComponent(`[AMPSE-2K27 Registration ${regId}] Details`);
+    const body = encodeURIComponent(submittedSummary);
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=ampse@nscet.org&su=${subject}&body=${body}`, "_blank");
   };
 
   if (!isOpen) return null;
@@ -558,10 +589,17 @@ Bank                : Canara Bank, Theni Branch (A/C: 5013101000305, IFSC: CNRB0
                 <div className="ampse-slip-actions">
                   <button
                     type="button"
+                    onClick={handleOpenGmail}
+                    className="ampse-btn ampse-btn-gold"
+                  >
+                    <ExternalLink size={16} /> Open in Gmail (ampse@nscet.org)
+                  </button>
+                  <button
+                    type="button"
                     onClick={handleMailtoDirect}
                     className="ampse-btn ampse-btn-primary"
                   >
-                    <Mail size={16} /> Open Email Client (Send to ampse@nscet.org)
+                    <Mail size={16} /> Open in Default Email Client
                   </button>
                   <button
                     type="button"
@@ -783,7 +821,7 @@ Bank                : Canara Bank, Theni Branch (A/C: 5013101000305, IFSC: CNRB0
                           <p className="ampse-pay-note">Scan UPI QR Code using Google Pay / PhonePe / Paytm / Any UPI App for <strong>₹500</strong>.</p>
                         </div>
                         <div className="ampse-payment-qr-col">
-                          <img src={qrCodeImg} alt="Canara Bank UPI QR Code" className="ampse-form-qr-img" />
+                          <img src={paymentQrImg} alt="Canara Bank UPI QR Code" className="ampse-form-qr-img" />
                           <span>Scan to Pay ₹500</span>
                         </div>
                       </div>
@@ -1076,7 +1114,7 @@ Bank                : Canara Bank, Theni Branch (A/C: 5013101000305, IFSC: CNRB0
                           <p className="ampse-pay-note">Scan UPI QR Code for <strong>₹1,000</strong> per paper (covers all 4 authors).</p>
                         </div>
                         <div className="ampse-payment-qr-col">
-                          <img src={qrCodeImg} alt="Canara Bank UPI QR Code" className="ampse-form-qr-img" />
+                          <img src={paymentQrImg} alt="Canara Bank UPI QR Code" className="ampse-form-qr-img" />
                           <span>Scan to Pay ₹1,000</span>
                         </div>
                       </div>
@@ -1397,7 +1435,7 @@ Bank                : Canara Bank, Theni Branch (A/C: 5013101000305, IFSC: CNRB0
                           <p className="ampse-pay-note">Scan UPI QR Code for <strong>₹7,500</strong> for Atlantis Press / Springer Nature publication channel.</p>
                         </div>
                         <div className="ampse-payment-qr-col">
-                          <img src={qrCodeImg} alt="Canara Bank UPI QR Code" className="ampse-form-qr-img" />
+                          <img src={paymentQrImg} alt="Canara Bank UPI QR Code" className="ampse-form-qr-img" />
                           <span>Scan to Pay ₹7,500</span>
                         </div>
                       </div>
